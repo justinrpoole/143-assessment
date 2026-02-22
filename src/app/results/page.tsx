@@ -4,6 +4,7 @@ import { ResultsClient } from "@/components/assessment/ResultsClient";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import PatternInterruptHub from "@/components/PatternInterruptHub";
 import PortalTabBar from "@/components/portal/PortalTabBar";
+import IntentionRecall from "@/components/results/IntentionRecall";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -66,6 +67,7 @@ export default async function ResultsPage({ searchParams }: PageProps) {
             to understand your natural leadership force, then explore each section for the full
             picture. Every metric is explained — hover or tap the information icons for details.
           </p>
+          <IntentionRecall />
         </header>
 
         <ResultsClient runId={runId} />

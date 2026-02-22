@@ -14,6 +14,7 @@ import FrequencyScale from "@/components/FrequencyScale";
 import ReflectionInput from "@/components/ReflectionInput";
 import ScenarioCard from "@/components/ScenarioCard";
 import BreathingMoment from "@/components/assessment/BreathingMoment";
+import CompletionReveal from "@/components/assessment/CompletionReveal";
 import { haptic } from "@/lib/haptics";
 
 // ── Ray metadata for section dividers ────────────────────────
@@ -81,6 +82,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
   const [paginated, setPaginated] = useState(false);
   const [pageIdx, setPageIdx] = useState(0);
   const [milestoneMsg, setMilestoneMsg] = useState<string | null>(null);
+  const [revealData, setRevealData] = useState<{ runId: string; topRayNames: [string, string] } | null>(null);
   const shownMilestonesRef = useRef<Set<number>>(new Set());
   const savedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pendingRef = useRef<Record<string, number>>({});
@@ -407,7 +409,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
       });
       const payload = (await response.json().catch(() => ({}))) as
         | ApiError
-        | { run_id: string };
+        | { run_id: string; top_rays?: string[] };
 
       if (!response.ok) {
         const errorMessage =
@@ -421,7 +423,16 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
         "run_id" in payload && typeof payload.run_id === "string"
           ? payload.run_id
           : runId;
-      router.push(`/results?run_id=${encodeURIComponent(completedRunId)}`);
+
+      // Show archetype reveal overlay before redirecting
+      const topRays = "top_rays" in payload && Array.isArray(payload.top_rays) ? payload.top_rays : [];
+      if (topRays.length >= 2) {
+        const name1 = RAY_META[topRays[0]]?.name ?? topRays[0];
+        const name2 = RAY_META[topRays[1]]?.name ?? topRays[1];
+        setRevealData({ runId: completedRunId, topRayNames: [name1, name2] });
+      } else {
+        router.push(`/results?run_id=${encodeURIComponent(completedRunId)}`);
+      }
     } catch (submitError) {
       setError(
         submitError instanceof Error ? submitError.message : "Submission failed.",
@@ -434,6 +445,15 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
   async function onSaveAndExit() {
     await flushPendingResponses();
     router.push("/portal");
+  }
+
+  if (revealData) {
+    return (
+      <CompletionReveal
+        topRayNames={revealData.topRayNames}
+        onComplete={() => router.push(`/results?run_id=${encodeURIComponent(revealData.runId)}`)}
+      />
+    );
   }
 
   return (

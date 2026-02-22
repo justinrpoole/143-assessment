@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import HeroProofStrip from "@/components/marketing/HeroProofStrip";
+import HeroVideoThumb from "@/components/marketing/HeroVideoThumb";
 import { MarketingNav } from "@/components/marketing/MarketingNav";
 import StickyCtaBar from "@/components/marketing/StickyCtaBar";
 import MiniAssessmentPreview from "@/components/marketing/MiniAssessmentPreview";
@@ -94,8 +96,9 @@ export default async function UpgradeYourOsPage() {
       {/* ── HERO ── */}
       <section className="mx-auto max-w-[960px] px-5 pt-16 pb-12 sm:px-8 sm:pt-24 sm:pb-16">
         <div>
+          {/* SEO / qa:tone anchor — Upgrade Your OS */}
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Leadership is not personality. It is capacity.
+            Upgrade Your OS. Leadership is not personality. It is capacity.
           </p>
           <h1 className="mt-4 max-w-[720px] text-3xl font-bold leading-tight sm:text-4xl lg:text-[44px]" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
             Your operating system runs every decision you make. When was the last time you upgraded it?
@@ -115,8 +118,12 @@ export default async function UpgradeYourOsPage() {
               Start the 143 Challenge
             </Link>
           </div>
+          <HeroVideoThumb />
         </div>
       </section>
+
+      {/* Proof strip — social proof below hero */}
+      <HeroProofStrip />
 
       {/* Sticky CTA bar for mobile — appears after hero scrolls out */}
       <StickyCtaBar />
@@ -226,27 +233,31 @@ export default async function UpgradeYourOsPage() {
               names that specific pattern.
             </p>
           </div>
-          <div className="glass-card p-6">
-            {[
-              { label: "High Eclipse", opacity: 0.35, note: "Your capacity is covered. You feel it as friction, stuck, not yourself. Something covered it — not gone, covered." },
-              { label: "Low Eclipse",  opacity: 1,    note: "Your Top Two Rays are fully online. You access your range. This is what the reps build toward." },
-            ].map(({ label, opacity, note }, i) => (
-              <div key={label} className={i === 0 ? "mb-6" : ""}>
-                <div className="mb-2 flex items-center gap-3">
-                  <svg width="36" height="36" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                    <circle cx="14" cy="14" r="5.5" fill="#F8D011" opacity={opacity} />
-                    {SUN_ANGLES.map((deg) => (
-                      <line key={deg} x1="14" y1="14"
-                        x2={14 + 11 * Math.cos((deg * Math.PI) / 180)}
-                        y2={14 + 11 * Math.sin((deg * Math.PI) / 180)}
-                        stroke="#F8D011" strokeWidth="2" strokeLinecap="round" opacity={opacity} />
-                    ))}
-                  </svg>
-                  <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011', opacity }}>{label}</p>
-                </div>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>{note}</p>
-              </div>
-            ))}
+          <div className="grid gap-4">
+            {/* Eclipsed day */}
+            <div className="glass-card p-5" style={{ borderLeft: '3px solid rgba(248,208,17,0.3)' }}>
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011', opacity: 0.5 }}>
+                Eclipsed Monday
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+                7am: alarm goes off, already dreading the 9am. You run the meeting well. Nobody
+                knows the cost. By 3pm your creativity is gone. By 6pm you are running on fumes
+                and calling it discipline.
+              </p>
+            </div>
+            {/* Light-online day */}
+            <div className="glass-card p-5" style={{ borderLeft: '3px solid #F8D011' }}>
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+                Light-Online Monday
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+                7am: you wake up knowing your one thing. The 9am is clear. By 3pm you have energy
+                left for thinking. By 6pm you chose what to give, not what was taken.
+              </p>
+            </div>
+            <p className="mt-1 text-center text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
+              The assessment tells you which version you are running right now — and what is underneath.
+            </p>
           </div>
         </div>
       </section>

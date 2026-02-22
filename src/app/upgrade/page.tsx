@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MarketingNav } from "@/components/marketing/MarketingNav";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import { UpgradeCheckoutClient } from "@/components/billing/UpgradeCheckoutClient";
+import DimmingCarryForwardCard from "@/components/billing/DimmingCarryForwardCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -45,6 +46,11 @@ export default async function UpgradePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Dimming Check Carry-Forward ── */}
+      <div className="mx-auto max-w-[960px] px-5 sm:px-8">
+        <DimmingCarryForwardCard />
+      </div>
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">

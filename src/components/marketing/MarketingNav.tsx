@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 
 import { isBetaFreeMode } from "@/lib/config/beta";
@@ -20,6 +20,15 @@ export function MarketingNav() {
   const isBeta = isBetaFreeMode();
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const [hasSession, setHasSession] = useState(false);
+
+  useEffect(() => {
+    // user_state cookie is not httpOnly — readable client-side
+    const match = document.cookie.match(/(?:^|;\s*)user_state=([^;]*)/);
+    if (match && match[1] && match[1] !== 'public') {
+      setHasSession(true);
+    }
+  }, []);
 
   return (
     <>
@@ -67,6 +76,14 @@ export function MarketingNav() {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Sign In / My Portal — desktop */}
+            <Link
+              href={hasSession ? "/portal" : "/login"}
+              className="hidden text-[13px] font-medium tracking-wide text-[rgba(253,252,253,0.7)] no-underline transition-colors hover:text-[#F8D011] md:inline-block"
+            >
+              {hasSession ? "My Portal" : "Sign In"}
+            </Link>
+
             {/* CTA */}
             <Link
               href="/assessment"
@@ -129,6 +146,13 @@ export function MarketingNav() {
               className="mt-4 rounded-lg bg-[#F8D011] px-8 py-3 text-base font-bold tracking-wide text-[#020202] no-underline transition-all hover:brightness-105"
             >
               Take the Assessment
+            </Link>
+            <Link
+              href={hasSession ? "/portal" : "/login"}
+              onClick={closeMenu}
+              className="mt-2 text-sm font-medium tracking-wide text-[rgba(253,252,253,0.6)] no-underline transition-colors hover:text-[#F8D011]"
+            >
+              {hasSession ? "My Portal" : "Sign In"}
             </Link>
           </div>
         </div>
