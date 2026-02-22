@@ -13,9 +13,23 @@ import PlanetaryAlignment from "@/components/cosmic/PlanetaryAlignment";
 import SolarFlareJournal from "@/components/cosmic/SolarFlareJournal";
 import ConstellationProgress from "@/components/cosmic/ConstellationProgress";
 import EclipseSnapshot from "@/components/results/EclipseSnapshot";
+import LightSignature from "@/components/results/LightSignature";
+import SubfacetHeatmap from "@/components/results/SubfacetHeatmap";
+import SystemHealthGauges from "@/components/results/SystemHealthGauges";
+import ExecutiveSignals from "@/components/results/ExecutiveSignals";
+import OutcomeTagCards from "@/components/results/OutcomeTagCards";
+import EdgeCaseAlerts from "@/components/results/EdgeCaseAlerts";
+import BottomRay from "@/components/results/BottomRay";
+import PPDConditional from "@/components/results/PPDConditional";
+import ToolReadiness from "@/components/results/ToolReadiness";
+import CoachingQuestions from "@/components/results/CoachingQuestions";
+import ConfidenceBandSection from "@/components/results/ConfidenceBandSection";
+import ValidityForensics from "@/components/results/ValidityForensics";
+import PsychometricSummary from "@/components/results/PsychometricSummary";
+import ReportShareCard from "@/components/results/ReportShareCard";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import RetroFrame from "@/components/ui/RetroFrame";
-import type { EclipseOutput, RayOutput } from "@/lib/types";
+import type { EclipseOutput, RayOutput, LightSignatureOutput, ExecutiveSignal, OutcomeTag, EdgeCaseResult, ActingVsCapacityOutput, RecommendationsOutput, DataQualityOutput, AssessmentIndices } from "@/lib/types";
 
 // ---------------------------------------------------------------------------
 // Realistic sample data — varied scores that feel like a real person
@@ -147,6 +161,123 @@ const SAMPLE_FLARES = [
   { id: "f8", rayId: "R8", rayName: "Possibility", label: "Possibility — Growth edge spark", date: "Feb 18", magnitude: 0.28 },
   { id: "f9", rayId: "R2", rayName: "Joy", label: "Joy — Growth edge spark", date: "Feb 21", magnitude: 0.18 },
 ];
+
+// ---------------------------------------------------------------------------
+// Sample data for new report sections
+// ---------------------------------------------------------------------------
+
+const SAMPLE_LIGHT_SIGNATURE: LightSignatureOutput = {
+  archetype: {
+    name: "Driven Leader",
+    pair_code: "R5-R4",
+    essence: "You lead with mission clarity and decisive action. When the moment demands it, you step forward — not because it's easy, but because you know it matters.",
+    work_expression: "Sets direction quickly, drives results, holds the team to a clear standard.",
+    life_expression: "Lives with intentionality. When you commit, the people around you feel it.",
+    strengths: "Strategic clarity, follow-through under pressure, natural authority that doesn't need a title.",
+    stress_distortion: "Under load, your drive can narrow your view. You push harder when stepping back would serve better.",
+    coaching_logic: "Joy is your growth edge — not because you lack it, but because your system rations it when resources get tight.",
+    starting_tools: "Presence Pause, Joy Micro-Rep, Recovery Window",
+    micro_reps: "One moment of genuine pleasure before your next decision. That's the rep.",
+    reflection_prompts: "When did I last feel genuinely energized — not productive, energized? What would change if I let Joy lead for one hour this week?",
+  },
+  top_two: [
+    { ray_id: "R5", ray_name: "Purpose", why_resourced: "Clear mission alignment and values-driven action. This ray fires automatically under pressure.", under_load_distortion: "Can become rigidity — holding to a plan when conditions have changed." },
+    { ray_id: "R4", ray_name: "Power", why_resourced: "Agency and boundary enforcement. You move when others hesitate.", under_load_distortion: "Can override emotional signals from self and others. Pushing through becomes default." },
+  ],
+  just_in_ray: {
+    ray_id: "R2",
+    ray_name: "Joy",
+    why_this_is_next: "Your system runs on discipline, not vitality. Joy isn't missing — it's rationed. One micro-rep per day shifts the fuel source from willpower to renewable energy.",
+    work_rep: "Before your next important meeting, notice one thing that genuinely makes you smile. Not gratitude practice — real pleasure. That's the rep.",
+    life_rep: "Tonight, do one thing purely because it feels good — not productive, not useful, just enjoyable. Let yourself feel it for 30 seconds.",
+    move_score: 45,
+    routing: "STANDARD",
+  },
+  bottom_ray_selection_basis: [
+    "Lowest net energy score across all 9 rays (45/100)",
+    "Highest eclipse-to-access ratio (58/38)",
+    "Phase 1 (Reconnect) ray — foundational capacity affects downstream performance",
+    "Joy subfacets show consistent suppression pattern, not skill deficit",
+  ],
+};
+
+const SAMPLE_EXECUTIVE_SIGNALS: ExecutiveSignal[] = [
+  { signal_id: "M001", label: "Decision Fatigue Under Load", level: "ELEVATED", confidence_band: "HIGH", drivers: ["R3 Presence (68)", "Eclipse emotional_load (2.1)"], moderators: { eclipse: "Emotional load amplifies by end of day" }, tools_first: ["Presence Pause", "Decision Spacing Protocol"], reps: ["Before your 3rd meeting of the day, take one breath and ask: 'Does this need me right now?'"] },
+  { signal_id: "M002", label: "Recovery Deficit Pattern", level: "MODERATE", confidence_band: "HIGH", drivers: ["R2 Joy (45)", "Recovery Access (68%)"], moderators: { eclipse: "Output exceeds input — sustainable short-term only" }, tools_first: ["Micro-Joy Protocol", "Recovery Window"], reps: ["After completing a task, take 60 seconds to feel the completion before moving to the next thing."] },
+  { signal_id: "M003", label: "Strategic Clarity Index", level: "HIGH", confidence_band: "HIGH", drivers: ["R5 Purpose (91)", "R4 Power (85)"], moderators: {}, tools_first: [], reps: ["This is already your strength. Maintain it by protecting your Purpose-Power axis from eclipse contamination."] },
+  { signal_id: "M004", label: "Authenticity Under Pressure", level: "MODERATE", confidence_band: "MODERATE", drivers: ["R6 Authenticity (63)", "Eclipse modifier: AMPLIFIED"], moderators: { eclipse: "Environmental factor amplifying self-censorship", validity: "Moderate confidence — context-dependent" }, tools_first: ["Authenticity Micro-Rep", "Safe Disclosure Practice"], reps: ["In your next 1:1, share one honest reaction you'd normally filter. Start small. One sentence."] },
+  { signal_id: "M005", label: "Adaptive Flexibility Gap", level: "ELEVATED", confidence_band: "HIGH", drivers: ["R8 Possibility (56)", "R4 Power (85)"], moderators: { eclipse: "Strong Power ray may override Possibility signals" }, tools_first: ["Alternative Generation Protocol"], reps: ["When you catch yourself pushing harder on Plan A, ask: 'What would I try if this approach didn't exist?'"] },
+  { signal_id: "M006", label: "Team Safety Creation", level: "LOW", confidence_band: "HIGH", drivers: ["R7 Connection (78)", "R9 Be The Light (82)"], moderators: {}, tools_first: [], reps: ["Your Connection-BTL axis creates natural safety. People trust you. Keep doing what you're doing."] },
+  { signal_id: "M007", label: "Emotional Processing Speed", level: "MODERATE", confidence_band: "MODERATE", drivers: ["R3 Presence (68)", "R2 Joy (45)"], moderators: { eclipse: "Emotional load creates processing queue" }, tools_first: ["Body Signal Check-In"], reps: ["Twice today, pause and ask: 'What am I feeling right now?' Don't fix it. Just name it."] },
+  { signal_id: "M008", label: "Influence Without Authority", level: "LOW", confidence_band: "HIGH", drivers: ["R9 Be The Light (82)", "R5 Purpose (91)"], moderators: {}, tools_first: [], reps: ["Your purpose clarity is your influence engine. When you speak from mission, people move."] },
+];
+
+const SAMPLE_OUTCOME_TAGS: OutcomeTag[] = [
+  { tag_id: "OT-01", label: "High-Drive / Low-Recovery Pattern", confidence: "HIGH", evidence: ["Purpose (91) + Power (85) vs Joy (45)", "EER 1.4 — net positive but narrowing", "Recovery Access 68% — accessible but not utilized"] },
+  { tag_id: "OT-02", label: "Phase 2 Dominant Profile", confidence: "HIGH", evidence: ["Radiate phase average (80) exceeds Reconnect (62) and Become (72)", "Output-oriented leadership style", "Strong external execution, under-invested internal foundation"] },
+  { tag_id: "OT-03", label: "Authenticity Eclipse Active", confidence: "MODERATE", evidence: ["R6 eclipse modifier: AMPLIFIED", "Vulnerability Tolerance subfacet: 55", "Self-Disclosure subfacet: 58"] },
+  { tag_id: "OT-04", label: "Constellation Builder", confidence: "HIGH", evidence: ["25/36 stars lit (69%)", "Purpose and Power clusters near-complete", "Active growth trajectory in Become phase"] },
+];
+
+const SAMPLE_EDGE_CASES: EdgeCaseResult[] = [
+  { code: "EXPENSIVE_STRENGTH", detected: true, restriction: "Power ray (85) may be compensating for Joy deficit (45). Monitor for burnout pattern.", required_next_evidence: "Retake in 30 days to check if Power sustains without Joy recovery." },
+  { code: "HIGH_LOAD_INTERFERENCE", detected: false, restriction: "No interference detected. Eclipse level MODERATE — within scoring tolerance.", required_next_evidence: "N/A" },
+  { code: "FLAT_PROFILE", detected: false, restriction: "Profile shows healthy variation (spread: 46 points). Not flat.", required_next_evidence: "N/A" },
+];
+
+const SAMPLE_ACTING: ActingVsCapacityOutput = {
+  status: "WATCH",
+  indicators: [
+    { indicator_id: "PPD-01", label: "Performance-Presence Delta", level: "MODERATE", evidence: ["12-point gap between execution quality and felt presence", "Likely operating on autopilot during routine tasks"] },
+    { indicator_id: "PPD-02", label: "Social Desirability Offset", level: "LOW", evidence: ["Minimal impression management detected", "Responses show natural variation"] },
+  ],
+  report_language_mode: "STANDARD",
+  next_step: "Continue standard coaching pathway. Monitor PPD on retake — if gap widens, shift to body-based awareness reps.",
+};
+
+const SAMPLE_RECOMMENDATIONS: RecommendationsOutput = {
+  priority_mode: "TOOLS_AND_REPS",
+  tools: [
+    { tool_id: "T-01", label: "Presence Pause", why_now: "Your Presence ray (68) has capacity to grow quickly. This tool targets attention stability — your highest-readiness subfacet.", steps: ["Set a phone alarm for 2 PM daily", "When it fires: close eyes, three breaths, name one sensation", "Open eyes. Resume. That's the full rep."], time_cost_minutes: 1 },
+    { tool_id: "T-02", label: "Micro-Joy Protocol", why_now: "Joy (45) is your growth edge. This tool builds the neural pathway for pleasure recognition — not happiness, pleasure.", steps: ["Before lunch, notice one thing that feels genuinely good", "Let yourself feel it for 10 seconds — don't analyze it", "That's it. One rep. Repeat tomorrow."], time_cost_minutes: 1 },
+    { tool_id: "T-03", label: "Recovery Window", why_now: "Recovery Access at 68% means pathways exist but aren't habitual. This tool makes recovery a scheduled event, not an afterthought.", steps: ["Block 15 minutes on your calendar this week — label it 'Recovery'", "During that window: no phone, no tasks, no optimization", "Walk, sit, breathe, stare at a wall. Whatever your body wants."], time_cost_minutes: 15 },
+  ],
+  weekly_focus: {
+    just_in_ray_id: "R2",
+    focus_rep: "One moment of genuine pleasure per day — not gratitude, not productivity, just enjoyment.",
+    minimum_effective_dose: "10 seconds of felt pleasure. That's the minimum. More is fine. Less doesn't count.",
+  },
+  thirty_day_plan: {
+    week_1: "Presence Pause daily (1 min). Micro-Joy once per day. No other changes.",
+    weeks_2_4: "Add Recovery Window once per week (15 min). Continue daily reps. Notice what shifts without forcing it.",
+  },
+  coaching_questions: [
+    "When was the last time you felt genuinely energized — not productive, energized? What was different about that moment?",
+    "If Joy were a person on your team, what would they say you've been ignoring?",
+    "What would change in your leadership if you operated at 80% capacity instead of 100% effort?",
+    "Where in your week do you have permission to do nothing? If nowhere — why?",
+    "Your Power ray fires automatically. What would happen if you let a different ray lead for one day?",
+  ],
+  what_not_to_do_yet: [
+    "Don't overhaul your morning routine — that's a Phase 2 move and you need Phase 1 foundation first.",
+    "Don't try to 'fix' your Joy score with gratitude journaling. That's cognitive, not somatic. Your body needs the rep, not your mind.",
+    "Don't increase your workload thinking you can 'push through' the eclipse. That's your Power ray talking. Listen to your Joy ray instead.",
+  ],
+};
+
+const SAMPLE_DATA_QUALITY: DataQualityOutput = {
+  confidence_band: "HIGH",
+  validity_flags: [],
+  quality_notes: "Strong response quality across all validity dimensions. High confidence in scoring accuracy.",
+};
+
+const SAMPLE_INDICES: AssessmentIndices = {
+  eer: 1.4,
+  bri: 2,
+  lsi_0_4: 1.7,
+  lsi_0_100: 42,
+  ppd_flag: true,
+};
 
 function computeOverallScore(rays: Record<string, RayOutput>): number {
   const values = Object.values(rays).map((r) => r.net_energy ?? r.score);
@@ -376,6 +507,38 @@ export default function SampleReportClient() {
         </RetroFrame>
       </FadeInSection>
 
+      {/* ── 2b. Light Signature — Archetype Reveal ── */}
+      <FadeInSection>
+        <RetroFrame label="SYS-02B SIGNATURE" accent="#F8D011">
+          <div className="flex items-center gap-2 mb-1">
+            <StatusDot level="green" />
+            <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: "#F8D011", textShadow: "0 0 6px rgba(248,208,17,0.3)" }}>
+              Light Signature — Your Leadership Archetype
+            </p>
+          </div>
+          <p className="text-[11px] mb-3" style={{ color: "var(--text-on-dark-secondary)" }}>
+            Your archetype isn&apos;t a label — it&apos;s a pattern. The combination of your two strongest rays creates a leadership signature that&apos;s uniquely yours.
+          </p>
+          <LightSignature lightSignature={SAMPLE_LIGHT_SIGNATURE} />
+        </RetroFrame>
+      </FadeInSection>
+
+      {/* ── 2c. Subfacet Heatmap — 36-Dimension Deep Scan ── */}
+      <FadeInSection>
+        <RetroFrame label="SYS-02C HEATMAP" accent="#E8A317">
+          <div className="flex items-center gap-2 mb-1">
+            <StatusDot level="green" />
+            <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: "#E8A317", textShadow: "0 0 6px rgba(232,163,23,0.3)" }}>
+              Subfacet Heatmap — 36-Dimension Deep Scan
+            </p>
+          </div>
+          <p className="text-[11px] mb-3" style={{ color: "var(--text-on-dark-secondary)" }}>
+            Each ray contains 4 subfacets — 36 total micro-capabilities. The heatmap shows exactly where your capacity concentrates and where the growth edges live.
+          </p>
+          <SubfacetHeatmap rays={SAMPLE_RAYS} />
+        </RetroFrame>
+      </FadeInSection>
+
       {/* ══════════ SECTION B: ECLIPSE ANALYSIS ══════════ */}
       <FadeInSection>
         <div className="mb-2 mt-4">
@@ -575,6 +738,22 @@ export default function SampleReportClient() {
         </RetroFrame>
       </FadeInSection>
 
+      {/* ── 7b. System Health Gauges ── */}
+      <FadeInSection>
+        <RetroFrame label="SYS-07B VITALS" accent="#34D399">
+          <div className="flex items-center gap-2 mb-1">
+            <StatusDot level={SAMPLE_INDICES.bri <= 2 ? "green" : "amber"} />
+            <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: "#34D399", textShadow: "0 0 6px rgba(52,211,153,0.3)" }}>
+              System Health Gauges — Core Vitals
+            </p>
+          </div>
+          <p className="text-[11px] mb-3" style={{ color: "var(--text-on-dark-secondary)" }}>
+            Five derived indices that tell the whole story at a glance: energy efficiency, burnout risk, load snapshot, and performance-presence alignment.
+          </p>
+          <SystemHealthGauges indices={SAMPLE_INDICES} />
+        </RetroFrame>
+      </FadeInSection>
+
       {/* ══════════ SECTION D: RISK & RECOVERY ══════════ */}
       <FadeInSection>
         <div className="mb-2 mt-4">
@@ -620,6 +799,56 @@ export default function SampleReportClient() {
           <CoachingRep title="Leak repair rep">
             <p>This week, notice one moment where you&apos;re pushing through instead of pausing. Don&apos;t fix it. Just <em style={{ color: "var(--text-on-dark)" }}>notice it.</em> Say to yourself: <em style={{ color: "#F4C430" }}>&ldquo;That&apos;s my eclipse, not my identity.&rdquo;</em> Awareness is the first rep. Everything else builds from there.</p>
           </CoachingRep>
+        </RetroFrame>
+      </FadeInSection>
+
+      {/* ══════════ SECTION D2: EXECUTIVE INTELLIGENCE ══════════ */}
+      <FadeInSection>
+        <div className="mb-2 mt-4">
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] mb-1" style={{ color: "#F8D011", textShadow: "0 0 8px rgba(248,208,17,0.2)" }}>
+            Section D2 — Executive Intelligence
+          </p>
+          <p className="text-xs leading-relaxed mb-2" style={{ color: "var(--text-on-dark-secondary)" }}>
+            24 behavioral signals derived from your ray scores and eclipse data. These bridge raw numbers to real-world leadership behavior — what shows up in the room when you lead.
+          </p>
+          <div className="h-px" style={{ background: "linear-gradient(90deg, rgba(248,208,17,0.3), transparent)" }} />
+        </div>
+      </FadeInSection>
+
+      {/* ── Executive Signals ── */}
+      <FadeInSection>
+        <ExecutiveSignals signals={SAMPLE_EXECUTIVE_SIGNALS} />
+      </FadeInSection>
+
+      {/* ── Outcome Tags ── */}
+      <FadeInSection>
+        <RetroFrame label="OUTCOME TAGS" accent="#818CF8">
+          <div className="flex items-center gap-2 mb-1">
+            <StatusDot level="green" />
+            <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: "#818CF8", textShadow: "0 0 6px rgba(129,140,248,0.3)" }}>
+              Outcome Tags — Pattern Recognition
+            </p>
+          </div>
+          <p className="text-[11px] mb-3" style={{ color: "var(--text-on-dark-secondary)" }}>
+            Cross-ray patterns the scoring engine detected. These aren&apos;t single scores — they&apos;re composite behaviors that emerge from how your rays interact.
+          </p>
+          <OutcomeTagCards outcomeTags={SAMPLE_OUTCOME_TAGS} />
+        </RetroFrame>
+      </FadeInSection>
+
+      {/* ── Edge Case Alerts ── */}
+      <FadeInSection>
+        <RetroFrame label="EDGE CASES" accent="#FB923C">
+          <div className="flex items-center gap-2 mb-1">
+            <StatusDot level="amber" />
+            <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: "#FB923C", textShadow: "0 0 6px rgba(251,146,60,0.3)" }}>
+              Edge Case Alerts — System Flags
+            </p>
+          </div>
+          <p className="text-[11px] mb-3" style={{ color: "var(--text-on-dark-secondary)" }}>
+            Unusual patterns the engine flagged for coaching attention. Not problems — just areas where the data tells a more complex story.
+          </p>
+          <EdgeCaseAlerts edgeCases={SAMPLE_EDGE_CASES} />
         </RetroFrame>
       </FadeInSection>
 
@@ -714,6 +943,39 @@ export default function SampleReportClient() {
         </RetroFrame>
       </FadeInSection>
 
+      {/* ══════════ SECTION E2: RISE PATH & COACHING ══════════ */}
+      <FadeInSection>
+        <div className="mb-2 mt-4">
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] mb-1" style={{ color: "#34D399", textShadow: "0 0 8px rgba(52,211,153,0.2)" }}>
+            Section E2 — Rise Path &amp; Coaching
+          </p>
+          <p className="text-xs leading-relaxed mb-2" style={{ color: "var(--text-on-dark-secondary)" }}>
+            Your personalized growth pathway. Which ray to focus on, what tools to use first, and the specific reps that will move your scores. This isn&apos;t generic advice — it&apos;s built from your data.
+          </p>
+          <div className="h-px" style={{ background: "linear-gradient(90deg, rgba(52,211,153,0.3), transparent)" }} />
+        </div>
+      </FadeInSection>
+
+      {/* ── Rise Path (Bottom Ray) ── */}
+      <FadeInSection>
+        <BottomRay justInRay={SAMPLE_LIGHT_SIGNATURE.just_in_ray} selectionBasis={SAMPLE_LIGHT_SIGNATURE.bottom_ray_selection_basis} />
+      </FadeInSection>
+
+      {/* ── Performance-Presence Delta ── */}
+      <FadeInSection>
+        <PPDConditional acting={SAMPLE_ACTING} />
+      </FadeInSection>
+
+      {/* ── Tool Readiness ── */}
+      <FadeInSection>
+        <ToolReadiness recommendations={SAMPLE_RECOMMENDATIONS} />
+      </FadeInSection>
+
+      {/* ── Coaching Questions ── */}
+      <FadeInSection>
+        <CoachingQuestions questions={SAMPLE_RECOMMENDATIONS.coaching_questions ?? []} runId="sample" />
+      </FadeInSection>
+
       {/* ══════════ SECTION F: SUMMARY & NEXT STEPS ══════════ */}
       <FadeInSection>
         <div className="mb-2 mt-4">
@@ -799,6 +1061,43 @@ export default function SampleReportClient() {
             </p>
           </div>
         </RetroFrame>
+      </FadeInSection>
+
+      {/* ══════════ SECTION G: DATA INTEGRITY & RESEARCH ══════════ */}
+      <FadeInSection>
+        <div className="mb-2 mt-4">
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] mb-1" style={{ color: "#A78BFA", textShadow: "0 0 8px rgba(167,139,250,0.2)" }}>
+            Section G — Data Integrity &amp; Research
+          </p>
+          <p className="text-xs leading-relaxed mb-2" style={{ color: "var(--text-on-dark-secondary)" }}>
+            How trustworthy are these results? This section shows the confidence banding, validity forensics, and the research foundation behind the assessment model.
+          </p>
+          <div className="h-px" style={{ background: "linear-gradient(90deg, rgba(167,139,250,0.3), transparent)" }} />
+        </div>
+      </FadeInSection>
+
+      {/* ── Confidence Band ── */}
+      <FadeInSection>
+        <ConfidenceBandSection dataQuality={SAMPLE_DATA_QUALITY} />
+      </FadeInSection>
+
+      {/* ── Validity Forensics ── */}
+      <FadeInSection>
+        <ValidityForensics dataQuality={SAMPLE_DATA_QUALITY} />
+      </FadeInSection>
+
+      {/* ── Psychometric Summary ── */}
+      <FadeInSection>
+        <PsychometricSummary />
+      </FadeInSection>
+
+      {/* ── Share Card ── */}
+      <FadeInSection>
+        <ReportShareCard
+          lightSignature={SAMPLE_LIGHT_SIGNATURE}
+          eclipse={SAMPLE_ECLIPSE}
+          overallScore={overallScore}
+        />
       </FadeInSection>
     </div>
   );
