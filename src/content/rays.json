@@ -1,0 +1,92 @@
+[
+  {
+    "ray_id": "R1",
+    "name": "Intention",
+    "definition": "Proactively setting clear direction and top priorities each day before reactive demands take over",
+    "required_report_blocks": [
+      "identity_opener",
+      "micro_wins",
+      "coaching_questions"
+    ]
+  },
+  {
+    "ray_id": "R2",
+    "name": "Joy",
+    "definition": "Accessing micro-joy independent of conditions",
+    "required_report_blocks": [
+      "identity_opener",
+      "micro_wins",
+      "coaching_questions"
+    ]
+  },
+  {
+    "ray_id": "R3",
+    "name": "Presence",
+    "definition": "Stays with task/person without fragmenting",
+    "required_report_blocks": [
+      "identity_opener",
+      "micro_wins",
+      "coaching_questions"
+    ]
+  },
+  {
+    "ray_id": "R4",
+    "name": "Power",
+    "definition": "Identifies fear without fusion",
+    "required_report_blocks": [
+      "identity_opener",
+      "micro_wins",
+      "coaching_questions"
+    ]
+  },
+  {
+    "ray_id": "R5",
+    "name": "Purpose",
+    "definition": "Names what matters",
+    "required_report_blocks": [
+      "identity_opener",
+      "micro_wins",
+      "coaching_questions"
+    ]
+  },
+  {
+    "ray_id": "R6",
+    "name": "Authenticity",
+    "definition": "Same self across contexts",
+    "required_report_blocks": [
+      "identity_opener",
+      "micro_wins",
+      "coaching_questions"
+    ]
+  },
+  {
+    "ray_id": "R7",
+    "name": "Connection",
+    "definition": "Reads cues and responds well",
+    "required_report_blocks": [
+      "identity_opener",
+      "micro_wins",
+      "coaching_questions"
+    ]
+  },
+  {
+    "ray_id": "R8",
+    "name": "Possibility",
+    "definition": "Flexible stance to new information",
+    "required_report_blocks": [
+      "identity_opener",
+      "micro_wins",
+      "coaching_questions"
+    ]
+  },
+  {
+    "ray_id": "R9",
+    "name": "Be The Light",
+    "definition": "Visible regulation and standards",
+    "required_report_blocks": [
+      "identity_opener",
+      "micro_wins",
+      "coaching_questions"
+    ]
+  }
+]

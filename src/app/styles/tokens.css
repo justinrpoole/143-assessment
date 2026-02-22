@@ -1,0 +1,166 @@
+:root {
+  --color-ray-purple: #60058D;
+  --color-sun-gold: #F8D011;
+  --color-banner-black: #020202;
+  --color-outline-white: #FDFCFD;
+
+  /* Vibe alignment tokens (do not replace locked palette) */
+  --color-purple-600: #61048E;
+  --color-purple-800: #4F0677;
+  --color-gold-500: #FAD313;
+  --color-text: #000000;
+  --color-bg: #FFFFFF;
+
+  --gradient-primary: linear-gradient(90deg, #60058D 0%, #F8D011 100%);
+
+  --bg-page: var(--color-outline-white);
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F9F5FC;
+  --bg-inverse: var(--color-banner-black);
+
+  --text-primary: var(--color-banner-black);
+  --text-secondary: #2A2A2A;
+  --text-on-purple: var(--color-outline-white);
+  --text-on-gold: var(--color-banner-black);
+  --text-link: var(--color-ray-purple);
+
+  --border-default: #E9E3EE;
+  --border-strong: var(--color-ray-purple);
+  --border-inverse: #2F2F2F;
+
+  --btn-primary-bg: var(--gradient-primary);
+  --btn-primary-text: var(--color-banner-black);
+  --btn-secondary-bg: var(--color-outline-white);
+  --btn-secondary-text: var(--color-ray-purple);
+  --btn-secondary-border: var(--color-ray-purple);
+  --btn-danger-bg: var(--color-banner-black);
+  --btn-danger-text: var(--color-outline-white);
+
+  --alert-info-bg: #F5EAFE;
+  --alert-info-text: #3F0560;
+  --alert-success-bg: #FFFBE2;
+  --alert-success-text: #4A3B00;
+  --alert-warning-bg: #FFF4C2;
+  --alert-warning-text: #3C2C00;
+  --alert-critical-bg: #1A1A1A;
+  --alert-critical-text: var(--color-outline-white);
+
+  --progress-track: #EFE7F5;
+  --progress-fill: var(--gradient-primary);
+  --progress-marker: var(--color-ray-purple);
+
+  --card-bg: #FFFFFF;
+  --card-border: #E7DDF0;
+  --card-shadow: 0 8px 24px rgba(2, 2, 2, 0.08);
+
+  --font-display: var(--font-cosmic-display), "Orelega One", Georgia, serif;
+  --font-body: var(--font-inter), "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", "Menlo", monospace;
+
+  --type-xxl: 48px;
+  --type-xl: 36px;
+  --type-lg: 28px;
+  --type-md: 20px;
+  --type-sm: 16px;
+  --type-xs: 14px;
+  --type-xxs: 12px;
+
+  --line-tight: 1.15;
+  --line-normal: 1.4;
+  --line-relaxed: 1.6;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --motion-fast: 120ms;
+  --motion-base: 180ms;
+  --motion-slow: 260ms;
+  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --focus-ring: 0 0 0 3px rgba(248, 208, 17, 0.40);
+
+  /* Cosmic extension tokens — v4 Gravitational Stability */
+  --cosmic-purple-deep: #1A0A2E;
+  --cosmic-purple-mid: #2D1450;
+  --cosmic-purple-light: #7B4FA2;
+  --cosmic-purple-darkest: #0B0212;
+  --cosmic-gold: #F8D011;
+  --cosmic-amber: #E8A317;
+  --cosmic-black: #000000;
+  --cosmic-nebula: rgba(96, 5, 141, 0.08);
+  --cosmic-stardust: rgba(248, 208, 17, 0.12);
+  --cosmic-aurora-green: #2ecc71;
+  --cosmic-aurora-pink: #C39BD3;
+  /* Ray colors */
+  --ray-joy: #F4C430;
+  --ray-power: #C0392B;
+  --ray-presence: #8E44AD;
+  --ray-possibility: #1ABC9C;
+  --ray-purpose: #D4770B;
+
+  /* ── Dark Cosmic Theme Tokens (v4 Gravitational Stability) ── */
+  --brand-purple: #60058D;
+  --brand-gold: #F8D011;
+  --brand-black: #020202;
+
+  --bg-deep: #1A0A2E;
+  --bg-deep-alt: #221040;
+  --bg-deep-mid: #2D1450;
+  --surface-glass: rgba(96, 5, 141, 0.35);
+  --surface-glass-hover: rgba(96, 5, 141, 0.45);
+  --surface-glass-active: rgba(96, 5, 141, 0.55);
+  --surface-border: rgba(148, 80, 200, 0.30);
+  --surface-border-hover: rgba(148, 80, 200, 0.45);
+
+  --text-on-dark: rgba(255, 255, 255, 0.92);
+  --text-on-dark-secondary: rgba(255, 255, 255, 0.70);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.42);
+
+  --focus-ring-gold: 0 0 0 3px rgba(248, 208, 17, 0.45);
+
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+
+  --shadow-glow-sm: 0 0 16px rgba(96, 5, 141, 0.45), 0 0 4px rgba(148, 80, 200, 0.25);
+  --shadow-glow-md: 0 4px 28px rgba(96, 5, 141, 0.40), 0 0 56px rgba(96, 5, 141, 0.20);
+  --shadow-glow-gold: 0 0 20px rgba(248, 208, 17, 0.18);
+  --shadow-depth: 0 8px 32px rgba(0, 0, 0, 0.50);
+
+  --gradient-cosmic: linear-gradient(180deg, #2D1450 0%, #1A0A2E 100%);
+  --gradient-cosmic-radial: radial-gradient(ellipse at 50% 15%, rgba(96, 5, 141, 0.45) 0%, transparent 65%);
+  --gradient-gold-radial: radial-gradient(ellipse at 50% 85%, rgba(248, 208, 17, 0.10) 0%, transparent 55%);
+
+  /* Status colors — brand-aligned, no bright green/red */
+  --status-low: #A78BFA;
+  --status-low-bg: rgba(167, 139, 250, 0.22);
+  --status-moderate: var(--brand-gold);
+  --status-moderate-bg: rgba(244, 196, 48, 0.22);
+  --status-elevated: #F59E0B;
+  --status-elevated-bg: rgba(245, 158, 11, 0.22);
+  --status-high: #FB923C;
+  --status-high-bg: rgba(251, 146, 60, 0.25);
+
+  /* Compatibility aliases used across page components */
+  --soft: var(--bg-elevated);
+  --line: var(--border-default);
+  --line-strong: var(--border-strong);
+  --ink: var(--text-primary);
+  --ink-soft: var(--text-secondary);
+  --ray-purple: var(--color-ray-purple);
+  --sun: var(--color-sun-gold);
+  --outline: var(--border-default);
+}

@@ -1,0 +1,686 @@
+[
+  {
+    "pair_id": "R1-R2",
+    "rays": [
+      "R1",
+      "R2"
+    ],
+    "identity_opener": "I know you're the type of person who can turn a messy day into one clear priority. And you’re also the type who can spot a small bright win even when life is loud. That’s clarity + joy in real life. Rep to lock it in: name one priority for today, then capture one “joy receipt” (a small win you usually skip past).",
+    "micro_wins": [
+      "Name 3 working truths; choose 1 cue to notice today.",
+      "Write one If/Then for the next predictable friction moment.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R1-R3",
+    "rays": [
+      "R1",
+      "R3"
+    ],
+    "identity_opener": "I know you're the type of person who doesn’t overcomplicate it, you pick what matters and move and still stays grounded when things get noisy. You already have the ingredients. Now make it a repeatable rep. Today: name one priority for today. Next: do a 10-second reset: name 3 things you can see.",
+    "micro_wins": [
+      "Exhale long; feel feet; name emotion + need.",
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "2 minutes: what happened, what I did, what I’ll try next."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R1-R4",
+    "rays": [
+      "R1",
+      "R4"
+    ],
+    "identity_opener": "I know you're the type of person who sets a boundary and follows through. Pair that with how you can turn a messy day into one clear priority, and you’re hard to stop. Your rep: name one priority for today + take one bold small action you’ve been postponing.",
+    "micro_wins": [
+      "Do the first 60 seconds of the thing you’re avoiding.",
+      "Write one If/Then for the next predictable friction moment.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R1-R5",
+    "rays": [
+      "R1",
+      "R5"
+    ],
+    "identity_opener": "I know you're the type of person who doesn’t overcomplicate it, you pick what matters and move. And you’re also the type who wants what you do to mean something, not just get done. That’s clarity + meaning in real life. Rep to lock it in: name one priority for today, then write one sentence about why this matters to you.",
+    "micro_wins": [
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "Write one If/Then for the next predictable friction moment."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R1-R6",
+    "rays": [
+      "R1",
+      "R6"
+    ],
+    "identity_opener": "I know you're the type of person who can turn a messy day into one clear priority and still chooses real over perfect. You already have the ingredients. Now make it a repeatable rep. Today: name one priority for today. Next: say the true thing in one kind line.",
+    "micro_wins": [
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Write one If/Then for the next predictable friction moment."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R1-R7",
+    "rays": [
+      "R1",
+      "R7"
+    ],
+    "identity_opener": "I know you're the type of person who builds trust fast with warmth and clarity. Pair that with how you doesn’t overcomplicate it, you pick what matters and move, and you’re hard to stop. Your rep: name one priority for today + send one specific message that makes someone feel seen.",
+    "micro_wins": [
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "Write one If/Then for the next predictable friction moment."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R1-R8",
+    "rays": [
+      "R1",
+      "R8"
+    ],
+    "identity_opener": "I know you're the type of person who can turn a messy day into one clear priority. And you’re also the type who keeps asking, “What else is possible?”. That’s clarity + possibility in real life. Rep to lock it in: name one priority for today, then write 3 possibilities, then pick 1 to test.",
+    "micro_wins": [
+      "Name 3 working truths; choose 1 cue to notice today.",
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Write one If/Then for the next predictable friction moment."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R1-R9",
+    "rays": [
+      "R1",
+      "R9"
+    ],
+    "identity_opener": "I know you're the type of person who doesn’t overcomplicate it, you pick what matters and move and still leaves people better than you found them. You already have the ingredients. Now make it a repeatable rep. Today: name one priority for today. Next: do one thing that raises the room’s energy for someone else.",
+    "micro_wins": [
+      "Ask: “overflow or sacrifice?” If sacrifice, add a boundary.",
+      "Exhale long; feel feet; name emotion + need.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R2-R3",
+    "rays": [
+      "R2",
+      "R3"
+    ],
+    "identity_opener": "I know you're the type of person who stays grounded when things get noisy. Pair that with how you can spot a small bright win even when life is loud, and you’re hard to stop. Your rep: capture one “joy receipt” (a small win you usually skip past) + do a 10-second reset: name 3 things you can see.",
+    "micro_wins": [
+      "Exhale long; feel feet; name emotion + need.",
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "2 minutes: what happened, what I did, what I’ll try next."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R2-R4",
+    "rays": [
+      "R2",
+      "R4"
+    ],
+    "identity_opener": "I know you're the type of person who lets good moments land, even the tiny ones. And you’re also the type who takes action even when it would be easier to wait. That’s joy + confidence in real life. Rep to lock it in: capture one “joy receipt” (a small win you usually skip past), then take one bold small action you’ve been postponing.",
+    "micro_wins": [
+      "Set 90 seconds; breathe; feel; choose one clean next action.",
+      "Do the first 60 seconds of the thing you’re avoiding.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R2-R5",
+    "rays": [
+      "R2",
+      "R5"
+    ],
+    "identity_opener": "I know you're the type of person who can spot a small bright win even when life is loud and still connects today’s work to the bigger why. You already have the ingredients. Now make it a repeatable rep. Today: capture one “joy receipt” (a small win you usually skip past). Next: write one sentence about why this matters to you.",
+    "micro_wins": [
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Write one If/Then for the next predictable friction moment.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R2-R6",
+    "rays": [
+      "R2",
+      "R6"
+    ],
+    "identity_opener": "I know you're the type of person who chooses real over perfect. Pair that with how you lets good moments land, even the tiny ones, and you’re hard to stop. Your rep: capture one “joy receipt” (a small win you usually skip past) + say the true thing in one kind line.",
+    "micro_wins": [
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "Say “watch me do this scared,” then take one small action.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R2-R7",
+    "rays": [
+      "R2",
+      "R7"
+    ],
+    "identity_opener": "I know you're the type of person who can spot a small bright win even when life is loud. And you’re also the type who makes people feel seen without trying too hard. That’s joy + connection in real life. Rep to lock it in: capture one “joy receipt” (a small win you usually skip past), then send one specific message that makes someone feel seen.",
+    "micro_wins": [
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "Ask: “overflow or sacrifice?” If sacrifice, add a boundary."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R2-R8",
+    "rays": [
+      "R2",
+      "R8"
+    ],
+    "identity_opener": "I know you're the type of person who lets good moments land, even the tiny ones and still sees options where other people see walls. You already have the ingredients. Now make it a repeatable rep. Today: capture one “joy receipt” (a small win you usually skip past). Next: write 3 possibilities, then pick 1 to test.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Name 3 working truths; choose 1 cue to notice today."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R2-R9",
+    "rays": [
+      "R2",
+      "R9"
+    ],
+    "identity_opener": "I know you're the type of person who leaves people better than you found them. Pair that with how you can spot a small bright win even when life is loud, and you’re hard to stop. Your rep: capture one “joy receipt” (a small win you usually skip past) + do one thing that raises the room’s energy for someone else.",
+    "micro_wins": [
+      "Write one receipt: what you did, not how you felt.",
+      "Exhale long; feel feet; name emotion + need.",
+      "Say one warm boundary: “I can’t do that, but I can do ___.”"
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R3-R4",
+    "rays": [
+      "R3",
+      "R4"
+    ],
+    "identity_opener": "I know you're the type of person who stays grounded when things get noisy. And you’re also the type who takes action even when it would be easier to wait. That’s presence + confidence in real life. Rep to lock it in: do a 10-second reset: name 3 things you can see, then take one bold small action you’ve been postponing.",
+    "micro_wins": [
+      "Exhale long; feel feet; name emotion + need.",
+      "Do the first 60 seconds of the thing you’re avoiding.",
+      "Ask one open question, reflect back, confirm “did I get that right?”"
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R3-R5",
+    "rays": [
+      "R3",
+      "R5"
+    ],
+    "identity_opener": "I know you're the type of person who knows how to come back to the moment instead of spiraling and still connects today’s work to the bigger why. You already have the ingredients. Now make it a repeatable rep. Today: do a 10-second reset: name 3 things you can see. Next: write one sentence about why this matters to you.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Exhale long; feel feet; name emotion + need."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R3-R6",
+    "rays": [
+      "R3",
+      "R6"
+    ],
+    "identity_opener": "I know you're the type of person who chooses real over perfect. Pair that with how you stays grounded when things get noisy, and you’re hard to stop. Your rep: do a 10-second reset: name 3 things you can see + say the true thing in one kind line.",
+    "micro_wins": [
+      "Set 90 seconds; breathe; feel; choose one clean next action.",
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "Ask one open question, reflect back, confirm “did I get that right?”"
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R3-R7",
+    "rays": [
+      "R3",
+      "R7"
+    ],
+    "identity_opener": "I know you're the type of person who knows how to come back to the moment instead of spiraling. And you’re also the type who makes people feel seen without trying too hard. That’s presence + connection in real life. Rep to lock it in: do a 10-second reset: name 3 things you can see, then send one specific message that makes someone feel seen.",
+    "micro_wins": [
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "2 minutes: what happened, what I did, what I’ll try next."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R3-R8",
+    "rays": [
+      "R3",
+      "R8"
+    ],
+    "identity_opener": "I know you're the type of person who stays grounded when things get noisy and still sees options where other people see walls. You already have the ingredients. Now make it a repeatable rep. Today: do a 10-second reset: name 3 things you can see. Next: write 3 possibilities, then pick 1 to test.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "Write one receipt: what you did, not how you felt.",
+      "Exhale long; feel feet; name emotion + need."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R3-R9",
+    "rays": [
+      "R3",
+      "R9"
+    ],
+    "identity_opener": "I know you're the type of person who leaves people better than you found them. Pair that with how you knows how to come back to the moment instead of spiraling, and you’re hard to stop. Your rep: do a 10-second reset: name 3 things you can see + do one thing that raises the room’s energy for someone else.",
+    "micro_wins": [
+      "Exhale long; feel feet; name emotion + need.",
+      "Write one receipt: what you did, not how you felt.",
+      "Set 90 seconds; breathe; feel; choose one clean next action."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R4-R5",
+    "rays": [
+      "R4",
+      "R5"
+    ],
+    "identity_opener": "I know you're the type of person who sets a boundary and follows through. And you’re also the type who wants what you do to mean something, not just get done. That’s confidence + meaning in real life. Rep to lock it in: take one bold small action you’ve been postponing, then write one sentence about why this matters to you.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R4-R6",
+    "rays": [
+      "R4",
+      "R6"
+    ],
+    "identity_opener": "I know you're the type of person who takes action even when it would be easier to wait and still chooses real over perfect. You already have the ingredients. Now make it a repeatable rep. Today: take one bold small action you’ve been postponing. Next: say the true thing in one kind line.",
+    "micro_wins": [
+      "Set 90 seconds; breathe; feel; choose one clean next action.",
+      "Say “watch me do this scared,” then take one small action.",
+      "Say one warm boundary: “I can’t do that, but I can do ___.”"
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R4-R7",
+    "rays": [
+      "R4",
+      "R7"
+    ],
+    "identity_opener": "I know you're the type of person who builds trust fast with warmth and clarity. Pair that with how you set a boundary and follows through, and you’re hard to stop. Your rep: take one bold small action you’ve been postponing + send one specific message that makes someone feel seen.",
+    "micro_wins": [
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "Say “watch me do this scared,” then take one small action.",
+      "Do the first 60 seconds of the thing you’re avoiding."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R4-R8",
+    "rays": [
+      "R4",
+      "R8"
+    ],
+    "identity_opener": "I know you're the type of person who takes action even when it would be easier to wait. And you’re also the type who keeps asking, “What else is possible?”. That’s confidence + possibility in real life. Rep to lock it in: take one bold small action you’ve been postponing, then write 3 possibilities, then pick 1 to test.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R4-R9",
+    "rays": [
+      "R4",
+      "R9"
+    ],
+    "identity_opener": "I know you're the type of person who sets a boundary and follows through and still leaves people better than you found them. You already have the ingredients. Now make it a repeatable rep. Today: take one bold small action you’ve been postponing. Next: do one thing that raises the room’s energy for someone else.",
+    "micro_wins": [
+      "Ask: “overflow or sacrifice?” If sacrifice, add a boundary.",
+      "Exhale long; feel feet; name emotion + need.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R5-R6",
+    "rays": [
+      "R5",
+      "R6"
+    ],
+    "identity_opener": "I know you're the type of person who chooses real over perfect. Pair that with how you wants what you do to mean something, not just get done, and you’re hard to stop. Your rep: write one sentence about why this matters to you + say the true thing in one kind line.",
+    "micro_wins": [
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "Say one warm boundary: “I can’t do that, but I can do ___.”"
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R5-R7",
+    "rays": [
+      "R5",
+      "R7"
+    ],
+    "identity_opener": "I know you're the type of person who connects today’s work to the bigger why. And you’re also the type who makes people feel seen without trying too hard. That’s meaning + connection in real life. Rep to lock it in: write one sentence about why this matters to you, then send one specific message that makes someone feel seen.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "2 minutes: what happened, what I did, what I’ll try next."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R5-R8",
+    "rays": [
+      "R5",
+      "R8"
+    ],
+    "identity_opener": "I know you're the type of person who wants what you do to mean something, not just get done and still sees options where other people see walls. You already have the ingredients. Now make it a repeatable rep. Today: write one sentence about why this matters to you. Next: write 3 possibilities, then pick 1 to test.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Name 3 working truths; choose 1 cue to notice today."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R5-R9",
+    "rays": [
+      "R5",
+      "R9"
+    ],
+    "identity_opener": "I know you're the type of person who leaves people better than you found them. Pair that with how you connects today’s work to the bigger why, and you’re hard to stop. Your rep: write one sentence about why this matters to you + do one thing that raises the room’s energy for someone else.",
+    "micro_wins": [
+      "Ask: “overflow or sacrifice?” If sacrifice, add a boundary.",
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R6-R7",
+    "rays": [
+      "R6",
+      "R7"
+    ],
+    "identity_opener": "I know you're the type of person who can feel when something is off and chooses the honest path. And you’re also the type who makes people feel seen without trying too hard. That’s alignment + connection in real life. Rep to lock it in: say the true thing in one kind line, then send one specific message that makes someone feel seen.",
+    "micro_wins": [
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "Say “watch me do this scared,” then take one small action."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R6-R8",
+    "rays": [
+      "R6",
+      "R8"
+    ],
+    "identity_opener": "I know you're the type of person who chooses real over perfect and still sees options where other people see walls. You already have the ingredients. Now make it a repeatable rep. Today: say the true thing in one kind line. Next: write 3 possibilities, then pick 1 to test.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "2 minutes: what happened, what I did, what I’ll try next.",
+      "Name 3 working truths; choose 1 cue to notice today."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R6-R9",
+    "rays": [
+      "R6",
+      "R9"
+    ],
+    "identity_opener": "I know you're the type of person who leaves people better than you found them. Pair that with how you can feel when something is off and chooses the honest path, and you’re hard to stop. Your rep: say the true thing in one kind line + do one thing that raises the room’s energy for someone else.",
+    "micro_wins": [
+      "Exhale long; feel feet; name emotion + need.",
+      "Set 90 seconds; breathe; feel; choose one clean next action.",
+      "Ask: “overflow or sacrifice?” If sacrifice, add a boundary."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R7-R8",
+    "rays": [
+      "R7",
+      "R8"
+    ],
+    "identity_opener": "I know you're the type of person who builds trust fast with warmth and clarity. And you’re also the type who keeps asking, “What else is possible?”. That’s connection + possibility in real life. Rep to lock it in: send one specific message that makes someone feel seen, then write 3 possibilities, then pick 1 to test.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "Ask one open question, reflect back, confirm “did I get that right?”",
+      "Exhale long; feel feet; name emotion + need."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R7-R9",
+    "rays": [
+      "R7",
+      "R9"
+    ],
+    "identity_opener": "I know you're the type of person who makes people feel seen without trying too hard and still leaves people better than you found them. You already have the ingredients. Now make it a repeatable rep. Today: send one specific message that makes someone feel seen. Next: do one thing that raises the room’s energy for someone else.",
+    "micro_wins": [
+      "Say one warm boundary: “I can’t do that, but I can do ___.”",
+      "Ask: “overflow or sacrifice?” If sacrifice, add a boundary.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  },
+  {
+    "pair_id": "R8-R9",
+    "rays": [
+      "R8",
+      "R9"
+    ],
+    "identity_opener": "I know you're the type of person who leaves people better than you found them. Pair that with how you see options where other people see walls, and you’re hard to stop. Your rep: write 3 possibilities, then pick 1 to test + do one thing that raises the room’s energy for someone else.",
+    "micro_wins": [
+      "Write one If/Then for the next predictable friction moment.",
+      "Do the first 60 seconds of the thing you’re avoiding.",
+      "Write one receipt: what you did, not how you felt."
+    ],
+    "coaching_questions": [
+      "What is the smallest rep that would make tomorrow easier?",
+      "Where did I choose (or avoid) the honest boundary today?",
+      "What did I reinforce that I want repeated: behavior, not vibe?"
+    ],
+    "source": "src/data/archetype_blocks.json"
+  }
+]

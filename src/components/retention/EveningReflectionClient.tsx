@@ -1,0 +1,244 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+import CosmicSkeleton from '@/components/ui/CosmicSkeleton';
+import { humanizeError } from '@/lib/ui/error-messages';
+
+const REFLECTION_STEPS = [
+  {
+    id: 'what_happened',
+    label: 'Notice',
+    prompt: 'What happened today that mattered?',
+    hint: 'One moment. One interaction. One thing that landed.',
+  },
+  {
+    id: 'what_i_did',
+    label: 'Own It',
+    prompt: 'What did you do about it?',
+    hint: 'The rep you ran, the tool you used, the choice you made. Even a pause counts.',
+  },
+  {
+    id: 'what_next',
+    label: 'Next',
+    prompt: 'What will you try differently tomorrow?',
+    hint: 'One small adjustment. Specific enough that you will recognize it when the moment arrives.',
+  },
+] as const;
+
+const QUALITY_LABELS = ['—', 'Surface', 'Specific', 'Actionable'];
+
+interface ReflectionResponse {
+  entry_date: string;
+  has_reflection: boolean;
+  what_happened: string | null;
+  what_i_did: string | null;
+  what_next: string | null;
+  quality_score: number | null;
+  error?: string;
+}
+
+export default function EveningReflectionClient() {
+  const [loading, setLoading] = useState(true);
+  const [step, setStep] = useState(-1);
+  const [texts, setTexts] = useState(['', '', '']);
+  const [saved, setSaved] = useState(false);
+  const [savedTexts, setSavedTexts] = useState<string[]>([]);
+  const [qualityScore, setQualityScore] = useState<number | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    let canceled = false;
+    async function load() {
+      try {
+        const res = await fetch('/api/evening-reflection');
+        if (!res.ok) return;
+        const data = (await res.json()) as ReflectionResponse;
+        if (canceled) return;
+        if (data.has_reflection && data.what_happened && data.what_i_did && data.what_next) {
+          setSaved(true);
+          setSavedTexts([data.what_happened, data.what_i_did, data.what_next]);
+          setQualityScore(data.quality_score);
+        }
+      } finally {
+        if (!canceled) setLoading(false);
+      }
+    }
+    void load();
+    return () => { canceled = true; };
+  }, []);
+
+  useEffect(() => {
+    if (step >= 0) inputRef.current?.focus();
+  }, [step]);
+
+  async function saveReflection(finalTexts: string[]) {
+    setSaving(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/evening-reflection', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          entry_date: new Date().toISOString().slice(0, 10),
+          what_happened: finalTexts[0],
+          what_i_did: finalTexts[1],
+          what_next: finalTexts[2],
+        }),
+      });
+      const data = (await res.json()) as ReflectionResponse;
+      if (!res.ok) {
+        setError(data.error ?? 'save_failed');
+        return;
+      }
+      setSaved(true);
+      setSavedTexts(finalTexts);
+      setQualityScore(data.quality_score ?? null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'save_failed');
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  function handleNext() {
+    const current = texts[step]?.trim();
+    if (!current) return;
+    if (step < REFLECTION_STEPS.length - 1) {
+      setStep(step + 1);
+    } else {
+      setStep(-1);
+      void saveReflection(texts);
+    }
+  }
+
+  if (loading) {
+    return <CosmicSkeleton rows={1} height="h-32" />;
+  }
+
+  // ─── COMPLETED ─────────────────────────────────────────────────────────────
+  if (saved && savedTexts.length === 3) {
+    return (
+      <div className="glass-card p-5 space-y-4">
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Evening Reflection</p>
+          <div className="flex items-center gap-2">
+            {qualityScore !== null && qualityScore > 0 && (
+              <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: 'rgba(248, 208, 17, 0.15)', color: '#F8D011' }}>
+                {QUALITY_LABELS[qualityScore] ?? ''}
+              </span>
+            )}
+            <span className="text-xs text-emerald-400 font-medium">Done</span>
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          {REFLECTION_STEPS.map((rs, i) => (
+            <div key={rs.id} className="flex gap-3">
+              <div className="w-1 rounded-full flex-shrink-0" style={{ background: 'var(--brand-purple)' }} />
+              <div>
+                <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>{rs.label}</p>
+                <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{savedTexts[i]}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // ─── STEP FLOW ─────────────────────────────────────────────────────────────
+  if (step >= 0 && step < REFLECTION_STEPS.length) {
+    const rs = REFLECTION_STEPS[step];
+
+    return (
+      <div className="glass-card p-5 space-y-4">
+        <div className="flex items-center justify-between">
+          <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
+            {step + 1} of {REFLECTION_STEPS.length}
+          </p>
+          <div className="flex gap-1">
+            {REFLECTION_STEPS.map((_, i) => (
+              <div
+                key={i}
+                className="h-1.5 w-6 rounded-full transition-colors duration-300"
+                style={{ backgroundColor: i <= step ? '#F8D011' : 'rgba(255,255,255,0.12)' }}
+              />
+            ))}
+          </div>
+        </div>
+
+        <p className="text-xs font-semibold uppercase tracking-wide text-[#F8D011]">
+          {rs.label}
+        </p>
+        <p className="text-base font-semibold" style={{ color: 'var(--text-on-dark)' }}>{rs.prompt}</p>
+        <p className="text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>{rs.hint}</p>
+
+        <textarea
+          ref={inputRef}
+          aria-label={rs.prompt}
+          className="w-full rounded-xl px-4 py-3 text-sm resize-none focus:outline-none"
+          style={{
+            background: 'rgba(255,255,255,0.06)',
+            border: '1px solid var(--surface-border)',
+            color: 'var(--text-on-dark)',
+          }}
+          rows={3}
+          placeholder="Write it here..."
+          value={texts[step]}
+          onChange={(e) => {
+            const updated = [...texts];
+            updated[step] = e.target.value;
+            setTexts(updated);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              handleNext();
+            }
+          }}
+        />
+
+        <div className="flex items-center justify-between">
+          <p className="text-xs italic" style={{ color: 'var(--text-on-dark-muted)' }}>
+            Reflection converts experience into learning.
+          </p>
+          <button
+            onClick={handleNext}
+            disabled={!texts[step]?.trim() || saving}
+            className="btn-primary text-sm py-2 px-5"
+          >
+            {step < REFLECTION_STEPS.length - 1 ? 'Next' : saving ? 'Saving...' : 'Done'}
+          </button>
+        </div>
+
+        {error && <p className="text-xs text-rose-400" role="alert">{humanizeError(error)}</p>}
+      </div>
+    );
+  }
+
+  // ─── INITIAL STATE ─────────────────────────────────────────────────────────
+  return (
+    <div className="glass-card p-5">
+      <div className="flex items-start gap-3">
+        <span className="text-2xl">◐</span>
+        <div className="flex-1 space-y-2">
+          <div className="flex items-center justify-between">
+            <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>Evening Reflection</p>
+            <span className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>3 min</span>
+          </div>
+          <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            Close the day. Name what happened, what you did about it, and what you will try next.
+          </p>
+          <button
+            onClick={() => setStep(0)}
+            className="btn-primary text-sm py-2 px-5 mt-1"
+          >
+            Reflect
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

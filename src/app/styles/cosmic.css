@@ -1,0 +1,522 @@
+/* ═══════════════════════════════════════════
+   Cosmic Stability System — Keyframes + Surfaces
+   143 Leadership Assessment
+   ═══════════════════════════════════════════ */
+
+@keyframes cosmic-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.03); opacity: 0.92; }
+}
+
+@keyframes cosmic-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes beam-radiate {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+@keyframes orbit-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes aurora-sweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes eclipse-slide {
+  from { transform: translateX(40%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes score-draw {
+  from { stroke-dashoffset: var(--dash-total); }
+  to { stroke-dashoffset: var(--dash-offset); }
+}
+
+/* Utility classes */
+.cosmic-bg {
+  background: radial-gradient(
+    ellipse at 50% 30%,
+    #2D1450 0%,
+    #1A0A2E 50%,
+    #0B0212 100%
+  );
+}
+
+.cosmic-glow-ring {
+  box-shadow:
+    0 0 20px rgba(248, 208, 17, 0.15),
+    0 0 60px rgba(96, 5, 141, 0.12);
+}
+
+/* Focus indicators — WCAG 2.2 §2.4.7 */
+.cosmic-focus-target:focus-visible {
+  outline: 3px solid #F8D011;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Gold on deep purple = 5.2:1, gold on black = 8.4:1 — passes AA */
+.cosmic-focus-target:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip-to-content link */
+.skip-to-content {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 999;
+  padding: 8px 16px;
+  background: #F8D011;
+  color: #000000;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* ── Glass Surface Utilities ── */
+
+.glass-surface {
+  background: var(--surface-glass);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-surface:hover {
+  background: var(--surface-glass-hover);
+  border-color: var(--surface-border-hover);
+}
+
+.glass-card {
+  background: var(--surface-glass);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-2xl);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-glow-sm);
+  transition: background var(--motion-base) var(--motion-ease),
+              border-color var(--motion-base) var(--motion-ease),
+              box-shadow var(--motion-base) var(--motion-ease);
+}
+
+.glass-card:hover {
+  background: var(--surface-glass-hover);
+  border-color: var(--surface-border-hover);
+  box-shadow: var(--shadow-glow-md);
+}
+
+.glass-card--solid {
+  background: rgba(96, 5, 141, 0.50);
+  border: 1px solid rgba(148, 80, 200, 0.35);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-depth), var(--shadow-glow-sm);
+}
+
+/* ── Dark Cosmic Page Background ── */
+
+.cosmic-page-bg {
+  background: var(--bg-deep);
+  background-image:
+    /* Primary cosmic radials */
+    var(--gradient-cosmic-radial),
+    var(--gradient-gold-radial),
+    /* Nebula cloud 1 — upper left purple wisp */
+    radial-gradient(ellipse 600px 400px at 15% 12%, rgba(96, 5, 141, 0.28) 0%, rgba(60, 10, 100, 0.10) 40%, transparent 70%),
+    /* Nebula cloud 2 — mid-right warm glow */
+    radial-gradient(ellipse 500px 350px at 82% 35%, rgba(140, 40, 180, 0.18) 0%, rgba(96, 5, 141, 0.06) 50%, transparent 75%),
+    /* Nebula cloud 3 — center-left gold shimmer */
+    radial-gradient(ellipse 400px 300px at 25% 55%, rgba(248, 208, 17, 0.06) 0%, rgba(248, 208, 17, 0.02) 40%, transparent 70%),
+    /* Nebula cloud 4 — lower purple bloom */
+    radial-gradient(ellipse 700px 500px at 60% 75%, rgba(96, 5, 141, 0.22) 0%, rgba(45, 20, 80, 0.08) 45%, transparent 75%),
+    /* Nebula cloud 5 — top-right diffuse */
+    radial-gradient(ellipse 550px 400px at 75% 8%, rgba(123, 79, 162, 0.15) 0%, transparent 60%),
+    /* Nebula cloud 6 — bottom-left purple mist */
+    radial-gradient(ellipse 450px 350px at 10% 85%, rgba(96, 5, 141, 0.16) 0%, transparent 55%),
+    /* Nebula cloud 7 — mid gold accent */
+    radial-gradient(ellipse 300px 200px at 50% 45%, rgba(248, 208, 17, 0.04) 0%, transparent 60%);
+  color: var(--text-on-dark);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+/* ── Status Pill ── */
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.status-pill--low {
+  background: var(--status-low-bg);
+  color: var(--status-low);
+}
+
+.status-pill--moderate {
+  background: var(--status-moderate-bg);
+  color: var(--status-moderate);
+}
+
+.status-pill--elevated {
+  background: var(--status-elevated-bg);
+  color: var(--status-elevated);
+}
+
+.status-pill--high {
+  background: var(--status-high-bg);
+  color: var(--status-high);
+}
+
+/* ── Metric Chip ── */
+
+.metric-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 20px;
+  border-radius: var(--radius-xl);
+  background: var(--brand-gold);
+  border: 1px solid rgba(248, 208, 17, 0.60);
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(248, 208, 17, 0.20);
+  transition: background var(--motion-fast) var(--motion-ease),
+              border-color var(--motion-fast) var(--motion-ease),
+              box-shadow var(--motion-fast) var(--motion-ease);
+}
+
+.metric-chip:hover,
+.metric-chip:focus-visible {
+  background: #FAE050;
+  border-color: rgba(248, 208, 17, 0.80);
+  box-shadow: 0 0 20px rgba(248, 208, 17, 0.35);
+}
+
+.metric-chip__value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #020202;
+  line-height: 1;
+}
+
+.metric-chip__label {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(2, 2, 2, 0.70);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Button Variants ── */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-xl);
+  background: var(--brand-gold);
+  color: var(--brand-black);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 16px rgba(248, 208, 17, 0.20), 0 0 0 1px rgba(248, 208, 17, 0.10);
+  transition: transform var(--motion-fast) var(--motion-ease),
+              box-shadow var(--motion-fast) var(--motion-ease),
+              filter var(--motion-fast) var(--motion-ease);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px rgba(248, 208, 17, 0.30), 0 0 0 1px rgba(248, 208, 17, 0.15);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-xl);
+  background: transparent;
+  color: var(--brand-gold);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1.5px solid rgba(248, 208, 17, 0.50);
+  cursor: pointer;
+  box-shadow: 0 0 0 0 transparent;
+  transition: transform var(--motion-fast) var(--motion-ease),
+              box-shadow var(--motion-fast) var(--motion-ease),
+              border-color var(--motion-fast) var(--motion-ease),
+              background var(--motion-fast) var(--motion-ease);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  background: rgba(248, 208, 17, 0.08);
+  border-color: rgba(248, 208, 17, 0.80);
+  box-shadow: 0 0 20px rgba(248, 208, 17, 0.15);
+}
+
+/* Watch-me / outline variant — purple glass, not yellow */
+.btn-watch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-xl);
+  background: rgba(96, 5, 141, 0.40);
+  color: var(--text-on-dark);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid rgba(148, 80, 200, 0.40);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background var(--motion-fast) var(--motion-ease),
+              border-color var(--motion-fast) var(--motion-ease),
+              box-shadow var(--motion-fast) var(--motion-ease);
+}
+
+.btn-watch:hover {
+  background: rgba(96, 5, 141, 0.55);
+  border-color: rgba(148, 80, 200, 0.60);
+  box-shadow: var(--shadow-glow-sm);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-on-dark-secondary);
+  font-weight: 500;
+  font-size: 13px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--motion-fast) var(--motion-ease);
+}
+
+.btn-ghost:hover {
+  color: var(--text-on-dark);
+}
+
+/* ── Button shared states ── */
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-watch:focus-visible,
+.btn-ghost:focus-visible {
+  outline: 3px solid rgba(248, 208, 17, 0.70);
+  outline-offset: 2px;
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-watch:disabled,
+.btn-ghost:disabled,
+.btn-primary[aria-disabled="true"],
+.btn-secondary[aria-disabled="true"],
+.btn-watch[aria-disabled="true"],
+.btn-ghost[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  filter: none;
+}
+
+.btn-secondary:active,
+.btn-watch:active,
+.btn-ghost:active {
+  transform: translateY(0);
+}
+
+/* ── Glass Modal ── */
+
+.glass-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.glass-modal-panel {
+  background: rgba(11, 2, 18, 0.92);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-2xl);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  box-shadow: var(--shadow-depth), var(--shadow-glow-md);
+  max-width: 480px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 28px;
+}
+
+/* ── Micro-Interaction Enhancements ── */
+
+@keyframes btn-glow-pulse {
+  0%, 100% { box-shadow: 0 2px 16px rgba(248, 208, 17, 0.20), 0 0 0 1px rgba(248, 208, 17, 0.10); }
+  50% { box-shadow: 0 4px 28px rgba(248, 208, 17, 0.35), 0 0 0 1px rgba(248, 208, 17, 0.20); }
+}
+
+@keyframes card-glow-breathe {
+  0%, 100% { box-shadow: var(--shadow-glow-sm); }
+  50% { box-shadow: var(--shadow-glow-md), 0 0 30px rgba(96, 5, 141, 0.15); }
+}
+
+/* Interactive card lift — applies to glass-cards in interactive contexts */
+.glass-card--interactive {
+  cursor: pointer;
+  transition: transform var(--motion-fast) var(--motion-ease),
+              background var(--motion-base) var(--motion-ease),
+              border-color var(--motion-base) var(--motion-ease),
+              box-shadow var(--motion-base) var(--motion-ease);
+}
+
+.glass-card--interactive:hover {
+  transform: translateY(-2px);
+  background: var(--surface-glass-hover);
+  border-color: var(--surface-border-hover);
+  box-shadow: var(--shadow-glow-md), 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.glass-card--interactive:active {
+  transform: translateY(0);
+}
+
+/* Subtle shimmer for loading states */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.cosmic-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--surface-glass) 25%,
+    rgba(248, 208, 17, 0.06) 50%,
+    var(--surface-glass) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Gold separator line animation */
+@keyframes gold-line-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.gold-divider-animated {
+  transform-origin: center;
+  animation: gold-line-draw 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Score reveal glow */
+@keyframes score-glow {
+  0% { text-shadow: none; }
+  50% { text-shadow: 0 0 20px rgba(248, 208, 17, 0.40); }
+  100% { text-shadow: 0 0 8px rgba(248, 208, 17, 0.15); }
+}
+
+.score-reveal {
+  animation: score-glow 1.5s ease-out forwards;
+}
+
+/* Progress bar fill */
+@keyframes progress-fill {
+  from { width: 0%; }
+}
+
+.progress-bar-animated {
+  animation: progress-fill 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Skeleton loading cards */
+.cosmic-skeleton {
+  background: var(--surface-glass);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  position: relative;
+}
+
+.cosmic-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    rgba(248, 208, 17, 0.04) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

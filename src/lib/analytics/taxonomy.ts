@@ -1,0 +1,155 @@
+import type { UserState } from "@/lib/auth/user-state";
+
+export const PAGE_VIEW_EVENTS = [
+  "page_view_root",
+  "page_view_upgrade_os",
+  "page_view_143",
+  "page_view_toolkit",
+  "page_view_preview",
+  "page_view_upgrade",
+  "page_view_sample_report",
+  "page_view_how_it_works",
+  "page_view_pricing",
+  "page_view_microjoy",
+  "page_view_morning",
+  "page_view_os_coaching",
+  "page_view_cohorts",
+  "page_view_corporate",
+  "page_view_enterprise",
+  "page_view_justin",
+  "page_view_outcomes",
+  "page_view_faq",
+  "page_view_privacy",
+  "page_view_terms",
+  "page_view_login",
+  "page_view_dashboard",
+  "page_view_portal",
+  "page_view_assessment_setup",
+  "page_view_assessment_instructions",
+  "page_view_assessment",
+  "page_view_results",
+  "page_view_coach",
+  "page_view_reports",
+  "page_view_growth",
+  "page_view_account",
+  "page_view_spec_center",
+  "page_view_glossary",
+] as const;
+
+export type PageViewEvent = (typeof PAGE_VIEW_EVENTS)[number];
+
+export const APP_EVENTS = ["setup_submit"] as const;
+
+export type AppEvent = (typeof APP_EVENTS)[number];
+
+export const CANONICAL_EVENT_NAMES = [
+  "email_captured",
+  "magic_link_sent",
+  "magic_link_verified",
+  "coach_layer_rendered",
+  "coach_focus_cta_click",
+  "challenge_start_no_email",
+  "challenge_kit_cta_click",
+  "toolkit_view",
+  "toolkit_download",
+  "toolkit_delivery_confirmed",
+  "morning_view",
+  "morning_log_complete",
+  "morning_sharecard_generate",
+  "microjoy_view",
+  "microjoy_generate",
+  "microjoy_swap",
+  "microjoy_done",
+  "microjoy_save",
+  "challenge_sharecard_generate",
+  "microjoy_sharecard_generate",
+  "results_sharecard_generate",
+  "growth_sharecard_generate",
+  "phase_checkin_complete",
+  "daily_loop_complete",
+  "if_then_plan_created",
+  "if_then_plan_completed",
+  "energy_audit_complete",
+  "evening_reflection_complete",
+  "weekly_review_complete",
+  "preview_start",
+  "preview_complete",
+  "snapshot_preview_rendered",
+  "full_assessment_start",
+  "full_assessment_complete",
+  "retake_complete",
+  "results_view",
+  "report_download",
+  "report_pdf_job_enqueued",
+  "report_pdf_job_ready",
+  "report_pdf_job_failed",
+  "growth_view",
+  "milestone_checkpoint_view",
+  "upgrade_view",
+  "checkout_start",
+  "purchase_complete",
+  "subscription_started",
+  "subscription_canceled",
+  "payment_failed",
+  "reactivated",
+  "page_view_root",
+  "page_view_upgrade_os",
+  "page_view_143",
+  "page_view_toolkit",
+  "page_view_preview",
+  "page_view_upgrade",
+  "page_view_sample_report",
+  "page_view_how_it_works",
+  "page_view_pricing",
+  "page_view_microjoy",
+  "page_view_morning",
+  "page_view_os_coaching",
+  "page_view_cohorts",
+  "page_view_corporate",
+  "page_view_enterprise",
+  "page_view_justin",
+  "page_view_outcomes",
+  "page_view_faq",
+  "page_view_privacy",
+  "page_view_terms",
+  "page_view_login",
+  "page_view_dashboard",
+  "page_view_portal",
+  "page_view_assessment_setup",
+  "page_view_assessment_instructions",
+  "page_view_assessment",
+  "page_view_results",
+  "page_view_coach",
+  "page_view_reports",
+  "page_view_growth",
+  "page_view_account",
+  "page_view_spec_center",
+  "page_view_glossary",
+] as const;
+
+export type SetupContextScope = "work" | "home" | "mixed";
+
+export interface EventBase {
+  event_name: string;
+  event_ts_utc: string;
+  source_route: string;
+  user_id: string | null;
+  session_id: string;
+  user_state: UserState;
+  app_version: string;
+  schema_version: number;
+}
+
+export interface PageViewPayload extends EventBase {
+  event_name: PageViewEvent;
+  entry_source: string;
+}
+
+export interface SetupSubmitPayload extends EventBase {
+  event_name: AppEvent;
+  draft_id: string;
+  run_binding_key: string;
+  context_scope: SetupContextScope;
+  focus_target: string;
+  first_rep: string;
+}

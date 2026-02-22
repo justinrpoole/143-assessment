@@ -1,0 +1,1718 @@
+[
+  {
+    "id": "RAY_R1a_001",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Starts day by choosing priorities before inbox when you feel tired (instead of reacting in the moment)?"
+  },
+  {
+    "id": "RAY_R1a_002",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you set 1–3 priorities before checking messages when you feel tired (instead of letting urgency decide)?"
+  },
+  {
+    "id": "RAY_R1a_003",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Chooses one family priority for weekend when someone asks for a quick favor (instead of reacting in the moment)?"
+  },
+  {
+    "id": "RAY_R1a_004",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you choose what gets done today and what gets deferred when you feel tired (instead of hoping it sorts itself out)?"
+  },
+  {
+    "id": "RAY_R1a_005",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you start the day with a 2-minute plan instead of a reactive scan when your inbox is loud (instead of staying in the inbox)?"
+  },
+  {
+    "id": "RAY_R1a_006",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Starts day by choosing priorities before inbox when your inbox is loud (instead of reacting in the moment)?"
+  },
+  {
+    "id": "RAY_R1a_007",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you use a specific practice like: Chooses one family priority for weekend when someone asks for a quick favor (instead of hoping it sorts itself out)?"
+  },
+  {
+    "id": "RAY_R1a_008",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you use a specific practice like: Starts day by choosing priorities before inbox when a conversation gets tense (instead of hoping it sorts itself out)?"
+  },
+  {
+    "id": "RAY_R1a_015",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you close the day by setting tomorrow's first move when a plan gets disrupted (instead of reacting in the moment)?"
+  },
+  {
+    "id": "RAY_R1a_016",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you choose what gets done today and what gets deferred when someone asks for a quick favor (instead of staying in the inbox)?"
+  },
+  {
+    "id": "RAY_R1a_017",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you set 1–3 priorities before checking messages when a plan gets disrupted (instead of letting urgency decide)?"
+  },
+  {
+    "id": "RAY_R1a_018",
+    "ray_id": "R1",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I saying yes automatically when someone asks for a quick favor."
+  },
+  {
+    "id": "RAY_R1a_019",
+    "ray_id": "R1",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I reacting in the moment when your inbox is loud."
+  },
+  {
+    "id": "RAY_R1b_015",
+    "ray_id": "R1",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you set a start and stop time for work and actually honor it when your day is already full (instead of saying yes automatically)?"
+  },
+  {
+    "id": "RAY_R1b_018",
+    "ray_id": "R1",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I reacting in the moment when you feel pulled in two directions."
+  },
+  {
+    "id": "RAY_R1b_019",
+    "ray_id": "R1",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I letting urgency decide when work spills into personal time."
+  },
+  {
+    "id": "RAY_R2a_001",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you notice and let a good moment land for 10–20 seconds when a plan falls apart (instead of numbing out)?"
+  },
+  {
+    "id": "RAY_R2a_002",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Celebrates small wins publicly when something goes wrong (instead of waiting until things are perfect)?"
+  },
+  {
+    "id": "RAY_R2a_003",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Finds one good thing in hard weeks when you feel frustration rising (instead of staying in the complaint loop)?"
+  },
+  {
+    "id": "RAY_R2a_004",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you share appreciation or humor in the middle of a hard week when you get an unexpected request (instead of staying in the complaint loop)?"
+  },
+  {
+    "id": "RAY_R2a_005",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you choose a micro-joy (music, walk, conversation) on purpose when something goes wrong (instead of numbing out)?"
+  },
+  {
+    "id": "RAY_R2a_006",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you let pleasure be information, not a distraction when something goes wrong (instead of snapping at people)?"
+  },
+  {
+    "id": "RAY_R2a_007",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you use a specific practice like: Finds one good thing in hard weeks when you get an unexpected request (instead of numbing out)?"
+  },
+  {
+    "id": "RAY_R2a_008",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you use a specific practice like: Finds one good thing in hard weeks when a plan falls apart (instead of waiting until things are perfect)?"
+  },
+  {
+    "id": "RAY_R2a_015",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Finds one good thing in hard weeks when someone is negative around you (instead of waiting until things are perfect)?"
+  },
+  {
+    "id": "RAY_R2a_016",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you choose a micro-joy (music, walk, conversation) on purpose when a week feels heavy (instead of waiting until things are perfect)?"
+  },
+  {
+    "id": "RAY_R2a_017",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you share appreciation or humor in the middle of a hard week when a week feels heavy (instead of numbing out)?"
+  },
+  {
+    "id": "RAY_R2a_018",
+    "ray_id": "R2",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I only seeing what’s wrong when something goes wrong."
+  },
+  {
+    "id": "RAY_R2a_019",
+    "ray_id": "R2",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I staying in the complaint loop when you get an unexpected request."
+  },
+  {
+    "id": "RAY_R2b_015",
+    "ray_id": "R2",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Gratitude at family meals when a week feels heavy (instead of staying in the complaint loop)?"
+  },
+  {
+    "id": "RAY_R2b_018",
+    "ray_id": "R2",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I staying in the complaint loop when a week feels heavy."
+  },
+  {
+    "id": "RAY_R2b_019",
+    "ray_id": "R2",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I staying in the complaint loop when someone is negative around you."
+  },
+  {
+    "id": "RAY_R3a_001",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Stays focused in long meetings when your mind starts racing (instead of reacting fast)?"
+  },
+  {
+    "id": "RAY_R3a_002",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you notice distraction and return without self-judgment when you feel urgency spike (instead of multitasking)?"
+  },
+  {
+    "id": "RAY_R3a_003",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you notice distraction and return without self-judgment when your mind starts racing (instead of spiraling in your head)?"
+  },
+  {
+    "id": "RAY_R3a_004",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you stay with one conversation without drifting to your phone when you feel urgency spike (instead of spiraling in your head)?"
+  },
+  {
+    "id": "RAY_R3a_005",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Stays focused in long meetings when you catch yourself scrolling (instead of spiraling in your head)?"
+  },
+  {
+    "id": "RAY_R3a_006",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you stay with one conversation without drifting to your phone when you catch yourself scrolling (instead of spiraling in your head)?"
+  },
+  {
+    "id": "RAY_R3a_007",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you listen to understand before planning your reply when a conversation is emotional (instead of checking out)?"
+  },
+  {
+    "id": "RAY_R3a_008",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you stay with one conversation without drifting to your phone when you’re switching tasks rapidly (instead of checking out)?"
+  },
+  {
+    "id": "RAY_R3a_015",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Present during family conversations when your mind starts racing (instead of doom-scrolling)?"
+  },
+  {
+    "id": "RAY_R3a_016",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Stays focused in long meetings when your mind starts racing (instead of checking out)?"
+  },
+  {
+    "id": "RAY_R3a_017",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you stay with one conversation without drifting to your phone when you notice your body tighten (instead of doom-scrolling)?"
+  },
+  {
+    "id": "RAY_R3a_018",
+    "ray_id": "R3",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I spiraling in your head when you feel urgency spike."
+  },
+  {
+    "id": "RAY_R3a_019",
+    "ray_id": "R3",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I doom-scrolling when you’re switching tasks rapidly."
+  },
+  {
+    "id": "RAY_R3b_015",
+    "ray_id": "R3",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use your body as an early warning system when you feel urgency spike (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R3b_018",
+    "ray_id": "R3",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when you catch yourself scrolling."
+  },
+  {
+    "id": "RAY_R3b_019",
+    "ray_id": "R3",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when you’re switching tasks rapidly."
+  },
+  {
+    "id": "RAY_R4a_001",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you admit uncertainty without collapsing when you feel doubt (instead of avoiding)?"
+  },
+  {
+    "id": "RAY_R4a_002",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you name the fear without letting it drive the wheel when you feel doubt (instead of stalling)?"
+  },
+  {
+    "id": "RAY_R4a_003",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you ask for the clarification you’re hesitating to ask for when you worry about looking wrong (instead of deflecting)?"
+  },
+  {
+    "id": "RAY_R4a_004",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you say out loud what you’re avoiding when you worry about looking wrong (instead of waiting for confidence first)?"
+  },
+  {
+    "id": "RAY_R4a_005",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Names anxiety about parenting decision when you have to make a call with imperfect info (instead of over-preparing)?"
+  },
+  {
+    "id": "RAY_R4a_006",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you ask for the clarification you’re hesitating to ask for when you get critical feedback (instead of deflecting)?"
+  },
+  {
+    "id": "RAY_R4a_007",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you ask for the clarification you’re hesitating to ask for when you feel doubt (instead of over-preparing)?"
+  },
+  {
+    "id": "RAY_R4a_008",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you separate risk from story when you have to make a call with imperfect info (instead of waiting for confidence first)?"
+  },
+  {
+    "id": "RAY_R4a_015",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you separate risk from story when you have to make a call with imperfect info (instead of waiting for confidence first)?"
+  },
+  {
+    "id": "RAY_R4a_016",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you say out loud what you’re avoiding when you get critical feedback (instead of deflecting)?"
+  },
+  {
+    "id": "RAY_R4a_017",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Names anxiety about parenting decision when you feel doubt (instead of stalling)?"
+  },
+  {
+    "id": "RAY_R4a_018",
+    "ray_id": "R4",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I over-preparing when you get critical feedback."
+  },
+  {
+    "id": "RAY_R4a_019",
+    "ray_id": "R4",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I avoiding when you feel doubt."
+  },
+  {
+    "id": "RAY_R4b_015",
+    "ray_id": "R4",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you own your part without taking on everyone’s part when you’re about to avoid a hard thing (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R4b_018",
+    "ray_id": "R4",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when you’re about to avoid a hard thing."
+  },
+  {
+    "id": "RAY_R4b_019",
+    "ray_id": "R4",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when stakes feel high."
+  },
+  {
+    "id": "RAY_R5a_001",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Articulates core values guiding decisions when the easy choice conflicts with your values (instead of cutting corners)?"
+  },
+  {
+    "id": "RAY_R5a_002",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you name what matters most before choosing when you’re tempted to people-please (instead of prioritizing approval)?"
+  },
+  {
+    "id": "RAY_R5a_003",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you name what matters most before choosing when you’re tempted to people-please (instead of cutting corners)?"
+  },
+  {
+    "id": "RAY_R5a_004",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you name what matters most before choosing when you’re tempted to people-please (instead of letting mood decide)?"
+  },
+  {
+    "id": "RAY_R5a_005",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you define what “good” looks like for you, not just others when a tradeoff shows up (instead of choosing the easy yes)?"
+  },
+  {
+    "id": "RAY_R5a_006",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Articulates core values guiding decisions when you’re tempted to people-please (instead of defaulting to old patterns)?"
+  },
+  {
+    "id": "RAY_R5a_007",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you name what matters most before choosing when two priorities compete (instead of prioritizing approval)?"
+  },
+  {
+    "id": "RAY_R5a_008",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you use a specific practice like: Articulates core values guiding decisions when someone pushes for speed over quality (instead of choosing the easy yes)?"
+  },
+  {
+    "id": "RAY_R5a_015",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Knows what matters in family life when the easy choice conflicts with your values (instead of letting mood decide)?"
+  },
+  {
+    "id": "RAY_R5a_016",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Articulates core values guiding decisions when someone pushes for speed over quality (instead of defaulting to old patterns)?"
+  },
+  {
+    "id": "RAY_R5a_017",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you write your top 3 values in plain language when the easy choice conflicts with your values (instead of cutting corners)?"
+  },
+  {
+    "id": "RAY_R5a_018",
+    "ray_id": "R5",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I prioritizing approval when a tradeoff shows up."
+  },
+  {
+    "id": "RAY_R5a_019",
+    "ray_id": "R5",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to old patterns when a deadline pressures you to cut corners."
+  },
+  {
+    "id": "RAY_R5b_015",
+    "ray_id": "R5",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Declines opportunities misaligned with values when a tradeoff shows up (instead of defaulting to old patterns)?"
+  },
+  {
+    "id": "RAY_R5b_018",
+    "ray_id": "R5",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I letting mood decide when two priorities compete."
+  },
+  {
+    "id": "RAY_R5b_019",
+    "ray_id": "R5",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I letting mood decide when a tradeoff shows up."
+  },
+  {
+    "id": "RAY_R6a_001",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Same person at work and home when a plan gets disrupted (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_002",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you do what you say you value, even in small ways when someone asks for a quick favor (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_003",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you choose congruence over approval when you feel tired (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_004",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Same person in boardroom and break room when a plan gets disrupted (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_005",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you do what you say you value, even in small ways when a conversation gets tense (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_006",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you act from your standards, not your mood when you feel tired (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_007",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you act from your standards, not your mood when your inbox is loud (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_008",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you do what you say you value, even in small ways when a conversation gets tense (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_015",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you act from your standards, not your mood when your inbox is loud (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_016",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you close the gap between private and public self when you feel time pressure (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_017",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you speak honestly about what you can and can’t do when a conversation gets tense (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R6a_018",
+    "ray_id": "R6",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when someone asks for a quick favor."
+  },
+  {
+    "id": "RAY_R6a_019",
+    "ray_id": "R6",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when a conversation gets tense."
+  },
+  {
+    "id": "RAY_R6b_015",
+    "ray_id": "R6",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Says no to overcommitments at home when a meeting gets added last minute (instead of apologizing for a limit)?"
+  },
+  {
+    "id": "RAY_R6b_018",
+    "ray_id": "R6",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I people-pleasing when your day is already full."
+  },
+  {
+    "id": "RAY_R6b_019",
+    "ray_id": "R6",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I letting it slide when your day is already full."
+  },
+  {
+    "id": "RAY_R7a_001",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you make space for quieter voices when there’s disagreement (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_002",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you make space for quieter voices when a relationship feels strained (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_003",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you make space for quieter voices when you need alignment (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_004",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Reads team member emotional states when a message lands wrong (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_005",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you notice what someone is feeling even if they don’t say it when a relationship feels strained (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_006",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you check your impact in real time when you need alignment (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_007",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you notice what someone is feeling even if they don’t say it when someone is quiet (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_008",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you check your impact in real time when you sense tension in the room (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_015",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you slow down to actually hear the subtext when there’s disagreement (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_016",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Notices partner's mood shifts when there’s disagreement (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_017",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Reads team member emotional states when a message lands wrong (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7a_018",
+    "ray_id": "R7",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when a message lands wrong."
+  },
+  {
+    "id": "RAY_R7a_019",
+    "ray_id": "R7",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when a relationship feels strained."
+  },
+  {
+    "id": "RAY_R7b_015",
+    "ray_id": "R7",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you shift from debate to problem-solving when a message lands wrong (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R7b_018",
+    "ray_id": "R7",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when a message lands wrong."
+  },
+  {
+    "id": "RAY_R7b_019",
+    "ray_id": "R7",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when you sense tension in the room."
+  },
+  {
+    "id": "RAY_R8a_001",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you stay curious when surprised when feedback is mixed (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_002",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you consider a new idea without immediate dismissal when something new appears (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_003",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you stay curious when surprised when the path isn’t clear (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_004",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you stay curious when surprised when you need a fresh approach (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_005",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Open to new approaches at home when you don’t have certainty (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_006",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Welcomes alternative viewpoints when feedback is mixed (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_007",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you let new information update your view when feedback is mixed (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_008",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you stay curious when surprised when the path isn’t clear (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_015",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Welcomes alternative viewpoints when you need a fresh approach (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_016",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you seek input from someone unlike you when you don’t have certainty (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_017",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you seek input from someone unlike you when the path isn’t clear (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8a_018",
+    "ray_id": "R8",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when you hit a constraint."
+  },
+  {
+    "id": "RAY_R8a_019",
+    "ray_id": "R8",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when the path isn’t clear."
+  },
+  {
+    "id": "RAY_R8b_015",
+    "ray_id": "R8",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you name a possibility in a messy situation when something new appears (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R8b_018",
+    "ray_id": "R8",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when the path isn’t clear."
+  },
+  {
+    "id": "RAY_R8b_019",
+    "ray_id": "R8",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when something new appears."
+  },
+  {
+    "id": "RAY_R9a_001",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Models healthy boundaries at home when someone needs support (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_002",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Models healthy boundaries at home when someone needs support (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_003",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you do the behavior you want others to copy when your team is stressed (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_004",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Models calm under pressure when someone needs support (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_005",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Models healthy boundaries at home when your team is stressed (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_006",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 7 days, how often did you use a specific practice like: Models calm under pressure when your team is stressed (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_007",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "In the last 30 days, how often did you use a specific practice like: Models calm under pressure when your team is stressed (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_015",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you use a specific practice like: Models calm under pressure when someone needs support (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_016",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you hold your state under pressure so others can stay regulated when a mistake happens in the group (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_017",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you match words with actions in visible ways when someone needs support (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9a_018",
+    "ray_id": "R9",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when a mistake happens in the group."
+  },
+  {
+    "id": "RAY_R9a_019",
+    "ray_id": "R9",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when someone needs support."
+  },
+  {
+    "id": "RAY_R9b_015",
+    "ray_id": "R9",
+    "polarity": "normal",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), how often did you model repair so others learn repair when others are watching (instead of defaulting to autopilot)?"
+  },
+  {
+    "id": "RAY_R9b_018",
+    "ray_id": "R9",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when a mistake happens in the group."
+  },
+  {
+    "id": "RAY_R9b_019",
+    "ray_id": "R9",
+    "polarity": "reverse",
+    "scale": {
+      "min": 0,
+      "max": 4
+    },
+    "required": true,
+    "source": "src/data/ray_items.json",
+    "prompt": "When you were under pressure in the last 7 days (deadline, conflict, fatigue), I defaulting to autopilot when a mistake happens in the group."
+  }
+]

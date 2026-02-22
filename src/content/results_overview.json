@@ -1,0 +1,25 @@
+{
+  "template_set": "v1_results_templates",
+  "allowed_variables": [
+    "first_name",
+    "ray_pair",
+    "top_ray_1",
+    "top_ray_2",
+    "confidence_band",
+    "next_rep"
+  ],
+  "templates": [
+    {
+      "id": "identity_opener",
+      "text": "I know you're the type of person who leads with {{ray_pair}}."
+    },
+    {
+      "id": "micro_wins_block",
+      "text": "Start with this: {{next_rep}}."
+    },
+    {
+      "id": "confidence_context",
+      "text": "Current confidence band: {{confidence_band}}."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "143 Be The Light Assessment",
+  "short_name": "143 BTL",
+  "description": "Your light isn't gone. It's just been covered. Discover where your energy is and the one skill that will make everything else easier.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9F7FC",
+  "theme_color": "#5B2D8E",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,765 @@
+{
+  "generated_at": "2026-02-22T22:28:21.837Z",
+  "source_root": "/Users/justinray/Library/Mobile Documents/com~apple~CloudDocs/143 Leadership/143 Assessment Master/specs/143leadership_build_spec_v1_2",
+  "markdown": {
+    "ia": {
+      "id": "ia",
+      "file_name": "01_Page_Spec_Matrix.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 01_Page_Spec_Matrix.md"
+        },
+        {
+          "level": 2,
+          "title": "Scope Lock"
+        },
+        {
+          "level": 2,
+          "title": "Global Instrumentation Rules (Module-Level Events)"
+        },
+        {
+          "level": 3,
+          "title": "Justin Coach Layer"
+        },
+        {
+          "level": 3,
+          "title": "Email Gate Module"
+        },
+        {
+          "level": 3,
+          "title": "Snapshot Preview Output Module"
+        },
+        {
+          "level": 3,
+          "title": "Toolkit Delivery Module"
+        },
+        {
+          "level": 3,
+          "title": "Share Cards Module"
+        },
+        {
+          "level": 3,
+          "title": "Growth Tracking Module"
+        },
+        {
+          "level": 3,
+          "title": "Report Artifact Module (HTML + PDF status/download)"
+        },
+        {
+          "level": 2,
+          "title": "Route Matrix (Locked Routes + Approved V1-Lite Scaffold Routes)"
+        },
+        {
+          "level": 2,
+          "title": "Global Overlay Rules"
+        },
+        {
+          "level": 2,
+          "title": "Webhook-Truth Event Note"
+        },
+        {
+          "level": 2,
+          "title": "Route Compliance Assertions"
+        }
+      ],
+      "computed_word_count": 1729,
+      "content": "### FILE: 01_Page_Spec_Matrix.md\n\n## Scope Lock\n- Constitutional source: 143leadership.com V1 Page Requirements Pack (authoritative).\n- Route names, module names, pricing, and gating are immutable in this matrix.\n- This file is structural only (CTA intent, overlay intent, event names).\n\n## Global Instrumentation Rules (Module-Level Events)\n- This matrix lists route-specific events per route row.\n- Cross-cutting module events are enforced globally wherever the module is present.\n\n### Justin Coach Layer\n- Emit `coach_layer_rendered` on successful coach layer render.\n- Emit `coach_focus_cta_click` when the Justin Focus CTA is clicked.\n\n### Email Gate Module\n- Emit `email_captured` on successful email capture.\n- Emit `magic_link_sent` when a magic link is sent.\n- Emit `magic_link_verified` on successful magic link verification.\n\n### Snapshot Preview Output Module\n- Emit `snapshot_preview_rendered` when preview snapshot cards render.\n\n### Toolkit Delivery Module\n- Emit `toolkit_view` on module load.\n- Emit `toolkit_download` when any toolkit file link is clicked.\n- Emit `toolkit_delivery_confirmed` when user confirms receipt or completes in-app checklist confirmation.\n\n### Share Cards Module\n- Emit share-card generation event by source context:\n  - `challenge_sharecard_generate`\n  - `microjoy_sharecard_generate`\n  - `morning_sharecard_generate`\n  - `results_sharecard_generate`\n  - `growth_sharecard_generate`\n\n### Growth Tracking Module\n- Emit `growth_view` on growth page render.\n- Emit `milestone_checkpoint_view` when Day 7/21/66 checkpoint tiles are viewed or opened.\n\n### Report Artifact Module (HTML + PDF status/download)\n- Emit `report_download` when a report artifact is downloaded.\n- Emit `report_pdf_job_enqueued`, `report_pdf_job_ready`, `report_pdf_job_failed` on PDF lifecycle transitions where run-scoped report generation is active.\n\n## Route Matrix (Locked Routes + Approved V1-Lite Scaffold Routes)\n\n| Route | Audience State | Required Modules (exact names) | Primary CTA (structure) | Secondary CTAs (structure) | Events Emitted (exact names) | Locked Overlays (when/why + required communication) |\n|---|---|---|---|---|---|---|\n| `/` (redirect) | `public` | `None` | Redirect to `/upgrade-your-os` | None | `page_view_root` | None. Hard redirect only. |\n| `/upgrade-your-os` | `public` | `Justin Coach Layer` | Choose one of 4 hub tiles | Go to `/faq`, `/outcomes` | `page_view_upgrade_os` | None. Hub must remain exactly 4 tiles with no extra sections. |\n| `/143` | `public`, `free_email` | `Justin Coach Layer`, `Email Gate Module`, `Share Cards Module`, `Toolkit Delivery Module` | CTA #1 hero: Get the 72-Hour Challenge Kit (free) | Start now (no email), CTA #2 post-aha kit prompt, CTA #3 end-of-page kit prompt | `page_view_143`, `challenge_start_no_email`, `challenge_kit_cta_click`, `email_captured`, `toolkit_delivery_confirmed`, `challenge_sharecard_generate` | `Challenge Kit Gate Overlay` for kit-only assets (tracker, Day 1/2/3 prompts, reminders, share logging). Challenge page and no-email flow stay open. |\n| `/toolkit` | `public`, `free_email` | `Email Gate Module`, `Toolkit Delivery Module` | Capture email and deliver toolkit immediately | Return to `source_route`, go to `/preview` | `page_view_toolkit`, `email_captured`, `toolkit_view`, `toolkit_download`, `toolkit_delivery_confirmed` | `Email Gate Overlay` for asset delivery only. Page remains readable when public. |\n| `/preview` | `public`, `free_email` | `Assessment Module`, `Snapshot Preview Output Module`, `Upgrade/Paywall Module` | Start OS snapshot preview | Go to `/sample-report`, go to `/upgrade` | `page_view_preview`, `preview_start`, `preview_complete`, `snapshot_preview_rendered`, `email_captured`, `upgrade_view` | `Preview Tease Lock` for limited snapshot depth. Capture email to persist identity and unlock full preview output context. |\n| `/upgrade` | `public` | `Upgrade/Paywall Module` | Start checkout for `$43` or `$14.33/month` | Compare plans, view `/sample-report` | `page_view_upgrade`, `upgrade_view`, `checkout_start` | `Past Due Resolve Overlay` for authenticated `past_due`; communicate payment fix before plan changes. |\n| `/sample-report` | `public` | `Report Artifact Module (HTML + PDF status/download)`, `Share Cards Module` | View sample report structure | Go to `/preview`, go to `/upgrade` | `page_view_sample_report` | None. Sample uses non-personal static structure. |\n| `/how-it-works` | `public` | `Justin Coach Layer` | Explain sequence and product flow | Go to `/preview`, `/pricing`, `/upgrade-your-os` | `page_view_how_it_works` | None. Informational route only. |\n| `/pricing` | `public` | `Upgrade/Paywall Module` | Compare `$43` vs `$14.33/month` | Go to `/upgrade`, `/faq` | `page_view_pricing`, `upgrade_view` | None. No checkout completion event on this page. |\n| `/micro-joy` | `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `Email Gate Module`, `Micro Joy Generator Module`, `Share Cards Module` | Generate daily micro joy card | Swap, save, done, share | `page_view_microjoy`, `microjoy_view`, `microjoy_generate`, `microjoy_swap`, `microjoy_done`, `microjoy_save`, `microjoy_sharecard_generate`, `email_captured` | `Email Gate Overlay` for public users (no email identity yet). `Daily Limit Overlay` when 1/day + 3 swaps exhausted; favorites remain repeatable. |\n| `/morning` | `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `Email Gate Module`, `Morning Affirmation Module`, `Share Cards Module` | Log morning affirmation | Share card, go to `/portal` | `page_view_morning`, `morning_view`, `morning_log_complete`, `morning_sharecard_generate`, `email_captured` | `Email Gate Overlay` for public users (no email identity yet). |\n| `/os-coaching` | `public`, `free_email` | `Justin Coach Layer`, `Email Gate Module` | Submit coaching inquiry form | Visit `/cohorts`, `/corporate` | `page_view_os_coaching`, `email_captured` | `Inquiry Form Gate Overlay` on submit if public; capture email before form submission finalizes. |\n| `/cohorts` | `public`, `free_email` | `Email Gate Module` | Submit cohort interest form | Visit `/os-coaching`, `/corporate` | `page_view_cohorts`, `email_captured` | `Interest Form Gate Overlay` on submit if public. |\n| `/corporate` | `public`, `free_email` | `Email Gate Module` | Submit enterprise inquiry form | Visit `/cohorts`, `/outcomes` | `page_view_corporate`, `email_captured` | `Inquiry Form Gate Overlay` on submit if public. |\n| `/enterprise` | `public`, `free_email` | `Justin Coach Layer` | Review enterprise outcomes and pathway | Go to `/corporate`, `/outcomes` | `page_view_enterprise` | None. Enterprise information route; lead capture remains on `/corporate`. |\n| `/justin` | `public` | `Justin Coach Layer` | Continue to `/os-coaching` | Go to `/outcomes` | `page_view_justin` | None. |\n| `/outcomes` | `public` | `None` | Move to `/preview` | Move to `/upgrade`, view `/sample-report` | `page_view_outcomes` | None. |\n| `/faq` | `public` | `None` | Resolve objections and continue | Go to `/preview`, `/upgrade` | `page_view_faq` | None. |\n| `/privacy` | `public` | `None` | Review policy | Go to `/terms`, `/login` | `page_view_privacy` | None. |\n| `/terms` | `public` | `None` | Review terms | Go to `/privacy`, `/login` | `page_view_terms` | None. |\n| `/login` | `public` | `Email Gate Module` | Send magic link | Return to prior route or `/upgrade-your-os` | `page_view_login`, `magic_link_sent`, `magic_link_verified` | `Magic Link Sent Overlay` after submit; communicate link expiration and resend interval. |\n| `/dashboard` | `public`, `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `None` | Redirect to `/portal` | None | `page_view_dashboard` | None. Hard redirect to `/portal` to preserve single portal surface. |\n| `/portal` | `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `Justin Coach Layer` | Open state-based next tile | Morning, Micro Joy, Assessment/Results/Growth/Account by entitlement | `page_view_portal` | `Subscription Reactivation Overlay` for `sub_canceled`; `Past Due Resolve Overlay` for `past_due` on run-creation actions. |\n| `/assessment/setup` | `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `Assessment Module`, `Upgrade/Paywall Module` | Confirm run metadata and continue to `/assessment` | Return to `/portal`, go to `/account` | `page_view_assessment_setup`, `upgrade_view` | `Run Limit Reached Overlay` for exhausted `paid_43`. `Subscription Reactivation Overlay` for `sub_canceled`. `Past Due Resolve Overlay` for `past_due`. Metadata-only pre-run step; no scoring or run creation on this route. |\n| `/assessment` | `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `Assessment Module`, `Upgrade/Paywall Module` | Start full assessment run | Resume run, go to `/results` | `page_view_assessment`, `full_assessment_start`, `full_assessment_complete`, `retake_complete`, `upgrade_view` | `Run Limit Reached Overlay` for `paid_43` after Run #1. `Subscription Reactivation Overlay` for `sub_canceled`. `Past Due Resolve Overlay` for `past_due`. |\n| `/results` | `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `Report Artifact Module (HTML + PDF status/download)`, `Justin Coach Layer`, `Share Cards Module` | View Justin's Focus first, then run insights | Open coaching questions, REPs + RAS, share cards | `page_view_results`, `results_view`, `results_sharecard_generate` | `No Runs Yet Overlay` if no completed full run. `History-Only Banner` for `sub_canceled` and `past_due` when run creation is blocked. |\n| `/coach` | `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `Justin Coach Layer` | Review coaching prompts and next REP focus | Go to `/results`, `/growth`, `/portal` | `page_view_coach`, `coach_layer_rendered` | `No Run Context Overlay` when no run exists; communicate complete preview/full run before coaching prompts personalize. |\n| `/reports` | `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `Report Artifact Module (HTML + PDF status/download)` | Open/download report artifact | Email report again, go to `/results` | `page_view_reports`, `report_download` | `PDF Pending Overlay` when job not ready; HTML remains available. |\n| `/growth` | `sub_active`, `paid_43` (upsell-only), `sub_canceled`, `past_due` | `Growth Tracking Module`, `Share Cards Module` | Review milestones and trend line | Reactivate plan or go to `/upgrade` based on state | `page_view_growth`, `growth_view`, `milestone_checkpoint_view`, `growth_sharecard_generate` | `Growth Upsell Overlay` for `paid_43` (upgrade to track growth). `History + Reactivation Overlay` for `sub_canceled` and `past_due`. |\n| `/account` | `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due` | `Email Gate Module`, `Upgrade/Paywall Module` | Manage identity and billing state | Open Stripe portal link (if enabled), go to `/portal` | `page_view_account`, `checkout_start` | `Past Due Resolve Overlay` when `past_due`. `Reactivation Overlay` when `sub_canceled`. |\n| `/spec-center` | `public` (internal key-protected) | `None` | Inspect integrated spec/runtime diagnostics | Internal links only | `page_view_spec_center` | `Internal Access Overlay` when no valid key or non-dev context. Route is internal-only and must not appear in public navigation. |\n\n## Global Overlay Rules\n- `Challenge Kit Gate Overlay`: applies only to `/143` kit assets and reminder/share logging unlock.\n- `Email Gate Overlay`: applies where action persistence requires email identity.\n- `Preview Tease Lock`: applies on `/preview` limited output before upgrade or identity unlock.\n- `Run Limit Reached Overlay`: only for `paid_43` after exactly one completed run.\n- `Subscription Reactivation Overlay`: only for `sub_canceled` when creating new runs.\n- `Past Due Resolve Overlay`: only for `past_due` when creating new runs or changing billing.\n- `Growth Upsell Overlay`: only for `paid_43` on `/growth`.\n- `PDF Pending Overlay`: only in report surfaces with pending artifact generation.\n\n## Webhook-Truth Event Note\n- `purchase_complete` is emitted only after webhook-confirmed entitlement update, not on checkout return.\n\n## Route Compliance Assertions\n- `/upgrade-your-os` must remain exactly 4 tiles.\n- `/143` remains free and usable with no email; only the Challenge Kit is hard-gated.\n- `/dashboard` must redirect to `/portal`.\n- `/assessment/setup` is metadata-only and cannot start or score a run by itself.\n- `/spec-center` is internal-only (dev or key-protected) and excluded from public navigation.\n- `/results` renders in locked order: Justin's Focus, Overview, Signature Category, Coaching Questions, REPs + RAS, Share Cards.\n- `/assessment` run creation is allowed only in `paid_43` (if Run #1 unused) and `sub_active`.\n- `sub_canceled` and `past_due` retain history visibility for `/results`, `/reports`, `/growth` but cannot create new runs.\n"
+    },
+    "module_library": {
+      "id": "module_library",
+      "file_name": "02_Module_Spec_Library.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 02_Module_Spec_Library.md"
+        },
+        {
+          "level": 2,
+          "title": "Scope Lock"
+        },
+        {
+          "level": 2,
+          "title": "Module Specifications"
+        },
+        {
+          "level": 3,
+          "title": "1) Justin Coach Layer"
+        },
+        {
+          "level": 3,
+          "title": "2) Email Gate Module"
+        },
+        {
+          "level": 3,
+          "title": "3) Toolkit Delivery Module"
+        },
+        {
+          "level": 3,
+          "title": "4) Assessment Module"
+        },
+        {
+          "level": 3,
+          "title": "5) Snapshot Preview Output Module"
+        },
+        {
+          "level": 3,
+          "title": "6) Upgrade/Paywall Module"
+        },
+        {
+          "level": 3,
+          "title": "7) Report Artifact Module (HTML + PDF status/download)"
+        },
+        {
+          "level": 3,
+          "title": "8) Share Cards Module"
+        },
+        {
+          "level": 3,
+          "title": "9) Morning Affirmation Module"
+        },
+        {
+          "level": 3,
+          "title": "10) Micro Joy Generator Module"
+        },
+        {
+          "level": 3,
+          "title": "11) Growth Tracking Module"
+        },
+        {
+          "level": 2,
+          "title": "Cross-Module Contracts"
+        },
+        {
+          "level": 2,
+          "title": "Module Drift Controls"
+        }
+      ],
+      "computed_word_count": 1339,
+      "content": "### FILE: 02_Module_Spec_Library.md\n\n## Scope Lock\n- Module names are immutable and copied exactly from the V1 authoritative requirements pack.\n- No extra modules are introduced in this library.\n- Inputs/outputs are implementation-facing and map directly to routes in `01_Page_Spec_Matrix.md`.\n- QA rule: any `Events emitted` listed here must exist in `08_Event_Taxonomy_and_Analytics.md` and must be captured via route rows or global instrumentation rules.\n- `public` is the canonical pre-email/non-auth access mode; entitlement states remain `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due`.\n\n## Module Specifications\n\n### 1) Justin Coach Layer\n| Field | Spec |\n|---|---|\n| Module name | `Justin Coach Layer` |\n| Where used | `/upgrade-your-os`, `/143`, `/os-coaching`, `/justin`, `/portal`, `/results` |\n| Inputs | `user_state`, `last_completed_action`, `active_run_id`, `milestone_day`, `confidence_band`, `tone_mode` |\n| Outputs | Structured guidance blocks, Justin's Focus card (where applicable), route-level framing line, state-aware encouragement copy slot |\n| Events emitted | `coach_layer_rendered`, `coach_focus_cta_click` |\n| Gating behavior | Never unlocks paid features itself; only adjusts framing and deterministic next action display based on entitlement and run state |\n| Error/fallback | If personalization payload fails, render deterministic fallback with one neutral next action and no interpretive claims |\n\n### 2) Email Gate Module\n| Field | Spec |\n|---|---|\n| Module name | `Email Gate Module` |\n| Where used | `/143`, `/toolkit`, `/micro-joy`, `/morning`, `/os-coaching`, `/cohorts`, `/corporate`, `/login`, `/account` |\n| Inputs | `email`, `source_route`, `utm_*`, `consent_flags`, `magic_link_token` |\n| Outputs | Session identity, user bootstrap (`free_email`), magic-link auth flow, email capture confirmation |\n| Events emitted | `email_captured`, `magic_link_sent`, `magic_link_verified` |\n| Gating behavior | `/143` uses soft-page access with hard gating only for Challenge Kit assets. Other gated actions block until verified capture/auth. |\n| Error/fallback | Invalid token -> resend flow. Provider timeout -> retry + queued request + status message. Duplicate email -> attach existing account and continue |\n\n### 3) Toolkit Delivery Module\n| Field | Spec |\n|---|---|\n| Module name | `Toolkit Delivery Module` |\n| Where used | `/143`, `/toolkit` |\n| Inputs | `user_id`, `email_status`, `toolkit_version`, `delivery_channel`, `source_route` |\n| Outputs | Challenge Kit and toolkit asset links, in-app checklist, delivery receipt confirmation |\n| Events emitted | `toolkit_view`, `toolkit_download`, `toolkit_delivery_confirmed`, `challenge_kit_cta_click` |\n| Gating behavior | Free with email. `/143` keeps challenge usage open without email while gating kit delivery and reminder/kit extras behind capture. |\n| Error/fallback | Asset unavailable -> deliver fallback checklist HTML + delayed email with file links |\n\n### 4) Assessment Module\n| Field | Spec |\n|---|---|\n| Module name | `Assessment Module` |\n| Where used | `/preview`, `/assessment` |\n| Inputs | `user_id`, `entitlement_state`, `assessment_version`, `run_context` (`preview` or `full`), `resume_token`, `question_bank` |\n| Outputs | Preview snapshot payload (`preview`), full assessment run (`full`), scored raw response bundle, run completion status |\n| Events emitted | `preview_start`, `preview_complete`, `full_assessment_start`, `full_assessment_complete`, `retake_complete` |\n| Gating behavior | `preview` can start in `public`; deeper preview persistence/output requires identity capture flow. `full` allowed only for `paid_43` (if Run #1 unused) or `sub_active`; blocks new run creation for `sub_canceled` and `past_due`. |\n| Error/fallback | Incomplete run autosave; scoring timeout retries once; on repeated failure preserve response payload and route to safe retry screen |\n\n### 5) Snapshot Preview Output Module\n| Field | Spec |\n|---|---|\n| Module name | `Snapshot Preview Output Module` |\n| Where used | `/preview` |\n| Inputs | `preview_run_id`, `preview_scores`, `confidence_prelim` |\n| Outputs | Limited snapshot cards (non-full report), upgrade bridge payload |\n| Events emitted | `snapshot_preview_rendered`, `preview_complete`, `upgrade_view` |\n| Gating behavior | Exposes preview-only fields; must never expose full ray pair/category interpretation, growth comparison, or report download |\n| Error/fallback | Missing score component -> show partial snapshot with explicit missing-data marker and repeat preview CTA |\n\n### 6) Upgrade/Paywall Module\n| Field | Spec |\n|---|---|\n| Module name | `Upgrade/Paywall Module` |\n| Where used | `/preview`, `/upgrade`, `/assessment`, `/account` |\n| Inputs | `user_state`, `feature_key`, `run_usage`, `stripe_status`, `offer_context` |\n| Outputs | Entitlement check result, overlay config, checkout intent payload |\n| Events emitted | `upgrade_view`, `checkout_start`, `purchase_complete` |\n| Gating behavior | Enforces locked state model: `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due`; blocks forbidden actions and routes to valid purchase/reactivation path |\n| Error/fallback | Entitlement service unavailable -> fail closed for paid actions, fail open for public read-only actions, log incident |\n\n### 7) Report Artifact Module (HTML + PDF status/download)\n| Field | Spec |\n|---|---|\n| Module name | `Report Artifact Module (HTML + PDF status/download)` |\n| Where used | `/sample-report`, `/results`, `/reports` |\n| Inputs | `run_id`, `user_id`, `html_payload`, `pdf_job_state`, `artifact_version`, `download_request` |\n| Outputs | Instant HTML results view, PDF status widget, download action, signed URL, email-ready attachment metadata |\n| Events emitted | `results_view`, `report_download`, `report_pdf_job_enqueued`, `report_pdf_job_ready`, `report_pdf_job_failed` |\n| Gating behavior | Full artifacts only for runs user is entitled to view; no personal report access for `free_email` |\n| Error/fallback | If PDF fails, keep HTML available and surface retry-once state; if signed URL fails, regenerate token server-side |\n\n### 8) Share Cards Module\n| Field | Spec |\n|---|---|\n| Module name | `Share Cards Module` |\n| Where used | `/143`, `/sample-report`, `/micro-joy`, `/morning`, `/results`, `/growth` |\n| Inputs | `user_id`, `source_type`, `source_id`, `share_tier`, `template_version` |\n| Outputs | Rendered share card image/meta, share link, download image |\n| Events emitted | `challenge_sharecard_generate`, `microjoy_sharecard_generate`, `morning_sharecard_generate`, `results_sharecard_generate`, `growth_sharecard_generate` |\n| Gating behavior | Basic share cards are available for free-email tier and challenge kit participants; advanced milestone cards for `sub_active` |\n| Error/fallback | Image generation failure -> fallback text-only share payload and retry queue |\n\n### 9) Morning Affirmation Module\n| Field | Spec |\n|---|---|\n| Module name | `Morning Affirmation Module` |\n| Where used | `/morning` |\n| Inputs | `user_id`, `timezone`, `affirmation_template_version`, `optional_prompt_response` |\n| Outputs | Daily affirmation instance, completion log, optional prompt log |\n| Events emitted | `morning_view`, `morning_log_complete` |\n| Gating behavior | Free with email; available in all logged states (`free_email+`) |\n| Error/fallback | No template available -> serve deterministic fallback affirmation and still allow log completion |\n\n### 10) Micro Joy Generator Module\n| Field | Spec |\n|---|---|\n| Module name | `Micro Joy Generator Module` |\n| Where used | `/micro-joy` |\n| Inputs | `user_id`, `template_pool_version`, `daily_count`, `swap_count`, `favorites` |\n| Outputs | Daily micro joy prompt, swap option, done/save actions, favorites reuse |\n| Events emitted | `microjoy_view`, `microjoy_generate`, `microjoy_swap`, `microjoy_done`, `microjoy_save` |\n| Gating behavior | Free with email; enforces hard limits: `1/day` generation + `3/day` swaps; favorites repeatable anytime |\n| Error/fallback | If limit counter service unavailable, fail closed on new generates, fail open on favorites replay |\n\n### 11) Growth Tracking Module\n| Field | Spec |\n|---|---|\n| Module name | `Growth Tracking Module` |\n| Where used | `/growth` |\n| Inputs | `user_id`, `completed_runs`, `milestone_clock`, `rep_activity`, `subscription_state` |\n| Outputs | Milestone status (Day 7/21/66), trend comparisons, retake readiness, growth checkpoints |\n| Events emitted | `growth_view`, `milestone_checkpoint_view`, `retake_complete` |\n| Gating behavior | Full trend and comparisons for `sub_active`; `paid_43` sees upgrade-to-track-growth upsell only; `sub_canceled` and `past_due` see history with reactivation path |\n| Error/fallback | If comparison data incomplete, render current available history and suppress unsupported trend claims |\n\n## Cross-Module Contracts\n- `Assessment Module` publishes completion events consumed by `Report Artifact Module` and `Growth Tracking Module`.\n- `Upgrade/Paywall Module` is the only module allowed to decide paid gating.\n- `Email Gate Module` persists identity and `source_route` for return routing after magic-link verification.\n- `Report Artifact Module` must support immediate HTML and asynchronous PDF in one contract.\n- `Share Cards Module` must tag source so analytics can separate Challenge vs Morning vs Micro Joy vs Results vs Growth.\n\n## Module Drift Controls\n- Any route using a module name not in this file is a build failure.\n- Any rename of module labels is a build failure.\n- Any unlock path that bypasses `Upgrade/Paywall Module` for paid features is a build failure.\n"
+    },
+    "entitlements": {
+      "id": "entitlements",
+      "file_name": "03_Entitlements_State_Machine.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 03_Entitlements_State_Machine.md"
+        },
+        {
+          "level": 2,
+          "title": "Scope Lock"
+        },
+        {
+          "level": 2,
+          "title": "FSM Boundaries"
+        },
+        {
+          "level": 2,
+          "title": "State Access Matrix"
+        },
+        {
+          "level": 3,
+          "title": "`free_email`"
+        },
+        {
+          "level": 3,
+          "title": "`paid_43`"
+        },
+        {
+          "level": 3,
+          "title": "`sub_active`"
+        },
+        {
+          "level": 3,
+          "title": "`sub_canceled`"
+        },
+        {
+          "level": 3,
+          "title": "`past_due`"
+        },
+        {
+          "level": 2,
+          "title": "Finite Transition Table"
+        },
+        {
+          "level": 2,
+          "title": "Internal Run Completion Rules (Only Internal Transition Trigger)"
+        },
+        {
+          "level": 2,
+          "title": "State-Derived Policy Flags"
+        },
+        {
+          "level": 2,
+          "title": "Deterministic CTA Map by State"
+        },
+        {
+          "level": 2,
+          "title": "State Machine QA Assertions"
+        }
+      ],
+      "computed_word_count": 926,
+      "content": "### FILE: 03_Entitlements_State_Machine.md\n\n## Scope Lock\n- Finite entitlement states are fixed: `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due`.\n- Transitions are allowed only from Stripe webhooks and internal run completion.\n- Cancellation behavior is fixed: history remains visible; new run creation is blocked until reactivation.\n- `public` is an access mode (pre-entitlement) used for unauthenticated pages and email-gated overlays; it is not a paid entitlement state.\n\n## FSM Boundaries\n- State evaluation is server-side only.\n- Client receives signed entitlement snapshot; client cannot self-upgrade state.\n- `run_creation_allowed` is a derived boolean from state + run usage.\n\n## State Access Matrix\n\n### `free_email`\n- Accessible pages/features:\n  - Public routes, `/portal` free mode, `/143`, `/toolkit`, `/preview`, `/micro-joy`, `/morning`, `/account`.\n  - Preview assessment only.\n- Locked pages/features:\n  - `/assessment` full run, `/results`, `/reports`, `/growth` full comparisons.\n- CTAs visible:\n  - Upgrade to `$43` full assessment.\n  - Upgrade to `$14.33/month` OS Updates plan.\n- Run creation:\n  - Full run: blocked.\n  - Preview run: allowed.\n\n### `paid_43`\n- Accessible pages/features:\n  - Everything in `free_email` plus one full run workflow.\n  - Access to Run #1 results and Run #1 report artifacts.\n  - `/growth` in upsell mode (no full comparisons).\n- Locked pages/features:\n  - New full runs after Run #1 completion.\n  - Full growth comparisons and ongoing growth tracking loop.\n- CTAs visible:\n  - Start Run #1 (if unused).\n  - Upgrade to `$14.33/month` for unlimited full retakes + growth tracking.\n- Run creation:\n  - Full run: allowed only when `full_runs_completed = 0`.\n\n### `sub_active`\n- Accessible pages/features:\n  - All portal routes: `/assessment`, `/results`, `/reports`, `/growth`, `/account`.\n  - Unlimited full retakes per month.\n  - All historical results/PDFs and full growth comparisons.\n- Locked pages/features:\n  - None in core V1 scope.\n- CTAs visible:\n  - Start retake now.\n  - Milestone prompts (Day 7/21/66).\n- Run creation:\n  - Full run: allowed.\n\n### `sub_canceled`\n- Accessible pages/features:\n  - `/results`, `/reports`, `/growth` (history mode), `/account`, free-with-email tools.\n  - All previously generated runs/results/PDFs.\n- Locked pages/features:\n  - New full run creation.\n- CTAs visible:\n  - Reactivate `$14.33/month`.\n  - Keep exploring history.\n- Run creation:\n  - Full run: blocked.\n\n### `past_due`\n- Accessible pages/features:\n  - Same as `sub_canceled`: history remains available.\n  - Free-with-email tools still available.\n- Locked pages/features:\n  - New full run creation.\n- CTAs visible:\n  - Resolve payment and reactivate access.\n- Run creation:\n  - Full run: blocked.\n\n## Finite Transition Table\n\n| From State | Trigger Source | Trigger | Condition | To State | Required Mutations |\n|---|---|---|---|---|---|\n| bootstrap | internal | Account created or email captured | Email verified/persisted | `free_email` | Set `entitlement_state=free_email`; init counters |\n| `free_email` | Stripe webhook | `checkout.session.completed` | `mode=payment` and product=`assessment_43` | `paid_43` | Set one-time entitlement; set `run_quota_type=single`; `run_quota_remaining=1` |\n| `free_email` | Stripe webhook | `checkout.session.completed` or `customer.subscription.created` | Subscription product=`os_updates_1433` and status active/trialing | `sub_active` | Set subscription IDs, state active, monthly retake allowance unlimited |\n| `paid_43` | internal run completion | `full_assessment_complete` | First full run completed successfully | `paid_43` | Decrement `run_quota_remaining` to `0`; stamp `run1_completed_at` |\n| `paid_43` | Stripe webhook | `checkout.session.completed` or `customer.subscription.created` | Subscription purchase active | `sub_active` | Attach subscription, clear single-run quota lock |\n| `sub_active` | Stripe webhook | `invoice.payment_failed` | Latest invoice unpaid after retry policy entry | `past_due` | Set `billing_block_reason=past_due`; keep history accessible |\n| `sub_active` | Stripe webhook | `customer.subscription.deleted` | Subscription ended/canceled effective now | `sub_canceled` | Set `ended_at`; block new run creation |\n| `sub_active` | Stripe webhook | `customer.subscription.updated` | `cancel_at_period_end=true` but period not ended | `sub_active` | Keep active; set `scheduled_cancel=true`; no access reduction yet |\n| `past_due` | Stripe webhook | `invoice.paid` | Payment recovered on same subscription | `sub_active` | Clear past due flags; restore run creation |\n| `past_due` | Stripe webhook | `customer.subscription.deleted` | Subscription terminated during dunning | `sub_canceled` | Move to canceled history state |\n| `sub_canceled` | Stripe webhook | `checkout.session.completed` or `customer.subscription.updated` | Reactivation purchase active | `sub_active` | Set active subscription dates; clear run lock |\n| `past_due` | Stripe webhook | `checkout.session.completed` | Reactivation checkout active | `sub_active` | Replace/restore subscription IDs and active state |\n\n## Internal Run Completion Rules (Only Internal Transition Trigger)\n- Internal event used: `full_assessment_complete`.\n- Allowed effects:\n  - `paid_43`: consume one run entitlement (state remains `paid_43`).\n  - `sub_active`: increment run count; emit `retake_complete` for run numbers >1.\n- Prohibited effects:\n  - Internal logic cannot upgrade or downgrade billing state.\n  - Internal logic cannot bypass webhook-confirmed payment status.\n\n## State-Derived Policy Flags\n\n| Policy Flag | free_email | paid_43 | sub_active | sub_canceled | past_due |\n|---|---|---|---|---|---|\n| `can_start_full_run` | false | true (only if quota remains) | true | false | false |\n| `can_view_results` | false | true | true | true | true |\n| `can_view_reports` | false | true | true | true | true |\n| `growth_access_mode` | none | upsell_only | full | history_only | history_only |\n| `reactivation_cta_required` | false | false | false | true | true |\n\n## Deterministic CTA Map by State\n- `free_email`: preview + upgrade CTA.\n- `paid_43` (before run): start Run #1 CTA.\n- `paid_43` (after run): upgrade to subscription CTA.\n- `sub_active`: retake now CTA.\n- `sub_canceled`: reactivate CTA.\n- `past_due`: fix payment CTA.\n\n## State Machine QA Assertions\n- No entitlement state outside the five locked values can be persisted.\n- `sub_canceled` and `past_due` must always keep read access to historical results/reports.\n- New run creation must hard-fail for `sub_canceled` and `past_due` regardless of client state.\n- `paid_43` must never create Run #2 without transition to `sub_active`.\n"
+    },
+    "retention_engine": {
+      "id": "retention_engine",
+      "file_name": "06_Email_Automations_Blueprint.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 06_Email_Automations_Blueprint.md"
+        },
+        {
+          "level": 2,
+          "title": "Scope Lock"
+        },
+        {
+          "level": 2,
+          "title": "Shared Automation Conventions"
+        },
+        {
+          "level": 2,
+          "title": "Tag Dictionary"
+        },
+        {
+          "level": 2,
+          "title": "Entitlement State Sync Hooks (Webhook-Driven)"
+        },
+        {
+          "level": 2,
+          "title": "Track A: Welcome + Setup (Email Captured) + Day 7 Checkpoint"
+        },
+        {
+          "level": 2,
+          "title": "Track B: Habit Loop Emails (Mon/Wed/Fri default)"
+        },
+        {
+          "level": 2,
+          "title": "Track C: Preview Started Not Completed"
+        },
+        {
+          "level": 2,
+          "title": "Track D: Preview Completed Not Paid (+ Milestones)"
+        },
+        {
+          "level": 2,
+          "title": "Track E: Purchase Onboarding (`$43`)"
+        },
+        {
+          "level": 2,
+          "title": "Track F: Subscriber Milestone Retake Prompts"
+        },
+        {
+          "level": 2,
+          "title": "Track G: Inactive Re-Engagement (7/10/14)"
+        },
+        {
+          "level": 2,
+          "title": "Report-Ready Email (Mandatory)"
+        },
+        {
+          "level": 2,
+          "title": "Milestone Push Logic (Day 7 / 21 / 66)"
+        },
+        {
+          "level": 3,
+          "title": "Day 7"
+        },
+        {
+          "level": 3,
+          "title": "Day 21 (OS Update Conversion Peak)"
+        },
+        {
+          "level": 3,
+          "title": "Day 66"
+        },
+        {
+          "level": 2,
+          "title": "Automation QA Guards"
+        }
+      ],
+      "computed_word_count": 1262,
+      "content": "### FILE: 06_Email_Automations_Blueprint.md\n\n## Scope Lock\n- This file defines automation logic only (no final marketing copy).\n- Tracks A-G are mandatory.\n- Must include report-ready email and milestone pushes for Day 7 / Day 21 / Day 66.\n- Day 21 segmentation is mandatory by user state.\n\n## Shared Automation Conventions\n- Timezone: user local timezone from profile.\n- Quiet hours: no send between 9:00 PM and 7:00 AM local.\n- Suppression rule: if target action already completed, suppress that step.\n- Tone lock: positive, ownership-forward, no “you’re behind” framing.\n- Tone reminder: never use deficit framing; use “ready for your next OS update” or “your next rep.”\n- `/143` no-email challenge starts do not enter email tracks until `email_captured` occurs.\n\n## Tag Dictionary\n- State tags:\n  - `state_free_email`\n  - `state_paid_43`\n  - `state_sub_active`\n  - `state_sub_canceled`\n  - `state_past_due`\n- Journey tags:\n  - `journey_preview_started`\n  - `journey_preview_completed`\n  - `journey_paid_43_purchased`\n  - `journey_full_run_completed`\n  - `journey_report_ready`\n  - `journey_report_ready_failed_pdf`\n  - `journey_subscribed`\n- Milestone tags:\n  - `ms_day7_due`\n  - `ms_day21_due`\n  - `ms_day66_due`\n- Campaign window tags:\n  - `day21_conversion_window`\n  - `day66_install_window`\n- Engagement tags:\n  - `engagement_inactive_7`\n  - `engagement_inactive_10`\n  - `engagement_inactive_14`\n\n## Entitlement State Sync Hooks (Webhook-Driven)\n- On `subscription_canceled`: remove `state_sub_active`, apply `state_sub_canceled`.\n- On `payment_failed`: remove `state_sub_active`, apply `state_past_due`.\n- On `reactivated` or `subscription_started`: remove `state_sub_canceled` and `state_past_due`, apply `state_sub_active`.\n\n## Track A: Welcome + Setup (Email Captured) + Day 7 Checkpoint\n\n| Step | Trigger + conditions/tags | Send delay | Target route link | Tags applied/removed |\n|---|---|---|---|---|\n| A1 | `email_captured` from any public/email-gated route; no prior welcome sent | Immediate | Source-aware route: captured `source_route` if allowed (`/143`, `/toolkit`, `/preview`, `/micro-joy`, `/morning`, `/os-coaching`, `/cohorts`, `/corporate`); fallback `/upgrade-your-os` | Apply `state_free_email` |\n| A2 | A1 sent and no `preview_start` yet | +24h | `/preview` | No tag change |\n| A3 | A1 sent and no `morning_log_complete` + no `microjoy_done` | +72h | `/morning` and `/micro-joy` | Apply `engagement_inactive_7` precursor |\n| A4 (Day 7) | `ms_day7_due` and state in (`free_email`,`paid_43`,`sub_active`,`sub_canceled`,`past_due`) | Day 7 at 8:00 AM local | State-specific: `/portal` | Remove `engagement_inactive_7` if action completed in prior 24h |\n\n## Track B: Habit Loop Emails (Mon/Wed/Fri default)\n\n| Step | Trigger + conditions/tags | Send delay | Target route link | Tags applied/removed |\n|---|---|---|---|---|\n| B1 | User has any of: `email_captured`, `purchase_complete`, `subscription_started` | Next Mon 8:00 AM | `/portal` | None |\n| B2 | No `morning_log_complete` in past 48h | Next Wed 8:00 AM | `/morning` | None |\n| B3 | No `microjoy_done` in past 48h | Next Fri 8:00 AM | `/micro-joy` | None |\n| B4 | `sub_active` and no `retake_complete` in 21+ days | Next Mon 8:00 AM | `/assessment` | Apply `ms_day21_due` if day threshold met |\n\n## Track C: Preview Started Not Completed\n\n| Step | Trigger + conditions/tags | Send delay | Target route link | Tags applied/removed |\n|---|---|---|---|---|\n| C1 | `preview_start` and no `preview_complete` | +6h | `/preview` | Apply `journey_preview_started` |\n| C2 | `preview_start` and still no `preview_complete` | +24h | `/preview` | Keep `journey_preview_started` |\n| C3 | `preview_complete` occurs | Immediate suppression | N/A | Remove `journey_preview_started`; apply `journey_preview_completed` |\n\n## Track D: Preview Completed Not Paid (+ Milestones)\n\n| Step | Trigger + conditions/tags | Send delay | Target route link | Tags applied/removed |\n|---|---|---|---|---|\n| D1 | `preview_complete` and state=`free_email` and no `purchase_complete` | Immediate | `/upgrade` | Apply `journey_preview_completed` |\n| D2 | D1 sent and no `purchase_complete` | +1 day | `/sample-report` then `/upgrade` | None |\n| D3 | D2 sent and no `purchase_complete` | +3 days | `/upgrade` | None |\n| D4 | D3 sent and no `purchase_complete` | +6 days | `/upgrade` | Apply `ms_day7_due` if not present |\n| D5 (Day 21 push) | `ms_day21_due` and still state=`free_email` or `paid_43` without subscription | Day 21 | `/upgrade` | Apply `day21_conversion_window` |\n| D6 (Day 66 push) | `ms_day66_due` and not `sub_active` | Day 66 | `/upgrade` | Apply `day66_install_window` |\n\n## Track E: Purchase Onboarding (`$43`)\nGuard: triggers that rely on `purchase_complete` are webhook-confirmed only.\n\n| Step | Trigger + conditions/tags | Send delay | Target route link | Tags applied/removed |\n|---|---|---|---|---|\n| E1 | `purchase_complete` with product=`assessment_43` | Immediate | `/assessment` | Apply `state_paid_43`; apply `journey_paid_43_purchased` |\n| E2 | E1 sent and no `full_assessment_start` | +12h | `/assessment` | None |\n| E3 | `full_assessment_complete` for Run #1 | Immediate | `/results` | Apply `journey_full_run_completed` |\n| E4 | E3 sent and report not yet downloaded | +24h | `/reports` | None |\n| E5 | E3 sent and no subscription | +3 days | `/upgrade` | Apply `ms_day21_due` timer start |\n\n## Track F: Subscriber Milestone Retake Prompts\n\n| Step | Trigger + conditions/tags | Send delay | Target route link | Tags applied/removed |\n|---|---|---|---|---|\n| F1 | `subscription_started` or `reactivated` | Immediate | `/growth` | Apply `state_sub_active`; apply `journey_subscribed` |\n| F2 (Day 7) | `ms_day7_due` and state=`sub_active` | Day 7 | `/growth` | None |\n| F3 (Day 21) | `ms_day21_due` and state=`sub_active` | Day 21 | `/assessment` | None |\n| F4 (Day 66) | `ms_day66_due` and state=`sub_active` | Day 66 | `/growth` and `/assessment` | None |\n\n## Track G: Inactive Re-Engagement (7/10/14)\n\n| Step | Trigger + conditions/tags | Send delay | Target route link | Tags applied/removed |\n|---|---|---|---|---|\n| G1 | No qualifying activity for 7 days (`morning_log_complete`, `microjoy_done`, `full_assessment_start`, `results_view`) | Day 7 | `/portal` | Apply `engagement_inactive_7` |\n| G2 | Still inactive after G1 | Day 10 | State-based: `/morning` for free tiers, `/assessment` for active subscriber | Remove `engagement_inactive_7`; apply `engagement_inactive_10` |\n| G3 | Still inactive after G2 | Day 14 | State-based: `/upgrade` for non-subscriber, `/assessment` for subscriber, `/account` for past_due | Remove `engagement_inactive_10`; apply `engagement_inactive_14` |\n| G4 | Any qualifying activity occurs | Immediate suppression | N/A | Remove inactive tags |\n\n## Report-Ready Email (Mandatory)\n\n| Step | Trigger + conditions/tags | Send delay | Target route link | Tags applied/removed |\n|---|---|---|---|---|\n| R1 | `report_pdf_job_ready` for run | Immediate | `/reports?run_id={run_id}` | Apply `journey_report_ready` |\n| R2 | `report_pdf_job_failed` after one retry | Immediate | `/results?run_id={run_id}` | Apply `journey_report_ready_failed_pdf` |\n\nDelivery contract for R1:\n- Include PDF attachment when within size policy.\n- Include signed URL link always.\n- If attachment skipped due to size, link remains mandatory.\n\n## Milestone Push Logic (Day 7 / 21 / 66)\n\n### Day 7\n- Objective: momentum checkpoint.\n- Primary route: `/portal`.\n- State-specific branch:\n  - `free_email`: route to `/preview`.\n  - `paid_43`: route to `/assessment` if Run #1 not complete, otherwise `/results`.\n  - `sub_active`: route to `/growth`.\n  - `sub_canceled` and `past_due`: route to `/account` + reactivation context.\n\n### Day 21 (OS Update Conversion Peak)\n- Objective: convert progress into retake loop.\n- Branching requirements (locked):\n  - `paid_43` and not subscribed:\n    - Push `$14.33/month` as unlimited full retakes + tracking unlock.\n    - Route: `/upgrade`.\n  - `sub_active`:\n    - Push retake prompt.\n    - Route: `/assessment`.\n  - `sub_canceled` or `past_due`:\n    - Push reactivation CTA.\n    - Route: `/account` then `/upgrade`.\n\n### Day 66\n- Objective: deep install checkpoint.\n- Branching:\n  - `sub_active`: retake + growth comparison prompt.\n  - `paid_43`: subscription attach prompt.\n  - `sub_canceled`/`past_due`: reactivation and continue from history.\n\n## Automation QA Guards\n- No sequence sends if trigger event already satisfied downstream action.\n- No duplicate send within 24h for same track step and user.\n- No sends during quiet hours.\n- All emails must carry deterministic next route CTA.\n- No negative pacing language (“behind”, “late”, “missed your chance”).\n"
+    },
+    "qa_drift": {
+      "id": "qa_drift",
+      "file_name": "08_Event_Taxonomy_and_Analytics.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 08_Event_Taxonomy_and_Analytics.md"
+        },
+        {
+          "level": 2,
+          "title": "Scope Lock"
+        },
+        {
+          "level": 2,
+          "title": "Common Required Properties (All Events)"
+        },
+        {
+          "level": 2,
+          "title": "Canonical Event List"
+        },
+        {
+          "level": 3,
+          "title": "Identity and Coach Layer Events"
+        },
+        {
+          "level": 3,
+          "title": "Challenge, Toolkit, Morning, Micro Joy, Share Events"
+        },
+        {
+          "level": 3,
+          "title": "Preview, Assessment, Results, Reports, Growth Events"
+        },
+        {
+          "level": 3,
+          "title": "Billing and Entitlement Events"
+        },
+        {
+          "level": 2,
+          "title": "Canonical `page_view_*` Events (Locked + Approved V1-Lite Routes)"
+        },
+        {
+          "level": 2,
+          "title": "Event Property Contracts by Funnel Stage"
+        },
+        {
+          "level": 3,
+          "title": "Acquisition and Challenge"
+        },
+        {
+          "level": 3,
+          "title": "Preview"
+        },
+        {
+          "level": 3,
+          "title": "Purchase and Billing"
+        },
+        {
+          "level": 3,
+          "title": "Assessment and Results"
+        },
+        {
+          "level": 3,
+          "title": "Habit and Growth"
+        },
+        {
+          "level": 2,
+          "title": "Core Funnel Metrics (Locked Sequence)"
+        },
+        {
+          "level": 3,
+          "title": "1) Email Capture Rate"
+        },
+        {
+          "level": 3,
+          "title": "2) Preview Start Rate"
+        },
+        {
+          "level": 3,
+          "title": "3) Preview Completion Rate"
+        },
+        {
+          "level": 3,
+          "title": "4) `$43` Conversion Rate"
+        },
+        {
+          "level": 3,
+          "title": "5) Subscription Attach Rate"
+        },
+        {
+          "level": 3,
+          "title": "6) Retake Utilization Rate"
+        },
+        {
+          "level": 3,
+          "title": "7) Payment Recovery Rate"
+        },
+        {
+          "level": 3,
+          "title": "8) History Retention Use (Canceled/Past Due)"
+        },
+        {
+          "level": 2,
+          "title": "Automation Dependencies by Event"
+        },
+        {
+          "level": 2,
+          "title": "Cross-File Consistency Checks (Ship-Stoppers)"
+        },
+        {
+          "level": 2,
+          "title": "Analytics QA Rules"
+        }
+      ],
+      "computed_word_count": 1449,
+      "content": "### FILE: 08_Event_Taxonomy_and_Analytics.md\n\n## Scope Lock\n- This file is the canonical source of truth for analytics event names and required event properties.\n- Any event referenced in `01_Page_Spec_Matrix.md`, `02_Module_Spec_Library.md`, or `06_Email_Automations_Blueprint.md` must exist here.\n- Event names are immutable once shipped.\n\n## Common Required Properties (All Events)\n- `event_name` (string)\n- `event_ts_utc` (ISO timestamp)\n- `source_route` (locked route path)\n- `user_id` (nullable for `public`)\n- `session_id` (string)\n- `user_state` (`public|free_email|paid_43|sub_active|sub_canceled|past_due`)\n- `app_version` (string)\n- `schema_version` (int)\n\n## Canonical Event List\n\n### Identity and Coach Layer Events\n| Event name | Required event-specific properties | Where fired | Used by automation/metric |\n|---|---|---|---|\n| `email_captured` | `source_route`, `source`, `email_domain`, `consent_marketing`, `utm_source`, `utm_medium`, `utm_campaign` | Email gate submissions across gated routes | Track A onboarding; top-of-funnel capture rate |\n| `magic_link_sent` | `delivery_channel`, `resend_count` | Login/email-gate magic link send action | Auth completion funnel |\n| `magic_link_verified` | `verification_latency_ms` | Successful magic link verification | Auth success rate |\n| `coach_layer_rendered` | `focus_context`, `render_variant` | Any route with `Justin Coach Layer` | Coach layer coverage and personalization uptime |\n| `coach_focus_cta_click` | `focus_cta_target`, `focus_context` | Justin Focus CTA click | Focus CTA conversion rate |\n\n### Challenge, Toolkit, Morning, Micro Joy, Share Events\n| Event name | Required event-specific properties | Where fired | Used by automation/metric |\n|---|---|---|---|\n| `challenge_start_no_email` | `entry_variant` (`hero|inline|footer`) | `/143` no-email challenge start action | Viral free-start completion funnel |\n| `challenge_kit_cta_click` | `cta_slot` (`hero|aha|footer`) | `/143` kit CTA actions | Challenge kit conversion by placement |\n| `toolkit_view` | `toolkit_version` | `/toolkit` and `/143` kit panel/module load | Toolkit engagement |\n| `toolkit_download` | `toolkit_version`, `asset_key` | Toolkit/kit file link click | Asset-level download rate |\n| `toolkit_delivery_confirmed` | `toolkit_version`, `confirmation_method` (`receipt_confirm|checklist_complete`) | Toolkit/kit receipt confirmation | Delivery completion metric |\n| `morning_view` | `template_key`, `local_date` | `/morning` | Habit loop triggers (Track B) |\n| `morning_log_complete` | `template_key`, `local_date`, `has_optional_prompt` | Morning completion action | Track B/G suppression; daily habit completion |\n| `morning_sharecard_generate` | `share_card_id`, `tier`, `template_version` | Morning share card generation | Morning share conversion |\n| `microjoy_view` | `local_date`, `remaining_generates`, `remaining_swaps` | `/micro-joy` load | Habit loop visibility metric |\n| `microjoy_generate` | `template_key`, `local_date`, `generation_index` | Micro Joy generate action | Track B/G suppression; usage metric |\n| `microjoy_swap` | `from_template_key`, `to_template_key`, `swap_index`, `local_date` | Swap action | Swap-limit QA and behavior metric |\n| `microjoy_done` | `template_key`, `local_date` | Done action | Habit completion metric |\n| `microjoy_save` | `template_key`, `saved_to_favorites` | Save action | Favorites adoption metric |\n| `challenge_sharecard_generate` | `share_card_id`, `tier`, `template_version` | Challenge share card generation (`/143`) | Challenge share conversion |\n| `microjoy_sharecard_generate` | `share_card_id`, `tier`, `template_version` | Micro Joy share card generation | Share conversion metric |\n| `results_sharecard_generate` | `share_card_id`, `run_id`, `tier`, `template_version` | Results share card generation | Results sharing metric |\n| `growth_sharecard_generate` | `share_card_id`, `run_id`, `tier`, `template_version` | Growth share card generation | Growth sharing metric |\n\n### Preview, Assessment, Results, Reports, Growth Events\n| Event name | Required event-specific properties | Where fired | Used by automation/metric |\n|---|---|---|---|\n| `preview_start` | `preview_run_id`, `assessment_version` | Preview assessment start | Track C; preview-start funnel step |\n| `preview_complete` | `preview_run_id`, `completion_seconds`, `assessment_version` | Preview completion | Track D; preview completion rate |\n| `snapshot_preview_rendered` | `preview_run_id`, `snapshot_version` | Snapshot cards render | Preview output quality metric |\n| `full_assessment_start` | `run_id`, `run_number`, `assessment_version` | `/assessment` full run start | Run initiation metric |\n| `full_assessment_complete` | `run_id`, `run_number`, `assessment_version`, `completion_seconds` | Assessment completion service | Report pipeline trigger; run completion metric |\n| `retake_complete` | `run_id`, `run_number`, `days_since_previous_full_run` | Completion of full run #2+ | Retake utilization and growth loop metric |\n| `results_view` | `run_id`, `run_number`, `confidence_band`, `signature_category_key` | `/results` | Results consumption metric |\n| `report_download` | `run_id`, `artifact_type`, `delivery_mode` (`attachment|signed_url`) | `/reports` and report-download surfaces | Report engagement metric |\n| `report_pdf_job_enqueued` | `run_id`, `artifact_version` | Report pipeline queue insert | Pipeline throughput |\n| `report_pdf_job_ready` | `run_id`, `artifact_version`, `pdf_size_bytes` | Report pipeline success | Report-ready email trigger |\n| `report_pdf_job_failed` | `run_id`, `artifact_version`, `attempt_count`, `error_code` | Report pipeline terminal failure | Fallback email trigger |\n| `growth_view` | `view_mode` (`upsell_only|full|history_only`) | `/growth` | Growth feature adoption |\n| `milestone_checkpoint_view` | `milestone_day` (`7|21|66`), `checkpoint_status` | Growth milestone tile/detail view | Milestone completion analytics |\n\n### Billing and Entitlement Events\n| Event name | Required event-specific properties | Where fired | Used by automation/metric |\n|---|---|---|---|\n| `upgrade_view` | `offer_context`, `from_route`, `user_state_at_view` | `/upgrade` and paywall overlays | Conversion funnel and offer diagnostics |\n| `checkout_start` | `product_sku`, `amount_cents`, `currency`, `billing_mode` | Stripe checkout initiation | Checkout initiation rate |\n| `purchase_complete` | `product_sku`, `amount_cents`, `currency`, `stripe_checkout_session_id` | Server-side post-webhook entitlement update | Revenue conversion; Track E |\n| `subscription_started` | `stripe_subscription_id`, `price_id`, `billing_cycle_anchor` | Webhook-driven entitlement activation | Subscription attach rate; Track F start |\n| `subscription_canceled` | `stripe_subscription_id`, `effective_at`, `reason_code` | Cancellation effective | Churn metric; reactivation campaigns |\n| `payment_failed` | `stripe_subscription_id`, `invoice_id`, `attempt_count` | Invoice failure webhook | Dunning flow; failure-rate metric |\n| `reactivated` | `stripe_subscription_id`, `reactivation_source` | Recovery from canceled/past_due | Reactivation rate; Track F restart |\n\n## Canonical `page_view_*` Events (Locked + Approved V1-Lite Routes)\n- All `page_view_*` events require `entry_source`.\n- `utm_*` properties are not required on page views; campaign attribution is captured on `email_captured`.\n\n| Event name | Route |\n|---|---|\n| `page_view_root` | `/` |\n| `page_view_upgrade_os` | `/upgrade-your-os` |\n| `page_view_143` | `/143` |\n| `page_view_toolkit` | `/toolkit` |\n| `page_view_preview` | `/preview` |\n| `page_view_upgrade` | `/upgrade` |\n| `page_view_sample_report` | `/sample-report` |\n| `page_view_how_it_works` | `/how-it-works` |\n| `page_view_pricing` | `/pricing` |\n| `page_view_microjoy` | `/micro-joy` |\n| `page_view_morning` | `/morning` |\n| `page_view_os_coaching` | `/os-coaching` |\n| `page_view_cohorts` | `/cohorts` |\n| `page_view_corporate` | `/corporate` |\n| `page_view_enterprise` | `/enterprise` |\n| `page_view_justin` | `/justin` |\n| `page_view_outcomes` | `/outcomes` |\n| `page_view_faq` | `/faq` |\n| `page_view_privacy` | `/privacy` |\n| `page_view_terms` | `/terms` |\n| `page_view_login` | `/login` |\n| `page_view_dashboard` | `/dashboard` |\n| `page_view_portal` | `/portal` |\n| `page_view_assessment_setup` | `/assessment/setup` |\n| `page_view_assessment` | `/assessment` |\n| `page_view_results` | `/results` |\n| `page_view_coach` | `/coach` |\n| `page_view_reports` | `/reports` |\n| `page_view_growth` | `/growth` |\n| `page_view_account` | `/account` |\n| `page_view_spec_center` | `/spec-center` |\n\n## Event Property Contracts by Funnel Stage\n\n### Acquisition and Challenge\n- Events: `page_view_upgrade_os`, `page_view_143`, `challenge_start_no_email`, `challenge_kit_cta_click`, `email_captured`.\n- Required event-specific notes:\n  - `email_captured` carries `source_route` and `utm_*` attribution.\n  - `page_view_*` carries `entry_source` only.\n\n### Preview\n- Events: `preview_start`, `preview_complete`, `snapshot_preview_rendered`.\n- Required event-specific notes:\n  - `preview_complete` must include `completion_seconds`.\n\n### Purchase and Billing\n- Events: `upgrade_view`, `checkout_start`, `purchase_complete`, `subscription_started`, `subscription_canceled`, `payment_failed`, `reactivated`.\n- Required event-specific notes:\n  - Billing events must include Stripe identifiers for reconciliation.\n\n### Assessment and Results\n- Events: `full_assessment_start`, `full_assessment_complete`, `results_view`, `report_download`, `retake_complete`.\n- Required event-specific notes:\n  - `retake_complete` fires only for run numbers greater than 1.\n\n### Habit and Growth\n- Events: `morning_*`, `microjoy_*`, `growth_view`, `milestone_checkpoint_view`, `*_sharecard_generate`.\n\n## Core Funnel Metrics (Locked Sequence)\n\n### 1) Email Capture Rate\n- Definition: `unique users with email_captured / unique users on email-gated routes`.\n\n### 2) Preview Start Rate\n- Definition: `preview_start / eligible users who viewed /preview`.\n\n### 3) Preview Completion Rate\n- Definition: `preview_complete / preview_start`.\n\n### 4) `$43` Conversion Rate\n- Definition: `purchase_complete(product_sku=assessment_43) / preview_complete`.\n\n### 5) Subscription Attach Rate\n- Definition: `subscription_started / users with purchase_complete(product_sku=assessment_43)`.\n\n### 6) Retake Utilization Rate\n- Definition: `users with retake_complete / users in sub_active` per monthly cohort.\n\n### 7) Payment Recovery Rate\n- Definition: `reactivated / payment_failed` within 14 days.\n\n### 8) History Retention Use (Canceled/Past Due)\n- Definition: `results_view or report_download by sub_canceled/past_due users / total users in those states`.\n\n## Automation Dependencies by Event\n- Track A depends on: `email_captured`.\n- Track B depends on: `morning_log_complete`, `microjoy_done`.\n- Track C depends on: `preview_start`, `preview_complete`.\n- Track D depends on: `preview_complete`, absence of `purchase_complete`.\n- Track E depends on: `purchase_complete`, `full_assessment_complete`, `report_download`.\n- Track F depends on: `subscription_started`, `retake_complete`.\n- Track G depends on inactivity windows computed from habit and assessment events.\n- Report-ready email depends on: `report_pdf_job_ready`, fallback on `report_pdf_job_failed`.\n\n## Cross-File Consistency Checks (Ship-Stoppers)\n- [ ] All events in `01_Page_Spec_Matrix.md` are present in this file.\n- [ ] All events in `02_Module_Spec_Library.md` are present in this file.\n- [ ] All trigger events in `06_Email_Automations_Blueprint.md` are present in this file.\n- [ ] No orphan events exist in route/module/automation files without canonical definitions.\n\n## Analytics QA Rules\n- Missing common required properties invalidate ingestion.\n- Any event with `run_id` must reference an existing run record.\n- Billing events must carry Stripe IDs for reconciliation.\n- `retake_complete` must only fire for run numbers greater than 1.\n"
+    },
+    "design_tokens": {
+      "id": "design_tokens",
+      "file_name": "10_Design_System_Tokens.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 10_Design_System_Tokens.md"
+        },
+        {
+          "level": 2,
+          "title": "Scope Lock"
+        },
+        {
+          "level": 2,
+          "title": "1) Core Tokens (Raw)"
+        },
+        {
+          "level": 2,
+          "title": "2) Semantic Color Tokens"
+        },
+        {
+          "level": 2,
+          "title": "3) Typography Tokens"
+        },
+        {
+          "level": 2,
+          "title": "4) Component Token Rules"
+        },
+        {
+          "level": 3,
+          "title": "Backgrounds"
+        },
+        {
+          "level": 3,
+          "title": "Buttons"
+        },
+        {
+          "level": 3,
+          "title": "Links"
+        },
+        {
+          "level": 3,
+          "title": "Progress Bars"
+        },
+        {
+          "level": 3,
+          "title": "Alerts"
+        },
+        {
+          "level": 3,
+          "title": "Cards"
+        },
+        {
+          "level": 2,
+          "title": "5) Interaction Tokens"
+        },
+        {
+          "level": 2,
+          "title": "6) Accessibility Guardrails (Without Color Changes)"
+        },
+        {
+          "level": 2,
+          "title": "7) Route-Level Visual Application Rules"
+        },
+        {
+          "level": 2,
+          "title": "8) Token QA Checklist"
+        }
+      ],
+      "computed_word_count": 708,
+      "content": "### FILE: 10_Design_System_Tokens.md\n\n## Scope Lock\n- Primary palette is logo-locked and immutable:\n  - Ray Purple `#60058D`\n  - Sun Gold `#F8D011`\n  - Banner Black `#020202`\n  - Outline White `#FDFCFD`\n- Primary gradient is immutable:\n  - `linear-gradient(90deg, #60058D 0%, #F8D011 100%)`\n- Accessibility guidance must be achieved without changing locked hex values.\n- If any other doc conflicts on colors, this file wins.\n\n## 1) Core Tokens (Raw)\n\n```css\n:root {\n  --color-ray-purple: #60058D;\n  --color-sun-gold: #F8D011;\n  --color-banner-black: #020202;\n  --color-outline-white: #FDFCFD;\n\n  --gradient-primary: linear-gradient(90deg, #60058D 0%, #F8D011 100%);\n}\n```\n\n## 2) Semantic Color Tokens\n\n```css\n:root {\n  /* Backgrounds */\n  --bg-page: var(--color-outline-white);\n  --bg-surface: #FFFFFF;\n  --bg-elevated: #F9F5FC; /* Purple-tinted surface using locked palette family */\n  --bg-inverse: var(--color-banner-black);\n\n  /* Text */\n  --text-primary: var(--color-banner-black);\n  --text-secondary: #2A2A2A;\n  --text-on-purple: var(--color-outline-white);\n  --text-on-gold: var(--color-banner-black);\n  --text-link: var(--color-ray-purple);\n\n  /* Borders */\n  --border-default: #E9E3EE;\n  --border-strong: var(--color-ray-purple);\n  --border-inverse: #2F2F2F;\n\n  /* Buttons */\n  --btn-primary-bg: var(--gradient-primary);\n  --btn-primary-text: var(--color-banner-black);\n  --btn-secondary-bg: var(--color-outline-white);\n  --btn-secondary-text: var(--color-ray-purple);\n  --btn-secondary-border: var(--color-ray-purple);\n  --btn-danger-bg: var(--color-banner-black);\n  --btn-danger-text: var(--color-outline-white);\n\n  /* Feedback/alerts (palette-safe tints) */\n  --alert-info-bg: #F5EAFE;\n  --alert-info-text: #3F0560;\n  --alert-success-bg: #FFFBE2;\n  --alert-success-text: #4A3B00;\n  --alert-warning-bg: #FFF4C2;\n  --alert-warning-text: #3C2C00;\n  --alert-critical-bg: #1A1A1A;\n  --alert-critical-text: var(--color-outline-white);\n\n  /* Progress */\n  --progress-track: #EFE7F5;\n  --progress-fill: var(--gradient-primary);\n  --progress-marker: var(--color-ray-purple);\n\n  /* Cards */\n  --card-bg: #FFFFFF;\n  --card-border: #E7DDF0;\n  --card-shadow: 0 8px 24px rgba(2, 2, 2, 0.08);\n}\n```\n\n## 3) Typography Tokens\n\n```css\n:root {\n  --font-display: \"Avenir Next\", \"Segoe UI\", sans-serif;\n  --font-body: \"Avenir Next\", \"Segoe UI\", sans-serif;\n  --font-mono: \"SFMono-Regular\", \"Menlo\", monospace;\n\n  --type-xxl: 48px;\n  --type-xl: 36px;\n  --type-lg: 28px;\n  --type-md: 20px;\n  --type-sm: 16px;\n  --type-xs: 14px;\n  --type-xxs: 12px;\n\n  --line-tight: 1.15;\n  --line-normal: 1.4;\n  --line-relaxed: 1.6;\n\n  --weight-regular: 400;\n  --weight-medium: 500;\n  --weight-semibold: 600;\n  --weight-bold: 700;\n}\n```\n\n## 4) Component Token Rules\n\n### Backgrounds\n- Public and portal default background: `--bg-page`.\n- Highlight bands and milestone cards: `--bg-elevated`.\n- Inverse sections (footer/critical notices): `--bg-inverse`.\n\n### Buttons\n- Primary CTA (purchase, start run, reactivate):\n  - Background: `--btn-primary-bg`\n  - Text: `--btn-primary-text`\n  - Radius: `12px`\n- Secondary CTA:\n  - Background: `--btn-secondary-bg`\n  - Border: `1px solid --btn-secondary-border`\n  - Text: `--btn-secondary-text`\n\n### Links\n- Standard links use `--text-link`.\n- Hover state: darken purple via opacity (not alternate hue).\n- Underline required on text-only links inside long-form copy.\n\n### Progress Bars\n- Track: `--progress-track`.\n- Fill: `--progress-fill`.\n- Milestone markers (Day 7/21/66): `--progress-marker` with gold accent dot.\n\n### Alerts\n- Info states (gating explanation): `--alert-info-*`.\n- Success states (report ready, reactivated): `--alert-success-*`.\n- Warning states (past due pending): `--alert-warning-*`.\n- Critical states (hard failures): `--alert-critical-*`.\n\n### Cards\n- Base card:\n  - `background: --card-bg`\n  - `border: 1px solid --card-border`\n  - `box-shadow: --card-shadow`\n  - `border-radius: 16px`\n- Signature category cards can use purple top border + gold micro-accent only.\n\n## 5) Interaction Tokens\n\n```css\n:root {\n  --radius-sm: 8px;\n  --radius-md: 12px;\n  --radius-lg: 16px;\n\n  --space-1: 4px;\n  --space-2: 8px;\n  --space-3: 12px;\n  --space-4: 16px;\n  --space-5: 24px;\n  --space-6: 32px;\n  --space-7: 48px;\n\n  --motion-fast: 120ms;\n  --motion-base: 180ms;\n  --motion-slow: 260ms;\n  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);\n\n  --focus-ring: 0 0 0 3px rgba(96, 5, 141, 0.35);\n}\n```\n\nInteraction rules:\n- Focus ring must appear on all keyboard-focusable controls.\n- Hover transitions use `--motion-base` only; no exaggerated animation on core CTAs.\n- Disabled controls must maintain text readability and indicate locked state clearly.\n\n## 6) Accessibility Guardrails (Without Color Changes)\n- Use `Banner Black` text on `Sun Gold` for small text; avoid white text on gold.\n- Use `Outline White` text on `Ray Purple` and `Banner Black` backgrounds.\n- For body text, prefer `Banner Black` on `Outline White`.\n- Minimum body text size: `16px` on dense pages, `14px` only for metadata labels.\n- Non-text contrast:\n  - Input borders and progress tracks must remain visible at rest state.\n- Focus visibility:\n  - Always show `--focus-ring`; never remove outlines without replacement.\n\n## 7) Route-Level Visual Application Rules\n- `/upgrade-your-os`: hero uses primary gradient; tiles on white cards.\n- `/preview` and `/assessment`: calm white surfaces with purple structural accents.\n- `/results` and `/growth`: use purple/gold accents to mark milestones and sections, not full-screen gradients.\n- `/reports`: prioritize readability (black on white) for artifact listing.\n- `/account` and billing states: warning and critical alert tokens only for billing risk states.\n\n## 8) Token QA Checklist\n- Primary color hexes exactly match locked values.\n- Primary gradient exactly matches locked definition.\n- No additional brand primaries introduced.\n- CTA hierarchy is visually obvious on desktop and mobile.\n- Contrast checks pass for text, controls, and alerts.\n- Focus ring visible in keyboard navigation on all routes.\n"
+    },
+    "journey": {
+      "id": "journey",
+      "file_name": "00_Build_Backlog.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 00_Build_Backlog.md"
+        },
+        {
+          "level": 2,
+          "title": "Purpose"
+        },
+        {
+          "level": 2,
+          "title": "Locked Constraints"
+        },
+        {
+          "level": 2,
+          "title": "Current Patch Set (Completed)"
+        },
+        {
+          "level": 2,
+          "title": "V1-Lite Additional Route Stories (Approved)"
+        },
+        {
+          "level": 2,
+          "title": "Verification Backlog"
+        }
+      ],
+      "computed_word_count": 363,
+      "content": "### FILE: 00_Build_Backlog.md\n\n## Purpose\nBuild backlog and patch tracking for spec consistency in `143leadership_build_spec_v1_2`.\n\n## Locked Constraints\n- Routes are immutable.\n- Module names are immutable.\n- Pricing and entitlement logic are immutable.\n- No scope creep beyond V1.\n- Brand palette hex values are immutable.\n\n## Current Patch Set (Completed)\n- [x] Canonicalized pre-email/non-auth usage to `public`.\n- [x] Removed legacy pre-email terminology from spec files in this folder.\n- [x] Updated event taxonomy `user_state` to include `public` as canonical pre-email mode.\n- [x] Clarified `public` as access mode (not paid entitlement state) in state machine context.\n- [x] Removed `purchase_complete` from `/upgrade` page events in page matrix.\n- [x] Added webhook-truth note that `purchase_complete` emits only post-webhook entitlement update.\n- [x] Added webhook-confirmation guard near Track E in email automations.\n- [x] Added explicit morning/results/growth share and growth checkpoint events to route-level event coverage.\n- [x] Removed Track A preview-start mis-tagging from A1; Track C remains the owner of `journey_preview_started`.\n\n## V1-Lite Additional Route Stories (Approved)\n- Story: `/how-it-works` as public flow explanation route.\n  Acceptance: route exists in page matrix with `page_view_how_it_works`; public access; no pricing/state/entitlement mutations.\n- Story: `/pricing` as public plan-compare route.\n  Acceptance: route exists with `page_view_pricing`; references existing locked offers only; does not emit `purchase_complete`.\n- Story: `/enterprise` as public enterprise information route.\n  Acceptance: route exists with `page_view_enterprise`; leads route to `/corporate`; no new module names.\n- Story: `/dashboard` as legacy alias redirect to `/portal`.\n  Acceptance: hard redirect behavior documented; `page_view_dashboard` tracked before redirect; no parallel portal logic branch.\n- Story: `/assessment/setup` as metadata-only pre-run step.\n  Acceptance: route exists with `page_view_assessment_setup`; no run scoring/creation on this route; continue flow to `/assessment`.\n- Story: `/coach` as V1-lite coaching workspace route.\n  Acceptance: route exists with `page_view_coach`; no new product scope introduced; overlays enforce missing run context.\n- Story: `/spec-center` as internal diagnostics route.\n  Acceptance: route exists with `page_view_spec_center`; internal-only key/dev access noted; excluded from public navigation.\n\n## Verification Backlog\n- [ ] Re-run route/event/state validation script against this folder after any future edits.\n- [ ] Re-check that no event token appears in route/module/automation specs without canonical taxonomy entry.\n- [ ] Re-check that `/upgrade` never emits `purchase_complete` client-side.\n"
+    },
+    "copy_master": {
+      "id": "copy_master",
+      "file_name": "10_Design_System_Tokens.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 10_Design_System_Tokens.md"
+        },
+        {
+          "level": 2,
+          "title": "Scope Lock"
+        },
+        {
+          "level": 2,
+          "title": "1) Core Tokens (Raw)"
+        },
+        {
+          "level": 2,
+          "title": "2) Semantic Color Tokens"
+        },
+        {
+          "level": 2,
+          "title": "3) Typography Tokens"
+        },
+        {
+          "level": 2,
+          "title": "4) Component Token Rules"
+        },
+        {
+          "level": 3,
+          "title": "Backgrounds"
+        },
+        {
+          "level": 3,
+          "title": "Buttons"
+        },
+        {
+          "level": 3,
+          "title": "Links"
+        },
+        {
+          "level": 3,
+          "title": "Progress Bars"
+        },
+        {
+          "level": 3,
+          "title": "Alerts"
+        },
+        {
+          "level": 3,
+          "title": "Cards"
+        },
+        {
+          "level": 2,
+          "title": "5) Interaction Tokens"
+        },
+        {
+          "level": 2,
+          "title": "6) Accessibility Guardrails (Without Color Changes)"
+        },
+        {
+          "level": 2,
+          "title": "7) Route-Level Visual Application Rules"
+        },
+        {
+          "level": 2,
+          "title": "8) Token QA Checklist"
+        }
+      ],
+      "computed_word_count": 708,
+      "content": "### FILE: 10_Design_System_Tokens.md\n\n## Scope Lock\n- Primary palette is logo-locked and immutable:\n  - Ray Purple `#60058D`\n  - Sun Gold `#F8D011`\n  - Banner Black `#020202`\n  - Outline White `#FDFCFD`\n- Primary gradient is immutable:\n  - `linear-gradient(90deg, #60058D 0%, #F8D011 100%)`\n- Accessibility guidance must be achieved without changing locked hex values.\n- If any other doc conflicts on colors, this file wins.\n\n## 1) Core Tokens (Raw)\n\n```css\n:root {\n  --color-ray-purple: #60058D;\n  --color-sun-gold: #F8D011;\n  --color-banner-black: #020202;\n  --color-outline-white: #FDFCFD;\n\n  --gradient-primary: linear-gradient(90deg, #60058D 0%, #F8D011 100%);\n}\n```\n\n## 2) Semantic Color Tokens\n\n```css\n:root {\n  /* Backgrounds */\n  --bg-page: var(--color-outline-white);\n  --bg-surface: #FFFFFF;\n  --bg-elevated: #F9F5FC; /* Purple-tinted surface using locked palette family */\n  --bg-inverse: var(--color-banner-black);\n\n  /* Text */\n  --text-primary: var(--color-banner-black);\n  --text-secondary: #2A2A2A;\n  --text-on-purple: var(--color-outline-white);\n  --text-on-gold: var(--color-banner-black);\n  --text-link: var(--color-ray-purple);\n\n  /* Borders */\n  --border-default: #E9E3EE;\n  --border-strong: var(--color-ray-purple);\n  --border-inverse: #2F2F2F;\n\n  /* Buttons */\n  --btn-primary-bg: var(--gradient-primary);\n  --btn-primary-text: var(--color-banner-black);\n  --btn-secondary-bg: var(--color-outline-white);\n  --btn-secondary-text: var(--color-ray-purple);\n  --btn-secondary-border: var(--color-ray-purple);\n  --btn-danger-bg: var(--color-banner-black);\n  --btn-danger-text: var(--color-outline-white);\n\n  /* Feedback/alerts (palette-safe tints) */\n  --alert-info-bg: #F5EAFE;\n  --alert-info-text: #3F0560;\n  --alert-success-bg: #FFFBE2;\n  --alert-success-text: #4A3B00;\n  --alert-warning-bg: #FFF4C2;\n  --alert-warning-text: #3C2C00;\n  --alert-critical-bg: #1A1A1A;\n  --alert-critical-text: var(--color-outline-white);\n\n  /* Progress */\n  --progress-track: #EFE7F5;\n  --progress-fill: var(--gradient-primary);\n  --progress-marker: var(--color-ray-purple);\n\n  /* Cards */\n  --card-bg: #FFFFFF;\n  --card-border: #E7DDF0;\n  --card-shadow: 0 8px 24px rgba(2, 2, 2, 0.08);\n}\n```\n\n## 3) Typography Tokens\n\n```css\n:root {\n  --font-display: \"Avenir Next\", \"Segoe UI\", sans-serif;\n  --font-body: \"Avenir Next\", \"Segoe UI\", sans-serif;\n  --font-mono: \"SFMono-Regular\", \"Menlo\", monospace;\n\n  --type-xxl: 48px;\n  --type-xl: 36px;\n  --type-lg: 28px;\n  --type-md: 20px;\n  --type-sm: 16px;\n  --type-xs: 14px;\n  --type-xxs: 12px;\n\n  --line-tight: 1.15;\n  --line-normal: 1.4;\n  --line-relaxed: 1.6;\n\n  --weight-regular: 400;\n  --weight-medium: 500;\n  --weight-semibold: 600;\n  --weight-bold: 700;\n}\n```\n\n## 4) Component Token Rules\n\n### Backgrounds\n- Public and portal default background: `--bg-page`.\n- Highlight bands and milestone cards: `--bg-elevated`.\n- Inverse sections (footer/critical notices): `--bg-inverse`.\n\n### Buttons\n- Primary CTA (purchase, start run, reactivate):\n  - Background: `--btn-primary-bg`\n  - Text: `--btn-primary-text`\n  - Radius: `12px`\n- Secondary CTA:\n  - Background: `--btn-secondary-bg`\n  - Border: `1px solid --btn-secondary-border`\n  - Text: `--btn-secondary-text`\n\n### Links\n- Standard links use `--text-link`.\n- Hover state: darken purple via opacity (not alternate hue).\n- Underline required on text-only links inside long-form copy.\n\n### Progress Bars\n- Track: `--progress-track`.\n- Fill: `--progress-fill`.\n- Milestone markers (Day 7/21/66): `--progress-marker` with gold accent dot.\n\n### Alerts\n- Info states (gating explanation): `--alert-info-*`.\n- Success states (report ready, reactivated): `--alert-success-*`.\n- Warning states (past due pending): `--alert-warning-*`.\n- Critical states (hard failures): `--alert-critical-*`.\n\n### Cards\n- Base card:\n  - `background: --card-bg`\n  - `border: 1px solid --card-border`\n  - `box-shadow: --card-shadow`\n  - `border-radius: 16px`\n- Signature category cards can use purple top border + gold micro-accent only.\n\n## 5) Interaction Tokens\n\n```css\n:root {\n  --radius-sm: 8px;\n  --radius-md: 12px;\n  --radius-lg: 16px;\n\n  --space-1: 4px;\n  --space-2: 8px;\n  --space-3: 12px;\n  --space-4: 16px;\n  --space-5: 24px;\n  --space-6: 32px;\n  --space-7: 48px;\n\n  --motion-fast: 120ms;\n  --motion-base: 180ms;\n  --motion-slow: 260ms;\n  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);\n\n  --focus-ring: 0 0 0 3px rgba(96, 5, 141, 0.35);\n}\n```\n\nInteraction rules:\n- Focus ring must appear on all keyboard-focusable controls.\n- Hover transitions use `--motion-base` only; no exaggerated animation on core CTAs.\n- Disabled controls must maintain text readability and indicate locked state clearly.\n\n## 6) Accessibility Guardrails (Without Color Changes)\n- Use `Banner Black` text on `Sun Gold` for small text; avoid white text on gold.\n- Use `Outline White` text on `Ray Purple` and `Banner Black` backgrounds.\n- For body text, prefer `Banner Black` on `Outline White`.\n- Minimum body text size: `16px` on dense pages, `14px` only for metadata labels.\n- Non-text contrast:\n  - Input borders and progress tracks must remain visible at rest state.\n- Focus visibility:\n  - Always show `--focus-ring`; never remove outlines without replacement.\n\n## 7) Route-Level Visual Application Rules\n- `/upgrade-your-os`: hero uses primary gradient; tiles on white cards.\n- `/preview` and `/assessment`: calm white surfaces with purple structural accents.\n- `/results` and `/growth`: use purple/gold accents to mark milestones and sections, not full-screen gradients.\n- `/reports`: prioritize readability (black on white) for artifact listing.\n- `/account` and billing states: warning and critical alert tokens only for billing risk states.\n\n## 8) Token QA Checklist\n- Primary color hexes exactly match locked values.\n- Primary gradient exactly matches locked definition.\n- No additional brand primaries introduced.\n- CTA hierarchy is visually obvious on desktop and mobile.\n- Contrast checks pass for text, controls, and alerts.\n- Focus ring visible in keyboard navigation on all routes.\n"
+    },
+    "executive_portal": {
+      "id": "executive_portal",
+      "file_name": "03_Entitlements_State_Machine.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 03_Entitlements_State_Machine.md"
+        },
+        {
+          "level": 2,
+          "title": "Scope Lock"
+        },
+        {
+          "level": 2,
+          "title": "FSM Boundaries"
+        },
+        {
+          "level": 2,
+          "title": "State Access Matrix"
+        },
+        {
+          "level": 3,
+          "title": "`free_email`"
+        },
+        {
+          "level": 3,
+          "title": "`paid_43`"
+        },
+        {
+          "level": 3,
+          "title": "`sub_active`"
+        },
+        {
+          "level": 3,
+          "title": "`sub_canceled`"
+        },
+        {
+          "level": 3,
+          "title": "`past_due`"
+        },
+        {
+          "level": 2,
+          "title": "Finite Transition Table"
+        },
+        {
+          "level": 2,
+          "title": "Internal Run Completion Rules (Only Internal Transition Trigger)"
+        },
+        {
+          "level": 2,
+          "title": "State-Derived Policy Flags"
+        },
+        {
+          "level": 2,
+          "title": "Deterministic CTA Map by State"
+        },
+        {
+          "level": 2,
+          "title": "State Machine QA Assertions"
+        }
+      ],
+      "computed_word_count": 926,
+      "content": "### FILE: 03_Entitlements_State_Machine.md\n\n## Scope Lock\n- Finite entitlement states are fixed: `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due`.\n- Transitions are allowed only from Stripe webhooks and internal run completion.\n- Cancellation behavior is fixed: history remains visible; new run creation is blocked until reactivation.\n- `public` is an access mode (pre-entitlement) used for unauthenticated pages and email-gated overlays; it is not a paid entitlement state.\n\n## FSM Boundaries\n- State evaluation is server-side only.\n- Client receives signed entitlement snapshot; client cannot self-upgrade state.\n- `run_creation_allowed` is a derived boolean from state + run usage.\n\n## State Access Matrix\n\n### `free_email`\n- Accessible pages/features:\n  - Public routes, `/portal` free mode, `/143`, `/toolkit`, `/preview`, `/micro-joy`, `/morning`, `/account`.\n  - Preview assessment only.\n- Locked pages/features:\n  - `/assessment` full run, `/results`, `/reports`, `/growth` full comparisons.\n- CTAs visible:\n  - Upgrade to `$43` full assessment.\n  - Upgrade to `$14.33/month` OS Updates plan.\n- Run creation:\n  - Full run: blocked.\n  - Preview run: allowed.\n\n### `paid_43`\n- Accessible pages/features:\n  - Everything in `free_email` plus one full run workflow.\n  - Access to Run #1 results and Run #1 report artifacts.\n  - `/growth` in upsell mode (no full comparisons).\n- Locked pages/features:\n  - New full runs after Run #1 completion.\n  - Full growth comparisons and ongoing growth tracking loop.\n- CTAs visible:\n  - Start Run #1 (if unused).\n  - Upgrade to `$14.33/month` for unlimited full retakes + growth tracking.\n- Run creation:\n  - Full run: allowed only when `full_runs_completed = 0`.\n\n### `sub_active`\n- Accessible pages/features:\n  - All portal routes: `/assessment`, `/results`, `/reports`, `/growth`, `/account`.\n  - Unlimited full retakes per month.\n  - All historical results/PDFs and full growth comparisons.\n- Locked pages/features:\n  - None in core V1 scope.\n- CTAs visible:\n  - Start retake now.\n  - Milestone prompts (Day 7/21/66).\n- Run creation:\n  - Full run: allowed.\n\n### `sub_canceled`\n- Accessible pages/features:\n  - `/results`, `/reports`, `/growth` (history mode), `/account`, free-with-email tools.\n  - All previously generated runs/results/PDFs.\n- Locked pages/features:\n  - New full run creation.\n- CTAs visible:\n  - Reactivate `$14.33/month`.\n  - Keep exploring history.\n- Run creation:\n  - Full run: blocked.\n\n### `past_due`\n- Accessible pages/features:\n  - Same as `sub_canceled`: history remains available.\n  - Free-with-email tools still available.\n- Locked pages/features:\n  - New full run creation.\n- CTAs visible:\n  - Resolve payment and reactivate access.\n- Run creation:\n  - Full run: blocked.\n\n## Finite Transition Table\n\n| From State | Trigger Source | Trigger | Condition | To State | Required Mutations |\n|---|---|---|---|---|---|\n| bootstrap | internal | Account created or email captured | Email verified/persisted | `free_email` | Set `entitlement_state=free_email`; init counters |\n| `free_email` | Stripe webhook | `checkout.session.completed` | `mode=payment` and product=`assessment_43` | `paid_43` | Set one-time entitlement; set `run_quota_type=single`; `run_quota_remaining=1` |\n| `free_email` | Stripe webhook | `checkout.session.completed` or `customer.subscription.created` | Subscription product=`os_updates_1433` and status active/trialing | `sub_active` | Set subscription IDs, state active, monthly retake allowance unlimited |\n| `paid_43` | internal run completion | `full_assessment_complete` | First full run completed successfully | `paid_43` | Decrement `run_quota_remaining` to `0`; stamp `run1_completed_at` |\n| `paid_43` | Stripe webhook | `checkout.session.completed` or `customer.subscription.created` | Subscription purchase active | `sub_active` | Attach subscription, clear single-run quota lock |\n| `sub_active` | Stripe webhook | `invoice.payment_failed` | Latest invoice unpaid after retry policy entry | `past_due` | Set `billing_block_reason=past_due`; keep history accessible |\n| `sub_active` | Stripe webhook | `customer.subscription.deleted` | Subscription ended/canceled effective now | `sub_canceled` | Set `ended_at`; block new run creation |\n| `sub_active` | Stripe webhook | `customer.subscription.updated` | `cancel_at_period_end=true` but period not ended | `sub_active` | Keep active; set `scheduled_cancel=true`; no access reduction yet |\n| `past_due` | Stripe webhook | `invoice.paid` | Payment recovered on same subscription | `sub_active` | Clear past due flags; restore run creation |\n| `past_due` | Stripe webhook | `customer.subscription.deleted` | Subscription terminated during dunning | `sub_canceled` | Move to canceled history state |\n| `sub_canceled` | Stripe webhook | `checkout.session.completed` or `customer.subscription.updated` | Reactivation purchase active | `sub_active` | Set active subscription dates; clear run lock |\n| `past_due` | Stripe webhook | `checkout.session.completed` | Reactivation checkout active | `sub_active` | Replace/restore subscription IDs and active state |\n\n## Internal Run Completion Rules (Only Internal Transition Trigger)\n- Internal event used: `full_assessment_complete`.\n- Allowed effects:\n  - `paid_43`: consume one run entitlement (state remains `paid_43`).\n  - `sub_active`: increment run count; emit `retake_complete` for run numbers >1.\n- Prohibited effects:\n  - Internal logic cannot upgrade or downgrade billing state.\n  - Internal logic cannot bypass webhook-confirmed payment status.\n\n## State-Derived Policy Flags\n\n| Policy Flag | free_email | paid_43 | sub_active | sub_canceled | past_due |\n|---|---|---|---|---|---|\n| `can_start_full_run` | false | true (only if quota remains) | true | false | false |\n| `can_view_results` | false | true | true | true | true |\n| `can_view_reports` | false | true | true | true | true |\n| `growth_access_mode` | none | upsell_only | full | history_only | history_only |\n| `reactivation_cta_required` | false | false | false | true | true |\n\n## Deterministic CTA Map by State\n- `free_email`: preview + upgrade CTA.\n- `paid_43` (before run): start Run #1 CTA.\n- `paid_43` (after run): upgrade to subscription CTA.\n- `sub_active`: retake now CTA.\n- `sub_canceled`: reactivate CTA.\n- `past_due`: fix payment CTA.\n\n## State Machine QA Assertions\n- No entitlement state outside the five locked values can be persisted.\n- `sub_canceled` and `past_due` must always keep read access to historical results/reports.\n- New run creation must hard-fail for `sub_canceled` and `past_due` regardless of client state.\n- `paid_43` must never create Run #2 without transition to `sub_active`.\n"
+    },
+    "tone_lock_prompt": {
+      "id": "tone_lock_prompt",
+      "file_name": "02_Module_Spec_Library.md",
+      "metadata": {
+        "version": "",
+        "word_count": "",
+        "last_updated": ""
+      },
+      "sections": [
+        {
+          "level": 3,
+          "title": "FILE: 02_Module_Spec_Library.md"
+        },
+        {
+          "level": 2,
+          "title": "Scope Lock"
+        },
+        {
+          "level": 2,
+          "title": "Module Specifications"
+        },
+        {
+          "level": 3,
+          "title": "1) Justin Coach Layer"
+        },
+        {
+          "level": 3,
+          "title": "2) Email Gate Module"
+        },
+        {
+          "level": 3,
+          "title": "3) Toolkit Delivery Module"
+        },
+        {
+          "level": 3,
+          "title": "4) Assessment Module"
+        },
+        {
+          "level": 3,
+          "title": "5) Snapshot Preview Output Module"
+        },
+        {
+          "level": 3,
+          "title": "6) Upgrade/Paywall Module"
+        },
+        {
+          "level": 3,
+          "title": "7) Report Artifact Module (HTML + PDF status/download)"
+        },
+        {
+          "level": 3,
+          "title": "8) Share Cards Module"
+        },
+        {
+          "level": 3,
+          "title": "9) Morning Affirmation Module"
+        },
+        {
+          "level": 3,
+          "title": "10) Micro Joy Generator Module"
+        },
+        {
+          "level": 3,
+          "title": "11) Growth Tracking Module"
+        },
+        {
+          "level": 2,
+          "title": "Cross-Module Contracts"
+        },
+        {
+          "level": 2,
+          "title": "Module Drift Controls"
+        }
+      ],
+      "computed_word_count": 1339,
+      "content": "### FILE: 02_Module_Spec_Library.md\n\n## Scope Lock\n- Module names are immutable and copied exactly from the V1 authoritative requirements pack.\n- No extra modules are introduced in this library.\n- Inputs/outputs are implementation-facing and map directly to routes in `01_Page_Spec_Matrix.md`.\n- QA rule: any `Events emitted` listed here must exist in `08_Event_Taxonomy_and_Analytics.md` and must be captured via route rows or global instrumentation rules.\n- `public` is the canonical pre-email/non-auth access mode; entitlement states remain `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due`.\n\n## Module Specifications\n\n### 1) Justin Coach Layer\n| Field | Spec |\n|---|---|\n| Module name | `Justin Coach Layer` |\n| Where used | `/upgrade-your-os`, `/143`, `/os-coaching`, `/justin`, `/portal`, `/results` |\n| Inputs | `user_state`, `last_completed_action`, `active_run_id`, `milestone_day`, `confidence_band`, `tone_mode` |\n| Outputs | Structured guidance blocks, Justin's Focus card (where applicable), route-level framing line, state-aware encouragement copy slot |\n| Events emitted | `coach_layer_rendered`, `coach_focus_cta_click` |\n| Gating behavior | Never unlocks paid features itself; only adjusts framing and deterministic next action display based on entitlement and run state |\n| Error/fallback | If personalization payload fails, render deterministic fallback with one neutral next action and no interpretive claims |\n\n### 2) Email Gate Module\n| Field | Spec |\n|---|---|\n| Module name | `Email Gate Module` |\n| Where used | `/143`, `/toolkit`, `/micro-joy`, `/morning`, `/os-coaching`, `/cohorts`, `/corporate`, `/login`, `/account` |\n| Inputs | `email`, `source_route`, `utm_*`, `consent_flags`, `magic_link_token` |\n| Outputs | Session identity, user bootstrap (`free_email`), magic-link auth flow, email capture confirmation |\n| Events emitted | `email_captured`, `magic_link_sent`, `magic_link_verified` |\n| Gating behavior | `/143` uses soft-page access with hard gating only for Challenge Kit assets. Other gated actions block until verified capture/auth. |\n| Error/fallback | Invalid token -> resend flow. Provider timeout -> retry + queued request + status message. Duplicate email -> attach existing account and continue |\n\n### 3) Toolkit Delivery Module\n| Field | Spec |\n|---|---|\n| Module name | `Toolkit Delivery Module` |\n| Where used | `/143`, `/toolkit` |\n| Inputs | `user_id`, `email_status`, `toolkit_version`, `delivery_channel`, `source_route` |\n| Outputs | Challenge Kit and toolkit asset links, in-app checklist, delivery receipt confirmation |\n| Events emitted | `toolkit_view`, `toolkit_download`, `toolkit_delivery_confirmed`, `challenge_kit_cta_click` |\n| Gating behavior | Free with email. `/143` keeps challenge usage open without email while gating kit delivery and reminder/kit extras behind capture. |\n| Error/fallback | Asset unavailable -> deliver fallback checklist HTML + delayed email with file links |\n\n### 4) Assessment Module\n| Field | Spec |\n|---|---|\n| Module name | `Assessment Module` |\n| Where used | `/preview`, `/assessment` |\n| Inputs | `user_id`, `entitlement_state`, `assessment_version`, `run_context` (`preview` or `full`), `resume_token`, `question_bank` |\n| Outputs | Preview snapshot payload (`preview`), full assessment run (`full`), scored raw response bundle, run completion status |\n| Events emitted | `preview_start`, `preview_complete`, `full_assessment_start`, `full_assessment_complete`, `retake_complete` |\n| Gating behavior | `preview` can start in `public`; deeper preview persistence/output requires identity capture flow. `full` allowed only for `paid_43` (if Run #1 unused) or `sub_active`; blocks new run creation for `sub_canceled` and `past_due`. |\n| Error/fallback | Incomplete run autosave; scoring timeout retries once; on repeated failure preserve response payload and route to safe retry screen |\n\n### 5) Snapshot Preview Output Module\n| Field | Spec |\n|---|---|\n| Module name | `Snapshot Preview Output Module` |\n| Where used | `/preview` |\n| Inputs | `preview_run_id`, `preview_scores`, `confidence_prelim` |\n| Outputs | Limited snapshot cards (non-full report), upgrade bridge payload |\n| Events emitted | `snapshot_preview_rendered`, `preview_complete`, `upgrade_view` |\n| Gating behavior | Exposes preview-only fields; must never expose full ray pair/category interpretation, growth comparison, or report download |\n| Error/fallback | Missing score component -> show partial snapshot with explicit missing-data marker and repeat preview CTA |\n\n### 6) Upgrade/Paywall Module\n| Field | Spec |\n|---|---|\n| Module name | `Upgrade/Paywall Module` |\n| Where used | `/preview`, `/upgrade`, `/assessment`, `/account` |\n| Inputs | `user_state`, `feature_key`, `run_usage`, `stripe_status`, `offer_context` |\n| Outputs | Entitlement check result, overlay config, checkout intent payload |\n| Events emitted | `upgrade_view`, `checkout_start`, `purchase_complete` |\n| Gating behavior | Enforces locked state model: `free_email`, `paid_43`, `sub_active`, `sub_canceled`, `past_due`; blocks forbidden actions and routes to valid purchase/reactivation path |\n| Error/fallback | Entitlement service unavailable -> fail closed for paid actions, fail open for public read-only actions, log incident |\n\n### 7) Report Artifact Module (HTML + PDF status/download)\n| Field | Spec |\n|---|---|\n| Module name | `Report Artifact Module (HTML + PDF status/download)` |\n| Where used | `/sample-report`, `/results`, `/reports` |\n| Inputs | `run_id`, `user_id`, `html_payload`, `pdf_job_state`, `artifact_version`, `download_request` |\n| Outputs | Instant HTML results view, PDF status widget, download action, signed URL, email-ready attachment metadata |\n| Events emitted | `results_view`, `report_download`, `report_pdf_job_enqueued`, `report_pdf_job_ready`, `report_pdf_job_failed` |\n| Gating behavior | Full artifacts only for runs user is entitled to view; no personal report access for `free_email` |\n| Error/fallback | If PDF fails, keep HTML available and surface retry-once state; if signed URL fails, regenerate token server-side |\n\n### 8) Share Cards Module\n| Field | Spec |\n|---|---|\n| Module name | `Share Cards Module` |\n| Where used | `/143`, `/sample-report`, `/micro-joy`, `/morning`, `/results`, `/growth` |\n| Inputs | `user_id`, `source_type`, `source_id`, `share_tier`, `template_version` |\n| Outputs | Rendered share card image/meta, share link, download image |\n| Events emitted | `challenge_sharecard_generate`, `microjoy_sharecard_generate`, `morning_sharecard_generate`, `results_sharecard_generate`, `growth_sharecard_generate` |\n| Gating behavior | Basic share cards are available for free-email tier and challenge kit participants; advanced milestone cards for `sub_active` |\n| Error/fallback | Image generation failure -> fallback text-only share payload and retry queue |\n\n### 9) Morning Affirmation Module\n| Field | Spec |\n|---|---|\n| Module name | `Morning Affirmation Module` |\n| Where used | `/morning` |\n| Inputs | `user_id`, `timezone`, `affirmation_template_version`, `optional_prompt_response` |\n| Outputs | Daily affirmation instance, completion log, optional prompt log |\n| Events emitted | `morning_view`, `morning_log_complete` |\n| Gating behavior | Free with email; available in all logged states (`free_email+`) |\n| Error/fallback | No template available -> serve deterministic fallback affirmation and still allow log completion |\n\n### 10) Micro Joy Generator Module\n| Field | Spec |\n|---|---|\n| Module name | `Micro Joy Generator Module` |\n| Where used | `/micro-joy` |\n| Inputs | `user_id`, `template_pool_version`, `daily_count`, `swap_count`, `favorites` |\n| Outputs | Daily micro joy prompt, swap option, done/save actions, favorites reuse |\n| Events emitted | `microjoy_view`, `microjoy_generate`, `microjoy_swap`, `microjoy_done`, `microjoy_save` |\n| Gating behavior | Free with email; enforces hard limits: `1/day` generation + `3/day` swaps; favorites repeatable anytime |\n| Error/fallback | If limit counter service unavailable, fail closed on new generates, fail open on favorites replay |\n\n### 11) Growth Tracking Module\n| Field | Spec |\n|---|---|\n| Module name | `Growth Tracking Module` |\n| Where used | `/growth` |\n| Inputs | `user_id`, `completed_runs`, `milestone_clock`, `rep_activity`, `subscription_state` |\n| Outputs | Milestone status (Day 7/21/66), trend comparisons, retake readiness, growth checkpoints |\n| Events emitted | `growth_view`, `milestone_checkpoint_view`, `retake_complete` |\n| Gating behavior | Full trend and comparisons for `sub_active`; `paid_43` sees upgrade-to-track-growth upsell only; `sub_canceled` and `past_due` see history with reactivation path |\n| Error/fallback | If comparison data incomplete, render current available history and suppress unsupported trend claims |\n\n## Cross-Module Contracts\n- `Assessment Module` publishes completion events consumed by `Report Artifact Module` and `Growth Tracking Module`.\n- `Upgrade/Paywall Module` is the only module allowed to decide paid gating.\n- `Email Gate Module` persists identity and `source_route` for return routing after magic-link verification.\n- `Report Artifact Module` must support immediate HTML and asynchronous PDF in one contract.\n- `Share Cards Module` must tag source so analytics can separate Challenge vs Morning vs Micro Joy vs Results vs Growth.\n\n## Module Drift Controls\n- Any route using a module name not in this file is a build failure.\n- Any rename of module labels is a build failure.\n- Any unlock path that bypasses `Upgrade/Paywall Module` for paid features is a build failure.\n"
+    }
+  },
+  "csv": {}
+}
