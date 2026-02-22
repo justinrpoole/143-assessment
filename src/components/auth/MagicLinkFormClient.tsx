@@ -113,35 +113,47 @@ export function MagicLinkFormClient() {
         {state === "sending" ? "Sending..." : "Send Sign-In Link"}
       </button>
 
-      {process.env.NODE_ENV !== "production" && (
-        <button
-          type="button"
-          className="mt-3 w-full rounded-xl border border-dashed border-yellow-500/30 bg-yellow-500/5 px-4 py-3 text-sm font-medium text-yellow-400 transition-colors hover:bg-yellow-500/10"
-          disabled={state === "sending"}
-          onClick={async () => {
-            setState("sending");
-            setErrorMessage(null);
-            try {
-              const res = await fetch("/api/auth/login/request", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: DEV_TEST_EMAIL, next }),
-              });
-              const data = await res.json();
-              if (data.dev_magic_link) {
-                window.location.href = data.dev_magic_link;
-              } else {
-                throw new Error("No dev_magic_link returned. Is email provider in stub mode?");
-              }
-            } catch (err) {
-              setState("error");
-              setErrorMessage(err instanceof Error ? err.message : "Dev login failed.");
+      {/* Beta login — works in production when BETA_FREE_MODE=true */}
+      <button
+        type="button"
+        className="mt-3 w-full rounded-xl border border-dashed border-yellow-500/30 bg-yellow-500/5 px-4 py-3 text-sm font-medium text-yellow-400 transition-colors hover:bg-yellow-500/10"
+        disabled={state === "sending"}
+        onClick={async () => {
+          const loginEmail = email.trim() || DEV_TEST_EMAIL;
+          setState("sending");
+          setErrorMessage(null);
+          try {
+            // Try beta-login endpoint first (works in production with BETA_FREE_MODE=true)
+            const res = await fetch("/api/auth/beta-login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email: loginEmail }),
+            });
+            const data = await res.json();
+            if (data.verify_url) {
+              window.location.href = data.verify_url;
+              return;
             }
-          }}
-        >
-          {state === "sending" ? "Logging in..." : `Dev Login (${DEV_TEST_EMAIL})`}
-        </button>
-      )}
+            // Fallback: try dev magic link (local dev only)
+            const devRes = await fetch("/api/auth/login/request", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email: loginEmail, next }),
+            });
+            const devData = await devRes.json();
+            if (devData.dev_magic_link) {
+              window.location.href = devData.dev_magic_link;
+            } else {
+              throw new Error("Beta login not available. Check BETA_FREE_MODE setting.");
+            }
+          } catch (err) {
+            setState("error");
+            setErrorMessage(err instanceof Error ? err.message : "Beta login failed.");
+          }
+        }}
+      >
+        {state === "sending" ? "Logging in..." : `Beta Login (${email.trim() || DEV_TEST_EMAIL})`}
+      </button>
     </form>
   );
 }
