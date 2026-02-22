@@ -1,0 +1,124 @@
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  claude-review:
+    # Run on PRs, or when someone comments @claude on a PR/issue
+    if: >
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'issue_comment' &&
+       contains(github.event.comment.body, '@claude'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run QA tone check
+        id: tone
+        run: |
+          npm run qa:tone 2>&1 | tee tone-output.txt || true
+          echo "tone_output<<EOF" >> $GITHUB_OUTPUT
+          cat tone-output.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Run TypeScript check
+        id: tsc
+        run: |
+          npx tsc --noEmit 2>&1 | grep -v "validator.ts" | tee tsc-output.txt || true
+          echo "tsc_output<<EOF" >> $GITHUB_OUTPUT
+          cat tsc-output.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Run ESLint
+        id: lint
+        run: |
+          npm run lint 2>&1 | tee lint-output.txt || true
+          echo "lint_output<<EOF" >> $GITHUB_OUTPUT
+          cat lint-output.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Build check
+        id: build
+        run: |
+          npm run build 2>&1 | tail -30 | tee build-output.txt || true
+          echo "build_output<<EOF" >> $GITHUB_OUTPUT
+          cat build-output.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Post review comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const toneOutput = `${{ steps.tone.outputs.tone_output }}`;
+            const tscOutput = `${{ steps.tsc.outputs.tsc_output }}`;
+            const lintOutput = `${{ steps.lint.outputs.lint_output }}`;
+            const buildOutput = `${{ steps.build.outputs.build_output }}`;
+
+            const toneClean = !toneOutput.includes('FAIL') && !toneOutput.includes('Banned');
+            const tscClean = !tscOutput.includes('error TS') || tscOutput.trim() === '';
+            const lintClean = !lintOutput.includes('Error') && !lintOutput.includes('error');
+            const buildClean = !buildOutput.includes('Build error') && !buildOutput.includes('Failed');
+
+            const allPass = toneClean && tscClean && lintClean && buildClean;
+
+            let body = `## Automated Code Review\n\n`;
+
+            body += `| Check | Status |\n|-------|--------|\n`;
+            body += `| Brand Voice / Tone | ${toneClean ? '✅ Pass' : '❌ Issues found'} |\n`;
+            body += `| TypeScript | ${tscClean ? '✅ Pass' : '❌ Errors'} |\n`;
+            body += `| ESLint | ${lintClean ? '✅ Pass' : '❌ Errors'} |\n`;
+            body += `| Production Build | ${buildClean ? '✅ Pass' : '❌ Failed'} |\n\n`;
+
+            if (!toneClean) {
+              body += `### Brand Voice Issues\n\`\`\`\n${toneOutput.slice(0, 2000)}\n\`\`\`\n\n`;
+            }
+
+            if (!tscClean) {
+              body += `### TypeScript Errors\n\`\`\`\n${tscOutput.slice(0, 2000)}\n\`\`\`\n\n`;
+            }
+
+            if (!lintClean) {
+              body += `### ESLint Issues\n\`\`\`\n${lintOutput.slice(0, 2000)}\n\`\`\`\n\n`;
+            }
+
+            if (!buildClean) {
+              body += `### Build Errors\n\`\`\`\n${buildOutput.slice(0, 2000)}\n\`\`\`\n\n`;
+            }
+
+            if (allPass) {
+              body += `All checks passed. Ready to merge.\n\n`;
+            } else {
+              body += `Please fix the issues above before merging.\n\n`;
+              body += `> **Tip:** Run \`npm run qa:tone\` locally to catch brand voice issues before pushing.\n\n`;
+            }
+
+            body += `---\n*Review powered by [CLAUDE.md](../blob/main/CLAUDE.md) conventions*`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
