@@ -5,7 +5,9 @@ import { NextResponse } from "next/server";
 
 import { renderReportHtml } from "@/lib/report/render-report-html.mjs";
 import { renderReportPdf } from "@/lib/report/render-report-pdf.mjs";
-import { scoreAssessment } from "@/lib/scoring/score-assessment.mjs";
+import { scoreAssessment } from "@/lib/scoring/pipeline";
+import { loadItemBanks } from "@/lib/scoring/load-item-banks";
+import type { ResponsePacket, ItemResponse } from "@/lib/types";
 import { getSignedUrl, uploadBytes } from "@/lib/storage/supabase-storage";
 
 export const runtime = "nodejs";
@@ -129,15 +131,49 @@ function resolveUserState(rawValue: string | null): string {
   return CANONICAL_STATES.has(rawValue) ? rawValue : "public";
 }
 
-function buildFixtureReportPayload(fixture: SeedFixture, userState: string) {
-  const scored = scoreAssessment({
-    responses: fixture.responses,
-    metadata: { user_state: userState },
-  });
+function buildFixtureReportPayload(fixture: SeedFixture, _userState: string) {
+  const banks = loadItemBanks();
+  const allItems = [...banks.rayItems, ...banks.toolItems, ...banks.eclipseItems, ...banks.validityItems];
+
+  // Build responses from fixture data — fixture.responses maps question_id -> numeric value
+  const responses: Record<string, ItemResponse> = {};
+  const formatByItemId = new Map(allItems.map(item => [item.Item_ID, item.Response_Format]));
+  const NUM_TO_LETTER: Record<number, string> = { 0: "A", 1: "B", 2: "C", 3: "D" };
+
+  for (const [questionId, value] of Object.entries(fixture.responses)) {
+    const format = formatByItemId.get(questionId);
+    let mappedValue: number | string = value;
+    if (format === "ForcedChoice_A_D" && typeof value === "number") {
+      mappedValue = NUM_TO_LETTER[value] ?? String(value);
+    }
+    responses[questionId] = { item_id: questionId, value: mappedValue, timestamp: 0 };
+  }
+
+  const packet: ResponsePacket = {
+    run_id: `preview-${fixture.profile_id}`,
+    tier: Object.keys(fixture.responses).length <= 50 ? "QUICK_43" : "FULL_143",
+    start_ts: new Date().toISOString(),
+    end_ts: new Date().toISOString(),
+    responses,
+  };
+
+  const pipelineOutput = scoreAssessment(packet, banks);
+
+  const rayScoresById: Record<string, number> = {};
+  for (const [rayId, rayOut] of Object.entries(pipelineOutput.rays)) {
+    rayScoresById[rayId] = rayOut.score;
+  }
+  const topRays = pipelineOutput.light_signature.top_two.map(t => t.ray_id);
+  const rayPairId = pipelineOutput.light_signature.archetype?.pair_code
+    ?? `${topRays[0]}-${topRays[1]}`;
 
   return {
-    ...scored,
-    confidence_band: "STANDARD",
+    ray_scores_by_id: rayScoresById,
+    top_rays: topRays,
+    ray_pair_id: rayPairId,
+    ray_pair: rayPairId,
+    confidence_band: pipelineOutput.data_quality.confidence_band,
+    pipeline_output: pipelineOutput,
   };
 }
 
