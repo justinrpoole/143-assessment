@@ -3,12 +3,12 @@ import type { ReactNode } from "react";
 import { MarketingNav } from "@/components/marketing/MarketingNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
-export default function MarketingLayout({ children }: { children: ReactNode }) {
+export default function AssessmentLayout({ children }: { children: ReactNode }) {
   return (
-    <main className="cosmic-page-bg">
+    <>
       <MarketingNav />
       {children}
       <SiteFooter />
-    </main>
+    </>
   );
 }

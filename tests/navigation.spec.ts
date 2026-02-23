@@ -92,14 +92,14 @@ test.describe("MarketingNav — Mobile Hamburger", () => {
 
 const FOOTER_LINKS = [
   // Product
-  { href: "/assessment", label: "Take the Assessment" },
+  { href: "/upgrade-your-os", label: "Upgrade Your OS" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/sample-report", label: "Sample Report" },
   { href: "/outcomes", label: "Outcomes" },
   { href: "/pricing", label: "Pricing" },
   // Practice
   { href: "/framework", label: "The Framework" },
-  { href: "/143-challenge", label: "143 Challenge" },
+  { href: "/143", label: "143 Challenge" },
   { href: "/coaches", label: "Coaching Program" },
   { href: "/resources", label: "Resources" },
   { href: "/glossary", label: "Glossary" },
@@ -107,7 +107,7 @@ const FOOTER_LINKS = [
   // Company
   { href: "/about", label: "About" },
   { href: "/justin", label: "Justin Ray" },
-  { href: "/organizations", label: "For Organizations" },
+  { href: "/corporate", label: "For Teams" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
 ];

@@ -1,38 +1,6 @@
 import Link from "next/link";
 
-const COLS = [
-  {
-    heading: "Product",
-    links: [
-      { href: "/assessment", label: "Take the Assessment" },
-      { href: "/how-it-works", label: "How It Works" },
-      { href: "/sample-report", label: "Sample Report" },
-      { href: "/outcomes", label: "Outcomes" },
-      { href: "/pricing", label: "Pricing" },
-    ],
-  },
-  {
-    heading: "Practice",
-    links: [
-      { href: "/framework", label: "The Framework" },
-      { href: "/143-challenge", label: "143 Challenge" },
-      { href: "/coaches", label: "Coaching Program" },
-      { href: "/resources", label: "Resources" },
-      { href: "/glossary", label: "Glossary" },
-      { href: "/faq", label: "FAQ" },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { href: "/about", label: "About" },
-      { href: "/justin", label: "Justin Ray" },
-      { href: "/organizations", label: "For Organizations" },
-      { href: "/privacy", label: "Privacy" },
-      { href: "/terms", label: "Terms" },
-    ],
-  },
-] as const;
+import { MARKETING_FOOTER_COLUMNS } from "@/lib/nav/nav-config";
 
 export function SiteFooter() {
   return (
@@ -42,7 +10,7 @@ export function SiteFooter() {
     >
       <div className="mx-auto max-w-5xl">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-          {COLS.map((col) => (
+          {MARKETING_FOOTER_COLUMNS.map((col) => (
             <div key={col.heading}>
               <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
                 {col.heading}

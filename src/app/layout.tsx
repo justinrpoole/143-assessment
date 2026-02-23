@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Orelega_One, Inter } from "next/font/google";
-import { SiteFooter } from "@/components/SiteFooter";
 import { ToastProvider } from "@/components/ui/Toast";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 import "./globals.css";
@@ -66,7 +65,6 @@ export default function RootLayout({
           <div id="main-content">
             {children}
           </div>
-          <SiteFooter />
         </ToastProvider>
       </body>
     </html>

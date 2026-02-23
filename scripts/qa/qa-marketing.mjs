@@ -60,7 +60,12 @@ const HOME_SEQUENCE_TOKENS = [
 ];
 
 const NAV_FILE = "src/components/marketing/MarketingNav.tsx";
+const FOOTER_FILE = "src/components/SiteFooter.tsx";
+const MARKETING_LAYOUT_FILE = "src/app/(marketing)/layout.tsx";
+const ASSESSMENT_LAYOUT_FILE = "src/app/assessment/layout.tsx";
 const PAGE_COPY_FILE = "src/content/page_copy.v1.ts";
+const PORTAL_LAYOUT_FILE = "src/app/(portal)/layout.tsx";
+const NAV_CONFIG_FILE = "src/lib/nav/nav-config.ts";
 
 function abs(relativePath) {
   return path.join(ROOT, relativePath);
@@ -72,6 +77,22 @@ function exists(relativePath) {
 
 function read(relativePath) {
   return fs.readFileSync(abs(relativePath), "utf8");
+}
+
+function listFiles(rootDir) {
+  const entries = fs.readdirSync(rootDir, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(rootDir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...listFiles(fullPath));
+    } else {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
 }
 
 function normalize(value) {
@@ -125,10 +146,17 @@ function main() {
 
   if (!exists(NAV_FILE)) {
     failures.push(`navigation missing file ${NAV_FILE}`);
+  }
+
+  if (!exists(FOOTER_FILE)) {
+    failures.push(`footer missing file ${FOOTER_FILE}`);
+  }
+
+  if (!exists(NAV_CONFIG_FILE)) {
+    failures.push(`nav config missing file ${NAV_CONFIG_FILE}`);
   } else {
-    const navContent = read(NAV_FILE);
-    const missingNavTokens = findMissingTokens(navContent, [
-      "Start 143 Challenge",
+    const navConfigContent = read(NAV_CONFIG_FILE);
+    const missingNavTokens = findMissingTokens(navConfigContent, [
       "Upgrade Your OS",
       "How It Works",
       "Outcomes",
@@ -138,7 +166,77 @@ function main() {
       "About",
     ]);
     for (const token of missingNavTokens) {
-      failures.push(`navigation: missing token \"${token}\" in ${NAV_FILE}`);
+      failures.push(`nav config: missing token \"${token}\" in ${NAV_CONFIG_FILE}`);
+    }
+  }
+
+  if (exists(NAV_FILE)) {
+    const navContent = read(NAV_FILE);
+    if (!navContent.includes("nav-config")) {
+      failures.push(`navigation: ${NAV_FILE} must import ${NAV_CONFIG_FILE}`);
+    }
+  }
+
+  if (exists(FOOTER_FILE)) {
+    const footerContent = read(FOOTER_FILE);
+    if (!footerContent.includes("nav-config")) {
+      failures.push(`footer: ${FOOTER_FILE} must import ${NAV_CONFIG_FILE}`);
+    }
+  }
+
+  const appRoot = abs("src/app");
+  if (fs.existsSync(appRoot)) {
+    const appFiles = listFiles(appRoot)
+      .filter((filePath) => filePath.endsWith(".tsx"))
+      .map((filePath) => path.relative(appRoot, filePath));
+
+    const allowedImports = new Set([
+      "(marketing)/layout.tsx",
+      "assessment/layout.tsx",
+      "(portal)/layout.tsx",
+    ]);
+
+    for (const relativePath of appFiles) {
+      if (allowedImports.has(relativePath)) {
+        continue;
+      }
+      const content = fs.readFileSync(path.join(appRoot, relativePath), "utf8");
+      if (content.includes("MarketingNav")) {
+        failures.push(`navigation: ${relativePath} should not import MarketingNav (use layout)`);
+      }
+      if (content.includes("SiteFooter")) {
+        failures.push(`footer: ${relativePath} should not import SiteFooter (use layout)`);
+      }
+    }
+  }
+
+  if (exists(MARKETING_LAYOUT_FILE)) {
+    const marketingLayout = read(MARKETING_LAYOUT_FILE);
+    if (!marketingLayout.includes("MarketingNav")) {
+      failures.push(`layout: ${MARKETING_LAYOUT_FILE} must render MarketingNav`);
+    }
+    if (!marketingLayout.includes("SiteFooter")) {
+      failures.push(`layout: ${MARKETING_LAYOUT_FILE} must render SiteFooter`);
+    }
+  }
+
+  if (exists(ASSESSMENT_LAYOUT_FILE)) {
+    const assessmentLayout = read(ASSESSMENT_LAYOUT_FILE);
+    if (!assessmentLayout.includes("MarketingNav")) {
+      failures.push(`layout: ${ASSESSMENT_LAYOUT_FILE} must render MarketingNav`);
+    }
+    if (!assessmentLayout.includes("SiteFooter")) {
+      failures.push(`layout: ${ASSESSMENT_LAYOUT_FILE} must render SiteFooter`);
+    }
+  }
+
+  if (exists(PORTAL_LAYOUT_FILE)) {
+    const portalLayout = read(PORTAL_LAYOUT_FILE);
+    if (!portalLayout.includes("MarketingNav")) {
+      failures.push(`layout: ${PORTAL_LAYOUT_FILE} must render MarketingNav`);
+    }
+    if (!portalLayout.includes("SiteFooter")) {
+      failures.push(`layout: ${PORTAL_LAYOUT_FILE} must render SiteFooter`);
     }
   }
 

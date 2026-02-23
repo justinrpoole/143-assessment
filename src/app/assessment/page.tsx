@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { AssessmentRunnerClient } from "@/components/assessment/AssessmentRunnerClient";
-import { MarketingNav } from "@/components/marketing/MarketingNav";
 import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -55,7 +54,6 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
   if (!runId) {
     return (
       <main className="cosmic-page-bg">
-        <MarketingNav />
         <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-10">
           <header className="glass-card mb-6 p-6 sm:p-8">
             <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>The 143 Be The Light Assessment</h1>

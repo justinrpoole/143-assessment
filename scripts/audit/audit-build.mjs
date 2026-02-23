@@ -151,6 +151,7 @@ const REQUIRED_MARKETING_PAGES = [
 ];
 
 const MARKETING_NAV_FILE = "src/components/marketing/MarketingNav.tsx";
+const NAV_CONFIG_FILE = "src/lib/nav/nav-config.ts";
 const PAGE_COPY_SOURCE = "src/content/page_copy.v1.ts";
 
 function normalizeToken(value) {
@@ -232,11 +233,14 @@ function runAudit() {
   }
   if (!exists(MARKETING_NAV_FILE)) {
     marketingMissing.push(`missing file ${MARKETING_NAV_FILE}`);
+  }
+  if (!exists(NAV_CONFIG_FILE)) {
+    marketingMissing.push(`missing file ${NAV_CONFIG_FILE}`);
   } else {
-    const navContent = fs.readFileSync(path.join(ROOT, MARKETING_NAV_FILE), "utf8");
-    for (const token of ["Take the Assessment", "Resources", "Framework", "143 Challenge"]) {
-      if (!navContent.toLowerCase().includes(token.toLowerCase())) {
-        marketingMissing.push(`navigation missing token "${token}" in ${MARKETING_NAV_FILE}`);
+    const navConfigContent = fs.readFileSync(path.join(ROOT, NAV_CONFIG_FILE), "utf8");
+    for (const token of ["Upgrade Your OS", "How It Works", "Outcomes", "Pricing", "143 Challenge"]) {
+      if (!navConfigContent.toLowerCase().includes(token.toLowerCase())) {
+        marketingMissing.push(`nav config missing token "${token}" in ${NAV_CONFIG_FILE}`);
       }
     }
   }
