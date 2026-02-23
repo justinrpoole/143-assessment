@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { MarketingNav } from '@/components/marketing/MarketingNav';
 import { emitPageView } from '@/lib/analytics/emitter';
 import { getUserStateFromRequest } from '@/lib/auth/user-state';
 
@@ -174,8 +173,6 @@ export default async function CoachingPage() {
 
   return (
     <main className="cosmic-page-bg">
-      <MarketingNav />
-
       {/* Hero */}
       <section className="px-6 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto space-y-6 text-center">

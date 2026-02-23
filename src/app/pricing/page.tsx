@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { MarketingNav } from "@/components/marketing/MarketingNav";
 import SocialProofTicker from "@/components/marketing/SocialProofTicker";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -173,8 +172,6 @@ export default async function PricingPage() {
 
   return (
     <main className="cosmic-page-bg">
-      <MarketingNav />
-
       {/* ── Hero ── */}
       <section className="mx-auto max-w-[960px] px-5 pt-16 pb-12 text-center sm:px-8 sm:pt-24 sm:pb-16">
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>

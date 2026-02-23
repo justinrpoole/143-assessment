@@ -10,11 +10,12 @@ import { expect, test } from "@playwright/test";
 // ── MarketingNav Links ──
 
 const NAV_LINKS = [
-  { href: "/assessment", label: "Assessment" },
-  { href: "/archetypes", label: "Archetypes" },
-  { href: "/framework", label: "Framework" },
-  { href: "/143-challenge", label: "143 Challenge" },
-  { href: "/organizations", label: "For Organizations" },
+  { href: "/upgrade-your-os", label: "Upgrade Your OS" },
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/outcomes", label: "Outcomes" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/143", label: "143 Challenge" },
+  { href: "/corporate", label: "For Teams" },
   { href: "/about", label: "About" },
 ];
 
@@ -39,13 +40,13 @@ test.describe("MarketingNav — Desktop", () => {
     });
   }
 
-  test('"Take the Assessment" CTA is clickable', async ({ page }) => {
+  test('"Start 143 Challenge" CTA is clickable', async ({ page }) => {
     await page.goto("/about");
-    const cta = page.locator('nav[aria-label="Primary"] a[href="/assessment"]').last();
+    const cta = page.locator('nav[aria-label="Primary"] a[href="/143"]').last();
     await expect(cta).toBeVisible();
     await cta.click();
     await page.waitForLoadState("domcontentloaded");
-    expect(page.url()).toContain("/assessment");
+    expect(page.url()).toContain("/143");
   });
 
   test('"Sign In" link is visible for unauthenticated user', async ({ page }) => {
@@ -91,14 +92,14 @@ test.describe("MarketingNav — Mobile Hamburger", () => {
 
 const FOOTER_LINKS = [
   // Product
-  { href: "/assessment", label: "Take the Assessment" },
+  { href: "/upgrade-your-os", label: "Upgrade Your OS" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/sample-report", label: "Sample Report" },
   { href: "/outcomes", label: "Outcomes" },
   { href: "/pricing", label: "Pricing" },
   // Practice
   { href: "/framework", label: "The Framework" },
-  { href: "/143-challenge", label: "143 Challenge" },
+  { href: "/143", label: "143 Challenge" },
   { href: "/coaches", label: "Coaching Program" },
   { href: "/resources", label: "Resources" },
   { href: "/glossary", label: "Glossary" },
@@ -106,7 +107,7 @@ const FOOTER_LINKS = [
   // Company
   { href: "/about", label: "About" },
   { href: "/justin", label: "Justin Ray" },
-  { href: "/organizations", label: "For Organizations" },
+  { href: "/corporate", label: "For Teams" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
 ];

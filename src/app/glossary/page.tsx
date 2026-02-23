@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { MarketingNav } from "@/components/marketing/MarketingNav";
 import { GlossaryClient } from "@/components/glossary/GlossaryClient";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -22,7 +21,6 @@ export default async function GlossaryPage() {
 
   return (
     <main className="cosmic-page-bg">
-      <MarketingNav />
       <div className="mx-auto max-w-3xl px-5 py-10 sm:px-8 sm:py-14">
         <header className="mb-8">
           <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">

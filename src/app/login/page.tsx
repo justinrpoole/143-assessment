@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { MarketingNav } from "@/components/marketing/MarketingNav";
 import { MagicLinkFormClient } from "@/components/auth/MagicLinkFormClient";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -23,8 +22,6 @@ export default async function LoginPage() {
 
   return (
     <main className="cosmic-page-bg">
-      <MarketingNav />
-
       <div className="mx-auto flex min-h-[70vh] max-w-[440px] flex-col items-center justify-center px-5 py-16 sm:px-8 sm:py-24">
         <div className="glass-card w-full p-6 sm:p-8">
           <div className="text-center">

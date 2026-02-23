@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import { MarketingNav } from "@/components/marketing/MarketingNav";
-
 const resources = [
   {
     title: "The 143 Leadership OS: How It Works",
@@ -31,8 +29,6 @@ export default function ResourcesPage() {
   return (
     <main className="cosmic-page-bg">
       <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-10">
-        <MarketingNav />
-
         <header className="glass-card p-6 mb-6 sm:p-8">
           <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>Resources</h1>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>

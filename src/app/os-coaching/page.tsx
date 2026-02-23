@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { CoachingApplicationForm } from "@/components/coach/CoachingApplicationForm";
-import { MarketingNav } from "@/components/marketing/MarketingNav";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -87,8 +86,6 @@ export default async function OsCoachingPage() {
 
   return (
     <main className="cosmic-page-bg">
-      <MarketingNav />
-
       {/* Hero */}
       <section className="mx-auto max-w-[720px] px-5 pt-16 pb-12 text-center sm:px-8 sm:pt-24 sm:pb-16">
         <p

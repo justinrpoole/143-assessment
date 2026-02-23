@@ -60,6 +60,9 @@ const HOME_SEQUENCE_TOKENS = [
 ];
 
 const NAV_FILE = "src/components/marketing/MarketingNav.tsx";
+const FOOTER_FILE = "src/components/SiteFooter.tsx";
+const NAV_CONFIG_FILE = "src/lib/nav/nav-config.ts";
+const ROOT_LAYOUT_FILE = "src/app/layout.tsx";
 const PAGE_COPY_FILE = "src/content/page_copy.v1.ts";
 
 function abs(relativePath) {
@@ -72,6 +75,22 @@ function exists(relativePath) {
 
 function read(relativePath) {
   return fs.readFileSync(abs(relativePath), "utf8");
+}
+
+function listFiles(rootDir) {
+  const entries = fs.readdirSync(rootDir, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(rootDir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...listFiles(fullPath));
+    } else {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
 }
 
 function normalize(value) {
@@ -125,20 +144,78 @@ function main() {
 
   if (!exists(NAV_FILE)) {
     failures.push(`navigation missing file ${NAV_FILE}`);
+  }
+
+  if (!exists(FOOTER_FILE)) {
+    failures.push(`footer missing file ${FOOTER_FILE}`);
+  }
+
+  if (!exists(NAV_CONFIG_FILE)) {
+    failures.push(`nav config missing file ${NAV_CONFIG_FILE}`);
   } else {
-    const navContent = read(NAV_FILE);
-    const missingNavTokens = findMissingTokens(navContent, [
-      "Take the Assessment",
-      "Home",
-      "Assessment",
-      "Framework",
+    const navConfigContent = read(NAV_CONFIG_FILE);
+    const missingNavTokens = findMissingTokens(navConfigContent, [
+      "Upgrade Your OS",
+      "How It Works",
+      "Outcomes",
+      "Pricing",
       "143 Challenge",
-      "For Organizations",
+      "For Teams",
       "About",
-      "Resources",
+      "Start 143 Challenge",
     ]);
     for (const token of missingNavTokens) {
-      failures.push(`navigation: missing token \"${token}\" in ${NAV_FILE}`);
+      failures.push(`nav config: missing token \"${token}\" in ${NAV_CONFIG_FILE}`);
+    }
+  }
+
+  if (!exists(ROOT_LAYOUT_FILE)) {
+    failures.push(`layout missing file ${ROOT_LAYOUT_FILE}`);
+  } else {
+    const layoutContent = read(ROOT_LAYOUT_FILE);
+    if (!layoutContent.includes("MarketingNav")) {
+      failures.push(`layout: ${ROOT_LAYOUT_FILE} must render MarketingNav`);
+    }
+    if (!layoutContent.includes("SiteFooter")) {
+      failures.push(`layout: ${ROOT_LAYOUT_FILE} must render SiteFooter`);
+    }
+  }
+
+  if (exists(NAV_FILE)) {
+    const navContent = read(NAV_FILE);
+    if (!navContent.includes("nav-config")) {
+      failures.push(`navigation: ${NAV_FILE} must import ${NAV_CONFIG_FILE}`);
+    }
+  }
+
+  if (exists(FOOTER_FILE)) {
+    const footerContent = read(FOOTER_FILE);
+    if (!footerContent.includes("nav-config")) {
+      failures.push(`footer: ${FOOTER_FILE} must import ${NAV_CONFIG_FILE}`);
+    }
+  }
+
+  const appRoot = abs("src/app");
+  if (fs.existsSync(appRoot)) {
+    const appFiles = listFiles(appRoot)
+      .filter((filePath) => filePath.endsWith(".tsx"))
+      .map((filePath) => path.relative(appRoot, filePath));
+
+    const allowedImports = new Set([
+      "layout.tsx",
+    ]);
+
+    for (const relativePath of appFiles) {
+      if (allowedImports.has(relativePath)) {
+        continue;
+      }
+      const content = fs.readFileSync(path.join(appRoot, relativePath), "utf8");
+      if (content.includes("MarketingNav")) {
+        failures.push(`navigation: ${relativePath} should not import MarketingNav (use root layout)`);
+      }
+      if (content.includes("SiteFooter")) {
+        failures.push(`footer: ${relativePath} should not import SiteFooter (use root layout)`);
+      }
     }
   }
 

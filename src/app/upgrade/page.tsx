@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { MarketingNav } from "@/components/marketing/MarketingNav";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import { UpgradeCheckoutClient } from "@/components/billing/UpgradeCheckoutClient";
 import DimmingCarryForwardCard from "@/components/billing/DimmingCarryForwardCard";
@@ -25,8 +24,6 @@ export default async function UpgradePage() {
 
   return (
     <main className="cosmic-page-bg">
-      <MarketingNav />
-
       {/* ── Hero ── */}
       <section className="mx-auto max-w-[960px] px-5 pt-16 pb-12 sm:px-8 sm:pt-24 sm:pb-16">
         <div className="max-w-[640px]">
