@@ -81,10 +81,10 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
       <div className="glass-modal-panel max-w-md w-full mx-4 overflow-hidden" role="dialog" aria-modal="true" aria-label="Watch Me — attention redirect">
 
         {/* Header */}
-        <div className="px-6 py-5" style={{ background: 'linear-gradient(135deg, #0F0A1E 0%, #3E1D63 100%)' }}>
+        <div className="px-6 py-5" style={{ background: 'linear-gradient(135deg, var(--cosmic-deepest) 0%, var(--cosmic-purple-gradient) 100%)' }}>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">
+              <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">
                 Attention redirect
               </p>
               <h2 className="text-2xl font-bold mt-1" style={{ color: 'var(--text-on-dark)' }}>Watch me.</h2>
@@ -111,7 +111,7 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
           {step === 'setup' && (
             <div className="space-y-4">
               <div className="space-y-1">
-                <label htmlFor="watchme-target" className="block text-xs font-semibold text-[#F8D011] uppercase tracking-wide">
+                <label htmlFor="watchme-target" className="block text-xs font-semibold text-brand-gold uppercase tracking-wide">
                   What are you locking onto? (optional)
                 </label>
                 <input
@@ -120,13 +120,13 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
                   value={target}
                   onChange={(e) => setTarget(e.target.value)}
                   placeholder="a priority, a person, an outcome..."
-                  className="w-full rounded-xl px-4 py-2.5 text-sm focus:outline-none"
+                  className="w-full rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
                   style={inputStyle}
                 />
               </div>
 
               <div className="space-y-1">
-                <label htmlFor="watchme-move" className="block text-xs font-semibold text-[#F8D011] uppercase tracking-wide">
+                <label htmlFor="watchme-move" className="block text-xs font-semibold text-brand-gold uppercase tracking-wide">
                   One small step toward it
                 </label>
                 <input
@@ -135,7 +135,7 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
                   value={nextMove}
                   onChange={(e) => setNextMove(e.target.value)}
                   placeholder="Write it in one sentence..."
-                  className="w-full rounded-xl px-4 py-2.5 text-sm focus:outline-none"
+                  className="w-full rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
                   style={inputStyle}
                 />
               </div>
@@ -157,13 +157,13 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
           {step === 'countdown' && (
             <div className="text-center space-y-6 py-4">
               <div
-                className="w-24 h-24 rounded-full flex items-center justify-center mx-auto border-4 border-[#F8D011]"
+                className="w-24 h-24 rounded-full flex items-center justify-center mx-auto border-4 border-brand-gold"
                 style={{
                   background: `conic-gradient(#F8D011 ${((5 - countdown) / 5) * 360}deg, rgba(255,255,255,0.06) 0deg)`,
                 }}
               >
                 <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'var(--bg-deep)' }}>
-                  <span className="text-3xl font-bold text-[#F8D011]">{countdown}</span>
+                  <span className="text-3xl font-bold text-brand-gold">{countdown}</span>
                 </div>
               </div>
               <p className="text-base font-semibold" style={{ color: 'var(--text-on-dark)' }}>

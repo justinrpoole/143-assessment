@@ -85,7 +85,7 @@ export default function StreakFire({ days }: StreakFireProps) {
       {(tier === 'medium' || tier === 'full' || tier === 'cosmic') && (
         <>
           <div className="absolute" style={{ top: 2, left: '50%', width: 3, height: 3, borderRadius: '50%', background: '#FFEC80', animation: 'streakSpark 1.2s ease-out infinite', opacity: 0.8 }} />
-          <div className="absolute" style={{ top: 6, left: '30%', width: 2, height: 2, borderRadius: '50%', background: '#F8D011', animation: 'streakSpark 1.5s ease-out infinite 0.4s', opacity: 0.6 }} />
+          <div className="absolute" style={{ top: 6, left: '30%', width: 2, height: 2, borderRadius: '50%', background: 'var(--brand-gold)', animation: 'streakSpark 1.5s ease-out infinite 0.4s', opacity: 0.6 }} />
           <div className="absolute" style={{ top: 4, left: '65%', width: 2, height: 2, borderRadius: '50%', background: '#FFFEF5', animation: 'streakSpark 1.8s ease-out infinite 0.8s', opacity: 0.7 }} />
         </>
       )}

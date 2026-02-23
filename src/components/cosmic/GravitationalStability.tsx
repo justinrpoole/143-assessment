@@ -156,7 +156,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
 
         {/* RIGHT — Stable */}
         <g transform={`translate(${half + 8}, 0)`}>
-          <rect x={0} y={0} width={half} height={H} rx="12" fill="#5B2C8E" />
+          <rect x={0} y={0} width={half} height={H} rx="12" fill="var(--cosmic-purple-vivid)" />
 
           {/* Brilliant sun */}
           <circle cx={half / 2} cy={H / 2} r={16} fill="#F4C430" opacity={0.8} filter="url(#gs-glow)" />

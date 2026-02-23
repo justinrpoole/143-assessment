@@ -46,7 +46,7 @@ export default function FrequencyScale({ itemId, value, onSelect }: FrequencySca
               min-h-[52px] rounded-xl border px-3 py-2 text-sm font-semibold
               transition-all duration-200 ease-out
               ${isSelected
-                ? 'border-[#F8D011] bg-[#F8D011] text-[#020202] shadow-[0_0_16px_rgba(248,208,17,0.3)]'
+                ? 'border-brand-gold bg-brand-gold text-brand-black shadow-[0_0_16px_rgba(248,208,17,0.3)]'
                 : 'border-[rgba(148,80,200,0.3)] bg-[rgba(96,5,141,0.35)] text-[rgba(255,255,255,0.92)] hover:border-[rgba(148,80,200,0.5)] hover:bg-[rgba(96,5,141,0.5)]'
               }
             `}

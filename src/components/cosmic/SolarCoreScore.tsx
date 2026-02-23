@@ -313,7 +313,7 @@ export default function SolarCoreScore({
             </radialGradient>
             <radialGradient id="scs-nebula" cx="30%" cy="35%" r="55%">
               <stop offset="0%" stopColor="#7B4FA2" stopOpacity="0.25" />
-              <stop offset="50%" stopColor="#4A0E78" stopOpacity="0.1" />
+              <stop offset="50%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0.1" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
             <radialGradient id="scs-nebula2" cx="75%" cy="70%" r="40%">
@@ -489,7 +489,7 @@ export default function SolarCoreScore({
             ].join(' ');
 
             let fill: string;
-            if (isAmplified) fill = '#4A0E78';
+            if (isAmplified) fill = 'var(--cosmic-svg-bg)';
             else if (isTop) fill = `url(#scs-grad-${id})`;
             else if (isBottom) fill = 'rgba(244, 196, 48, 0.35)';
             else fill = 'rgba(244, 196, 48, 0.55)';
@@ -523,7 +523,7 @@ export default function SolarCoreScore({
 
                 {/* Glow halo */}
                 <motion.line x1={start.x} y1={start.y} x2={end.x} y2={end.y}
-                  stroke={isAmplified ? '#4A0E78' : '#F8D011'}
+                  stroke={isAmplified ? 'var(--cosmic-svg-bg)' : 'var(--brand-gold)'}
                   strokeWidth={widthAtBase + (isActive ? 14 : 8)}
                   strokeLinecap="round"
                   strokeOpacity={isActive ? 0.25 : isTop ? 0.14 : 0.07}
@@ -640,7 +640,7 @@ export default function SolarCoreScore({
               initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }} transition={{ duration: anim ? 0.15 : 0 }}
               className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-xl px-5 py-3 text-center pointer-events-none"
-              style={{ background: 'rgba(11, 2, 18, 0.92)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', boxShadow: 'var(--shadow-depth)' }}
+              style={{ background: 'var(--overlay-heavy)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', boxShadow: 'var(--shadow-depth)' }}
               role="tooltip"
             >
               <p className="text-xs tracking-wide uppercase"
@@ -673,7 +673,7 @@ export default function SolarCoreScore({
           <span style={{ color: 'var(--text-on-dark-secondary)' }}>Standard Ray</span>
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: '#4A0E78' }} />
+          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'var(--cosmic-svg-bg)' }} />
           <span style={{ color: 'var(--text-on-dark-secondary)' }}>Load Amplified</span>
         </span>
         <span className="flex items-center gap-1.5">
@@ -694,7 +694,7 @@ export default function SolarCoreScore({
             exit={anim ? { opacity: 0, y: 16 } : { opacity: 0 }}
             transition={anim ? { duration: 0.25, ease: 'easeOut' } : { duration: 0 }}
             className="rounded-2xl overflow-hidden"
-            style={{ background: 'rgba(11, 2, 18, 0.92)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', boxShadow: 'var(--shadow-glow-md)' }}
+            style={{ background: 'var(--overlay-heavy)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', boxShadow: 'var(--shadow-glow-md)' }}
           >
             <div className="p-5">
               {/* Header row */}

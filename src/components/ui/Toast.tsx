@@ -40,12 +40,12 @@ export function useToast(): ToastContextValue {
 
 const VARIANT_STYLES: Record<ToastVariant, { border: string; accent: string }> = {
   success: {
-    border: 'rgba(248, 208, 17, 0.5)',
+    border: 'var(--surface-border-hover)',
     accent: 'var(--brand-gold, #F8D011)',
   },
   info: {
-    border: 'rgba(148, 80, 200, 0.5)',
-    accent: 'rgb(168, 130, 210)',
+    border: 'var(--surface-border-hover)',
+    accent: 'var(--cosmic-purple-light)',
   },
   warning: {
     border: 'rgba(251, 191, 36, 0.5)',

@@ -55,7 +55,7 @@ export default function WelcomeFlowClient() {
               className="h-2 rounded-full transition-all"
               style={{
                 width: i <= stepIdx ? '24px' : '8px',
-                background: i <= stepIdx ? '#F8D011' : 'rgba(255,255,255,0.15)',
+                background: i <= stepIdx ? 'var(--brand-gold)' : 'rgba(255,255,255,0.15)',
                 transitionDuration: motionDuration,
               }}
             />
@@ -76,7 +76,7 @@ export default function WelcomeFlowClient() {
             <div
               className="mx-auto h-32 w-32 rounded-full"
               style={{
-                background: 'radial-gradient(circle, #F8D011 0%, rgba(248, 208, 17, 0.3) 40%, transparent 70%)',
+                background: 'radial-gradient(circle, var(--brand-gold) 0%, rgba(248, 208, 17, 0.3) 40%, transparent 70%)',
                 animation: prefersReduced ? 'none' : 'sunrisePulse 3s ease-in-out infinite',
               }}
             />
@@ -136,7 +136,7 @@ export default function WelcomeFlowClient() {
                 >
                   <span
                     className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold"
-                    style={{ background: 'rgba(248, 208, 17, 0.15)', color: '#F8D011' }}
+                    style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)' }}
                   >
                     {item.step}
                   </span>

@@ -210,7 +210,7 @@ function BlurredPreview({ title, description }: { title: string; description: st
       }}
     >
       <div className="filter blur-[2px] opacity-40 pointer-events-none">
-        <div className="h-24 rounded-lg mb-2" style={{ background: 'linear-gradient(135deg, #3A0A5E 0%, #5B2C8E 100%)' }} />
+        <div className="h-24 rounded-lg mb-2" style={{ background: 'linear-gradient(135deg, var(--cosmic-purple-mid) 0%, var(--cosmic-purple-vivid) 100%)' }} />
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="mb-2 opacity-60">

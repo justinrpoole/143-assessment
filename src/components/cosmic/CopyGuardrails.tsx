@@ -32,7 +32,7 @@ export default function CopyGuardrails() {
               position: 'relative',
             }}
           >
-            <p style={{ color: '#FFFFFF', fontSize: 13, fontWeight: 400 }}>
+            <p style={{ color: 'var(--text-on-dark)', fontSize: 13, fontWeight: 400 }}>
               Guard the air your light breathes.
             </p>
             {/* Triangle pointer */}
@@ -73,7 +73,7 @@ export default function CopyGuardrails() {
         {/* Element 4: Section Header */}
         <div>
           <p style={{ color: 'var(--text-on-dark-muted)', fontSize: 10, marginBottom: 6 }}>SECTION HEADER</p>
-          <h3 style={{ color: '#FFFFFF', fontSize: 18, fontWeight: 700, letterSpacing: '0.02em' }}>
+          <h3 style={{ color: 'var(--text-on-dark)', fontSize: 18, fontWeight: 700, letterSpacing: '0.02em' }}>
             Your orbit today.
           </h3>
         </div>

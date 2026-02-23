@@ -50,8 +50,8 @@ function SignalCard({ signal }: { signal: ExecutiveSignal }) {
       onClick={() => setExpanded(!expanded)}
       className="w-full text-left rounded-xl border transition-all"
       style={{
-        background: expanded ? config.bg : 'rgba(96, 5, 141, 0.15)',
-        borderColor: expanded ? config.color + '40' : 'rgba(148, 80, 200, 0.2)',
+        background: expanded ? config.bg : 'var(--surface-glass)',
+        borderColor: expanded ? config.color + '40' : 'var(--surface-border)',
         padding: '14px 16px',
         transitionDuration: prefersReduced ? '0ms' : '200ms',
       }}
@@ -155,13 +155,13 @@ function SignalCard({ signal }: { signal: ExecutiveSignal }) {
           {/* First tools to try */}
           {signal.tools_first.length > 0 && (
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#F8D011' }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
                 Start Here
               </p>
               <ul className="space-y-0.5">
                 {signal.tools_first.map((t) => (
                   <li key={t} className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                    <span style={{ color: '#F8D011' }}>&#9656;</span> {t}
+                    <span style={{ color: 'var(--brand-gold)' }}>&#9656;</span> {t}
                   </li>
                 ))}
               </ul>
@@ -233,7 +233,7 @@ export default function ExecutiveSignals({ signals }: ExecutiveSignalsProps) {
           className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-colors"
           style={{
             background: activeTab === 'exec' ? 'rgba(248, 208, 17, 0.15)' : 'rgba(96, 5, 141, 0.15)',
-            color: activeTab === 'exec' ? '#F8D011' : 'var(--text-on-dark-muted)',
+            color: activeTab === 'exec' ? 'var(--brand-gold)' : 'var(--text-on-dark-muted)',
             border: `1px solid ${activeTab === 'exec' ? 'rgba(248, 208, 17, 0.3)' : 'rgba(148, 80, 200, 0.2)'}`,
           }}
         >
@@ -244,7 +244,7 @@ export default function ExecutiveSignals({ signals }: ExecutiveSignalsProps) {
           className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-colors"
           style={{
             background: activeTab === 'core' ? 'rgba(248, 208, 17, 0.15)' : 'rgba(96, 5, 141, 0.15)',
-            color: activeTab === 'core' ? '#F8D011' : 'var(--text-on-dark-muted)',
+            color: activeTab === 'core' ? 'var(--brand-gold)' : 'var(--text-on-dark-muted)',
             border: `1px solid ${activeTab === 'core' ? 'rgba(248, 208, 17, 0.3)' : 'rgba(148, 80, 200, 0.2)'}`,
           }}
         >

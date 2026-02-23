@@ -48,7 +48,7 @@ export function EnterprisePortalClient() {
     <main className="cosmic-page-bg">
       <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-10">
         <header className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011]">Enterprise Portal</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">Enterprise Portal</p>
           <h1 className="text-3xl font-semibold mt-2 sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>Aggregate Development Intelligence</h1>
           <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
             Development-only dashboard pattern with confidence bands and governance boundaries.
@@ -56,7 +56,7 @@ export function EnterprisePortalClient() {
         </header>
 
         <section className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Cohort Snapshot</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Cohort Snapshot</p>
           {mockCohort ? (
             <div className="grid gap-3 md:grid-cols-5">
               <article className="glass-card p-4">
@@ -89,7 +89,7 @@ export function EnterprisePortalClient() {
 
         <section className="mb-6 grid gap-4 md:grid-cols-2">
           <article className="glass-card p-6 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Burnout Heatmap</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Burnout Heatmap</p>
             <h2 className="mb-2 text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Load signals are directional, not determinative</h2>
             <ul className="space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
               <li>- Show aggregate load clusters by team and week.</li>
@@ -99,7 +99,7 @@ export function EnterprisePortalClient() {
           </article>
 
           <article className="glass-card p-6 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Readiness Indicators</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Readiness Indicators</p>
             <h2 className="mb-2 text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Leadership readiness trendline</h2>
             <ul className="space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
               <li>- Aggregate readiness by cohort, not by individual ranking.</li>
@@ -110,7 +110,7 @@ export function EnterprisePortalClient() {
         </section>
 
         <section className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Governance</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Governance</p>
           <h2 className="mb-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Non-negotiable privacy boundaries</h2>
           <ul className="space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
             <li>- No individual ranking views.</li>
@@ -125,7 +125,7 @@ export function EnterprisePortalClient() {
         </section>
 
         <section className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Data Architecture Integration</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Data Architecture Integration</p>
           <div className="grid gap-3 md:grid-cols-3">
             {execRows.map((row) => (
               <article key={row['Page Name']} className="glass-card p-4">
@@ -139,7 +139,7 @@ export function EnterprisePortalClient() {
         </section>
 
         <section className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Roadmap Integration</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Roadmap Integration</p>
           <div className="grid gap-3 md:grid-cols-2">
             {enterpriseRoadmap.map((row) => (
               <article key={`${row.Phase}-${row.Feature}`} className="glass-card p-4">

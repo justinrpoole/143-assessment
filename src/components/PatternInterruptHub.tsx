@@ -38,12 +38,13 @@ export default function PatternInterruptHub({ onRepLogged }: Props) {
 
             {/* I Rise — softest, shown first */}
             <div className="flex items-center gap-2">
-              <span className="bg-black/70 text-white text-xs rounded-full px-3 py-1 whitespace-nowrap">
+              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'rgba(2, 2, 2, 0.7)' }}>
                 I need to return to myself
               </span>
               <button
                 onClick={() => open('i_rise')}
-                className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1A0A30] to-[#3E1D63] text-white shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+                className="w-12 h-12 rounded-full text-on-dark shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+                style={{ background: 'linear-gradient(to bottom right, var(--cosmic-purple-deep), var(--cosmic-purple-gradient))' }}
                 aria-label="I Rise"
               >
                 ☀️
@@ -52,12 +53,13 @@ export default function PatternInterruptHub({ onRepLogged }: Props) {
 
             {/* Go First */}
             <div className="flex items-center gap-2">
-              <span className="bg-black/70 text-white text-xs rounded-full px-3 py-1 whitespace-nowrap">
+              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'rgba(2, 2, 2, 0.7)' }}>
                 I need to start
               </span>
               <button
                 onClick={() => open('go_first')}
-                className="w-12 h-12 rounded-full bg-[#1A0A30] text-white shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+                className="w-12 h-12 rounded-full text-on-dark shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+                style={{ background: 'var(--cosmic-purple-deep)' }}
                 aria-label="Go First"
               >
                 🚀
@@ -66,12 +68,13 @@ export default function PatternInterruptHub({ onRepLogged }: Props) {
 
             {/* Watch Me */}
             <div className="flex items-center gap-2">
-              <span className="bg-black/70 text-white text-xs rounded-full px-3 py-1 whitespace-nowrap">
+              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'rgba(2, 2, 2, 0.7)' }}>
                 I need to refocus
               </span>
               <button
                 onClick={() => open('watch_me')}
-                className="w-12 h-12 rounded-full bg-[#5B2D8E] text-white shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+                className="w-12 h-12 rounded-full text-on-dark shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+                style={{ background: 'var(--cosmic-purple-vivid)' }}
                 aria-label="Watch Me"
               >
                 🎯
@@ -83,11 +86,10 @@ export default function PatternInterruptHub({ onRepLogged }: Props) {
         {/* Primary FAB */}
         <button
           onClick={() => setExpanded((e) => !e)}
-          className={`w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-white font-bold text-lg transition-all duration-200 ${
-            expanded
-              ? 'bg-[#2D1450] rotate-45'
-              : 'bg-[#3E1D63] hover:bg-[#5B2D8E]'
+          className={`w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-on-dark font-bold text-lg transition-all duration-200 ${
+            expanded ? 'rotate-45' : ''
           }`}
+          style={{ background: expanded ? 'var(--cosmic-purple-mid)' : 'var(--cosmic-purple-gradient)' }}
           aria-label={expanded ? 'Close tools' : 'Open pattern interrupt tools'}
         >
           {expanded ? '×' : '⚡'}

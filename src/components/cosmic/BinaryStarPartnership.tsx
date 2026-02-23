@@ -89,7 +89,7 @@ export default function BinaryStarPartnership({
 
         {/* LEFT — Aligned */}
         <g>
-          <rect x={0} y={0} width={half} height={H} rx="12" fill="#4A0E78" />
+          <rect x={0} y={0} width={half} height={H} rx="12" fill="var(--cosmic-svg-bg)" />
 
           {/* Infinity path */}
           <path

@@ -6,6 +6,11 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Light Check",
+  description: "A free 3-minute eclipse screening. Get a focused signal on your current leadership state before taking the full assessment.",
+};
+
 export default async function PreviewPage() {
   const auth = await getRequestAuthContext();
   const copy = PAGE_COPY_V1.preview;

@@ -69,14 +69,14 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
         ref={cardRef}
         className="rounded-2xl overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #0B0212 0%, #1A0732 50%, #0F0A1E 100%)',
-          border: '1px solid rgba(248, 208, 17, 0.2)',
-          boxShadow: '0 0 30px rgba(96, 5, 141, 0.3)',
+          background: 'linear-gradient(135deg, var(--cosmic-purple-darkest) 0%, var(--cosmic-purple-deep) 50%, var(--cosmic-deepest) 100%)',
+          border: '1px solid var(--surface-border)',
+          boxShadow: 'var(--shadow-glow-sm)',
         }}
       >
         {/* Header */}
-        <div className="px-6 py-5 text-center" style={{ borderBottom: '1px solid rgba(148, 80, 200, 0.2)' }}>
-          <p className="text-[10px] tracking-[0.3em] uppercase mb-1" style={{ color: '#F8D011' }}>
+        <div className="px-6 py-5 text-center" style={{ borderBottom: '1px solid var(--surface-border)' }}>
+          <p className="text-[10px] tracking-[0.3em] uppercase mb-1" style={{ color: 'var(--brand-gold)' }}>
             143 Leadership &middot; Light Signature
           </p>
           <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: '#FFFEF5' }}>
@@ -92,7 +92,7 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
         {/* Stats row */}
         <div className="grid grid-cols-3 text-center py-4 px-4" style={{ background: 'rgba(96, 5, 141, 0.15)' }}>
           <div>
-            <p className="text-lg font-bold" style={{ color: '#F8D011' }}>{Math.round(overallScore)}%</p>
+            <p className="text-lg font-bold" style={{ color: 'var(--brand-gold)' }}>{Math.round(overallScore)}%</p>
             <p className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255, 255, 255, 0.4)' }}>Overall</p>
           </div>
           <div>
@@ -117,8 +117,8 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
               className="px-3 py-1 rounded-full text-xs font-medium"
               style={{
                 background: 'rgba(255, 207, 0, 0.1)',
-                color: '#F8D011',
-                border: '1px solid rgba(255, 207, 0, 0.2)',
+                color: 'var(--brand-gold)',
+                border: '1px solid var(--surface-border)',
               }}
             >
               {RAY_SHORT_NAMES[ray.ray_id] ?? ray.ray_name}
@@ -130,7 +130,7 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
               style={{
                 background: 'rgba(148, 80, 200, 0.15)',
                 color: '#B794E6',
-                border: '1px solid rgba(148, 80, 200, 0.2)',
+                border: '1px solid var(--surface-border)',
               }}
             >
               Training: {RAY_SHORT_NAMES[justInRay.ray_id] ?? justInRay.ray_name}
@@ -166,8 +166,8 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
             className="flex-1 text-sm font-medium px-4 py-2.5 rounded-xl transition-colors"
             style={{
               background: 'rgba(248, 208, 17, 0.1)',
-              color: '#F8D011',
-              border: '1px solid rgba(248, 208, 17, 0.2)',
+              color: 'var(--brand-gold)',
+              border: '1px solid var(--surface-border)',
             }}
           >
             Share

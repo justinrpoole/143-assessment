@@ -512,7 +512,7 @@ export default function SampleReportClient() {
         <RetroFrame label="SYS-02B SIGNATURE" accent="#F8D011">
           <div className="flex items-center gap-2 mb-1">
             <StatusDot level="green" />
-            <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: "#F8D011", textShadow: "0 0 6px rgba(248,208,17,0.3)" }}>
+            <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: "var(--brand-gold)", textShadow: "0 0 6px rgba(248,208,17,0.3)" }}>
               Light Signature — Your Leadership Archetype
             </p>
           </div>
@@ -805,7 +805,7 @@ export default function SampleReportClient() {
       {/* ══════════ SECTION D2: EXECUTIVE INTELLIGENCE ══════════ */}
       <FadeInSection>
         <div className="mb-2 mt-4">
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] mb-1" style={{ color: "#F8D011", textShadow: "0 0 8px rgba(248,208,17,0.2)" }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] mb-1" style={{ color: "var(--brand-gold)", textShadow: "0 0 8px rgba(248,208,17,0.2)" }}>
             Section D2 — Executive Intelligence
           </p>
           <p className="text-xs leading-relaxed mb-2" style={{ color: "var(--text-on-dark-secondary)" }}>

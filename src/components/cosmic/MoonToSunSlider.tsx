@@ -94,9 +94,9 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
           {/* Background gradient — deep purple left to warm purple right */}
           <linearGradient id="mts-bg" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#3A0A5E" />
-            <stop offset="40%" stopColor="#4A0E78" />
-            <stop offset="70%" stopColor="#5B2C8E" />
-            <stop offset="100%" stopColor="#5B2C8E" />
+            <stop offset="40%" stopColor="var(--cosmic-svg-bg)" />
+            <stop offset="70%" stopColor="var(--cosmic-purple-vivid)" />
+            <stop offset="100%" stopColor="var(--cosmic-purple-vivid)" />
           </linearGradient>
 
           {/* Warm atmospheric haze on the right */}

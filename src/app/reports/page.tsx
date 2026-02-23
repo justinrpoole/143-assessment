@@ -8,6 +8,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Your Report",
+  description: "Your complete 143 Leadership report — Light Signature, Eclipse Snapshot, 9-Ray scores, and personalised Rise Path.",
+};
+
 type SearchParams = Record<string, string | string[] | undefined>;
 
 interface PageProps {
@@ -55,7 +60,7 @@ export default async function ReportsPage({ searchParams }: PageProps) {
     <main className="cosmic-page-bg">
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16">
         <header className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Full Report</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Full Report</p>
           <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>
             Your complete Gravitational Stability Report.
           </h1>

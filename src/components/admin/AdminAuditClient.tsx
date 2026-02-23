@@ -86,7 +86,7 @@ export function AdminAuditClient() {
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4">
         <div className="glass-card p-5 text-center">
-          <p className="text-3xl font-bold text-[#F8D011]">
+          <p className="text-3xl font-bold text-brand-gold">
             {stats.total_runs}
           </p>
           <p
@@ -97,7 +97,7 @@ export function AdminAuditClient() {
           </p>
         </div>
         <div className="glass-card p-5 text-center">
-          <p className="text-3xl font-bold text-[#F8D011]">
+          <p className="text-3xl font-bold text-brand-gold">
             {stats.completed_runs}
           </p>
           <p
@@ -108,7 +108,7 @@ export function AdminAuditClient() {
           </p>
         </div>
         <div className="glass-card p-5 text-center">
-          <p className="text-3xl font-bold text-[#F8D011]">
+          <p className="text-3xl font-bold text-brand-gold">
             {stats.avg_completion_minutes != null
               ? `${stats.avg_completion_minutes}m`
               : "\u2014"}

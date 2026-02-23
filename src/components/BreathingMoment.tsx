@@ -40,7 +40,7 @@ export default function BreathingMoment({ message, onContinue }: BreathingMoment
             onClick={onContinue}
             disabled={!showButton}
             className="px-8 py-3 rounded-xl text-base font-semibold transition
-              bg-[var(--ink)] text-white hover:brightness-110 shadow-[0_10px_26px_rgba(13,30,62,0.25)]"
+              bg-[var(--ink)] text-on-dark hover:brightness-110 shadow-[0_10px_26px_rgba(13,30,62,0.25)]"
           >
             Continue
           </button>

@@ -143,11 +143,11 @@ export default function TodaysRep({ bottomRayId, bottomRayName, eclipseLevel, on
 
   return (
     <div className="glass-card overflow-hidden">
-      <div className="bg-gradient-to-r from-[#3E1D63] to-[#5B2D8E] px-5 py-4">
-        <p className="text-xs uppercase tracking-widest text-purple-200 font-semibold">
+      <div className="px-5 py-4" style={{ background: 'linear-gradient(to right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
+        <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--text-on-dark-secondary)' }}>
           Today&apos;s rep
         </p>
-        <p className="text-xs text-purple-300 mt-0.5">
+        <p className="text-xs mt-0.5" style={{ color: 'var(--text-on-dark-muted)' }}>
           {bottomRayName
             ? `Training: ${bottomRayName}`
             : 'Start with this'}
@@ -164,7 +164,7 @@ export default function TodaysRep({ bottomRayId, bottomRayName, eclipseLevel, on
           <span className="text-xs whitespace-nowrap flex-shrink-0" style={{ color: 'var(--text-on-dark-muted)' }}>{tool.time}</span>
         </div>
 
-        <p className="text-xs italic rounded-lg px-3 py-2 leading-relaxed" style={{ color: '#F8D011', background: 'rgba(248, 208, 17, 0.1)' }}>
+        <p className="text-xs italic rounded-lg px-3 py-2 leading-relaxed" style={{ color: 'var(--brand-gold, #F8D011)', background: 'rgba(248, 208, 17, 0.1)' }}>
           {tool.science}
         </p>
 

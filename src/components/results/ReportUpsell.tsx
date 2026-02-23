@@ -23,7 +23,7 @@ export default function ReportUpsell({ subscriptionActive }: ReportUpsellProps) 
       style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}
     >
       <div className="text-center space-y-2">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
           Keep Going
         </p>
         <h3 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -41,7 +41,7 @@ export default function ReportUpsell({ subscriptionActive }: ReportUpsellProps) 
             className="flex items-start gap-3 rounded-xl p-3"
             style={{ background: 'rgba(96, 5, 141, 0.2)' }}
           >
-            <span className="mt-0.5 text-sm" style={{ color: '#F8D011' }}>&#x2713;</span>
+            <span className="mt-0.5 text-sm" style={{ color: 'var(--brand-gold)' }}>&#x2713;</span>
             <div>
               <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
                 {f.label}

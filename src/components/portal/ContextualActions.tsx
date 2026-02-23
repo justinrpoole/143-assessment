@@ -103,7 +103,7 @@ export default function ContextualActions({ eclipseLevel }: ContextualActionsPro
                 {primary.label}
               </p>
               {primary.time && (
-                <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ background: 'rgba(248, 208, 17, 0.12)', color: '#F8D011' }}>
+                <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ background: 'rgba(248, 208, 17, 0.12)', color: 'var(--brand-gold)' }}>
                   {primary.time}
                 </span>
               )}

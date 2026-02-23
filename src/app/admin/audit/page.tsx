@@ -19,7 +19,7 @@ export default async function AdminAuditPage() {
     <main className="cosmic-page-bg">
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
         <header className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011]">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">
             Admin
           </p>
           <h1

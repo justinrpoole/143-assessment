@@ -6,6 +6,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "The Framework",
+  description: "Nine dimensions. Three phases. One operating system upgrade. The Be The Light Framework maps 9 trainable leadership capacities backed by peer-reviewed science.",
+};
+
 const THREE_PHASES = [
   {
     phase: "Phase 1",

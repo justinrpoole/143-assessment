@@ -94,7 +94,7 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
         <div className="space-y-3 pt-1">
           {loading ? (
             <div className="flex items-center gap-2">
-              <div className="h-3 w-3 animate-spin rounded-full border-2 border-[#F8D011] border-t-transparent" />
+              <div className="h-3 w-3 animate-spin rounded-full border-2 border-brand-gold border-t-transparent" />
               <span className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>Loading...</span>
             </div>
           ) : (
@@ -111,7 +111,7 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
                   return (
                     <div key={label} className="flex-1 flex flex-col items-center gap-0.5">
                       {count > 0 && (
-                        <span className="text-[9px] font-bold" style={{ color: '#F8D011' }}>{count}</span>
+                        <span className="text-[9px] font-bold" style={{ color: 'var(--brand-gold)' }}>{count}</span>
                       )}
                       <div
                         className="w-full rounded-sm transition-all"
@@ -119,7 +119,7 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
                           height: `${heightPct}%`,
                           minHeight: '2px',
                           background: count > 0
-                            ? (isToday ? '#F8D011' : '#9450C8')
+                            ? (isToday ? 'var(--brand-gold)' : '#9450C8')
                             : isFuture
                               ? 'rgba(148, 80, 200, 0.15)'
                               : 'rgba(248, 113, 113, 0.2)',
@@ -128,7 +128,7 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
                       <span
                         className="text-[9px]"
                         style={{
-                          color: isToday ? '#F8D011' : 'var(--text-on-dark-muted)',
+                          color: isToday ? 'var(--brand-gold)' : 'var(--text-on-dark-muted)',
                           fontWeight: isToday ? 700 : 400,
                         }}
                       >

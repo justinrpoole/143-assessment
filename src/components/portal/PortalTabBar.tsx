@@ -52,10 +52,10 @@ export default function PortalTabBar() {
     <nav
       className="fixed bottom-0 left-0 right-0 z-40 flex md:hidden"
       style={{
-        background: 'rgba(26, 10, 46, 0.95)',
+        background: 'var(--overlay-heavy)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        borderTop: '1px solid rgba(148, 80, 200, 0.25)',
+        borderTop: '1px solid var(--surface-border)',
       }}
     >
       {TABS.map((tab) => {
@@ -67,8 +67,8 @@ export default function PortalTabBar() {
             className="flex flex-1 flex-col items-center gap-0.5 py-2 transition-colors"
             style={{
               color: isActive
-                ? '#F8D011'
-                : 'rgba(255, 255, 255, 0.5)',
+                ? 'var(--brand-gold)'
+                : 'var(--text-on-dark-muted)',
             }}
           >
             {tab.icon}
@@ -78,7 +78,7 @@ export default function PortalTabBar() {
             {isActive && (
               <div
                 className="absolute top-0 h-0.5 w-8 rounded-b-full"
-                style={{ background: '#F8D011' }}
+                style={{ background: 'var(--brand-gold)' }}
               />
             )}
           </Link>

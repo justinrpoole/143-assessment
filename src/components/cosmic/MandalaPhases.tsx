@@ -61,7 +61,7 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
       </p>
 
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label={`Cycle mandala — position ${activePos} of 9`}>
-        <rect width={W} height={H} rx="12" fill="#4A0E78" />
+        <rect width={W} height={H} rx="12" fill="var(--cosmic-svg-bg)" />
 
         <defs>
           <filter id="mp-glow" x="-50%" y="-50%" width="200%" height="200%">

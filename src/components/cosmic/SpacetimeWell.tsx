@@ -118,7 +118,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
       </p>
 
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label={`Spacetime gravity well — depth ${Math.round(depth)}%`}>
-        <rect width={W} height={H} rx="12" fill="#4A0E78" />
+        <rect width={W} height={H} rx="12" fill="var(--cosmic-svg-bg)" />
 
         {/* Gold grid */}
         {gridLines.map((line, i) => (

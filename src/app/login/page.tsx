@@ -7,6 +7,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Sign In",
+  description: "Sign in to your 143 Leadership account with a secure magic link. No password needed.",
+};
+
 export default async function LoginPage() {
   const userState = await getUserStateFromRequest();
 
@@ -42,11 +47,11 @@ export default async function LoginPage() {
           <div className="mt-6 text-center">
             <p className="text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.4))' }}>
               By signing in, you agree to our{" "}
-              <Link href="/terms" className="underline underline-offset-2 transition-colors hover:text-[#F8D011]">
+              <Link href="/terms" className="underline underline-offset-2 transition-colors hover:text-brand-gold">
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link href="/privacy" className="underline underline-offset-2 transition-colors hover:text-[#F8D011]">
+              <Link href="/privacy" className="underline underline-offset-2 transition-colors hover:text-brand-gold">
                 Privacy Policy
               </Link>
               .
@@ -57,7 +62,7 @@ export default async function LoginPage() {
         <div className="mt-6 text-center">
           <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
             New here?{" "}
-            <Link href="/preview" className="font-semibold underline underline-offset-2 transition-colors hover:text-[#F8D011]" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <Link href="/preview" className="font-semibold underline underline-offset-2 transition-colors hover:text-brand-gold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
               Start with the free Light Check
             </Link>
           </p>

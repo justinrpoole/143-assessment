@@ -50,9 +50,10 @@ export function ToolkitDeliveryClient({ isAuthenticated }: ToolkitDeliveryClient
   }
 
   return (
-    <section className="module-placeholder">
-      <h2>Challenge Kit Delivery</h2>
-      <p>Confirm delivery to activate reminders and follow-up guidance.</p>
+    <section className="glass-card p-6 sm:p-8 space-y-4">
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Challenge Kit</p>
+      <h2 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Get Your 143 Challenge Kit</h2>
+      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>Confirm delivery to activate reminders and follow-up guidance.</p>
       {isAuthenticated ? (
         <button
           type="button"

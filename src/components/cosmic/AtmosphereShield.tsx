@@ -89,8 +89,8 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label={`Atmosphere shield — ${isActive ? 'active' : 'off'}`}>
         <defs>
           <radialGradient id="as-bg">
-            <stop offset="0%" stopColor="#5B2C8E" />
-            <stop offset="100%" stopColor="#4A0E78" />
+            <stop offset="0%" stopColor="var(--cosmic-purple-vivid)" />
+            <stop offset="100%" stopColor="var(--cosmic-svg-bg)" />
           </radialGradient>
           <radialGradient id="as-dome" cx="50%" cy="40%">
             <stop offset="0%" stopColor="#F4C430" stopOpacity={shieldOpacity * 0.3} />

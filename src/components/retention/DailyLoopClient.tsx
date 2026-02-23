@@ -185,7 +185,7 @@ export default function DailyLoopClient() {
         <textarea
           ref={inputRef}
           aria-label={currentStep.prompt}
-          className="w-full rounded-xl px-4 py-3 text-sm resize-none focus:outline-none"
+          className="w-full rounded-xl px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
           style={{
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid var(--surface-border)',

@@ -64,7 +64,7 @@ export default function EnterpriseSalesPage() {
       {/* Hero */}
       <section className="px-6 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto space-y-6 text-center">
-          <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">
+          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">
             Built for development. Not surveillance.
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight" style={{ color: 'var(--text-on-dark)' }}>
@@ -90,7 +90,7 @@ export default function EnterpriseSalesPage() {
       {/* Problem */}
       <section className="px-6 py-16 max-w-4xl mx-auto space-y-6">
         <div className="space-y-4">
-          <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">The gap no one is measuring</p>
+          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">The gap no one is measuring</p>
           <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
             How much did your last leadership initiative cost? How long did the results last?
           </h2>
@@ -110,7 +110,7 @@ export default function EnterpriseSalesPage() {
             { stat: 'N>=5', label: 'Minimum group size before any team data is surfaced' },
           ].map((item) => (
             <div key={item.label} className="glass-card p-6 text-center">
-              <p className="text-4xl font-bold text-[#F8D011]">{item.stat}</p>
+              <p className="text-4xl font-bold text-brand-gold">{item.stat}</p>
               <p className="text-sm mt-2" style={{ color: 'var(--text-on-dark-secondary)' }}>{item.label}</p>
             </div>
           ))}
@@ -121,7 +121,7 @@ export default function EnterpriseSalesPage() {
       <section className="px-6 py-16">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="space-y-2">
-            <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">What you get</p>
+            <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">What you get</p>
             <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Built for development. Not surveillance.</h2>
           </div>
 
@@ -140,7 +140,7 @@ export default function EnterpriseSalesPage() {
       {/* Privacy commitment */}
       <section className="px-6 py-16 max-w-4xl mx-auto">
         <div className="glass-card p-8 space-y-4" style={{ borderColor: 'rgba(248, 208, 17, 0.3)' }}>
-          <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">Privacy commitment</p>
+          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Privacy commitment</p>
           <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
             Individual scores never surface to managers. That is not a policy. It is architecture.
           </h2>
@@ -156,12 +156,12 @@ export default function EnterpriseSalesPage() {
       <section className="px-6 py-16">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="space-y-2">
-            <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">Governance</p>
+            <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Governance</p>
             <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>This is / This is not</h2>
           </div>
 
           <div className="glass-card overflow-hidden">
-            <div className="grid grid-cols-2 bg-gradient-to-r from-[#3E1D63] to-[#5B2D8E] text-white text-sm font-semibold">
+            <div className="grid grid-cols-2 text-on-dark text-sm font-semibold" style={{ background: 'linear-gradient(to right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
               <div className="px-6 py-3">This IS</div>
               <div className="px-6 py-3 border-l border-white/20">This is NOT</div>
             </div>
@@ -187,7 +187,7 @@ export default function EnterpriseSalesPage() {
       {/* Pricing */}
       <section id="pricing" className="px-6 py-16 max-w-5xl mx-auto space-y-8">
         <div className="space-y-2 text-center">
-          <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">Investment</p>
+          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Investment</p>
           <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Priced for serious deployment</h2>
           <p className="text-sm max-w-xl mx-auto" style={{ color: 'var(--text-on-dark-muted)' }}>
             All tiers include aggregate dashboards, governance-compliant reporting, and consent-gated privacy controls.
@@ -206,7 +206,7 @@ export default function EnterpriseSalesPage() {
               style={tier.highlight ? { borderColor: 'rgba(248, 208, 17, 0.4)' } : undefined}
             >
               {tier.highlight && (
-                <span className="text-xs bg-[#F8D011] text-[#1A0A30] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                <span className="text-xs bg-brand-gold text-brand-black font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                   Most popular
                 </span>
               )}
@@ -214,7 +214,7 @@ export default function EnterpriseSalesPage() {
                 <p className="text-sm font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
                   {tier.name}
                 </p>
-                <p className="text-3xl font-bold mt-1 text-[#F8D011]">
+                <p className="text-3xl font-bold mt-1 text-brand-gold">
                   {tier.price}
                 </p>
                 <p className="text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -225,7 +225,7 @@ export default function EnterpriseSalesPage() {
               <ul className="space-y-2">
                 {tier.includes.map((item) => (
                   <li key={item} className="text-sm flex items-start gap-2" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                    <span className="text-[#F8D011]">✓</span>
+                    <span className="text-brand-gold">✓</span>
                     {item}
                   </li>
                 ))}

@@ -8,6 +8,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "The 143 Assessment",
+  description: "Map your nine leadership capacities in one sitting. 143 questions. 15 minutes. See your Light Signature, Eclipse Snapshot, and the first capacity to train.",
+};
+
 type SearchParams = Record<string, string | string[] | undefined>;
 
 interface PageProps {
@@ -69,14 +74,14 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
           </header>
 
           <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-[#F8D011]">What Makes This Different</h2>
+            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">What Makes This Different</h2>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               Notice how every other assessment told you who you are but never what to do next? That is the gap. The 143 is not a personality test. It measures 9 trainable leadership capacities backed by peer-reviewed behavioral science. Your scores are designed to change. And the first thing you will notice when you open your results is that it sounds like someone who knows you.
             </p>
           </section>
 
           <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-[#F8D011]">What You Will Discover</h2>
+            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">What You Will Discover</h2>
             <ul className="space-y-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               <li>Your Light Signature — one of 36 combinations that shows how your top two Rays work together. You might be a Strategic Optimist, a Decisive Director, or a Relational Light.</li>
               <li>Your Eclipse Snapshot — where sustained stress is covering real capacity. Not a verdict. A temporary state with a clear path out.</li>
@@ -86,7 +91,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
           </section>
 
           <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-[#F8D011]">Two Ways In</h2>
+            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">Two Ways In</h2>
             <ul className="space-y-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               <li>Free — The Light Check gives you a quick eclipse screening and your top Ray in 3 minutes. No account required.</li>
               <li>$43 one-time — Full 143 Assessment with your Light Signature, Eclipse Snapshot, and personalized Rise Path.</li>
@@ -96,7 +101,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
           </section>
 
           <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-[#F8D011]">See What the Report Looks Like</h2>
+            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">See What the Report Looks Like</h2>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               The first thing people say when they open their results: &quot;Oh. That is what is happening.&quot; The report names the pattern you have been living but could not articulate. Preview the structure and the personal language before you begin.
             </p>
@@ -111,7 +116,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
           </section>
 
           <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-[#F8D011]">FAQs</h2>
+            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">FAQs</h2>
             <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               <p>How long does it take? 143 questions. About 15 minutes. Most people say it goes faster than expected because the questions feel personal, not generic.</p>
               <p>What if I do not like my results? There are no bad results. Every score is a capacity to build. Eclipse does not mean failure — it means your range is covered. The report shows you exactly what is underneath.</p>

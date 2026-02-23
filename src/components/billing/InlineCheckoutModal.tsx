@@ -95,7 +95,7 @@ export default function InlineCheckoutModal({
       <div
         className="relative w-full max-w-md mx-3 rounded-t-2xl sm:rounded-2xl overflow-hidden"
         style={{
-          background: 'linear-gradient(180deg, rgba(96, 5, 141, 0.25) 0%, rgba(11, 2, 18, 0.98) 100%)',
+          background: 'linear-gradient(180deg, rgba(96, 5, 141, 0.25) 0%, var(--overlay-heavy) 100%)',
           border: '1px solid rgba(248, 208, 17, 0.2)',
           boxShadow: '0 -8px 40px rgba(248, 208, 17, 0.06), 0 16px 48px rgba(0, 0, 0, 0.6)',
           animation: 'checkoutSlideUp 300ms ease-out',
@@ -118,7 +118,7 @@ export default function InlineCheckoutModal({
         </button>
 
         <div className="px-6 pt-6 pb-2">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
             Ready for yours?
           </p>
           <h3 className="text-xl font-semibold mt-1" style={{ color: 'var(--text-on-dark)' }}>
@@ -157,8 +157,8 @@ export default function InlineCheckoutModal({
             </div>
             {loading === 'paid_43' && (
               <div className="flex items-center gap-2 mt-2">
-                <div className="h-3 w-3 animate-spin rounded-full border-2 border-[#F8D011] border-t-transparent" />
-                <span className="text-xs" style={{ color: '#F8D011' }}>Opening checkout...</span>
+                <div className="h-3 w-3 animate-spin rounded-full border-2 border-brand-gold border-t-transparent" />
+                <span className="text-xs" style={{ color: 'var(--brand-gold)' }}>Opening checkout...</span>
               </div>
             )}
           </button>
@@ -182,7 +182,7 @@ export default function InlineCheckoutModal({
                   </p>
                   <span
                     className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full"
-                    style={{ background: 'rgba(248, 208, 17, 0.15)', color: '#F8D011' }}
+                    style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)' }}
                   >
                     Best value
                   </span>
@@ -192,14 +192,14 @@ export default function InlineCheckoutModal({
                 </p>
               </div>
               <div className="text-right shrink-0 ml-3">
-                <p className="text-lg font-bold" style={{ color: '#F8D011' }}>$14.33</p>
+                <p className="text-lg font-bold" style={{ color: 'var(--brand-gold)' }}>$14.33</p>
                 <p className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>/month</p>
               </div>
             </div>
             {loading === 'subscription' && (
               <div className="flex items-center gap-2 mt-2">
-                <div className="h-3 w-3 animate-spin rounded-full border-2 border-[#F8D011] border-t-transparent" />
-                <span className="text-xs" style={{ color: '#F8D011' }}>Opening checkout...</span>
+                <div className="h-3 w-3 animate-spin rounded-full border-2 border-brand-gold border-t-transparent" />
+                <span className="text-xs" style={{ color: 'var(--brand-gold)' }}>Opening checkout...</span>
               </div>
             )}
           </button>

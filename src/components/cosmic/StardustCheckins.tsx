@@ -94,7 +94,7 @@ export default function StardustCheckins({
         tabIndex={0}
       >
         {/* Purple background */}
-        <rect width={W} height={H} rx="12" fill="#4A0E78" />
+        <rect width={W} height={H} rx="12" fill="var(--cosmic-svg-bg)" />
 
         {/* Subtle compass rose at center */}
         {[0, 90, 180, 270].map((deg) => (

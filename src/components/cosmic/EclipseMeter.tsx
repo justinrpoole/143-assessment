@@ -192,7 +192,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
               {/* Warm nebula glow */}
               <radialGradient id="ecl-nebula" cx="60%" cy="40%" r="50%">
                 <stop offset="0%" stopColor="#7B4FA2" stopOpacity="0.2" />
-                <stop offset="50%" stopColor="#4A0E78" stopOpacity="0.08" />
+                <stop offset="50%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0.08" />
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
 
@@ -611,7 +611,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
         {/* Eclipse Level Legend */}
         <div
           className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 px-4 py-2.5 text-[10px]"
-          style={{ background: 'rgba(11, 2, 18, 0.6)' }}
+          style={{ background: 'var(--overlay-light)' }}
           aria-label="Eclipse level scale"
         >
           {(['LOW', 'MODERATE', 'ELEVATED', 'HIGH'] as const).map((lvl) => (

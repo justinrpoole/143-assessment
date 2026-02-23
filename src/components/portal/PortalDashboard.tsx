@@ -41,7 +41,8 @@ function SignOutButton() {
       type="button"
       onClick={() => void handleSignOut()}
       disabled={busy}
-      className="text-xs text-purple-300 hover:text-white transition-colors disabled:opacity-50"
+      className="text-xs hover:text-white transition-colors disabled:opacity-50"
+      style={{ color: 'var(--text-on-dark-muted)' }}
     >
       {busy ? 'Signing out...' : 'Sign out'}
     </button>
@@ -189,12 +190,12 @@ export default function PortalDashboard() {
   if (summary?.has_completed_run && isHighEclipse) {
     return (
       <div className="space-y-6">
-        <div className="bg-gradient-to-br from-[#0F0A1E] to-[#3E1D63] text-white rounded-2xl p-7 space-y-3">
+        <div className="text-on-dark rounded-2xl p-7 space-y-3" style={{ background: 'linear-gradient(to bottom right, var(--cosmic-deepest), var(--cosmic-purple-gradient))' }}>
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold">Welcome back.</h2>
             <SignOutButton />
           </div>
-          <p className="text-purple-200 text-sm leading-relaxed">
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
             One thing. Right here. Start with this.
           </p>
         </div>
@@ -237,7 +238,7 @@ export default function PortalDashboard() {
         </div>
 
         <p className="text-center text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
-          <Link href={summary.last_run_id ? `/results?run_id=${summary.last_run_id}` : '/assessment/setup'} className="text-[#F8D011] underline underline-offset-2">
+          <Link href={summary.last_run_id ? `/results?run_id=${summary.last_run_id}` : '/assessment/setup'} className="text-brand-gold underline underline-offset-2">
             When you&apos;re ready, your full plan is here →
           </Link>
         </p>
@@ -254,13 +255,13 @@ export default function PortalDashboard() {
   if (!summary?.has_completed_run) {
     return (
       <div className="space-y-6">
-        <div className="bg-gradient-to-br from-[#3E1D63] to-[#5B2D8E] text-white rounded-2xl p-7 space-y-3">
+        <div className="text-on-dark rounded-2xl p-7 space-y-3" style={{ background: 'linear-gradient(to bottom right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
           <div className="flex items-center justify-between">
-            <p className="text-xs uppercase tracking-widest text-purple-300 font-semibold">Your OS</p>
+            <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--text-on-dark-muted)' }}>Your OS</p>
             <SignOutButton />
           </div>
           <h2 className="text-2xl font-bold">Let&apos;s find your signal.</h2>
-          <p className="text-purple-200 text-sm leading-relaxed">
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
             The 143 Assessment maps your 9 leadership capacities — trainable states, not personality traits.
             143 questions. ~25 minutes. A result you can actually use.
           </p>
@@ -297,12 +298,12 @@ export default function PortalDashboard() {
         )}
 
         <div className="glass-card p-5">
-          <p className="text-xs font-semibold text-[#F8D011] uppercase tracking-wider mb-2">Why REPs matter</p>
+          <p className="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-2">Why REPs matter</p>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
             Every rep you log rewires your Reticular Activating System — training your brain to
             look for what you&apos;re practicing, not just what threatens it.
           </p>
-          <Link href="/reps" className="text-xs text-[#F8D011] underline underline-offset-2 mt-2 block">
+          <Link href="/reps" className="text-xs text-brand-gold underline underline-offset-2 mt-2 block">
             Log a rep anyway →
           </Link>
         </div>
@@ -324,9 +325,9 @@ export default function PortalDashboard() {
     <div className="space-y-6">
 
       {/* Welcome header */}
-      <div className="bg-gradient-to-br from-[#3E1D63] to-[#5B2D8E] text-white rounded-2xl p-7 space-y-2">
+      <div className="text-on-dark rounded-2xl p-7 space-y-2" style={{ background: 'linear-gradient(to bottom right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
         <div className="flex items-center justify-between">
-          <p className="text-xs uppercase tracking-widest text-purple-300 font-semibold">
+          <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--text-on-dark-muted)' }}>
             Your OS
           </p>
           <SignOutButton />
@@ -334,7 +335,7 @@ export default function PortalDashboard() {
         <h2 className="text-xl font-semibold">
           Good to see you.
         </h2>
-        <p className="text-purple-200 text-sm">
+        <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
           {summary.streak_days > 0
             ? `${summary.streak_days} day${summary.streak_days !== 1 ? 's' : ''} in a row. Keep it going.`
             : 'Every rep counts. Start where you are.'}
@@ -342,7 +343,8 @@ export default function PortalDashboard() {
         {summary.last_run_id && (
           <Link
             href={`/results?run_id=${summary.last_run_id}`}
-            className="inline-block mt-2 text-xs text-purple-200 underline underline-offset-2 hover:text-white transition-colors"
+            className="inline-block mt-2 text-xs underline underline-offset-2 hover:text-white transition-colors"
+            style={{ color: 'var(--text-on-dark-secondary)' }}
           >
             Return to your report →
           </Link>
@@ -377,7 +379,7 @@ export default function PortalDashboard() {
           <div className="glass-card p-4 space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-secondary)' }}>This week</p>
-              <p className="text-xs text-[#F8D011] font-semibold">
+              <p className="text-xs text-brand-gold font-semibold">
                 {summary.reps_this_week}/{WEEKLY_TARGET}
               </p>
             </div>
@@ -395,7 +397,7 @@ export default function PortalDashboard() {
 
           <div className="glass-card p-4 text-center space-y-1 flex flex-col items-center">
             <StreakFire days={summary.streak_days} />
-            <p className="text-2xl font-bold text-[#F8D011]">
+            <p className="text-2xl font-bold text-brand-gold">
               {summary.streak_days > 0 ? summary.streak_days : '—'}
             </p>
             <p className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>day streak</p>
@@ -424,7 +426,7 @@ export default function PortalDashboard() {
       <FadeInSection delay={0.18}>
         {summary.top_ray_ids.length > 0 ? (
           <div className="glass-card p-4">
-            <p className="text-xs text-[#F8D011] uppercase tracking-wider font-semibold mb-2">
+            <p className="text-xs text-brand-gold uppercase tracking-wider font-semibold mb-2">
               Your Light Signature
             </p>
             <div className="flex gap-2 flex-wrap">
@@ -438,7 +440,7 @@ export default function PortalDashboard() {
                 </span>
               ))}
               {summary.bottom_ray_name && (
-                <span className="px-3 py-1 rounded-full text-sm font-medium" style={{ background: 'rgba(248, 208, 17, 0.15)', color: '#F8D011', border: '1px solid rgba(248, 208, 17, 0.3)' }}>
+                <span className="px-3 py-1 rounded-full text-sm font-medium" style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)', border: '1px solid rgba(248, 208, 17, 0.3)' }}>
                   Training: {summary.bottom_ray_name}
                 </span>
               )}
@@ -502,7 +504,7 @@ export default function PortalDashboard() {
       </FadeInSection>
 
       {showRepLink && (
-        <p className="text-center text-sm text-[#F8D011]">
+        <p className="text-center text-sm text-brand-gold">
           Rep logged ✓{' '}
           <Link href="/reps" className="underline underline-offset-2">
             See your history →
@@ -514,7 +516,7 @@ export default function PortalDashboard() {
       {summary.total_reps <= 3 && (
         <FadeInSection>
           <div className="glass-card p-5 space-y-2">
-            <p className="text-xs font-semibold text-[#F8D011] uppercase tracking-wider">How this portal works</p>
+            <p className="text-xs font-semibold text-brand-gold uppercase tracking-wider">How this portal works</p>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               Your portal tracks your REPs — Recognition + Encouragement toward practice
               regardless of outcome. The more you show up, the more your nervous system learns it can.

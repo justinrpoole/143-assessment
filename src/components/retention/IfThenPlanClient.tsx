@@ -295,7 +295,7 @@ export default function IfThenPlanClient() {
                 <div className="flex items-start gap-2">
                   <span
                     className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded shrink-0 mt-0.5"
-                    style={{ background: 'rgba(248, 208, 17, 0.15)', color: '#F8D011' }}
+                    style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)' }}
                   >Then</span>
                   <p className="text-sm" style={{ color: 'var(--text-on-dark)' }}>{plan.then_action}</p>
                 </div>

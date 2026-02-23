@@ -460,7 +460,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
     <form onSubmit={onSubmit} className="glass-card p-5 sm:p-6">
       {/* Sticky progress bar */}
       {runQuestions.length > 0 && (
-        <div className="sticky top-0 z-40 -mx-5 -mt-5 mb-4 rounded-t-2xl px-5 pb-3 pt-4 sm:-mx-6 sm:-mt-6 sm:px-6" style={{ background: 'rgba(11, 2, 18, 0.92)', backdropFilter: 'blur(16px)' }}>
+        <div className="sticky top-0 z-40 -mx-5 -mt-5 mb-4 rounded-t-2xl px-5 pb-3 pt-4 sm:-mx-6 sm:-mt-6 sm:px-6" style={{ background: 'var(--overlay-heavy)', backdropFilter: 'blur(16px)' }}>
           <div className="flex items-center justify-between text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
             <span>{completionLabel}</span>
             <div className="flex items-center gap-3">
@@ -480,7 +480,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
                 className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full transition-colors"
                 style={{
                   background: paginated ? 'rgba(248, 208, 17, 0.15)' : 'rgba(148, 80, 200, 0.2)',
-                  color: paginated ? '#F8D011' : 'var(--text-on-dark-muted)',
+                  color: paginated ? 'var(--brand-gold)' : 'var(--text-on-dark-muted)',
                   border: `1px solid ${paginated ? 'rgba(248, 208, 17, 0.3)' : 'rgba(148, 80, 200, 0.15)'}`,
                 }}
                 aria-label={paginated ? 'Switch to scroll mode' : 'Switch to one-at-a-time mode'}
@@ -503,7 +503,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
                 style={{
                   background: !isOnline ? '#FB923C' :
                     saveStatus === 'saved' ? '#22C55E' :
-                    saveStatus === 'saving' ? '#F8D011' :
+                    saveStatus === 'saving' ? 'var(--brand-gold)' :
                     '#F43F5E',
                 }}
               />
@@ -529,7 +529,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
           <div className="text-2xl mb-1" aria-hidden="true">
             {progressPct >= 75 ? '\u2728' : progressPct >= 50 ? '\u2600\uFE0F' : '\u2B50'}
           </div>
-          <p className="text-sm font-semibold" style={{ color: '#F8D011' }}>
+          <p className="text-sm font-semibold" style={{ color: 'var(--brand-gold)' }}>
             {milestoneMsg}
           </p>
           <p className="text-xs mt-1" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -547,7 +547,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
 
       {(runNumber === null || runQuestions.length === 0) && !error ? (
         <div className="flex items-center gap-3 py-8">
-          <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#F8D011] border-t-transparent" />
+          <div className="h-5 w-5 animate-spin rounded-full border-2 border-brand-gold border-t-transparent" />
           <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>Preparing your assessment...</p>
         </div>
       ) : null}

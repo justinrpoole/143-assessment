@@ -54,9 +54,10 @@ export function UpgradeCheckoutClient() {
   }
 
   return (
-    <section className="module-placeholder">
-      <h2>Checkout</h2>
-      <p className="text-sm text-[var(--ink-soft)]">
+    <section className="glass-card p-6 sm:p-8 space-y-4">
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Checkout</p>
+      <h2 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Choose your path</h2>
+      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
         Unlock the full 143-question Run #1 for $43 one-time, or start the
         $14.33/month plan for monthly 43-question retakes and growth tracking.
       </p>

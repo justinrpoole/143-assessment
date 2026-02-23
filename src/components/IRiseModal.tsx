@@ -64,11 +64,11 @@ export default function IRiseModal({ onClose, onRepLogged }: Props) {
         {/* Header */}
         <div
           className="px-6 py-5"
-          style={{ background: 'linear-gradient(135deg, #0F0A1E 0%, #3E1D63 100%)' }}
+          style={{ background: 'linear-gradient(135deg, var(--cosmic-deepest) 0%, var(--cosmic-purple-gradient) 100%)' }}
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">
+              <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">
                 Identity reset
               </p>
               <h2 className="text-2xl font-bold mt-1" style={{ color: 'var(--text-on-dark)' }}>I rise.</h2>
@@ -109,8 +109,8 @@ export default function IRiseModal({ onClose, onRepLogged }: Props) {
                       onClick={() => setSelectedSpiral(opt)}
                       className={`px-3 py-1.5 rounded-full text-sm border transition-all ${
                         selectedSpiral === opt
-                          ? 'bg-[#F8D011] text-[#020202] border-[#F8D011]'
-                          : 'text-white/70 hover:border-[#F8D011]/50'
+                          ? 'bg-brand-gold text-brand-black border-brand-gold'
+                          : 'text-on-dark-secondary hover:border-brand-gold/50'
                       }`}
                       style={selectedSpiral !== opt ? { borderColor: 'var(--surface-border)' } : undefined}
                     >
@@ -151,7 +151,7 @@ export default function IRiseModal({ onClose, onRepLogged }: Props) {
               <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
                 Step 2 — Say this (out loud if you can)
               </p>
-              <div className="border-2 border-[#F8D011] rounded-2xl px-6 py-6 space-y-2" style={{ background: 'rgba(248, 208, 17, 0.08)' }}>
+              <div className="border-2 border-brand-gold rounded-2xl px-6 py-6 space-y-2" style={{ background: 'rgba(248, 208, 17, 0.08)' }}>
                 <p className="text-lg font-bold leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
                   I rise like the sun —
                 </p>
@@ -191,8 +191,8 @@ export default function IRiseModal({ onClose, onRepLogged }: Props) {
                       onClick={() => setSelectedMove(move)}
                       className={`w-full text-left px-4 py-2.5 rounded-xl border text-sm transition-all ${
                         selectedMove === move
-                          ? 'bg-[#F8D011] text-[#020202] border-[#F8D011]'
-                          : 'hover:border-[#F8D011]/50'
+                          ? 'bg-brand-gold text-brand-black border-brand-gold'
+                          : 'hover:border-brand-gold/50'
                       }`}
                       style={selectedMove !== move ? { borderColor: 'var(--surface-border)', color: 'var(--text-on-dark-secondary)' } : undefined}
                     >

@@ -69,7 +69,7 @@ export default function AssessmentSummaryCard({ output }: Props) {
           valueColor={
             dq.confidence_band === 'HIGH' ? '#34D399'
             : dq.confidence_band === 'LOW' ? '#FB923C'
-            : '#F8D011'
+            : 'var(--brand-gold)'
           }
           sublabel={flagCount > 0 ? `${flagCount} validity flag${flagCount > 1 ? 's' : ''}` : 'No flags'}
         />

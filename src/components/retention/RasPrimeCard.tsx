@@ -122,7 +122,7 @@ export function RasPrimeCard({ variant = 'full' }: RasPrimeCardProps) {
               value={value}
               onChange={(event) => handleItemChange(index, event.target.value)}
               placeholder="What you want to notice"
-              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
                 background: 'var(--surface-glass, rgba(255,255,255,0.06))',
                 border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -166,7 +166,7 @@ export function RasPrimeCard({ variant = 'full' }: RasPrimeCardProps) {
               value={noticed}
               onChange={(event) => setNoticed(event.target.value)}
               placeholder="I noticed..."
-              className="w-full flex-1 rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+              className="w-full flex-1 rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
                 background: 'var(--surface-glass, rgba(255,255,255,0.06))',
                 border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',

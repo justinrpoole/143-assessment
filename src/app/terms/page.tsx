@@ -6,6 +6,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Terms of Service",
+  description: "Terms governing use of the 143 Leadership platform.",
+};
+
 const LAST_UPDATED = "21 February 2026";
 
 export default async function TermsPage() {
@@ -147,7 +152,7 @@ export default async function TermsPage() {
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/privacy" className="text-sm underline underline-offset-2 transition-colors hover:text-[#F8D011]" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
+          <Link href="/privacy" className="text-sm underline underline-offset-2 transition-colors hover:text-brand-gold" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
             Read our Privacy Policy
           </Link>
         </div>

@@ -83,8 +83,8 @@ export default function CometMoments({ comets, onCapture }: CometMomentsProps) {
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label="Comet opportunity capture">
         <defs>
           <radialGradient id="cm-bg">
-            <stop offset="0%" stopColor="#5B2C8E" />
-            <stop offset="100%" stopColor="#4A0E78" />
+            <stop offset="0%" stopColor="var(--cosmic-purple-vivid)" />
+            <stop offset="100%" stopColor="var(--cosmic-svg-bg)" />
           </radialGradient>
           <radialGradient id="cm-head">
             <stop offset="0%" stopColor="#FFFFFF" />

@@ -15,7 +15,7 @@ interface ReflectionState {
 }
 
 export default function CoachingQuestions({ questions, runId }: Props) {
-  const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(0);
   const [reflections, setReflections] = useState<Record<number, ReflectionState>>({});
 
   const saveReflection = useCallback(async (idx: number) => {
@@ -57,10 +57,15 @@ export default function CoachingQuestions({ questions, runId }: Props) {
 
   return (
     <section className="space-y-4">
-      <h3 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Sit With These</h3>
-      <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-        No rush. No right answer. Just honest reflection. Tap a question to write what comes up.
-      </p>
+      <div>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          Coaching Prompt
+        </p>
+        <h3 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Sit With These</h3>
+        <p className="mt-1 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+          These are not test questions. They are mirrors. The first one is open — start there. No rush. No right answer. Just honest reflection.
+        </p>
+      </div>
 
       <div className="space-y-3">
         {questions.slice(0, 5).map((q, i) => {
@@ -88,7 +93,7 @@ export default function CoachingQuestions({ questions, runId }: Props) {
                   className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold"
                   style={{
                     background: hasSaved ? 'rgba(248, 208, 17, 0.2)' : 'rgba(148, 80, 200, 0.3)',
-                    color: hasSaved ? '#F8D011' : 'rgba(255,255,255,0.6)',
+                    color: hasSaved ? 'var(--brand-gold)' : 'rgba(255,255,255,0.6)',
                   }}
                 >
                   {hasSaved ? '\u2713' : i + 1}
@@ -120,7 +125,7 @@ export default function CoachingQuestions({ questions, runId }: Props) {
                 <div className="px-5 pb-5 space-y-3">
                   {hasSaved ? (
                     <div className="rounded-xl p-4" style={{ background: 'rgba(248, 208, 17, 0.08)' }}>
-                      <p className="text-xs font-semibold mb-1" style={{ color: '#F8D011' }}>
+                      <p className="text-xs font-semibold mb-1" style={{ color: 'var(--brand-gold)' }}>
                         Your reflection
                       </p>
                       <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -158,7 +163,7 @@ export default function CoachingQuestions({ questions, runId }: Props) {
                           className="text-xs font-semibold px-4 py-2 rounded-lg transition-colors disabled:opacity-50"
                           style={{
                             background: 'rgba(248, 208, 17, 0.15)',
-                            color: '#F8D011',
+                            color: 'var(--brand-gold)',
                             border: '1px solid rgba(248, 208, 17, 0.25)',
                           }}
                         >

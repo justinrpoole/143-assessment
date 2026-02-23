@@ -25,7 +25,7 @@ export function CoachWorkspaceClient() {
     return (
       <main className="cosmic-page-bg">
         <div className="mx-auto max-w-3xl px-5 py-12 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011]">Coach Workspace</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">Coach Workspace</p>
           <h1 className="text-3xl font-semibold mt-2" style={{ color: 'var(--text-on-dark)' }}>No client run available</h1>
           <p className="mt-3 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
             Complete one assessment run first, then open coach workspace for data-grounded prompts.
@@ -48,7 +48,7 @@ export function CoachWorkspaceClient() {
     <main className="cosmic-page-bg">
       <div className="mx-auto max-w-5xl px-5 py-8 sm:px-8 sm:py-10">
         <header className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011]">Coach Workspace</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">Coach Workspace</p>
           <h1 className="text-3xl font-semibold mt-2 sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>Tools-First Coaching Plan</h1>
           <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
             Built from current run output. No typing language. No shame framing.
@@ -59,7 +59,7 @@ export function CoachWorkspaceClient() {
         </header>
 
         <section className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Session Snapshot</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Session Snapshot</p>
           <div className="grid gap-3 md:grid-cols-4">
             <article className="glass-card p-4">
               <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Eclipse Level</p>
@@ -81,7 +81,7 @@ export function CoachWorkspaceClient() {
         </section>
 
         <section className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Roadmap Integration</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Roadmap Integration</p>
           <h2 className="mb-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Phase 3 Coaching Features</h2>
           <div className="grid gap-3 md:grid-cols-3">
             {coachingRoadmap.map((row) => (
@@ -95,7 +95,7 @@ export function CoachWorkspaceClient() {
         </section>
 
         <section className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Power and Training</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Power and Training</p>
           <div className="grid gap-3 md:grid-cols-2">
             {topTwo.map((ray) => (
               <article key={ray.ray_id} className="glass-card p-4">
@@ -119,7 +119,7 @@ export function CoachWorkspaceClient() {
         </section>
 
         <section className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Coach Questions</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Coach Questions</p>
           <h2 className="mb-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Suggested prompts for next session</h2>
           {questions.length > 0 ? (
             <ul className="space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>

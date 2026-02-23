@@ -100,7 +100,7 @@ function ReportLoadingSequence() {
 
   return (
     <div className="flex flex-col items-center justify-center py-16 space-y-6">
-      <div className="h-10 w-10 animate-spin rounded-full border-3 border-[#F8D011] border-t-transparent" />
+      <div className="h-10 w-10 animate-spin rounded-full border-3 border-brand-gold border-t-transparent" />
       <div className="space-y-2 text-center">
         {LOADING_STEPS.map((label, i) => (
           <p

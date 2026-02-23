@@ -49,10 +49,10 @@ export default function GoFirstModal({ onClose, onRepLogged }: Props) {
       <div className="glass-modal-panel max-w-md w-full mx-4 overflow-hidden" role="dialog" aria-modal="true" aria-label="Go First — action activation">
 
         {/* Header */}
-        <div className="px-6 py-5" style={{ background: 'linear-gradient(135deg, #0F0A1E 0%, #3E1D63 100%)' }}>
+        <div className="px-6 py-5" style={{ background: 'linear-gradient(135deg, var(--cosmic-deepest) 0%, var(--cosmic-purple-gradient) 100%)' }}>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">
+              <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">
                 Action activation
               </p>
               <h2 className="text-2xl font-bold mt-1" style={{ color: 'var(--text-on-dark)' }}>Go first.</h2>
@@ -79,7 +79,7 @@ export default function GoFirstModal({ onClose, onRepLogged }: Props) {
           {step === 'setup' && (
             <div className="space-y-5">
               <div className="rounded-xl p-4 space-y-1" style={{ background: 'rgba(248, 208, 17, 0.08)' }}>
-                <p className="text-xs font-semibold text-[#F8D011] uppercase tracking-wide">
+                <p className="text-xs font-semibold text-brand-gold uppercase tracking-wide">
                   The science
                 </p>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -89,7 +89,7 @@ export default function GoFirstModal({ onClose, onRepLogged }: Props) {
               </div>
 
               <div className="space-y-1">
-                <label htmlFor="go-first-action" className="block text-xs font-semibold text-[#F8D011] uppercase tracking-wide">
+                <label htmlFor="go-first-action" className="block text-xs font-semibold text-brand-gold uppercase tracking-wide">
                   What&apos;s your smallest possible next action?
                 </label>
                 <p className="text-xs mb-2" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -101,7 +101,7 @@ export default function GoFirstModal({ onClose, onRepLogged }: Props) {
                   value={smallestAction}
                   onChange={(e) => setSmallestAction(e.target.value)}
                   placeholder="Open the doc / send the message / make the call..."
-                  className="w-full rounded-xl px-4 py-2.5 text-sm focus:outline-none"
+                  className="w-full rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
                   style={{
                     background: 'rgba(255,255,255,0.06)',
                     border: '1px solid var(--surface-border)',
@@ -130,7 +130,7 @@ export default function GoFirstModal({ onClose, onRepLogged }: Props) {
                 </p>
                 {smallestAction && (
                   <div className="rounded-xl px-4 py-3" style={{ background: 'rgba(248, 208, 17, 0.10)' }}>
-                    <p className="text-sm font-medium text-[#F8D011]">
+                    <p className="text-sm font-medium text-brand-gold">
                       &ldquo;{smallestAction}&rdquo;
                     </p>
                   </div>

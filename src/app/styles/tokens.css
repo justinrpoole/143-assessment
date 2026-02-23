@@ -105,6 +105,10 @@
   --cosmic-stardust: rgba(248, 208, 17, 0.12);
   --cosmic-aurora-green: #2ecc71;
   --cosmic-aurora-pink: #C39BD3;
+  --cosmic-purple-gradient: #3E1D63;
+  --cosmic-purple-vivid: #5B2D8E;
+  --cosmic-svg-bg: #4A0E78;
+  --cosmic-deepest: #0F0A1E;
   /* Ray colors */
   --ray-joy: #F4C430;
   --ray-power: #C0392B;
@@ -139,6 +143,10 @@
   --shadow-glow-md: 0 4px 28px rgba(96, 5, 141, 0.40), 0 0 56px rgba(96, 5, 141, 0.20);
   --shadow-glow-gold: 0 0 20px rgba(248, 208, 17, 0.18);
   --shadow-depth: 0 8px 32px rgba(0, 0, 0, 0.50);
+
+  --overlay-heavy: rgba(11, 2, 18, 0.92);
+  --overlay-medium: rgba(11, 2, 18, 0.80);
+  --overlay-light: rgba(11, 2, 18, 0.60);
 
   --gradient-cosmic: linear-gradient(180deg, #2D1450 0%, #1A0A2E 100%);
   --gradient-cosmic-radial: radial-gradient(ellipse at 50% 15%, rgba(96, 5, 141, 0.45) 0%, transparent 65%);

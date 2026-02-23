@@ -7,6 +7,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Plans & Pricing",
+  description: "Two ways in. Same light. From a free Light Check to the full 143 Assessment and Coaching OS subscription. Compare plans and find your path.",
+};
+
 const PLANS = [
   {
     id: "light-check",

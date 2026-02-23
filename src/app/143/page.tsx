@@ -8,6 +8,11 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "The 143 Challenge",
+  description: "Your brain is running a threat filter you never installed. The 143 Challenge uses your Reticular Activating System to reprogram it in 3 days. 3 minutes a day. Free.",
+};
+
 export default async function Challenge143Page() {
   const auth = await getRequestAuthContext();
   const copy = PAGE_COPY_V1.challenge143;

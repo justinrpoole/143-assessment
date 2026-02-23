@@ -394,7 +394,7 @@
 }
 
 .glass-modal-panel {
-  background: rgba(11, 2, 18, 0.92);
+  background: var(--overlay-heavy);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-2xl);
   backdrop-filter: blur(32px);

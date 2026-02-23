@@ -31,7 +31,7 @@ export default function ConfidenceBandSection({ dataQuality }: Props) {
         {/* Validity flags */}
         {dataQuality.validity_flags.length > 0 && (
           <div className="space-y-2">
-            <p className="text-xs text-[#F8D011] uppercase tracking-wide font-medium">What We Noticed</p>
+            <p className="text-xs text-brand-gold uppercase tracking-wide font-medium">What We Noticed</p>
             {dataQuality.validity_flags.map((flag) => (
               <p key={flag} className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 &#8226; {FLAG_LABELS[flag] || flag}
@@ -43,7 +43,7 @@ export default function ConfidenceBandSection({ dataQuality }: Props) {
         {/* Validation plan */}
         {dataQuality.validation_plan && (
           <div className="border-t pt-4" style={{ borderColor: 'var(--surface-border)' }}>
-            <p className="text-xs text-[#F8D011] uppercase tracking-wide font-medium mb-2">
+            <p className="text-xs text-brand-gold uppercase tracking-wide font-medium mb-2">
               Recommended Next Step
             </p>
             <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{dataQuality.validation_plan.why}</p>

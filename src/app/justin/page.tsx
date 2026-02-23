@@ -6,6 +6,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Justin Ray",
+  description: "Meet Justin Ray — the builder behind the 143 Leadership framework. Executive development background, behavioural science foundation, real-world proof.",
+};
+
 export default async function JustinPage() {
   const userState = await getUserStateFromRequest();
   const copy = PAGE_COPY_V1.justin;
