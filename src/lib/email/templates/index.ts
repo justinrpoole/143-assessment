@@ -7,6 +7,8 @@ export const EMAIL_TEMPLATE_IDS = [
   "subscription_renewal",
   "subscription_reactivation",
   "subscription_past_due",
+  "weekly_summary",
+  "post_report_drip",
 ] as const;
 
 export type EmailTemplateId = (typeof EMAIL_TEMPLATE_IDS)[number];
@@ -48,6 +50,26 @@ export const EMAIL_TEMPLATE_LIBRARY: Record<EmailTemplateId, EmailTemplateMeta> 
   subscription_past_due: {
     id: "subscription_past_due",
     requiredVariables: ["account_route", "upgrade_route"],
+  },
+  weekly_summary: {
+    id: "weekly_summary",
+    requiredVariables: [
+      "reps_this_week",
+      "streak_days",
+      "most_practiced_tool",
+      "bottom_ray_name",
+      "portal_route",
+    ],
+  },
+  post_report_drip: {
+    id: "post_report_drip",
+    requiredVariables: [
+      "run_id",
+      "day_number",
+      "section_name",
+      "section_anchor",
+      "results_route",
+    ],
   },
 };
 

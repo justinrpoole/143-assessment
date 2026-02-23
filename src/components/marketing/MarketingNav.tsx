@@ -7,6 +7,7 @@ import { isBetaFreeMode } from "@/lib/config/beta";
 
 const NAV_LINKS = [
   { href: "/assessment", label: "Assessment" },
+  { href: "/archetypes", label: "Archetypes" },
   { href: "/framework", label: "Framework" },
   { href: "/143-challenge", label: "143 Challenge" },
   { href: "/organizations", label: "For Organizations" },
