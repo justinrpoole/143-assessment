@@ -10,6 +10,8 @@ export const EMAIL_JOB_TYPES = [
   "subscription_renewal",
   "subscription_reactivation",
   "subscription_past_due",
+  "weekly_summary",
+  "post_report_drip",
 ] as const;
 
 export type EmailJobType = (typeof EMAIL_JOB_TYPES)[number];

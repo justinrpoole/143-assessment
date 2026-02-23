@@ -52,12 +52,20 @@ export async function GET(_request: Request, context: RouteParams) {
       },
     });
 
+    const pipelineOut = payload.pipeline_output as
+      | { data_quality?: { confidence_band?: string } }
+      | undefined;
+    const confidenceBand = (payload.confidence_band as string | undefined)
+      ?? pipelineOut?.data_quality?.confidence_band
+      ?? "STANDARD";
+
     return NextResponse.json({
       run_id: result.run_id,
       computed_at: result.computed_at,
       ray_scores: result.ray_scores,
       top_rays: result.top_rays,
       ray_pair_id: result.ray_pair_id,
+      confidence_band: confidenceBand,
       results_payload: result.results_payload,
     });
   } catch (error) {

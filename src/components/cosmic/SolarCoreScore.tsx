@@ -23,6 +23,8 @@ interface SolarCoreScoreProps {
   bottomRay: string;
   /** Eclipse load percentage (0-100). Renders a shadow arc overlay. */
   loadPercent?: number;
+  /** Percentile ranks per ray (0-100). Shown in detail panel when available. */
+  percentiles?: Record<string, number>;
   /** Analytics: fires when a ray is hovered or keyboard-focused */
   onRayHovered?: (rayId: string | null) => void;
   /** Analytics: fires when a ray is clicked or Enter-selected */
@@ -111,7 +113,7 @@ function sparklePath(cx: number, cy: number, size: number): string {
  * Detail panel: click or Enter a ray to open bottom-sheet with full info.
  */
 export default function SolarCoreScore({
-  rays, topTwo, bottomRay, loadPercent = 0, onRayHovered, onRaySelected,
+  rays, topTwo, bottomRay, loadPercent = 0, percentiles, onRayHovered, onRaySelected,
 }: SolarCoreScoreProps) {
   const [hoveredRay, setHoveredRay] = useState<string | null>(null);
   const [selectedRay, setSelectedRay] = useState<string | null>(null);
@@ -733,6 +735,13 @@ export default function SolarCoreScore({
                     transition={anim ? { duration: 0.6, ease: 'easeOut' } : { duration: 0 }} />
                 </div>
               </div>
+
+              {/* Percentile context */}
+              {percentiles && percentiles[selectedRay] != null && (
+                <p className="text-xs mt-2" style={{ color: 'var(--text-on-dark-muted)' }}>
+                  Stronger than {percentiles[selectedRay]}% of leaders assessed
+                </p>
+              )}
 
               {/* Metadata pills */}
               <div className="flex gap-2 mt-4 flex-wrap">

@@ -39,7 +39,10 @@
     "qa:stability": "node tests/stability-runner.spec.mjs",
     "qa:audit": "node tests/audit-signature.spec.mjs",
     "qa:journey": "playwright test tests/e2e-journey.spec.ts",
-    "jobs:email": "node scripts/jobs/run-email-jobs.mjs"
+    "jobs:email": "node scripts/jobs/run-email-jobs.mjs",
+    "seed:test": "npx tsx scripts/seed-test-account.ts",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "framer-motion": "^12.34.3",

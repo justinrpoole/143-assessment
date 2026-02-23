@@ -20,6 +20,9 @@ import NotificationToggle from './NotificationToggle';
 import BadgeShowcase from './BadgeShowcase';
 import WeeklyRepBreakdown from './WeeklyRepBreakdown';
 import { RAY_NAMES } from '@/lib/types';
+import MorningMirrorOverlay from './MorningMirrorOverlay';
+import EclipseCalendarHeatmap from './EclipseCalendarHeatmap';
+import InviteColleagueCard from './InviteColleagueCard';
 
 const PatternInterruptHub = dynamic(() => import('@/components/PatternInterruptHub'), { ssr: false });
 
@@ -84,7 +87,7 @@ function ResumeBanner({ runId, answered, total }: { runId: string; answered: num
       </p>
       <div className="mt-3 h-2 overflow-hidden rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }}>
         <div
-          className="h-full rounded-full bg-gradient-to-r from-[#60058D] to-[#F8D011] transition-all duration-500"
+          className="h-full rounded-full bg-gradient-to-r from-brand-purple to-brand-gold transition-all duration-500"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -247,6 +250,13 @@ export default function PortalDashboard() {
 
         {/* Floating rep button */}
         <QuickRepFAB />
+
+        {/* Morning Mirror — once-per-day opening ritual */}
+        <MorningMirrorOverlay
+          bottomRayId={summary.bottom_ray_id}
+          bottomRayName={summary.bottom_ray_name}
+          streakDays={summary.streak_days}
+        />
       </div>
     );
   }
@@ -385,7 +395,7 @@ export default function PortalDashboard() {
             </div>
             <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.1)' }}>
               <div
-                className="h-full bg-gradient-to-r from-[#60058D] to-[#F8D011] rounded-full transition-all duration-500"
+                className="h-full bg-gradient-to-r from-brand-purple to-brand-gold rounded-full transition-all duration-500"
                 style={{ width: `${progressPct}%` }}
               />
             </div>
@@ -406,13 +416,18 @@ export default function PortalDashboard() {
         </div>
       </FadeInSection>
 
+      {/* Eclipse Calendar Heatmap */}
+      <FadeInSection delay={0.14}>
+        <EclipseCalendarHeatmap />
+      </FadeInSection>
+
       {/* Notification toggle */}
-      <FadeInSection delay={0.15}>
+      <FadeInSection delay={0.16}>
         <NotificationToggle />
       </FadeInSection>
 
       {/* Badges */}
-      <FadeInSection delay={0.16}>
+      <FadeInSection delay={0.18}>
         <BadgeShowcase
           streakDays={summary.streak_days}
           repsThisWeek={summary.reps_this_week}
@@ -481,6 +496,11 @@ export default function PortalDashboard() {
         <CueBasedNudge />
       </FadeInSection>
 
+      {/* Team Constellation — Invite a Colleague */}
+      <FadeInSection delay={0.27}>
+        <InviteColleagueCard />
+      </FadeInSection>
+
       {/* Stretch nudge for streak ≥ 3 */}
       {summary.streak_days >= 3 && (
         <FadeInSection>
@@ -529,6 +549,13 @@ export default function PortalDashboard() {
 
       {/* Floating rep button */}
       <QuickRepFAB />
+
+      {/* Morning Mirror — once-per-day opening ritual */}
+      <MorningMirrorOverlay
+        bottomRayId={summary.bottom_ray_id}
+        bottomRayName={summary.bottom_ray_name}
+        streakDays={summary.streak_days}
+      />
     </div>
   );
 }

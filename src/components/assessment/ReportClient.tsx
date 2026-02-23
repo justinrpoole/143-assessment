@@ -11,6 +11,8 @@ import PPDConditional from "@/components/results/PPDConditional";
 import ToolReadiness from "@/components/results/ToolReadiness";
 import ThirtyDayPlan from "@/components/results/ThirtyDayPlan";
 import CoachingQuestions from "@/components/results/CoachingQuestions";
+import ConversationStarters from "@/components/results/ConversationStarters";
+import ShareWithCoachModal from "@/components/results/ShareWithCoachModal";
 import ConfidenceBandSection from "@/components/results/ConfidenceBandSection";
 import EclipseSnapshot from "@/components/results/EclipseSnapshot";
 import Closing from "@/components/results/Closing";
@@ -30,6 +32,8 @@ import CoachingBrief from "@/components/results/CoachingBrief";
 import ReportShareCard from "@/components/results/ReportShareCard";
 import { MetricTooltip } from "@/components/ui/MetricTooltip";
 import { FadeInSection } from "@/components/ui/FadeInSection";
+import Highlightable from "@/components/ui/Highlightable";
+import { useHighlights } from "@/lib/hooks/useHighlights";
 import type {
   AssessmentOutputV1,
   ConfidenceBand,
@@ -254,6 +258,15 @@ export function ReportClient({ runId }: ReportClientProps) {
   // Ray deep-dive drawer
   const [drawerRay, setDrawerRay] = useState<RayOutput | null>(null);
 
+  // Share with coach modal
+  const [showShareModal, setShowShareModal] = useState(false);
+
+  // Report highlights
+  const { isHighlighted, toggle: toggleHighlight } = useHighlights(runId);
+
+  // Percentile benchmarks (loaded after results)
+  const [percentiles, setPercentiles] = useState<Record<string, number> | null>(null);
+
   // ─── Fetch both endpoints in parallel ───
   useEffect(() => {
     let canceled = false;
@@ -384,6 +397,24 @@ export function ReportClient({ runId }: ReportClientProps) {
     return report.status;
   }, [report]);
 
+  // ─── Percentile benchmarks (non-blocking, loaded after results) ───
+  useEffect(() => {
+    if (!raw?.ray_scores) return;
+    const scores = raw.ray_scores;
+    const param = Object.entries(scores)
+      .map(([id, s]) => `${id}:${Math.round(s)}`)
+      .join(",");
+
+    fetch(`/api/benchmarks/percentiles?ray_scores=${encodeURIComponent(param)}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && !data.gated && data.percentiles) {
+          setPercentiles(data.percentiles as Record<string, number>);
+        }
+      })
+      .catch(() => { /* non-critical */ });
+  }, [raw?.ray_scores]);
+
   // ─── Loading & Error states ───
   if (loading) {
     return <ReportLoadingSequence />;
@@ -508,6 +539,7 @@ export function ReportClient({ runId }: ReportClientProps) {
             { id: 'rpt-tools', label: 'Tool Readiness' },
             { id: 'rpt-30day', label: '30-Day Plan' },
             { id: 'rpt-coaching', label: 'Coaching Questions' },
+            { id: 'rpt-conversation-starters', label: 'Conversation Starters' },
             { id: 'rpt-coaching-brief', label: 'Coaching Brief' },
             { id: 'rpt-psychometric', label: 'Psychometric Foundation' },
             { id: 'rpt-closing', label: 'Closing' },
@@ -548,7 +580,14 @@ export function ReportClient({ runId }: ReportClientProps) {
                 <h2 className="text-lg font-semibold" style={{ color: "var(--text-on-dark)" }}>
                   <MetricTooltip metricId="light_signature">Light Signature</MetricTooltip>
                 </h2>
-                <LightSignature lightSignature={lightSignature} />
+                <Highlightable
+                  blockId="light-signature"
+                  text={lightSignature.archetype?.essence ?? "Light Signature"}
+                  isHighlighted={isHighlighted("light-signature")}
+                  onToggle={toggleHighlight}
+                >
+                  <LightSignature lightSignature={lightSignature} />
+                </Highlightable>
               </div>
             </FadeInSection>
           )}
@@ -569,6 +608,7 @@ export function ReportClient({ runId }: ReportClientProps) {
                   topTwo={topTwoIds}
                   bottomRay={bottomRayId}
                   loadPercent={eclipseLoadPercent}
+                  percentiles={percentiles ?? undefined}
                   onRaySelected={(rayId) => setDrawerRay(rayId && output.rays[rayId] ? output.rays[rayId] : null)}
                 />
               </div>
@@ -603,7 +643,14 @@ export function ReportClient({ runId }: ReportClientProps) {
           {/* ── 6. Eclipse Snapshot — Detailed Load Gauge ── */}
           {eclipse && (
             <FadeInSection>
-              <EclipseSnapshot eclipse={eclipse} />
+              <Highlightable
+                blockId="eclipse-snapshot"
+                text={`Eclipse Snapshot — ${eclipse.level}`}
+                isHighlighted={isHighlighted("eclipse-snapshot")}
+                onToggle={toggleHighlight}
+              >
+                <EclipseSnapshot eclipse={eclipse} />
+              </Highlightable>
             </FadeInSection>
           )}
 
@@ -761,7 +808,14 @@ export function ReportClient({ runId }: ReportClientProps) {
                 <h2 className="text-lg font-semibold" style={{ color: "var(--text-on-dark)" }}>
                   <MetricTooltip metricId="rise_path">Rise Path</MetricTooltip>
                 </h2>
-                <BottomRay justInRay={justInRay} selectionBasis={lightSignature?.bottom_ray_selection_basis} />
+                <Highlightable
+                  blockId="rise-path"
+                  text={justInRay.why_this_is_next ?? "Rise Path"}
+                  isHighlighted={isHighlighted("rise-path")}
+                  onToggle={toggleHighlight}
+                >
+                  <BottomRay justInRay={justInRay} selectionBasis={lightSignature?.bottom_ray_selection_basis} />
+                </Highlightable>
               </div>
             </FadeInSection>
           )}
@@ -805,7 +859,34 @@ export function ReportClient({ runId }: ReportClientProps) {
           {coachingQs.length > 0 && (
             <FadeInSection>
               <div id="rpt-coaching">
-                <CoachingQuestions questions={coachingQs} runId={runId} />
+                <Highlightable
+                  blockId="coaching-questions"
+                  text="Coaching Questions"
+                  isHighlighted={isHighlighted("coaching-questions")}
+                  onToggle={toggleHighlight}
+                >
+                  <CoachingQuestions questions={coachingQs} runId={runId} />
+                </Highlightable>
+              </div>
+            </FadeInSection>
+          )}
+
+          {/* ── 17a. Conversation Starters ── */}
+          {justInRay && (
+            <FadeInSection>
+              <div id="rpt-conversation-starters">
+                <Highlightable
+                  blockId="conversation-starters"
+                  text="Conversation Starters"
+                  isHighlighted={isHighlighted("conversation-starters")}
+                  onToggle={toggleHighlight}
+                >
+                  <ConversationStarters
+                    bottomRayId={justInRay.ray_id}
+                    bottomRayName={justInRay.ray_name}
+                    eclipseLevel={eclipse?.level ?? null}
+                  />
+                </Highlightable>
               </div>
             </FadeInSection>
           )}
@@ -875,6 +956,32 @@ export function ReportClient({ runId }: ReportClientProps) {
                 overallScore={overallScore}
               />
             </FadeInSection>
+          )}
+
+          {/* ── 19c. Share with Coach ── */}
+          <FadeInSection>
+            <div className="glass-card p-5 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
+                  Share with your coach
+                </p>
+                <p className="text-xs mt-0.5" style={{ color: "var(--text-on-dark-muted)" }}>
+                  Create a 48-hour read-only link. No account needed.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowShareModal(true)}
+                className="shrink-0 rounded-lg px-4 py-2 text-sm font-bold transition-all hover:brightness-110"
+                style={{ background: "var(--surface-glass)", border: "1px solid var(--surface-border)", color: "var(--text-on-dark)" }}
+              >
+                Share
+              </button>
+            </div>
+          </FadeInSection>
+
+          {showShareModal && (
+            <ShareWithCoachModal runId={runId} onClose={() => setShowShareModal(false)} />
           )}
 
           {/* ── 20. Coaching OS Upsell ── */}

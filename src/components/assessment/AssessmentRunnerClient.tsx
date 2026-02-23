@@ -87,6 +87,8 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
   const savedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pendingRef = useRef<Record<string, number>>({});
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingReflectionsRef = useRef<Record<string, string>>({});
+  const reflectionDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mountedRef = useRef<boolean>(true);
   const lsKey = `143_backup_${runId}`;
 
@@ -185,6 +187,44 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
       throw err;
     }
   }, [runId, lsKey]);
+
+  const flushPendingReflections = useCallback(async () => {
+    const pending = Object.entries(pendingReflectionsRef.current).map(
+      ([prompt_id, response_text]) => ({ prompt_id, response_text }),
+    );
+    if (pending.length === 0) return;
+
+    pendingReflectionsRef.current = {};
+    try {
+      const response = await fetch(
+        `/api/runs/${encodeURIComponent(runId)}/reflections`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ reflections: pending }),
+        },
+      );
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => ({}))) as ApiError;
+        throw new Error(payload.error ?? "reflection_save_failed");
+      }
+    } catch {
+      // Silently fail — reflections are optional, don't block the assessment
+    }
+  }, [runId]);
+
+  const queueReflectionSave = useCallback(
+    (promptId: string, text: string) => {
+      pendingReflectionsRef.current[promptId] = text;
+      if (reflectionDebounceRef.current) {
+        clearTimeout(reflectionDebounceRef.current);
+      }
+      reflectionDebounceRef.current = setTimeout(() => {
+        void flushPendingReflections();
+      }, 2000);
+    },
+    [flushPendingReflections],
+  );
 
   const queueSave = useCallback(
     (questionId: string, value: number) => {
@@ -368,6 +408,25 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
           }
         }
 
+        // Step 4: load any previously saved reflections (for resume)
+        const savedReflections = await fetch(
+          `/api/runs/${encodeURIComponent(runId)}/reflections`,
+        );
+        if (savedReflections.ok) {
+          const reflPayload = (await savedReflections.json().catch(() => ({}))) as
+            | { reflections?: Array<{ prompt_id: string; response_text: string }> }
+            | Record<string, never>;
+          if ("reflections" in reflPayload && Array.isArray(reflPayload.reflections)) {
+            const restored: Record<string, string> = {};
+            for (const r of reflPayload.reflections) {
+              if (r.response_text) restored[r.prompt_id] = r.response_text;
+            }
+            if (mountedRef.current && Object.keys(restored).length > 0) {
+              setReflectionAnswers(restored);
+            }
+          }
+        }
+
         if (mountedRef.current) {
           setRunNumber(nextRunNumber);
           setRunQuestions(questions);
@@ -389,6 +448,9 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
       if (debounceRef.current) {
         clearTimeout(debounceRef.current);
       }
+      if (reflectionDebounceRef.current) {
+        clearTimeout(reflectionDebounceRef.current);
+      }
     };
   }, [runId]);
 
@@ -404,6 +466,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
     setSubmitting(true);
     try {
       await flushPendingResponses();
+      await flushPendingReflections();
       const response = await fetch(`/api/runs/${encodeURIComponent(runId)}/complete`, {
         method: "POST",
       });
@@ -444,6 +507,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
 
   async function onSaveAndExit() {
     await flushPendingResponses();
+    await flushPendingReflections();
     router.push("/portal");
   }
 
@@ -492,7 +556,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
           </div>
           <div className="mt-1.5 h-2 overflow-hidden rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }}>
             <div
-              className="h-full rounded-full bg-gradient-to-r from-[#60058D] to-[#F8D011] transition-all duration-300"
+              className="h-full rounded-full bg-gradient-to-r from-brand-purple to-brand-gold transition-all duration-300"
               style={{ width: `${progressPct}%` }}
             />
           </div>
@@ -657,6 +721,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
                       value={reflectionAnswers[question.id] ?? ""}
                       onChange={(_itemId, value) => {
                         setReflectionAnswers((prev) => ({ ...prev, [question.id]: value }));
+                        queueReflectionSave(question.id, value);
                       }}
                     />
                   ) : (

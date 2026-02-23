@@ -57,5 +57,11 @@ export const config = {
     "/results",
     "/reports",
     "/growth",
+    "/reps",
+    "/energy",
+    "/toolkit",
+    "/weekly",
+    "/reflect",
+    "/welcome",
   ],
 };
