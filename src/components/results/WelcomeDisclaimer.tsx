@@ -56,6 +56,14 @@ export default function WelcomeDisclaimer({ confidence, qualityNotes }: Props) {
       {qualityNotes && (
         <p className="text-xs italic" style={{ color: 'var(--text-on-dark-muted)' }}>{qualityNotes}</p>
       )}
+
+      {/* Research disclaimer */}
+      <p className="text-[11px] leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+        This assessment measures trained capacities, not fixed personality traits. It is not a clinical instrument and does not assess or treat mental health conditions. Scores reflect self-reported behavior and are designed to change with practice.{' '}
+        <a href="/methodology" className="underline underline-offset-2 hover:opacity-80" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          View methodology
+        </a>
+      </p>
     </section>
   );
 }

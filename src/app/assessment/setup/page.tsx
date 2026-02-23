@@ -1,3 +1,4 @@
+import { MarketingNav } from "@/components/marketing/MarketingNav";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 import { AssessmentSetupClient } from "@/components/assessment/AssessmentSetupClient";
@@ -20,6 +21,7 @@ export default async function AssessmentSetupPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <MarketingNav />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16">
         <header className="glass-card mb-6 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">Setup</p>

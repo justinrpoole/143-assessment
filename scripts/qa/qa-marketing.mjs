@@ -128,14 +128,14 @@ function main() {
   } else {
     const navContent = read(NAV_FILE);
     const missingNavTokens = findMissingTokens(navContent, [
-      "Take the Assessment",
-      "Home",
-      "Assessment",
-      "Framework",
+      "Start 143 Challenge",
+      "Upgrade Your OS",
+      "How It Works",
+      "Outcomes",
+      "Pricing",
       "143 Challenge",
-      "For Organizations",
+      "For Teams",
       "About",
-      "Resources",
     ]);
     for (const token of missingNavTokens) {
       failures.push(`navigation: missing token \"${token}\" in ${NAV_FILE}`);

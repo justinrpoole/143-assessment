@@ -154,7 +154,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     },
     whyThisWorks: {
       title:
-        "9 dimensions. Each one trainable. Together, they map your emotional intelligence.",
+        "9 Rays. Each one trainable. Together, they map your emotional intelligence.",
       body: "The first three Rays train emotional intelligence with yourself. The last three train emotional intelligence with others. The middle three are where they meet: power, purpose, authenticity. These are not personality types. They are capacities. Every one of them can be built through reps, not revelation.",
       proof:
         "$43 for the full assessment with your Light Signature and Eclipse Snapshot. $14.33/mo for unlimited retakes and growth tracking. Your scores are the receipt.",
@@ -316,7 +316,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     why: "Most assessments lock your results inside a paywall. The 143 preview gives you a real snapshot of your 9 Rays \u2014 your trainable leadership capacities \u2014 before you spend anything.",
     proof:
       "In 15 minutes, you will know your top two Rays and your Light Signature. The snapshot answers one question honestly: is this worth going deeper?",
-    how: "Start the preview. See your ray signal across nine dimensions. Know whether Eclipse is running your week. If the answer is yes, the full report and coaching OS are waiting.",
+    how: "Start the preview. See your ray signal across nine Rays. Know whether Eclipse is running your week. If the answer is yes, the full report and coaching OS are waiting.",
     outcome:
       "Outcome: the relief of being accurately described without being reduced. Not categorized. Not labeled. Recognized.",
     loop: "Your scores are designed to change. Retake after your first full run to see the proof.",
@@ -363,7 +363,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     credibilityBody:
       "I spent years inside executive development. Real organizations. Real pressure. Leaders who needed real tools, not motivational slogans. That realization became the premise: upgrade the OS first. Then every tactic works.",
     storyBody:
-      "I built the 143 Assessment because I needed it first. The leadership tools everyone was selling did not work \u2014 not because they were wrong, but because they assumed an operating system that was not running. Nine trainable capacities. Eclipse Snapshot. Non-shame language. A retake system that proves growth. I did not study this from a distance. I trained myself with these tools.",
+      "I built the 143 Assessment because I needed it first. The leadership tools everyone was selling did not work \u2014 not because they were wrong, but because they assumed an operating system that was not running. Nine trainable Rays. Eclipse Snapshot. Non-shame language. A retake system that proves growth. I did not study this from a distance. I trained myself with these tools.",
     trustTitle: "No hype. Structure and receipts.",
     dontDo: [
       "Give motivational speeches that fade by Friday.",
@@ -377,7 +377,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     ],
     methodTitle: "The method",
     methodBody:
-      "Reset your filter. Map your capacities. Train the gaps. Measure the proof. The first three Rays train emotional intelligence with yourself. The middle three are where self-regulation meets self-expression. The last three train emotional intelligence with others. Nine dimensions. One operating system upgrade.",
+      "Reset your filter. Map your capacities. Train the gaps. Measure the proof. The first three Rays train emotional intelligence with yourself. The middle three are where self-regulation meets self-expression. The last three train emotional intelligence with others. Nine Rays. One operating system upgrade.",
     outcome:
       "Outcome: you move from scattered effort to aligned execution \u2014 with proof that the shift is real.",
     loop: "Take it. Train. Retake. Watch your Light Signature evolve. That is the work. That is the path.",

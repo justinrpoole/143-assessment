@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import {
-  experimentalPipelineScoreAssessment as scoreAssessment,
+  scoreAssessment,
   type ItemBanks,
 } from "../../src/lib/scoring";
 import type { ExecTagMapRow } from "../../src/lib/scoring/exec-tags";

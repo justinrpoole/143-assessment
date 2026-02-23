@@ -17,7 +17,7 @@ const WHAT_ENTERPRISE_GETS = [
   },
   {
     icon: '🔥',
-    title: 'Early Depletion Detection',
+    title: 'Early Eclipse Detection',
     description: 'The Energy Ratio and Load Signal Count flag energy borrowing across teams before it shows up in turnover numbers. You see the cost before you pay it.',
   },
   {

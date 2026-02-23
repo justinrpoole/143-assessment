@@ -6,11 +6,12 @@ import Link from "next/link";
 import { isBetaFreeMode } from "@/lib/config/beta";
 
 const NAV_LINKS = [
-  { href: "/assessment", label: "Assessment" },
-  { href: "/archetypes", label: "Archetypes" },
-  { href: "/framework", label: "Framework" },
-  { href: "/143-challenge", label: "143 Challenge" },
-  { href: "/organizations", label: "For Organizations" },
+  { href: "/upgrade-your-os", label: "Upgrade Your OS" },
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/outcomes", label: "Outcomes" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/143", label: "143 Challenge" },
+  { href: "/corporate", label: "For Teams" },
   { href: "/about", label: "About" },
 ];
 
@@ -65,7 +66,7 @@ export function MarketingNav() {
           </Link>
 
           {/* Center nav links — desktop */}
-          <div className="hidden items-center gap-7 md:flex">
+          <div className="hidden items-center gap-6 md:flex">
             {NAV_LINKS.map((item) => (
               <Link
                 key={item.href}
@@ -90,11 +91,11 @@ export function MarketingNav() {
 
             {/* CTA */}
             <Link
-              href="/assessment"
+              href="/143"
               className="shrink-0 rounded-lg px-4 py-2 text-[13px] font-bold tracking-wide no-underline transition-all hover:brightness-105"
               style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
             >
-              Take the Assessment
+              Start 143 Challenge
             </Link>
 
             {/* Hamburger — mobile only */}
@@ -147,12 +148,12 @@ export function MarketingNav() {
               </Link>
             ))}
             <Link
-              href="/assessment"
+              href="/143"
               onClick={closeMenu}
               className="mt-4 rounded-lg px-8 py-3 text-base font-bold tracking-wide no-underline transition-all hover:brightness-105"
               style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
             >
-              Take the Assessment
+              Start 143 Challenge
             </Link>
             <Link
               href={hasSession ? "/portal" : "/login"}

@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-02-23T14:00:00Z",
+  "gitCommit": "none (untracked — fresh repo, no commits)",
+  "framework": "next-app-router",
+  "frameworkVersion": "16.1.6",
+  "routeCount": 50,
+  "apiRouteCount": 53,
+  "navFingerprint": "sha256:first-run-no-previous",
+  "uiInventoryFingerprint": "sha256:first-run-no-previous",
+  "environment": "dev",
+  "previousBaseline": null,
+  "notes": "First BRALPH run. No previous baseline exists for drift comparison."
+}

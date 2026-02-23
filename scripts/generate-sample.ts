@@ -9,7 +9,7 @@
  */
 
 import {
-  experimentalPipelineScoreAssessment as scoreAssessment,
+  scoreAssessment,
   type ItemBanks,
 } from '../src/lib/scoring';
 import type {

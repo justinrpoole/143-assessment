@@ -1,6 +1,6 @@
 'use client';
 
-import type { DataQualityOutput } from '@/lib/types';
+import type { DataQualityOutput, ConfidenceBand } from '@/lib/types';
 
 interface Props {
   dataQuality: DataQualityOutput;
@@ -18,20 +18,56 @@ const FLAG_LABELS: Record<string, string> = {
   MISSINGNESS: 'Some sections were incomplete, limiting the precision of certain scores.',
 };
 
+const BAND_DISPLAY: Record<ConfidenceBand, { label: string; color: string; interpretation: string }> = {
+  HIGH: {
+    label: 'High Confidence',
+    color: '#4ade80',
+    interpretation: 'Your response patterns are consistent and complete. These results reliably reflect your current operating state. Use them to guide your practice with confidence.',
+  },
+  MODERATE: {
+    label: 'Moderate Confidence',
+    color: '#F8D011',
+    interpretation: 'Your results capture real patterns, but some signals were mixed. The broad strokes — your top Rays, your Eclipse level, your Rise Path — are trustworthy. Individual subfacet scores may shift with a retake.',
+  },
+  LOW: {
+    label: 'Low Confidence',
+    color: '#fb923c',
+    interpretation: 'Something in the response pattern limits how much weight to put on specific scores. This does not mean the results are wrong — it means they are directional, not precise. Treat them as a starting conversation, not a final map.',
+  },
+};
+
 export default function ConfidenceBandSection({ dataQuality }: Props) {
+  const band = (dataQuality.confidence_band ?? 'MODERATE') as ConfidenceBand;
+  const display = BAND_DISPLAY[band] ?? BAND_DISPLAY.MODERATE;
+
   return (
     <section className="space-y-4">
       <h3 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>How To Read These Results</h3>
 
       <div className="glass-card p-6 space-y-4">
-        <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-          Every assessment carries a confidence level. This tells you how much weight to put on the patterns you see.
+        {/* Confidence band indicator */}
+        <div className="flex items-center gap-3">
+          <div
+            className="h-3 w-3 rounded-full shrink-0"
+            style={{ backgroundColor: display.color }}
+          />
+          <p className="text-sm font-semibold" style={{ color: display.color }}>
+            {display.label}
+          </p>
+        </div>
+
+        <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+          {display.interpretation}
+        </p>
+
+        <p className="text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+          Confidence is calculated from response consistency, completion rate, timing patterns, and reflection depth. It is not a judgment — it is a transparency signal so you know how to use what you see.
         </p>
 
         {/* Validity flags */}
         {dataQuality.validity_flags.length > 0 && (
-          <div className="space-y-2">
-            <p className="text-xs text-brand-gold uppercase tracking-wide font-medium">What We Noticed</p>
+          <div className="space-y-2 border-t pt-4" style={{ borderColor: 'var(--surface-border)' }}>
+            <p className="text-xs uppercase tracking-wide font-medium" style={{ color: 'var(--brand-gold, #F8D011)' }}>What We Noticed</p>
             {dataQuality.validity_flags.map((flag) => (
               <p key={flag} className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 &#8226; {FLAG_LABELS[flag] || flag}
@@ -43,7 +79,7 @@ export default function ConfidenceBandSection({ dataQuality }: Props) {
         {/* Validation plan */}
         {dataQuality.validation_plan && (
           <div className="border-t pt-4" style={{ borderColor: 'var(--surface-border)' }}>
-            <p className="text-xs text-brand-gold uppercase tracking-wide font-medium mb-2">
+            <p className="text-xs uppercase tracking-wide font-medium mb-2" style={{ color: 'var(--brand-gold, #F8D011)' }}>
               Recommended Next Step
             </p>
             <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{dataQuality.validation_plan.why}</p>

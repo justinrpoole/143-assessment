@@ -76,7 +76,7 @@ export default function AssessmentSummaryCard({ output }: Props) {
 
         {/* Profile */}
         <StatCell
-          label="Profile Type"
+          label="Assessment Profile"
           value={pfConfig.label}
           valueColor={pfConfig.color}
           sublabel={pfConfig.note}

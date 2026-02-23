@@ -1,5 +1,8 @@
 export { default as WelcomeDisclaimer } from './WelcomeDisclaimer';
+export { default as IdentityStory } from './IdentityStory';
 export { default as LightSignature } from './LightSignature';
+export { default as WhyThisMatters } from './WhyThisMatters';
+export { default as WeekOneChecklist } from './WeekOneChecklist';
 export { default as BottomRay } from './BottomRay';
 export { default as EclipseSnapshot } from './EclipseSnapshot';
 export { default as PPDConditional } from './PPDConditional';
@@ -8,3 +11,4 @@ export { default as ThirtyDayPlan } from './ThirtyDayPlan';
 export { default as CoachingQuestions } from './CoachingQuestions';
 export { default as ConfidenceBandSection } from './ConfidenceBandSection';
 export { default as Closing } from './Closing';
+export { ScienceToggle } from './ScienceToggle';

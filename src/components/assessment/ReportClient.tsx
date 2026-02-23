@@ -724,7 +724,7 @@ export function ReportClient({ runId }: ReportClientProps) {
                 </h2>
                 <p className="text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>
                   Rays with high eclipse scores appear as gravity wells draining energy.
-                  Tap any black hole for intervention actions: Reframe, Boundary, or Swap Habit.
+                  Tap any black hole for intervention actions: Reframe, Boundary, or Swap Rep.
                 </p>
                 <BlackHoleFlags rays={output.rays} eclipse={eclipse} />
               </div>

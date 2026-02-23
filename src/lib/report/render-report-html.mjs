@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { loadCanonicalContent } from "../scoring/score-assessment.mjs";
+import { loadCanonicalContent } from "../scoring/content-loader.mjs";
 
 /*
 Micro-Wins Source Contract:
