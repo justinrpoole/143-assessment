@@ -186,8 +186,14 @@ export function renderReportHtml({
 
   const ray1Name = raysById.get(topRay1)?.name ?? topRay1;
   const ray2Name = raysById.get(topRay2)?.name ?? topRay2;
-  const archetypeName = ARCHETYPE_MAP.get(rayPairId) ?? "Light Leader";
-  const bottomRay = resolveBottomRay(resultsPayload?.ray_scores_by_id ?? {}, raysById);
+  const pipelineOut = resultsPayload?.pipeline_output;
+  const archetypeName = pipelineOut?.light_signature?.archetype?.name
+    ?? ARCHETYPE_MAP.get(rayPairId)
+    ?? "Light Leader";
+  const pipelineBottomRayId = pipelineOut?.light_signature?.just_in_ray?.ray_id;
+  const bottomRay = pipelineBottomRayId
+    ? { id: pipelineBottomRayId, name: raysById.get(pipelineBottomRayId)?.name ?? pipelineBottomRayId }
+    : resolveBottomRay(resultsPayload?.ray_scores_by_id ?? {}, raysById);
 
   // Ray definitions for Top Two display
   const ray1Def = raysById.get(topRay1)?.definition ?? "";
@@ -261,7 +267,10 @@ export function renderReportHtml({
       </div>`
     : "";
 
-  const isHighLoad = confidenceBand === "HIGH" || confidenceBand === "HIGH_ECLIPSE";
+  const eclipseLevel = pipelineOut?.eclipse?.level;
+  const isHighLoad = eclipseLevel
+    ? eclipseLevel === "HIGH" || eclipseLevel === "SEVERE"
+    : (confidenceBand === "HIGH" || confidenceBand === "HIGH_ECLIPSE");
   const eclipseNote = isHighLoad
     ? `<div class="eclipse-note">
         <div class="eclipse-icon">&#9728;</div>

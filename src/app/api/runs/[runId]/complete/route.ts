@@ -17,10 +17,10 @@ import {
   generateSignaturePair,
   insertSignaturePair,
 } from "@/lib/audit/signature";
-import {
-  scoreAssessment,
-  SCORER_VERSION,
-} from "@/lib/scoring/score-assessment.mjs";
+import { scoreAssessment } from "@/lib/scoring/pipeline";
+import { loadItemBanks } from "@/lib/scoring/load-item-banks";
+import { buildResponsePacket } from "@/lib/scoring/build-response-packet";
+import { getReflectionsForRun } from "@/lib/db/assessment-reflections";
 import {
   getQuestionIdsForRun,
   questionSetForRun,
@@ -116,11 +116,26 @@ export async function POST(_request: Request, context: RouteParams) {
       );
     }
 
-    const scoring = scoreAssessment({
-      responses: responsesByQuestion,
-      metadata: { user_state: auth.userState },
-      questionIds: getQuestionIdsForRun(run.run_number),
-    });
+    // Fetch reflections for pipeline scoring
+    const reflectionRows = await getReflectionsForRun({ runId, userId: auth.userId });
+    const reflections = Object.fromEntries(
+      reflectionRows.filter(r => r.response_text.trim()).map(r => [r.prompt_id, r.response_text]),
+    );
+
+    // Build pipeline inputs
+    const banks = loadItemBanks();
+    const allItems = [...banks.rayItems, ...banks.toolItems, ...banks.eclipseItems, ...banks.validityItems];
+    const packet = buildResponsePacket({ run, responseRows, reflections, allItems });
+    const pipelineOutput = scoreAssessment(packet, banks);
+
+    // Derive legacy-compatible fields from pipeline output
+    const rayScoresById: Record<string, number> = {};
+    for (const [rayId, rayOut] of Object.entries(pipelineOutput.rays)) {
+      rayScoresById[rayId] = rayOut.score; // 0-100 scale
+    }
+    const topRays = pipelineOutput.light_signature.top_two.map(t => t.ray_id);
+    const rayPairId = pipelineOutput.light_signature.archetype?.pair_code
+      ?? `${topRays[0]}-${topRays[1]}`;
 
     const resultsPayload = {
       run_id: run.id,
@@ -131,7 +146,14 @@ export async function POST(_request: Request, context: RouteParams) {
       context_scope: run.context_scope,
       focus_area: run.focus_area,
       source_route: run.source_route,
-      ...scoring,
+      // Legacy-compatible fields (consumed by render-report-html.mjs)
+      ray_scores_by_id: rayScoresById,
+      top_rays: topRays,
+      ray_pair_id: rayPairId,
+      ray_pair: rayPairId,
+      confidence_band: pipelineOutput.data_quality.confidence_band,
+      // Full pipeline output
+      pipeline_output: pipelineOutput,
     };
 
     const html = renderReportHtml({
@@ -142,9 +164,9 @@ export async function POST(_request: Request, context: RouteParams) {
     await upsertResult({
       runId: run.id,
       userId: auth.userId,
-      rayScores: scoring.ray_scores_by_id,
-      topRays: scoring.top_rays,
-      rayPairId: scoring.ray_pair_id,
+      rayScores: rayScoresById,
+      topRays: topRays,
+      rayPairId: rayPairId,
       resultsPayload,
     });
 
@@ -162,7 +184,7 @@ export async function POST(_request: Request, context: RouteParams) {
     const signaturePair = generateSignaturePair(
       responsesByQuestion,
       resultsPayload as Record<string, unknown>,
-      SCORER_VERSION,
+      "pipeline-v1",
     );
     await insertSignaturePair({
       assessmentRunId: run.id,
@@ -198,8 +220,8 @@ export async function POST(_request: Request, context: RouteParams) {
       eventData: {
         run_id: run.id,
         run_number: run.run_number,
-        top_rays: scoring.top_rays,
-        ray_pair_id: scoring.ray_pair_id,
+        top_rays: topRays,
+        ray_pair_id: rayPairId,
       },
     });
 
@@ -227,6 +249,33 @@ export async function POST(_request: Request, context: RouteParams) {
         reports_route: `/reports?run_id=${run.id}`,
       },
     });
+
+    // 7-day post-report drip — each day highlights a different report section
+    const dripSchedule = [
+      { day: 2, section: "Eclipse Snapshot", anchor: "rpt-eclipse" },
+      { day: 3, section: "Rise Path", anchor: "rpt-rise-path" },
+      { day: 4, section: "Coaching Questions", anchor: "rpt-coaching" },
+      { day: 5, section: "30-Day Plan", anchor: "rpt-30day" },
+      { day: 6, section: "Energy Ratio", anchor: "rpt-system-health" },
+      { day: 7, section: "Portal & Retake", anchor: "" },
+    ];
+    for (const drip of dripSchedule) {
+      await queueEmailJobSafe({
+        userId: auth.userId,
+        type: "post_report_drip",
+        sendAt: new Date(Date.now() + drip.day * 24 * 60 * 60 * 1000),
+        payload: {
+          run_id: run.id,
+          day_number: String(drip.day),
+          section_name: drip.section,
+          section_anchor: drip.anchor,
+          results_route: drip.anchor
+            ? `/results?run_id=${run.id}#${drip.anchor}`
+            : `/portal`,
+        },
+      });
+    }
+
     if (auth.userState === "paid_43") {
       await queueEmailJobSafe({
         userId: auth.userId,
@@ -241,8 +290,8 @@ export async function POST(_request: Request, context: RouteParams) {
 
     return NextResponse.json({
       run_id: run.id,
-      ray_pair_id: scoring.ray_pair_id,
-      top_rays: scoring.top_rays,
+      ray_pair_id: rayPairId,
+      top_rays: topRays,
     });
   } catch (error) {
     return NextResponse.json(
