@@ -242,7 +242,7 @@ export function AssessmentSetupClient() {
         <select
           id="context_scope"
           name="context_scope"
-          className="mt-2 w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+          className="mt-2 w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
           style={{
             background: 'var(--surface-glass, rgba(255,255,255,0.06))',
             border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -253,7 +253,7 @@ export function AssessmentSetupClient() {
           disabled={submitting}
         >
           {CONTEXT_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value} style={{ background: '#1A0A2E', color: '#FFFEF5' }}>
+            <option key={option.value} value={option.value} style={{ background: 'var(--bg-deep)', color: 'var(--color-outline-white)' }}>
               {option.label}
             </option>
           ))}
@@ -272,7 +272,7 @@ export function AssessmentSetupClient() {
         <select
           id="focus_area"
           name="focus_area"
-          className="mt-2 w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+          className="mt-2 w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
           style={{
             background: 'var(--surface-glass, rgba(255,255,255,0.06))',
             border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -283,7 +283,7 @@ export function AssessmentSetupClient() {
           disabled={submitting}
         >
           {FOCUS_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value} style={{ background: '#1A0A2E', color: '#FFFEF5' }}>
+            <option key={option.value} value={option.value} style={{ background: 'var(--bg-deep)', color: 'var(--color-outline-white)' }}>
               {option.label}
             </option>
           ))}

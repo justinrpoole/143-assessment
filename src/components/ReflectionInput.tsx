@@ -21,7 +21,7 @@ export default function ReflectionInput({ itemId, value, onChange, placeholder }
         onChange={(e) => onChange(itemId, e.target.value)}
         placeholder={placeholder || 'A few direct sentences. Specific beats polished.'}
         rows={4}
-        className="w-full resize-y rounded-xl border px-4 py-3 outline-none transition focus:ring-2 focus:ring-[#F8D011]/30"
+        className="w-full resize-y rounded-xl border px-4 py-3 outline-none transition focus:ring-2 focus:ring-brand-gold/40"
         style={{
           background: 'var(--surface-glass)',
           borderColor: 'var(--surface-border)',

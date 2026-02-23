@@ -4,6 +4,11 @@ import { MarketingNav } from "@/components/marketing/MarketingNav";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "For Organizations",
+  description: "Bring the 143 Leadership OS to your team. Capacity intelligence for development — not surveillance. Team-wide assessment with aggregate pattern analysis.",
+};
+
 export default function OrganizationsPage() {
   return (
     <main className="cosmic-page-bg">

@@ -24,7 +24,7 @@ export async function RouteShellPage({ spec }: RouteShellPageProps) {
     <main className="cosmic-page-bg">
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16">
         <header className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011]">{spec.route}</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">{spec.route}</p>
           <h1 className="mt-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>{spec.heading}</h1>
         </header>
 

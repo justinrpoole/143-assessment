@@ -26,7 +26,7 @@ export default async function AssessmentInstructionsPage() {
 
       <div className="mx-auto max-w-3xl px-5 py-10 sm:px-8 sm:py-14">
         <header className="mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011]">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">
             Before You Begin
           </p>
           <h1 className="mt-2 text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>

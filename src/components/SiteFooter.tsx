@@ -38,13 +38,13 @@ export function SiteFooter() {
   return (
     <footer
       className="border-t px-6 py-12 sm:px-8"
-      style={{ borderColor: 'var(--surface-border)', background: 'rgba(10, 4, 20, 0.60)' }}
+      style={{ borderColor: 'var(--surface-border)', background: 'var(--overlay-light)' }}
     >
       <div className="mx-auto max-w-5xl">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           {COLS.map((col) => (
             <div key={col.heading}>
-              <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
                 {col.heading}
               </p>
               <ul className="space-y-2">

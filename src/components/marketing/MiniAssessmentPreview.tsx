@@ -60,7 +60,7 @@ export default function MiniAssessmentPreview() {
   return (
     <div className="space-y-6">
       <div className="text-center space-y-2">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
           Try It Now
         </p>
         <h3 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -77,7 +77,7 @@ export default function MiniAssessmentPreview() {
             <div className="flex items-center gap-2">
               <span
                 className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
-                style={{ background: 'rgba(248, 208, 17, 0.12)', color: '#F8D011' }}
+                style={{ background: 'rgba(248, 208, 17, 0.12)', color: 'var(--brand-gold)' }}
               >
                 {q.phase}
               </span>
@@ -106,7 +106,7 @@ export default function MiniAssessmentPreview() {
             animation: 'welcomeFadeIn 500ms ease-out',
           }}
         >
-          <p className="text-lg font-semibold" style={{ color: '#F8D011' }}>
+          <p className="text-lg font-semibold" style={{ color: 'var(--brand-gold)' }}>
             {teaser.message}
           </p>
           <p className="text-sm leading-relaxed max-w-lg mx-auto" style={{ color: 'var(--text-on-dark-secondary)' }}>

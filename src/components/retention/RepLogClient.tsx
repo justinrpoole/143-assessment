@@ -624,7 +624,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                     key={i}
                     className="h-1.5 w-6 rounded-full transition-colors duration-200"
                     style={{
-                      backgroundColor: i <= repsStep ? '#F8D011' : 'rgba(255,255,255,0.1)',
+                      backgroundColor: i <= repsStep ? 'var(--brand-gold)' : 'rgba(255,255,255,0.1)',
                     }}
                   />
                 ))}
@@ -664,7 +664,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
               placeholder="Write here... (Enter to advance, Shift+Enter for new line)"
               rows={3}
               maxLength={2000}
-              className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none resize-none"
+              className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40 resize-none"
               style={{
                 background: 'rgba(255,255,255,0.06)',
                 border: '1px solid var(--surface-border)',
@@ -1242,7 +1242,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
             placeholder="Even one sentence. You don't have to solve anything. Just say what you noticed."
             rows={3}
             maxLength={2000}
-            className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none resize-none transition-colors"
+            className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40 resize-none transition-colors"
             style={{
               background: 'rgba(255,255,255,0.06)',
               border: '1px solid var(--surface-border)',
@@ -1308,7 +1308,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                   <div
                     className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                     style={{
-                      background: rep.quality === 3 ? '#F8D011' : rep.quality === 2 ? '#60058D' : 'var(--surface-border)',
+                      background: rep.quality === 3 ? 'var(--brand-gold)' : rep.quality === 2 ? '#60058D' : 'var(--surface-border)',
                     }}
                   />
                   <div className="flex-1 min-w-0">

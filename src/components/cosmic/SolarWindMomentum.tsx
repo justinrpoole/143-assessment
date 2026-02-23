@@ -83,7 +83,7 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
 
         {/* TOP — Strong Wind */}
         <g>
-          <rect x={0} y={0} width={W} height={halfH} rx="12" fill="#4A0E78" />
+          <rect x={0} y={0} width={W} height={halfH} rx="12" fill="var(--cosmic-svg-bg)" />
 
           {/* Bright 143 sun */}
           <circle cx={50} cy={halfH / 2} r={18} fill="#F4C430" opacity={0.8} filter="url(#swm-glow)" />

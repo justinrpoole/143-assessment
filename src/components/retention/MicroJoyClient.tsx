@@ -243,7 +243,7 @@ export function MicroJoyClient() {
               </label>
               <textarea
                 id="joy_notes"
-                className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none resize-none"
+                className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40 resize-none"
                 style={{
                   background: "rgba(255,255,255,0.06)",
                   border: "1px solid var(--surface-border)",

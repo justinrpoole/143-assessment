@@ -114,7 +114,7 @@ export default function CosmicBackground({ dailyEnergy }: CosmicBackgroundProps)
         </defs>
 
         {/* Purple base */}
-        <rect width={W} height={H} rx="12" fill="#4A0E78" />
+        <rect width={W} height={H} rx="12" fill="var(--cosmic-svg-bg)" />
 
         {/* Organic blotches */}
         {blotches.map((dayBlotches, di) =>

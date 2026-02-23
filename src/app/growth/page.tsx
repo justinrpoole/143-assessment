@@ -1,8 +1,15 @@
 import { GrowthSummaryClient } from "@/components/retention/GrowthSummaryClient";
 import { emitEvent, emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { PageShell } from "@/components/ui/PageShell";
 
 export const dynamic = "force-dynamic";
+
+export const metadata = {
+  title: "Growth Tracking",
+  description: "Track what changed across your assessment runs — capacity shifts, Eclipse recovery, and training progress over time.",
+};
 
 function growthViewMode(
   userState: string,
@@ -50,24 +57,19 @@ export default async function GrowthPage() {
   }
 
   return (
-    <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16">
-        <header className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#F8D011] mb-3">Growth</p>
-          <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>
-            Track what changed across your runs.
-          </h1>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Your trendline turns effort into proof: run history, deltas, and Day
-            7/21/66 checkpoints in one place.
-          </p>
-          <p className="mt-3 text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Access mode: <code>{auth.userState}</code>
-          </p>
-        </header>
+    <PageShell>
+      <PageHeader
+        label="Growth"
+        title="Track what changed across your runs."
+        description="Your trendline turns effort into proof: run history, deltas, and Day 7/21/66 checkpoints in one place."
+        size="large"
+      >
+        <p className="mt-3 text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
+          Access mode: <code>{auth.userState}</code>
+        </p>
+      </PageHeader>
 
-        <GrowthSummaryClient />
-      </div>
-    </main>
+      <GrowthSummaryClient />
+    </PageShell>
   );
 }

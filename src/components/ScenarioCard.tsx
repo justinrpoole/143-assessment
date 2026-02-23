@@ -40,7 +40,7 @@ export default function ScenarioCard({ itemId, options, selectedKey, onChange }:
                 ? 'rgba(248, 208, 17, 0.12)'
                 : 'rgba(96, 5, 141, 0.25)',
               borderColor: isSelected
-                ? '#F8D011'
+                ? 'var(--brand-gold)'
                 : 'rgba(148, 80, 200, 0.25)',
               boxShadow: isSelected
                 ? '0 0 20px rgba(248, 208, 17, 0.18), inset 0 1px 0 rgba(248, 208, 17, 0.1)'
@@ -56,7 +56,7 @@ export default function ScenarioCard({ itemId, options, selectedKey, onChange }:
                 className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-xs font-bold transition-colors"
                 style={{
                   background: isSelected
-                    ? '#F8D011'
+                    ? 'var(--brand-gold)'
                     : 'rgba(148, 80, 200, 0.3)',
                   color: isSelected
                     ? '#020202'
@@ -78,7 +78,7 @@ export default function ScenarioCard({ itemId, options, selectedKey, onChange }:
             {isSelected && (
               <div
                 className="absolute top-2.5 right-3"
-                style={{ color: '#F8D011' }}
+                style={{ color: 'var(--brand-gold)' }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <polyline points="20 6 9 17 4 12" />

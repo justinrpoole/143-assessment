@@ -22,6 +22,11 @@ const resources = [
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Resources",
+  description: "Guides, walkthroughs, and reference materials for the 143 Leadership framework.",
+};
+
 export default function ResourcesPage() {
   return (
     <main className="cosmic-page-bg">

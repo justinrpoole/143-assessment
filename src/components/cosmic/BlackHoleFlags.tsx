@@ -170,7 +170,7 @@ export default function BlackHoleFlags({ rays, eclipse }: BlackHoleFlagsProps) {
             <stop offset="0%" stopColor="#000000" />
             <stop offset="40%" stopColor="#0A0010" />
             <stop offset="70%" stopColor="#2C0A3E" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#4A0E78" stopOpacity="0" />
+            <stop offset="100%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0" />
           </radialGradient>
 
           <filter id="bhf-glow" x="-80%" y="-80%" width="260%" height="260%">

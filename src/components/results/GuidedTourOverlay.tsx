@@ -113,14 +113,14 @@ export default function GuidedTourOverlay() {
       <div
         className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-sm w-[calc(100%-2rem)] rounded-xl px-5 py-4"
         style={{
-          background: 'rgba(11, 2, 18, 0.95)',
-          border: '1px solid rgba(248, 208, 17, 0.3)',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(248, 208, 17, 0.08)',
+          background: 'var(--overlay-heavy)',
+          border: '1px solid var(--surface-border)',
+          boxShadow: 'var(--shadow-depth), var(--shadow-glow-gold)',
           backdropFilter: 'blur(16px)',
           animation: 'tourSlideUp 400ms ease-out',
         }}
       >
-        <p className="text-sm font-semibold" style={{ color: '#F8D011' }}>
+        <p className="text-sm font-semibold" style={{ color: 'var(--brand-gold)' }}>
           First time viewing your report?
         </p>
         <p className="text-xs mt-1" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -131,7 +131,7 @@ export default function GuidedTourOverlay() {
             onClick={startTour}
             className="text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
             style={{
-              background: '#F8D011',
+              background: 'var(--brand-gold)',
               color: '#020202',
             }}
           >
@@ -171,9 +171,9 @@ export default function GuidedTourOverlay() {
         className="mx-auto max-w-lg w-[calc(100%-1.5rem)] mb-4 rounded-xl px-5 py-4"
         style={{
           pointerEvents: 'auto',
-          background: 'rgba(11, 2, 18, 0.96)',
-          border: '1px solid rgba(248, 208, 17, 0.25)',
-          boxShadow: '0 -4px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(248, 208, 17, 0.06)',
+          background: 'var(--overlay-heavy)',
+          border: '1px solid var(--surface-border)',
+          boxShadow: 'var(--shadow-depth), var(--shadow-glow-gold)',
           backdropFilter: 'blur(16px)',
         }}
       >
@@ -186,7 +186,7 @@ export default function GuidedTourOverlay() {
                 className="h-1.5 rounded-full transition-all"
                 style={{
                   width: i === stepIdx ? '16px' : '6px',
-                  background: i <= stepIdx ? '#F8D011' : 'rgba(148, 80, 200, 0.3)',
+                  background: i <= stepIdx ? 'var(--brand-gold)' : 'rgba(148, 80, 200, 0.3)',
                 }}
               />
             ))}
@@ -197,7 +197,7 @@ export default function GuidedTourOverlay() {
         </div>
 
         {/* Content */}
-        <p className="text-sm font-semibold" style={{ color: '#F8D011' }}>
+        <p className="text-sm font-semibold" style={{ color: 'var(--brand-gold)' }}>
           {step.title}
         </p>
         <p className="text-xs mt-1 leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -229,9 +229,9 @@ export default function GuidedTourOverlay() {
             onClick={goNext}
             className="text-xs font-semibold px-4 py-1.5 rounded-lg transition-colors"
             style={{
-              background: isLast ? '#F8D011' : 'rgba(248, 208, 17, 0.15)',
-              color: isLast ? '#020202' : '#F8D011',
-              border: `1px solid ${isLast ? '#F8D011' : 'rgba(248, 208, 17, 0.3)'}`,
+              background: isLast ? 'var(--brand-gold)' : 'rgba(248, 208, 17, 0.15)',
+              color: isLast ? '#020202' : 'var(--brand-gold)',
+              border: `1px solid ${isLast ? 'var(--brand-gold)' : 'rgba(248, 208, 17, 0.3)'}`,
             }}
           >
             {isLast ? 'Finish' : 'Next \u2192'}

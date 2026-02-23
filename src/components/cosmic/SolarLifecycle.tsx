@@ -46,8 +46,8 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
         <defs>
           <linearGradient id="sl-bg" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#3A0A5E" />
-            <stop offset="50%" stopColor="#4A0E78" />
-            <stop offset="100%" stopColor="#5B2C8E" />
+            <stop offset="50%" stopColor="var(--cosmic-svg-bg)" />
+            <stop offset="100%" stopColor="var(--cosmic-purple-vivid)" />
           </linearGradient>
           <filter id="sl-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="6" result="b" />

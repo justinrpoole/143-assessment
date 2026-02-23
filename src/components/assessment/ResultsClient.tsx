@@ -175,6 +175,25 @@ export function ResultsClient({ runId }: ResultsClientProps) {
         </FadeInSection>
       )}
 
+      {/* 2b. Micro-celebration — Affirm top strengths */}
+      {lightSignature && lightSignature.top_two.length > 0 && (
+        <FadeInSection delay={0.2}>
+          <div className="glass-card p-5" style={{ borderColor: 'rgba(248, 208, 17, 0.15)' }}>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-sm" style={{ color: 'var(--brand-gold, #F8D011)' }}>&#9733;</span>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                Your Light Is Here
+              </p>
+            </div>
+            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
+              {lightSignature.top_two.length >= 2
+                ? `${lightSignature.top_two[0].ray_name} and ${lightSignature.top_two[1].ray_name} are already resourced. These aren't aspirations — they're active strengths your nervous system defaults to under pressure. Build from here.`
+                : `${lightSignature.top_two[0].ray_name} is already resourced. This isn't aspiration — it's an active strength your nervous system defaults to under pressure. Build from here.`}
+            </p>
+          </div>
+        </FadeInSection>
+      )}
+
       {/* 3. Gravitational Stability Report — Nine-Ray Radial Visualization */}
       {output?.rays && lightSignature && (
         <FadeInSection delay={0.1}>
@@ -199,6 +218,27 @@ export function ResultsClient({ runId }: ResultsClientProps) {
               <MetricTooltip metricId="eclipse_percentage">Eclipse</MetricTooltip>
             </h2>
             <EclipseMeter eclipse={eclipse} />
+          </div>
+        </FadeInSection>
+      )}
+
+      {/* 4a. Eclipse Coaching Reframe */}
+      {eclipse && (
+        <FadeInSection>
+          <div className="glass-card p-5" style={{ borderColor: 'var(--surface-border)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              Coaching Note
+            </p>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
+              {eclipse.level === 'LOW' || eclipse.level === 'MODERATE'
+                ? 'Your system is holding steady. That means your capacity for growth work is high right now — the tools will land deeper when your nervous system is not in protection mode.'
+                : 'Your capacity is 100% intact. What you are seeing is load, not limitation. Eclipse is temporary — it means your system is working hard to protect you. Recovery is the rep right now.'}
+            </p>
+            {eclipse.gating && (
+              <p className="mt-2 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+                Current mode: <strong style={{ color: 'var(--text-on-dark-secondary)' }}>{eclipse.gating.mode.replace(/_/g, ' ').toLowerCase()}</strong> — {eclipse.gating.reason}
+              </p>
+            )}
           </div>
         </FadeInSection>
       )}
@@ -319,21 +359,38 @@ export function ResultsClient({ runId }: ResultsClientProps) {
         </FadeInSection>
       )}
 
-      {/* Actions */}
+      {/* Primary Action — Your Next Move */}
       <FadeInSection>
-        <div className="flex flex-wrap gap-3">
-          <Link href={`/reports?run_id=${encodeURIComponent(runId)}`} className="btn-primary">
-            Open Full Report
-          </Link>
-          <Link href="/reps" className="btn-watch">
-            Log a rep
-          </Link>
-          <Link href="/toolkit" className="btn-watch">
-            Tool library
-          </Link>
-          <Link href="/growth" className="btn-watch">
-            Track growth
-          </Link>
+        <div className="glass-card p-6 space-y-4" style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              Your Next Move
+            </p>
+            <h3 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+              {justInRay ? `Start with ${justInRay.ray_name}` : 'Start building your reps'}
+            </h3>
+            <p className="mt-1 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              {justInRay
+                ? `Your Rise Path points to ${justInRay.ray_name}. One rep today teaches your brain that change is underway.`
+                : 'One rep today teaches your brain that change is underway. Pick a tool and begin.'}
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link href={justInRay ? `/reps?tool=${encodeURIComponent(justInRay.ray_id)}` : '/reps'} className="btn-primary">
+              Log your first rep{justInRay ? ` — ${justInRay.ray_name}` : ''}
+            </Link>
+            <Link href={`/reports?run_id=${encodeURIComponent(runId)}`} className="btn-watch">
+              Open full report
+            </Link>
+          </div>
+          <div className="flex flex-wrap gap-4 pt-3" style={{ borderTop: '1px solid var(--surface-border)' }}>
+            <Link href="/toolkit" className="text-xs font-medium hover:underline" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              Tool library &rarr;
+            </Link>
+            <Link href="/growth" className="text-xs font-medium hover:underline" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              Track growth &rarr;
+            </Link>
+          </div>
         </div>
       </FadeInSection>
 

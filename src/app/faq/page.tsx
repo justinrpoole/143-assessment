@@ -6,6 +6,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "FAQ",
+  description: "Everything you need to know about the 143 Assessment, your results, pricing, and the science behind the framework.",
+};
+
 const FAQS = [
   {
     category: "The Assessment",

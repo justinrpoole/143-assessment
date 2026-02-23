@@ -1,6 +1,8 @@
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import EveningReflectionClient from "@/components/retention/EveningReflectionClient";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { PageShell } from "@/components/ui/PageShell";
 
 export const dynamic = "force-dynamic";
 
@@ -19,16 +21,12 @@ export default async function ReflectPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16">
-        <header className="glass-card mb-6 p-6 sm:p-8">
-          <h1 className="text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Evening Reflection</h1>
-        </header>
+    <PageShell>
+      <PageHeader title="Evening Reflection" />
 
-        <div className="mt-6">
-          <EveningReflectionClient />
-        </div>
+      <div className="mt-6">
+        <EveningReflectionClient />
       </div>
-    </main>
+    </PageShell>
   );
 }

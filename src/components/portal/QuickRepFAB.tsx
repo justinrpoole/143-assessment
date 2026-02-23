@@ -55,7 +55,7 @@ export default function QuickRepFAB() {
       {open && (
         <div
           className="fixed bottom-20 right-5 z-50 glass-card p-3 space-y-1.5 w-52"
-          style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}
+          style={{ borderColor: 'var(--surface-border)' }}
         >
           <p className="text-xs font-bold uppercase tracking-widest px-2 pb-1" style={{ color: 'var(--brand-gold, #F8D011)' }}>
             Log a Rep
@@ -87,7 +87,7 @@ export default function QuickRepFAB() {
           style={{
             background: 'rgba(248, 208, 17, 0.15)',
             border: '1px solid rgba(248, 208, 17, 0.3)',
-            color: '#F8D011',
+            color: 'var(--brand-gold, #F8D011)',
           }}
         >
           {flash} logged
@@ -100,7 +100,7 @@ export default function QuickRepFAB() {
         onClick={() => setOpen((prev) => !prev)}
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform active:scale-95"
         style={{
-          background: '#F8D011',
+          background: 'var(--brand-gold, #F8D011)',
           boxShadow: '0 4px 20px rgba(248, 208, 17, 0.3)',
         }}
         aria-label={open ? 'Close rep menu' : 'Quick log a rep'}
@@ -108,13 +108,13 @@ export default function QuickRepFAB() {
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           {open ? (
             <>
-              <line x1="6" y1="6" x2="18" y2="18" stroke="#020202" strokeWidth="2" strokeLinecap="round" />
-              <line x1="18" y1="6" x2="6" y2="18" stroke="#020202" strokeWidth="2" strokeLinecap="round" />
+              <line x1="6" y1="6" x2="18" y2="18" stroke="var(--ink-dark, #020202)" strokeWidth="2" strokeLinecap="round" />
+              <line x1="18" y1="6" x2="6" y2="18" stroke="var(--ink-dark, #020202)" strokeWidth="2" strokeLinecap="round" />
             </>
           ) : (
             <>
-              <line x1="12" y1="5" x2="12" y2="19" stroke="#020202" strokeWidth="2" strokeLinecap="round" />
-              <line x1="5" y1="12" x2="19" y2="12" stroke="#020202" strokeWidth="2" strokeLinecap="round" />
+              <line x1="12" y1="5" x2="12" y2="19" stroke="var(--ink-dark, #020202)" strokeWidth="2" strokeLinecap="round" />
+              <line x1="5" y1="12" x2="19" y2="12" stroke="var(--ink-dark, #020202)" strokeWidth="2" strokeLinecap="round" />
             </>
           )}
         </svg>

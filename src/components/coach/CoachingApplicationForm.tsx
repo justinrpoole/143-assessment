@@ -94,7 +94,7 @@ export function CoachingApplicationForm() {
             <input
               value={form.name}
               onChange={(event) => updateField('name', event.target.value)}
-              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
                 background: 'var(--surface-glass, rgba(255,255,255,0.06))',
                 border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -110,7 +110,7 @@ export function CoachingApplicationForm() {
               type="email"
               value={form.email}
               onChange={(event) => updateField('email', event.target.value)}
-              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
                 background: 'var(--surface-glass, rgba(255,255,255,0.06))',
                 border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -128,7 +128,7 @@ export function CoachingApplicationForm() {
             <input
               value={form.role}
               onChange={(event) => updateField('role', event.target.value)}
-              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
                 background: 'var(--surface-glass, rgba(255,255,255,0.06))',
                 border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -143,7 +143,7 @@ export function CoachingApplicationForm() {
             <input
               value={form.organization}
               onChange={(event) => updateField('organization', event.target.value)}
-              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
                 background: 'var(--surface-glass, rgba(255,255,255,0.06))',
                 border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -160,7 +160,7 @@ export function CoachingApplicationForm() {
             <select
               value={form.focus}
               onChange={(event) => updateField('focus', event.target.value)}
-              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
                 background: 'var(--surface-glass, rgba(255,255,255,0.06))',
                 border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -179,7 +179,7 @@ export function CoachingApplicationForm() {
             <select
               value={form.commitment}
               onChange={(event) => updateField('commitment', event.target.value)}
-              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+              className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
                 background: 'var(--surface-glass, rgba(255,255,255,0.06))',
                 border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -199,7 +199,7 @@ export function CoachingApplicationForm() {
           <input
             value={form.timezone}
             onChange={(event) => updateField('timezone', event.target.value)}
-            className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+            className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
             style={{
               background: 'var(--surface-glass, rgba(255,255,255,0.06))',
               border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -214,7 +214,7 @@ export function CoachingApplicationForm() {
           <textarea
             value={form.note}
             onChange={(event) => updateField('note', event.target.value)}
-            className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+            className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
             style={{
               background: 'var(--surface-glass, rgba(255,255,255,0.06))',
               border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',

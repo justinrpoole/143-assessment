@@ -29,7 +29,7 @@ export default function LikertScale({ itemId, value, onChange, labels }: LikertS
             className={`
               w-10 h-10 sm:w-12 sm:h-12 rounded-full text-sm font-medium transition-all
               ${value === n
-                ? 'bg-[#F8D011] text-[#020202] shadow-lg scale-110'
+                ? 'bg-brand-gold text-brand-black shadow-lg scale-110'
                 : 'hover:scale-105'
               }
             `}

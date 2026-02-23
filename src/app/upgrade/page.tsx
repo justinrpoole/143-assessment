@@ -9,6 +9,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Upgrade",
+  description: "Choose how deep you want to see. Unlock the full 143 Assessment for $43 one-time or start the Coaching OS at $14.33/month.",
+};
+
 export default async function UpgradePage() {
   const userState = await getUserStateFromRequest();
 

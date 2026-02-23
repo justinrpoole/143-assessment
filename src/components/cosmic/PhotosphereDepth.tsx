@@ -73,7 +73,7 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
           </filter>
         </defs>
 
-        <rect width={W} height={H} rx="12" fill="#4A0E78" />
+        <rect width={W} height={H} rx="12" fill="var(--cosmic-svg-bg)" />
 
         {/* Uncut portion — shows only photosphere (outer layer) */}
         <g clipPath="url(#pd-cutaway)">

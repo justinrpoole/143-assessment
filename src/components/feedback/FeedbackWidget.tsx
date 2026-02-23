@@ -105,7 +105,7 @@ export function FeedbackWidget(props: FeedbackWidgetProps) {
                 type="button"
                 className={`rounded px-3 py-1 text-sm transition-all ${
                   rating === value
-                    ? "bg-[#F8D011] text-[#020202] font-semibold"
+                    ? "bg-brand-gold text-brand-black font-semibold"
                     : ""
                 }`}
                 style={rating !== value ? { background: 'rgba(96, 5, 141, 0.35)', color: 'var(--text-on-dark-secondary)', border: '1px solid var(--surface-border)' } : undefined}

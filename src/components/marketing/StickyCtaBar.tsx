@@ -38,7 +38,7 @@ export default function StickyCtaBar() {
             </p>
             <Link
               href="/preview"
-              className="shrink-0 rounded-lg bg-[#F8D011] px-4 py-2 text-xs font-bold tracking-wide text-[#020202] no-underline transition-all hover:brightness-105"
+              className="shrink-0 rounded-lg bg-brand-gold px-4 py-2 text-xs font-bold tracking-wide text-brand-black no-underline transition-all hover:brightness-105"
             >
               Start Free
             </Link>

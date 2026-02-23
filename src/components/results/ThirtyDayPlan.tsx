@@ -26,8 +26,8 @@ export default function ThirtyDayPlan({ recommendations, whatNotToDo, rayName, r
       <div className="glass-card p-6 space-y-5">
         {/* Weekly Focus */}
         {focus.focus_rep && (
-          <div className="border-l-4 border-[#F8D011] pl-4">
-            <p className="text-xs text-[#F8D011] uppercase tracking-wide mb-1">Weekly Focus</p>
+          <div className="border-l-4 border-brand-gold pl-4">
+            <p className="text-xs text-brand-gold uppercase tracking-wide mb-1">Weekly Focus</p>
             <p className="text-sm font-medium" style={{ color: 'var(--text-on-dark)' }}>{focus.focus_rep}</p>
             {focus.minimum_effective_dose && (
               <p className="text-xs mt-1" style={{ color: 'var(--text-on-dark-muted)' }}>

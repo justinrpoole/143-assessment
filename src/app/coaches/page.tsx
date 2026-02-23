@@ -179,7 +179,7 @@ export default async function CoachingPage() {
       {/* Hero */}
       <section className="px-6 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto space-y-6 text-center">
-          <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">
+          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">
             10-Week Light Activation Program
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight" style={{ color: 'var(--text-on-dark)' }}>
@@ -205,7 +205,7 @@ export default async function CoachingPage() {
       {/* Principles */}
       <section className="px-6 py-12 max-w-4xl mx-auto space-y-8">
         <div className="space-y-2">
-          <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">How this works</p>
+          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">How this works</p>
           <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Four principles. No shortcuts.</h2>
         </div>
 
@@ -222,19 +222,19 @@ export default async function CoachingPage() {
       {/* 10-Week Program */}
       <section id="program" className="px-6 py-16 max-w-4xl mx-auto space-y-10">
         <div className="space-y-2 text-center">
-          <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">The Program</p>
+          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">The Program</p>
           <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>10 weeks. Four phases. One protocol.</h2>
         </div>
 
         {PROGRAM_WEEKS.map((phase) => (
           <div key={phase.phase} className="space-y-4">
-            <h3 className="text-lg font-bold text-[#F8D011]">{phase.phase}</h3>
+            <h3 className="text-lg font-bold text-brand-gold">{phase.phase}</h3>
 
             {phase.weeks.map((week) => (
               <details key={week.num} className="glass-card group">
                 <summary className="p-6 cursor-pointer list-none flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <span className="text-2xl font-bold text-[#F8D011] flex-shrink-0 w-10">
+                    <span className="text-2xl font-bold text-brand-gold flex-shrink-0 w-10">
                       {String(week.num).padStart(2, '0')}
                     </span>
                     <div>
@@ -244,18 +244,18 @@ export default async function CoachingPage() {
                       </p>
                     </div>
                   </div>
-                  <span className="text-[#F8D011] text-xl transition-transform group-open:rotate-45 flex-shrink-0">+</span>
+                  <span className="text-brand-gold text-xl transition-transform group-open:rotate-45 flex-shrink-0">+</span>
                 </summary>
                 <div className="px-6 pb-6 space-y-4">
                   <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
                     {week.focus}
                   </p>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-[#F8D011] font-semibold mb-2">This week&apos;s practices</p>
+                    <p className="text-xs uppercase tracking-wider text-brand-gold font-semibold mb-2">This week&apos;s practices</p>
                     <ul className="space-y-2">
                       {week.practices.map((practice) => (
                         <li key={practice} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                          <span className="text-[#F8D011] flex-shrink-0 mt-0.5">&#x2022;</span>
+                          <span className="text-brand-gold flex-shrink-0 mt-0.5">&#x2022;</span>
                           {practice}
                         </li>
                       ))}
@@ -272,7 +272,7 @@ export default async function CoachingPage() {
       <section className="px-6 py-12 max-w-4xl mx-auto">
         <div className="glass-card p-8 space-y-6">
           <div className="space-y-2">
-            <p className="text-xs uppercase tracking-widest text-[#F8D011] font-semibold">Before you start</p>
+            <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Before you start</p>
             <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>What you need</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

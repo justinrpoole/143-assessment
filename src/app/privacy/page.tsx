@@ -6,6 +6,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Privacy Policy",
+  description: "How 143 Leadership collects, uses, and protects your data.",
+};
+
 const LAST_UPDATED = "21 February 2026";
 
 export default async function PrivacyPage() {
@@ -141,7 +146,7 @@ export default async function PrivacyPage() {
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/terms" className="text-sm underline underline-offset-2 transition-colors hover:text-[#F8D011]" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
+          <Link href="/terms" className="text-sm underline underline-offset-2 transition-colors hover:text-brand-gold" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
             Read our Terms of Service
           </Link>
         </div>

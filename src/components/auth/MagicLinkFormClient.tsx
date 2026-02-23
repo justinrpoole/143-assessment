@@ -60,7 +60,7 @@ export function MagicLinkFormClient() {
         </p>
         <button
           type="button"
-          className="mt-4 text-sm font-semibold underline underline-offset-2 transition-colors hover:text-[#F8D011]"
+          className="mt-4 text-sm font-semibold underline underline-offset-2 transition-colors hover:text-brand-gold"
           style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}
           onClick={() => {
             setState("idle");
@@ -88,7 +88,7 @@ export function MagicLinkFormClient() {
         required
         autoComplete="email"
         placeholder="you@example.com"
-        className="mt-2 w-full rounded-xl px-4 py-3 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+        className="mt-2 w-full rounded-xl px-4 py-3 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
         style={{
           background: 'var(--surface-glass, rgba(255,255,255,0.06))',
           border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
@@ -116,7 +116,8 @@ export function MagicLinkFormClient() {
       {/* Beta login — works in production when BETA_FREE_MODE=true */}
       <button
         type="button"
-        className="mt-3 w-full rounded-xl border border-dashed border-yellow-500/30 bg-yellow-500/5 px-4 py-3 text-sm font-medium text-yellow-400 transition-colors hover:bg-yellow-500/10"
+        className="mt-3 w-full rounded-xl border border-dashed px-4 py-3 text-sm font-medium transition-colors"
+        style={{ borderColor: 'rgba(248, 208, 17, 0.3)', background: 'rgba(248, 208, 17, 0.05)', color: 'var(--brand-gold)' }}
         disabled={state === "sending"}
         onClick={async () => {
           const loginEmail = email.trim() || DEV_TEST_EMAIL;

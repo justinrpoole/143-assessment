@@ -94,8 +94,8 @@ export default function EscapeVelocity({
         <defs>
           <linearGradient id="ev-bg" x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stopColor="#3A0A5E" />
-            <stop offset="45%" stopColor="#4A0E78" />
-            <stop offset="100%" stopColor="#5B2C8E" />
+            <stop offset="45%" stopColor="var(--cosmic-svg-bg)" />
+            <stop offset="100%" stopColor="var(--cosmic-purple-vivid)" />
           </linearGradient>
           <linearGradient id="ev-trail" x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stopColor="#E8A317" stopOpacity="0.3" />

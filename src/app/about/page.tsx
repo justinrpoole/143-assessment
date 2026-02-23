@@ -6,6 +6,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "About Justin Ray",
+  description: "The 20-year journey behind the 143 Leadership framework. From burnout to breakthrough — the story of how the Be The Light operating system was built.",
+};
+
 const DO_LIST = [
   "Name the real problem in plain language.",
   "Back every claim with research you can read.",
@@ -58,7 +63,7 @@ export default async function AboutPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── The Story ── */}
@@ -96,7 +101,7 @@ export default async function AboutPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── Credentials ── */}
@@ -122,7 +127,7 @@ export default async function AboutPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── Do / Don't ── */}
@@ -136,7 +141,7 @@ export default async function AboutPage() {
             <div className="space-y-3">
               {DO_LIST.map((item) => (
                 <div key={item} className="glass-card flex items-start gap-3 p-4">
-                  <span className="shrink-0 font-bold" style={{ color: '#F8D011' }}>&#x2713;</span>
+                  <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2713;</span>
                   <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>{item}</p>
                 </div>
               ))}
@@ -158,7 +163,7 @@ export default async function AboutPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── The Method ── */}

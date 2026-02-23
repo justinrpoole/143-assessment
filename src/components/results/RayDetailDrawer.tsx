@@ -64,21 +64,21 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
           bottom-0 left-0 right-0 max-h-[85vh] rounded-t-2xl
           md:bottom-auto md:top-0 md:left-auto md:right-0 md:w-[420px] md:h-full md:max-h-full md:rounded-t-none md:rounded-l-2xl"
         style={{
-          background: 'linear-gradient(180deg, #2D1450 0%, #1A0A2E 100%)',
-          borderTop: '1px solid rgba(148, 80, 200, 0.3)',
-          borderLeft: '1px solid rgba(148, 80, 200, 0.3)',
+          background: 'var(--gradient-cosmic)',
+          borderTop: '1px solid var(--surface-border)',
+          borderLeft: '1px solid var(--surface-border)',
         }}
       >
         {/* Drag handle (mobile) */}
         <div className="flex justify-center pt-3 md:hidden">
-          <div className="h-1 w-10 rounded-full" style={{ background: 'rgba(255,255,255,0.2)' }} />
+          <div className="h-1 w-10 rounded-full" style={{ background: 'var(--text-on-dark-muted)' }} />
         </div>
 
         <div className="p-5 space-y-5">
           {/* Header */}
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                 {phase} &middot; {ray.ray_id}
               </p>
               <h2 className="text-xl font-semibold mt-1" style={{ color: 'var(--text-on-dark)' }}>
@@ -131,14 +131,14 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
                 <div key={sf.subfacet_id} className="space-y-1">
                   <div className="flex justify-between">
                     <span className="text-sm" style={{ color: 'var(--text-on-dark)' }}>{sf.label}</span>
-                    <span className="text-sm font-semibold" style={{ color: '#F8D011' }}>{sf.score}</span>
+                    <span className="text-sm font-semibold" style={{ color: 'var(--brand-gold)' }}>{sf.score}</span>
                   </div>
-                  <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+                  <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'var(--cosmic-nebula)' }}>
                     <div
                       className="h-full rounded-full transition-all duration-500"
                       style={{
                         width: `${sf.score}%`,
-                        background: sf.score >= 70 ? '#F8D011' : sf.score >= 40 ? '#F59E0B' : '#FB923C',
+                        background: sf.score >= 70 ? 'var(--brand-gold)' : sf.score >= 40 ? '#F59E0B' : '#FB923C',
                       }}
                     />
                   </div>
@@ -169,7 +169,7 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
           {explanation && (
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="space-y-1.5">
-                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                   When Resourced
                 </p>
                 {explanation.whenStrong.map((item, i) => (

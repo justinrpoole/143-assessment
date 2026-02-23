@@ -81,8 +81,8 @@ export default function ConstellationProgress({
           {/* Nebula cloud patches */}
           <radialGradient id="cp-nebula1" cx="30%" cy="25%">
             <stop offset="0%" stopColor="#6B21A8" stopOpacity="0.12" />
-            <stop offset="50%" stopColor="#4A0E78" stopOpacity="0.06" />
-            <stop offset="100%" stopColor="#4A0E78" stopOpacity="0" />
+            <stop offset="50%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0.06" />
+            <stop offset="100%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="cp-nebula2" cx="70%" cy="65%">
             <stop offset="0%" stopColor="#F4C430" stopOpacity="0.04" />

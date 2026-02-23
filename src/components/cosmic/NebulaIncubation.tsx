@@ -93,7 +93,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
           </filter>
         </defs>
 
-        <rect width={W} height={H} rx="12" fill="#4A0E78" />
+        <rect width={W} height={H} rx="12" fill="var(--cosmic-svg-bg)" />
 
         {/* Nebula cloud layers */}
         {clouds.map((cloud, i) => (

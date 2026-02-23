@@ -103,14 +103,14 @@ export default function ThirtyDayCalendar({
             30-Day Tracker
           </p>
           {rayName && (
-            <p className="text-xs mt-0.5" style={{ color: '#F8D011' }}>
+            <p className="text-xs mt-0.5" style={{ color: 'var(--brand-gold)' }}>
               Training: {rayName}
             </p>
           )}
         </div>
         <div className="flex items-center gap-3">
           <div className="text-right">
-            <p className="text-lg font-bold" style={{ color: '#F8D011' }}>{completedCount}/30</p>
+            <p className="text-lg font-bold" style={{ color: 'var(--brand-gold)' }}>{completedCount}/30</p>
             <p className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>days practiced</p>
           </div>
           {streak > 0 && (
@@ -170,7 +170,7 @@ export default function ThirtyDayCalendar({
                     ? 'rgba(248, 208, 17, 0.2)'
                     : phaseColor,
                   border: day.isToday
-                    ? '2px solid #F8D011'
+                    ? '2px solid var(--brand-gold)'
                     : day.checked
                       ? '1px solid rgba(248, 208, 17, 0.3)'
                       : '1px solid rgba(148, 80, 200, 0.1)',
@@ -181,12 +181,12 @@ export default function ThirtyDayCalendar({
               >
                 <span
                   className="text-[10px] leading-none"
-                  style={{ color: day.isToday ? '#F8D011' : 'var(--text-on-dark-muted)' }}
+                  style={{ color: day.isToday ? 'var(--brand-gold)' : 'var(--text-on-dark-muted)' }}
                 >
                   {day.dateLabel}
                 </span>
                 {day.checked && (
-                  <span className="text-[10px] leading-none mt-0.5" style={{ color: '#F8D011' }}>
+                  <span className="text-[10px] leading-none mt-0.5" style={{ color: 'var(--brand-gold)' }}>
                     &#10003;
                   </span>
                 )}
@@ -199,7 +199,7 @@ export default function ThirtyDayCalendar({
       {/* Plan text below calendar */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="glass-card p-3" style={{ borderLeft: '3px solid rgba(248, 208, 17, 0.4)' }}>
-          <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#F8D011' }}>
+          <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
             Week 1 — Install
           </p>
           <p className="text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{week1}</p>

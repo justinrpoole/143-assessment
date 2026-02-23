@@ -176,7 +176,7 @@ export function GlossaryClient() {
           placeholder="Search terms..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-xl py-3 pl-10 pr-4 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-[#F8D011]/30"
+          className="w-full rounded-xl py-3 pl-10 pr-4 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
           style={{
             background: 'var(--surface-glass)',
             border: '1px solid var(--surface-border)',
@@ -266,7 +266,7 @@ export function GlossaryClient() {
           <button
             type="button"
             onClick={() => setSearch("")}
-            className="mt-3 text-sm font-medium text-[#F8D011] underline underline-offset-2"
+            className="mt-3 text-sm font-medium text-brand-gold underline underline-offset-2"
           >
             Clear search
           </button>

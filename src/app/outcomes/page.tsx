@@ -6,6 +6,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Outcomes",
+  description: "What changes when you upgrade your operating system. Real outcomes from the 143 Leadership framework.",
+};
+
 export default async function OutcomesPage() {
   const userState = await getUserStateFromRequest();
   const copy = PAGE_COPY_V1.outcomes;

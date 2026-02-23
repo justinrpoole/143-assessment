@@ -120,8 +120,8 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
           {/* Sky gradient — deep purple top to warmer purple at horizon */}
           <linearGradient id="msa-sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#3A0A5E" />
-            <stop offset="40%" stopColor="#4A0E78" />
-            <stop offset="70%" stopColor="#5B2C8E" />
+            <stop offset="40%" stopColor="var(--cosmic-svg-bg)" />
+            <stop offset="70%" stopColor="var(--cosmic-purple-vivid)" />
             <stop offset="90%" stopColor="#7B4FA2" />
             <stop offset="100%" stopColor="#C39BD3" stopOpacity="0.3" />
           </linearGradient>

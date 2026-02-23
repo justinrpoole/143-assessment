@@ -3,8 +3,15 @@ import { MicroJoyClient } from "@/components/retention/MicroJoyClient";
 import { emitEvent, emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { countMicroJoyEntriesForDate } from "@/lib/db/retention";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { PageShell } from "@/components/ui/PageShell";
 
 export const dynamic = "force-dynamic";
+
+export const metadata = {
+  title: "Micro-Joy",
+  description: "Your daily micro-joy practice. A small, intentional moment of joy that trains Ray 2 and rewires your attention filter.",
+};
 
 const MAX_GENERATES_PER_DAY = 1;
 const MAX_SWAPS_PER_DAY = 3;
@@ -47,25 +54,19 @@ export default async function MicroJoyPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16">
-        <header className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Daily Practice
-          </p>
-          <h1 className="mt-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Micro Joy</h1>
-          <p className="mt-1 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            One small thing that tells your RAS the world has good in it. That signal changes what your brain looks for next.
-          </p>
-        </header>
+    <PageShell>
+      <PageHeader
+        label="Daily Practice"
+        title="Micro Joy"
+        description="One small thing that tells your RAS the world has good in it. That signal changes what your brain looks for next."
+      />
 
-        <MicroJoyClient />
-        <FeedbackWidget
-          feedback_type="microjoy_value"
-          source_route="/micro-joy"
-          title="Micro Joy value check"
-        />
-      </div>
-    </main>
+      <MicroJoyClient />
+      <FeedbackWidget
+        feedback_type="microjoy_value"
+        source_route="/micro-joy"
+        title="Micro Joy value check"
+      />
+    </PageShell>
   );
 }

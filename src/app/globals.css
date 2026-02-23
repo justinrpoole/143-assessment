@@ -3,3 +3,12 @@
 @import "./styles/cosmic.css";
 @import "./styles/shell.css";
 @import "./styles/lead-engine.css";
+
+@theme inline {
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-black: var(--brand-black);
+  --color-on-dark: var(--text-on-dark);
+  --color-on-dark-secondary: var(--text-on-dark-secondary);
+  --color-on-dark-muted: var(--text-on-dark-muted);
+}

@@ -78,7 +78,7 @@ export default function EmailGate({ children }: { children: React.ReactNode }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@company.com"
-          className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-[#F8D011]/40"
+          className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
           style={{
             background: 'var(--surface-glass, rgba(255,255,255,0.06))',
             border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',

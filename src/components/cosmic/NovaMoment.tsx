@@ -69,7 +69,7 @@ export default function NovaMoment({
                 <stop offset="0%" stopColor="#F4C430" stopOpacity="0.5" />
                 <stop offset="50%" stopColor="#F4C430" stopOpacity="0.15" />
                 <stop offset="80%" stopColor="#C39BD3" stopOpacity="0.08" />
-                <stop offset="100%" stopColor="#4A0E78" stopOpacity="0" />
+                <stop offset="100%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0" />
               </radialGradient>
               <filter id="nova-glow" x="-100%" y="-100%" width="300%" height="300%">
                 <feGaussianBlur stdDeviation="8" result="b" />
@@ -78,7 +78,7 @@ export default function NovaMoment({
             </defs>
 
             {/* Purple background */}
-            <rect width="500" height="500" fill="#4A0E78" />
+            <rect width="500" height="500" fill="var(--cosmic-svg-bg)" />
 
             {/* Layer 4: Diffuse warm bloom */}
             <motion.circle

@@ -60,7 +60,7 @@ export default function RayChart({ rays, topTwo, bottomRay }: RayChartProps) {
 
               <div className="w-28 text-xs shrink-0 text-right">
                 {isTop && (
-                  <span className="inline-block px-2 py-0.5 rounded-full font-semibold" style={{ background: 'rgba(248, 208, 17, 0.15)', color: '#F8D011' }}>
+                  <span className="inline-block px-2 py-0.5 rounded-full font-semibold" style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)' }}>
                     Power Source
                   </span>
                 )}

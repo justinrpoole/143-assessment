@@ -81,8 +81,8 @@ export default function ShootingStarActions({ actions, onComplete }: ShootingSta
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label="Shooting star action items">
         <defs>
           <radialGradient id="ssa-bg">
-            <stop offset="0%" stopColor="#5B2C8E" />
-            <stop offset="100%" stopColor="#4A0E78" />
+            <stop offset="0%" stopColor="var(--cosmic-purple-vivid)" />
+            <stop offset="100%" stopColor="var(--cosmic-svg-bg)" />
           </radialGradient>
           <filter id="ssa-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="3" result="b" />

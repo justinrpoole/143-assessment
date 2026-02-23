@@ -10,6 +10,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Upgrade Your OS",
+  description: "Your operating system runs every decision you make. 143 Leadership measures 9 trainable capacities and gives you the tools to rebuild.",
+};
+
 /* ── static data ───────────────────────────────────────────────── */
 const REFLECTION_QUESTIONS = [
   "You open your laptop and check email before your feet hit the floor. You had a plan this morning. It is gone by 8:15.",
@@ -130,7 +135,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── CONVERSION QUESTIONS ── */}
@@ -180,7 +185,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── WHAT THIS IS NOT ── */}
@@ -194,7 +199,7 @@ export default async function UpgradeYourOsPage() {
         <div className="mt-8 space-y-3">
           {WHAT_I_DONT_DO.map((item) => (
             <div key={item} className="glass-card flex items-start gap-3 p-4">
-              <span className="shrink-0 font-bold" style={{ color: '#F8D011' }}>&#x2715;</span>
+              <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2715;</span>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>{item}</p>
             </div>
           ))}
@@ -207,7 +212,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── ECLIPSE CONCEPT ── */}
@@ -236,7 +241,7 @@ export default async function UpgradeYourOsPage() {
           <div className="grid gap-4">
             {/* Eclipsed day */}
             <div className="glass-card p-5" style={{ borderLeft: '3px solid rgba(248,208,17,0.3)' }}>
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011', opacity: 0.5 }}>
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>
                 Eclipsed Monday
               </p>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -246,8 +251,8 @@ export default async function UpgradeYourOsPage() {
               </p>
             </div>
             {/* Light-online day */}
-            <div className="glass-card p-5" style={{ borderLeft: '3px solid #F8D011' }}>
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+            <div className="glass-card p-5" style={{ borderLeft: '3px solid var(--brand-gold)' }}>
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                 Light-Online Monday
               </p>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -264,7 +269,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── 9 RAYS ── */}
@@ -294,7 +299,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── TRY 3 QUESTIONS ── */}
@@ -304,7 +309,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── ENTRY POINTS ── */}
@@ -340,7 +345,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── Gold Divider ── */}
       <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
+        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold), transparent)' }} />
       </div>
 
       {/* ── TESTIMONIALS ── */}
@@ -402,7 +407,7 @@ export default async function UpgradeYourOsPage() {
           different system — one that measures capacity, trains it through
           daily reps, and proves it is changing. Not a motivator. A builder.
         </p>
-        <Link href="/about" className="mt-4 inline-block text-sm font-medium transition-colors hover:text-[#F8D011]" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <Link href="/about" className="mt-4 inline-block text-sm font-medium transition-colors hover:text-brand-gold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
           Read the full story &rarr;
         </Link>
       </section>

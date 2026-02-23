@@ -125,7 +125,7 @@ export default function EveningReflectionClient() {
           <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Evening Reflection</p>
           <div className="flex items-center gap-2">
             {qualityScore !== null && qualityScore > 0 && (
-              <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: 'rgba(248, 208, 17, 0.15)', color: '#F8D011' }}>
+              <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)' }}>
                 {QUALITY_LABELS[qualityScore] ?? ''}
               </span>
             )}
@@ -163,13 +163,13 @@ export default function EveningReflectionClient() {
               <div
                 key={i}
                 className="h-1.5 w-6 rounded-full transition-colors duration-300"
-                style={{ backgroundColor: i <= step ? '#F8D011' : 'rgba(255,255,255,0.12)' }}
+                style={{ backgroundColor: i <= step ? 'var(--brand-gold)' : 'rgba(255,255,255,0.12)' }}
               />
             ))}
           </div>
         </div>
 
-        <p className="text-xs font-semibold uppercase tracking-wide text-[#F8D011]">
+        <p className="text-xs font-semibold uppercase tracking-wide text-brand-gold">
           {rs.label}
         </p>
         <p className="text-base font-semibold" style={{ color: 'var(--text-on-dark)' }}>{rs.prompt}</p>
@@ -178,7 +178,7 @@ export default function EveningReflectionClient() {
         <textarea
           ref={inputRef}
           aria-label={rs.prompt}
-          className="w-full rounded-xl px-4 py-3 text-sm resize-none focus:outline-none"
+          className="w-full rounded-xl px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
           style={{
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid var(--surface-border)',

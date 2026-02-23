@@ -89,7 +89,7 @@ export default function CosmicPreview() {
 
       <header
         className="sticky top-0 z-50 flex items-center justify-between px-6"
-        style={{ height: '56px', background: 'rgba(11, 2, 18, 0.80)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderBottom: '1px solid var(--surface-border)' }}
+        style={{ height: '56px', background: 'var(--overlay-medium)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderBottom: '1px solid var(--surface-border)' }}
       >
         <span className="text-sm uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)' }}>
           143 Leadership
@@ -116,9 +116,9 @@ export default function CosmicPreview() {
           style={{ background: 'radial-gradient(ellipse at 30% 20%, rgba(96, 5, 141, 0.30) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(248, 208, 17, 0.05) 0%, transparent 40%), radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,0.30) 1px, transparent 0), radial-gradient(1px 1px at 72% 32%, rgba(255,255,255,0.18) 1px, transparent 0), radial-gradient(1px 1px at 88% 60%, rgba(255,255,255,0.25) 1px, transparent 0)' }}
         />
         <div className="relative z-10 max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.2em] mb-4" style={{ color: '#FFFFFF', fontWeight: 500 }}>All 28 Cosmic Visualizations</p>
+          <p className="text-xs uppercase tracking-[0.2em] mb-4" style={{ color: 'var(--text-on-dark)', fontWeight: 500 }}>All 28 Cosmic Visualizations</p>
           <h1 className="text-4xl sm:text-5xl leading-[1.1] mb-5 uppercase" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)', letterSpacing: '0.04em' }}>Cosmic Assessment Report</h1>
-          <p className="text-base max-w-xl mx-auto mb-10" style={{ color: '#FFFFFF', lineHeight: 1.65 }}>
+          <p className="text-base max-w-xl mx-auto mb-10" style={{ color: 'var(--text-on-dark)', lineHeight: 1.65 }}>
             The complete visual system — from nine-ray capacity maps and eclipse meters through stardust check-ins, constellation progress, and cosmic background radiation.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
@@ -315,7 +315,7 @@ export default function CosmicPreview() {
         <section className="py-16 sm:py-24 px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl mb-4 uppercase" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)', letterSpacing: '0.04em' }}>How It Works</h2>
-            <p className="text-base max-w-lg mx-auto mb-12" style={{ color: '#FFFFFF', lineHeight: 1.6 }}>
+            <p className="text-base max-w-lg mx-auto mb-12" style={{ color: 'var(--text-on-dark)', lineHeight: 1.6 }}>
               The 143 Assessment maps your energy across nine dimensions of leadership capacity.
             </p>
             <div className="grid sm:grid-cols-3 gap-5">
@@ -331,12 +331,12 @@ export default function CosmicPreview() {
                 >
                   <span
                     className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold uppercase tracking-wider mb-3"
-                    style={{ background: '#F8D011', color: '#020202' }}
+                    style={{ background: 'var(--brand-gold)', color: '#020202' }}
                   >
                     Step {item.step}
                   </span>
                   <h3 className="text-base font-semibold mb-2 uppercase" style={{ color: 'var(--brand-gold)' }}>{item.title}</h3>
-                  <p className="text-sm" style={{ color: '#FFFFFF', lineHeight: 1.55 }}>{item.desc}</p>
+                  <p className="text-sm" style={{ color: 'var(--text-on-dark)', lineHeight: 1.55 }}>{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -358,12 +358,12 @@ function Sec({ id, n, title, desc, children }: { id: string; n: string; title: s
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="block h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, transparent, #F8D011)' }} />
+            <span className="block h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold))' }} />
             <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: 'var(--brand-gold)' }}>{n}</p>
-            <span className="block h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, #F8D011, transparent)' }} />
+            <span className="block h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, var(--brand-gold), transparent)' }} />
           </div>
           <h2 id={`${id}-h`} className="text-2xl sm:text-3xl mb-3 uppercase" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)', letterSpacing: '0.04em' }}>{title}</h2>
-          <p className="text-base max-w-lg mx-auto" style={{ color: '#FFFFFF', lineHeight: 1.6 }}>{desc}</p>
+          <p className="text-base max-w-lg mx-auto" style={{ color: 'var(--text-on-dark)', lineHeight: 1.6 }}>{desc}</p>
         </div>
         {children}
       </div>
@@ -375,10 +375,10 @@ function CatHead({ title, sub }: { title: string; sub: string }) {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 text-center">
       <div className="flex items-center gap-4 mb-5">
-        <span className="block h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, #F8D011)' }} />
-        <span className="block h-px flex-1" style={{ background: 'linear-gradient(90deg, #F8D011, transparent)' }} />
+        <span className="block h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold))' }} />
+        <span className="block h-px flex-1" style={{ background: 'linear-gradient(90deg, var(--brand-gold), transparent)' }} />
       </div>
-      <p className="text-xs uppercase tracking-[0.2em] mb-2" style={{ color: '#FFFFFF' }}>{sub}</p>
+      <p className="text-xs uppercase tracking-[0.2em] mb-2" style={{ color: 'var(--text-on-dark)' }}>{sub}</p>
       <h2 className="text-3xl sm:text-4xl uppercase" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)', letterSpacing: '0.04em' }}>{title}</h2>
     </div>
   );

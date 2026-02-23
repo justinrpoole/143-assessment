@@ -6,6 +6,11 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "How It Works",
+  description: "From assessment to action plan to daily practice. See the full 143 Leadership pipeline and how each step builds on the last.",
+};
+
 export default async function HowItWorksPage() {
   const userState = await getUserStateFromRequest();
   const copy = PAGE_COPY_V1.howItWorks;

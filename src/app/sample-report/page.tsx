@@ -8,6 +8,11 @@ import SampleReportCTA from "@/components/billing/SampleReportCTA";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Sample Report",
+  description: "Preview what your 143 Leadership report looks like — 9-Ray scores, Light Signature, Eclipse Snapshot, and personalised training plan.",
+};
+
 export default async function SampleReportPage() {
   const userState = await getUserStateFromRequest();
   const copy = PAGE_COPY_V1.sampleReport;
