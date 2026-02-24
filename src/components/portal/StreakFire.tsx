@@ -1,7 +1,14 @@
 'use client';
 
+export interface StreakDimension {
+  label: string;
+  days: number;
+}
+
 interface StreakFireProps {
   days: number;
+  /** Optional multi-dimension streaks shown as small badges below the flame */
+  dimensions?: StreakDimension[];
 }
 
 /**
@@ -10,9 +17,10 @@ interface StreakFireProps {
  * → Full fire (14+) → Cosmic halo (30+)
  *
  * Pure CSS animations — no Framer Motion dependency.
+ * Supports multi-dimension streak display (reps, loop, reflection).
  */
-export default function StreakFire({ days }: StreakFireProps) {
-  if (days <= 0) return null;
+export default function StreakFire({ days, dimensions }: StreakFireProps) {
+  if (days <= 0 && !dimensions?.some((d) => d.days > 0)) return null;
 
   const tier = days >= 30 ? 'cosmic' : days >= 14 ? 'full' : days >= 7 ? 'medium' : days >= 3 ? 'small' : 'ember';
 
@@ -108,6 +116,30 @@ export default function StreakFire({ days }: StreakFireProps) {
           100% { transform: translateY(-12px) scale(0); opacity: 0; }
         }
       `}</style>
+    </div>
+  );
+}
+
+/** Compact row of dimension badges, shown below the main streak count. */
+export function StreakDimensions({ dimensions }: { dimensions: StreakDimension[] }) {
+  const active = dimensions.filter((d) => d.days > 0);
+  if (active.length === 0) return null;
+
+  return (
+    <div className="flex flex-wrap justify-center gap-1 mt-1">
+      {active.map((d) => (
+        <span
+          key={d.label}
+          className="text-[10px] px-1.5 py-0.5 rounded-full font-medium"
+          style={{
+            background: 'rgba(248, 208, 17, 0.1)',
+            color: 'var(--brand-gold)',
+            border: '1px solid rgba(248, 208, 17, 0.2)',
+          }}
+        >
+          {d.label} {d.days}d
+        </span>
+      ))}
     </div>
   );
 }

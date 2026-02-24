@@ -61,7 +61,7 @@ const FAQS = [
       },
       {
         q: "Will my results change over time?",
-        a: "Yes — that is by design. Unlike personality assessments that give you a fixed type, the 143 measures trainable capacities. With the Coaching OS subscription, you can retake a 43-question tracking version each month and watch your scores change over time.",
+        a: "Yes — that is by design. Unlike personality assessments that give you a fixed type, the 143 measures trainable capacities. With the Portal Membership subscription, you can retake a 43-question tracking version each month and watch your scores change over time.",
       },
     ],
   },
@@ -73,11 +73,11 @@ const FAQS = [
         a: "The Light Check is a quick three-minute eclipse screening. It gives you a plain-language read on whether eclipse is currently affecting your capacities. No account or email required.",
       },
       {
-        q: "What does the $43 one-time assessment include?",
+        q: "What does the $43 Gravitational Stability Report include?",
         a: "The full 143-question assessment, your Light Signature archetype, Eclipse Snapshot, complete 9-Ray behavioural map, Energy-to-Eclipse Ratio, Gravitational Stability Score, Performance-Presence Delta analysis, Rise Path, and a downloadable PDF report. Permanent access to your results.",
       },
       {
-        q: "What does the $14.33/month Coaching OS include?",
+        q: "What does the $14.33/month Portal Membership include?",
         a: "Everything in the assessment plus unlimited monthly retakes (43-question tracking set), the 10-week Light Activation Programme, daily micro-practices matched to your Rise Path, Energy Audit and Evening Reflection tools, and a growth tracking dashboard. Cancel anytime.",
       },
       {
@@ -86,7 +86,7 @@ const FAQS = [
       },
       {
         q: "Is there a free trial?",
-        a: "The Light Check is free. The full assessment starts at $43 one-time. There is no trial period for the Coaching OS, but you can cancel at any time.",
+        a: "The Light Check is free. The full assessment starts at $43 one-time. There is no trial period for the Portal Membership, but you can cancel at any time.",
       },
     ],
   },

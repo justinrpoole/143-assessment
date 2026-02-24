@@ -159,6 +159,147 @@ const FIXED_IDENTITY_PATTERNS = [
 ];
 
 // ---------------------------------------------------------------------------
+// 5. ZONE-SPECIFIC BANNED PHRASES (from tone-matrix.v1.ts)
+// Each zone has additional phrases banned beyond the global list.
+// ---------------------------------------------------------------------------
+const ZONE_RULES = [
+  {
+    zone: "MARKETING",
+    label: "Marketing & Landing Pages",
+    globs: [
+      "src/app/upgrade-your-os/",
+      "src/app/how-it-works/",
+      "src/app/outcomes/",
+      "src/app/143-challenge/",
+      "src/app/143/",
+      "src/app/preview/",
+      "src/app/corporate/",
+      "src/app/organizations/",
+      "src/app/about/",
+      "src/app/justin/",
+      "src/app/pricing/",
+      "src/components/marketing/",
+      "src/content/page_copy.v1.ts",
+      "src/content/marketing_copy_bible.v1.ts",
+    ],
+    banned: [
+      "we believe",
+      "our mission",
+      "best in class",
+      "revolutionary",
+      "transform your life",
+    ],
+    mustInclude: ["capacity", "operating system", "reps"],
+  },
+  {
+    zone: "ASSESSMENT",
+    label: "Assessment Questions & Instructions",
+    globs: [
+      "src/app/assessment/",
+      "src/components/assessment/QuestionCard",
+      "src/components/assessment/SectionIntro",
+    ],
+    banned: [
+      "great job",
+      "well done",
+      "you should",
+      "try to",
+      "remember to",
+      "the right answer",
+      "honestly",
+    ],
+    mustInclude: [],
+  },
+  {
+    zone: "RESULTS",
+    label: "Results & Reports",
+    globs: [
+      "src/components/results/",
+      "src/components/assessment/ResultsClient",
+      "src/components/assessment/ReportClient",
+      "src/components/assessment/SampleReportClient",
+    ],
+    banned: [
+      "you scored",
+      "your score is",
+      "you failed",
+      "low score",
+      "below average",
+      "needs improvement",
+      "you lack",
+    ],
+    mustInclude: ["capacity", "access"],
+  },
+  {
+    zone: "COACHING",
+    label: "Coaching & Recommendations",
+    globs: [
+      "src/components/retention/CoachQuestion",
+      "src/components/retention/FearReframe",
+      "src/components/results/CoachingBrief",
+      "src/components/results/ThirtyDayPlan",
+    ],
+    banned: [
+      "you must",
+      "you have to",
+      "you need to",
+      "you should always",
+      "never do",
+      "the key is",
+      "unlock your potential",
+    ],
+    mustInclude: ["rep"],
+  },
+  {
+    zone: "DAILY_LOOP",
+    label: "Daily Loop & Rituals",
+    globs: [
+      "src/components/retention/DailyLoop",
+      "src/components/retention/MorningEntry",
+      "src/components/retention/EveningReflection",
+      "src/components/retention/RasCheckIn",
+      "src/components/retention/MicroWinsLedger",
+    ],
+    banned: [
+      "let's go",
+      "you got this",
+      "stay positive",
+      "no excuses",
+      "rise and grind",
+      "be grateful",
+    ],
+    mustInclude: [],
+  },
+  {
+    zone: "SYSTEM",
+    label: "System Messages & Errors",
+    globs: [
+      "src/lib/ui/error-messages.ts",
+      "src/components/ui/",
+    ],
+    banned: [
+      "oops",
+      "uh oh",
+      "whoops",
+      "something went wrong",
+    ],
+    mustInclude: [],
+  },
+];
+
+function getFileZone(relPath) {
+  const normalized = relPath.replaceAll("\\", "/");
+  for (const rule of ZONE_RULES) {
+    for (const glob of rule.globs) {
+      if (normalized.includes(glob)) {
+        return rule;
+      }
+    }
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------------------
 // EXEMPT_PATHS — paths where banned-phrase + fixed-identity checks are suppressed.
 // Ray label checks remain active everywhere (no exemption for wrong Ray names).
 // Technical uses of words like "failure" (API errors), "leverage" (variable),
@@ -178,6 +319,9 @@ const EXEMPT_PATH_FRAGMENTS = [
   "src/data/validity_items.json",
   "src/data/integrated_specs/",
   "scripts/",
+  // Voice/tone configuration files contain banned phrases as reference data
+  "src/content/tone-matrix.v1.ts",
+  "src/content/voice-lock.v1.ts",
 ];
 
 function isExemptPath(relPath) {
@@ -335,6 +479,65 @@ async function main() {
     }
   }
 
+  // -- PASS 3: Zone-specific banned phrases --
+  // Each tone zone has additional banned phrases beyond the global list.
+  const zoneFailures = [];
+  for (const filePath of allSrcFiles) {
+    const rel = path.relative(cwd, filePath);
+    if (isExemptPath(rel)) continue;
+    const zoneRule = getFileZone(rel);
+    if (!zoneRule || zoneRule.banned.length === 0) continue;
+
+    let text;
+    try {
+      text = await fs.readFile(filePath, "utf8");
+    } catch {
+      continue;
+    }
+    const lines = text.split("\n");
+
+    const zoneChecks = zoneRule.banned.map((phrase) => ({
+      phrase,
+      message: `Zone [${zoneRule.zone}] banned: "${phrase}"`,
+    }));
+
+    for (const hit of scanLines(lines, zoneChecks)) {
+      zoneFailures.push({ file: rel, ...hit });
+    }
+  }
+  failures.push(...zoneFailures);
+
+  // -- PASS 4: Positive requirements (informational — logged but not blocking) --
+  // Zones with mustInclude check that at least one file in the zone
+  // contains each required term. Missing requirements are warnings.
+  const warnings = [];
+  for (const rule of ZONE_RULES) {
+    if (rule.mustInclude.length === 0) continue;
+
+    // Collect all text in this zone
+    const zoneTexts = [];
+    for (const filePath of allSrcFiles) {
+      const rel = path.relative(cwd, filePath);
+      if (isExemptPath(rel)) continue;
+      const fileZone = getFileZone(rel);
+      if (!fileZone || fileZone.zone !== rule.zone) continue;
+      try {
+        const text = await fs.readFile(filePath, "utf8");
+        zoneTexts.push(text.toLowerCase());
+      } catch {
+        continue;
+      }
+    }
+
+    if (zoneTexts.length === 0) continue;
+    const combined = zoneTexts.join(" ");
+    for (const required of rule.mustInclude) {
+      if (!combined.includes(required.toLowerCase())) {
+        warnings.push(`  Zone [${rule.zone}] missing required term: "${required}"`);
+      }
+    }
+  }
+
   // -- Report --
   if (failures.length === 0) {
     console.log("qa:drift-scan PASS");
@@ -343,8 +546,13 @@ async function main() {
     console.log(`  wrong-Ray-pairing patterns: ${wrongRayChecks.length}`);
     console.log(`  deprecated-Ray-name patterns: ${deprecatedNameChecks.length}`);
     console.log(`  banned phrases: ${BANNED_PHRASES.length}`);
+    console.log(`  zone-specific banned phrases: ${ZONE_RULES.reduce((n, r) => n + r.banned.length, 0)}`);
     console.log(`  fixed-identity patterns: ${identityChecks.length}`);
     console.log(`  story-language patterns: ${storyChecks.length}`);
+    if (warnings.length > 0) {
+      console.log(`\n[Positive requirement warnings] (${warnings.length})`);
+      for (const w of warnings) console.log(w);
+    }
     process.exit(0);
   }
 
@@ -355,6 +563,7 @@ async function main() {
     "Wrong Ray labels": [],
     "Deprecated Ray names": [],
     "Banned phrases": [],
+    "Zone-specific banned phrases": [],
     "Fixed-identity language": [],
     "Story-language in assessment context": [],
     Other: [],
@@ -366,6 +575,8 @@ async function main() {
       sections["Wrong Ray labels"].push(prefix);
     } else if (f.message.startsWith("Deprecated Ray name")) {
       sections["Deprecated Ray names"].push(prefix);
+    } else if (f.message.startsWith("Zone [")) {
+      sections["Zone-specific banned phrases"].push(prefix);
     } else if (f.message.startsWith("Banned phrase") || f.message.startsWith("Banned pattern")) {
       sections["Banned phrases"].push(prefix);
     } else if (f.message.startsWith("Fixed-identity")) {
@@ -383,6 +594,11 @@ async function main() {
     for (const line of lines) {
       console.log(line);
     }
+  }
+
+  if (warnings.length > 0) {
+    console.log(`\n[Positive requirement warnings] (${warnings.length})`);
+    for (const w of warnings) console.log(w);
   }
 
   process.exit(1);

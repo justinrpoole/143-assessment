@@ -144,7 +144,7 @@ export default function InlineCheckoutModal({
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
-                  The Assessment
+                  Gravitational Stability Report
                 </p>
                 <p className="text-xs mt-0.5" style={{ color: 'var(--text-on-dark-secondary)' }}>
                   Full 143-question run + lifetime report access
@@ -178,7 +178,7 @@ export default function InlineCheckoutModal({
               <div>
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
-                    Coaching OS
+                    Portal Membership
                   </p>
                   <span
                     className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full"

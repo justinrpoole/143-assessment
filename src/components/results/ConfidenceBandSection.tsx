@@ -18,12 +18,65 @@ const FLAG_LABELS: Record<string, string> = {
   MISSINGNESS: 'Some sections were incomplete, limiting the precision of certain scores.',
 };
 
+const BAND_CONFIG = {
+  HIGH: {
+    color: '#34D399',
+    label: 'High Confidence',
+    description: 'Strong data quality. Trust the patterns — they reflect your actual capacities with high precision.',
+    pct: 90,
+  },
+  MODERATE: {
+    color: 'var(--brand-gold, #F8D011)',
+    label: 'Moderate Confidence',
+    description: 'Good data quality with some caveats. Broad patterns are reliable — specific scores may shift slightly on retake.',
+    pct: 60,
+  },
+  LOW: {
+    color: '#FB923C',
+    label: 'Lower Confidence',
+    description: 'Some data quality concerns detected. Use directional patterns rather than exact scores. A retake would sharpen precision.',
+    pct: 30,
+  },
+} as const;
+
 export default function ConfidenceBandSection({ dataQuality }: Props) {
+  const band = (dataQuality.confidence_band ?? 'MODERATE').toUpperCase() as keyof typeof BAND_CONFIG;
+  const config = BAND_CONFIG[band] ?? BAND_CONFIG.MODERATE;
+
   return (
     <section className="space-y-4">
       <h3 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>How To Read These Results</h3>
 
       <div className="glass-card p-6 space-y-4">
+        {/* Confidence gauge */}
+        <div className="flex items-center gap-4">
+          <div className="relative" style={{ width: 56, height: 56 }}>
+            <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="28" r="24" fill="none" stroke="rgba(148, 80, 200, 0.15)" strokeWidth="4" />
+              <circle
+                cx="28" cy="28" r="24" fill="none"
+                stroke={config.color}
+                strokeWidth="4"
+                strokeDasharray={`${config.pct * 1.508} 150.8`}
+                strokeLinecap="round"
+                transform="rotate(-90 28 28)"
+              />
+            </svg>
+            <span
+              className="absolute inset-0 flex items-center justify-center text-xs font-bold"
+              style={{ color: config.color }}
+            >
+              {band[0]}
+            </span>
+          </div>
+          <div>
+            <p className="text-sm font-semibold" style={{ color: config.color }}>{config.label}</p>
+            <p className="text-sm mt-0.5" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              {config.description}
+            </p>
+          </div>
+        </div>
+
         <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
           Every assessment carries a confidence level. This tells you how much weight to put on the patterns you see.
         </p>

@@ -11,8 +11,27 @@ export const metadata = {
   description: "Sign in to your 143 Leadership account with a secure magic link. No password needed.",
 };
 
-export default async function LoginPage() {
+type SearchParams = Record<string, string | string[] | undefined>;
+
+interface PageProps {
+  searchParams?: Promise<SearchParams> | SearchParams;
+}
+
+async function resolveSearchParams(value: PageProps["searchParams"]): Promise<SearchParams> {
+  if (!value) return {};
+  if (typeof (value as Promise<SearchParams>).then === "function") {
+    return (await value) ?? {};
+  }
+  return value;
+}
+
+const SAVE_MAP_ROUTES = new Set(["/results", "/reports"]);
+
+export default async function LoginPage({ searchParams }: PageProps) {
   const userState = await getUserStateFromRequest();
+  const resolvedParams = await resolveSearchParams(searchParams);
+  const sourceRoute = typeof resolvedParams.source_route === "string" ? resolvedParams.source_route : "";
+  const isSaveMap = SAVE_MAP_ROUTES.has(sourceRoute.split("?")[0]);
 
   emitPageView({
     eventName: "page_view_login",
@@ -26,14 +45,15 @@ export default async function LoginPage() {
         <div className="glass-card w-full p-6 sm:p-8">
           <div className="text-center">
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-              Sign In
+              {isSaveMap ? "Save Your Map" : "Sign In"}
             </p>
             <h1 className="mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-              Welcome back.
+              {isSaveMap ? "Your results are ready." : "Welcome back."}
             </h1>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-              Enter your email and we will send you a secure sign-in link.
-              No password needed.
+              {isSaveMap
+                ? "Enter your email to save your map and unlock your full results. We will send a secure link — no password needed."
+                : "Enter your email and we will send you a secure sign-in link. No password needed."}
             </p>
           </div>
 

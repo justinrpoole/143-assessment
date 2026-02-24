@@ -60,19 +60,19 @@ export default function Closing({ output }: Props) {
           This is your map. Now make it move.
         </h3>
         <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-          The Coaching OS gives you monthly retakes to track real change, daily
+          The Portal Membership gives you monthly retakes to track real change, daily
           tools matched to your bottom ray, and growth sparklines that prove the
           reps are working. Your data stays — the system just gets smarter.
         </p>
         <div className="mt-4 grid grid-cols-2 gap-3 text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
           <div className="space-y-1">
-            <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>One-Time Assessment</p>
+            <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>Gravitational Stability Report</p>
             <p>Single run — 143 questions</p>
             <p>Full report + Rise Path</p>
             <p>JSON data export</p>
           </div>
           <div className="space-y-1">
-            <p className="font-semibold" style={{ color: 'var(--brand-gold, #F8D011)' }}>Coaching OS</p>
+            <p className="font-semibold" style={{ color: 'var(--brand-gold, #F8D011)' }}>Portal Membership</p>
             <p>Monthly retakes (43-question)</p>
             <p>Growth tracking + sparklines</p>
             <p>Daily tools + streak system</p>
@@ -80,7 +80,7 @@ export default function Closing({ output }: Props) {
         </div>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link href="/upgrade" className="btn-primary">
-            Upgrade to Coaching OS
+            Upgrade to Portal Membership
           </Link>
           <Link href="/portal" className="btn-watch">
             Go to Portal

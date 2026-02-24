@@ -6,159 +6,33 @@ export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Light Activation Program — 143 Leadership',
-  description: '10 weeks of structured practice. Understand your results. Work your top capacities. Address your eclipse. Retake with evidence.',
+  description: '10 weeks of structured coaching built on your Gravitational Stability Report. Your scores are designed to change. This program proves it.',
 };
 
-const PROGRAM_WEEKS = [
+const PHASES = [
   {
-    phase: 'Phase 1: Read Your Map',
-    weeks: [
-      {
-        num: 1,
-        title: 'Your Light Signature',
-        focus: 'Understand what your top two Rays mean — not as labels, but as the pattern your leadership naturally follows.',
-        practices: [
-          'Read your full Gravitational Stability Report',
-          'Name 3 moments this week where your top Ray showed up',
-          'Journal: "When I lead from this capacity, people around me..."',
-        ],
-        tool: 'Presence Pause',
-      },
-      {
-        num: 2,
-        title: 'Your Eclipse Snapshot',
-        focus: 'Understand what eclipse means. A low score is not a verdict — it is a signal that sustained load is temporarily covering real capacity.',
-        practices: [
-          'Review your Eclipse percentage and load dimensions',
-          'Identify which load type (emotional, cognitive, relational) is highest',
-          'Name the difference between "I cannot do this" and "I am depleted right now"',
-        ],
-        tool: 'Eclipse Snapshot Walkthrough',
-      },
-      {
-        num: 3,
-        title: 'Your Rise Path',
-        focus: 'Your bottom Ray is not a flaw. It is the next capacity to train. This week, sit with what it would feel like to have more of it.',
-        practices: [
-          'Read the Rise Path section of your report',
-          'Identify when your bottom Ray would have changed a recent situation',
-          'Log 2 micro-reps focused on your bottom Ray',
-        ],
-        tool: 'If/Then Protocol',
-      },
-    ],
+    num: '01',
+    title: 'Read Your Map',
+    weeks: 'Weeks 1–3',
+    description: 'Understand what your Light Signature means in your real life. Name where eclipse is covering capacity. Identify your Rise Path.',
   },
   {
-    phase: 'Phase 2: Work Your Strengths',
-    weeks: [
-      {
-        num: 4,
-        title: 'Leading from Your Top Ray',
-        focus: 'Your highest capacity is where you have the most range. This week, use it deliberately — not on autopilot.',
-        practices: [
-          'Choose one meeting or conversation to lead from your top Ray intentionally',
-          'Notice when you default to this capacity vs. when you choose it',
-          'Log a rep after each intentional use',
-        ],
-        tool: 'REP Logger',
-      },
-      {
-        num: 5,
-        title: 'Your Signature Pair in Action',
-        focus: 'Your two strongest Rays create a signature combination. This week, notice how they work together — and where one compensates for the other.',
-        practices: [
-          'Identify a situation where both Rays showed up together',
-          'Identify a situation where one carried the load while the other hid',
-          'Journal: "My signature combination helps me... but costs me..."',
-        ],
-        tool: 'Weekly Reflection',
-      },
-      {
-        num: 6,
-        title: 'Capacity Under Pressure',
-        focus: 'Your strengths look different when you are depleted. This week, notice how your top Rays behave when you are tired, stressed, or stretched.',
-        practices: [
-          'Track your energy level before and after key moments',
-          'Notice if your top Ray becomes a coping strategy under pressure',
-          'Log one rep where you chose to rest instead of perform',
-        ],
-        tool: 'Energy Audit',
-      },
-    ],
+    num: '02',
+    title: 'Work Your Strengths',
+    weeks: 'Weeks 4–6',
+    description: 'Use your top Rays deliberately instead of on autopilot. Notice when one is carrying the load for another. Start logging reps.',
   },
   {
-    phase: 'Phase 3: Address Your Eclipse',
-    weeks: [
-      {
-        num: 7,
-        title: 'Separating Depletion from Deficit',
-        focus: 'Your eclipsed areas might be skills to build — or they might be signs of overload. This week, find which is true for you.',
-        practices: [
-          'Review your eclipsed Rays — when did they last feel strong?',
-          'Ask: "Is this low because I never learned it, or because I am running on empty?"',
-          'If depletion: What is draining you? Name it.',
-        ],
-        tool: 'Presence Pause',
-      },
-      {
-        num: 8,
-        title: 'One Eclipsed Ray, One Week',
-        focus: 'Choose one eclipsed area. Not to fix it — to practice it. Small, specific, daily.',
-        practices: [
-          'Pick the eclipsed Ray that would make the biggest difference this week',
-          'Design one If/Then plan around it (e.g., "If I feel rushed, then I pause for 10 seconds")',
-          'Log at least 3 reps this week focused on that Ray',
-        ],
-        tool: 'If/Then Protocol',
-      },
-      {
-        num: 9,
-        title: 'Sustainable Range',
-        focus: 'Building a Ray is not about forcing it. It is about making space for it. This week, identify what conditions let your eclipsed capacity show up naturally.',
-        practices: [
-          'Notice when the eclipsed Ray appears without effort — what conditions are present?',
-          'Journal: "This capacity shows up when I feel..."',
-          'Adjust one routine to create those conditions more often',
-        ],
-        tool: 'Morning Protocol',
-      },
-    ],
+    num: '03',
+    title: 'Address Your Eclipse',
+    weeks: 'Weeks 7–9',
+    description: 'Separate depletion from deficit. Practice one eclipsed capacity with small, specific daily reps. Build sustainable range.',
   },
   {
-    phase: 'Phase 4: Integration',
-    weeks: [
-      {
-        num: 10,
-        title: 'Integration and Retake',
-        focus: 'You have been practicing for 9 weeks. Retake the assessment. Compare your results. See what moved, what held, and what you learned about how you lead.',
-        practices: [
-          'Review your original report one more time',
-          'Retake the 143 Assessment with the same honesty',
-          'Compare: Which Rays moved? Did your Light Signature shift?',
-          'Journal: "What I know about my leadership now that I did not know 10 weeks ago..."',
-        ],
-        tool: 'Full Retake',
-      },
-    ],
-  },
-];
-
-const PRINCIPLES = [
-  {
-    title: 'Every score is a skill to build',
-    description: 'No shame. No labels. Low scores are temporary patterns with a training path, not permanent limitations.',
-  },
-  {
-    title: 'Practice beats insight',
-    description: 'Reading your report is step one. Logging reps is everything after. The nervous system learns from repetition, not revelation.',
-  },
-  {
-    title: 'Eclipse is information, not identity',
-    description: 'When a capacity is eclipsed, the first question is not "how do I fix this?" It is "what is covering it?"',
-  },
-  {
-    title: 'Specificity over volume',
-    description: 'One targeted rep per day is more valuable than ten unfocused ones. The protocol gives you the target. You show up.',
+    num: '04',
+    title: 'Integration',
+    weeks: 'Week 10',
+    description: 'Retake the assessment. Compare your results. See what moved, what held, and what you learned about how you lead.',
   },
 ];
 
@@ -173,100 +47,103 @@ export default async function CoachingPage() {
 
   return (
     <main className="cosmic-page-bg">
-      {/* Hero */}
-      <section className="px-6 py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto space-y-6 text-center">
-          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">
-            10-Week Light Activation Program
+      {/* Hero — I See You */}
+      <section className="mx-auto max-w-[720px] px-5 pt-16 pb-12 sm:px-8 sm:pt-24 sm:pb-16 text-center">
+        <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">
+          10-Week Light Activation Program
+        </p>
+        <h1 className="mt-4 text-4xl sm:text-5xl font-bold leading-tight" style={{ color: 'var(--text-on-dark)' }}>
+          Your assessment gave you a map. This program teaches you to walk it.
+        </h1>
+        <p className="mt-4 text-lg leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+          I see you reading the report, nodding, and then putting it in a drawer.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+          Not because it was wrong. Because knowing is not the same as doing. This program closes that gap. Not a course. Not content to consume. Structured practice with a coach who has already read your data.
+        </p>
+      </section>
+
+      {/* Leading the Witness */}
+      <section className="mx-auto max-w-[720px] px-5 pb-12 sm:px-8">
+        <div className="glass-card p-6 sm:p-8 space-y-5">
+          <p className="text-sm font-semibold leading-relaxed" style={{ color: 'var(--brand-gold)' }}>
+            Have you ever learned something powerful at a workshop and lost it by Monday?
           </p>
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight" style={{ color: 'var(--text-on-dark)' }}>
-            Your assessment gave you a map. This program teaches you to walk it.
-          </h1>
-          <p className="text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            10 weeks. Structured practices. Specific tools matched to your results. Retake at the end to see what moved.
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            That is not your fault. Those programmes taught tactics without upgrading the system that runs them. This program upgrades the system first. Then every tactic lands.
           </p>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: 'var(--text-on-dark-muted)' }}>
-            Not a course. Not content to consume. A protocol you follow — one week at a time, one rep at a time — until the data says you grew.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center pt-4">
-            <Link href="/assessment/setup" className="btn-primary">
-              Take the assessment first
-            </Link>
-            <Link href="#program" className="btn-watch">
-              See the full program
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Principles */}
-      <section className="px-6 py-12 max-w-4xl mx-auto space-y-8">
-        <div className="space-y-2">
-          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">How this works</p>
-          <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Four principles. No shortcuts.</h2>
+      {/* Archetype Teaser */}
+      <section className="mx-auto max-w-[720px] px-5 pb-12 sm:px-8">
+        <div className="glass-card p-6 sm:p-8">
+          <h2 className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-gold">
+            The program adapts to how you lead
+          </h2>
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            A Driven Leader needs a different protocol than a Deep Listener. A True North Leader trains different edges than a Community Builder. The coaching is matched to your Light Signature — not a generic curriculum.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+            There are 36 Light Signatures. The assessment reveals yours. The program trains from it.
+          </p>
+        </div>
+      </section>
+
+      {/* Four Phases — structure visible, protocol protected */}
+      <section className="mx-auto max-w-[720px] px-5 py-12 sm:px-8 space-y-8">
+        <div className="space-y-2 text-center">
+          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">The Structure</p>
+          <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Four phases. One protocol.</h2>
+          <p className="text-sm max-w-lg mx-auto leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+            Each phase builds on the one before it. Each week has a specific focus, a matched tool, and a daily practice — all personalised to your assessment results.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {PRINCIPLES.map((p) => (
-            <div key={p.title} className="glass-card p-6 space-y-2">
-              <h3 className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>{p.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{p.description}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {PHASES.map((phase) => (
+            <div key={phase.num} className="glass-card p-6 space-y-3">
+              <div className="flex items-baseline gap-3">
+                <span className="text-2xl font-bold text-brand-gold">{phase.num}</span>
+                <div>
+                  <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>{phase.title}</p>
+                  <p className="text-[11px] mt-0.5" style={{ color: 'var(--text-on-dark-muted)' }}>{phase.weeks}</p>
+                </div>
+              </div>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+                {phase.description}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 10-Week Program */}
-      <section id="program" className="px-6 py-16 max-w-4xl mx-auto space-y-10">
-        <div className="space-y-2 text-center">
-          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">The Program</p>
-          <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>10 weeks. Four phases. One protocol.</h2>
-        </div>
-
-        {PROGRAM_WEEKS.map((phase) => (
-          <div key={phase.phase} className="space-y-4">
-            <h3 className="text-lg font-bold text-brand-gold">{phase.phase}</h3>
-
-            {phase.weeks.map((week) => (
-              <details key={week.num} className="glass-card group">
-                <summary className="p-6 cursor-pointer list-none flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl font-bold text-brand-gold flex-shrink-0 w-10">
-                      {String(week.num).padStart(2, '0')}
-                    </span>
-                    <div>
-                      <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>{week.title}</p>
-                      <p className="text-xs mt-0.5" style={{ color: 'var(--text-on-dark-muted)' }}>
-                        Tool: {week.tool}
-                      </p>
-                    </div>
-                  </div>
-                  <span className="text-brand-gold text-xl transition-transform group-open:rotate-45 flex-shrink-0">+</span>
-                </summary>
-                <div className="px-6 pb-6 space-y-4">
-                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                    {week.focus}
-                  </p>
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-brand-gold font-semibold mb-2">This week&apos;s practices</p>
-                    <ul className="space-y-2">
-                      {week.practices.map((practice) => (
-                        <li key={practice} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                          <span className="text-brand-gold flex-shrink-0 mt-0.5">&#x2022;</span>
-                          {practice}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </details>
-            ))}
+      {/* What makes this different */}
+      <section className="mx-auto max-w-[720px] px-5 py-12 sm:px-8">
+        <div className="glass-card p-6 sm:p-8 space-y-6">
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Not another course</p>
+            <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>What makes this different</h2>
           </div>
-        ))}
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2715;</span>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>No generic curriculum. Every week is matched to your actual assessment data.</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2715;</span>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>No guessing whether it worked. You retake the assessment at the end and compare.</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2715;</span>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>No motivation speeches. Daily reps, specific tools, measurable change.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* What you need */}
-      <section className="px-6 py-12 max-w-4xl mx-auto">
+      <section className="mx-auto max-w-[720px] px-5 py-12 sm:px-8">
         <div className="glass-card p-8 space-y-6">
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Before you start</p>
@@ -282,33 +159,36 @@ export default async function CoachingPage() {
             <div className="space-y-2">
               <p className="font-semibold text-sm" style={{ color: 'var(--text-on-dark)' }}>15 minutes per day</p>
               <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                One practice, one rep log, one reflection. Not a second course to add to your calendar. A protocol that fits inside your real day.
+                One practice, one rep log, one reflection. A protocol that fits inside your real day.
               </p>
             </div>
             <div className="space-y-2">
               <p className="font-semibold text-sm" style={{ color: 'var(--text-on-dark)' }}>Honesty, not aspiration</p>
               <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                The protocol works when you practice where you actually are. Not where you wish you were. Show up real. The data will follow.
+                Show up where you actually are. Not where you wish you were. The data will follow.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Footer */}
-      <section className="px-6 py-16 text-center space-y-6">
+      {/* Pricing + CTA */}
+      <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8 text-center space-y-6">
         <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
-          Take the assessment. Start Week 1.
+          The protocol is the product. The proof is in the retake.
         </h2>
-        <p className="max-w-xl mx-auto text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
-          The program is included with your assessment. No upsell. No coaching packages. Just the protocol, the tools, and 10 weeks of structured practice.
+        <p className="max-w-lg mx-auto text-lg font-semibold" style={{ color: 'var(--brand-gold)' }}>
+          $143 per week for 10 weeks.
         </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <Link href="/assessment/setup" className="btn-primary">
-            Take the assessment
+        <p className="max-w-lg mx-auto text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
+          $1,430 total. Your Gravitational Stability Report and Portal Membership are included for the full duration.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center pt-2">
+          <Link href="/assessment" className="btn-primary">
+            Get Your Report First
           </Link>
           <Link href="/portal" className="btn-watch">
-            Return to your portal
+            Return to Your Portal
           </Link>
         </div>
       </section>

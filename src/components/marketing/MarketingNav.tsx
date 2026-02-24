@@ -6,7 +6,7 @@ import Link from "next/link";
 import { isBetaFreeMode } from "@/lib/config/beta";
 import {
   MARKETING_NAV_AUTH,
-  MARKETING_NAV_CTA,
+  MARKETING_NAV_CTAS,
   MARKETING_NAV_LINKS,
 } from "@/lib/nav/nav-config";
 
@@ -84,13 +84,20 @@ export function MarketingNav() {
               {hasSession ? MARKETING_NAV_AUTH.signedIn.label : MARKETING_NAV_AUTH.signedOut.label}
             </Link>
 
-            {/* CTA */}
+            {/* CTAs */}
             <Link
-              href={MARKETING_NAV_CTA.href}
+              href={MARKETING_NAV_CTAS.secondary.href}
+              className="hidden md:inline-block shrink-0 rounded-lg px-3 py-1.5 text-[13px] font-semibold tracking-wide no-underline transition-all hover:brightness-110"
+              style={{ border: '1px solid var(--brand-gold)', color: 'var(--brand-gold)' }}
+            >
+              {MARKETING_NAV_CTAS.secondary.label}
+            </Link>
+            <Link
+              href={MARKETING_NAV_CTAS.primary.href}
               className="shrink-0 rounded-lg px-4 py-2 text-[13px] font-bold tracking-wide no-underline transition-all hover:brightness-105"
               style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
             >
-              {MARKETING_NAV_CTA.label}
+              {MARKETING_NAV_CTAS.primary.label}
             </Link>
 
             {/* Hamburger — mobile only */}
@@ -143,12 +150,20 @@ export function MarketingNav() {
               </Link>
             ))}
             <Link
-              href={MARKETING_NAV_CTA.href}
+              href={MARKETING_NAV_CTAS.primary.href}
               onClick={closeMenu}
               className="mt-4 rounded-lg px-8 py-3 text-base font-bold tracking-wide no-underline transition-all hover:brightness-105"
               style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
             >
-              {MARKETING_NAV_CTA.label}
+              {MARKETING_NAV_CTAS.primary.label}
+            </Link>
+            <Link
+              href={MARKETING_NAV_CTAS.secondary.href}
+              onClick={closeMenu}
+              className="mt-2 rounded-lg px-8 py-3 text-base font-semibold tracking-wide no-underline transition-all hover:brightness-110"
+              style={{ border: '1px solid var(--brand-gold)', color: 'var(--brand-gold)' }}
+            >
+              {MARKETING_NAV_CTAS.secondary.label}
             </Link>
             <Link
               href={hasSession ? MARKETING_NAV_AUTH.signedIn.href : MARKETING_NAV_AUTH.signedOut.href}

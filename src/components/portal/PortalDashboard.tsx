@@ -7,11 +7,15 @@ import TodaysRep from './TodaysRep';
 import DailyStackCard from './DailyStackCard';
 import QuickRepFAB from './QuickRepFAB';
 import DailyLoopClient from '@/components/retention/DailyLoopClient';
-import StreakFire from './StreakFire';
+import StreakFire, { StreakDimensions } from './StreakFire';
 import PhaseCheckInClient from '@/components/retention/PhaseCheckInClient';
 import CueBasedNudge from '@/components/retention/CueBasedNudge';
 import ContextualActions from './ContextualActions';
 import { RasPrimeCard } from '@/components/retention/RasPrimeCard';
+import RasCheckIn from '@/components/retention/RasCheckIn';
+import MicroWinsLedger from '@/components/retention/MicroWinsLedger';
+import FearReframe from '@/components/retention/FearReframe';
+import CoachQuestion from '@/components/retention/CoachQuestion';
 import { FadeInSection } from '@/components/ui/FadeInSection';
 import CosmicSkeleton from '@/components/ui/CosmicSkeleton';
 import CosmicEmptyState from '@/components/ui/CosmicEmptyState';
@@ -23,6 +27,8 @@ import { RAY_NAMES } from '@/lib/types';
 import MorningMirrorOverlay from './MorningMirrorOverlay';
 import EclipseCalendarHeatmap from './EclipseCalendarHeatmap';
 import InviteColleagueCard from './InviteColleagueCard';
+import JournalBrowser from '@/components/retention/JournalBrowser';
+import ChallengeProgress from '@/components/retention/ChallengeProgress';
 
 const PatternInterruptHub = dynamic(() => import('@/components/PatternInterruptHub'), { ssr: false });
 
@@ -64,6 +70,8 @@ interface PortalSummary {
   streak_days: number;
   total_reps: number;
   most_practiced_tool: string | null;
+  loop_streak: number;
+  reflection_streak: number;
   in_progress_run_id: string | null;
   in_progress_answered: number;
   in_progress_total: number;
@@ -150,6 +158,51 @@ function SubscriptionBanner({ state, gracePeriodEnd }: { state: PortalSummary['s
   );
 }
 
+function PriorityActions() {
+  return (
+    <div className="glass-card p-5 space-y-3">
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        Today
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        <Link
+          href="/reps"
+          className="flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
+          style={{ background: 'rgba(96, 5, 141, 0.2)', border: '1px solid rgba(148, 80, 200, 0.25)' }}
+        >
+          <span className="text-lg">⚡</span>
+          <div>
+            <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Capture a moment</p>
+            <p className="text-[11px]" style={{ color: 'var(--text-on-dark-muted)' }}>Log what you practiced</p>
+          </div>
+        </Link>
+        <Link
+          href="/watch-me"
+          className="flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
+          style={{ background: 'rgba(96, 5, 141, 0.2)', border: '1px solid rgba(148, 80, 200, 0.25)' }}
+        >
+          <span className="text-lg">👁️</span>
+          <div>
+            <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Take a small step</p>
+            <p className="text-[11px]" style={{ color: 'var(--text-on-dark-muted)' }}>Watch Me / Go First</p>
+          </div>
+        </Link>
+        <Link
+          href="/reflect"
+          className="flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
+          style={{ background: 'rgba(96, 5, 141, 0.2)', border: '1px solid rgba(148, 80, 200, 0.25)' }}
+        >
+          <span className="text-lg">✍️</span>
+          <div>
+            <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Daily Debrief</p>
+            <p className="text-[11px]" style={{ color: 'var(--text-on-dark-muted)' }}>What did you notice?</p>
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 const WEEKLY_TARGET = 5; // reps per week
 
 export default function PortalDashboard() {
@@ -215,6 +268,9 @@ export default function PortalDashboard() {
           />
         )}
 
+        {/* Priority Actions — Today */}
+        <PriorityActions />
+
         {/* Phase Check-In */}
         <PhaseCheckInClient />
 
@@ -279,6 +335,9 @@ export default function PortalDashboard() {
 
         {/* Subscription state banner */}
         {summary && <SubscriptionBanner state={summary.subscription_state} gracePeriodEnd={summary.grace_period_end} />}
+
+        {/* Priority Actions — Today */}
+        <PriorityActions />
 
         {summary?.in_progress_run_id ? (
           <ResumeBanner
@@ -373,6 +432,11 @@ export default function PortalDashboard() {
         />
       )}
 
+      {/* Priority Actions — Today */}
+      <FadeInSection delay={0.04}>
+        <PriorityActions />
+      </FadeInSection>
+
       {/* Daily Loop — primary daily engagement */}
       <FadeInSection delay={0.05}>
         <DailyLoopClient />
@@ -411,6 +475,11 @@ export default function PortalDashboard() {
               {summary.streak_days > 0 ? summary.streak_days : '—'}
             </p>
             <p className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>day streak</p>
+            <StreakDimensions dimensions={[
+              { label: 'Reps', days: summary.streak_days },
+              { label: 'Loop', days: summary.loop_streak ?? 0 },
+              { label: 'Reflect', days: summary.reflection_streak ?? 0 },
+            ]} />
             <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>{summary.total_reps} total</p>
           </div>
         </div>
@@ -491,13 +560,43 @@ export default function PortalDashboard() {
         <RasPrimeCard />
       </FadeInSection>
 
-      {/* Cue-Based Tool Nudges — matched to phase check-in */}
+      {/* RAS Check-In — morning attention focus */}
       <FadeInSection delay={0.25}>
+        <RasCheckIn bottomRayId={summary.bottom_ray_id ?? undefined} />
+      </FadeInSection>
+
+      {/* Coach Question of the Day */}
+      <FadeInSection delay={0.26}>
+        <CoachQuestion bottomRayId={summary.bottom_ray_id ?? undefined} />
+      </FadeInSection>
+
+      {/* Evidence Board — micro-wins ledger */}
+      <FadeInSection delay={0.27}>
+        <MicroWinsLedger />
+      </FadeInSection>
+
+      {/* Fear Reframe — Eclipse-model reframe tool */}
+      <FadeInSection delay={0.28}>
+        <FearReframe />
+      </FadeInSection>
+
+      {/* Cue-Based Tool Nudges — matched to phase check-in */}
+      <FadeInSection delay={0.29}>
         <CueBasedNudge />
       </FadeInSection>
 
+      {/* 30-Day Challenge Progress */}
+      <FadeInSection delay={0.3}>
+        <ChallengeProgress />
+      </FadeInSection>
+
+      {/* Reflection Journal — past entries */}
+      <FadeInSection delay={0.31}>
+        <JournalBrowser />
+      </FadeInSection>
+
       {/* Team Constellation — Invite a Colleague */}
-      <FadeInSection delay={0.27}>
+      <FadeInSection delay={0.32}>
         <InviteColleagueCard />
       </FadeInSection>
 

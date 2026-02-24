@@ -5,11 +5,12 @@ import ArchetypeLibraryClient from "@/components/archetypes/ArchetypeLibraryClie
 export const metadata: Metadata = {
   title: "36 Light Signatures | 143 Leadership",
   description:
-    "Browse all 36 Light Signatures — the unique leadership archetypes mapped by the 143 Assessment. Find yours, explore others, and understand what each combination creates.",
+    "Browse all 36 Light Signatures — trainable leadership patterns mapped by the 143 Assessment. Find yours, explore others, and understand what each combination creates.",
+  robots: { index: false, follow: false },
   openGraph: {
     title: "36 Light Signatures | 143 Leadership",
     description:
-      "Browse all 36 Light Signatures. Discover how your top two rays combine into a unique leadership archetype.",
+      "Browse all 36 Light Signatures. Discover how your top two rays combine into a unique leadership pattern.",
   },
 };
 

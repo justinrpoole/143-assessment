@@ -31,13 +31,13 @@ const PLANS = [
   },
   {
     id: "assessment",
-    title: "The 143 Assessment",
+    title: "Gravitational Stability Report",
     price: "$43",
     frequency: "one-time",
     description:
-      "Your complete behavioural map. 143 questions — the number is not arbitrary, it is the foundation principle built into the design. Measures 9 trainable capacities, identifies your Light Signature archetype, and reveals where eclipse is strongest.",
+      "Your complete behavioural map. 143 questions — the number is not arbitrary, it is the foundation principle built into the design. Measures 9 trainable capacities, identifies your Light Signature, and reveals where eclipse is strongest.",
     features: [
-      "Your Light Signature — one of 36 unique archetypes",
+      "Your Light Signature — one of 36 unique patterns",
       "Your Eclipse Snapshot — where stress covers capacity",
       "Energy-to-Eclipse Ratio and Rise Path",
       "Complete behavioural map across all 9 Rays",
@@ -46,27 +46,45 @@ const PLANS = [
       "Permanent access to your results",
       "Downloadable PDF report",
     ],
-    cta: { label: "Take the Assessment", href: "/upgrade" },
+    cta: { label: "Get Your Report", href: "/upgrade" },
     highlight: true,
   },
   {
-    id: "coaching-os",
-    title: "The Coaching OS",
+    id: "portal-membership",
+    title: "Portal Membership",
     price: "$14.33",
     frequency: "/month",
     description:
-      "Everything in the assessment plus a daily operating system that closes the knowing-doing gap. Retake monthly to watch your capacities change in real time.",
+      "Everything in the report plus a daily operating system that closes the knowing-doing gap. Retake monthly to watch your capacities change in real time.",
     features: [
-      "Full 143 Assessment included",
+      "Full Gravitational Stability Report included",
       "Unlimited monthly retakes (43-question tracking set)",
-      "10-week Light Activation Program",
+      "Watch Me and Go First interactive flows",
       "Daily micro-practices matched to your Rise Path",
       "Watch your scores change month over month",
       "Energy Audit and Evening Reflection tools",
       "Growth tracking dashboard",
-      "Priority support",
+      "Weekly Scan",
     ],
-    cta: { label: "Start the Coaching OS", href: "/upgrade" },
+    cta: { label: "Start Portal Membership", href: "/upgrade" },
+    highlight: false,
+  },
+  {
+    id: "coaching-10wk",
+    title: "10-Week Coaching",
+    price: "$143",
+    frequency: "/week",
+    description:
+      "Structured coaching built on your Gravitational Stability Report. 10 weeks. Your Portal Membership is included for the duration. $1,430 total.",
+    features: [
+      "Full Gravitational Stability Report included",
+      "Portal Membership included for 10 weeks",
+      "Structured Light Activation Program",
+      "Weekly coaching matched to your results",
+      "Mid-point and final retake with comparison",
+      "Direct support between sessions",
+    ],
+    cta: { label: "Learn About Coaching", href: "/coaches" },
     highlight: false,
   },
   {
@@ -86,26 +104,26 @@ const PLANS = [
       "Quarterly re-assessment and progress reporting",
       "Dedicated account manager",
     ],
-    cta: { label: "Contact Us", href: "/enterprise" },
+    cta: { label: "Contact Us", href: "/corporate" },
     highlight: false,
   },
 ] as const;
 
 const COMPARISON_FEATURES = [
-  { name: "Eclipse Screening", lightCheck: true, assessment: true, coaching: true, enterprise: true },
-  { name: "Light Signature Archetype", lightCheck: false, assessment: true, coaching: true, enterprise: true },
-  { name: "Full 9-Ray Behavioural Map", lightCheck: false, assessment: true, coaching: true, enterprise: true },
-  { name: "Eclipse Snapshot", lightCheck: false, assessment: true, coaching: true, enterprise: true },
-  { name: "Energy-to-Eclipse Ratio", lightCheck: false, assessment: true, coaching: true, enterprise: true },
-  { name: "Gravitational Stability Score", lightCheck: false, assessment: true, coaching: true, enterprise: true },
-  { name: "PDF Report Download", lightCheck: false, assessment: true, coaching: true, enterprise: true },
-  { name: "Monthly Retakes", lightCheck: false, assessment: false, coaching: true, enterprise: true },
-  { name: "10-Week Activation Programme", lightCheck: false, assessment: false, coaching: true, enterprise: true },
-  { name: "Daily Micro-Practices", lightCheck: false, assessment: false, coaching: true, enterprise: true },
-  { name: "Growth Tracking Dashboard", lightCheck: false, assessment: false, coaching: true, enterprise: true },
-  { name: "Team Aggregate Analysis", lightCheck: false, assessment: false, coaching: false, enterprise: true },
-  { name: "Executive Coaching", lightCheck: false, assessment: false, coaching: false, enterprise: true },
-  { name: "Behavioural ROI Framework", lightCheck: false, assessment: false, coaching: false, enterprise: true },
+  { name: "Eclipse Screening", lightCheck: true, report: true, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Light Signature", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Full 9-Ray Behavioural Map", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Eclipse Snapshot", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Gravitational Stability Score", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
+  { name: "PDF Report Download", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Monthly Retakes", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Watch Me & Go First Flows", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Daily Micro-Practices", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Growth Tracking Dashboard", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Weekly Scan", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Weekly Coaching Sessions", lightCheck: false, report: false, portal: false, coaching10wk: true, enterprise: true },
+  { name: "Team Aggregate Analysis", lightCheck: false, report: false, portal: false, coaching10wk: false, enterprise: true },
+  { name: "Behavioural ROI Framework", lightCheck: false, report: false, portal: false, coaching10wk: false, enterprise: true },
 ] as const;
 
 const FAQS = [
@@ -115,22 +133,26 @@ const FAQS = [
   },
   {
     q: "What happens after I complete the assessment?",
-    a: "Your results are scored immediately. You will see your Light Signature archetype, Eclipse Snapshot, Energy-to-Eclipse Ratio, and a complete behavioural map across all 9 Rays. A downloadable PDF report is available on the paid tiers.",
+    a: "Your results are scored immediately. You will see your Light Signature, Eclipse Snapshot, Energy-to-Eclipse Ratio, and a complete behavioural map across all 9 Rays. Your Gravitational Stability Report is available as a downloadable PDF on the paid tiers.",
   },
   {
     q: "Can I retake the assessment?",
-    a: "With the Coaching OS subscription, you can retake a 43-question tracking version every month. This lets you measure real behavioural change over time rather than relying on how you feel.",
+    a: "With the Portal Membership, you can retake a 43-question tracking version every month. This lets you measure real behavioural change over time rather than relying on how you feel.",
   },
   {
-    q: "What is the difference between the assessment and the Coaching OS?",
-    a: "The assessment is a one-time map of where you are right now. The Coaching OS adds a daily operating system — micro-practices, retakes, growth tracking — that helps you move from knowing to doing.",
+    q: "What is the difference between the report and the Portal Membership?",
+    a: "The Gravitational Stability Report is a one-time map of where you are right now. The Portal Membership adds a daily operating system — Watch Me, Go First, micro-practices, retakes, growth tracking — that helps you move from knowing to doing.",
+  },
+  {
+    q: "What is the 10-Week Coaching?",
+    a: "$143 per week for 10 weeks. Structured coaching built on your Gravitational Stability Report. Your Portal Membership is included for the duration. Weekly sessions matched to your results, with a mid-point retake and a final comparison.",
   },
   {
     q: "Is this backed by research?",
     a: "The 143 framework is built on a foundation of self-directed compassion — 143 means I love you — and draws on decades of behavioural science, positive psychology, and neuroscience research. Every capacity is mapped to published evidence. The scoring engine is deterministic and auditable.",
   },
   {
-    q: "What if I want to cancel the Coaching OS?",
+    q: "What if I want to cancel my Portal Membership?",
     a: "Cancel anytime. No penalties. No exit interviews. Your assessment history stays. Your data does not disappear. When you come back, your map is waiting.",
   },
   {
@@ -262,8 +284,9 @@ export default async function PricingPage() {
               <tr style={{ borderBottom: '1px solid var(--surface-border, rgba(255,255,255,0.10))' }}>
                 <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Feature</th>
                 <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Light Check</th>
-                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Assessment</th>
-                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Coaching OS</th>
+                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Report</th>
+                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Portal</th>
+                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Coaching</th>
                 <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Enterprise</th>
               </tr>
             </thead>
@@ -272,8 +295,9 @@ export default async function PricingPage() {
                 <tr key={row.name} style={{ borderBottom: i < COMPARISON_FEATURES.length - 1 ? '1px solid var(--surface-border, rgba(255,255,255,0.06))' : 'none' }}>
                   <td className="px-4 py-3" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>{row.name}</td>
                   <td className="px-4 py-3 text-center">{row.lightCheck ? <CheckIcon /> : <DashIcon />}</td>
-                  <td className="px-4 py-3 text-center">{row.assessment ? <CheckIcon /> : <DashIcon />}</td>
-                  <td className="px-4 py-3 text-center">{row.coaching ? <CheckIcon /> : <DashIcon />}</td>
+                  <td className="px-4 py-3 text-center">{row.report ? <CheckIcon /> : <DashIcon />}</td>
+                  <td className="px-4 py-3 text-center">{row.portal ? <CheckIcon /> : <DashIcon />}</td>
+                  <td className="px-4 py-3 text-center">{row.coaching10wk ? <CheckIcon /> : <DashIcon />}</td>
                   <td className="px-4 py-3 text-center">{row.enterprise ? <CheckIcon /> : <DashIcon />}</td>
                 </tr>
               ))}
@@ -293,7 +317,7 @@ export default async function PricingPage() {
           No Lock-In. No Penalties.
         </h2>
         <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          Cancel your Coaching OS subscription anytime. No exit interviews. No penalties.
+          Cancel your Portal Membership anytime. No exit interviews. No penalties.
           If your payment lapses, your assessment history stays. Your data does not disappear.
           When you come back, your map is waiting. We believe the work should earn your
           attention every month — not trap it.
@@ -352,7 +376,7 @@ export default async function PricingPage() {
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Link href="/upgrade" className="btn-primary">
-              Take the Assessment — $43
+              Get Your Report — $43
             </Link>
             <Link href="/preview" className="btn-watch">
               Start with the Free Light Check

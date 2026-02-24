@@ -54,11 +54,19 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
   if (!runId) {
     return (
       <main className="cosmic-page-bg">
-        <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-10">
+        <div className="mx-auto max-w-[720px] px-5 py-12 sm:px-8 sm:py-16">
+          {/* Hero — I See You */}
           <header className="glass-card mb-6 p-6 sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">The Assessment</p>
             <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>The 143 Be The Light Assessment</h1>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              I see you performing leadership every day without a mirror that shows what is actually happening underneath. 143 questions. 15 minutes. You will see your Light Signature, your Eclipse Snapshot, and the specific capacity to train first. Not who you are. What you can build.
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              I see you performing leadership every day without a mirror that shows what is actually happening underneath.
+            </p>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              You run the meeting. You hit the number. And by 6pm something is missing that you cannot name.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              143 questions. 15 minutes. You will see your Light Signature, your Eclipse Snapshot, and the specific capacity to train first. Not who you are. What you can build.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link href="/assessment/instructions" className="btn-primary">
@@ -70,68 +78,55 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
             </div>
           </header>
 
+          {/* Leading the Witness */}
           <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">What Makes This Different</h2>
-            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              Notice how every other assessment told you who you are but never what to do next? That is the gap. The 143 is not a personality test. It measures 9 trainable leadership capacities backed by peer-reviewed behavioral science. Your scores are designed to change. And the first thing you will notice when you open your results is that it sounds like someone who knows you.
+            <p className="text-sm font-semibold leading-relaxed" style={{ color: 'var(--brand-gold)' }}>
+              Notice how every other assessment told you who you are but never what to do next?
+            </p>
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              That is the gap. The 143 is not a personality test. It measures 9 trainable leadership capacities backed by peer-reviewed behavioural science. Your scores are designed to change. And the first thing you will notice when you open your results is that it sounds like someone who knows you.
             </p>
           </section>
 
+          {/* Archetype Teaser */}
           <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">What You Will Discover</h2>
-            <ul className="space-y-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              <li>Your Light Signature — one of 36 combinations that shows how your top two Rays work together. You might be a Strategic Optimist, a Decisive Director, or a Relational Light.</li>
-              <li>Your Eclipse Snapshot — where sustained stress is covering real capacity. Not a verdict. A temporary state with a clear path out.</li>
-              <li>Your Energy Ratio — how much of your available capacity you are currently accessing versus burning through.</li>
-              <li>Your Rise Path — the specific Ray to train first, the tool to use, and the micro-practice to start this week.</li>
-            </ul>
-          </section>
-
-          <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">Two Ways In</h2>
-            <ul className="space-y-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              <li>Free — The Light Check gives you a quick eclipse screening and your top Ray in 3 minutes. No account required.</li>
-              <li>$43 one-time — Full 143 Assessment with your Light Signature, Eclipse Snapshot, and personalized Rise Path.</li>
-              <li>$14.33/month — Everything in the assessment plus unlimited retakes, growth tracking, and daily micro-practices.</li>
-              <li>Enterprise — Team-wide assessment with aggregate patterns, coaching integration, and behavioral ROI framework.</li>
-            </ul>
-          </section>
-
-          <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">See What the Report Looks Like</h2>
+            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">When you open your results</h2>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              The first thing people say when they open their results: &quot;Oh. That is what is happening.&quot; The report names the pattern you have been living but could not articulate. Preview the structure and the personal language before you begin.
+              You will not see a type. You will see your top two Rays, what they mean together, and where one might be compensating for another. You might be a Strategic Optimist — someone who finds the win even when life is loud. Or a Bold Authentic — someone who says the true thing before the room is ready. Or a Calm Center — someone whose steadiness holds everything in orbit.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+              There are 36 Light Signatures. The assessment reveals yours.
+            </p>
+          </section>
+
+          {/* See the report */}
+          <section className="glass-card mb-6 p-6 sm:p-8">
+            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">See what the report looks like</h2>
+            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              The first thing people say when they open their results: &quot;Oh. That is what is happening.&quot; The report names the pattern you have been living but could not articulate.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link href="/sample-report" className="btn-watch">
                 Open Sample Report
               </Link>
               <Link href="/preview" className="btn-watch">
-                Start Snapshot Preview
+                Start with the Free Light Check
               </Link>
             </div>
           </section>
 
-          <section className="glass-card mb-6 p-6 sm:p-8">
-            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">FAQs</h2>
-            <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              <p>How long does it take? 143 questions. About 15 minutes. Most people say it goes faster than expected because the questions feel personal, not generic.</p>
-              <p>What if I do not like my results? There are no bad results. Every score is a capacity to build. Eclipse does not mean failure — it means your range is covered. The report shows you exactly what is underneath.</p>
-              <p>Can I retake it? Yes. The $14.33/month plan includes unlimited retakes. Retake in 90 days and watch your scores move — that is proof the reps are landing.</p>
-            </div>
-          </section>
-
-          <section className="glass-card p-6 sm:p-8">
-            <h2 className="mb-3 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>The most honest mirror your leadership has seen.</h2>
-            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              143 questions. 15 minutes. You will see your Light Signature, your Eclipse Snapshot, and the first capacity to train. Not who you are. What you can build.
+          {/* Final CTA */}
+          <section className="glass-card p-6 sm:p-8 text-center">
+            <h2 className="text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>The most honest mirror your leadership has seen.</h2>
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              Not a personality label. A behavioural map that changes as you do.
             </p>
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3 justify-center">
               <Link href="/assessment/instructions" className="btn-primary">
                 Start the Assessment
               </Link>
               <Link href="/preview" className="btn-watch">
-                Start with Preview
+                Start with the Free Light Check
               </Link>
             </div>
           </section>

@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Upgrade Your OS",
-  description: "Your operating system runs every decision you make. 143 Leadership measures 9 trainable capacities and gives you the tools to rebuild.",
+  description: "You are performing. You are delivering. And something still does not add up. 143 Leadership maps 9 trainable capacities and gives you the reps to rebuild.",
 };
 
 /* ── static data ───────────────────────────────────────────────── */
@@ -59,7 +59,7 @@ const ENTRY_POINTS = [
   },
   {
     tag: "The full map",
-    title: "The 143 Assessment",
+    title: "Gravitational Stability Report",
     body: "A map of exactly where your light is strong, where it is covered, and what to do about it this week. Your Light Signature. Your Eclipse Snapshot. Your Energy Ratio. Your Rise Path.",
     href: "/upgrade",
     cta: "Take the Assessment — $43",
@@ -67,17 +67,17 @@ const ENTRY_POINTS = [
   },
   {
     tag: "The operating system",
-    title: "143 Coaching OS",
+    title: "Portal Membership",
     body: "The assessment plus daily tools, micro-practices, and unlimited retakes. Retake in 90 days and watch your scores move — proof the reps are landing.",
     href: "/upgrade",
-    cta: "Start the Coaching OS — $14.33/mo",
+    cta: "Start the Portal Membership — $14.33/mo",
     highlight: false,
   },
 ];
 
 const TESTIMONIALS = [
   { quote: "I have taken MBTI, Enneagram, DISC, and StrengthsFinder. None of them explained why I was performing well but feeling empty. The eclipse concept did in one sentence what four assessments could not.", attribution: "VP of Operations, SaaS" },
-  { quote: "I retook the assessment 90 days after starting the coaching OS. Three of my Ray scores moved. Not because I tried harder. Because I trained differently. First time a tool actually showed me I was growing.", attribution: "Senior Director, Healthcare" },
+  { quote: "I retook the assessment 90 days after starting the Portal Membership. Three of my Ray scores moved. Not because I tried harder. Because I trained differently. First time a tool actually showed me I was growing.", attribution: "Senior Director, Healthcare" },
   { quote: "My team noticed before I did. My presence score went from eclipsed to emerging. My direct reports said I was calmer in meetings. That was not an accident — it was reps.", attribution: "Engineering Lead, Fortune 500" },
 ];
 
@@ -95,23 +95,28 @@ export default async function UpgradeYourOsPage() {
 
   return (
     <main className="cosmic-page-bg">
-
-      {/* ── HERO ── */}
+      {/* ── HERO — Story-First (The Stretched Leader) ── */}
       <section className="mx-auto max-w-[960px] px-5 pt-16 pb-12 sm:px-8 sm:pt-24 sm:pb-16">
         <div>
           {/* SEO / qa:tone anchor — Upgrade Your OS */}
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Upgrade Your OS. Leadership is not personality. It is capacity.
+            The Stretched Leader
           </p>
           <h1 className="mt-4 max-w-[720px] text-3xl font-bold leading-tight sm:text-4xl lg:text-[44px]" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            Your operating system runs every decision you make. When was the last time you upgraded it?
+            You are performing. You are delivering. And something still does not add up.
           </h1>
-          <p className="mt-4 max-w-[560px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            143 Leadership measures 9 trainable capacities, detects when exhaustion is masking
-            the real you, and gives you the tools to rebuild — with proof that it is working.
-            Not a personality label. A behavioural map that changes as you do. 143 questions.
-            15 minutes. A map of where your light is strong, where it is covered, and what to
-            do about it this week.
+          <p className="mt-4 max-w-[600px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+            You run the meeting well. Nobody knows the cost. By 3pm your creativity
+            is gone. By 6pm you are giving what is left to the people who matter most —
+            and it is not enough. You are not underperforming. You are stretched.
+            One capacity is carrying another, and the operating system running your
+            decisions has not been upgraded in years.
+          </p>
+          <p className="mt-3 max-w-[600px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
+            143 Leadership maps 9 trainable capacities, names exactly where your light
+            is strong and where it is covered, and gives you the reps to rebuild —
+            with proof that it is working. Not a label. A behavioural map that changes
+            as you do. 143 questions. 15 minutes. One mirror.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/preview" className="btn-primary">
@@ -227,7 +232,7 @@ export default async function UpgradeYourOsPage() {
               When sustained stress stays elevated too long, it changes how you think, feel,
               and decide. Research on stress chemistry and energy borrowing shows that cumulative
               strain narrows your attention, shrinks your emotional range, and compromises your
-              judgement. That is not a personal failure. That is biology.
+              judgement. That is not a character flaw. That is biology.
             </p>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
               High-performers often do not realise their biggest strength is compensating for an
@@ -277,11 +282,11 @@ export default async function UpgradeYourOsPage() {
             The 9 Rays
           </p>
           <h2 className="mt-3 text-2xl font-bold sm:text-3xl" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            9 dimensions. Each one trainable. Together, they map your emotional intelligence.
+            9 Rays. Each one trainable. Together, they map your leadership capacity.
           </h2>
           <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
             The first three train EQ with yourself. The last three train EQ with others. The
-            middle three are where they meet. Not personality types. Capacities — built through
+            middle three are where they meet. Not fixed labels. Capacities — built through
             reps, not revelation.
           </p>
         </div>

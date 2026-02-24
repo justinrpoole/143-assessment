@@ -19,6 +19,8 @@ const ALLOWED_TOOL_NAMES = new Set([
   "143_challenge",
   "let_them",
   "full_reps",
+  "evidence_receipt",
+  "challenge_rep",
 ]);
 
 const ALLOWED_TRIGGER_TYPES = new Set([

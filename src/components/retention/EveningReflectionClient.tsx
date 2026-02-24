@@ -25,6 +25,24 @@ const REFLECTION_STEPS = [
   },
 ] as const;
 
+/**
+ * Optional post-save prompts that deepen the reflection without
+ * adding friction to the core 3-step flow. Shown after save completes.
+ * Signal/Noise = attentional filter check. RAS Notice = evidence of priming.
+ */
+const POST_SAVE_PROMPTS = [
+  {
+    id: 'signal_noise',
+    label: 'Signal vs Noise',
+    prompt: 'What signal did you follow today? What noise did you let pass?',
+  },
+  {
+    id: 'ras_notice',
+    label: 'RAS Notice',
+    prompt: 'What did your RAS notice today that it would have missed last month?',
+  },
+] as const;
+
 const QUALITY_LABELS = ['—', 'Surface', 'Specific', 'Actionable'];
 
 interface ReflectionResponse {
@@ -141,6 +159,19 @@ export default function EveningReflectionClient() {
                 <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>{rs.label}</p>
                 <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{savedTexts[i]}</p>
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Post-save deepening prompts */}
+        <div className="pt-3 space-y-3" style={{ borderTop: '1px solid var(--surface-border)' }}>
+          <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
+            Go deeper (optional)
+          </p>
+          {POST_SAVE_PROMPTS.map((ps) => (
+            <div key={ps.id} className="rounded-xl p-3" style={{ background: 'rgba(248, 208, 17, 0.04)', border: '1px solid rgba(248, 208, 17, 0.08)' }}>
+              <p className="text-xs font-semibold" style={{ color: 'var(--brand-gold)' }}>{ps.label}</p>
+              <p className="mt-1 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{ps.prompt}</p>
             </div>
           ))}
         </div>

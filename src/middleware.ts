@@ -53,7 +53,8 @@ export const config = {
     "/morning",
     "/micro-joy",
     "/account",
-    "/assessment/:path*",
+    "/assessment/instructions",
+    "/assessment/setup",
     "/results",
     "/reports",
     "/growth",
@@ -63,5 +64,6 @@ export const config = {
     "/weekly",
     "/reflect",
     "/welcome",
+    "/light-dashboard",
   ],
 };

@@ -7,7 +7,7 @@ import { PageShell } from "@/components/ui/PageShell";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Weekly Review — 143 Leadership OS",
+  title: "Weekly Scan — 143 Leadership OS",
 };
 
 export default async function WeeklyPage() {
@@ -22,7 +22,7 @@ export default async function WeeklyPage() {
 
   return (
     <PageShell>
-      <PageHeader title="Weekly Review" />
+      <PageHeader title="Weekly Scan" description="Your system changes. This is your weekly snapshot." />
 
       <div className="mt-6">
         <WeeklyReviewClient />

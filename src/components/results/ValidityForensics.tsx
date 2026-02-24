@@ -13,6 +13,8 @@ interface ValidityCheck {
   description: string;
   status: 'pass' | 'watch' | 'flag';
   detail: string;
+  /** Explains what part of results this flag affects when triggered */
+  impact: string;
 }
 
 /**
@@ -33,6 +35,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
       detail: flags.has('SOCIAL_DESIRABILITY')
         ? 'Elevated social desirability detected. Some scores may be inflated.'
         : 'Responses show natural variation — no social desirability concern.',
+      impact: 'Affects all ray shine scores. Your highest rays may be overstated — focus on relative patterns rather than absolute numbers.',
     },
     {
       id: 'IMPRESSION_MANAGEMENT',
@@ -42,6 +45,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
       detail: flags.has('IMPRESSION_MANAGEMENT')
         ? 'Pattern suggests responses may reflect desired self over actual self.'
         : 'No impression management pattern detected.',
+      impact: 'Affects confidence band and eclipse accuracy. Your eclipse level may be underreported.',
     },
     {
       id: 'INCONSISTENCY',
@@ -51,6 +55,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
       detail: flags.has('INCONSISTENCY')
         ? 'Some paired items showed inconsistent responses. Can reflect genuine complexity or cognitive fatigue.'
         : 'Responses are internally consistent across paired items.',
+      impact: 'Widens confidence intervals on specific rays. Your top-two and bottom ray selections are still reliable.',
     },
     {
       id: 'SPEEDING',
@@ -60,6 +65,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
       detail: flags.has('SPEEDING')
         ? 'Rapid response pattern detected. Some answers may have been reflexive.'
         : 'Response pacing indicates thoughtful consideration.',
+      impact: 'Affects all scores in the fast-response window. Later sections (if slower) are more reliable than earlier ones.',
     },
     {
       id: 'STRAIGHTLINING',
@@ -69,6 +75,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
       detail: flags.has('STRAIGHTLINING')
         ? 'Extended runs of identical responses detected. May indicate fatigue or disengagement.'
         : 'Healthy response variation throughout.',
+      impact: 'Affects rays measured in the straightlined section. Scores in that block may not differentiate your actual capacities.',
     },
     {
       id: 'ATTENTION',
@@ -78,6 +85,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
       detail: flags.has('ATTENTION')
         ? 'One or more attention checks were missed.'
         : 'All attention checks passed.',
+      impact: 'Reduces overall confidence. Surrounding items near missed checks carry less scoring weight.',
     },
     {
       id: 'INFREQUENCY',
@@ -87,6 +95,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
       detail: flags.has('INFREQUENCY')
         ? 'Some responses were uncommon. May reflect unique circumstances or random responding.'
         : 'All responses within expected ranges.',
+      impact: 'Affects scoring precision for specific items. Most of your profile remains unaffected.',
     },
     {
       id: 'LOW_REFLECTION_DEPTH',
@@ -96,6 +105,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
       detail: flags.has('LOW_REFLECTION_DEPTH')
         ? 'Reflections were brief or missing. Deeper reflections improve coaching precision.'
         : 'Reflections provided meaningful context for scoring.',
+      impact: 'Affects coaching recommendations and 30-day plan specificity. Quantitative scores are not affected.',
     },
     {
       id: 'MISSINGNESS',
@@ -105,6 +115,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
       detail: flags.has('MISSINGNESS')
         ? 'Some items were skipped. Affected ray scores have wider confidence intervals.'
         : 'Full or near-full completion. All scores have strong data support.',
+      impact: 'Directly affects rays with missing subfacet data. Rays with full coverage remain precise.',
     },
   ];
 
@@ -188,6 +199,11 @@ export default function ValidityForensics({ dataQuality }: Props) {
                   </span>
                 </div>
                 <p className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>{check.detail}</p>
+                {check.status !== 'pass' && (
+                  <p className="text-xs mt-1 italic" style={{ color: 'var(--text-on-dark-muted)' }}>
+                    Impact: {check.impact}
+                  </p>
+                )}
               </div>
             );
           })}

@@ -174,15 +174,15 @@ export const PAGE_COPY_V1: V1PageCopy = {
         links: [{ label: "Get Your Snapshot", href: "/preview" }],
       },
       {
-        title: "The 143 Assessment \u2014 $43",
+        title: "Gravitational Stability Report \u2014 $43",
         body: "A map of exactly where your light is strong, where it is covered, and what to do about it this week. Your Light Signature. Your Eclipse Snapshot. Your Energy Ratio. Your Rise Path.",
         links: [{ label: "Take the Assessment", href: "/upgrade" }],
       },
       {
-        title: "143 Coaching OS \u2014 $14.33/mo",
+        title: "Portal Membership \u2014 $14.33/mo",
         body: "The assessment plus daily tools, micro-practices, and unlimited retakes. Take it. Train. Retake it in 90 days and watch your scores move \u2014 proof the reps are landing.",
         links: [
-          { label: "Start the Coaching OS", href: "/morning" },
+          { label: "Start the Portal Membership", href: "/morning" },
           { label: "Micro Joy Reps", href: "/micro-joy" },
         ],
       },
@@ -237,7 +237,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
           body: "Your brain is running a threat filter you never installed. The 143 Challenge reprograms it in 3 days \u2014 3 minutes a day. 143 means I love you. Self-directed compassion that gives your RAS new search instructions. No email required to start.",
         },
         {
-          title: "$43 \u2014 The Full Assessment",
+          title: "$43 \u2014 Gravitational Stability Report",
           body: "Your complete 9-Ray capacity map, Eclipse Snapshot, your Light Signature with identity opener, and specific tool recommendations. Lifetime access.",
         },
       ],
@@ -316,13 +316,13 @@ export const PAGE_COPY_V1: V1PageCopy = {
     why: "Most assessments lock your results inside a paywall. The 143 preview gives you a real snapshot of your 9 Rays \u2014 your trainable leadership capacities \u2014 before you spend anything.",
     proof:
       "In 15 minutes, you will know your top two Rays and your Light Signature. The snapshot answers one question honestly: is this worth going deeper?",
-    how: "Start the preview. See your ray signal across nine dimensions. Know whether Eclipse is running your week. If the answer is yes, the full report and coaching OS are waiting.",
+    how: "Start the preview. See your ray signal across nine dimensions. Know whether Eclipse is running your week. If the answer is yes, the full report and Portal Membership are waiting.",
     outcome:
       "Outcome: the relief of being accurately described without being reduced. Not categorized. Not labeled. Recognized.",
     loop: "Your scores are designed to change. Retake after your first full run to see the proof.",
     paidTierTitle: "When you are ready to go deeper",
     paidTierBody:
-      "The $43 Assessment gives you your Light Signature, Eclipse Snapshot, your Energy Ratio, and your Rise Path. The $14.33/month Coaching OS adds unlimited retakes, the full protocol library, and monthly snapshots that track your growth.",
+      "The $43 Gravitational Stability Report gives you your Light Signature, Eclipse Snapshot, your Energy Ratio, and your Rise Path. The $14.33/month Portal Membership adds unlimited retakes, the full protocol library, and monthly snapshots that track your growth.",
   },
   sampleReport: {
     label: "Sample Report",
@@ -336,8 +336,8 @@ export const PAGE_COPY_V1: V1PageCopy = {
       "The report opens with your Light Signature and an identity opener: 'I know you are the type of person who...' Then the Eclipse Snapshot shows where stress may be suppressing real capacity. Then specific tool recommendations mapped to your profile.",
     paidTierTitle: "Two ways to use your report",
     paidTierItems: [
-      "The Assessment ($43) \u2014 Your full 9-Ray report, Eclipse Snapshot, your Light Signature with identity opener, and lifetime access.",
-      "The Coaching OS ($14.33/month) \u2014 Everything in the assessment, plus unlimited retakes, the full protocol library, and monthly snapshots that prove your growth.",
+      "Gravitational Stability Report ($43) \u2014 Your full 9-Ray report, Eclipse Snapshot, your Light Signature with identity opener, and lifetime access.",
+      "Portal Membership ($14.33/month) \u2014 Everything in the assessment, plus unlimited retakes, the full protocol library, and monthly snapshots that prove your growth.",
     ],
     outcome:
       "Outcome: a report that reads like someone who understands you handed you a map and said: start here.",

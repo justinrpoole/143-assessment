@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Upgrade",
-  description: "Choose how deep you want to see. Unlock the full 143 Assessment for $43 one-time or start the Coaching OS at $14.33/month.",
+  description: "Choose how deep you want to see. Get your Gravitational Stability Report for $43 one-time or start the Portal Membership at $14.33/month.",
 };
 
 export default async function UpgradePage() {
@@ -34,8 +34,8 @@ export default async function UpgradePage() {
             Choose how deep you want to see.
           </h1>
           <p className="mt-4 text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            $43 gives you your full 9-Ray report, your Light Signature, Eclipse Snapshot, and a
-            personalised Rise Path with concrete next actions. $14.33/mo adds unlimited retakes —
+            $43 gives you your Gravitational Stability Report — full 9-Ray map, Light Signature, Eclipse Snapshot, and a
+            personalised Rise Path with concrete next actions. $14.33/mo adds the Portal Membership with unlimited retakes —
             watch your scores move and prove the reps are landing.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -108,7 +108,7 @@ export default async function UpgradePage() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
-          {/* Assessment Plan */}
+          {/* Gravitational Stability Report */}
           <div className="glass-card flex flex-col p-6" style={{ border: '1.5px solid var(--brand-gold, #F8D011)', boxShadow: '0 0 24px rgba(248,208,17,0.12)' }}>
             <span
               className="mb-3 inline-block self-start rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest"
@@ -117,7 +117,7 @@ export default async function UpgradePage() {
               One-Time
             </span>
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-              The 143 Assessment
+              Gravitational Stability Report
             </p>
             <p className="mt-2 text-3xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
               $43 <span className="text-sm font-normal" style={{ color: 'var(--text-on-dark-muted)' }}>one-time</span>
@@ -141,17 +141,17 @@ export default async function UpgradePage() {
             </ul>
           </div>
 
-          {/* Coaching OS Plan */}
+          {/* Portal Membership */}
           <div className="glass-card flex flex-col p-6">
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-              The Coaching OS
+              Portal Membership
             </p>
             <p className="mt-2 text-3xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
               $14.33 <span className="text-sm font-normal" style={{ color: 'var(--text-on-dark-muted)' }}>/month</span>
             </p>
             <ul className="mt-4 flex-1 space-y-2">
               {[
-                "Everything in the assessment",
+                "Everything in the report",
                 "Unlimited monthly retakes (43-question tracking set)",
                 "Daily micro-practices matched to your Rise Path",
                 "Watch your scores change month over month",

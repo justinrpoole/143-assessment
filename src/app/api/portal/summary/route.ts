@@ -3,9 +3,12 @@ import { NextResponse } from "next/server";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { supabaseRestFetch } from "@/lib/db/supabase-rest";
 import { getRepsSummary } from "@/lib/db/reps";
+import { listRecentDailyLoops } from "@/lib/db/daily-loop";
+import { listRecentEveningReflections } from "@/lib/db/evening-reflection";
 import { getAppUserById } from "@/lib/db/app-users";
 import { getEntitlementByUserId } from "@/lib/db/entitlements";
 import { trackEvent } from "@/lib/events";
+import { nowLocalDateIso } from "@/lib/timezone";
 import { questionsFromItemIds } from "@/lib/item-selection-runner";
 
 // Canonical Ray names (constitution §5)
@@ -51,11 +54,29 @@ export interface PortalSummary {
   streak_days: number;
   total_reps: number;
   most_practiced_tool: string | null;
+  loop_streak: number;
+  reflection_streak: number;
   in_progress_run_id: string | null;
   in_progress_answered: number;
   in_progress_total: number;
   subscription_state: "active" | "grace" | "expired" | "past_due" | "none";
   grace_period_end: string | null;
+}
+
+/** Compute consecutive-day streak from an array of entry_date strings. */
+function computeDateStreak(entryDates: string[]): number {
+  if (entryDates.length === 0) return 0;
+  const dateSet = new Set(entryDates);
+  const today = nowLocalDateIso();
+  let streak = 0;
+  let cursor = today;
+  while (dateSet.has(cursor)) {
+    streak++;
+    const d = new Date(cursor + "T12:00:00Z");
+    d.setUTCDate(d.getUTCDate() - 1);
+    cursor = d.toISOString().slice(0, 10);
+  }
+  return streak;
 }
 
 const GRACE_PERIOD_MS = 7 * 24 * 60 * 60 * 1000;
@@ -125,7 +146,7 @@ export async function GET() {
     const appUser = await getAppUserById(auth.userId).catch(() => null);
     const userTimezone = appUser?.timezone ?? "UTC";
 
-    const [runRes, inProgressRes, repsSummary, entitlement] = await Promise.all([
+    const [runRes, inProgressRes, repsSummary, entitlement, recentLoops, recentReflections] = await Promise.all([
       supabaseRestFetch<RunRow[]>({
         restPath: "assessment_runs",
         query: {
@@ -153,6 +174,8 @@ export async function GET() {
         most_practiced_tool: null,
       })),
       getEntitlementByUserId(auth.userId).catch(() => null),
+      listRecentDailyLoops({ userId: auth.userId, limit: 90 }).catch(() => []),
+      listRecentEveningReflections({ userId: auth.userId, limit: 90 }).catch(() => []),
     ]);
 
     const latestRun = runRes.data?.[0] ?? null;
@@ -198,6 +221,9 @@ export async function GET() {
     const bottomRayId = findBottomRay(resultRow?.ray_scores ?? null);
     const eclipseLevel = extractEclipseLevel(resultRow?.results_payload ?? null);
 
+    const loopStreak = computeDateStreak(recentLoops.map((l) => l.entry_date));
+    const reflectionStreak = computeDateStreak(recentReflections.map((r) => r.entry_date));
+
     const effectiveUserState = entitlement?.user_state ?? auth.userState;
     const subState = deriveSubscriptionState(
       effectiveUserState,
@@ -216,6 +242,8 @@ export async function GET() {
       streak_days: repsSummary.streak_days,
       total_reps: repsSummary.total_count,
       most_practiced_tool: repsSummary.most_practiced_tool,
+      loop_streak: loopStreak,
+      reflection_streak: reflectionStreak,
       in_progress_run_id: inProgressRun?.id ?? null,
       in_progress_answered: inProgressAnswered,
       in_progress_total: inProgressTotal,

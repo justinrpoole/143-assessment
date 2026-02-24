@@ -15,7 +15,7 @@ const ALL_ACTIONS: ActionDef[] = [
   { href: '/reflect', label: 'Reflect', description: 'What did you notice today?', time: '3 min', icon: '✍️' },
   { href: '/energy', label: 'Energy Audit', description: 'Where did your energy go?', time: '2 min', icon: '🔋' },
   { href: '/plan', label: 'If/Then Plan', description: 'Set a trigger-response pair', time: '3 min', icon: '🎯' },
-  { href: '/weekly', label: 'Weekly Review', description: 'Patterns from the past 7 days', time: '5 min', icon: '📊' },
+  { href: '/weekly', label: 'Weekly Scan', description: 'Patterns from the past 7 days', time: '5 min', icon: '📊' },
   { href: '/toolkit', label: 'All Tools', description: 'Browse your full toolkit', time: '', icon: '🛠️' },
 ];
 

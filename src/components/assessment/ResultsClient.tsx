@@ -21,6 +21,9 @@ import ToolReadiness from "@/components/results/ToolReadiness";
 import ThirtyDayPlan from "@/components/results/ThirtyDayPlan";
 import CoachingQuestions from "@/components/results/CoachingQuestions";
 import ConfidenceBandSection from "@/components/results/ConfidenceBandSection";
+import RetakeRecommendation from "@/components/results/RetakeRecommendation";
+import ResultsStabilityScore from "@/components/results/ResultsStabilityScore";
+import TrajectoryView from "@/components/results/TrajectoryView";
 import Closing from "@/components/results/Closing";
 import { RepsRasActions } from "@/components/results/RepsRasActions";
 import { ShareCardButton } from "@/components/sharecards/ShareCardButton";
@@ -351,6 +354,27 @@ export function ResultsClient({ runId }: ResultsClientProps) {
           </div>
         </FadeInSection>
       )}
+
+      {/* 10b. Retake Recommendation — shown when LOW confidence */}
+      {dataQuality && (
+        <FadeInSection>
+          <RetakeRecommendation
+            confidenceBand={confidenceBand}
+            dataQuality={dataQuality}
+            edgeCases={output?.edge_cases}
+          />
+        </FadeInSection>
+      )}
+
+      {/* 10c. Results Stability — multi-run comparison */}
+      <FadeInSection>
+        <ResultsStabilityScore currentRunId={runId} />
+      </FadeInSection>
+
+      {/* 10d. Growth Trajectory — multi-run trend (3+ runs) */}
+      <FadeInSection>
+        <TrajectoryView currentRunId={runId} />
+      </FadeInSection>
 
       {/* 11. Closing */}
       {output && (

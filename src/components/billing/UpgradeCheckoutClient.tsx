@@ -58,8 +58,8 @@ export function UpgradeCheckoutClient() {
       <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Checkout</p>
       <h2 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Choose your path</h2>
       <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-        Unlock the full 143-question Run #1 for $43 one-time, or start the
-        $14.33/month plan for monthly 43-question retakes and growth tracking.
+        Get your Gravitational Stability Report for $43 one-time, or start the
+        Portal Membership at $14.33/month for monthly retakes, growth tracking, and daily tools.
       </p>
       {error ? (
         <p className="mt-3 text-sm text-rose-700" role="alert">
@@ -73,7 +73,7 @@ export function UpgradeCheckoutClient() {
           onClick={() => void onCheckout("paid_43")}
           disabled={loadingMode !== null}
         >
-          {loadingMode === "paid_43" ? "Opening..." : "Unlock Run #1 ($43)"}
+          {loadingMode === "paid_43" ? "Opening..." : "Get Your Report ($43)"}
         </button>
         <button
           type="button"
@@ -83,7 +83,7 @@ export function UpgradeCheckoutClient() {
         >
           {loadingMode === "subscription"
             ? "Opening..."
-            : "Monthly 43-question retakes ($14.33/mo)"}
+            : "Portal Membership ($14.33/mo)"}
         </button>
       </div>
       <p className="mt-3 text-xs text-[var(--ink-soft)]">

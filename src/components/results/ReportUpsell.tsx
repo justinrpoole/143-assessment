@@ -30,7 +30,7 @@ export default function ReportUpsell({ subscriptionActive }: ReportUpsellProps) 
           Your scores are designed to change.
         </h3>
         <p className="text-sm max-w-lg mx-auto" style={{ color: 'var(--text-on-dark-secondary)' }}>
-          The assessment showed you where you are. The Coaching OS gives you the daily tools to move your numbers — and the retakes to prove it.
+          The assessment showed you where you are. The Portal Membership gives you the daily tools to move your numbers — and the retakes to prove it.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ export default function ReportUpsell({ subscriptionActive }: ReportUpsellProps) 
           href="/upgrade"
           className="btn-primary px-8 py-3 text-sm font-semibold text-center"
         >
-          Upgrade to Coaching OS — $14.33/mo
+          Upgrade to Portal Membership — $14.33/mo
         </Link>
         <p className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
           Cancel anytime. Your report stays forever.

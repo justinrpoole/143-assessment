@@ -56,6 +56,11 @@ export default async function ReportsPage({ searchParams }: PageProps) {
     redirect("/assessment/setup");
   }
 
+  const PAID_STATES = new Set(["paid_43", "sub_active", "sub_canceled", "past_due"]);
+  if (!PAID_STATES.has(userState)) {
+    redirect("/upgrade");
+  }
+
   return (
     <main className="cosmic-page-bg">
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16">
