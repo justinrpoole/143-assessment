@@ -34,7 +34,7 @@ export default function StickyCtaBar() {
         >
           <div className="flex items-center justify-between gap-3 px-5 py-3">
             <p className="text-xs font-medium truncate" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-              9 trainable capacities. 15 min.
+              See where your light is covered. 3 min. Free.
             </p>
             <Link
               href="/preview"

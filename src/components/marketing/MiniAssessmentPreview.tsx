@@ -113,7 +113,7 @@ export default function MiniAssessmentPreview() {
             {teaser.detail}
           </p>
           <Link
-            href="/upgrade-your-os"
+            href="/preview"
             className="btn-primary inline-block px-8 py-3 text-sm font-semibold"
           >
             Get Your Full Light Signature
