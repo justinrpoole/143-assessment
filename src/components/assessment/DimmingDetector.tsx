@@ -384,7 +384,7 @@ export default function DimmingDetector() {
             </div>
 
             <p className="text-xs uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--brand-gold)' }}>
-              {SCENARIOS[qIdx].phaseLabel} — {SCENARIOS[qIdx].rayName}
+              Question {qIdx + 1} of {SCENARIOS.length}
             </p>
 
             <p className="text-lg sm:text-xl font-medium mb-6 leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
