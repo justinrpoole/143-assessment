@@ -8,8 +8,8 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "The 143 Assessment — Map Your 9 Leadership Capacities",
-  description: "143 questions. 15 minutes. See your Light Signature, Eclipse Snapshot, and the specific capacity to train first. Not who you are. What you can build. Start with the free Light Check or go straight to the full assessment.",
+  title: "Be The Light Assessment — Map Your 9 Leadership Capacities",
+  description: "143 questions. 15 minutes. See your Light Signature, Eclipse Snapshot, and the specific capacity to train first. Not who you are. What you can build. Start with the free Gravitational Stability Check or go straight to the full assessment.",
 };
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -70,7 +70,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link href="/preview" className="btn-primary">
-                Start with the Free Light Check
+                Check My Stability — Free
               </Link>
               <Link href="/assessment/instructions" className="btn-watch">
                 Go Straight to the Full Assessment
@@ -110,7 +110,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
                 Open Sample Report
               </Link>
               <Link href="/preview" className="btn-watch">
-                Start with the Free Light Check
+                Check My Stability — Free
               </Link>
             </div>
           </section>
@@ -126,7 +126,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
                 Start the 143 Challenge — Free
               </Link>
               <Link href="/preview" className="btn-watch">
-                Take the 3-Minute Light Check
+                Take the 3-Minute Stability Check
               </Link>
             </div>
           </section>

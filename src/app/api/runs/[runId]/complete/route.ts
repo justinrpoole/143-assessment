@@ -56,8 +56,14 @@ function buildResponseMap(rows: Array<{ question_id: string; value: number }>) {
 function missingRequiredQuestions(
   responsesByQuestion: Record<string, number>,
   runNumber: number,
+  itemIds?: string[] | null,
 ): string[] {
-  return getQuestionIdsForRun(runNumber)
+  // Use the run's stored item_ids (from dynamic selection) when available;
+  // fall back to the static question set for legacy runs without item_ids.
+  const requiredIds = itemIds && itemIds.length > 0
+    ? itemIds
+    : getQuestionIdsForRun(runNumber);
+  return requiredIds
     .filter((questionId: string) => !(questionId in responsesByQuestion));
 }
 
@@ -105,6 +111,7 @@ export async function POST(_request: Request, context: RouteParams) {
     const missingRequired = missingRequiredQuestions(
       responsesByQuestion,
       run.run_number,
+      run.item_ids,
     );
     if (missingRequired.length > 0) {
       return NextResponse.json(

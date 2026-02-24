@@ -8,6 +8,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Before You Begin — 143 Leadership Assessment",
+  description: "How to approach the 143 Assessment. 143 questions, 15 minutes, honest answers about the last 30 days. No preparation needed — just presence.",
 };
 
 export default async function AssessmentInstructionsPage() {

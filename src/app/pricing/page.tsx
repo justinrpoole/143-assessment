@@ -8,13 +8,13 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Plans & Pricing — 143 Leadership",
-  description: "Start free. Go deeper when you are ready. From a 3-minute Light Check to the full 143 Assessment, Portal Membership, and 10-week Coaching. Every tier is built to prove change, not just describe you.",
+  description: "Start free. Go deeper when you are ready. From a 3-minute Gravitational Stability Check to the full Be The Light Assessment, Portal Membership, and 10-week Coaching. Every tier is built to prove change, not just describe you.",
 };
 
 const PLANS = [
   {
-    id: "light-check",
-    title: "The Light Check",
+    id: "stability-check",
+    title: "Gravitational Stability Check",
     price: "Free",
     frequency: "",
     description:
@@ -26,7 +26,7 @@ const PLANS = [
       "Understand whether eclipse is running your week",
       "Private — nothing stored, nothing tracked",
     ],
-    cta: { label: "Start the Light Check", href: "/preview" },
+    cta: { label: "Check My Stability", href: "/preview" },
     highlight: false,
   },
   {
@@ -203,7 +203,7 @@ export default async function PricingPage() {
           Every tier answers the same question: what happens when your strongest capacities come back online?
         </h1>
         <p className="mx-auto mt-4 max-w-[560px] text-base leading-relaxed sm:text-lg" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          The free Light Check takes 3 minutes. The full assessment takes 15. The Portal tracks your growth monthly. Coaching proves it in 10 weeks. Pick the depth that matches where you are right now.
+          The free Gravitational Stability Check takes 3 minutes. The full assessment takes 15. The Portal tracks your growth monthly. Coaching proves it in 10 weeks. Pick the depth that matches where you are right now.
         </p>
       </section>
 
@@ -282,7 +282,7 @@ export default async function PricingPage() {
             <thead>
               <tr style={{ borderBottom: '1px solid var(--surface-border, rgba(255,255,255,0.10))' }}>
                 <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Feature</th>
-                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Light Check</th>
+                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Stability Check</th>
                 <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Report</th>
                 <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Portal</th>
                 <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Coaching</th>
@@ -369,14 +369,14 @@ export default async function PricingPage() {
             Start free. The assessment proves the rest.
           </h2>
           <p className="mx-auto mt-3 max-w-[420px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            The 143 Challenge rewires your brain in 3 days. The Light Check shows you where eclipse is covering capacity in 3 minutes. Both are free. Both prove the framework works before you spend a dollar.
+            The 143 Challenge rewires your brain in 3 days. The Gravitational Stability Check shows you where eclipse is covering capacity in 3 minutes. Both are free. Both prove the framework works before you spend a dollar.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Link href="/143" className="btn-primary">
               Start the 143 Challenge — Free
             </Link>
             <Link href="/preview" className="btn-watch">
-              Take the 3-Minute Light Check
+              Take the 3-Minute Stability Check
             </Link>
           </div>
         </div>

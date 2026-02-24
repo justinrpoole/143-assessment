@@ -53,7 +53,7 @@ export default async function TermsPage() {
               2. Description of Service
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-              143 Leadership provides a behavioural assessment platform that measures 9 trainable leadership capacities. The Service includes: the 143 Assessment (143-question behavioural evaluation), the Light Check (free eclipse screening), the Coaching OS (monthly subscription with retakes and training tools), report generation, and related educational content. The Service is for personal and professional development purposes only.
+              143 Leadership provides a behavioural assessment platform that measures 9 trainable leadership capacities. The Service includes: the Be The Light Assessment (143-question behavioural evaluation), the Gravitational Stability Check (free eclipse screening), the Coaching OS (monthly subscription with retakes and training tools), report generation, and related educational content. The Service is for personal and professional development purposes only.
             </p>
           </section>
 

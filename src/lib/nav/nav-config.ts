@@ -17,7 +17,7 @@ export const MARKETING_LINKS = {
   resources: { href: "/resources", label: "Resources" },
   coaches: { href: "/coaches", label: "Coaching Program" },
   about: { href: "/about", label: "About" },
-  forTeams: { href: "/corporate", label: "For Teams" },
+  forTeams: { href: "/organizations", label: "For Organizations" },
   privacy: { href: "/privacy", label: "Privacy" },
   terms: { href: "/terms", label: "Terms" },
   login: { href: "/login", label: "Sign In" },

@@ -8,6 +8,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Evening Reflection — 143 Leadership OS",
+  description: "End-of-day reflection practice. Notice what you gave, what you received, and what is still in motion. The rep that trains awareness.",
 };
 
 export default async function ReflectPage() {

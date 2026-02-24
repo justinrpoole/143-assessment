@@ -4,6 +4,8 @@ import { GlossaryClient } from "@/components/glossary/GlossaryClient";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Glossary — 143 Leadership",
   description:

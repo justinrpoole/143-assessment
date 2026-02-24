@@ -8,6 +8,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Weekly Scan — 143 Leadership OS",
+  description: "Your weekly leadership snapshot. Track capacity shifts, notice patterns, and see where your operating system is updating.",
 };
 
 export default async function WeeklyPage() {

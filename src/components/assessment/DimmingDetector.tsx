@@ -341,7 +341,7 @@ export default function DimmingDetector() {
               className="chip mb-3 inline-block"
               style={{ background: 'rgba(248, 208, 17, 0.12)', color: 'var(--brand-gold)' }}
             >
-              60-Second Dimming Check
+              60-Second Stability Check
             </p>
             <h2 className="text-2xl sm:text-3xl font-semibold mb-3" style={{ color: 'var(--text-on-dark)' }}>
               Where is your light dimming?

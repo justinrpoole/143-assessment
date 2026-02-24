@@ -31,7 +31,7 @@ export default async function UpgradePage() {
             You already felt the shift. Now see the full picture.
           </p>
           <h1 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            The Light Check showed you two Rays. The full report shows you all nine.
+            The Stability Check showed you two Rays. The full report shows you all nine.
           </h1>
           <p className="mt-4 text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
             $43 gives you your Gravitational Stability Report — full 9-Ray map, Light Signature, Eclipse Snapshot, and a
@@ -43,7 +43,7 @@ export default async function UpgradePage() {
               Compare Plans
             </Link>
             <Link href="/preview" className="btn-watch">
-              Start with a Free Light Check
+              Check My Stability — Free
             </Link>
           </div>
         </div>

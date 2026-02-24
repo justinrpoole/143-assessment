@@ -80,7 +80,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
           <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
             New here?{" "}
             <Link href="/preview" className="font-semibold underline underline-offset-2 transition-colors hover:text-brand-gold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-              Start with the free Light Check
+              Start with the free Gravitational Stability Check
             </Link>
           </p>
         </div>

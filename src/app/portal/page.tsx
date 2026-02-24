@@ -10,6 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Your Portal — 143 Leadership OS",
+  description: "Your leadership operating system dashboard. Assessment results, daily practices, growth tracking, and tools — all in one place.",
 };
 
 export default async function PortalPage() {

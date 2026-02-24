@@ -8,6 +8,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Energy Audit — 143 Leadership OS",
+  description: "Track where your energy goes each day. Map emotional, cognitive, and relational load so you can train recovery before it compounds.",
 };
 
 export default async function EnergyPage() {

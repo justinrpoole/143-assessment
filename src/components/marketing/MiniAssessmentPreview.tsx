@@ -68,7 +68,7 @@ function getTeaser(
 
   /* light-check mode — coaching debrief voice */
   const bridge =
-    'That was 3 questions from 3 of your 9 rays. The full assessment maps all 9 and 36 subfacets — your complete Light Signature, Eclipse Snapshot, and specific tools to restore what is covered.';
+    'That was 3 questions from 3 of your 9 rays. The Be The Light Assessment maps all 9 rays and 36 subfacets — your complete Light Signature, Eclipse Snapshot, and specific tools to restore what is covered.';
 
   if (avg >= 3) {
     return {
@@ -137,14 +137,14 @@ export default function MiniAssessmentPreview({
 
   /* CTA targets by mode */
   const primaryHref = isLightCheck ? '/upgrade' : '/preview';
-  const primaryLabel = isLightCheck ? 'See All 9 Rays — $43' : 'Get Your Full Light Signature';
+  const primaryLabel = isLightCheck ? 'Show Me All 9 Rays — $43' : 'Check My Stability';
 
   return (
     <div className="space-y-6">
       {/* Header — changes by mode */}
       <div className="text-center space-y-2">
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
-          {isLightCheck ? 'Light Check' : 'Try It Now'}
+          {isLightCheck ? 'Gravitational Stability Check' : 'Try It Now'}
         </p>
         <h3 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>
           {isLightCheck

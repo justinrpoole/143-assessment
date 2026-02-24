@@ -53,7 +53,7 @@ function lockCopy(reason: LockReason): string {
   if (reason === "reactivation_required") {
     return "Your subscription access needs a refresh before you can start a new run. Your existing results are still available.";
   }
-  return "The full assessment requires paid access. Your sample report and Dimming Check results are still available to review.";
+  return "The full assessment requires paid access. Your sample report and Stability Check results are still available to review.";
 }
 
 export function AssessmentSetupClient() {
@@ -173,7 +173,7 @@ export function AssessmentSetupClient() {
           style={{ borderColor: 'rgba(248, 208, 17, 0.25)' }}
         >
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Your Dimming Check
+            Your Stability Check
           </p>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
             Your check found{' '}

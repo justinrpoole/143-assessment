@@ -188,7 +188,7 @@ export default async function BeTheLightPage() {
               Start the 143 Challenge — Free
             </Link>
             <Link href="/preview" className="btn-watch">
-              Take the 3-Minute Light Check
+              Take the 3-Minute Stability Check
             </Link>
           </div>
         </div>

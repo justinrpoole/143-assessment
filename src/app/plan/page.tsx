@@ -8,6 +8,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "If/Then Plans — 143 Leadership OS",
+  description: "Build implementation intentions that fire automatically. If/Then plans turn insight into behavior change — the bridge between knowing and doing.",
 };
 
 export default async function PlanPage() {

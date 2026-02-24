@@ -135,11 +135,21 @@ export function scoreAssessment(
 ): AssessmentOutputV1 {
 
   // ─── A) Score all items ───
+  // Filter banks to only items selected for this run. The full banks may
+  // contain 700+ ray items, but a single run selects ~143 total.
+  // Without filtering, usability thresholds (based on bank size) are
+  // impossibly high — causing every subfacet to fail and all scores to be 0.
+  const runItemIds = new Set(Object.keys(packet.responses));
+  const runRayItems = banks.rayItems.filter(item => runItemIds.has(item.Item_ID));
+  const runToolItems = banks.toolItems.filter(item => runItemIds.has(item.Item_ID));
+  const runEclipseItems = banks.eclipseItems.filter(item => runItemIds.has(item.Item_ID));
+  const runValidityItems = banks.validityItems.filter(item => runItemIds.has(item.Item_ID));
+
   const allItems: BaseItem[] = [
-    ...banks.rayItems,
-    ...banks.toolItems,
-    ...banks.eclipseItems,
-    ...banks.validityItems,
+    ...runRayItems,
+    ...runToolItems,
+    ...runEclipseItems,
+    ...runValidityItems,
   ];
 
   const scoredItems: Record<string, ScoredItem> = {};
@@ -156,20 +166,20 @@ export function scoreAssessment(
 
   // ─── C) Subfacets → Rays → Tools ───
   const { composites: subfacetComposites, coverage } = computeSubfacetComposites(
-    banks.rayItems, scoredItems,
+    runRayItems, scoredItems,
   );
   const rayComposites = computeRayComposites(subfacetComposites);
-  const toolComposites = computeToolComposites(banks.toolItems, scoredItems);
+  const toolComposites = computeToolComposites(runToolItems, scoredItems);
 
   // ─── D) Indices and gating ───
-  const indices = computeIndices(rayComposites, banks.eclipseItems, scoredItems);
+  const indices = computeIndices(rayComposites, runEclipseItems, scoredItems);
   const gate = computeGate(rayComposites, indices.eer, indices.bri, indices.lsi_0_4);
   const { ppd, ppdFlag } = computePPD(rayComposites);
   indices.ppd_flag = ppdFlag;
 
   // ─── E) Validity and confidence ───
   const validity = computeAllValidity(
-    banks.validityItems, scoredItems, rayComposites, coverage,
+    runValidityItems, scoredItems, rayComposites, coverage,
     packet.start_ts, packet.end_ts, pilotMedianSeconds,
   );
 
@@ -209,7 +219,7 @@ export function scoreAssessment(
 
   const acting = actingStatus(ppd, gate);
   const langMode = reportLanguageMode(confidence, acting);
-  const ctxMix = contextMix(banks.rayItems, packet.responses);
+  const ctxMix = contextMix(runRayItems, packet.responses);
 
   // Build ray outputs for the report
   const raysOutput: Record<string, RayOutput> = {};

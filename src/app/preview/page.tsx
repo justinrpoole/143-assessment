@@ -9,9 +9,9 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Light Check — See Where Your Light Is Strongest",
+  title: "Gravitational Stability Check — See Where Your Light Is Strongest",
   description:
-    "3 questions. 3 minutes. No account. No email. A free leadership eclipse screening that maps Joy, Purpose, and Possibility — the three rays most leaders lose first under load.",
+    "3 questions. 3 minutes. No account. No email. A free gravitational stability screening that maps Joy, Purpose, and Possibility — the three rays most leaders lose first under load.",
 };
 
 /* ── static data ───────────────────────────────────────────── */
@@ -46,7 +46,7 @@ export default async function PreviewPage() {
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: "var(--brand-gold, #F8D011)" }}
               >
-                Your Light Check
+                Your Gravitational Stability Check
               </p>
               <h1
                 className="text-3xl font-semibold leading-tight sm:text-4xl"
@@ -69,7 +69,7 @@ export default async function PreviewPage() {
 
         <GoldDivider />
 
-        {/* ─── SECTIONS 2-3 · LIGHT CHECK + COACHING DEBRIEF ─── */}
+        {/* ─── SECTIONS 2-3 · GRAVITATIONAL STABILITY CHECK + COACHING DEBRIEF ─── */}
         {/* Single client boundary — assessment, analytics, result panel */}
         <FadeInSection>
           <LightCheckOrchestrator />
@@ -105,13 +105,13 @@ export default async function PreviewPage() {
                   className="text-xs font-bold uppercase tracking-widest"
                   style={{ color: "var(--brand-gold, #F8D011)" }}
                 >
-                  Full Assessment
+                  Be The Light Assessment
                 </p>
                 <h3
                   className="text-lg font-semibold"
                   style={{ color: "var(--text-on-dark, #FFFEF5)" }}
                 >
-                  See All 9 Rays — $43
+                  Map All 9 Rays — $43
                 </h3>
                 <p
                   className="text-sm leading-relaxed"
@@ -122,7 +122,7 @@ export default async function PreviewPage() {
                   strong and where it is covered — with specific tools to restore access.
                 </p>
                 <Link href="/upgrade" className="btn-primary inline-block text-sm font-semibold">
-                  See All 9 Rays — $43
+                  Show Me All 9 Rays — $43
                 </Link>
               </div>
 

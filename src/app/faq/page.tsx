@@ -69,8 +69,8 @@ const FAQS = [
     category: "Pricing & Plans",
     items: [
       {
-        q: "What does the free Light Check include?",
-        a: "The Light Check is a quick three-minute eclipse screening. It gives you a plain-language read on whether eclipse is currently affecting your capacities. No account or email required.",
+        q: "What does the free Gravitational Stability Check include?",
+        a: "The Gravitational Stability Check is a quick three-minute eclipse screening. It gives you a plain-language read on whether eclipse is currently affecting your capacities. No account or email required.",
       },
       {
         q: "What does the $43 Gravitational Stability Report include?",
@@ -86,7 +86,7 @@ const FAQS = [
       },
       {
         q: "Is there a free trial?",
-        a: "The Light Check is free. The full assessment starts at $43 one-time. There is no trial period for the Portal Membership, but you can cancel at any time.",
+        a: "The Gravitational Stability Check is free. The full assessment starts at $43 one-time. There is no trial period for the Portal Membership, but you can cancel at any time.",
       },
     ],
   },
@@ -205,14 +205,14 @@ export default async function FaqPage() {
             The best way to understand it is to feel it.
           </h2>
           <p className="mx-auto mt-2 max-w-[400px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            Start with the free 143 Challenge and feel your brain shift in 3 days. Or take the 3-minute Light Check and see your pattern right now.
+            Start with the free 143 Challenge and feel your brain shift in 3 days. Or take the 3-minute Gravitational Stability Check and see your pattern right now.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Link href="/143" className="btn-primary">
               Start the 143 Challenge — Free
             </Link>
             <Link href="/preview" className="btn-watch">
-              Take the Light Check — 3 Minutes
+              Take the Stability Check — 3 Minutes
             </Link>
           </div>
         </div>

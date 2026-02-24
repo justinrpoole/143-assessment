@@ -431,14 +431,14 @@ export default async function UpgradeYourOsPage() {
                 color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
               }}
             >
-              The Light Check is free. No account. No email required. See your
+              The Gravitational Stability Check is free. No account. No email required. See your
               top 2 Rays and your Eclipse Snapshot. Or start the 143 Challenge —
               3 days, 3 minutes a day, free.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link href="/preview" className="btn-primary">
-                Get Your Free Light Check
+                Check My Stability — Free
               </Link>
               <Link href="/143" className="btn-watch">
                 Start the 143 Challenge — Free

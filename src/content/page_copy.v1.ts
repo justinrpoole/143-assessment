@@ -164,9 +164,9 @@ export const PAGE_COPY_V1: V1PageCopy = {
     },
     tiles: [
       {
-        title: "The Light Check \u2014 Free",
+        title: "Gravitational Stability Check \u2014 Free",
         body: "A free preview that names what you are feeling and why. No account. No commitment. Three minutes to find out whether eclipse is running your week.",
-        links: [{ label: "Take the Light Check", href: "/143" }],
+        links: [{ label: "Check My Stability", href: "/preview" }],
       },
       {
         title: "The Ray Snapshot",
@@ -321,7 +321,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
   preview: {
     headline:
       "Find out in 3 minutes whether exhaustion is covering your strongest capacity.",
-    why: "Most leadership assessments lock your results behind a paywall and a 30-minute intake form. The 143 Light Check gives you a real signal \u2014 your Eclipse Snapshot and your top Rays \u2014 before you spend anything or create an account.",
+    why: "Most leadership assessments lock your results behind a paywall and a 30-minute intake form. The Gravitational Stability Check gives you a real signal \u2014 your Eclipse Snapshot and your top Rays \u2014 before you spend anything or create an account.",
     proof:
       "Answer a few targeted questions. See your ray signal across nine dimensions. Know whether your best capacity is online or eclipsed. The whole thing takes less time than your morning coffee order.",
     how: "No email. No account. No credit card. Just honest questions about how you showed up this week \u2014 and a snapshot that tells you what is actually happening underneath the performance.",
@@ -352,7 +352,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     loop: "Retake after 90 days of training. Watch your Light Signature evolve. When it shifts, that is not inconsistency. That is growth you can see.",
     ctas: {
       primary: {
-        label: "Get Your Light Check \u2014 Free",
+        label: "Check My Stability \u2014 Free",
         href: "/preview",
       },
       secondary: {

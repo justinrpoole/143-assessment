@@ -7,6 +7,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Admin Audit — 143 Leadership",
+  description: "Internal audit dashboard for 143 Leadership system administration.",
 };
 
 export default async function AdminAuditPage() {

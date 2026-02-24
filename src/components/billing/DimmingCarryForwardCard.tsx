@@ -43,7 +43,7 @@ export default function DimmingCarryForwardCard() {
       style={{ borderLeft: '3px solid var(--brand-gold, #F8D011)' }}
     >
       <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-        Your Light Check Result
+        Your Stability Check Result
       </p>
       <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
         Your check found <strong style={{ color: 'var(--brand-gold, #F8D011)' }}>{result.level.toLowerCase()}</strong> eclipse

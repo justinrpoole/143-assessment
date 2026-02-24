@@ -199,7 +199,7 @@ export default async function FrameworkPage() {
               Take the Assessment — $43
             </Link>
             <Link href="/preview" className="btn-watch">
-              Start with the Free Light Check
+              Check My Stability — Free
             </Link>
           </div>
         </div>

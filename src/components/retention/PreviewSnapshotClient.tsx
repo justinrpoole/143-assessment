@@ -104,7 +104,7 @@ export function PreviewSnapshotClient() {
 
   return (
     <section className="glass-card p-6 sm:p-8 space-y-4">
-      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Light Check</p>
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Gravitational Stability Check</p>
       <h2 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Your OS Snapshot</h2>
       <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>Start your preview and get a focused signal before upgrading.</p>
 

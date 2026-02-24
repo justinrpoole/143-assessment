@@ -3,6 +3,8 @@ import PortalTabBar from '@/components/portal/PortalTabBar';
 import { PageHeader } from "@/components/ui/PageHeader";
 import { PageShell } from "@/components/ui/PageShell";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: 'Your REPS — 143 Leadership OS',
   description: 'REPS: Recognition, Encouragement, Performance, Sustainability. Behavioral repetition with awareness — the engine that rewires your brain.',

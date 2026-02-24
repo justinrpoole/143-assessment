@@ -65,14 +65,14 @@ export default function ResourcesPage() {
         <section className="glass-card p-6 sm:p-8">
           <h2 className="mb-3 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>The best place to start is free.</h2>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            The 143 Challenge takes 3 minutes a day for 3 days. No account. No credit card. Just a notebook and the willingness to run a different filter. After 3 days, take the free Light Check and see your first two Rays.
+            The 143 Challenge takes 3 minutes a day for 3 days. No account. No credit card. Just a notebook and the willingness to run a different filter. After 3 days, take the free Gravitational Stability Check and see your first two Rays.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/143" className="btn-primary">
               Start the 143 Challenge — Free
             </Link>
             <Link href="/preview" className="btn-watch">
-              Take the 3-Minute Light Check
+              Take the 3-Minute Stability Check
             </Link>
           </div>
         </section>

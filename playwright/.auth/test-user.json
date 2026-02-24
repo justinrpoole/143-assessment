@@ -1,0 +1,45 @@
+{
+  "cookies": [
+    {
+      "name": "auth_session",
+      "value": "a06c75e2-dd0b-437b-947c-10659501a203",
+      "domain": "0.0.0.0",
+      "path": "/",
+      "expires": 1772498304.426,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "user_id",
+      "value": "b1f62516-dd76-4ae4-9cc8-ce48d4e4752b",
+      "domain": "0.0.0.0",
+      "path": "/",
+      "expires": 1772498304.426,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "user_state",
+      "value": "free_email",
+      "domain": "0.0.0.0",
+      "path": "/",
+      "expires": 1772498304.426,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "session_id",
+      "value": "a06c75e2-dd0b-437b-947c-10659501a203",
+      "domain": "0.0.0.0",
+      "path": "/",
+      "expires": 1772498304.427,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}
