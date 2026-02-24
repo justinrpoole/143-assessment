@@ -97,11 +97,6 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
     [runQuestions],
   );
 
-  const runMode = useMemo(() => {
-    if (runNumber === null) return null;
-    return runNumber > 1 ? "monthly_43" : "full_143";
-  }, [runNumber]);
-
   const answeredRequiredCount = useMemo(
     () => requiredIds.filter((questionId) => questionId in answers).length,
     [answers, requiredIds],

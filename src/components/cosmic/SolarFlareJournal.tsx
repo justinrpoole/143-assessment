@@ -50,7 +50,7 @@ export default function SolarFlareJournal({ flares }: SolarFlareJournalProps) {
       });
     }
     return cells;
-  }, []);
+  }, [W, surfaceY, H]);
 
   // Position flares along the surface
   const flarePositions = useMemo(() => {

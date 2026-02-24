@@ -131,7 +131,7 @@ function resolveUserState(rawValue: string | null): string {
   return CANONICAL_STATES.has(rawValue) ? rawValue : "public";
 }
 
-function buildFixtureReportPayload(fixture: SeedFixture, _userState: string) {
+function buildFixtureReportPayload(fixture: SeedFixture) {
   const banks = loadItemBanks();
   const allItems = [...banks.rayItems, ...banks.toolItems, ...banks.eclipseItems, ...banks.validityItems];
 
@@ -188,7 +188,7 @@ function resolvePreviewPayload(input: {
       return { error: "fixture_not_found" as const };
     }
     return {
-      payload: buildFixtureReportPayload(fixture, input.userState),
+      payload: buildFixtureReportPayload(fixture),
       source: "fixture" as const,
       source_id: fixture.profile_id,
     };

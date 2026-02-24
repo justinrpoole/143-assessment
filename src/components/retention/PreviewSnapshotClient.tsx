@@ -1,3 +1,9 @@
+/**
+ * @deprecated — Replaced by useLightCheckAnalytics hook + LightCheckOrchestrator.
+ * Analytics logic extracted to src/hooks/useLightCheckAnalytics.ts (headless).
+ * UI replaced by MiniAssessmentPreview (light-check mode) + LightCheckResultPanel.
+ * Kept for reference only — safe to delete once /preview overhaul is verified.
+ */
 "use client";
 
 import Link from "next/link";

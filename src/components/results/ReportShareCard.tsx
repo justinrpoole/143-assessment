@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef } from 'react';
 import type { LightSignatureOutput, EclipseOutput } from '@/lib/types';
 import { RAY_SHORT_NAMES } from '@/lib/types';
 
@@ -32,7 +32,7 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
     'Discover your leadership light at 143leadership.com',
   ].filter(Boolean).join('\n');
 
-  const handleCopy = useCallback(async () => {
+  async function copyToClipboard() {
     try {
       await navigator.clipboard.writeText(shareText);
       setCopied(true);
@@ -40,9 +40,9 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
     } catch {
       // Fallback
     }
-  }, [shareText]);
+  }
 
-  const handleNativeShare = useCallback(async () => {
+  async function handleNativeShare() {
     if (navigator.share) {
       try {
         await navigator.share({
@@ -54,9 +54,9 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
         // User cancelled or share failed
       }
     } else {
-      void handleCopy();
+      await copyToClipboard();
     }
-  }, [archetype?.name, shareText, handleCopy]);
+  }
 
   return (
     <section className="space-y-4">
@@ -149,7 +149,7 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
       {/* Share actions */}
       <div className="flex gap-3">
         <button
-          onClick={() => void handleCopy()}
+          onClick={() => void copyToClipboard()}
           className="flex-1 text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
           style={{
             background: copied ? 'rgba(52, 211, 153, 0.15)' : 'var(--surface-glass)',

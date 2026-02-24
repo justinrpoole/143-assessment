@@ -33,7 +33,7 @@ export default function ThirtyDayCalendar({
       const stored = localStorage.getItem(getLsKey(runId));
       if (stored) {
         const parsed = JSON.parse(stored) as number[];
-        setCheckedDays(new Set(parsed));
+        queueMicrotask(() => setCheckedDays(new Set(parsed)));
       }
     } catch { /* silent */ }
   }, [runId]);

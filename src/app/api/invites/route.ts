@@ -24,7 +24,7 @@ interface InviteRow {
   created_at: string;
 }
 
-export async function GET(request: Request) {
+export async function GET() {
   const auth = await getRequestAuthContext();
   if (!auth.isAuthenticated || !auth.userId) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });

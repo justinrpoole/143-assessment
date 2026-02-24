@@ -204,8 +204,10 @@ export default function SolarCoreScore({
   useEffect(() => {
     if (focusedIndex >= 0 && rayOrder[focusedIndex]) {
       const id = rayOrder[focusedIndex][0];
-      setHoveredRay(id);
-      onRayHovered?.(id);
+      queueMicrotask(() => {
+        setHoveredRay(id);
+        onRayHovered?.(id);
+      });
     }
   }, [focusedIndex, rayOrder, onRayHovered]);
 

@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const body = (await request.json().catch(() => ({}))) as { email?: string };
+  const body = (await request.json().catch(() => ({}))) as { email?: string; next?: string };
   const email = body.email?.toLowerCase().trim();
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -36,7 +36,8 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const token = createMagicLinkToken(email, "/portal");
+  const sourceRoute = typeof body.next === "string" && body.next.startsWith("/") ? body.next : "/portal";
+  const token = createMagicLinkToken(email, sourceRoute);
   const baseUrl = getBaseUrl(request);
   const verifyUrl = `${baseUrl}/api/auth/login/verify?token=${encodeURIComponent(token)}`;
 

@@ -15,6 +15,16 @@ function seededRandom(seed: number): number {
   return ((seed * 1597 + 51749) % 244944) / 244944;
 }
 
+// Infinity path points for aligned state (pure helper — no component-scope deps)
+function infinityPoint(t: number, cx: number, cy: number, rx: number, ry: number): { x: number; y: number } {
+  const angle = t * Math.PI * 2;
+  const denom = 1 + Math.sin(angle) * Math.sin(angle);
+  return {
+    x: cx + (rx * Math.cos(angle)) / denom,
+    y: cy + (ry * Math.sin(angle) * Math.cos(angle)) / denom,
+  };
+}
+
 /**
  * Binary Star Partnership (#27) — Relationship Visualization
  *
@@ -43,16 +53,6 @@ export default function BinaryStarPartnership({
     return pts;
   }, []);
 
-  // Infinity path points for aligned state
-  function infinityPoint(t: number, cx: number, cy: number, rx: number, ry: number): { x: number; y: number } {
-    const angle = t * Math.PI * 2;
-    const denom = 1 + Math.sin(angle) * Math.sin(angle);
-    return {
-      x: cx + (rx * Math.cos(angle)) / denom,
-      y: cy + (ry * Math.sin(angle) * Math.cos(angle)) / denom,
-    };
-  }
-
   // Build infinity SVG path
   const infinityPath = useMemo(() => {
     const cx = half / 2;
@@ -68,7 +68,7 @@ export default function BinaryStarPartnership({
     }
     pts.push('Z');
     return pts.join(' ');
-  }, []);
+  }, [half, H]);
 
   return (
     <div className="glass-card p-5">

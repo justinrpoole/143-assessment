@@ -47,7 +47,7 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
       });
     }
     return pts;
-  }, []);
+  }, [W, halfH]);
 
   // Generate particles for weak wind
   const weakParticles = useMemo(() => {
@@ -62,7 +62,7 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
       });
     }
     return pts;
-  }, []);
+  }, [W, halfH]);
 
   return (
     <div className="glass-card p-5">

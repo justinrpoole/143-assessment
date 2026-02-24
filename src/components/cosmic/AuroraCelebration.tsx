@@ -30,7 +30,6 @@ function seededRandom(seed: number): number {
  * the user's intelligence. v3 branded: purple backdrop, aurora ribbons.
  */
 export default function AuroraCelebration({
-  improvedRay,
   rayName,
   show,
   duration = 5000,
@@ -41,14 +40,14 @@ export default function AuroraCelebration({
 
   useEffect(() => {
     if (show) {
-      setVisible(true);
+      queueMicrotask(() => setVisible(true));
       const timer = setTimeout(() => {
         setVisible(false);
         onComplete?.();
       }, duration);
       return () => clearTimeout(timer);
     }
-    setVisible(false);
+    queueMicrotask(() => setVisible(false));
   }, [show, duration, onComplete]);
 
   // Generate falling sparkle particles

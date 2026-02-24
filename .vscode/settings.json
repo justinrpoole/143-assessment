@@ -1,0 +1,10 @@
+{
+  "css.lint.unknownProperties": "ignore",
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "vscode-edge-devtools.webhint": false
+}

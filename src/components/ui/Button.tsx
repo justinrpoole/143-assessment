@@ -54,7 +54,12 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
     const cls = `${VARIANT_CLASS[variant]}${className ? ` ${className}` : ""}`;
 
     if (isLink(props)) {
-      const { href, external, variant: _v, ...anchorRest } = props as LinkProps & { variant?: Variant };
+      const linkProps = props as LinkProps;
+      const { href, external } = linkProps;
+      // Strip non-HTML props before spreading onto the element
+      const anchorRest = Object.fromEntries(
+        Object.entries(rest).filter(([k]) => k !== 'href' && k !== 'external'),
+      );
 
       if (external || href.startsWith("mailto:") || href.startsWith("http")) {
         return (
@@ -82,9 +87,8 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
       );
     }
 
-    const { variant: _v, ...btnRest } = rest as ButtonProps & { variant?: Variant };
     return (
-      <button ref={ref as React.Ref<HTMLButtonElement>} className={cls} {...btnRest}>
+      <button ref={ref as React.Ref<HTMLButtonElement>} className={cls} {...(rest as Omit<ButtonProps, 'variant' | 'className' | 'children'>)}>
         {children}
       </button>
     );

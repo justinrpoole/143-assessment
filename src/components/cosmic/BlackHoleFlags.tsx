@@ -36,7 +36,7 @@ const ACTIONS = [
  * intervention options. v3 branded: royal purple background, gold action
  * cards, accretion disc spirals in deep purple-crimson.
  */
-export default function BlackHoleFlags({ rays, eclipse }: BlackHoleFlagsProps) {
+export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
   const reducedMotion = useReducedMotion();
   const [openHole, setOpenHole] = useState<string | null>(null);
 

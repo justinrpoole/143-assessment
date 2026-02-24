@@ -23,7 +23,7 @@ export function MarketingNav() {
     // user_state cookie is not httpOnly — readable client-side
     const match = document.cookie.match(/(?:^|;\s*)user_state=([^;]*)/);
     if (match && match[1] && match[1] !== 'public') {
-      setHasSession(true);
+      queueMicrotask(() => setHasSession(true));
     }
   }, []);
 

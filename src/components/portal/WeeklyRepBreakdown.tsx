@@ -25,7 +25,7 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
 
   useEffect(() => {
     if (!expanded) return;
-    setLoading(true);
+    queueMicrotask(() => setLoading(true));
     fetch('/api/portal/reps-this-week')
       .then((r) => (r.ok ? r.json() : { reps: [] }))
       .then((data: { reps?: RepEntry[] }) => setReps(data.reps ?? []))
@@ -104,7 +104,6 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
                 {DAY_LABELS.map((label, i) => {
                   const count = dayBuckets[i] ?? 0;
                   const heightPct = count > 0 ? Math.max(15, (count / maxDayCount) * 100) : 4;
-                  const isPast = i < todayIdx;
                   const isToday = i === todayIdx;
                   const isFuture = i > todayIdx;
 

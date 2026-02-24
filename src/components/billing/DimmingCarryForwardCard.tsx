@@ -27,7 +27,7 @@ export default function DimmingCarryForwardCard() {
       const parsed = JSON.parse(raw) as DimmingResult;
       // Only use results from the last 24 hours
       if (Date.now() - parsed.timestamp > 24 * 60 * 60 * 1000) return;
-      setResult(parsed);
+      queueMicrotask(() => setResult(parsed));
     } catch {
       // Silent
     }

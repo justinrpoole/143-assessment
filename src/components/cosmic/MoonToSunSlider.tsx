@@ -81,7 +81,7 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
         `${SUN_CX + BASE_R * Math.cos(b2Rad)},${SUN_CY + BASE_R * Math.sin(b2Rad)}`,
       ].join(' ');
     });
-  }, []);
+  }, [SUN_CX, SUN_CY, SUN_R]);
 
   return (
     <div

@@ -58,7 +58,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
       });
     }
     return result;
-  }, []);
+  }, [LEFT_CX, CY]);
 
   const lowRingPath = useMemo(() => {
     const points: string[] = [];
@@ -72,7 +72,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
       points.push(`${i === 0 ? 'M' : 'L'} ${x} ${y}`);
     }
     return points.join(' ') + ' Z';
-  }, []);
+  }, [LEFT_CX, CY]);
 
   return (
     <div

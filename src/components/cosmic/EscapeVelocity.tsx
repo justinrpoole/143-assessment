@@ -53,7 +53,7 @@ export default function EscapeVelocity({
       lines.push(pts.join(' '));
     }
     return lines;
-  }, []);
+  }, [H, cx, W]);
 
   // Sphere position based on progress
   const sphereY = useMemo(() => {
@@ -77,7 +77,7 @@ export default function EscapeVelocity({
       pts.push(`${i === 0 ? 'M' : 'L'} ${x} ${y}`);
     }
     return pts.join(' ');
-  }, [sphereY]);
+  }, [sphereY, H, cx]);
 
   const aboveThreshold = sphereY < thresholdY;
 

@@ -74,7 +74,6 @@ export async function POST(request: Request) {
     }
 
     // Dynamic require of web-push (optional dependency, installed separately)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-require-imports
     let webpush: { setVapidDetails: (s: string, p: string, k: string) => void; sendNotification: (sub: { endpoint: string; keys: { p256dh: string; auth: string } }, payload: string) => Promise<void> };
     try {
       const moduleName = "web-push";

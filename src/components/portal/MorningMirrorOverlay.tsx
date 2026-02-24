@@ -116,7 +116,7 @@ export default function MorningMirrorOverlay({
 
   useEffect(() => {
     if (shouldShowMirror()) {
-      setVisible(true);
+      queueMicrotask(() => setVisible(true));
     }
   }, []);
 
@@ -222,7 +222,8 @@ export function MorningMirrorToggle() {
   const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
-    setDisabled(localStorage.getItem(LS_DISABLED_KEY) === 'true');
+    const val = localStorage.getItem(LS_DISABLED_KEY) === 'true';
+    queueMicrotask(() => setDisabled(val));
   }, []);
 
   function toggle() {

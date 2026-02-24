@@ -40,9 +40,11 @@ export default function RasCheckIn({ bottomRayId }: { bottomRayId?: string }) {
       if (!raw) return;
       const saved = JSON.parse(raw) as SavedCheckIn;
       if (saved.date === today) {
-        setSelectedRay(saved.rayId);
-        setCustomFocus(saved.customFocus);
-        setIsSet(true);
+        queueMicrotask(() => {
+          setSelectedRay(saved.rayId);
+          setCustomFocus(saved.customFocus);
+          setIsSet(true);
+        });
       }
     } catch { /* ignore */ }
   }, [today]);

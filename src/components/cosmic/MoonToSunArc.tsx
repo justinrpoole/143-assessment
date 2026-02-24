@@ -14,6 +14,28 @@ function seededRandom(seed: number): number {
   return ((seed * 1597 + 51749) % 244944) / 244944;
 }
 
+// Layout constants (stable across renders)
+const MSA_W = 320;
+const MSA_H = 480;
+const MSA_HORIZON_Y = MSA_H * 0.65;
+const MSA_ARC_LEFT_X = 30;
+const MSA_ARC_RIGHT_X = MSA_W - 30;
+const MSA_ARC_PEAK_Y = 50;
+const MSA_ARC_CX = MSA_W / 2;
+const MSA_ARC_RX = (MSA_ARC_RIGHT_X - MSA_ARC_LEFT_X) / 2;
+const MSA_ARC_RY = MSA_HORIZON_Y - MSA_ARC_PEAK_Y;
+
+// Get point on arc at position t (0 = left horizon, 1 = right horizon, 0.5 = apex)
+// Parametric ellipse: x = cx + rx*cos(angle), y = cy - ry*sin(angle)
+// angle goes from PI (left) to 0 (right)
+function arcPoint(t: number): { x: number; y: number } {
+  const angle = Math.PI * (1 - t);
+  return {
+    x: MSA_ARC_CX + MSA_ARC_RX * Math.cos(angle),
+    y: MSA_HORIZON_Y - MSA_ARC_RY * Math.sin(angle),
+  };
+}
+
 /**
  * Moon-to-Sun Arc — Vertical Sunrise Score Meter (#15)
  *
@@ -27,29 +49,16 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
   const reducedMotion = useReducedMotion();
   const clamped = Math.max(0, Math.min(100, score));
 
-  // Layout
-  const W = 320;
-  const H = 480;
-  const HORIZON_Y = H * 0.65;
+  // Layout (aliases for module-level constants)
+  const W = MSA_W;
+  const H = MSA_H;
+  const HORIZON_Y = MSA_HORIZON_Y;
 
   // Arc path: semicircle from left horizon to right horizon, peaking at top
-  const ARC_LEFT_X = 30;
-  const ARC_RIGHT_X = W - 30;
-  const ARC_PEAK_Y = 50;
-  const ARC_CX = W / 2;
-  const ARC_RX = (ARC_RIGHT_X - ARC_LEFT_X) / 2;
-  const ARC_RY = HORIZON_Y - ARC_PEAK_Y;
-
-  // Get point on arc at position t (0 = left horizon, 1 = right horizon, 0.5 = apex)
-  // Parametric ellipse: x = cx + rx*cos(angle), y = cy - ry*sin(angle)
-  // angle goes from PI (left) to 0 (right)
-  function arcPoint(t: number): { x: number; y: number } {
-    const angle = Math.PI * (1 - t);
-    return {
-      x: ARC_CX + ARC_RX * Math.cos(angle),
-      y: HORIZON_Y - ARC_RY * Math.sin(angle),
-    };
-  }
+  const ARC_LEFT_X = MSA_ARC_LEFT_X;
+  const ARC_RIGHT_X = MSA_ARC_RIGHT_X;
+  const ARC_RX = MSA_ARC_RX;
+  const ARC_RY = MSA_ARC_RY;
 
   // Score maps to arc position: 0% = left, 100% = apex (0.5),
   // but we use full range 0-1 where score maps to 0-0.5 (left-to-apex)
@@ -94,7 +103,7 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
       });
     }
     return result;
-  }, []);
+  }, [W, HORIZON_Y]);
 
   // Horizon dawn clouds
   const cloudPoints = useMemo(() => {
@@ -107,7 +116,7 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
     }
     pts.push(`L ${W} ${HORIZON_Y + 5} L 0 ${HORIZON_Y + 5} Z`);
     return pts.join(' ');
-  }, []);
+  }, [W, HORIZON_Y]);
 
   return (
     <div

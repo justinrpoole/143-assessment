@@ -56,7 +56,7 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
       });
     }
     return pts;
-  }, []);
+  }, [cx, cy, domeR]);
 
   // Hexagonal tessellation points for dome surface
   const hexPoints = useMemo(() => {
@@ -73,7 +73,7 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
       }
     }
     return pts;
-  }, []);
+  }, [cx, cy, domeR]);
 
   const shieldOpacity = (strength / 100) * 0.4;
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 
 interface NovaMomentProps {
   /** Whether to show the nova explosion */

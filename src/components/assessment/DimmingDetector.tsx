@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { FadeInSection } from '@/components/ui/FadeInSection';
@@ -228,12 +228,9 @@ function BlurredPreview({ title, description }: { title: string; description: st
 type Stage = 'intro' | 'q0' | 'q1' | 'q2' | 'breathing' | 'results';
 
 export default function DimmingDetector() {
-  const prefersReduced = useReducedMotion();
   const [stage, setStage] = useState<Stage>('intro');
   const [answers, setAnswers] = useState<number[]>([50, 50, 50]);
   const [showInsight, setShowInsight] = useState(false);
-
-  const motionDuration = prefersReduced ? 0 : undefined;
 
   // Derive scores
   const dimmingScore = useMemo(() => {

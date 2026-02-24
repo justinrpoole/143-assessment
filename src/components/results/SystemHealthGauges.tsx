@@ -124,7 +124,7 @@ export default function SystemHealthGauges({ indices }: Props) {
 
 // ── Individual Gauge Card ──
 function GaugeCard({
-  title, abbrev, value, percent, color, label, message, tooltip, prefersReduced, invertFill,
+  title, value, percent, color, label, message, tooltip, prefersReduced,
 }: {
   title: string;
   abbrev: string;

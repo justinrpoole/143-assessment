@@ -30,7 +30,7 @@ const DEFAULT_RAY_COLORS = ['#1ABC9C', '#D4770B', '#F4C430', '#C0392B', '#8E44AD
  * to spacious present (right). Milestones appear as glowing markers.
  * v3 branded: cool-compressed past to warm-expanded present on purple canvas.
  */
-export default function ExpansionArc({ milestones, expansion = 0.8 }: ExpansionArcProps) {
+export default function ExpansionArc({ milestones }: ExpansionArcProps) {
   const reducedMotion = useReducedMotion();
   const W = 900;
   const H = 320;

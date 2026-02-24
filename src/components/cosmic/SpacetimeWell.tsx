@@ -77,7 +77,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
     }
 
     return lines;
-  }, [wellDepth]);
+  }, [wellDepth, W, H, cx, cy]);
 
   // Orbital grooves: objects sitting at different depths
   const orbitals = useMemo(() => {
@@ -93,7 +93,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
         score: ray.net_energy ?? ray.score,
       };
     });
-  }, [rays, wellDepth]);
+  }, [rays, wellDepth, cx, cy]);
 
   // Perimeter arrow vectors
   const arrows = useMemo(() => {
@@ -106,7 +106,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
         angle,
       };
     });
-  }, []);
+  }, [cx, cy]);
 
   return (
     <div className="glass-card p-5">

@@ -50,7 +50,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
       });
     }
     return layers;
-  }, []);
+  }, [cx, cy]);
 
   // Bright ridges (filament-like structures)
   const ridges = useMemo(() => {
@@ -68,7 +68,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
       });
     }
     return r;
-  }, []);
+  }, [cx, cy]);
 
   // Proto-star brightness based on average goal progress
   const avgProgress = goals.length > 0 ? goals.reduce((a, g) => a + g.progress, 0) / goals.length : 0.3;
