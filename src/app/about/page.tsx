@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -58,6 +59,16 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <div className="mx-auto w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full overflow-hidden border-2" style={{ borderColor: "var(--brand-gold)" }}>
+            <Image
+              src="/images/justin-ray-headshot.png"
+              alt="Justin Ray"
+              width={140}
+              height={140}
+              className="object-cover w-full h-full"
+              priority
+            />
+          </div>
           <p
             className="text-xs font-bold uppercase tracking-widest"
             style={{ color: "var(--brand-gold, #F8D011)" }}

@@ -12,7 +12,39 @@ import {
 } from "@/lib/nav/nav-config";
 import type { NavGroup } from "@/lib/nav/nav-config";
 
-const SUN_ANGLES = [0, 45, 90, 135, 180, 225, 270, 315];
+/* ── Sun-moon brand mark (matches logo fusion icon) ────── */
+
+function BrandMark({ size = 28 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      aria-hidden="true"
+    >
+      {/* Sun rays */}
+      {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+        <line
+          key={deg}
+          x1="22"
+          y1="20"
+          x2={22 + 16 * Math.cos((deg * Math.PI) / 180)}
+          y2={20 + 16 * Math.sin((deg * Math.PI) / 180)}
+          stroke="var(--brand-gold)"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+      ))}
+      {/* Sun body */}
+      <circle cx="22" cy="20" r="8" fill="var(--brand-gold)" />
+      {/* Moon crescent (subtractive overlay) */}
+      <circle cx="16" cy="18" r="9" fill="var(--brand-black, #0C0118)" />
+      <circle cx="16" cy="18" r="7.5" fill="var(--brand-gold)" />
+      <circle cx="19" cy="16" r="7" fill="var(--brand-black, #0C0118)" />
+    </svg>
+  );
+}
 
 /* ── Chevron ─────────────────────────────────────────────── */
 
@@ -180,21 +212,7 @@ export function MarketingNav() {
         <div className="mx-auto flex h-[60px] max-w-[1200px] items-center justify-between gap-4 px-6">
           {/* Logo */}
           <Link href="/" className="flex shrink-0 items-center gap-2.5 no-underline" onClick={closeMenu}>
-            <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <circle cx="14" cy="14" r="5.5" fill="var(--brand-gold)" />
-              {SUN_ANGLES.map((deg) => (
-                <line
-                  key={deg}
-                  x1="14"
-                  y1="14"
-                  x2={14 + 11.5 * Math.cos((deg * Math.PI) / 180)}
-                  y2={14 + 11.5 * Math.sin((deg * Math.PI) / 180)}
-                  stroke="var(--brand-gold)"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              ))}
-            </svg>
+            <BrandMark size={28} />
             <span
               className="font-[700] font-serif text-[14px] uppercase tracking-[0.08em]"
               style={{
