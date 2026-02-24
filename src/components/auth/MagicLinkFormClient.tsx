@@ -3,7 +3,7 @@
 import { type FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-const DEV_TEST_EMAIL = "test@143leadership.com";
+const DEV_TEST_EMAIL = process.env.NODE_ENV === "development" ? "test@143leadership.com" : "";
 
 type FormState = "idle" | "sending" | "sent" | "error";
 
@@ -87,7 +87,7 @@ export function MagicLinkFormClient() {
         type="email"
         required
         autoComplete="email"
-        placeholder="you@example.com"
+        placeholder="you@yourcompany.com"
         className="mt-2 w-full rounded-xl px-4 py-3 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
         style={{
           background: 'var(--surface-glass, rgba(255,255,255,0.06))',

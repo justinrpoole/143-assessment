@@ -158,12 +158,12 @@ export const ECLIPSE_DIMENSION_METRICS: MetricDefinition[] = [
   {
     id: "cognitive_load",
     label: "Cognitive Load",
-    shortDescription: "Mental bandwidth under current demand",
+    shortDescription: "Mental capacity under current demand",
     longDescription:
-      "Measures how much of your mental bandwidth is consumed by current demands. High cognitive load manifests as difficulty prioritizing, decision fatigue, reduced creative thinking, and trouble holding multiple threads simultaneously.",
+      "Measures how much of your mental capacity is consumed by current demands. High cognitive load manifests as difficulty prioritizing, decision fatigue, reduced creative thinking, and trouble holding multiple threads simultaneously.",
     scale: "0–100",
     interpretation:
-      "Lower scores indicate clear mental bandwidth. Higher scores suggest your thinking system is saturated — decisions feel harder than they should, and you may be defaulting to habits rather than choosing.",
+      "Lower scores indicate clear mental capacity. Higher scores suggest your thinking system is saturated — decisions feel harder than they should, and you may be defaulting to habits rather than choosing.",
   },
   {
     id: "relational_load",

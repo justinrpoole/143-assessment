@@ -595,7 +595,7 @@ export default function SampleReportClient() {
             </p>
           </div>
           <p className="text-[11px] mb-2" style={{ color: "var(--text-on-dark-secondary)" }}>
-            Your load broken into three channels: emotional, cognitive, and relational. Knowing where the weight sits tells you exactly which recovery pathway to use first.
+            Your load distributed across three channels: emotional, cognitive, and relational. Knowing where the weight sits tells you exactly which recovery pathway to use first.
           </p>
           <div className="flex flex-wrap mb-2">
             <MetricChip label="Recovery Access:" value={`${SAMPLE_ECLIPSE.derived_metrics.recovery_access}%`} />
@@ -777,7 +777,7 @@ export default function SampleReportClient() {
             </p>
           </div>
           <p className="text-[11px] mb-2" style={{ color: "var(--text-on-dark-secondary)" }}>
-            Where your energy leaks live. One unmanaged gravity well pulls down everything around it. These aren&apos;t weaknesses — they&apos;re drains that need conscious attention before they compound.
+            Where your energy leaks live. One unmanaged gravity well pulls down everything around it. These are not flaws — they are drains that need conscious attention before they compound.
           </p>
           <div className="max-w-xl mx-auto">
             <BlackHoleFlags rays={SAMPLE_RAYS} eclipse={SAMPLE_ECLIPSE} />

@@ -116,7 +116,7 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="coach@example.com"
+                    placeholder="yourcoach@company.com"
                     className="w-full rounded-lg px-4 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-brand-gold/40"
                     style={{
                       background: 'rgba(255,255,255,0.06)',
