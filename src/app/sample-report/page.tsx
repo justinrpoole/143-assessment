@@ -1,7 +1,7 @@
 import DimmingDetector from "@/components/assessment/DimmingDetector";
 import SampleReportClient from "@/components/assessment/SampleReportClient";
 import SampleReportCTA from "@/components/billing/SampleReportCTA";
-import EmailGate from "@/components/marketing/EmailGate";
+
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -115,9 +115,7 @@ export default async function SampleReportPage() {
         </FadeInSection>
 
         {/* ─── SECTION 4 · INTERACTIVE SAMPLE REPORT ───────────── */}
-        <EmailGate>
-          <SampleReportClient />
-        </EmailGate>
+        <SampleReportClient />
 
         <GoldDivider />
 
