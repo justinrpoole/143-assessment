@@ -79,12 +79,24 @@ export interface TopTwoResult {
 export function selectTopTwo(
   rays: Record<string, RayComposite>,
 ): TopTwoResult | null {
-  // Collect eligible rays (must have Net Energy computed)
-  const eligible: RayCandidate[] = [];
+  // Collect eligible rays. Primary metric: Net Energy. If too few rays have
+  // Net Energy (e.g. monthly runs without Eclipse items), fall back to Shine.
+  let eligible: RayCandidate[] = [];
   for (let r = 1; r <= 9; r++) {
     const ray = rays[`R${r}`];
     if (ray?.net_energy_0_100 !== null && ray?.net_energy_0_100 !== undefined) {
       eligible.push({ rayNum: r, netEnergy: ray.net_energy_0_100 });
+    }
+  }
+
+  // Fallback: use Shine scores when Net Energy is unavailable
+  if (eligible.length < 2) {
+    eligible = [];
+    for (let r = 1; r <= 9; r++) {
+      const ray = rays[`R${r}`];
+      if (ray?.shine_0_100 !== null && ray?.shine_0_100 !== undefined) {
+        eligible.push({ rayNum: r, netEnergy: ray.shine_0_100 });
+      }
     }
   }
 

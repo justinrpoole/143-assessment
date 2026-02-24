@@ -139,8 +139,11 @@ export function computeSubfacetComposites(
 
       // Usability check: enough items answered?
       // Uses per-bucket minimums so Access (min 2) and Eclipse (min 1) aren't
-      // blocked by Shine's higher bar (min 6)
-      const threshold = Math.max(minItemsForBucket(bucketName), SUBFACET_USABLE_FRACTION * totalInBank);
+      // blocked by Shine's higher bar (min 6).
+      // Cap the hard minimum to totalInBank so reduced runs (43/143 items
+      // selected from a 720-item bank) can still produce scores.
+      const cappedMin = Math.min(minItemsForBucket(bucketName), totalInBank);
+      const threshold = Math.max(cappedMin, SUBFACET_USABLE_FRACTION * totalInBank);
       if (validVals.length >= threshold) {
         const mean = safeMean(validVals);
         if (bucketName === 'shine') result.shine_0_4 = mean;

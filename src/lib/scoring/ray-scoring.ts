@@ -64,7 +64,16 @@ export function computeRayComposites(
         }
       }
 
-      if (vals.length >= RAY_MIN_SUBFACETS) {
+      // Count how many subfacets have data for this bucket so we can
+      // cap the minimum to what's actually available in the run.
+      let subfacetsWithData = 0;
+      for (const sf of sfCodes) {
+        const comp = subfacetComposites[sf];
+        if (comp && comp[key04] !== null) subfacetsWithData++;
+      }
+      const effectiveMin = Math.min(RAY_MIN_SUBFACETS, subfacetsWithData);
+
+      if (vals.length >= effectiveMin && vals.length > 0) {
         const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
         composite[key04] = mean;
         composite[key100] = scaleTo100(mean);
@@ -73,7 +82,7 @@ export function computeRayComposites(
       // Track subfacet count for the primary bucket (Shine)
       if (bucket === 'shine') {
         composite.subfacet_count = vals.length;
-        composite.partial_ray = vals.length === RAY_MIN_SUBFACETS; // exactly 3 of 4
+        composite.partial_ray = vals.length > 0 && vals.length < 4;
       }
     }
 

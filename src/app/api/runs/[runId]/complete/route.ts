@@ -63,7 +63,10 @@ function missingRequiredQuestions(
   const requiredIds = itemIds && itemIds.length > 0
     ? itemIds
     : getQuestionIdsForRun(runNumber);
+  // Reflection prompts (REF_*) are stored in assessment_reflections, not
+  // assessment_responses, so exclude them from this check.
   return requiredIds
+    .filter((questionId: string) => !questionId.startsWith("REF_"))
     .filter((questionId: string) => !(questionId in responsesByQuestion));
 }
 

@@ -76,10 +76,11 @@ export function computeToolComposites(
       }
     }
 
-    // Apply usability thresholds per bucket
-    const usageThreshold = Math.max(TOOL_MIN_ITEMS, TOOL_USABLE_FRACTION * usageTotal);
-    const accessThreshold = Math.max(TOOL_MIN_ITEMS, TOOL_USABLE_FRACTION * accessTotal);
-    const distortionThreshold = Math.max(TOOL_MIN_ITEMS, TOOL_USABLE_FRACTION * distortionTotal);
+    // Apply usability thresholds per bucket.
+    // Cap hard minimum to available items so reduced runs can produce scores.
+    const usageThreshold = Math.max(Math.min(TOOL_MIN_ITEMS, usageTotal), TOOL_USABLE_FRACTION * usageTotal);
+    const accessThreshold = Math.max(Math.min(TOOL_MIN_ITEMS, accessTotal), TOOL_USABLE_FRACTION * accessTotal);
+    const distortionThreshold = Math.max(Math.min(TOOL_MIN_ITEMS, distortionTotal), TOOL_USABLE_FRACTION * distortionTotal);
 
     if (usageVals.length >= usageThreshold) {
       composite.usage_0_4 = usageVals.reduce((a, b) => a + b, 0) / usageVals.length;

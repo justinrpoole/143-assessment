@@ -1,6 +1,11 @@
 import Link from "next/link";
 
 import { CoachingApplicationForm } from "@/components/coach/CoachingApplicationForm";
+import {
+  FadeInSection,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -31,7 +36,7 @@ const COACHING_PILLARS = [
   {
     title: "The App — Ongoing Regulation",
     description:
-      "After coaching, you self-regulate with the 143 app. Daily practices, monthly retakes, rep tracking, and phase check-ins keep your growth measurable. Coaching builds the skill. The app keeps it alive.",
+      "After coaching, you self-regulate with the 143 app. Daily practices, weekly retakes, rep tracking, and phase check-ins keep your growth measurable. Coaching builds the skill. The app keeps it alive.",
   },
 ];
 
@@ -58,7 +63,7 @@ const SESSION_FORMAT = [
     time: "40–45 min",
     activity: "Integration + App Handoff",
     detail:
-      "Name what shifted. Set the commitment. Your daily practice lives in the 143 app — rep tracking, phase check-ins, and monthly retakes continue between sessions. Coaching builds the skill. The app sustains it.",
+      "Name what shifted. Set the commitment. Your daily practice lives in the 143 app — rep tracking, phase check-ins, and weekly retakes continue between sessions. Coaching builds the skill. The app sustains it.",
   },
 ];
 
@@ -86,256 +91,292 @@ export default async function OsCoachingPage() {
 
   return (
     <main className="cosmic-page-bg">
-      {/* Hero */}
-      <section className="mx-auto max-w-[720px] px-5 pt-16 pb-12 text-center sm:px-8 sm:pt-24 sm:pb-16">
-        <p
-          className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: "var(--brand-gold, #F8D011)" }}
-        >
-          OS Coaching
-        </p>
-        <h1
-          className="mt-4 text-3xl font-bold sm:text-4xl"
-          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-        >
-          Select 1-on-1 coaching. The framework, the systems, and the accountability.
-        </h1>
-        <p
-          className="mx-auto mt-3 max-w-[540px] text-sm leading-relaxed"
-          style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
-        >
-          OS Coaching is not open enrolment — Justin selects who he works with based
-          on fit, readiness, and commitment. You learn the full 143 Leadership framework,
-          the systems to apply it, and then regulate long-term with the app.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Link href="/assessment/setup" className="btn-primary">
-            Take the Assessment First
-          </Link>
-          <Link href="#format" className="btn-watch">
-            See the Session Format
-          </Link>
-        </div>
-      </section>
+      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
-      {/* Gold Divider */}
-      <div className="mx-auto max-w-[200px] py-4">
-        <div
-          className="h-px"
-          style={{
-            background: "linear-gradient(90deg, transparent, #F8D011, transparent)",
-          }}
-        />
-      </div>
-
-      {/* Four Pillars */}
-      <section className="mx-auto max-w-[720px] space-y-8 px-5 py-12 sm:px-8">
-        <div className="text-center">
+        {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
+        <section className="mx-auto max-w-[720px] space-y-5 text-center">
           <p
             className="text-xs font-bold uppercase tracking-widest"
             style={{ color: "var(--brand-gold, #F8D011)" }}
           >
-            How It Works
+            OS Coaching
           </p>
-          <h2
-            className="mt-2 text-2xl font-bold"
+          <h1
+            className="text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
-            What you get. What stays with you.
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {COACHING_PILLARS.map((pillar) => (
-            <div key={pillar.title} className="glass-card p-6">
-              <h3
-                className="text-sm font-semibold"
+            Select 1-on-1 coaching. The framework, the systems, and the accountability.
+          </h1>
+          <p
+            className="mx-auto max-w-[540px] text-base leading-relaxed"
+            style={{
+              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+            }}
+          >
+            OS Coaching is not open enrolment — Justin selects who he works with based
+            on fit, readiness, and commitment. You learn the full 143 Leadership framework,
+            the systems to apply it, and then regulate long-term with the app.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link href="/assessment" className="btn-primary">
+              Take the Assessment First
+            </Link>
+            <Link href="#format" className="btn-watch">
+              See the Session Format
+            </Link>
+          </div>
+        </section>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 2 · FOUR PILLARS ──────────────────────────── */}
+        <FadeInSection>
+          <section className="space-y-8">
+            <div className="text-center space-y-3">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                How It Works
+              </p>
+              <h2
+                className="text-2xl font-semibold"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
-                {pillar.title}
-              </h3>
-              <p
-                className="mt-2 text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-secondary)" }}
-              >
-                {pillar.description}
-              </p>
+                What you get. What stays with you.
+              </h2>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Gold Divider */}
-      <div className="mx-auto max-w-[200px] py-4">
-        <div
-          className="h-px"
-          style={{
-            background: "linear-gradient(90deg, transparent, #F8D011, transparent)",
-          }}
-        />
-      </div>
+            <StaggerContainer className="grid gap-5 sm:grid-cols-2">
+              {COACHING_PILLARS.map((pillar) => (
+                <StaggerItem key={pillar.title}>
+                  <div className="glass-card p-6 h-full space-y-2">
+                    <h3
+                      className="text-sm font-semibold"
+                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                    >
+                      {pillar.title}
+                    </h3>
+                    <p
+                      className="text-sm leading-relaxed"
+                      style={{ color: "var(--text-on-dark-secondary)" }}
+                    >
+                      {pillar.description}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </section>
+        </FadeInSection>
 
-      {/* Session Format */}
-      <section
-        id="format"
-        className="mx-auto max-w-[720px] space-y-8 px-5 py-12 sm:px-8"
-      >
-        <div className="text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Session Format
-          </p>
-          <h2
-            className="mt-2 text-2xl font-bold"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-          >
-            45 minutes. Four movements. One outcome.
-          </h2>
-        </div>
-        <div className="space-y-4">
-          {SESSION_FORMAT.map((step) => (
-            <div key={step.time} className="glass-card flex gap-5 p-6">
-              <div className="shrink-0">
-                <span
-                  className="text-xs font-bold"
+        <GoldDivider />
+
+        {/* ─── SECTION 3 · SESSION FORMAT ────────────────────────── */}
+        <FadeInSection>
+          <section id="format" className="space-y-8">
+            <div className="text-center space-y-3">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Session Format
+              </p>
+              <h2
+                className="text-2xl font-semibold"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                45 minutes. Four movements. One outcome.
+              </h2>
+            </div>
+
+            <StaggerContainer className="space-y-4">
+              {SESSION_FORMAT.map((step) => (
+                <StaggerItem key={step.time}>
+                  <div className="glass-card flex gap-5 p-6">
+                    <div className="shrink-0">
+                      <span
+                        className="text-xs font-bold"
+                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                      >
+                        {step.time}
+                      </span>
+                    </div>
+                    <div>
+                      <h3
+                        className="text-sm font-semibold"
+                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      >
+                        {step.activity}
+                      </h3>
+                      <p
+                        className="mt-1 text-sm leading-relaxed"
+                        style={{ color: "var(--text-on-dark-secondary)" }}
+                      >
+                        {step.detail}
+                      </p>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </section>
+        </FadeInSection>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 4 · WHO THIS IS FOR ───────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px]">
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="glass-card p-6 space-y-4">
+                <p
+                  className="text-xs font-bold uppercase tracking-widest"
                   style={{ color: "var(--brand-gold, #F8D011)" }}
                 >
-                  {step.time}
-                </span>
+                  This Is For You If
+                </p>
+                <ul className="space-y-3">
+                  {WHO_THIS_IS_FOR.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2 text-sm"
+                      style={{ color: "var(--text-on-dark-secondary)" }}
+                    >
+                      <svg
+                        className="mt-0.5 h-4 w-4 shrink-0"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                      >
+                        <path
+                          d="M3 8l3.5 3.5L13 5"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div>
-                <h3
-                  className="text-sm font-semibold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-                >
-                  {step.activity}
-                </h3>
+              <div className="glass-card p-6 space-y-4">
                 <p
-                  className="mt-1 text-sm leading-relaxed"
+                  className="text-xs font-bold uppercase tracking-widest"
                   style={{ color: "var(--text-on-dark-secondary)" }}
                 >
-                  {step.detail}
+                  This Is Not For You If
                 </p>
+                <ul className="space-y-3">
+                  {WHO_THIS_IS_NOT_FOR.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2 text-sm"
+                      style={{ color: "var(--text-on-dark-secondary)" }}
+                    >
+                      <svg
+                        className="mt-0.5 h-4 w-4 shrink-0"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        style={{ color: "rgba(255,255,255,0.35)" }}
+                      >
+                        <path
+                          d="M4 4l8 8M12 4l-8 8"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+        </FadeInSection>
 
-      {/* Gold Divider */}
-      <div className="mx-auto max-w-[200px] py-4">
-        <div
-          className="h-px"
-          style={{
-            background: "linear-gradient(90deg, transparent, #F8D011, transparent)",
-          }}
-        />
+        <GoldDivider />
+
+        {/* ─── SECTION 5 · APPLICATION ───────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-6">
+            <div className="text-center space-y-3">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Apply
+              </p>
+              <h2
+                className="text-2xl font-semibold"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                Coaching is by application.
+              </h2>
+              <p
+                className="mx-auto max-w-[520px] text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary)" }}
+              >
+                If the OS Coaching model is the right fit, apply below. Short form. Clear signal.
+              </p>
+            </div>
+            <CoachingApplicationForm />
+          </section>
+        </FadeInSection>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px]">
+            <div className="glass-card p-8 text-center space-y-5">
+              <h2
+                className="text-2xl font-bold"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                Start with the assessment. Coaching is by application.
+              </h2>
+              <p
+                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                style={{
+                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                }}
+              >
+                Take the assessment first. See your results. If 1-on-1 coaching feels like
+                the right next step, apply above. Justin reviews every application and selects
+                clients based on fit, readiness, and commitment to the reps.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <Link href="/assessment" className="btn-primary">
+                  Take the Assessment
+                </Link>
+                <Link href="/preview" className="btn-watch">
+                  Try the Free Stability Check
+                </Link>
+              </div>
+            </div>
+          </section>
+        </FadeInSection>
       </div>
-
-      {/* Who This Is For / Not For */}
-      <section className="mx-auto max-w-[720px] px-5 py-12 sm:px-8">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <div className="glass-card p-6">
-            <p
-              className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
-            >
-              This Is For You If
-            </p>
-            <ul className="mt-4 space-y-3">
-              {WHO_THIS_IS_FOR.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>
-                  <svg className="mt-0.5 h-4 w-4 shrink-0" viewBox="0 0 16 16" fill="none" style={{ color: "var(--brand-gold, #F8D011)" }}>
-                    <path d="M3 8l3.5 3.5L13 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="glass-card p-6">
-            <p
-              className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--text-on-dark-secondary)" }}
-            >
-              This Is Not For You If
-            </p>
-            <ul className="mt-4 space-y-3">
-              {WHO_THIS_IS_NOT_FOR.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>
-                  <svg className="mt-0.5 h-4 w-4 shrink-0" viewBox="0 0 16 16" fill="none" style={{ color: "rgba(255,255,255,0.35)" }}>
-                    <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Gold Divider */}
-      <div className="mx-auto max-w-[200px] py-4">
-        <div
-          className="h-px"
-          style={{
-            background: "linear-gradient(90deg, transparent, #F8D011, transparent)",
-          }}
-        />
-      </div>
-
-      {/* Application */}
-      <section className="mx-auto max-w-[720px] px-5 py-12 sm:px-8">
-        <div className="text-center mb-6">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--brand-gold, #F8D011)" }}>
-            Apply
-          </p>
-          <h2 className="mt-2 text-2xl font-bold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
-            Coaching is by application.
-          </h2>
-          <p className="mx-auto mt-2 max-w-[520px] text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary)" }}>
-            If the OS Coaching model is the right fit, apply below. Short form. Clear signal.
-          </p>
-        </div>
-        <CoachingApplicationForm />
-      </section>
-
-      {/* Gold Divider */}
-      <div className="mx-auto max-w-[200px] py-4">
-        <div
-          className="h-px"
-          style={{
-            background: "linear-gradient(90deg, transparent, #F8D011, transparent)",
-          }}
-        />
-      </div>
-
-      {/* Bottom CTA */}
-      <section className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
-        <div className="glass-card p-8">
-          <h2
-            className="text-xl font-bold"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-          >
-            Start with the assessment. Coaching is by application.
-          </h2>
-          <p
-            className="mx-auto mt-2 max-w-[440px] text-sm leading-relaxed"
-            style={{ color: "var(--text-on-dark-secondary)" }}
-          >
-            Take the free assessment first. See your results. If 1-on-1 coaching feels like the right next step, apply below. Justin reviews every application and selects clients based on fit, readiness, and commitment to the reps.
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/143" className="btn-primary">
-              Start the 143 Challenge — Free
-            </Link>
-            <Link href="/preview" className="btn-watch">
-              Take the 3-Minute Stability Check
-            </Link>
-          </div>
-        </div>
-      </section>
     </main>
+  );
+}
+
+/* ── utility ───────────────────────────────────────────────── */
+
+function GoldDivider() {
+  return (
+    <div className="mx-auto max-w-[200px]">
+      <div
+        className="h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
+        }}
+      />
+    </div>
   );
 }

@@ -60,7 +60,7 @@ export default function Closing({ output }: Props) {
           This is your map. Now make it move.
         </h3>
         <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-          The Portal Membership gives you monthly retakes to track real change, daily
+          The Portal Membership gives you weekly retakes to track real change, daily
           tools matched to your bottom ray, and growth sparklines that prove the
           reps are working. Your data stays — the system just gets smarter.
         </p>
@@ -73,7 +73,7 @@ export default function Closing({ output }: Props) {
           </div>
           <div className="space-y-1">
             <p className="font-semibold" style={{ color: 'var(--brand-gold, #F8D011)' }}>Portal Membership</p>
-            <p>Monthly retakes (43-question)</p>
+            <p>Weekly retakes (43-question)</p>
             <p>Growth tracking + sparklines</p>
             <p>Daily tools + streak system</p>
           </div>

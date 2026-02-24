@@ -3,6 +3,19 @@ export type NavLink = {
   label: string;
 };
 
+export type NavGroup = {
+  label: string;
+  children: NavLink[];
+};
+
+export type NavItem = NavLink | NavGroup;
+
+export function isNavGroup(item: NavItem): item is NavGroup {
+  return "children" in item;
+}
+
+/* ── All named links ────────────────────────────────────── */
+
 export const MARKETING_LINKS = {
   upgradeOs: { href: "/upgrade-your-os", label: "Upgrade Your OS" },
   howItWorks: { href: "/how-it-works", label: "How It Works" },
@@ -10,6 +23,7 @@ export const MARKETING_LINKS = {
   pricing: { href: "/pricing", label: "Pricing" },
   challenge: { href: "/143", label: "143 Challenge" },
   assessment: { href: "/assessment", label: "Assessment" },
+  preview: { href: "/preview", label: "Stability Check" },
   sampleReport: { href: "/sample-report", label: "Sample Report" },
   framework: { href: "/framework", label: "The Framework" },
   archetypes: { href: "/archetypes", label: "Archetypes" },
@@ -29,25 +43,56 @@ export const MARKETING_LINKS = {
   beTheLight: { href: "/be-the-light", label: "Be The Light" },
 } as const satisfies Record<string, NavLink>;
 
-export const MARKETING_NAV_LINKS: NavLink[] = [
-  MARKETING_LINKS.upgradeOs,
-  MARKETING_LINKS.howItWorks,
-  MARKETING_LINKS.outcomes,
-  MARKETING_LINKS.pricing,
-  MARKETING_LINKS.challenge,
+/* ── Primary nav with dropdown groups ───────────────────── */
+
+export const MARKETING_NAV_ITEMS: NavItem[] = [
+  {
+    label: "Why 143",
+    children: [
+      MARKETING_LINKS.watchMe,
+      MARKETING_LINKS.goFirst,
+      MARKETING_LINKS.beTheLight,
+      MARKETING_LINKS.howItWorks,
+      MARKETING_LINKS.outcomes,
+    ],
+  },
+  {
+    label: "The Assessment",
+    children: [
+      MARKETING_LINKS.preview,
+      MARKETING_LINKS.assessment,
+      MARKETING_LINKS.sampleReport,
+      MARKETING_LINKS.pricing,
+    ],
+  },
+  {
+    label: "Practice",
+    children: [
+      MARKETING_LINKS.challenge,
+      MARKETING_LINKS.framework,
+      MARKETING_LINKS.archetypes,
+      MARKETING_LINKS.glossary,
+    ],
+  },
   MARKETING_LINKS.forTeams,
   MARKETING_LINKS.about,
 ];
 
+/* ── CTA buttons ────────────────────────────────────────── */
+
 export const MARKETING_NAV_CTAS = {
-  primary: { href: "/143", label: "Start 143" },
+  primary: { href: "/preview", label: "Check My Stability" },
   secondary: { href: "/assessment", label: "Take the Assessment" },
 } as const;
+
+/* ── Auth toggle ────────────────────────────────────────── */
 
 export const MARKETING_NAV_AUTH = {
   signedIn: MARKETING_LINKS.portal,
   signedOut: MARKETING_LINKS.login,
 } as const;
+
+/* ── Footer columns ─────────────────────────────────────── */
 
 export const MARKETING_FOOTER_COLUMNS = [
   {

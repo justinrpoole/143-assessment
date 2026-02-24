@@ -59,7 +59,7 @@ export function UpgradeCheckoutClient() {
       <h2 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Choose your path</h2>
       <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
         Get your Gravitational Stability Report for $43 one-time, or start the
-        Portal Membership at $14.33/month for monthly retakes, growth tracking, and daily tools.
+        Portal Membership at $14.33/month for weekly retakes, growth tracking, and daily tools.
       </p>
       {error ? (
         <p className="mt-3 text-sm text-rose-700" role="alert">

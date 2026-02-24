@@ -48,7 +48,7 @@ interface DraftApiResponse {
 
 function lockCopy(reason: LockReason): string {
   if (reason === "paid_43_run1_used") {
-    return "You already completed your first run — that data is yours forever. Monthly access unlocks retakes so you can track real change over time.";
+    return "You already completed your first run — that data is yours forever. Weekly access unlocks retakes so you can track real change over time.";
   }
   if (reason === "reactivation_required") {
     return "Your subscription access needs a refresh before you can start a new run. Your existing results are still available.";
@@ -219,7 +219,7 @@ export function AssessmentSetupClient() {
         <h2 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>Set Your Context</h2>
         <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
           Choose the lens for your assessment. Your first run maps all 143 behavioural
-          capacities across the 9 Rays. Monthly retakes use the focused 43-question
+          capacities across the 9 Rays. Weekly retakes use the focused 43-question
           tracking set to measure real change over time.
         </p>
 

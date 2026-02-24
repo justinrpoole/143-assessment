@@ -1,6 +1,11 @@
 import Link from "next/link";
 
 import SocialProofTicker from "@/components/marketing/SocialProofTicker";
+import {
+  FadeInSection,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -8,8 +13,11 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Plans & Pricing — 143 Leadership",
-  description: "Start free. Go deeper when you are ready. From a 3-minute Gravitational Stability Check to the full Be The Light Assessment, Portal Membership, and 10-week Coaching. Every tier is built to prove change, not just describe you.",
+  description:
+    "Start free. Go deeper when you are ready. From a 3-minute Gravitational Stability Check to the full Be The Light Assessment, Portal Membership, and 10-week Coaching. Every tier is built to prove change, not just describe you.",
 };
+
+/* ── static data ───────────────────────────────────────────── */
 
 const PLANS = [
   {
@@ -46,7 +54,7 @@ const PLANS = [
       "Permanent access to your results",
       "Downloadable PDF report",
     ],
-    cta: { label: "Get Your Report", href: "/upgrade" },
+    cta: { label: "Get Your Report", href: "/assessment" },
     highlight: true,
   },
   {
@@ -55,13 +63,13 @@ const PLANS = [
     price: "$14.33",
     frequency: "/month",
     description:
-      "Everything in the report plus a daily operating system that closes the knowing-doing gap. Retake monthly to watch your capacities change in real time.",
+      "Everything in the report plus a daily operating system that closes the knowing-doing gap. Retake weekly to watch your capacities change in real time.",
     features: [
       "Full Gravitational Stability Report included",
-      "Unlimited monthly retakes (43-question tracking set)",
+      "Weekly retakes (43-question tracking set)",
       "Watch Me and Go First interactive flows",
       "Daily micro-practices matched to your Rise Path",
-      "Watch your scores change month over month",
+      "Watch your scores change week over week",
       "Energy Audit and Evening Reflection tools",
       "Growth tracking dashboard",
       "Weekly Scan",
@@ -104,7 +112,7 @@ const PLANS = [
       "Quarterly re-assessment and progress reporting",
       "Dedicated account manager",
     ],
-    cta: { label: "Contact Us", href: "/corporate" },
+    cta: { label: "Contact Us", href: "/organizations" },
     highlight: false,
   },
 ] as const;
@@ -116,7 +124,7 @@ const COMPARISON_FEATURES = [
   { name: "Eclipse Snapshot", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
   { name: "Gravitational Stability Score", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
   { name: "PDF Report Download", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Monthly Retakes", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Weekly Retakes", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
   { name: "Watch Me & Go First Flows", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
   { name: "Daily Micro-Practices", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
   { name: "Growth Tracking Dashboard", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
@@ -137,7 +145,7 @@ const FAQS = [
   },
   {
     q: "Can I retake the assessment?",
-    a: "With the Portal Membership, you can retake a 43-question tracking version every month. This lets you measure real behavioural change over time rather than relying on how you feel.",
+    a: "With the Portal Membership, you can retake a 43-question tracking version every week. This lets you measure real behavioural change over time rather than relying on how you feel.",
   },
   {
     q: "What is the difference between the report and the Portal Membership?",
@@ -165,23 +173,7 @@ const FAQS = [
   },
 ] as const;
 
-function CheckIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <circle cx="8" cy="8" r="7" stroke="#F8D011" strokeWidth="1.5" />
-      <path d="M5 8l2 2 4-4" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function DashIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <circle cx="8" cy="8" r="7" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />
-      <path d="M5.5 8h5" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
+/* ── page ───────────────────────────────────────────────────── */
 
 export default async function PricingPage() {
   const userState = await getUserStateFromRequest();
@@ -194,193 +186,459 @@ export default async function PricingPage() {
 
   return (
     <main className="cosmic-page-bg">
-      {/* ── Hero ── */}
-      <section className="mx-auto max-w-[960px] px-5 pt-16 pb-12 text-center sm:px-8 sm:pt-24 sm:pb-16">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-          Start free. Go deeper when you are ready.
-        </p>
-        <h1 className="mx-auto mt-4 max-w-[640px] text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-          Every tier answers the same question: what happens when your strongest capacities come back online?
-        </h1>
-        <p className="mx-auto mt-4 max-w-[560px] text-base leading-relaxed sm:text-lg" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          The free Gravitational Stability Check takes 3 minutes. The full assessment takes 15. The Portal tracks your growth monthly. Coaching proves it in 10 weeks. Pick the depth that matches where you are right now.
-        </p>
-      </section>
+      <div className="mx-auto max-w-[1100px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
-      {/* ── Plan Cards ── */}
-      <section className="mx-auto max-w-[1100px] px-5 pb-16 sm:px-8">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {PLANS.map((plan) => (
-            <div
-              key={plan.id}
-              className="glass-card flex flex-col p-6"
-              style={plan.highlight ? { border: '1.5px solid var(--brand-gold, #F8D011)', boxShadow: '0 0 24px rgba(248,208,17,0.12)' } : undefined}
-            >
-              {plan.highlight && (
-                <span
-                  className="mb-3 inline-block self-start rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest"
-                  style={{ background: 'var(--brand-gold, #F8D011)', color: '#020202' }}
+        {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
+        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <p
+            className="text-xs font-bold uppercase tracking-widest"
+            style={{ color: "var(--brand-gold, #F8D011)" }}
+          >
+            Start free. Go deeper when you are ready.
+          </p>
+          <h1
+            className="mx-auto max-w-[640px] text-3xl font-bold leading-tight sm:text-4xl"
+            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+          >
+            Every tier answers the same question: what happens when your
+            strongest capacities come back online?
+          </h1>
+          <p
+            className="mx-auto max-w-[560px] text-base leading-relaxed"
+            style={{
+              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+            }}
+          >
+            The free Gravitational Stability Check takes 3 minutes. The full
+            assessment takes 15. The Portal tracks your growth monthly. Coaching
+            proves it in 10 weeks. Pick the depth that matches where you are
+            right now.
+          </p>
+        </section>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 2 · PLAN CARDS ──────────────────────────── */}
+        <FadeInSection>
+          <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {PLANS.map((plan) => (
+              <StaggerItem key={plan.id}>
+                <div
+                  className="glass-card flex flex-col p-6 h-full"
+                  style={
+                    plan.highlight
+                      ? {
+                          border: "1.5px solid var(--brand-gold, #F8D011)",
+                          boxShadow: "0 0 24px rgba(248,208,17,0.12)",
+                        }
+                      : undefined
+                  }
                 >
-                  Most Popular
-                </span>
-              )}
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-                {plan.title}
-              </p>
-              <div className="mt-2 flex items-baseline gap-1">
-                <span className="text-3xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-                  {plan.price}
-                </span>
-                {plan.frequency && (
-                  <span className="text-sm" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
-                    {plan.frequency}
-                  </span>
-                )}
-              </div>
-              <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-                {plan.description}
-              </p>
-              <ul className="mt-4 flex-1 space-y-2">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-                    <CheckIcon />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={plan.cta.href}
-                className={plan.highlight ? "btn-primary mt-6 block text-center" : "btn-watch mt-6 block text-center"}
+                  {plan.highlight && (
+                    <span
+                      className="mb-3 inline-block self-start rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest"
+                      style={{
+                        background: "var(--brand-gold, #F8D011)",
+                        color: "#020202",
+                      }}
+                    >
+                      Most Popular
+                    </span>
+                  )}
+                  <p
+                    className="text-xs font-bold uppercase tracking-widest"
+                    style={{ color: "var(--brand-gold, #F8D011)" }}
+                  >
+                    {plan.title}
+                  </p>
+                  <div className="mt-2 flex items-baseline gap-1">
+                    <span
+                      className="text-3xl font-bold"
+                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                    >
+                      {plan.price}
+                    </span>
+                    {plan.frequency && (
+                      <span
+                        className="text-sm"
+                        style={{
+                          color:
+                            "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                        }}
+                      >
+                        {plan.frequency}
+                      </span>
+                    )}
+                  </div>
+                  <p
+                    className="mt-3 text-sm leading-relaxed"
+                    style={{
+                      color:
+                        "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    }}
+                  >
+                    {plan.description}
+                  </p>
+                  <ul className="mt-4 flex-1 space-y-2">
+                    {plan.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2 text-sm"
+                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      >
+                        <CheckIcon />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={plan.cta.href}
+                    className={
+                      plan.highlight
+                        ? "btn-primary mt-6 block text-center"
+                        : "btn-watch mt-6 block text-center"
+                    }
+                  >
+                    {plan.cta.label}
+                  </Link>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </FadeInSection>
+
+        {/* ─── SOCIAL PROOF ────────────────────────────────────── */}
+        <div className="py-2">
+          <SocialProofTicker />
+        </div>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 3 · COMPARISON TABLE ────────────────────── */}
+        <FadeInSection>
+          <section className="space-y-6">
+            <div className="text-center space-y-3">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
               >
-                {plan.cta.label}
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Social Proof Ticker ── */}
-      <div className="py-6">
-        <SocialProofTicker />
-      </div>
-
-      {/* ── Gold Divider ── */}
-      <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
-      </div>
-
-      {/* ── Feature Comparison Table ── */}
-      <section className="mx-auto max-w-[960px] px-5 py-16 sm:px-8">
-        <h2 className="text-center text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-          Compare Plans
-        </h2>
-        <p className="mx-auto mt-3 max-w-[480px] text-center text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          See exactly what each tier includes. Every plan builds on the one before it.
-        </p>
-        <div className="glass-card mt-8 overflow-x-auto p-0">
-          <table className="w-full min-w-[600px] text-sm">
-            <thead>
-              <tr style={{ borderBottom: '1px solid var(--surface-border, rgba(255,255,255,0.10))' }}>
-                <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Feature</th>
-                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Stability Check</th>
-                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Report</th>
-                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Portal</th>
-                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Coaching</th>
-                <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>Enterprise</th>
-              </tr>
-            </thead>
-            <tbody>
-              {COMPARISON_FEATURES.map((row, i) => (
-                <tr key={row.name} style={{ borderBottom: i < COMPARISON_FEATURES.length - 1 ? '1px solid var(--surface-border, rgba(255,255,255,0.06))' : 'none' }}>
-                  <td className="px-4 py-3" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>{row.name}</td>
-                  <td className="px-4 py-3 text-center">{row.lightCheck ? <CheckIcon /> : <DashIcon />}</td>
-                  <td className="px-4 py-3 text-center">{row.report ? <CheckIcon /> : <DashIcon />}</td>
-                  <td className="px-4 py-3 text-center">{row.portal ? <CheckIcon /> : <DashIcon />}</td>
-                  <td className="px-4 py-3 text-center">{row.coaching10wk ? <CheckIcon /> : <DashIcon />}</td>
-                  <td className="px-4 py-3 text-center">{row.enterprise ? <CheckIcon /> : <DashIcon />}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* ── Gold Divider ── */}
-      <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
-      </div>
-
-      {/* ── Cancellation Policy ── */}
-      <section className="mx-auto max-w-[720px] px-5 py-16 text-center sm:px-8">
-        <h2 className="text-xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-          No Lock-In. No Penalties.
-        </h2>
-        <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          Cancel your Portal Membership anytime. No exit interviews. No penalties.
-          If your payment lapses, your assessment history stays. Your data does not disappear.
-          When you come back, your map is waiting. We believe the work should earn your
-          attention every month — not trap it.
-        </p>
-      </section>
-
-      {/* ── Gold Divider ── */}
-      <div className="mx-auto max-w-[200px]">
-        <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, #F8D011, transparent)' }} />
-      </div>
-
-      {/* ── FAQ Section ── */}
-      <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
-        <h2 className="text-center text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-          Frequently Asked Questions
-        </h2>
-        <p className="mx-auto mt-3 max-w-[480px] text-center text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          Everything you need to know before you begin.
-        </p>
-        <div className="mt-8 space-y-4">
-          {FAQS.map((faq) => (
-            <details key={faq.q} className="glass-card group p-5">
-              <summary className="flex cursor-pointer items-center justify-between text-sm font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-                {faq.q}
-                <svg
-                  className="ml-3 h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  style={{ color: 'var(--brand-gold, #F8D011)' }}
-                  aria-hidden="true"
-                >
-                  <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-                {faq.a}
+                Side by Side
               </p>
-            </details>
-          ))}
-        </div>
-      </section>
+              <h2
+                className="text-2xl font-bold"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                Compare Plans
+              </h2>
+              <p
+                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                style={{
+                  color:
+                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                }}
+              >
+                See exactly what each tier includes. Every plan builds on the
+                one before it.
+              </p>
+            </div>
+            <div className="glass-card overflow-x-auto p-0">
+              <table className="w-full min-w-[600px] text-sm">
+                <thead>
+                  <tr
+                    style={{
+                      borderBottom:
+                        "1px solid var(--surface-border, rgba(255,255,255,0.10))",
+                    }}
+                  >
+                    <th
+                      className="px-4 py-3 text-left text-xs font-bold uppercase tracking-widest"
+                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                    >
+                      Feature
+                    </th>
+                    <th
+                      className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest"
+                      style={{ color: "var(--text-on-dark-muted)" }}
+                    >
+                      Stability Check
+                    </th>
+                    <th
+                      className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest"
+                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                    >
+                      Report
+                    </th>
+                    <th
+                      className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest"
+                      style={{ color: "var(--text-on-dark-muted)" }}
+                    >
+                      Portal
+                    </th>
+                    <th
+                      className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest"
+                      style={{ color: "var(--text-on-dark-muted)" }}
+                    >
+                      Coaching
+                    </th>
+                    <th
+                      className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest"
+                      style={{ color: "var(--text-on-dark-muted)" }}
+                    >
+                      Enterprise
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {COMPARISON_FEATURES.map((row, i) => (
+                    <tr
+                      key={row.name}
+                      style={{
+                        borderBottom:
+                          i < COMPARISON_FEATURES.length - 1
+                            ? "1px solid var(--surface-border, rgba(255,255,255,0.06))"
+                            : "none",
+                      }}
+                    >
+                      <td
+                        className="px-4 py-3"
+                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      >
+                        {row.name}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {row.lightCheck ? <CheckIcon /> : <DashIcon />}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {row.report ? <CheckIcon /> : <DashIcon />}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {row.portal ? <CheckIcon /> : <DashIcon />}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {row.coaching10wk ? <CheckIcon /> : <DashIcon />}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {row.enterprise ? <CheckIcon /> : <DashIcon />}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </FadeInSection>
 
-      {/* ── Bottom CTA ── */}
-      <section className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
-        <div className="glass-card p-8">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Not sure where to start?
-          </p>
-          <h2 className="mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            Start free. The assessment proves the rest.
-          </h2>
-          <p className="mx-auto mt-3 max-w-[420px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            The 143 Challenge rewires your brain in 3 days. The Gravitational Stability Check shows you where eclipse is covering capacity in 3 minutes. Both are free. Both prove the framework works before you spend a dollar.
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/143" className="btn-primary">
-              Start the 143 Challenge — Free
-            </Link>
-            <Link href="/preview" className="btn-watch">
-              Take the 3-Minute Stability Check
-            </Link>
-          </div>
-        </div>
-      </section>
+        <GoldDivider />
+
+        {/* ─── SECTION 4 · NO LOCK-IN ──────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px]">
+            <div className="glass-card p-6 sm:p-8 space-y-4 text-center">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                No Lock-In
+              </p>
+              <h2
+                className="text-xl font-bold"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                No Lock-In. No Penalties.
+              </h2>
+              <p
+                className="mx-auto max-w-[540px] text-sm leading-relaxed"
+                style={{
+                  color:
+                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                }}
+              >
+                Cancel your Portal Membership anytime. No exit interviews. No
+                penalties. If your payment lapses, your assessment history stays.
+                Your data does not disappear. When you come back, your map is
+                waiting. We believe the work should earn your attention every
+                month — not trap it.
+              </p>
+            </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 5 · FAQ ─────────────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-6">
+            <div className="text-center space-y-3">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Common Questions
+              </p>
+              <h2
+                className="text-2xl font-bold"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                Frequently Asked Questions
+              </h2>
+              <p
+                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                style={{
+                  color:
+                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                }}
+              >
+                Everything you need to know before you begin.
+              </p>
+            </div>
+            <StaggerContainer className="space-y-4">
+              {FAQS.map((faq) => (
+                <StaggerItem key={faq.q}>
+                  <details className="glass-card group p-5">
+                    <summary
+                      className="flex cursor-pointer items-center justify-between text-sm font-semibold"
+                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                    >
+                      {faq.q}
+                      <svg
+                        className="ml-3 h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M4 6l4 4 4-4"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </summary>
+                    <p
+                      className="mt-3 text-sm leading-relaxed"
+                      style={{
+                        color:
+                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                      }}
+                    >
+                      {faq.a}
+                    </p>
+                  </details>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </section>
+        </FadeInSection>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px]">
+            <div className="glass-card p-8 text-center space-y-5">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Not sure where to start?
+              </p>
+              <h2
+                className="text-2xl font-bold"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                Start free. The assessment proves the rest.
+              </h2>
+              <p
+                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                style={{
+                  color:
+                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                }}
+              >
+                The Gravitational Stability Check shows you where eclipse is
+                covering capacity in 3 minutes. The full assessment maps all 9
+                Rays in 15 minutes. Both prove the framework works before you
+                spend a dollar.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <Link href="/assessment" className="btn-primary">
+                  Take the Assessment
+                </Link>
+                <Link href="/preview" className="btn-watch">
+                  Try the Free Stability Check
+                </Link>
+              </div>
+            </div>
+          </section>
+        </FadeInSection>
+      </div>
     </main>
+  );
+}
+
+/* ── utility ───────────────────────────────────────────────── */
+
+function GoldDivider() {
+  return (
+    <div className="mx-auto max-w-[200px]">
+      <div
+        className="h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
+        }}
+      />
+    </div>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className="mt-0.5 shrink-0"
+    >
+      <circle cx="8" cy="8" r="7" stroke="#F8D011" strokeWidth="1.5" />
+      <path
+        d="M5 8l2 2 4-4"
+        stroke="#F8D011"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function DashIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className="mt-0.5 shrink-0"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        r="7"
+        stroke="rgba(255,255,255,0.15)"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M5.5 8h5"
+        stroke="rgba(255,255,255,0.25)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }

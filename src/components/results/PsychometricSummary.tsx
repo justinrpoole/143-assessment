@@ -26,7 +26,7 @@ const RESEARCH_PILLARS = [
 const MODEL_STATS = [
   { label: 'Rays Measured', value: '9', detail: 'Trainable leadership capacities across 3 developmental phases' },
   { label: 'Subfacets', value: '36', detail: '4 subfacets per ray for granular coaching precision' },
-  { label: 'Assessment Items', value: '143', detail: 'Full instrument (43-item monthly retake available)' },
+  { label: 'Assessment Items', value: '143', detail: 'Full instrument (43-item weekly retake available)' },
   { label: 'Executive Signals', value: '24', detail: 'Behavioral markers derived from ray + tool composites' },
   { label: 'Question Types', value: '3', detail: 'Frequency scales, scenario cards, and open reflections' },
   { label: 'Validity Checks', value: '9', detail: 'Social desirability, consistency, speeding, attention, and more' },
