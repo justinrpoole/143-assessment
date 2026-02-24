@@ -184,11 +184,11 @@ export default async function CoachingPage() {
           $1,430 total. Your Gravitational Stability Report and Portal Membership are included for the full duration.
         </p>
         <div className="flex flex-wrap gap-3 justify-center pt-2">
-          <Link href="/assessment" className="btn-primary">
-            Get Your Report First
+          <Link href="/143" className="btn-primary">
+            Start the 143 Challenge — Free
           </Link>
-          <Link href="/portal" className="btn-watch">
-            Return to Your Portal
+          <Link href="/preview" className="btn-watch">
+            Take the 3-Minute Light Check
           </Link>
         </div>
       </section>

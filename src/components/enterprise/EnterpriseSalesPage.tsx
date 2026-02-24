@@ -65,7 +65,7 @@ export default function EnterpriseSalesPage() {
       <section className="px-6 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto space-y-6 text-center">
           <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">
-            Built for development. Not surveillance.
+            Not a personality test. A capacity map.
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight" style={{ color: 'var(--text-on-dark)' }}>
             You measure performance. Do you measure the capacity to perform?
@@ -249,12 +249,17 @@ export default function EnterpriseSalesPage() {
           Start with a 30-minute conversation. We will show you the governance structure,
           the aggregate data model, and what measured behavioral change looks like inside an organization.
         </p>
-        <a
-          href="mailto:enterprise@143leadership.com"
-          className="btn-primary inline-block"
-        >
-          Contact us
-        </a>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <a
+            href="mailto:enterprise@143leadership.com"
+            className="btn-primary inline-block"
+          >
+            Contact us
+          </a>
+          <Link href="/143" className="btn-watch">
+            Try the 143 Challenge — Free
+          </Link>
+        </div>
       </section>
     </main>
   );

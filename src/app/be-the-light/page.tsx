@@ -184,11 +184,11 @@ export default async function BeTheLightPage() {
             access. 143 means I love you. This is where you practice it.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/assessment" className="btn-primary">
-              Take the Assessment
+            <Link href="/143" className="btn-primary">
+              Start the 143 Challenge — Free
             </Link>
-            <Link href="/143" className="btn-watch">
-              Start 143
+            <Link href="/preview" className="btn-watch">
+              Take the 3-Minute Light Check
             </Link>
           </div>
         </div>

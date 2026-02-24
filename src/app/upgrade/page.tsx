@@ -9,8 +9,8 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Upgrade",
-  description: "Choose how deep you want to see. Get your Gravitational Stability Report for $43 one-time or start the Portal Membership at $14.33/month.",
+  title: "Upgrade — 143 Leadership",
+  description: "Your Gravitational Stability Report for $43 — full 9-Ray map, Light Signature, Eclipse Snapshot, and a personalised Rise Path. Or $14.33/mo for unlimited retakes and proof the reps are landing.",
 };
 
 export default async function UpgradePage() {
@@ -28,10 +28,10 @@ export default async function UpgradePage() {
       <section className="mx-auto max-w-[960px] px-5 pt-16 pb-12 sm:px-8 sm:pt-24 sm:pb-16">
         <div className="max-w-[640px]">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Two ways in. Same light.
+            You already felt the shift. Now see the full picture.
           </p>
           <h1 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            Choose how deep you want to see.
+            The Light Check showed you two Rays. The full report shows you all nine.
           </h1>
           <p className="mt-4 text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
             $43 gives you your Gravitational Stability Report — full 9-Ray map, Light Signature, Eclipse Snapshot, and a

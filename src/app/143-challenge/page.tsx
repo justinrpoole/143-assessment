@@ -89,7 +89,7 @@ export default function ChallengeLandingPage() {
           The 143 Challenge gives it new search instructions &mdash; in 3 minutes a day.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Link href="/toolkit" className="btn-primary">
+          <Link href="/143" className="btn-primary">
             Start the Challenge &mdash; Free
           </Link>
           <Link href="#proof" className="btn-watch">
@@ -302,7 +302,7 @@ export default function ChallengeLandingPage() {
           possibility instead of threat. That feeling has a name. It is called restored access.
         </p>
         <div className="text-center">
-          <Link href="/toolkit" className="btn-primary">
+          <Link href="/143" className="btn-primary">
             Start the Challenge &mdash; Free
           </Link>
         </div>
@@ -486,11 +486,11 @@ export default function ChallengeLandingPage() {
             measures the full picture &mdash; 9 leadership capacities, 143 questions, your complete map.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/toolkit" className="btn-primary">
+            <Link href="/143" className="btn-primary">
               Start the Challenge &mdash; Free
             </Link>
-            <Link href="/assessment/setup" className="btn-watch">
-              Take the Full Assessment &mdash; $43
+            <Link href="/preview" className="btn-watch">
+              Take the 3-Minute Light Check
             </Link>
           </div>
         </div>

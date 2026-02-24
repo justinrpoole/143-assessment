@@ -8,8 +8,8 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "The 143 Assessment",
-  description: "Map your nine leadership capacities in one sitting. 143 questions. 15 minutes. See your Light Signature, Eclipse Snapshot, and the first capacity to train.",
+  title: "The 143 Assessment — Map Your 9 Leadership Capacities",
+  description: "143 questions. 15 minutes. See your Light Signature, Eclipse Snapshot, and the specific capacity to train first. Not who you are. What you can build. Start with the free Light Check or go straight to the full assessment.",
 };
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -69,11 +69,11 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
               143 questions. 15 minutes. You will see your Light Signature, your Eclipse Snapshot, and the specific capacity to train first. Not who you are. What you can build.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <Link href="/assessment/instructions" className="btn-primary">
-                Start the Assessment
+              <Link href="/preview" className="btn-primary">
+                Start with the Free Light Check
               </Link>
-              <Link href="/sample-report" className="btn-watch">
-                See Sample Results
+              <Link href="/assessment/instructions" className="btn-watch">
+                Go Straight to the Full Assessment
               </Link>
             </div>
           </header>
@@ -119,14 +119,14 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
           <section className="glass-card p-6 sm:p-8 text-center">
             <h2 className="text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>The most honest mirror your leadership has seen.</h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              Not a personality label. A behavioural map that changes as you do.
+              Not a personality label. A behavioural map that changes as you do. Start free. Go deeper when you are ready.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 justify-center">
-              <Link href="/assessment/instructions" className="btn-primary">
-                Start the Assessment
+              <Link href="/143" className="btn-primary">
+                Start the 143 Challenge — Free
               </Link>
               <Link href="/preview" className="btn-watch">
-                Start with the Free Light Check
+                Take the 3-Minute Light Check
               </Link>
             </div>
           </section>

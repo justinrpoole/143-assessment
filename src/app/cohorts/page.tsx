@@ -382,11 +382,11 @@ export default async function CohortsPage() {
             it going after.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/assessment/setup" className="btn-primary">
-              Take the Free Assessment
+            <Link href="/143" className="btn-primary">
+              Start the 143 Challenge — Free
             </Link>
-            <Link href="/enterprise" className="btn-watch">
-              Request a Private Cohort
+            <Link href="/preview" className="btn-watch">
+              Take the 3-Minute Light Check
             </Link>
           </div>
         </div>

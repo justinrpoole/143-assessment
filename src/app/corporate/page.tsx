@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Corporate Programs — 143 Leadership",
   description:
-    "Bring the 143 Leadership OS to your organisation. Capacity intelligence for development teams, not surveillance systems.",
+    "Your team has the skills. What they lack is the operating capacity to use them under pressure. The 143 OS maps 9 trainable capacities and gives you aggregate data to act before the cost shows up in turnover.",
 };
 
 const USE_CASES = [
@@ -133,15 +133,16 @@ export default async function CorporatePage() {
           className="mt-4 text-3xl font-bold sm:text-4xl"
           style={{ color: "var(--text-on-dark, #FFFEF5)" }}
         >
-          Capacity intelligence for organisations that develop leaders, not label them.
+          Your team does not need another programme. They need an operating system upgrade.
         </h1>
         <p
           className="mx-auto mt-3 max-w-[540px] text-sm leading-relaxed"
           style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
         >
-          The 143 Leadership OS gives every leader an individual behavioural map and
-          gives the organisation aggregate intelligence — which capacities are strong,
-          which are eclipsed, and where targeted development will have the biggest impact.
+          Most leadership programmes teach tactics on top of a depleted operating system.
+          That is why they do not stick. The 143 installs the capacity foundation first —
+          9 trainable dimensions, individual maps, aggregate intelligence. Then every
+          initiative you already run works better and lasts longer.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link href="/enterprise" className="btn-primary">
@@ -342,13 +343,15 @@ export default async function CorporatePage() {
             className="text-xl font-bold"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
-            Ready to bring the 143 to your organisation?
+            Fix the operating system first. Then every programme you already run works better.
           </h2>
           <p
             className="mx-auto mt-2 max-w-[440px] text-sm leading-relaxed"
             style={{ color: "var(--text-on-dark-secondary)" }}
           >
-            Tell us about your team size, timeline, and goals. We will design a deployment that fits your context — no generic packages, no unnecessary overhead.
+            Start with a 30-minute conversation. We will show you the governance model,
+            the aggregate data structure, and what measured behavioural change looks like
+            inside an organisation.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Link href="/enterprise" className="btn-primary">
