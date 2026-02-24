@@ -6,8 +6,8 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "FAQ",
-  description: "Everything you need to know about the 143 Assessment, your results, pricing, and the science behind the framework.",
+  title: "FAQ — 143 Leadership",
+  description: "Your questions answered. How the 143 Assessment works, what your results mean, how pricing works, and the peer-reviewed science behind every capacity.",
 };
 
 const FAQS = [
@@ -140,14 +140,13 @@ export default async function FaqPage() {
       {/* ── Hero ── */}
       <section className="mx-auto max-w-[720px] px-5 pt-16 pb-12 text-center sm:px-8 sm:pt-24 sm:pb-16">
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-          Support
+          Before you decide
         </p>
         <h1 className="mt-4 text-3xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-          Frequently Asked Questions
+          Every question you are thinking. Answered.
         </h1>
         <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          Everything you need to know about the 143 Assessment, your results, and how to get the
-          most from the framework.
+          How the assessment works, what your results actually show, what the science is, and why your scores are designed to change.
         </p>
       </section>
 
@@ -203,18 +202,17 @@ export default async function FaqPage() {
       <section className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
         <div className="glass-card p-8">
           <h2 className="text-xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            Still have questions?
+            The best way to understand it is to feel it.
           </h2>
           <p className="mx-auto mt-2 max-w-[400px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            Start with the free Light Check and see the framework in action. Or jump straight
-            into the full assessment.
+            Start with the free 143 Challenge and feel your brain shift in 3 days. Or take the 3-minute Light Check and see your pattern right now.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/preview" className="btn-primary">
-              Start the Light Check — Free
+            <Link href="/143" className="btn-primary">
+              Start the 143 Challenge — Free
             </Link>
-            <Link href="/upgrade" className="btn-watch">
-              See Pricing
+            <Link href="/preview" className="btn-watch">
+              Take the Light Check — 3 Minutes
             </Link>
           </div>
         </div>

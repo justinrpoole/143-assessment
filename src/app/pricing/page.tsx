@@ -7,8 +7,8 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Plans & Pricing",
-  description: "Two ways in. Same light. From a free Light Check to the full 143 Assessment and Coaching OS subscription. Compare plans and find your path.",
+  title: "Plans & Pricing — 143 Leadership",
+  description: "Start free. Go deeper when you are ready. From a 3-minute Light Check to the full 143 Assessment, Portal Membership, and 10-week Coaching. Every tier is built to prove change, not just describe you.",
 };
 
 const PLANS = [
@@ -197,14 +197,13 @@ export default async function PricingPage() {
       {/* ── Hero ── */}
       <section className="mx-auto max-w-[960px] px-5 pt-16 pb-12 text-center sm:px-8 sm:pt-24 sm:pb-16">
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-          Pricing
+          Start free. Go deeper when you are ready.
         </p>
         <h1 className="mx-auto mt-4 max-w-[640px] text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-          Two ways in. Same light.
+          Every tier answers the same question: what happens when your strongest capacities come back online?
         </h1>
         <p className="mx-auto mt-4 max-w-[560px] text-base leading-relaxed sm:text-lg" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          Every tier is built around the same question: what does it feel like when these
-          capacities come back online? Pick the depth that matches where you are right now.
+          The free Light Check takes 3 minutes. The full assessment takes 15. The Portal tracks your growth monthly. Coaching proves it in 10 weeks. Pick the depth that matches where you are right now.
         </p>
       </section>
 
@@ -364,22 +363,20 @@ export default async function PricingPage() {
       <section className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
         <div className="glass-card p-8">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Ready?
+            Not sure where to start?
           </p>
           <h2 className="mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            Find out what you are already capable of.
+            Start free. The assessment proves the rest.
           </h2>
           <p className="mx-auto mt-3 max-w-[420px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            The Light Check is free and takes three minutes. The full assessment takes about
-            fifteen. Either way, you will know more about how you lead when you finish
-            than when you started.
+            The 143 Challenge rewires your brain in 3 days. The Light Check shows you where eclipse is covering capacity in 3 minutes. Both are free. Both prove the framework works before you spend a dollar.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/upgrade" className="btn-primary">
-              Get Your Report — $43
+            <Link href="/143" className="btn-primary">
+              Start the 143 Challenge — Free
             </Link>
             <Link href="/preview" className="btn-watch">
-              Start with the Free Light Check
+              Take the 3-Minute Light Check
             </Link>
           </div>
         </div>
