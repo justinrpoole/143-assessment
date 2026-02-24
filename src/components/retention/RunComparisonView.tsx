@@ -51,20 +51,7 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
   const [beforeIdx, setBeforeIdx] = useState(1);
   const [afterIdx, setAfterIdx] = useState(0);
 
-  if (runs.length < 2) {
-    return (
-      <div className="glass-card p-5 text-center space-y-2">
-        <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark-secondary)' }}>
-          Complete a second assessment to unlock before/after comparison.
-        </p>
-        <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
-          Your scores, deltas, and growth direction — all mapped visually.
-        </p>
-      </div>
-    );
-  }
-
-  const beforeRun = runs[beforeIdx] ?? runs[1];
+  const beforeRun = runs[beforeIdx] ?? runs[1] ?? runs[0];
   const afterRun = runs[afterIdx] ?? runs[0];
 
   const deltas: RayDelta[] = useMemo(() => {
@@ -86,6 +73,19 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
     const vals = Object.values(afterRun.ray_scores ?? {}).map(Number);
     return vals.length > 0 ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
   }, [afterRun]);
+
+  if (runs.length < 2) {
+    return (
+      <div className="glass-card p-5 text-center space-y-2">
+        <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark-secondary)' }}>
+          Complete a second assessment to unlock before/after comparison.
+        </p>
+        <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
+          Your scores, deltas, and growth direction — all mapped visually.
+        </p>
+      </div>
+    );
+  }
 
   const overallDelta = overallAfter - overallBefore;
   const improved = deltas.filter((d) => d.delta > 0).length;

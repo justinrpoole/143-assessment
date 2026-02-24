@@ -69,14 +69,6 @@ export default function SparklineChart({ runs }: SparklineChartProps) {
   // Runs come newest-first; reverse for chronological sparklines
   const chronological = useMemo(() => [...runs].reverse(), [runs]);
 
-  if (chronological.length < 2) {
-    return (
-      <p className="text-xs text-center py-3" style={{ color: 'var(--text-on-dark-muted)' }}>
-        Complete two or more assessments to see score trends.
-      </p>
-    );
-  }
-
   const rayTrends = useMemo(() => {
     return RAY_ORDER.map((rayId) => {
       const values = chronological.map((run) => Number(run.ray_scores?.[rayId] ?? 0));
@@ -94,6 +86,14 @@ export default function SparklineChart({ runs }: SparklineChartProps) {
       return vals.length > 0 ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
     });
   }, [chronological]);
+
+  if (chronological.length < 2) {
+    return (
+      <p className="text-xs text-center py-3" style={{ color: 'var(--text-on-dark-muted)' }}>
+        Complete two or more assessments to see score trends.
+      </p>
+    );
+  }
 
   const overallDelta = overallValues[overallValues.length - 1] - overallValues[0];
 

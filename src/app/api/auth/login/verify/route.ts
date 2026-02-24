@@ -1,4 +1,4 @@
-import { randomUUID } from "crypto";
+import { createHash, randomUUID } from "crypto";
 import { cookies } from "next/headers";
 import { NextResponse, type NextRequest } from "next/server";
 
@@ -75,7 +75,6 @@ async function findOrCreateUser(email: string): Promise<{
  */
 function generateDeterministicUserId(email: string): string {
   // Use crypto to create a deterministic hash, then format as UUID
-  const { createHash } = require("crypto") as typeof import("crypto");
   const hash = createHash("sha256").update(`143-leadership:${email}`).digest("hex");
 
   // Format first 32 hex chars as UUID v4-like format

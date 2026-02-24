@@ -45,7 +45,7 @@ export async function GET() {
 
   // Fetch signature pairs for these runs
   const runIds = runs.map((r) => r.id);
-  let signaturePairs: Record<
+  const signaturePairs: Record<
     string,
     { scorer_version: string; input_hash: string; output_hash: string }
   > = {};

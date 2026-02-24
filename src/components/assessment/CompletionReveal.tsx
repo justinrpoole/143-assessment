@@ -3,6 +3,13 @@
 import { useEffect, useState } from 'react';
 import { useCosmicMotion } from '@/lib/motion/use-cosmic-motion';
 
+// Pre-computed particle data (module-level to avoid impure-render lint)
+const PARTICLES = Array.from({ length: 24 }, (_, i) => ({
+  angle: (i / 24) * 360,
+  delay: Math.random() * 0.3,
+  distance: 120 + Math.random() * 200,
+}));
+
 interface CompletionRevealProps {
   /** The two ray names for the Light Signature, e.g. ["Power", "Connection"] */
   topRayNames: [string, string];
@@ -17,14 +24,13 @@ interface CompletionRevealProps {
  */
 export default function CompletionReveal({ topRayNames, onComplete }: CompletionRevealProps) {
   const shouldAnimate = useCosmicMotion();
-  const [phase, setPhase] = useState<'burst' | 'reveal'>('burst');
+  // Skip burst phase when reduced-motion is preferred
+  const [phase, setPhase] = useState<'burst' | 'reveal'>(shouldAnimate ? 'burst' : 'reveal');
 
   const archetypeName = `The ${topRayNames[0]}-${topRayNames[1]}`;
 
   useEffect(() => {
     if (!shouldAnimate) {
-      // Reduced motion: skip burst, go straight to reveal, shorter wait
-      setPhase('reveal');
       const timer = setTimeout(onComplete, 2000);
       return () => clearTimeout(timer);
     }
@@ -51,24 +57,19 @@ export default function CompletionReveal({ topRayNames, onComplete }: Completion
       {/* Particle burst */}
       {shouldAnimate && (
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          {Array.from({ length: 24 }).map((_, i) => {
-            const angle = (i / 24) * 360;
-            const delay = Math.random() * 0.3;
-            const distance = 120 + Math.random() * 200;
-            return (
+          {PARTICLES.map((p, i) => (
               <span
                 key={i}
                 className="absolute left-1/2 top-1/2 block h-1.5 w-1.5 rounded-full"
                 style={{
                   background: i % 3 === 0 ? '#F8D011' : i % 3 === 1 ? '#F4C430' : 'rgba(255,255,255,0.7)',
-                  animation: `completionParticle 1.5s ${delay}s ease-out forwards`,
-                  '--angle': `${angle}deg`,
-                  '--distance': `${distance}px`,
+                  animation: `completionParticle 1.5s ${p.delay}s ease-out forwards`,
+                  '--angle': `${p.angle}deg`,
+                  '--distance': `${p.distance}px`,
                   opacity: 0,
                 } as React.CSSProperties}
               />
-            );
-          })}
+          ))}
         </div>
       )}
 

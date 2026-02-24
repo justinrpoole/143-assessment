@@ -38,6 +38,7 @@ export const PAGE_VIEW_EVENTS = [
   "page_view_go_first",
   "page_view_be_the_light",
   "page_view_light_dashboard",
+  "page_view_organizations",
 ] as const;
 
 export type PageViewEvent = (typeof PAGE_VIEW_EVENTS)[number];
@@ -133,6 +134,7 @@ export const CANONICAL_EVENT_NAMES = [
   "page_view_go_first",
   "page_view_be_the_light",
   "page_view_light_dashboard",
+  "page_view_organizations",
 ] as const;
 
 export type SetupContextScope = "work" | "home" | "mixed";
