@@ -10,67 +10,67 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Upgrade Your OS",
-  description: "You are performing. You are delivering. And something still does not add up. 143 Leadership maps 9 trainable capacities and gives you the reps to rebuild.",
+  title: "143 Leadership — Upgrade Your Operating System",
+  description: "You are performing. You are delivering. And something still does not add up. 143 Leadership maps 9 trainable capacities, detects when exhaustion is masking the real you, and gives you the reps to rebuild — with proof.",
 };
 
 /* ── static data ───────────────────────────────────────────────── */
 const REFLECTION_QUESTIONS = [
-  "You open your laptop and check email before your feet hit the floor. You had a plan this morning. It is gone by 8:15.",
-  "Someone asks how you are doing and you say fine because the real answer would take too long. You are running meetings on borrowed energy and calling it leadership.",
-  "Your body has been braced since 7 AM and you have not noticed. Your shoulders are around your ears. You are running on survival fuel and calling it discipline.",
+  "You open your laptop and check email before your feet hit the floor. You had a plan this morning. It was gone by 8:15. By noon you have reacted to 40 things and initiated zero.",
+  "Someone asks how you are doing and you say fine because the real answer would take 45 minutes and a drink. You ran three meetings today on borrowed energy and called it leadership.",
+  "Your body has been braced since 7 AM and you have not noticed. Your jaw is tight. Your shoulders are around your ears. You are running on survival fuel and calling it discipline. Your kids get what is left. It is not enough and you know it.",
 ];
 
 const NINE_RAYS = [
-  { id: "R1", name: "Ray of Intention",    essence: "You wake up and already know your one thing. Your calendar is a decision, not a reaction." },
-  { id: "R2", name: "Ray of Joy",          essence: "Your energy does not come from pressure. It comes from something deeper. You create it on purpose." },
-  { id: "R3", name: "Ray of Presence",     essence: "Your body is settled. Not numb — regulated. The space between what happens and what you do is yours." },
-  { id: "R4", name: "Ray of Power",        essence: "You move before you feel ready — and you trust yourself after. Confidence is not loud. It is consistent." },
-  { id: "R5", name: "Ray of Purpose",      essence: "Your calendar matches your values. The gap between what you say matters and where you spend time is closing." },
-  { id: "R6", name: "Ray of Authenticity", essence: "You are the same person in every room. No performance. No code-switching your soul." },
-  { id: "R7", name: "Ray of Connection",   essence: "People feel safe enough to be honest around you. Your stability is a leadership multiplier." },
-  { id: "R8", name: "Ray of Possibility",  essence: "You see options where other people see walls. Your brain scans for openings because you trained it to." },
-  { id: "R9", name: "Be The Light",        essence: "Your presence lowers the noise in a room. You hold steady. And somehow that is enough." },
+  { id: "R1", name: "Intention",    essence: "You wake up knowing your one thing. Your calendar is a decision, not a reaction. When this Ray is eclipsed, you start every day in someone else\u2019s agenda." },
+  { id: "R2", name: "Joy",          essence: "Your energy comes from something deeper than pressure. You create it on purpose. When this Ray is eclipsed, everything feels like a grind and you cannot remember why you started." },
+  { id: "R3", name: "Presence",     essence: "Your body is settled. Not numb \u2014 regulated. The gap between stimulus and response is yours. When this Ray is eclipsed, you react before you think and regret it by lunch." },
+  { id: "R4", name: "Power",        essence: "You move before you feel ready and trust yourself after. Confidence is not loud. It is consistent. When this Ray is eclipsed, you wait for permission that never comes." },
+  { id: "R5", name: "Purpose",      essence: "Your calendar matches your values. When this Ray is eclipsed, you are busy all the time and fulfilled none of it." },
+  { id: "R6", name: "Authenticity", essence: "You are the same person in every room. No performance. No code-switching your soul. When this Ray is eclipsed, you shape-shift so often you forget which version is real." },
+  { id: "R7", name: "Connection",   essence: "People feel safe enough to be honest around you. When this Ray is eclipsed, your team performs but never confides. You are respected but not trusted." },
+  { id: "R8", name: "Possibility",  essence: "You see options where other people see walls. When this Ray is eclipsed, every problem feels permanent and you stop looking for the door." },
+  { id: "R9", name: "Be The Light", essence: "Your presence lowers the noise in a room. You hold steady and somehow that is enough. When this Ray is eclipsed, you drain the room instead of grounding it." },
 ];
 
 const WHAT_I_DONT_DO = [
-  "This is not motivation theatre. No hype. No pep talks. Structure.",
-  "This is not a personality quiz. No types. No labels. No sorting you into a box you cannot leave.",
-  "This is coaching and education. I do not provide medical care. I train leadership capacity backed by behavioural science.",
-  "This is not a one-time event. Your scores are designed to change. That is the whole point.",
+  "This is not motivation theatre. No hype. No keynote high that fades by Friday. Structure that holds up at 3 PM on a Tuesday.",
+  "This is not a personality quiz. No sorting you into a box you cannot leave. MBTI told you what you are. This shows you what you can build.",
+  "This is not therapy and it is not medical care. It is leadership capacity training backed by behavioural science. The kind of training that gives you a tool Monday and measures whether it worked by Thursday.",
+  "This is not a one-time event. Your scores are designed to change. That is the whole point. Take it now. Train. Retake in 90 days. Watch the numbers move.",
 ];
 
 const ENTRY_POINTS = [
   {
-    tag: "Start here",
-    title: "The Light Check",
-    body: "A free preview that names what you are feeling and why. No account. No commitment. Three minutes to find out whether eclipse is running your week.",
+    tag: "Free \u2014 3 minutes",
+    title: "The 143 Challenge",
+    body: "Rewire your brain\u2019s threat filter in 3 days using the same neuroscience behind the full assessment. Hand over heart. I love you. That is the protocol. Free. No account. No card.",
     href: "/143",
-    cta: "Take the Light Check — Free",
+    cta: "Start the 143 Challenge \u2014 Free",
     highlight: false,
   },
   {
-    tag: "Go deeper",
-    title: "The Ray Snapshot",
-    body: "See your top 2 Rays and your Eclipse Snapshot. Enough to understand what is working and what is covered — and whether you might be a Bold Authentic, a Relational Light, or one of 34 other combinations.",
+    tag: "Free \u2014 15 minutes",
+    title: "The Light Check",
+    body: "See your top 2 Rays and your Eclipse Snapshot. Find out if you are a Bold Authentic, a Relational Light, or one of 34 other leadership combinations. Enough to know if going deeper is worth it.",
     href: "/preview",
-    cta: "Get Your Snapshot",
+    cta: "Get Your Light Check \u2014 Free",
     highlight: false,
   },
   {
-    tag: "The full map",
-    title: "Gravitational Stability Report",
-    body: "A map of exactly where your light is strong, where it is covered, and what to do about it this week. Your Light Signature. Your Eclipse Snapshot. Your Energy Ratio. Your Rise Path.",
+    tag: "One-time \u2014 $43",
+    title: "Full Assessment + Report",
+    body: "143 questions. 15 minutes. Your complete behavioural map: Light Signature, Eclipse Snapshot, Energy Ratio, Rise Path. Plus your personal identity opener and specific tool recommendations. Lifetime access.",
     href: "/upgrade",
-    cta: "Take the Assessment — $43",
+    cta: "Get Your Full Report \u2014 $43",
     highlight: true,
   },
   {
-    tag: "The operating system",
+    tag: "$14.33/mo",
     title: "Portal Membership",
-    body: "The assessment plus daily tools, micro-practices, and unlimited retakes. Retake in 90 days and watch your scores move — proof the reps are landing.",
+    body: "Everything in the report plus daily micro-practices, unlimited monthly retakes, and a growth dashboard that proves your reps are landing. Cancel anytime. Your data stays.",
     href: "/upgrade",
-    cta: "Start the Portal Membership — $14.33/mo",
+    cta: "Start Portal Membership \u2014 $14.33/mo",
     highlight: false,
   },
 ];
@@ -106,17 +106,20 @@ export default async function UpgradeYourOsPage() {
             You are performing. You are delivering. And something still does not add up.
           </h1>
           <p className="mt-4 max-w-[600px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            You run the meeting well. Nobody knows the cost. By 3pm your creativity
-            is gone. By 6pm you are giving what is left to the people who matter most —
-            and it is not enough. You are not underperforming. You are stretched.
-            One capacity is carrying another, and the operating system running your
-            decisions has not been upgraded in years.
+            You run the meeting well. Nobody knows the cost. By 3 PM your creativity
+            is gone. By 6 PM you are giving what is left to the people who matter most.
+            It is not enough. And you know it.
+          </p>
+          <p className="mt-3 max-w-[600px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+            You are not underperforming. You are stretched. One capacity is carrying
+            another, and the operating system running your decisions has not been
+            upgraded in years. That is not a personal failure. That is biology.
           </p>
           <p className="mt-3 max-w-[600px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
-            143 Leadership maps 9 trainable capacities, names exactly where your light
-            is strong and where it is covered, and gives you the reps to rebuild —
-            with proof that it is working. Not a label. A behavioural map that changes
-            as you do. 143 questions. 15 minutes. One mirror.
+            143 Leadership maps 9 trainable capacities. Names exactly where your light
+            is strong and where it is covered. Gives you the reps to rebuild \u2014 with
+            proof that it is working. Not a label. A behavioural map that changes as
+            you do. 143 questions. 15 minutes. One mirror.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/preview" className="btn-primary">
@@ -146,16 +149,16 @@ export default async function UpgradeYourOsPage() {
         <div className="grid gap-5 md:grid-cols-3">
           {[
             {
-              q: "Have you ever learned something powerful and lost it by Monday?",
-              a: "That is not your fault. Those programmes taught tactics without upgrading the system that runs them.",
+              q: "Have you ever left a leadership programme feeling changed \u2014 and watched the results fade by the next quarter?",
+              a: "That was not a willpower failure. Those programmes taught tactics without upgrading the operating system that runs them. $240 billion spent on leadership development globally. The gap is not information. It is infrastructure.",
             },
             {
-              q: "Have you ever delivered in every meeting and still come home empty?",
-              a: "That is not a discipline problem. That is one capacity carrying another. The assessment names that pattern.",
+              q: "Have you ever delivered in every meeting and come home with nothing left for the people who matter most?",
+              a: "That is not a discipline problem. That is one capacity carrying another \u2014 and you cannot see the pattern from inside it. The assessment names it in 15 minutes.",
             },
             {
               q: "When was the last time someone asked how you were and you told the truth?",
-              a: "If you had to think about it, that is the eclipse talking. It does not always look like falling apart.",
+              a: "If you had to think about it, eclipse is running your week. It does not always look like falling apart. Sometimes it looks like performing perfectly while something underneath goes quiet.",
             },
           ].map((item) => (
             <div key={item.q} className="glass-card p-5">
@@ -374,23 +377,22 @@ export default async function UpgradeYourOsPage() {
       <section className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
         <div className="glass-card p-8">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Your light is still there. This is how you restore access.
+            Your light is not gone. It is covered. This is how you restore access.
           </p>
           <h2 className="mt-3 text-2xl font-bold sm:text-3xl" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            143 questions. 15 minutes. One mirror.
+            143 questions. 15 minutes. The most honest mirror your leadership has seen.
           </h2>
           <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            Not a personality label. A behavioural map of 9 trainable capacities — with the
-            tools to build them and the proof that they are changing. You might be a Visionary
-            Servant, a Truth Beacon, or a Driven Leader. There are 36 Light Signatures. The
-            assessment reveals yours.
+            You might be a Visionary Servant, a Truth Beacon, or a Driven Leader.
+            There are 36 Light Signatures. The assessment reveals yours \u2014 along
+            with the map of where to build first. Not who you are. What you can build.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Link href="/preview" className="btn-primary">
-              See Your Light Signature — Free
+              See Your Light Signature \u2014 Free
             </Link>
             <Link href="/143" className="btn-watch">
-              Start the 143 Challenge
+              Start the 143 Challenge \u2014 Free
             </Link>
           </div>
         </div>
@@ -405,10 +407,11 @@ export default async function UpgradeYourOsPage() {
           Justin Ray
         </h2>
         <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          Educator. Coach. System builder. I spent years watching leadership
-          programmes teach information that never landed. So I built a
-          different system — one that measures capacity, trains it through
-          daily reps, and proves it is changing. Not a motivator. A builder.
+          Educator. Coach. System builder. I spent years inside executive
+          development watching leaders leave programmes inspired and return
+          to the same patterns within a week. So I built a system that
+          measures capacity, trains it through daily reps, and proves it
+          is changing. I built it because I needed it first.
         </p>
         <Link href="/about" className="mt-4 inline-block text-sm font-medium transition-colors hover:text-brand-gold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
           Read the full story &rarr;

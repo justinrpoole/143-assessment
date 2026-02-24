@@ -189,21 +189,21 @@ export const PAGE_COPY_V1: V1PageCopy = {
     ],
   },
   howItWorks: {
-    label: "Four stages. One operating system.",
+    label: "Four stages. One operating system upgrade.",
     headline:
-      "Reset your filter. Map your capacities. Train the gaps. Measure the proof.",
-    subhead: "Every stage builds on the last. Nothing is skipped.",
+      "Reset the filter. Map the pattern. Train the gaps. Measure the proof.",
+    subhead: "Every stage builds on the last. Nothing is skipped. Nothing is guessed. You will have receipts.",
     ctas: {
       primary: {
-        label: "Start with the free challenge",
-        href: "/preview",
+        label: "Start the 143 Challenge \u2014 Free",
+        href: "/143",
       },
       secondary: {
         label: "See pricing",
         href: "/pricing",
       },
       tertiary: {
-        label: "Choose your entry point",
+        label: "See all entry points",
         href: "/upgrade-your-os",
       },
     },
@@ -211,22 +211,22 @@ export const PAGE_COPY_V1: V1PageCopy = {
       {
         step: "1) Reset Your Filter",
         detail:
-          "The 143 Challenge rewires your Reticular Activating System to scan for evidence of capacity instead of threat. Three days. Free.",
+          "The 143 Challenge rewires your Reticular Activating System \u2014 the part of your brain that decides what you notice \u2014 to scan for capacity instead of threat. Three days. Three minutes a day. Free. No account required.",
       },
       {
         step: "2) Map Your Capacities",
         detail:
-          "The 143 Assessment maps your 9 Rays, reveals your Light Signature, and shows where Eclipse may be covering real capacity.",
+          "The 143 Assessment measures 9 trainable Rays, reveals your Light Signature (one of 36 unique combinations), and shows where Eclipse may be covering real capacity. 143 questions. About 15 minutes. The most honest mirror your leadership has seen.",
       },
       {
         step: "3) Train the Gaps",
         detail:
-          "13 science-backed protocols mapped to your specific Rays. The 90-Second Reset, the RAS Recalibration Practice, the Boundary of Light Protocol, and more.",
+          "13 science-backed protocols mapped to your specific Rays. The 90-Second Reset when your nervous system spikes. The RAS Recalibration Practice. The Boundary of Light Protocol. Each one takes minutes, not hours.",
       },
       {
         step: "4) Measure the Proof",
         detail:
-          "Retake the assessment. Watch your scores move. Your Light Signature evolves as you do. That is not inconsistency. That is growth.",
+          "Retake the assessment in 90 days. Watch your scores move. When your Light Signature shifts from Driven Leader to Visionary Servant, that is not inconsistency. That is growth becoming visible. Your scores are the receipt.",
       },
     ],
     whatYouGet: {
@@ -234,43 +234,51 @@ export const PAGE_COPY_V1: V1PageCopy = {
       cards: [
         {
           title: "Free \u2014 The 143 Challenge",
-          body: "Your brain is running a threat filter you never installed. The 143 Challenge reprograms it in 3 days \u2014 3 minutes a day. 143 means I love you. Self-directed compassion that gives your RAS new search instructions. No email required to start.",
+          body: "Your brain is running a threat filter you never chose. The 143 Challenge reprograms it in 3 days \u2014 3 minutes a day. 143 means I love you. Self-directed compassion that gives your RAS new search instructions. No email required to start.",
         },
         {
           title: "$43 \u2014 Gravitational Stability Report",
-          body: "Your complete 9-Ray capacity map, Eclipse Snapshot, your Light Signature with identity opener, and specific tool recommendations. Lifetime access.",
+          body: "Your complete 9-Ray capacity map, Eclipse Snapshot, Light Signature with personal identity opener, Energy Ratio, Rise Path, and specific tool recommendations. Lifetime access. Downloadable PDF.",
+        },
+        {
+          title: "$14.33/mo \u2014 Portal Membership",
+          body: "Everything in the report plus daily micro-practices, unlimited monthly retakes, a growth dashboard, and Watch Me and Go First interactive flows. See your scores change month over month. Cancel anytime.",
+        },
+        {
+          title: "$143/week \u2014 10-Week Coaching",
+          body: "Structured coaching built on your report. Weekly sessions matched to your results. Mid-point and final retake with comparison. Direct support between sessions. Portal Membership included.",
         },
       ],
     },
     repeatWhy: {
       title: "Why take it more than once",
-      body: "Most assessments are designed to be taken once. The 143 is designed to be outgrown. Your scores change because you changed. The retake is not a re-test. It is a receipt. And when your Light Signature shifts, that is not inconsistency. That is growth becoming visible.",
+      body: "Most assessments are designed to be taken once and filed away. The 143 is designed to be outgrown. Your scores change because you changed. The retake is not a re-test. It is a receipt. When your Light Signature shifts, that is not inconsistency. That is growth you can measure. That is the difference between this and every assessment you have taken before.",
     },
     outcome:
-      "Outcome: a system that proves your growth over time \u2014 not a one-time result that collects dust.",
+      "Outcome: a system that proves your growth over time \u2014 not a one-time insight that collects dust in a PDF nobody opens.",
     cancellationNote:
-      "Cancel anytime. Your assessment history stays. Your data does not disappear. When you come back, your map is waiting.",
+      "Cancel anytime. No penalties. No exit interviews. Your assessment history stays. Your data does not disappear. When you come back, your map is waiting.",
   },
   outcomes: {
-    label: "This is what changes.",
-    headline: "The room changes when you do.",
-    subhead: "Not promises. Patterns we see in people who do the work.",
-    winsTitle: "Everyday wins you can expect",
+    label: "This is what changes when the operating system upgrades.",
+    headline: "The room changes when you do. So does Tuesday.",
+    subhead: "Not promises. Patterns we see in people who do the reps. Every outcome maps to a specific Ray and a specific mechanism.",
+    winsTitle: "What the reps actually produce",
     wins: [
-      "You stop rehearsing conversations before they happen. Your nervous system learns you can handle the moment when it arrives.",
-      "You recover from hard moments in minutes instead of days. The 90-Second Reset teaches you to feel the spike and let it pass.",
-      "You notice what is working before someone has to point it out. Your RAS recalibrates and the negativity bias loosens its grip.",
-      "You stop absorbing other people's energy as your own. Your Connection Ray trains you to feel what someone is carrying without picking it up.",
-      "You say the hard thing without the adrenaline spike. Courageous conversations stop feeling like combat.",
-      "You make decisions faster because your signal is clearer. The fog lifts when your operating system runs clean.",
-      "Your confidence stops depending on the last thing that happened. It becomes baseline \u2014 built through reps, not reactive.",
+      "You stop rehearsing conversations before they happen. Your nervous system learns you can handle the moment when it arrives. That is your Presence Ray coming back online.",
+      "You recover from hard moments in minutes instead of days. The 90-Second Reset teaches your body to feel the spike, name it, and let it pass. People around you notice the difference before you do.",
+      "You notice what is working before someone has to point it out. Your RAS recalibrates. The negativity bias loosens its grip. You start scanning for evidence of capacity instead of threat.",
+      "You stop absorbing other people\u2019s energy as your own. Your Connection Ray trains you to feel what someone is carrying without picking it up. You stay grounded. They feel safer.",
+      "You say the hard thing without the adrenaline spike. Courageous conversations stop feeling like combat. Your Power Ray and your Authenticity Ray start working together instead of against each other.",
+      "You make decisions faster because your signal is clearer. The fog lifts when your operating system runs clean. One leader told us she went from 3 days of deliberation to 3 hours.",
+      "Your confidence stops depending on the last thing that happened. It becomes baseline \u2014 built through reps, not reactive. That is the difference between borrowed energy and generated capacity.",
     ],
     howTitle: "How these outcomes happen",
     howBody:
-      "None of this is magic. All of it is mechanism. The RAS filter resets. The stress response shortens. Identity updates through evidence. Eclipse lifts when you stop borrowing energy and start building capacity.",
+      "None of this is magic. All of it is mechanism. The RAS filter resets. The stress response shortens. Identity updates through evidence, not affirmation. Eclipse lifts when you stop borrowing energy and start building capacity. Every tool in the system maps to published, peer-reviewed research. The language is human. The science is real.",
     proof:
-      "Take the assessment and see where you stand. Your results are the starting line, not the finish.",
-    loop: "Retake in 90 days and watch your scores move. Growth becomes visible. Not a feeling. A number.",
+      "Take the assessment and see where you stand. Your results are the starting line, not the finish. Your Light Signature tells you where to begin. Your Rise Path tells you what to do first.",
+    loop: "Retake in 90 days and watch your scores move. Growth becomes visible. Not a feeling. A number. That is a receipt you can trust.",
   },
   challenge143: {
     label: "The 143 Challenge",
@@ -312,74 +320,74 @@ export const PAGE_COPY_V1: V1PageCopy = {
   },
   preview: {
     headline:
-      "See what your leadership operating system actually looks like. Free.",
-    why: "Most assessments lock your results inside a paywall. The 143 preview gives you a real snapshot of your 9 Rays \u2014 your trainable leadership capacities \u2014 before you spend anything.",
+      "Find out in 3 minutes whether exhaustion is covering your strongest capacity.",
+    why: "Most leadership assessments lock your results behind a paywall and a 30-minute intake form. The 143 Light Check gives you a real signal \u2014 your Eclipse Snapshot and your top Rays \u2014 before you spend anything or create an account.",
     proof:
-      "In 15 minutes, you will know your top two Rays and your Light Signature. The snapshot answers one question honestly: is this worth going deeper?",
-    how: "Start the preview. See your ray signal across nine dimensions. Know whether Eclipse is running your week. If the answer is yes, the full report and Portal Membership are waiting.",
+      "Answer a few targeted questions. See your ray signal across nine dimensions. Know whether your best capacity is online or eclipsed. The whole thing takes less time than your morning coffee order.",
+    how: "No email. No account. No credit card. Just honest questions about how you showed up this week \u2014 and a snapshot that tells you what is actually happening underneath the performance.",
     outcome:
-      "Outcome: the relief of being accurately described without being reduced. Not categorized. Not labeled. Recognized.",
-    loop: "Your scores are designed to change. Retake after your first full run to see the proof.",
+      "People say the same thing after seeing their snapshot: \u201cThat is exactly what I have been feeling but could not name.\u201d The relief of being accurately described without being reduced. Not categorized. Recognized.",
+    loop: "If the snapshot resonates, the full assessment goes deeper \u2014 your complete Light Signature, Eclipse Snapshot, Energy Ratio, and a Rise Path with specific tools. Your scores are designed to change. That is the whole point.",
     paidTierTitle: "When you are ready to go deeper",
     paidTierBody:
-      "The $43 Gravitational Stability Report gives you your Light Signature, Eclipse Snapshot, your Energy Ratio, and your Rise Path. The $14.33/month Portal Membership adds unlimited retakes, the full protocol library, and monthly snapshots that track your growth.",
+      "The $43 Gravitational Stability Report gives you your Light Signature, Eclipse Snapshot, Energy Ratio, and Rise Path \u2014 a complete map of where your light is strong and where it is covered, with specific tool recommendations. The $14.33/month Portal Membership adds unlimited retakes, daily micro-practices, and a growth dashboard that proves the reps are landing.",
   },
   sampleReport: {
     label: "Sample Report",
-    headline: "This is what a full report looks like.",
-    subhead: "Not a screenshot. Not a summary. The real experience.",
+    headline: "This is what a full report reads like. Not a screenshot. The real thing.",
+    subhead: "Browse a sample Gravitational Stability Report \u2014 same format, same depth, same identity-first language. The only difference is the data is not yours. Yet.",
     samplePairId: "R4-R5",
-    proofTitle: "What the Report Feels Like",
+    proofTitle: "What people say when they open their report",
     proofBody:
-      "The first thing you will notice is that it sounds like someone who knows you. Not someone who categorized you. Someone who has watched you navigate a hard week and can name what is actually happening underneath the performance.",
+      "The first thing you will notice is that it sounds like someone who knows you. Not someone who categorized you. Someone who has watched you navigate a hard week and can name what is actually happening underneath the performance. That is by design. Every line of your report is generated from your specific answers, not a template.",
     howBody:
-      "The report opens with your Light Signature and an identity opener: 'I know you are the type of person who...' Then the Eclipse Snapshot shows where stress may be suppressing real capacity. Then specific tool recommendations mapped to your profile.",
+      "The report opens with your Light Signature and an identity opener: \u2018I know you are the type of person who...\u2019 Then the Eclipse Snapshot shows where stress may be suppressing real capacity. Then your Energy-to-Eclipse Ratio. Then your Rise Path with specific tool recommendations. Every section is mapped to your profile. Nothing is generic.",
     paidTierTitle: "Two ways to use your report",
     paidTierItems: [
-      "Gravitational Stability Report ($43) \u2014 Your full 9-Ray report, Eclipse Snapshot, your Light Signature with identity opener, and lifetime access.",
-      "Portal Membership ($14.33/month) \u2014 Everything in the assessment, plus unlimited retakes, the full protocol library, and monthly snapshots that prove your growth.",
+      "Gravitational Stability Report ($43) \u2014 Your full 9-Ray report, Eclipse Snapshot, Light Signature with identity opener, Energy Ratio, Rise Path, and lifetime access. Downloadable PDF.",
+      "Portal Membership ($14.33/month) \u2014 Everything in the report, plus unlimited monthly retakes, daily micro-practices, growth dashboard, and the tools to actually close the gap your report identifies. Cancel anytime.",
     ],
     outcome:
-      "Outcome: a report that reads like someone who understands you handed you a map and said: start here.",
-    loop: "Retake after training and watch your Light Signature evolve. That is not inconsistency. That is growth becoming visible.",
+      "Outcome: a report that reads like someone who understands you handed you a map and said: start here. Not who you are. What you can build.",
+    loop: "Retake after 90 days of training. Watch your Light Signature evolve. When it shifts, that is not inconsistency. That is growth you can see.",
     ctas: {
       primary: {
-        label: "Start Preview",
+        label: "Get Your Light Check \u2014 Free",
         href: "/preview",
       },
       secondary: {
-        label: "Take the Assessment \u2014 $43",
+        label: "Get Your Full Report \u2014 $43",
         href: "/upgrade",
       },
     },
   },
   justin: {
-    label: "The person inside the OS.",
+    label: "The person who built the system \u2014 because he needed it first.",
     headline:
-      "I do not motivate. I help you access what is already there.",
+      "I do not motivate. I build maps for people who are tired of wandering.",
     subhead:
-      "Executive development background. Real-world pressure. A framework built on behavioral science and tested in the rooms where leadership actually happens.",
+      "Executive development background. Real organisations. Real pressure. A framework built on behavioural science and tested in the rooms where leadership actually happens \u2014 not conference stages.",
     credibilityTitle: "The short version.",
     credibilityBody:
-      "I spent years inside executive development. Real organizations. Real pressure. Leaders who needed real tools, not motivational slogans. That realization became the premise: upgrade the OS first. Then every tactic works.",
+      "I spent years inside executive development watching the same pattern: a leader finishes a programme, feels genuinely changed, and watches the results fade by the following week. Not because the programme was bad. Because it never addressed what was underneath. That gap is why I built the 143 Assessment.",
     storyBody:
-      "I built the 143 Assessment because I needed it first. The leadership tools everyone was selling did not work \u2014 not because they were wrong, but because they assumed an operating system that was not running. Nine trainable capacities. Eclipse Snapshot. Non-shame language. A retake system that proves growth. I did not study this from a distance. I trained myself with these tools.",
+      "I built it because I needed it first. The leadership tools everyone was selling did not work \u2014 not because they were wrong, but because they assumed an operating system that was not running. I was stretched. Performing well and coming home empty. Running on borrowed energy and calling it discipline. So I started from scratch. Nine trainable capacities backed by peer-reviewed science. An Eclipse Snapshot that names the gap without shame. Non-diagnostic language because people develop faster when they feel safe. A retake system that proves growth is real. I did not study this from a distance. I trained myself with these tools and watched my own Light Signature change.",
     trustTitle: "No hype. Structure and receipts.",
     dontDo: [
       "Give motivational speeches that fade by Friday.",
-      "Promise transformation without mechanism.",
-      "Use shame language because it creates urgency.",
+      "Promise transformation without showing the mechanism.",
+      "Use shame language to create urgency. Your gaps are not failures. They are covered capacities.",
     ],
     do: [
-      "Translate neuroscience into tools you can use today.",
-      "Build systems that produce measurable change you can see at retake.",
-      "Name the real thing plainly, even when it is hard.",
+      "Translate neuroscience into tools you can use Monday morning.",
+      "Build systems that produce measurable change \u2014 and show you the receipt at retake.",
+      "Name the real thing plainly. Even when it is hard. Especially when it is hard.",
     ],
-    methodTitle: "The method",
+    methodTitle: "The method is the message",
     methodBody:
-      "Reset your filter. Map your capacities. Train the gaps. Measure the proof. The first three Rays train emotional intelligence with yourself. The middle three are where self-regulation meets self-expression. The last three train emotional intelligence with others. Nine dimensions. One operating system upgrade.",
+      "Reset the filter. Map the capacities. Train the gaps. Measure the proof. The first three Rays train emotional intelligence with yourself. The middle three are where self-regulation meets self-expression. The last three train emotional intelligence with others. Nine dimensions. One operating system upgrade. Not who you are. What you can build.",
     outcome:
-      "Outcome: you move from scattered effort to aligned execution \u2014 with proof that the shift is real.",
-    loop: "Take it. Train. Retake. Watch your Light Signature evolve. That is the work. That is the path.",
+      "Outcome: you move from scattered effort to aligned execution \u2014 with proof that the shift is real. Not a feeling. A number.",
+    loop: "Take it. Train. Retake. Watch your Light Signature evolve. That is the work. That is the path. That is the difference between this and everything else you have tried.",
   },
 };

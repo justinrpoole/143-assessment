@@ -6,31 +6,31 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "About Justin Ray",
-  description: "The 20-year journey behind the 143 Leadership framework. From burnout to breakthrough — the story of how the Be The Light operating system was built.",
+  title: "About Justin Ray — The Builder Behind 143 Leadership",
+  description: "I built the 143 Assessment because I needed it first. Executive development background. Real pressure. A framework built on behavioural science and tested where leadership actually happens.",
 };
 
 const DO_LIST = [
-  "Name the real problem in plain language.",
-  "Back every claim with research you can read.",
-  "Build tools that measure change — and let you see the proof.",
-  "Use non-shame language because people develop faster when they feel safe to be honest about gaps.",
+  "Name the real problem in plain language. No jargon. No cushion.",
+  "Back every claim with published research you can read yourself.",
+  "Build tools that measure change \u2014 and show you the receipt at retake.",
+  "Use non-shame language. Your gaps are not failures. They are covered capacities. People develop faster when they feel safe to be honest.",
 ];
 
 const DONT_LIST = [
-  "Wrap hard truths in motivational cotton.",
-  "Make promises backed by enthusiasm alone.",
-  "Call your gaps a skill to train or a capacity that is covered.",
-  "Give you a fixed label and call it self-awareness.",
+  "Wrap hard truths in motivational cotton that fades by Friday.",
+  "Make promises backed by enthusiasm alone. If there is no mechanism, there is no tool.",
+  "Sort you into a personality box and call it self-awareness. Your scores are designed to change.",
+  "Use urgency manufactured from shame. That spikes cortisol. I build systems that lower it.",
 ];
 
 const CREDENTIALS = [
-  "Executive development consulting across industries — tech, healthcare, finance, education",
-  "Trained in behavioural science, positive psychology, and neuroscience research application",
-  "Built and validated the 143 Assessment framework from peer-reviewed evidence",
-  "Designed the scoring engine: deterministic, auditable, SHA-256 verified",
-  "Created the Eclipse concept to explain capacity suppression without shame",
-  "Developed 36 Light Signature archetypes mapped to C(9,2) ray pair combinations",
+  "Executive development consulting across tech, healthcare, finance, and education \u2014 inside the rooms where leadership pressure is real, not theoretical",
+  "Trained in behavioural science, positive psychology, and applied neuroscience \u2014 every tool in the system maps to published, peer-reviewed research",
+  "Built and validated the 143 Assessment from the ground up \u2014 143 questions measuring 9 trainable leadership capacities",
+  "Designed a deterministic scoring engine \u2014 auditable, reproducible, SHA-256 verified. No black boxes. No vibes.",
+  "Created the Eclipse concept \u2014 a non-shame framework for explaining why high-performers lose access to their strongest capacities under sustained stress",
+  "Developed 36 Light Signature archetypes from C(9,2) ray pair combinations \u2014 a combinatorial identity system, not a personality label",
 ];
 
 export default async function AboutPage() {
@@ -70,25 +70,27 @@ export default async function AboutPage() {
             The short version
           </p>
           <h2 className="mt-3 text-xl font-bold sm:text-2xl" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            What I saw over and over was the same gap.
+            I watched the same gap for years. Then I built the bridge.
           </h2>
           <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
             I spent years inside executive development. Real organisations. Real pressure.
-            A leader finishes a programme, feels energised, and by the following week the old
-            patterns are back. Not because the programme was bad. Because it never addressed
-            what was underneath. Have you ever had that experience? That is not a willpower failure.
-            That is an operating system problem.
+            And I watched the same pattern on repeat: a leader finishes a programme, feels
+            genuinely changed, and by the following week the old patterns are back. Not because
+            the programme was bad. Because it taught tactics without upgrading the operating
+            system that runs them. Have you ever had that experience? That is not a willpower
+            failure. That is a $240 billion design gap.
           </p>
-          <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
-            So I built one. The 143 Assessment measures 9 leadership capacities backed by
-            peer-reviewed behavioural science. It detects when depletion is masking real capacity.
-            And your scores are designed to change. I love watching someone open their report and
-            realise what they have been carrying — the moment they read their Light Signature
-            and something shifts. That is the moment I built this for.
+          <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+            So I built the operating system. The 143 Assessment measures 9 leadership capacities
+            backed by peer-reviewed science. It detects when depletion is masking real capacity.
+            And your scores are designed to change \u2014 because you are not a fixed type. I built
+            it because I needed it first. I was the stretched leader. Performing well. Coming
+            home empty. Running on borrowed energy and calling it discipline. These tools changed
+            my own pattern before I offered them to anyone else.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
             Why 143? One letter. Four letters. Three letters. I love you. That is the foundation.
-            Not as a platitude — as an operating condition. Self-directed compassion lowers cortisol.
+            Not as a platitude \u2014 as an operating condition. Self-directed compassion lowers cortisol.
             Self-criticism spikes it. A regulated nervous system sustains high standards. A shamed
             one collapses. The number is not decoration. It is the principle the entire system is
             built on: you cannot lead others until you stop running a threat filter against yourself.
@@ -186,14 +188,14 @@ export default async function AboutPage() {
             Ready to see your map?
           </p>
           <h2 className="mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            The assessment takes 15 minutes. The clarity lasts.
+            143 questions. 15 minutes. The most honest mirror your leadership has seen.
           </h2>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/upgrade" className="btn-primary">
-              Take the Assessment — $43
+            <Link href="/preview" className="btn-primary">
+              See Your Light Signature \u2014 Free
             </Link>
-            <Link href="/upgrade-your-os" className="btn-watch">
-              See the Framework
+            <Link href="/143" className="btn-watch">
+              Start the 143 Challenge \u2014 Free
             </Link>
           </div>
         </div>

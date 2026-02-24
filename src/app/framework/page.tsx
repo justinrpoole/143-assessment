@@ -6,38 +6,38 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "The Framework",
-  description: "Nine dimensions. Three phases. One operating system upgrade. The Be The Light Framework maps 9 trainable leadership capacities backed by peer-reviewed science.",
+  title: "The Be The Light Framework — 9 Rays, 3 Phases, 1 OS Upgrade",
+  description: "Nine trainable leadership capacities. Three developmental phases. Backed by peer-reviewed science from McEwen, Jha, Lieberman, Gollwitzer, and Dweck. Not a personality label. A behavioural map that changes as you do.",
 };
 
 const THREE_PHASES = [
   {
     phase: "Phase 1",
     title: "Reconnect",
-    rays: "Rays 1–3: Intention, Joy, Presence",
-    body: "Emotional intelligence with yourself. Before you lead others, you need access to yourself — and that access starts with self-directed compassion. 143 means I love you. That is the foundation principle. Intention sets direction. Joy creates fuel independent of conditions. Presence settles your nervous system. You might discover you are a Strategic Optimist or a Deep Listener. This is where the ground forms.",
+    rays: "Rays 1\u20133: Intention, Joy, Presence",
+    body: "Emotional intelligence with yourself. Before you lead others, you need access to yourself \u2014 and that access starts with self-directed compassion. 143 means I love you. That is the foundation principle. Intention sets direction so your calendar becomes a decision, not a reaction. Joy creates fuel independent of conditions so you stop running on borrowed energy. Presence settles your nervous system so the gap between stimulus and response is yours. You might discover you are a Strategic Optimist or a Deep Listener. This is where the ground forms.",
   },
   {
     phase: "Phase 2",
     title: "Expand",
-    rays: "Rays 4–6: Power, Purpose, Authenticity",
-    body: "Where self-regulation meets self-expression. You stop waiting for permission and start moving. Power is consistent action despite fear. Purpose is alignment between calendar and values. Authenticity is being the same self in every room. A Decisive Director or a Bold Authentic leads from here.",
+    rays: "Rays 4\u20136: Power, Purpose, Authenticity",
+    body: "Where self-regulation meets self-expression. You stop waiting for permission and start moving. Power is consistent action despite fear \u2014 moving before you feel ready and trusting yourself after. Purpose is alignment between your calendar and your values. Authenticity is being the same person in every room without code-switching your soul. A Decisive Director or a Bold Authentic leads from here. When these Rays are eclipsed, you perform but never feel aligned.",
   },
   {
     phase: "Phase 3",
     title: "Become",
-    rays: "Rays 7–9: Connection, Possibility, Be The Light",
-    body: "Emotional intelligence with others. Your capacity extends beyond yourself. Connection builds trust. Possibility opens doors where others see walls. Be The Light holds the room steady. A Charismatic Connector or a Visionary Servant leads from this force.",
+    rays: "Rays 7\u20139: Connection, Possibility, Be The Light",
+    body: "Emotional intelligence with others. Your capacity extends beyond yourself. Connection builds trust so people feel safe enough to be honest. Possibility opens doors where others see walls. Be The Light holds the room steady \u2014 your presence lowers the noise. A Charismatic Connector or a Visionary Servant leads from this force. When these Rays are online, you do not just lead. You multiply.",
   },
 ];
 
 const SCIENCE_BACKING = [
-  { label: "Energy Borrowing", source: "McEwen (2008)", use: "You are borrowing energy. The Eclipse Snapshot makes the cost visible before you go bankrupt." },
-  { label: "Attention Training", source: "Jha, Damasio", use: "Attention is not a personality trait. It is a muscle. The Presence and Possibility Rays train it." },
-  { label: "Affect Labelling", source: "Lieberman et al. (2007)", use: "Naming an emotion reduces amygdala reactivity. The assessment gives you the language. Naming is the first intervention." },
-  { label: "Self-Distancing", source: "Kross et al. (2014)", use: "Perspective is a skill, not a gift. The coaching OS trains it through specific language practices." },
-  { label: "Implementation Intentions", source: "Gollwitzer (1999)", use: "The Rise Path gives you pre-decided moves. The negotiation with yourself is already over." },
-  { label: "Identity-Based Motivation", source: "Dweck, Oyserman", use: "When you believe the score can move, you train differently. The belief itself changes the behaviour." },
+  { label: "Allostatic Load", source: "McEwen (2008)", use: "When stress stays elevated, your body borrows energy from future capacity. The Eclipse Snapshot makes the cost visible before you go bankrupt. That is biology, not weakness." },
+  { label: "Attention Training", source: "Jha (2019), Damasio", use: "Attention is not a personality trait. It is a muscle. Dr. Amishi Jha\u2019s research shows 12 minutes of daily practice measurably improves focus. The Presence and Possibility Rays train it." },
+  { label: "Affect Labelling", source: "Lieberman et al. (2007)", use: "Naming an emotion reduces amygdala reactivity by up to 50%. The assessment gives you the language. Naming is not therapy. It is the first intervention." },
+  { label: "Self-Distancing", source: "Kross et al. (2014)", use: "Perspective is a skill, not a gift. Speaking about yourself in the third person reduces emotional reactivity. The coaching OS trains this through specific language practices." },
+  { label: "Implementation Intentions", source: "Gollwitzer (1999)", use: "If-then plans increase goal achievement by 2\u20133x. The Rise Path gives you pre-decided moves. The negotiation with yourself is already over." },
+  { label: "Growth Mindset", source: "Dweck (2006), Oyserman", use: "When you believe the score can move, you train differently. The 143 Assessment is designed to be outgrown. The belief that change is possible changes the behaviour itself." },
 ];
 
 export default async function FrameworkPage() {
