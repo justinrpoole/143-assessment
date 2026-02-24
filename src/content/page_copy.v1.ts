@@ -275,40 +275,40 @@ export const PAGE_COPY_V1: V1PageCopy = {
   challenge143: {
     label: "The 143 Challenge",
     headline:
-      "Using your brain\u2019s pattern recognition system to build self-love.",
+      "You talk to yourself worse than you would talk to anyone you love. This rewires that in 3 days.",
     subhead:
-      "Self-directed compassion plus attention steering to keep standards sustainable. Not fluff. Not ego. A reprogramming act. 143 is your permission slip and your proof.",
+      "Your brain filters 11 million bits of data per second. Right now it is scanning for what is wrong with you. The 143 Challenge gives it new instructions \u2014 in 3 minutes a day, for 3 days, using a protocol built on the same neuroscience behind the 143 Leadership Assessment. 143 means I love you. That is not a slogan. That is the mechanism. Free. No card required.",
     ctas: {
       primary: {
-        label: "Start the Challenge",
+        label: "Send Me the Challenge Kit \u2014 Free",
         href: "/toolkit",
       },
       secondary: {
-        label: "See the protocol",
+        label: "Show me how it works",
         href: "#challenge-start-now",
       },
     },
     introQuestion:
-      "Think of the last time you felt like you made a mistake. Did you use phrases like \u201cI\u2019m so stupid\u201d or other negative self-talk? That is not a character flaw. That is your Reticular Activating System running a threat filter you never installed on purpose.",
-    startNowTitle: "The 143 Protocol",
+      "Last time you made a mistake at work, what did you say to yourself? If the answer was anything close to \u201cI\u2019m an idiot\u201d \u2014 that is not a character flaw. That is your Reticular Activating System running a threat filter you never chose. You installed it through years of stress. The 143 Challenge uninstalls it in 72 hours.",
+    startNowTitle: "The 143 Protocol \u2014 3 Days. 3 Minutes. 1 Cue.",
     startNowBody:
-      "When you see 143 \u2014 or choose a cue \u2014 hand over heart. Say: \u201cI love you.\u201d Add: \u201cI\u2019m safe. I\u2019m happy. I\u2019m loved.\u201d Choose one aligned action immediately. That is a rep.",
+      "Every time you see the number 143 \u2014 on a clock, a receipt, a licence plate \u2014 hand over heart. Say three words: I love you. Then add: I am safe. I am here. I am enough. Then choose one small action that matches who you want to be today. That is a rep. One rep rewires nothing. Three days of reps rewires your filter.",
     challengeSteps: [
-      "Day 1 \u2014 Recognition: Notice three things that went right. Write them down. You are feeding your RAS new search instructions.",
-      "Day 2 \u2014 Encouragement: Connect each moment to a capacity. \u2018I stayed steady\u2019 becomes \u2018I can regulate.\u2019",
-      "Day 3 \u2014 Direction: Pick one word. Carry it all day. When you see it reflected, say: \u2018There it is.\u2019",
+      "Day 1 \u2014 Recognition: Notice three things that went right today. Write them down. You just gave your brain new search instructions. Your RAS will start looking for more.",
+      "Day 2 \u2014 Encouragement: Connect each win to a capacity you already have. \u2018I stayed calm in that meeting\u2019 becomes \u2018I can regulate under pressure.\u2019 This is identity evidence. Your brain needs proof, not pep talks.",
+      "Day 3 \u2014 Direction: Pick one word for your day. Carry it. When you spot it reflected in a moment \u2014 a conversation, a decision, a feeling \u2014 say: \u2018There it is.\u2019 You just trained your brain to find what you chose instead of what you fear.",
     ],
-    kitTitle: "Challenge Kit",
+    kitTitle: "The 143 Challenge Kit \u2014 Everything You Need",
     kitBody:
-      "The three-day challenge works on its own. The kit makes it stick.",
+      "The protocol works on its own. The kit removes every barrier to actually doing it.",
     kitIncludes: [
-      "Tracker PDF \u2014 A printable daily log for all three days",
-      "Daily Prompts \u2014 One email each morning, short and specific",
-      "90-Second Reset Audio \u2014 Brings you back online when your nervous system spikes",
-      "Share Cards \u2014 Functional reminders you can share or keep visible",
+      "Printable Tracker \u2014 A daily log that takes 90 seconds to complete. Three days. One page.",
+      "Morning Prompts \u2014 One email each morning with that day\u2019s exact protocol. Short. Specific. No fluff.",
+      "90-Second Reset Audio \u2014 A guided nervous system reset you can use when the inner critic gets loud. Play it in your car, at your desk, before a hard conversation.",
+      "Share Cards \u2014 Visual cue cards designed to trigger your 143 rep. Put one on your mirror. Send one to someone who needs it.",
     ],
     close:
-      "Self-compassion is not soft. It is stability. You do not need a new mindset. You need a new filter. The 143 Challenge teaches your mind to spot the light that was already there. \u201cI choose what my mind magnifies.\u201d",
+      "Self-compassion is not soft. It is the reason your nervous system can sustain high standards without burning through you. Mel Robbins taught you to count down and move. This teaches your brain what to look for when it lands. The 143 Challenge is the entry point. The 143 Assessment is the map. Start with the free one. See what moves.",
   },
   preview: {
     headline:

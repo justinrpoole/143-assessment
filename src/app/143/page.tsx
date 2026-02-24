@@ -9,8 +9,8 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "The 143 Challenge",
-  description: "Your brain is running a threat filter you never installed. The 143 Challenge uses your Reticular Activating System to reprogram it in 3 days. 3 minutes a day. Free.",
+  title: "The 143 Challenge — Free 3-Day Brain Rewire",
+  description: "You talk to yourself worse than you would talk to anyone you love. The 143 Challenge rewires your brain's threat filter in 3 days, 3 minutes a day. Free. No card required.",
 };
 
 export default async function Challenge143Page() {
