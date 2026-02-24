@@ -296,9 +296,9 @@ export default async function AboutPage() {
               }}
             >
               The 9 Rays are emotional intelligence made trainable and
-              measurable. Rays 1 through 3 train EQ with yourself. Rays 7
-              through 9 train EQ with others. Rays 4 through 6 are where they
-              meet. That is the map. 143 questions. 15 minutes. The most honest
+              measurable. Intention, Joy, and Presence train EQ with yourself.
+              Connection, Possibility, and Be The Light train EQ with others.
+              Power, Purpose, and Authenticity are where they meet. That is the map. 143 questions. 15 minutes. The most honest
               mirror your leadership has seen. Not who you are. What you can
               build.
             </p>

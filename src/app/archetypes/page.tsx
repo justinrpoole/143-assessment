@@ -18,15 +18,15 @@ export const metadata: Metadata = {
 /* ── static data ───────────────────────────────────────────── */
 
 const NINE_RAYS = [
-  { ray: "Ray 1", name: "Intention", phase: "Reconnect" },
-  { ray: "Ray 2", name: "Joy", phase: "Reconnect" },
-  { ray: "Ray 3", name: "Presence", phase: "Reconnect" },
-  { ray: "Ray 4", name: "Power", phase: "Expand" },
-  { ray: "Ray 5", name: "Purpose", phase: "Expand" },
-  { ray: "Ray 6", name: "Authenticity", phase: "Expand" },
-  { ray: "Ray 7", name: "Connection", phase: "Become" },
-  { ray: "Ray 8", name: "Possibility", phase: "Become" },
-  { ray: "Ray 9", name: "Be The Light", phase: "Become" },
+  { name: "Intention", phase: "Reconnect" },
+  { name: "Joy", phase: "Reconnect" },
+  { name: "Presence", phase: "Reconnect" },
+  { name: "Power", phase: "Expand" },
+  { name: "Purpose", phase: "Expand" },
+  { name: "Authenticity", phase: "Expand" },
+  { name: "Connection", phase: "Become" },
+  { name: "Possibility", phase: "Become" },
+  { name: "Be The Light", phase: "Become" },
 ];
 
 /* ── page ───────────────────────────────────────────────────── */
@@ -69,7 +69,7 @@ export default function ArchetypesPage() {
             <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {NINE_RAYS.map((ray) => (
                 <div
-                  key={ray.ray}
+                  key={ray.name}
                   className="glass-card p-3 text-center"
                 >
                   <p
@@ -79,7 +79,7 @@ export default function ArchetypesPage() {
                       opacity: 0.6,
                     }}
                   >
-                    {ray.ray}
+                    Ray of
                   </p>
                   <p
                     className="mt-1 text-sm font-semibold"

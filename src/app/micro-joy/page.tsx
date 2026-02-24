@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Micro-Joy",
-  description: "Your daily micro-joy practice. A small, intentional moment of joy that trains Ray 2 and rewires your attention filter.",
+  description: "Your daily micro-joy practice. A small, intentional moment of joy that trains your Ray of Joy and rewires your attention filter.",
 };
 
 const MAX_GENERATES_PER_DAY = 1;

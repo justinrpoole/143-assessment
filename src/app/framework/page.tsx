@@ -23,19 +23,19 @@ const THREE_PHASES = [
   {
     phase: "Phase 1",
     title: "Reconnect",
-    rays: "Rays 1\u20133: Intention, Joy, Presence",
+    rays: "Ray of Intention, Ray of Joy, Ray of Presence",
     body: "Emotional intelligence with yourself. Before you lead others, you need access to yourself \u2014 and that access starts with self-directed compassion. Intention sets direction so your calendar becomes a decision, not a reaction. Joy creates fuel independent of conditions so you stop running on borrowed energy. Presence settles your nervous system so the gap between stimulus and response is yours.",
   },
   {
     phase: "Phase 2",
     title: "Expand",
-    rays: "Rays 4\u20136: Power, Purpose, Authenticity",
+    rays: "Ray of Power, Ray of Purpose, Ray of Authenticity",
     body: "Where self-regulation meets self-expression. You stop waiting for permission and start moving. Power is consistent action despite fear \u2014 moving before you feel ready and trusting yourself after. Purpose is alignment between your calendar and your values. Authenticity is being the same person in every room without code-switching your soul.",
   },
   {
     phase: "Phase 3",
     title: "Become",
-    rays: "Rays 7\u20139: Connection, Possibility, Be The Light",
+    rays: "Ray of Connection, Ray of Possibility, Be The Light",
     body: "Emotional intelligence with others. Your capacity extends beyond yourself. Connection builds trust so people feel safe enough to be honest. Possibility opens doors where others see walls. Be The Light holds the room steady \u2014 your presence lowers the noise. When these rays are online, you do not just lead. You multiply.",
   },
 ];
