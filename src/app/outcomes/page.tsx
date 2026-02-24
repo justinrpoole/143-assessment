@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import CosmicImage from "@/components/marketing/CosmicImage";
 import {
   FadeInSection,
   StaggerContainer,
@@ -87,6 +88,15 @@ export default async function OutcomesPage() {
                 Seven shifts people report after 90 days.
               </h2>
             </div>
+
+            <CosmicImage
+              src="/images/cosmic/sun-radiance.png"
+              alt="Full radiance — leadership capacities operating at maximum"
+              width={320}
+              height={320}
+              maxWidth="320px"
+              variant="section"
+            />
 
             <StaggerContainer className="space-y-4">
               {WINS.map((win, i) => (

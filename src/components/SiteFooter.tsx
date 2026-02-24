@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { MARKETING_FOOTER_COLUMNS } from "@/lib/nav/nav-config";
@@ -9,6 +10,16 @@ export function SiteFooter() {
       style={{ borderColor: 'var(--surface-border)', background: 'var(--overlay-light)' }}
     >
       <div className="mx-auto max-w-5xl">
+        <div className="mb-8">
+          <Image
+            src="/images/logo-full-transparent.png"
+            alt="143 Leadership"
+            width={120}
+            height={40}
+            className="h-auto opacity-70"
+            style={{ maxWidth: "120px" }}
+          />
+        </div>
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           {MARKETING_FOOTER_COLUMNS.map((col) => (
             <div key={col.heading}>

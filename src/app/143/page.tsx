@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import CosmicImage from "@/components/marketing/CosmicImage";
+import DigitalClock143 from "@/components/marketing/DigitalClock143";
 import { ToolkitDeliveryClient } from "@/components/retention/ToolkitDeliveryClient";
 import {
   FadeInSection,
@@ -112,6 +114,10 @@ export default async function Challenge143Page() {
             <Link href="/assessment" className="btn-watch">
               Take the Full Assessment
             </Link>
+          </div>
+
+          <div className="mt-6">
+            <DigitalClock143 />
           </div>
         </section>
 
@@ -244,6 +250,15 @@ export default async function Challenge143Page() {
         <FadeInSection>
           <section className="mx-auto max-w-[720px] space-y-6">
             <div className="glass-card p-6 sm:p-8 space-y-5">
+              <CosmicImage
+                src="/images/logo-143-challenge-transparent.png"
+                alt="143 Challenge"
+                width={120}
+                height={120}
+                maxWidth="120px"
+                variant="decorative"
+                className="mb-2"
+              />
               <p
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: "var(--brand-gold, #F8D011)" }}

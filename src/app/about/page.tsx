@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import CosmicImage from "@/components/marketing/CosmicImage";
 import {
   FadeInSection,
   StaggerContainer,
@@ -277,6 +278,14 @@ export default async function AboutPage() {
         {/* ─── SECTION 5 · THE METHOD ─────────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px] space-y-5 text-center">
+            <CosmicImage
+              src="/images/logo-143-transparent.png"
+              alt="143 Leadership"
+              width={160}
+              height={160}
+              maxWidth="160px"
+              variant="decorative"
+            />
             <p
               className="text-xs font-bold uppercase tracking-widest"
               style={{ color: "var(--brand-gold, #F8D011)" }}

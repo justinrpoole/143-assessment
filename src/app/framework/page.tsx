@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import CosmicImage from "@/components/marketing/CosmicImage";
 import {
   FadeInSection,
   StaggerContainer,
@@ -224,6 +225,15 @@ export default async function FrameworkPage() {
               ))}
             </StaggerContainer>
 
+            <CosmicImage
+              src="/images/cosmic/framework-mandala.png"
+              alt="The Be The Light Framework — 9 Rays arranged across 3 developmental phases"
+              width={520}
+              height={520}
+              maxWidth="520px"
+              variant="section"
+            />
+
             <FadeInSection delay={0.3}>
               <div className="mx-auto max-w-[600px] space-y-4">
                 <SunRayDiagram />
@@ -284,6 +294,15 @@ export default async function FrameworkPage() {
               The assessment names it. The first step out is not trying harder. It
               is creating stability to train.
             </p>
+            <CosmicImage
+              src="/images/cosmic/eclipse-meter.png"
+              alt="Eclipse meter — measuring how much of your light is currently covered"
+              width={360}
+              height={360}
+              maxWidth="360px"
+              variant="section"
+              className="mt-4"
+            />
           </section>
         </FadeInSection>
 

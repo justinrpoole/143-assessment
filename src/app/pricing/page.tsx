@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import CosmicImage from "@/components/marketing/CosmicImage";
 import SocialProofTicker from "@/components/marketing/SocialProofTicker";
 import {
   FadeInSection,
@@ -216,6 +217,17 @@ export default async function PricingPage() {
           </p>
         </section>
 
+        <FadeInSection>
+          <CosmicImage
+            src="/images/cosmic/light-dashboard.png"
+            alt="The 143 Leadership Portal — your growth dashboard with weekly retakes and progress tracking"
+            width={560}
+            height={560}
+            maxWidth="560px"
+            variant="product"
+          />
+        </FadeInSection>
+
         <GoldDivider />
 
         {/* ─── SECTION 2 · PLAN CARDS ──────────────────────────── */}
@@ -311,6 +323,17 @@ export default async function PricingPage() {
         <div className="py-2">
           <SocialProofTicker />
         </div>
+
+        <FadeInSection>
+          <CosmicImage
+            src="/images/cosmic/solar-core-score.png"
+            alt="Solar core score — your gravitational stability at a glance"
+            width={280}
+            height={280}
+            maxWidth="280px"
+            variant="section"
+          />
+        </FadeInSection>
 
         <GoldDivider />
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import CosmicImage from "@/components/marketing/CosmicImage";
 import {
   FadeInSection,
   StaggerContainer,
@@ -122,6 +123,16 @@ export default async function HowItWorksPage() {
               Take the Assessment
             </Link>
           </div>
+
+          <CosmicImage
+            src="/images/cosmic/framework-phases.png"
+            alt="Four phases of the 143 Leadership system — reset, map, train, measure"
+            width={600}
+            height={600}
+            maxWidth="600px"
+            variant="section"
+            className="mt-6"
+          />
         </section>
 
         <GoldDivider />
@@ -143,6 +154,15 @@ export default async function HowItWorksPage() {
                 Each step builds capacity for the next.
               </h2>
             </div>
+
+            <CosmicImage
+              src="/images/cosmic/gravitational-stability.png"
+              alt="Gravitational stability — measuring your leadership capacity under pressure"
+              width={320}
+              height={320}
+              maxWidth="320px"
+              variant="section"
+            />
 
             <StaggerContainer className="grid gap-5 sm:grid-cols-2">
               {FUNNEL_STEPS.map((step) => (
@@ -289,6 +309,15 @@ export default async function HowItWorksPage() {
                 Cancel anytime. No penalties. No exit interviews. Your data stays.
                 Your map is waiting when you come back.
               </p>
+              <CosmicImage
+                src="/images/cosmic/moon-sun-slider.png"
+                alt="Moon to sun — your scores shift from eclipse toward full radiance over time"
+                width={400}
+                height={400}
+                maxWidth="400px"
+                variant="section"
+                className="mt-2"
+              />
             </div>
           </section>
         </FadeInSection>

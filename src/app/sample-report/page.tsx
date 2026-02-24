@@ -1,6 +1,7 @@
 import DimmingDetector from "@/components/assessment/DimmingDetector";
 import SampleReportClient from "@/components/assessment/SampleReportClient";
 import SampleReportCTA from "@/components/billing/SampleReportCTA";
+import CosmicImage from "@/components/marketing/CosmicImage";
 
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -38,29 +39,43 @@ export default async function SampleReportPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Sample Report
-          </p>
-          <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-          >
-            This is what a full report reads like. Not a screenshot. The real
-            thing.
-          </h1>
-          <p
-            className="max-w-[560px] text-base leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            Browse a sample Gravitational Stability Report — same format, same
-            depth, same identity-first language. The only difference is the data
-            is not yours. Yet.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-8">
+            <div className="flex-1 space-y-5">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Sample Report
+              </p>
+              <h1
+                className="text-3xl font-bold leading-tight sm:text-4xl"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                This is what a full report reads like. Not a screenshot. The real
+                thing.
+              </h1>
+              <p
+                className="max-w-[560px] text-base leading-relaxed"
+                style={{
+                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                }}
+              >
+                Browse a sample Gravitational Stability Report — same format, same
+                depth, same identity-first language. The only difference is the data
+                is not yours. Yet.
+              </p>
+            </div>
+            <div className="mt-6 sm:mt-0 shrink-0">
+              <CosmicImage
+                src="/images/cosmic/insight-sphere.png"
+                alt="Crystal insight sphere — clarity through your personal leadership data"
+                width={240}
+                height={240}
+                maxWidth="240px"
+                variant="section"
+              />
+            </div>
+          </div>
         </section>
 
         <GoldDivider />

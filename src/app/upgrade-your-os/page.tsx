@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import CosmicImage from "@/components/marketing/CosmicImage";
 import HeroProofStrip from "@/components/marketing/HeroProofStrip";
 import HeroEclipseVisual from "@/components/marketing/HeroEclipseVisual";
 import EclipseComparisonGraphic from "@/components/marketing/EclipseComparisonGraphic";
@@ -304,6 +305,18 @@ export default async function UpgradeYourOsPage() {
               See Your Top 2 Rays — Free
             </Link>
           </div>
+        </FadeInSection>
+
+        <FadeInSection delay={0.4}>
+          <CosmicImage
+            src="/images/cosmic/constellation-map.png"
+            alt="36 Light Signature combinations — your unique leadership constellation"
+            width={480}
+            height={480}
+            maxWidth="480px"
+            variant="section"
+            className="mt-8"
+          />
         </FadeInSection>
       </section>
 

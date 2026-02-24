@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 
+import CosmicImage from "@/components/marketing/CosmicImage";
 import {
   FadeInSection,
   StaggerContainer,
@@ -60,7 +62,31 @@ export default async function WatchMePage() {
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5">
+        <section className="relative mx-auto max-w-[720px] space-y-5">
+          <div
+            className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl"
+            aria-hidden="true"
+          >
+            <Image
+              src="/images/cosmic/nebula-spiral.png"
+              alt=""
+              fill
+              className="object-cover opacity-[0.15]"
+              sizes="720px"
+              style={{
+                maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
+              }}
+            />
+          </div>
+          <CosmicImage
+            src="/images/logo-justin-ray-transparent.png"
+            alt="Justin Ray"
+            width={48}
+            height={48}
+            maxWidth="48px"
+            variant="decorative"
+          />
           <p
             className="text-xs font-bold uppercase tracking-widest"
             style={{ color: "var(--brand-gold, #F8D011)" }}

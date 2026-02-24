@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import ArchetypeLibraryClient from "@/components/archetypes/ArchetypeLibraryClient";
+import CosmicImage from "@/components/marketing/CosmicImage";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 
 export const metadata: Metadata = {
@@ -109,6 +110,17 @@ export default function ArchetypesPage() {
               below.
             </p>
           </div>
+        </FadeInSection>
+
+        <FadeInSection>
+          <CosmicImage
+            src="/images/cosmic/constellation-map.png"
+            alt="36 Light Signature combinations mapped as a leadership constellation"
+            width={440}
+            height={440}
+            maxWidth="440px"
+            variant="section"
+          />
         </FadeInSection>
 
         <GoldDivider />

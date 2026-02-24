@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   async redirects() {
     return [
       { source: "/143-challenge", destination: "/143", permanent: true },
