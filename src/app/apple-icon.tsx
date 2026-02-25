@@ -2,11 +2,10 @@ import { ImageResponse } from 'next/og';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-export const alt = '143 Leadership — Measure, Train, and Sustain Your Leadership Light';
-export const size = { width: 1200, height: 630 };
+export const size = { width: 180, height: 180 };
 export const contentType = 'image/png';
 
-export default async function Image() {
+export default async function Icon() {
   const logoData = await readFile(
     join(process.cwd(), 'public', 'images', 'master-logo.png'),
   );
@@ -16,34 +15,21 @@ export default async function Image() {
     (
       <div
         style={{
-          background: 'linear-gradient(135deg, #1a0533 0%, #0C0118 50%, #0a0a1f 100%)',
+          background: '#4A0E78',
           width: '100%',
           height: '100%',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '60px',
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={logoSrc}
           alt=""
-          width={420}
-          height={420}
+          width={160}
+          height={160}
         />
-        <div
-          style={{
-            fontSize: 20,
-            color: 'rgba(255,254,245,0.5)',
-            marginTop: 24,
-            letterSpacing: 6,
-            textTransform: 'uppercase' as const,
-          }}
-        >
-          Measure · Train · Sustain
-        </div>
       </div>
     ),
     { ...size },

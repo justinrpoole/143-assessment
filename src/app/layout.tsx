@@ -34,12 +34,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/icon.svg",
-    apple: "/icon.svg",
   },
   openGraph: {
     type: "website",
     siteName: "143 Leadership",
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "143 Leadership — Measure, Train, and Sustain Your Leadership Light" }],
   },
   twitter: {
     card: "summary_large_image",
