@@ -45,6 +45,7 @@ export const PAGE_VIEW_EVENTS = [
   "page_view_weekly",
   "page_view_reps",
   "page_view_welcome",
+  "page_view_methodology",
 ] as const;
 
 export type PageViewEvent = (typeof PAGE_VIEW_EVENTS)[number];
