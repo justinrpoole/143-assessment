@@ -30,7 +30,10 @@ export const MARKETING_LINKS = {
   archetypes: { href: "/archetypes", label: "Archetypes" },
   glossary: { href: "/glossary", label: "Glossary" },
   resources: { href: "/resources", label: "Resources" },
-  coaches: { href: "/coaches", label: "Coaching Program" },
+  coaches: { href: "/coaches", label: "Light Activation Program" },
+  osCoaching: { href: "/os-coaching", label: "1-on-1 OS Coaching" },
+  enterprise: { href: "/enterprise", label: "Enterprise" },
+  cohorts: { href: "/cohorts", label: "Group Cohorts" },
   about: { href: "/about", label: "About" },
   forTeams: { href: "/organizations", label: "For Organizations" },
   privacy: { href: "/privacy", label: "Privacy" },
@@ -78,7 +81,16 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
       MARKETING_LINKS.glossary,
     ],
   },
-  MARKETING_LINKS.forTeams,
+  {
+    label: "For Organizations",
+    href: "/organizations",
+    children: [
+      MARKETING_LINKS.enterprise,
+      MARKETING_LINKS.coaches,
+      MARKETING_LINKS.osCoaching,
+      MARKETING_LINKS.cohorts,
+    ],
+  },
   MARKETING_LINKS.about,
 ];
 
