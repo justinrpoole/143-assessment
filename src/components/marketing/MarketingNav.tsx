@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { isBetaFreeMode } from "@/lib/config/beta";
@@ -11,40 +12,6 @@ import {
   isNavGroup,
 } from "@/lib/nav/nav-config";
 import type { NavGroup } from "@/lib/nav/nav-config";
-
-/* ── Sun-moon brand mark (matches logo fusion icon) ────── */
-
-function BrandMark({ size = 28 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 40 40"
-      fill="none"
-      aria-hidden="true"
-    >
-      {/* Sun rays */}
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
-        <line
-          key={deg}
-          x1="22"
-          y1="20"
-          x2={22 + 16 * Math.cos((deg * Math.PI) / 180)}
-          y2={20 + 16 * Math.sin((deg * Math.PI) / 180)}
-          stroke="var(--brand-gold)"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-      ))}
-      {/* Sun body */}
-      <circle cx="22" cy="20" r="8" fill="var(--brand-gold)" />
-      {/* Moon crescent (subtractive overlay) */}
-      <circle cx="16" cy="18" r="9" fill="var(--brand-black, #0C0118)" />
-      <circle cx="16" cy="18" r="7.5" fill="var(--brand-gold)" />
-      <circle cx="19" cy="16" r="7" fill="var(--brand-black, #0C0118)" />
-    </svg>
-  );
-}
 
 /* ── Chevron ─────────────────────────────────────────────── */
 
@@ -252,17 +219,15 @@ export function MarketingNav() {
       >
         <div className="mx-auto flex h-[60px] max-w-[1200px] items-center justify-between gap-4 px-6">
           {/* Logo */}
-          <Link href="/" className="flex shrink-0 items-center gap-2.5 no-underline" aria-label="143 Leadership — Home" onClick={closeMenu}>
-            <BrandMark size={28} />
-            <span
-              className="font-[700] font-serif text-[14px] uppercase tracking-[0.08em]"
-              style={{
-                color: "var(--color-outline-white)",
-                fontFamily: '"Iowan Old Style", Palatino, Georgia, serif',
-              }}
-            >
-              143 Leadership
-            </span>
+          <Link href="/" className="flex shrink-0 items-center gap-2 no-underline" aria-label="143 Leadership — Home" onClick={closeMenu}>
+            <Image
+              src="/images/master-logo.png"
+              alt="Justin Ray 143 Leadership"
+              width={140}
+              height={40}
+              className="h-[40px] w-auto"
+              priority
+            />
             {isBeta && (
               <span
                 className="ml-1.5 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.06em]"
