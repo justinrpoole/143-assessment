@@ -41,7 +41,7 @@ function segmentRects(ox: number, oy: number): SegRect[] {
 /* ── Layout ──────────────────────────────────────── */
 
 const SVG_W = 240;
-const SVG_H = 120;
+const SVG_H = 82;
 const COLON_W = 6;
 const DIGIT_GAP = 8;
 const PAIR_GAP = 5;
@@ -74,7 +74,7 @@ export default function DigitalClock143() {
       className="mx-auto"
       style={{ maxWidth: '280px', width: '100%' }}
       role="img"
-      aria-label="Digital clock showing 1:43 — I love you"
+      aria-label="Digital clock showing 1:43"
     >
       <svg
         viewBox={`0 0 ${SVG_W} ${SVG_H}`}
@@ -134,20 +134,6 @@ export default function DigitalClock143() {
           <circle cx={COLON_CX} cy={COLON_Y2} r={COLON_R} fill={GOLD} />
         </motion.g>
 
-        {/* "I LOVE YOU" label */}
-        <text
-          x={SVG_W / 2}
-          y={DIGIT_Y + DIGIT_H + 24}
-          textAnchor="middle"
-          fill={GOLD}
-          fontSize="9"
-          fontFamily="system-ui, -apple-system, sans-serif"
-          letterSpacing="3.5"
-          fontWeight="700"
-          opacity="0.65"
-        >
-          I LOVE YOU
-        </text>
       </svg>
     </div>
   );
