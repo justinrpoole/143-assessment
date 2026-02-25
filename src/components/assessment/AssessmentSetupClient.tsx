@@ -3,6 +3,10 @@
 import { type FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { RasResetLesson } from "./RasResetLesson";
+import { AttentionPrimer } from "./AttentionPrimer";
+
+type PrimingPhase = 'ras_lesson' | 'breathing' | 'configure';
 
 interface DimmingResult {
   score: number;
@@ -48,16 +52,17 @@ interface DraftApiResponse {
 
 function lockCopy(reason: LockReason): string {
   if (reason === "paid_43_run1_used") {
-    return "You already completed your first run — that data is yours forever. Weekly access unlocks retakes so you can track real change over time.";
+    return "You already completed your first run — that data is yours forever. Monthly access unlocks retakes so you can track real change over time.";
   }
   if (reason === "reactivation_required") {
     return "Your subscription access needs a refresh before you can start a new run. Your existing results are still available.";
   }
-  return "The full assessment requires paid access. Your sample report and Stability Check results are still available to review.";
+  return "The full assessment requires paid access. Your sample report and Dimming Check results are still available to review.";
 }
 
 export function AssessmentSetupClient() {
   const router = useRouter();
+  const [primingPhase, setPrimingPhase] = useState<PrimingPhase>('ras_lesson');
   const [contextScope, setContextScope] = useState<string>("work");
   const [focusArea, setFocusArea] = useState<string>("confidence");
   const [submitting, setSubmitting] = useState<boolean>(false);
@@ -67,6 +72,9 @@ export function AssessmentSetupClient() {
 
   useEffect(() => {
     setDimmingResult(loadDimmingResult());
+    // Skip priming for returning users who have completed before
+    const hasCompletedPriming = sessionStorage.getItem('143_priming_done');
+    if (hasCompletedPriming) setPrimingPhase('configure');
   }, []);
 
   const lockMessage = useMemo(
@@ -148,6 +156,27 @@ export function AssessmentSetupClient() {
     }
   }
 
+  // ── Priming Phases (before configuration) ──
+  if (primingPhase === 'ras_lesson' && !lockMessage) {
+    return (
+      <RasResetLesson
+        onComplete={() => setPrimingPhase('breathing')}
+      />
+    );
+  }
+
+  if (primingPhase === 'breathing' && !lockMessage) {
+    return (
+      <AttentionPrimer
+        onComplete={() => {
+          sessionStorage.setItem('143_priming_done', '1');
+          setPrimingPhase('configure');
+        }}
+      />
+    );
+  }
+
+  // ── Configuration Phase ──
   return (
     <>
       {lockMessage ? (
@@ -173,7 +202,7 @@ export function AssessmentSetupClient() {
           style={{ borderColor: 'rgba(248, 208, 17, 0.25)' }}
         >
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Your Stability Check
+            Your Dimming Check
           </p>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
             Your check found{' '}
@@ -189,16 +218,49 @@ export function AssessmentSetupClient() {
         </section>
       )}
 
-      {/* Time estimate + proof framing (#12) */}
+      {/* Assessment Gate Label + What You Get */}
       {!lockMessage && (
-        <section className="glass-card p-5 mb-4">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            What You Are About To Get
+        <section className="glass-card p-5 mb-4 space-y-4">
+          {/* Gate label: Full vs Retake */}
+          <div className="flex items-center gap-3">
+            <span
+              className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold"
+              style={{
+                background: 'rgba(248, 208, 17, 0.12)',
+                color: 'var(--brand-gold, #F8D011)',
+                border: '1px solid rgba(248, 208, 17, 0.2)',
+              }}
+            >
+              Full Assessment
+            </span>
+            <span className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
+              143 questions &middot; ~15 min
+            </span>
+          </div>
+
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+            Your first run maps all 9 Rays across 36 subfacets. This produces a HIGH confidence result — the most complete picture of your current operating state.
           </p>
-          <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            143 questions. Most finish in 12–18 minutes. Auto-saves — close and come back anytime.
-          </p>
-          <div className="mt-3 grid grid-cols-2 gap-2">
+
+          {/* Comparison with retake */}
+          <div className="grid grid-cols-2 gap-3 text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
+            <div className="space-y-1.5">
+              <p className="font-bold" style={{ color: 'var(--brand-gold, #F8D011)' }}>Full Assessment</p>
+              <p>143 questions, ~15 min</p>
+              <p>All 9 Rays, 36 subfacets</p>
+              <p>HIGH confidence baseline</p>
+              <p>Light Signature + Rise Path</p>
+            </div>
+            <div className="space-y-1.5">
+              <p className="font-bold" style={{ color: 'var(--text-on-dark-secondary)' }}>Monthly Retake</p>
+              <p>43 questions, ~8 min</p>
+              <p>Tracking set (key indicators)</p>
+              <p>MODERATE confidence delta</p>
+              <p>Change detection + trends</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
             {[
               { num: '143', label: 'behavioural data points' },
               { num: '36', label: 'subfacets mapped' },
@@ -219,7 +281,7 @@ export function AssessmentSetupClient() {
         <h2 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>Set Your Context</h2>
         <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
           Choose the lens for your assessment. Your first run maps all 143 behavioural
-          capacities across the 9 Rays. Weekly retakes use the focused 43-question
+          capacities across the 9 Rays. Monthly retakes use the focused 43-question
           tracking set to measure real change over time.
         </p>
 
