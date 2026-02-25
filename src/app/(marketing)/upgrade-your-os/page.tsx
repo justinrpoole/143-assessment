@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import HeroProofStrip from "@/components/marketing/HeroProofStrip";
 import HeroVideoThumb from "@/components/marketing/HeroVideoThumb";
-import MarketingNav from "@/components/marketing/MarketingNav";
+import { MarketingNav } from "@/components/marketing/MarketingNav";
 import StickyCtaBar from "@/components/marketing/StickyCtaBar";
 import MiniAssessmentPreview from "@/components/marketing/MiniAssessmentPreview";
 import { emitPageView } from "@/lib/analytics/emitter";
