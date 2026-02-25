@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/icon.svg",
+    apple: "/apple-icon",
   },
   openGraph: {
     type: "website",
@@ -51,6 +52,17 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
+const JSON_LD_ORG = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "143 Leadership",
+  url: "https://143leadership.com",
+  logo: "https://143leadership.com/icon.svg",
+  description:
+    "Science-backed leadership assessment measuring 9 trainable capacities. 143 means I love you — self-directed compassion meets behavioural measurement.",
+  sameAs: [],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,6 +71,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${orelega.variable} ${inter.variable}`}>
       <body className="antialiased min-h-screen" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_ORG) }}
+        />
         <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <ServiceWorkerRegistration />
         <ToastProvider>

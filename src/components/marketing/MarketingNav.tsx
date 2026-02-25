@@ -252,7 +252,7 @@ export function MarketingNav() {
       >
         <div className="mx-auto flex h-[60px] max-w-[1200px] items-center justify-between gap-4 px-6">
           {/* Logo */}
-          <Link href="/" className="flex shrink-0 items-center gap-2.5 no-underline" onClick={closeMenu}>
+          <Link href="/" className="flex shrink-0 items-center gap-2.5 no-underline" aria-label="143 Leadership — Home" onClick={closeMenu}>
             <BrandMark size={28} />
             <span
               className="font-[700] font-serif text-[14px] uppercase tracking-[0.08em]"

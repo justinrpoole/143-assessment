@@ -20,6 +20,7 @@ export default function ReflectionInput({ itemId, value, onChange, placeholder }
         value={value}
         onChange={(e) => onChange(itemId, e.target.value)}
         placeholder={placeholder || 'A few direct sentences. Specific beats polished.'}
+        aria-label="Use one real moment. What happened, what did you do, and what changed?"
         rows={4}
         className="w-full resize-y rounded-xl border px-4 py-3 outline-none transition focus:ring-2 focus:ring-brand-gold/40"
         style={{

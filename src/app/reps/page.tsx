@@ -2,6 +2,8 @@ import RepLogClient from '@/components/retention/RepLogClient';
 import PortalTabBar from '@/components/portal/PortalTabBar';
 import { PageHeader } from "@/components/ui/PageHeader";
 import { PageShell } from "@/components/ui/PageShell";
+import { emitPageView } from "@/lib/analytics/emitter";
+import { getRequestAuthContext } from "@/lib/auth/request-context";
 
 export const dynamic = "force-dynamic";
 
@@ -29,6 +31,14 @@ async function resolveSearchParams(
 export default async function RepsPage({ searchParams }: PageProps) {
   const params = await resolveSearchParams(searchParams);
   const initialTool = typeof params.tool === 'string' ? params.tool : null;
+  const auth = await getRequestAuthContext();
+
+  emitPageView({
+    eventName: "page_view_reps",
+    sourceRoute: "/reps",
+    userState: auth.userState,
+    userId: auth.userId,
+  });
 
   return (
     <PageShell after={<PortalTabBar />}>

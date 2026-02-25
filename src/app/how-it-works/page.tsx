@@ -73,7 +73,7 @@ const OFFER_TIERS = [
     description:
       "Everything in the report plus weekly retakes, daily micro-practices, Watch Me and Go First flows, week-over-week progress logs. Cancel anytime. Data stays.",
     href: "/upgrade",
-    cta: "See Plans",
+    cta: "See My Options",
   },
 ];
 

@@ -19,6 +19,12 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
+
+  useEffect(() => {
     if (step === 'countdown') {
       startTimeRef.current = Date.now();
       setCountdown(5);

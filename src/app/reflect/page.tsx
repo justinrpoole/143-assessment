@@ -15,7 +15,7 @@ export default async function ReflectPage() {
   const auth = await getRequestAuthContext();
 
   emitPageView({
-    eventName: "page_view_portal",
+    eventName: "page_view_reflect",
     sourceRoute: "/reflect",
     userState: auth.userState,
     userId: auth.userId,

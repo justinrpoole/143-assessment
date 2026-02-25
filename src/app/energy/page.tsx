@@ -15,7 +15,7 @@ export default async function EnergyPage() {
   const auth = await getRequestAuthContext();
 
   emitPageView({
-    eventName: "page_view_portal",
+    eventName: "page_view_energy",
     sourceRoute: "/energy",
     userState: auth.userState,
     userId: auth.userId,

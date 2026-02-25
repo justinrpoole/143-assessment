@@ -52,7 +52,7 @@ const STARTERS_BY_RAY: Record<string, { context: string; opener: string }[]> = {
   ],
   R8: [
     { context: 'With your manager', opener: 'I have been playing it safe. I want permission to try something that might not work. Can we create space for that?' },
-    { context: 'With a peer', opener: 'I had an idea I dismissed because it seemed too different. Can I run it by you before I kill it?' },
+    { context: 'With a peer', opener: 'I had an idea I dismissed because it seemed too different. Can I run it by you before I let it go?' },
     { context: 'With a coach or mentor', opener: 'I think I am limiting myself to what I already know how to do. How do I think bigger without being reckless?' },
     { context: 'In a team meeting', opener: 'What if we tried something we have never done before? Even a small experiment. What would we learn?' },
   ],

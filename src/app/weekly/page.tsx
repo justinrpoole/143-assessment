@@ -15,7 +15,7 @@ export default async function WeeklyPage() {
   const auth = await getRequestAuthContext();
 
   emitPageView({
-    eventName: "page_view_portal",
+    eventName: "page_view_weekly",
     sourceRoute: "/weekly",
     userState: auth.userState,
     userId: auth.userId,

@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { createMagicLinkToken } from "@/lib/auth/magic-link";
 import { sendEmail } from "@/lib/email/email-provider";
+import { trackEvent } from "@/lib/events";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -49,7 +50,6 @@ export async function POST(request: NextRequest) {
 
     if (!emailResult.ok) {
       console.error("[auth:login:request] email_send_failed", {
-        email,
         error: emailResult.error,
         provider: emailResult.provider,
       });
@@ -59,6 +59,10 @@ export async function POST(request: NextRequest) {
         console.info("[auth:login:request] DEV MAGIC LINK:", magicLinkUrl);
       }
     }
+
+    // Track auth analytics events (fire-and-forget)
+    void trackEvent({ userId: "anonymous", eventType: "email_captured", eventData: { source: "login_form" } });
+    void trackEvent({ userId: "anonymous", eventType: "magic_link_sent", eventData: { provider: emailResult.provider } });
 
     // Always return success to avoid leaking whether an email exists
     // In stub mode (no email provider configured), the link is logged to console

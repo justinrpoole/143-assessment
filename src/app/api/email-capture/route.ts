@@ -33,8 +33,8 @@ export async function POST(request: Request) {
 
     void trackEvent({
       userId: "anonymous",
-      eventType: "portal_visited" as Parameters<typeof trackEvent>[0]["eventType"],
-      eventData: { email, source, action: "email_captured" },
+      eventType: "email_captured",
+      eventData: { source },
     });
 
     return NextResponse.json({ ok: true });

@@ -16,7 +16,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "143 Leadership — See Where Your Light Is Covered",
   description:
-    "You hold rooms steady. You carry decisions other people avoid. The 143 Assessment maps 9 trainable leadership capacities — showing what is strong and what is temporarily eclipsed. 143 questions. 15 minutes. One mirror.",
+    "The 143 Assessment maps 9 trainable leadership capacities — what is strong and what is temporarily eclipsed. 143 questions. 15 minutes. One mirror.",
 };
 
 /* ── static data ───────────────────────────────────────────────── */
@@ -92,14 +92,14 @@ export default async function UpgradeYourOsPage() {
               >
                 eclipsed
               </span>
-              . One capacity is carrying another, and your operating system has
+              . One capacity is carrying another, and your internal operating system has
               not been recalibrated in years. That is not a personal failure.
               That is biology. And it is measurable.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/preview" className="btn-primary">
-                See Your Light Signature — Free
+                Check My Stability — Free
               </Link>
               <Link href="/143" className="btn-watch">
                 Start the 143 Challenge
@@ -302,7 +302,7 @@ export default async function UpgradeYourOsPage() {
           </p>
           <div className="mt-6 text-center">
             <Link href="/preview" className="btn-primary">
-              See Your Top 2 Rays — Free
+              Check My Stability — Free
             </Link>
           </div>
         </FadeInSection>

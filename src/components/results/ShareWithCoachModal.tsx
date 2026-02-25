@@ -20,6 +20,12 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
   const prefersReduced = useReducedMotion();
 
   useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
+
+  useEffect(() => {
     emailRef.current?.focus();
   }, []);
 
@@ -92,6 +98,7 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
           transition={{ duration: 0.3, delay: 0.1 }}
           onClick={(e) => e.stopPropagation()}
           role="dialog"
+          aria-modal="true"
           aria-label="Share report with coach"
         >
           {!shareUrl ? (

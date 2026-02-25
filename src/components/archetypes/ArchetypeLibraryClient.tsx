@@ -203,6 +203,7 @@ export default function ArchetypeLibraryClient() {
             placeholder="Search by name or signal..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            aria-label="Search Light Signatures"
             className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors"
             style={{
               background: 'var(--surface-glass)',

@@ -75,7 +75,7 @@ const PLANS = [
       "Growth tracking dashboard",
       "Weekly Scan",
     ],
-    cta: { label: "Start Portal Membership", href: "/upgrade" },
+    cta: { label: "Start My Portal", href: "/upgrade" },
     highlight: false,
   },
   {
@@ -174,6 +174,16 @@ const FAQS = [
   },
 ] as const;
 
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
 /* ── page ───────────────────────────────────────────────────── */
 
 export default async function PricingPage() {
@@ -186,6 +196,11 @@ export default async function PricingPage() {
   });
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
     <main className="cosmic-page-bg">
       <div className="mx-auto max-w-[1100px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
@@ -598,6 +613,7 @@ export default async function PricingPage() {
         </FadeInSection>
       </div>
     </main>
+    </>
   );
 }
 

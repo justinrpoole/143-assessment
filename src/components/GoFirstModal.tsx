@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Props {
   onClose: () => void;
@@ -14,6 +14,12 @@ export default function GoFirstModal({ onClose, onRepLogged }: Props) {
   const [smallestAction, setSmallestAction] = useState('');
   const [logging, setLogging] = useState(false);
   const [startedAt] = useState(Date.now());
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
 
   async function logRep() {
     setLogging(true);

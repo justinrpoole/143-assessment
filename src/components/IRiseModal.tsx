@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Props {
   onClose: () => void;
@@ -28,6 +28,12 @@ export default function IRiseModal({ onClose, onRepLogged }: Props) {
   const [selectedMove, setSelectedMove] = useState<string>('');
   const [showScience, setShowScience] = useState(false);
   const [logging, setLogging] = useState(false);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
   const [startedAt] = useState(Date.now());
 
   async function logRep() {

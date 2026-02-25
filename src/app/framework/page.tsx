@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "The Be The Light Framework — 9 Rays, 3 Phases, 1 OS Upgrade",
   description:
-    "Nine trainable leadership capacities. Three developmental phases. Backed by peer-reviewed science from McEwen, Jha, Lieberman, Gollwitzer, and Dweck. Not a personality label. A behavioural map that changes as you do.",
+    "Nine trainable leadership capacities. Three developmental phases. Grounded in 12 peer-reviewed research pillars from Barrett, Maslach, Dweck, Edmondson, Deci, Ryan, and more. Not a personality label. A behavioural map that changes as you do.",
 };
 
 /* ── static data ───────────────────────────────────────────── */
@@ -44,33 +44,63 @@ const THREE_PHASES = [
 const SCIENCE_BACKING = [
   {
     label: "Allostatic Load",
-    source: "McEwen (2008)",
+    source: "McEwen, B. S. (2008). PNAS, 105(33), 11867\u201311872.",
     use: "When stress stays elevated, your body borrows energy from future capacity. The Eclipse Snapshot makes the cost visible before you go bankrupt. That is biology, not weakness.",
   },
   {
     label: "Attention Training",
-    source: "Jha (2019), Damasio",
-    use: "Attention is not a personality trait. It is a muscle. Dr. Amishi Jha\u2019s research shows 12 minutes of daily practice measurably improves focus. The Presence and Possibility Rays train it.",
+    source: "Jha, A. P. et al. (2015, 2017). Journal of Cognitive Enhancement.",
+    use: "Attention is not a personality trait. It is a muscle. Jha\u2019s research shows brief daily practice measurably improves focus in high-stress populations. The Presence and Possibility Rays train it.",
   },
   {
     label: "Affect Labelling",
-    source: "Lieberman et al. (2007)",
-    use: "Naming an emotion reduces amygdala reactivity by up to 50%. The assessment gives you the language. Naming is not therapy. It is the first intervention.",
+    source: "Lieberman, M. D. et al. (2007). Psychological Science, 18(5), 421\u2013428.",
+    use: "Naming an emotion reduces amygdala reactivity significantly. The assessment gives you the language. Naming is not therapy. It is the first intervention.",
   },
   {
     label: "Self-Distancing",
-    source: "Kross et al. (2014)",
+    source: "Kross, E. et al. (2014). JPSP, 106(2), 304\u2013324.",
     use: "Perspective is a skill, not a gift. Speaking about yourself in the third person reduces emotional reactivity. The coaching OS trains this through specific language practices.",
   },
   {
     label: "Implementation Intentions",
-    source: "Gollwitzer (1999)",
-    use: "If-then plans increase goal achievement by 2\u20133x. The Rise Path gives you pre-decided moves. The negotiation with yourself is already over.",
+    source: "Gollwitzer, P. M. (1999). American Psychologist, 54(7), 493\u2013503.",
+    use: "If-then plans increase goal achievement by 2\u20133\u00d7 across meta-analyses. The Rise Path gives you pre-decided moves. The negotiation with yourself is already over.",
   },
   {
     label: "Growth Mindset",
-    source: "Dweck (2006), Oyserman",
+    source: "Dweck, C. S. (2006). Mindset. Random House.",
     use: "When you believe the score can move, you train differently. The 143 Assessment is designed to be outgrown. The belief that change is possible changes the behaviour itself.",
+  },
+  {
+    label: "Constructed Emotion",
+    source: "Barrett, L. F. (2017). How Emotions Are Made. Houghton Mifflin Harcourt.",
+    use: "Emotions are constructed predictions, not fixed reactions. The assessment measures your regulation capacity \u2014 not your emotional type. That distinction is what makes scores trainable.",
+  },
+  {
+    label: "Burnout \u0026 Eclipse",
+    source: "Maslach, C. \u0026 Leiter, M. P. (2016). Burnout. Academic Press.",
+    use: "Three dimensions: emotional exhaustion, depersonalisation, reduced efficacy. The Eclipse system measures all three as temporary capacity reducers \u2014 not character deficits.",
+  },
+  {
+    label: "Behavior Design",
+    source: "Fogg, B. J. (2020). Tiny Habits. Houghton Mifflin Harcourt.",
+    use: "Behavior = Motivation \u00d7 Ability \u00d7 Prompt. The Rise Path prescribes the smallest viable rep so you never need willpower to start. Make it tiny, make it daily.",
+  },
+  {
+    label: "Self-Determination",
+    source: "Deci, E. L. \u0026 Ryan, R. M. (2000). American Psychologist, 55(1), 68\u201378.",
+    use: "Autonomy, competence, and relatedness are basic psychological needs. Purpose, Authenticity, and Connection Rays map to these three drivers of sustained motivation.",
+  },
+  {
+    label: "Psychological Safety",
+    source: "Edmondson, A. C. (1999). Admin. Science Quarterly, 44(2), 350\u2013383.",
+    use: "People develop faster when they feel safe to be honest. Connection and Be The Light measure your capacity to create that safety for yourself and others.",
+  },
+  {
+    label: "Grit \u0026 Perseverance",
+    source: "Duckworth, A. L. et al. (2007). JPSP, 92(6), 1087\u20131101.",
+    use: "Passion and perseverance for long-term goals. Power and Purpose rays measure whether you can sustain effort through difficulty \u2014 not just start strong.",
   },
 ];
 
@@ -322,7 +352,7 @@ export default async function FrameworkPage() {
                 className="text-2xl font-bold"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
-                Every tool maps to published, peer-reviewed research.
+                Every capacity maps to published research.
               </h2>
               <p
                 className="max-w-[540px] text-sm leading-relaxed"
@@ -365,6 +395,36 @@ export default async function FrameworkPage() {
                 </StaggerItem>
               ))}
             </StaggerContainer>
+
+            {/* Validation status note */}
+            <div
+              className="mt-6 rounded-lg p-4 border"
+              style={{
+                background: "rgba(96, 5, 141, 0.08)",
+                borderColor: "rgba(148, 80, 200, 0.15)",
+              }}
+            >
+              <p
+                className="text-[10px] font-bold uppercase tracking-widest mb-2"
+                style={{ color: "var(--brand-gold, #F8D011)", opacity: 0.7 }}
+              >
+                Validation Status
+              </p>
+              <p
+                className="text-xs leading-relaxed"
+                style={{
+                  color:
+                    "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                }}
+              >
+                The 143 Assessment is grounded in established, peer-reviewed
+                research and designed with measurement integrity: deterministic
+                scoring, confidence bands, and 9 built-in validity checks.
+                Population-specific reliability and predictive validity data
+                will be published as pilot cohorts complete. We show you the
+                science we stand on and the evidence we are still building.
+              </p>
+            </div>
           </section>
         </FadeInSection>
 

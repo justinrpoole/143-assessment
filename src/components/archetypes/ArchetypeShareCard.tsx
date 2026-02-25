@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import type { ArchetypePublic } from '@/lib/types';
 
 /**
@@ -15,6 +15,12 @@ export default function ArchetypeShareCard({
   onClose: () => void;
 }) {
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
 
   const shareUrl =
     typeof window !== 'undefined'

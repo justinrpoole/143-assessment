@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Be The Light Assessment — Map Your 9 Leadership Capacities",
-  description: "143 questions. 15 minutes. See your Light Signature, Eclipse Snapshot, and the specific capacity to train first. Not who you are. What you can build. Start with the free Gravitational Stability Check or go straight to the full assessment.",
+  description: "143 questions. 15 minutes. See your Light Signature, Eclipse Snapshot, and the capacity to train first. Not who you are — what you can build.",
 };
 
 type SearchParams = Record<string, string | string[] | undefined>;

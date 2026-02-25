@@ -176,6 +176,7 @@ export function GlossaryClient() {
           placeholder="Search terms..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          aria-label="Search glossary terms"
           className="w-full rounded-xl py-3 pl-10 pr-4 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
           style={{
             background: 'var(--surface-glass)',

@@ -9,18 +9,18 @@ import { useState } from 'react';
  */
 
 const RESEARCH_PILLARS = [
-  { name: 'Lisa Feldman Barrett', domain: 'Constructed Emotion', rays: 'R2, R3, R6', contribution: 'Emotions are constructed predictions, not fixed reactions. The assessment measures regulation capacity, not emotional "types."' },
-  { name: 'Katy Milkman', domain: 'Behavioral Change', rays: 'R1, R4', contribution: 'Temptation bundling, fresh starts, and commitment devices. The rep system and if/then plans use these mechanisms.' },
-  { name: 'Caroline Leaf', domain: 'Neuroplasticity', rays: 'R1, R3, R8', contribution: 'Thought patterns are trainable. Scores are designed to move through deliberate practice, not remain fixed.' },
-  { name: 'Amishi Jha', domain: 'Attention Science', rays: 'R3, R5', contribution: 'Attention is a depletable resource that responds to training. The Presence ray measures attentional capacity.' },
-  { name: 'BJ Fogg', domain: 'Tiny Habits', rays: 'R1, R4', contribution: 'Behavior change through minimum effective dose. The Rise Path prescribes the smallest viable rep.' },
-  { name: 'Daniel Goleman', domain: 'Emotional Intelligence', rays: 'R3, R6, R7', contribution: 'Self-awareness, self-regulation, social awareness, relationship management. Four pillars mapped across rays.' },
-  { name: 'Christina Maslach', domain: 'Burnout Research', rays: 'Eclipse', contribution: 'Three-dimensional burnout model. The Eclipse system measures emotional load, cognitive load, and relational load.' },
-  { name: 'Carol Dweck', domain: 'Growth Mindset', rays: 'R8, R9', contribution: 'Fixed vs. growth orientation. The assessment treats capacity as trainable — scores move with practice.' },
-  { name: 'Angela Duckworth', domain: 'Grit & Perseverance', rays: 'R4, R5', contribution: 'Sustained effort toward long-term goals. Power and Purpose rays measure consistency of action under pressure.' },
-  { name: 'Amy Edmondson', domain: 'Psychological Safety', rays: 'R7, R9', contribution: 'Team-level trust and candor. Connection and Be The Light measure capacity to hold safe space.' },
-  { name: 'Edward Deci', domain: 'Self-Determination', rays: 'R5, R6', contribution: 'Autonomy, competence, relatedness. Intrinsic motivation mapped through Purpose and Authenticity.' },
-  { name: 'Richard Ryan', domain: 'Self-Determination', rays: 'R5, R6, R7', contribution: 'Basic psychological needs theory. Satisfaction of autonomy, competence, and relatedness drives sustained growth.' },
+  { name: 'Lisa Feldman Barrett', domain: 'Constructed Emotion', rays: 'R2, R3, R6', citation: 'Barrett, L. F. (2017). How Emotions Are Made. Houghton Mifflin Harcourt.', contribution: 'Emotions are constructed predictions, not fixed reactions. The assessment measures regulation capacity, not emotional types.' },
+  { name: 'Katy Milkman', domain: 'Behavioral Change', rays: 'R1, R4', citation: 'Milkman, K. (2021). How to Change. Portfolio/Penguin.', contribution: 'Temptation bundling, fresh starts, and commitment devices. The rep system uses these mechanisms to lower the barrier to consistent practice.' },
+  { name: 'Caroline Leaf', domain: 'Neuroplasticity', rays: 'R1, R3, R8', citation: 'Leaf, C. (2021). Cleaning Up Your Mental Mess. Baker Books.', contribution: 'Neuroplasticity research supports that thought patterns respond to deliberate practice. Scores are designed to move, not remain fixed.' },
+  { name: 'Amishi Jha', domain: 'Attention Science', rays: 'R3, R5', citation: 'Jha, A. P. (2021). Peak Mind. HarperOne. Based on Jha et al. (2015, 2017).', contribution: 'Attention is a depletable resource that responds to training. The Presence ray measures attentional capacity under real conditions.' },
+  { name: 'BJ Fogg', domain: 'Behavior Design', rays: 'R1, R4', citation: 'Fogg, B. J. (2020). Tiny Habits. Houghton Mifflin Harcourt.', contribution: 'Behavior change through minimum effective dose. The Rise Path prescribes the smallest viable rep using Fogg\u2019s Behavior Model (B = MAP).' },
+  { name: 'Daniel Goleman', domain: 'Emotional Intelligence', rays: 'R3, R6, R7', citation: 'Goleman, D. (1995). Emotional Intelligence. Bantam Books.', contribution: 'Self-awareness, self-regulation, social awareness, and relationship management principles inform the design of Rays 3, 6, and 7.' },
+  { name: 'Christina Maslach', domain: 'Burnout Research', rays: 'Eclipse', citation: 'Maslach, C. & Leiter, M. P. (2016). Burnout. In Stress: Concepts, Cognition, Emotion, and Behavior. Academic Press.', contribution: 'Three-dimensional burnout model. The Eclipse system measures emotional load, cognitive load, and relational load as temporary capacity reducers.' },
+  { name: 'Carol Dweck', domain: 'Growth Mindset', rays: 'R8, R9', citation: 'Dweck, C. S. (2006). Mindset: The New Psychology of Success. Random House.', contribution: 'Fixed vs. growth orientation. The assessment treats capacity as trainable \u2014 scores are designed to move with deliberate practice.' },
+  { name: 'Angela Duckworth', domain: 'Grit & Perseverance', rays: 'R4, R5', citation: 'Duckworth, A. L. et al. (2007). Grit. J. of Personality and Social Psychology, 92(6), 1087\u20131101.', contribution: 'Sustained effort toward long-term goals. Power and Purpose rays measure consistency of action under pressure.' },
+  { name: 'Amy Edmondson', domain: 'Psychological Safety', rays: 'R7, R9', citation: 'Edmondson, A. C. (1999). Psychological safety. Administrative Science Quarterly, 44(2), 350\u2013383.', contribution: 'Team-level trust and candor. Connection and Be The Light measure capacity to create conditions where others can speak honestly.' },
+  { name: 'Edward Deci', domain: 'Self-Determination', rays: 'R5, R6', citation: 'Deci, E. L. & Ryan, R. M. (2000). American Psychologist, 55(1), 68\u201378.', contribution: 'Autonomy, competence, and relatedness as basic psychological needs. Intrinsic motivation mapped through Purpose and Authenticity.' },
+  { name: 'Richard Ryan', domain: 'Self-Determination', rays: 'R5, R6, R7', citation: 'Ryan, R. M. & Deci, E. L. (2017). Self-Determination Theory. Guilford Press.', contribution: 'Basic psychological needs theory. Satisfaction of autonomy, competence, and relatedness drives sustained growth.' },
 ];
 
 const MODEL_STATS = [
@@ -234,6 +234,12 @@ export default function PsychometricSummary() {
                 style={{ color: 'var(--text-on-dark-secondary)' }}
               >
                 {pillar.contribution}
+              </p>
+              <p
+                className="text-[9px] mt-1.5 leading-snug italic"
+                style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.4))' }}
+              >
+                {pillar.citation}
               </p>
             </div>
           ))}

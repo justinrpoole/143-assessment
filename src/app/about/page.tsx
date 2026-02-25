@@ -13,7 +13,7 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "About Justin Ray — The Builder Behind 143 Leadership",
+  title: "About Justin Ray — The Builder of 143 Leadership",
   description:
     "I built the 143 Assessment because I needed it first. Executive development background. Real pressure. A framework built on behavioural science and tested where leadership actually happens.",
 };
@@ -49,7 +49,7 @@ export default async function AboutPage() {
   const userState = await getUserStateFromRequest();
 
   emitPageView({
-    eventName: "page_view_justin",
+    eventName: "page_view_about",
     sourceRoute: "/about",
     userState,
   });

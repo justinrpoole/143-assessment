@@ -6,8 +6,19 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/spec-center"],
+        disallow: [
+          "/spec-center",
+          "/api/",
+          "/dashboard/",
+          "/portal/",
+          "/account/",
+          "/results/",
+          "/assessment/",
+          "/welcome",
+          "/login",
+        ],
       },
     ],
+    sitemap: "https://143leadership.com/sitemap.xml",
   };
 }

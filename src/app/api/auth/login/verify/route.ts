@@ -5,6 +5,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { verifyMagicLinkToken } from "@/lib/auth/magic-link";
 import { isBetaFreeMode } from "@/lib/config/beta";
 import { supabaseRestFetch } from "@/lib/db/supabase-rest";
+import { trackEvent } from "@/lib/events";
 
 interface UserEntitlementRow {
   user_id: string;
@@ -145,6 +146,9 @@ export async function GET(request: NextRequest) {
       path: "/",
       maxAge: ONE_WEEK_SECONDS,
     });
+
+    // Track successful verification (fire-and-forget)
+    void trackEvent({ userId, eventType: "magic_link_verified", eventData: { userState } });
 
     console.info("[auth:verify] session_created", {
       userId,

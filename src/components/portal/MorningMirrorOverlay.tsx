@@ -125,6 +125,13 @@ export default function MorningMirrorOverlay({
     setVisible(false);
   }, []);
 
+  useEffect(() => {
+    if (!visible) return;
+    const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') dismiss(); };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [visible, dismiss]);
+
   if (!visible) return null;
 
   const dayOfYear = getDayOfYear();
@@ -153,6 +160,7 @@ export default function MorningMirrorOverlay({
           transition={{ duration: 0.5 }}
           onClick={dismiss}
           role="dialog"
+          aria-modal="true"
           aria-label="Morning mirror — daily opening ritual"
         >
           <motion.div
