@@ -43,6 +43,7 @@ next-env.d.ts
 # iCloud sync duplicates
 *" 2"*
 * 2.*
+* 2/
 
 # test artifacts
 test-results/
