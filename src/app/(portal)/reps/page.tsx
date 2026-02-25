@@ -1,7 +1,5 @@
 import RepLogClient from '@/components/retention/RepLogClient';
-import PortalTabBar from '@/components/portal/PortalTabBar';
 import { PageHeader } from "@/components/ui/PageHeader";
-import { PageShell } from "@/components/ui/PageShell";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 
@@ -41,7 +39,7 @@ export default async function RepsPage({ searchParams }: PageProps) {
   });
 
   return (
-    <PageShell after={<PortalTabBar />}>
+    <>
       <PageHeader
         label="The Engine That Rewires Your Brain"
         title="Your REPS"
@@ -55,6 +53,6 @@ export default async function RepsPage({ searchParams }: PageProps) {
       <div className="mt-6">
         <RepLogClient initialTool={initialTool} />
       </div>
-    </PageShell>
+    </>
   );
 }
