@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, type FormEvent } from 'react';
 import Link from 'next/link';
 import RetroFrame from '@/components/ui/RetroFrame';
 import { FadeInSection } from '@/components/ui/FadeInSection';
-import '@/app/light-dashboard/dashboard.css';
+import '@/app/(portal)/light-dashboard/dashboard.css';
 
 // ── Constants ──
 
