@@ -1,0 +1,28 @@
+{
+  "generated": "2026-02-23T14:00:00Z",
+  "source": "src/components/marketing/MarketingNav.tsx",
+  "navLinks": [
+    { "href": "/assessment", "label": "Assessment", "position": 1 },
+    { "href": "/archetypes", "label": "Archetypes", "position": 2 },
+    { "href": "/framework", "label": "Framework", "position": 3 },
+    { "href": "/143-challenge", "label": "143 Challenge", "position": 4 },
+    { "href": "/organizations", "label": "For Organizations", "position": 5 },
+    { "href": "/about", "label": "About", "position": 6 }
+  ],
+  "ctaLink": { "href": "/assessment", "label": "Take the Assessment" },
+  "sessionLinks": {
+    "authenticated": { "href": "/portal", "label": "My Portal" },
+    "unauthenticated": { "href": "/login", "label": "Sign In" }
+  },
+  "footerSource": "src/components/SiteFooter.tsx",
+  "footerColumns": [
+    { "heading": "Product", "links": ["Take the Assessment", "How It Works", "..."] },
+    { "heading": "Practice", "links": ["..."] },
+    { "heading": "Company", "links": ["..."] }
+  ],
+  "portalNav": {
+    "source": "src/components/portal/PortalTabBar.tsx",
+    "usedOn": ["/portal", "/results", "/reps", "/toolkit"]
+  },
+  "notes": "Nav is NOT in root layout. MarketingNav is manually imported per-page. PortalTabBar is used on 4 auth pages. 8 auth pages use PageShell without tab bar."
+}
