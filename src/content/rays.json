@@ -83,6 +83,7 @@
     "ray_id": "R9",
     "name": "Be The Light",
     "definition": "Visible regulation and standards",
+    "isState": true,
     "required_report_blocks": [
       "identity_opener",
       "micro_wins",

@@ -81,8 +81,10 @@ export function selectTopTwo(
 ): TopTwoResult | null {
   // Collect eligible rays. Primary metric: Net Energy. If too few rays have
   // Net Energy (e.g. monthly runs without Eclipse items), fall back to Shine.
+  // Ray 9 (Be The Light) is excluded — it's a STATE (the overflow of Rays 1-8),
+  // not an archetype-eligible trait. Still scored separately as "Radiance Indicator."
   let eligible: RayCandidate[] = [];
-  for (let r = 1; r <= 9; r++) {
+  for (let r = 1; r <= 8; r++) {
     const ray = rays[`R${r}`];
     if (ray?.net_energy_0_100 !== null && ray?.net_energy_0_100 !== undefined) {
       eligible.push({ rayNum: r, netEnergy: ray.net_energy_0_100 });
@@ -92,7 +94,7 @@ export function selectTopTwo(
   // Fallback: use Shine scores when Net Energy is unavailable
   if (eligible.length < 2) {
     eligible = [];
-    for (let r = 1; r <= 9; r++) {
+    for (let r = 1; r <= 8; r++) {
       const ray = rays[`R${r}`];
       if (ray?.shine_0_100 !== null && ray?.shine_0_100 !== undefined) {
         eligible.push({ rayNum: r, netEnergy: ray.shine_0_100 });

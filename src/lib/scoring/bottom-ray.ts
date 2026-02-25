@@ -114,9 +114,10 @@ export function selectBottomRay(
   toolIndices: Record<string, ToolComposite>,
   reflectionIndices: ReflectionIndices,
 ): BottomRayResult | null {
-  // Collect eligible rays with Net Energy
+  // Collect eligible rays with Net Energy.
+  // Ray 9 excluded — it's a state (overflow of Rays 1-8), not a trainable target.
   const eligible: Array<{ rayNum: number; netEnergy: number }> = [];
-  for (let r = 1; r <= 9; r++) {
+  for (let r = 1; r <= 8; r++) {
     const ray = rays[`R${r}`];
     if (ray?.net_energy_0_100 !== null && ray?.net_energy_0_100 !== undefined) {
       eligible.push({ rayNum: r, netEnergy: ray.net_energy_0_100 });

@@ -134,25 +134,6 @@
   },
   {
     "index": 8,
-    "name": "Servant Architect",
-    "pair_code": "R1-R9",
-    "ray_a": "R1",
-    "ray_b": "R9",
-    "essence": "Servant Architect is the regulated expression of **Choose / Inspire Leader** (R1 Intention + R9 Be The Light). You set direction early and keep energy honest enough that progress is sustainable. People experience you as a clear starter who still leaves room for humanity.\n\nThis is a capacity pattern, not a label. Under low Eclipse, your Top Two stay online and you can access range. Under higher Eclipse, the same strengths can compress into speed, control, or over-commitment.",
-    "work_expression": "- Starts days by choosing 1–3 priorities before opening the flood (inbox/phone).\n- Uses time blocks and meeting hygiene to protect focus (work) and presence (home).\n- Pre-decides responses to predictable friction with If/Then plans.\n- Makes clean commitments and renegotiates early instead of ghosting.\n- Models what they want others to do (calm, courage, standards) instead of preaching it.",
-    "life_expression": "- Creates ripple moments where others speak up, lead, or try.\n- Serves from overflow — protects recovery so giving stays real.\n- Invites others to go first and makes it feel safe.\n- Leads by visible standard-setting: they choose the rep and model it where others can see.\n- Protects overflow so their service is real, not self-erasure.",
-    "strengths": "- Strong culture-setting through consistency.\n- Makes “how we behave under pressure” explicit.\n- Sets 1–3 priorities and protects them\n- Pre-decides responses to predictable friction\n- Keeps commitments clean and realistic",
-    "stress_distortion": "When Eclipse rises, performative leadership if recovery is ignored.\n- Muted side: the regulating/human side.\n- Exaggerated side: the protective side (speed, control, pleasing, withdrawing).\n\n**Common derailments under load:**\n- Stress distortion: performative leadership if recovery is ignored.\n- Drifts into autopilot and reactive scheduling\n- Over-controls to reduce uncertainty\n- Freezes on decisions or overthinks them\n\n**Load risks to watch (non-shaming):**\n- Over-control and rigidity when uncertainty rises\n- Martyr leadership: serving from empty",
-    "ppd_risk": "If output stays high while recovery and listening drop, you can look “fine” while Presence collapses. Watch for speed-without-breath, control language, and fewer repair reps. Response: state-first tools, then one Bottom-Ray rep you can keep for 7 days.",
-    "coaching_logic": "Bottom Ray is the skill-to-learn, chosen by lowest score. Use **Choose** to make the rep specific (a decision, a boundary, a start). Use **Inspire** to keep the rep alive through reinforcement and recovery. Do not coach the Top Two first: install tools, run receipts, then widen range.",
-    "starting_tools": "- **Overflow Check** | Cue: You feel guilty saying no. | Micro-Rep: Ask: “overflow or sacrifice?” If sacrifice, add a boundary.\n- **Presence Pause** | Cue: You’re about to send a message you might regret. | Micro-Rep: Exhale long; feel feet; name emotion + need.\n- **REPs** | Cue: Right after you do a hard rep (even small). | Micro-Rep: Write one receipt: what you did, not how you felt.",
-    "bottom_ray_focus": "- 10-second body scan when heat/tension hits\n- One boundary sentence practice (cue: asked for something you can’t do)\n- Conversation-type check before responding",
-    "micro_reps": "- Ask: “overflow or sacrifice?” If sacrifice, add a boundary.\n- Exhale long; feel feet; name emotion + need.\n- Write one receipt: what you did, not how you felt.",
-    "reflection_prompts": "- What is the smallest rep that would make tomorrow easier?\n- Where did I choose (or avoid) the honest boundary today?\n- What did I reinforce that I want repeated: behavior, not vibe?\n- If my Eclipse were 20% higher than I’m admitting, what would I change today?\n- When I want clarity, what is the regulated action version of that want?",
-    "exec_signals": "**Outcome tags (O-series):**\n- O10 Leadership readiness & culture-setting\n- O6 Psychological safety / trust climate\n- O2 Reliability under pressure\n\n**Executive dashboard signals most often lifted:**\n- Leadership Readiness\n- Psychological Safety Influence\n- Reliability Under Pressure"
-  },
-  {
-    "index": 9,
     "name": "Present Celebrator",
     "pair_code": "R2-R3",
     "ray_a": "R2",
@@ -171,7 +152,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O1 Sustainability & recovery speed\n- O6 Psychological safety / trust climate\n- O4 Decision quality\n\n**Executive dashboard signals most often lifted:**\n- Burnout Risk (Sustainability)\n- Psychological Safety Influence\n- Decision Quality"
   },
   {
-    "index": 10,
+    "index": 9,
     "name": "Confident Enthusiast",
     "pair_code": "R2-R4",
     "ray_a": "R2",
@@ -190,7 +171,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O3 Change adoption speed\n- O2 Reliability under pressure\n- O7 Learning agility & innovation\n\n**Executive dashboard signals most often lifted:**\n- Decision Quality\n- Reliability Under Pressure\n- Learning Agility / Innovation"
   },
   {
-    "index": 11,
+    "index": 10,
     "name": "Joyful Missionary",
     "pair_code": "R2-R5",
     "ray_a": "R2",
@@ -209,7 +190,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O3 Change adoption speed\n- O9 Engagement / retention risk proxy\n- O8 Influence ethics & values alignment\n\n**Executive dashboard signals most often lifted:**\n- Decision Quality\n- Engagement (Retention Proxy)\n- Influence Ethics"
   },
   {
-    "index": 12,
+    "index": 11,
     "name": "Radiant Authentic",
     "pair_code": "R2-R6",
     "ray_a": "R2",
@@ -228,7 +209,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O1 Sustainability & recovery speed\n- O8 Influence ethics & values alignment\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Burnout Risk (Sustainability)\n- Influence Ethics"
   },
   {
-    "index": 13,
+    "index": 12,
     "name": "Relational Spark",
     "pair_code": "R2-R7",
     "ray_a": "R2",
@@ -247,7 +228,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O5 Conflict repair capacity\n- O9 Engagement / retention risk proxy\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Conflict Repair Capacity\n- Engagement (Retention Proxy)"
   },
   {
-    "index": 14,
+    "index": 13,
     "name": "Optimistic Explorer",
     "pair_code": "R2-R8",
     "ray_a": "R2",
@@ -266,26 +247,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O7 Learning agility & innovation\n- O3 Change adoption speed\n- O1 Sustainability & recovery speed\n\n**Executive dashboard signals most often lifted:**\n- Learning Agility / Innovation\n- Decision Quality\n- Burnout Risk (Sustainability)"
   },
   {
-    "index": 15,
-    "name": "Light Bringer",
-    "pair_code": "R2-R9",
-    "ray_a": "R2",
-    "ray_b": "R9",
-    "essence": "Light Bringer is the regulated expression of **Expand / Inspire Leader** (R2 Joy + R9 Be The Light). You set direction early and keep energy honest enough that progress is sustainable. People experience you as a clear starter who still leaves room for humanity.\n\nThis is a capacity pattern, not a label. Under low Eclipse, your Top Two stay online and you can access range. Under higher Eclipse, the same strengths can compress into speed, control, or over-commitment.",
-    "work_expression": "- Uses recognition and gratitude as a daily behavior (not a mood) — at work and at home.\n- Finds the ‘one good thing’ in hard weeks without denying what’s hard.\n- Builds micro-recovery into the day (walk, music, laughter, sunlight) instead of waiting for vacation.\n- Raises the room’s energy with warmth that still stays honest.\n- Models what they want others to do (calm, courage, standards) instead of preaching it.",
-    "life_expression": "- Creates ripple moments where others speak up, lead, or try.\n- Serves from overflow — protects recovery so giving stays real.\n- Invites others to go first and makes it feel safe.\n- Lifts others through visible recognition and modeling — their light feels accessible, not intimidating.\n- Serves from overflow: joy + boundaries keep giving sustainable.",
-    "strengths": "- Recognition out loud.\n- Positive contagion through action.\n- Creates morale through real recognition\n- Builds recovery into the week (not just collapse)\n- Uses gratitude to widen perspective",
-    "stress_distortion": "When Eclipse rises, empty inspiration if regulation/boundaries lag.\n- Muted side: the regulating/human side.\n- Exaggerated side: the protective side (speed, control, pleasing, withdrawing).\n\n**Common derailments under load:**\n- Stress distortion: empty inspiration if regulation/boundaries lag.\n- Narrows emotionally; joy feels unavailable\n- Uses ‘relief’ behaviors (scrolling, numbing) as recovery\n- Becomes forced-positive or denies reality\n\n**Load risks to watch (non-shaming):**\n- Forced positivity that skips the real problem\n- Martyr leadership: serving from empty",
-    "ppd_risk": "If output stays high while recovery and listening drop, you can look “fine” while Presence collapses. Watch for speed-without-breath, control language, and fewer repair reps. Response: state-first tools, then one Bottom-Ray rep you can keep for 7 days.",
-    "coaching_logic": "Bottom Ray is the skill-to-learn, chosen by lowest score. Use **Expand** to make the rep specific (a decision, a boundary, a start). Use **Inspire** to keep the rep alive through reinforcement and recovery. Do not coach the Top Two first: install tools, run receipts, then widen range.",
-    "starting_tools": "- **REPs** | Cue: When you notice ‘that didn’t count’ self-talk. | Micro-Rep: Write one receipt: what you did, not how you felt.\n- **Presence Pause** | Cue: You notice you’re not actually here (you’re in the past or future). | Micro-Rep: Exhale long; feel feet; name emotion + need.\n- **Boundary of Light** | Cue: Your calendar or home life is leaking energy. | Micro-Rep: Say one warm boundary: “I can’t do that, but I can do ___.”",
-    "bottom_ray_focus": "- 10-second body scan when heat/tension hits\n- One boundary sentence practice (cue: asked for something you can’t do)\n- Conversation-type check before responding",
-    "micro_reps": "- Write one receipt: what you did, not how you felt.\n- Exhale long; feel feet; name emotion + need.\n- Say one warm boundary: “I can’t do that, but I can do ___.”",
-    "reflection_prompts": "- What is the smallest rep that would make tomorrow easier?\n- Where did I choose (or avoid) the honest boundary today?\n- What did I reinforce that I want repeated: behavior, not vibe?\n- If my Eclipse were 20% higher than I’m admitting, what would I change today?\n- When I want lightness, what is the regulated action version of that want?",
-    "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O10 Leadership readiness & culture-setting\n- O9 Engagement / retention risk proxy\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Leadership Readiness\n- Engagement (Retention Proxy)"
-  },
-  {
-    "index": 16,
+    "index": 14,
     "name": "Grounded Commander",
     "pair_code": "R3-R4",
     "ray_a": "R3",
@@ -304,7 +266,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O2 Reliability under pressure\n- O4 Decision quality\n- O5 Conflict repair capacity\n\n**Executive dashboard signals most often lifted:**\n- Reliability Under Pressure\n- Decision Quality\n- Conflict Repair Capacity"
   },
   {
-    "index": 17,
+    "index": 15,
     "name": "Mindful Mission",
     "pair_code": "R3-R5",
     "ray_a": "R3",
@@ -323,7 +285,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O4 Decision quality\n- O8 Influence ethics & values alignment\n- O5 Conflict repair capacity\n\n**Executive dashboard signals most often lifted:**\n- Decision Quality\n- Influence Ethics\n- Conflict Repair Capacity"
   },
   {
-    "index": 18,
+    "index": 16,
     "name": "Present Truth",
     "pair_code": "R3-R6",
     "ray_a": "R3",
@@ -342,7 +304,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O5 Conflict repair capacity\n- O4 Decision quality\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Conflict Repair Capacity\n- Decision Quality"
   },
   {
-    "index": 19,
+    "index": 17,
     "name": "Deep Listener",
     "pair_code": "R3-R7",
     "ray_a": "R3",
@@ -361,7 +323,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O5 Conflict repair capacity\n- O4 Decision quality\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Conflict Repair Capacity\n- Decision Quality"
   },
   {
-    "index": 20,
+    "index": 18,
     "name": "Present Visionary",
     "pair_code": "R3-R8",
     "ray_a": "R3",
@@ -380,26 +342,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O7 Learning agility & innovation\n- O4 Decision quality\n- O3 Change adoption speed\n\n**Executive dashboard signals most often lifted:**\n- Learning Agility / Innovation\n- Decision Quality"
   },
   {
-    "index": 21,
-    "name": "Calm Center",
-    "pair_code": "R3-R9",
-    "ray_a": "R3",
-    "ray_b": "R9",
-    "essence": "Calm Center is the regulated expression of **Anchor / Inspire Leader** (R3 Presence + R9 Be The Light). You set direction early and keep energy honest enough that progress is sustainable. People experience you as a clear starter who still leaves room for humanity.\n\nThis is a capacity pattern, not a label. Under low Eclipse, your Top Two stay online and you can access range. Under higher Eclipse, the same strengths can compress into speed, control, or over-commitment.",
-    "work_expression": "- Notices body cues early (heat, tension) and pauses before responding.\n- Single-tasks in conversations (no half-listening) and stays present with family/friends.\n- Uses a Presence Pause before sending messages or making decisions.\n- Can slow tempo in chaotic rooms and in chaotic households.\n- Models what they want others to do (calm, courage, standards) instead of preaching it.",
-    "life_expression": "- Creates ripple moments where others speak up, lead, or try.\n- Serves from overflow — protects recovery so giving stays real.\n- Invites others to go first and makes it feel safe.\n- Models calm publicly — their presence becomes permission for others to settle and speak.\n- Creates psychological safety through regulated leadership moments, not speeches.",
-    "strengths": "- Sets emotional climate.\n- Reduces escalations.\n- Notices body cues early and pauses\n- Single-tasks and listens fully\n- Responds instead of reacts in tense moments",
-    "stress_distortion": "When Eclipse rises, too calm; misses urgency signals.\n- Muted side: the regulating/human side.\n- Exaggerated side: the protective side (speed, control, pleasing, withdrawing).\n\n**Common derailments under load:**\n- Stress distortion: too calm; misses urgency signals.\n- Mind-wanders and misses cues\n- Reacts fast (tone leaks)\n- Rumination loops hijack attention\n\n**Load risks to watch (non-shaming):**\n- Checking out / rumination when stillness feels unsafe\n- Martyr leadership: serving from empty",
-    "ppd_risk": "If output stays high while recovery and listening drop, you can look “fine” while Presence collapses. Watch for speed-without-breath, control language, and fewer repair reps. Response: state-first tools, then one Bottom-Ray rep you can keep for 7 days.",
-    "coaching_logic": "Bottom Ray is the skill-to-learn, chosen by lowest score. Use **Anchor** to make the rep specific (a decision, a boundary, a start). Use **Inspire** to keep the rep alive through reinforcement and recovery. Do not coach the Top Two first: install tools, run receipts, then widen range.",
-    "starting_tools": "- **Presence Pause** | Cue: You notice you’re not actually here (you’re in the past or future). | Micro-Rep: Exhale long; feel feet; name emotion + need.\n- **REPs** | Cue: When you notice ‘that didn’t count’ self-talk. | Micro-Rep: Write one receipt: what you did, not how you felt.\n- **90-second window** | Cue: You want immediate relief through a reactive move. | Micro-Rep: Set 90 seconds; breathe; feel; choose one clean next action.",
-    "bottom_ray_focus": "- One boundary sentence practice (cue: asked for something you can’t do)\n- Conversation-type check before responding\n- Watch Me + one 60-second action",
-    "micro_reps": "- Exhale long; feel feet; name emotion + need.\n- Write one receipt: what you did, not how you felt.\n- Set 90 seconds; breathe; feel; choose one clean next action.",
-    "reflection_prompts": "- What is the smallest rep that would make tomorrow easier?\n- Where did I choose (or avoid) the honest boundary today?\n- What did I reinforce that I want repeated: behavior, not vibe?\n- If my Eclipse were 20% higher than I’m admitting, what would I change today?\n- When I want calm, what is the regulated action version of that want?",
-    "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O10 Leadership readiness & culture-setting\n- O4 Decision quality\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Leadership Readiness\n- Decision Quality"
-  },
-  {
-    "index": 22,
+    "index": 19,
     "name": "Driven Leader",
     "pair_code": "R4-R5",
     "ray_a": "R4",
@@ -418,7 +361,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O10 Leadership readiness & culture-setting\n- O8 Influence ethics & values alignment\n- O2 Reliability under pressure\n\n**Executive dashboard signals most often lifted:**\n- Leadership Readiness\n- Influence Ethics\n- Reliability Under Pressure"
   },
   {
-    "index": 23,
+    "index": 20,
     "name": "Bold Authentic",
     "pair_code": "R4-R6",
     "ray_a": "R4",
@@ -437,7 +380,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O10 Leadership readiness & culture-setting\n- O2 Reliability under pressure\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Leadership Readiness\n- Reliability Under Pressure"
   },
   {
-    "index": 24,
+    "index": 21,
     "name": "Charismatic Connector",
     "pair_code": "R4-R7",
     "ray_a": "R4",
@@ -456,7 +399,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O5 Conflict repair capacity\n- O10 Leadership readiness & culture-setting\n- O6 Psychological safety / trust climate\n\n**Executive dashboard signals most often lifted:**\n- Conflict Repair Capacity\n- Leadership Readiness\n- Psychological Safety Influence"
   },
   {
-    "index": 25,
+    "index": 22,
     "name": "Risk-Taking Pioneer",
     "pair_code": "R4-R8",
     "ray_a": "R4",
@@ -475,26 +418,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O7 Learning agility & innovation\n- O3 Change adoption speed\n- O2 Reliability under pressure\n\n**Executive dashboard signals most often lifted:**\n- Learning Agility / Innovation\n- Decision Quality\n- Reliability Under Pressure"
   },
   {
-    "index": 26,
-    "name": "Empowering Force",
-    "pair_code": "R4-R9",
-    "ray_a": "R4",
-    "ray_b": "R9",
-    "essence": "Empowering Force is the regulated expression of **Act / Inspire Leader** (R4 Power + R9 Be The Light). You set direction early and keep energy honest enough that progress is sustainable. People experience you as a clear starter who still leaves room for humanity.\n\nThis is a capacity pattern, not a label. Under low Eclipse, your Top Two stay online and you can access range. Under higher Eclipse, the same strengths can compress into speed, control, or over-commitment.",
-    "work_expression": "- Moves first: speaks up, asks, or acts before perfect certainty arrives.\n- Takes courageous reps in real moments (hard call, hard convo, hard ask).\n- Chooses controllables and acts instead of waiting for fear to leave.\n- Can hold a strong line with warmth (work boundaries and personal boundaries).\n- Models what they want others to do (calm, courage, standards) instead of preaching it.",
-    "life_expression": "- Creates ripple moments where others speak up, lead, or try.\n- Serves from overflow — protects recovery so giving stays real.\n- Invites others to go first and makes it feel safe.\n- Goes first in visible ways that make others braver — leadership by modeling.\n- Sets a standard and holds it with warmth, not force.",
-    "strengths": "- Sets pace.\n- Models action under fear.\n- Takes the first step with fear present\n- Speaks up early and cleanly\n- Makes a direct ask without over-explaining",
-    "stress_distortion": "When Eclipse rises, performance mode risk if recovery/presence are low.\n- Muted side: the regulating/human side.\n- Exaggerated side: the protective side (speed, control, pleasing, withdrawing).\n\n**Common derailments under load:**\n- Stress distortion: performance mode risk if recovery/presence are low.\n- Pushes recklessly or freezes/avoids\n- Uses urgency as a drug\n- Becomes sharp, dismissive, or defensive\n\n**Load risks to watch (non-shaming):**\n- Urgency-as-drug: pushing too hard and burning trust\n- Martyr leadership: serving from empty",
-    "ppd_risk": "If output stays high while recovery and listening drop, you can look “fine” while Presence collapses. Watch for speed-without-breath, control language, and fewer repair reps. Response: state-first tools, then one Bottom-Ray rep you can keep for 7 days.",
-    "coaching_logic": "Bottom Ray is the skill-to-learn, chosen by lowest score. Use **Act** to make the rep specific (a decision, a boundary, a start). Use **Inspire** to keep the rep alive through reinforcement and recovery. Do not coach the Top Two first: install tools, run receipts, then widen range.",
-    "starting_tools": "- **Overflow Check** | Cue: You feel guilty saying no. | Micro-Rep: Ask: “overflow or sacrifice?” If sacrifice, add a boundary.\n- **Presence Pause** | Cue: You’re about to send a message you might regret. | Micro-Rep: Exhale long; feel feet; name emotion + need.\n- **REPs** | Cue: Right after you do a hard rep (even small). | Micro-Rep: Write one receipt: what you did, not how you felt.",
-    "bottom_ray_focus": "- 10-second body scan when heat/tension hits\n- One boundary sentence practice (cue: asked for something you can’t do)\n- Conversation-type check before responding",
-    "micro_reps": "- Ask: “overflow or sacrifice?” If sacrifice, add a boundary.\n- Exhale long; feel feet; name emotion + need.\n- Write one receipt: what you did, not how you felt.",
-    "reflection_prompts": "- What is the smallest rep that would make tomorrow easier?\n- Where did I choose (or avoid) the honest boundary today?\n- What did I reinforce that I want repeated: behavior, not vibe?\n- If my Eclipse were 20% higher than I’m admitting, what would I change today?\n- When I want courage, what is the regulated action version of that want?",
-    "exec_signals": "**Outcome tags (O-series):**\n- O10 Leadership readiness & culture-setting\n- O6 Psychological safety / trust climate\n- O2 Reliability under pressure\n\n**Executive dashboard signals most often lifted:**\n- Leadership Readiness\n- Psychological Safety Influence\n- Reliability Under Pressure"
-  },
-  {
-    "index": 27,
+    "index": 23,
     "name": "True Missionary",
     "pair_code": "R5-R6",
     "ray_a": "R5",
@@ -513,7 +437,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O8 Influence ethics & values alignment\n- O6 Psychological safety / trust climate\n- O10 Leadership readiness & culture-setting\n\n**Executive dashboard signals most often lifted:**\n- Influence Ethics\n- Psychological Safety Influence\n- Leadership Readiness"
   },
   {
-    "index": 28,
+    "index": 24,
     "name": "Community Builder",
     "pair_code": "R5-R7",
     "ray_a": "R5",
@@ -532,7 +456,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O3 Change adoption speed\n- O9 Engagement / retention risk proxy\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Decision Quality\n- Engagement (Retention Proxy)"
   },
   {
-    "index": 29,
+    "index": 25,
     "name": "Visionary Missionary",
     "pair_code": "R5-R8",
     "ray_a": "R5",
@@ -551,26 +475,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O7 Learning agility & innovation\n- O8 Influence ethics & values alignment\n- O4 Decision quality\n\n**Executive dashboard signals most often lifted:**\n- Learning Agility / Innovation\n- Influence Ethics\n- Decision Quality"
   },
   {
-    "index": 30,
-    "name": "Servant Leader",
-    "pair_code": "R5-R9",
-    "ray_a": "R5",
-    "ray_b": "R9",
-    "essence": "Servant Leader is the regulated expression of **Align / Inspire Leader** (R5 Purpose + R9 Be The Light). You set direction early and keep energy honest enough that progress is sustainable. People experience you as a clear starter who still leaves room for humanity.\n\nThis is a capacity pattern, not a label. Under low Eclipse, your Top Two stay online and you can access range. Under higher Eclipse, the same strengths can compress into speed, control, or over-commitment.",
-    "work_expression": "- Uses values to make tradeoffs (time, money, attention) instead of defaulting to urgency.\n- Asks ‘why does this matter?’ before big blocks of work and big life decisions.\n- Says aligned no’s to protect what matters most.\n- Frames leadership as meaning + standards, not just output.\n- Models what they want others to do (calm, courage, standards) instead of preaching it.",
-    "life_expression": "- Creates ripple moments where others speak up, lead, or try.\n- Serves from overflow — protects recovery so giving stays real.\n- Invites others to go first and makes it feel safe.\n- Leads with mission and service — standards feel inspiring, not controlling.\n- Protects overflow so ‘serving’ never becomes self-erasure.",
-    "strengths": "- People feel meaning and standards, not just tasks.\n- Names values and uses them in decisions\n- Chooses meaning-based tradeoffs\n- Asks purpose questions that sharpen direction\n- Says aligned no’s to protect what matters",
-    "stress_distortion": "When Eclipse rises, preaches purpose while silently overfunctioning.\n- Muted side: the regulating/human side.\n- Exaggerated side: the protective side (speed, control, pleasing, withdrawing).\n\n**Common derailments under load:**\n- Stress distortion: preaches purpose while silently overfunctioning.\n- Runs on empty with ‘meaning talk’ but no reps\n- Cynicism and disengagement creep in\n- Overworks without direction\n\n**Load risks to watch (non-shaming):**\n- Meaning talk without tradeoffs (values used as theory)\n- Martyr leadership: serving from empty",
-    "ppd_risk": "If output stays high while recovery and listening drop, you can look “fine” while Presence collapses. Watch for speed-without-breath, control language, and fewer repair reps. Response: state-first tools, then one Bottom-Ray rep you can keep for 7 days.",
-    "coaching_logic": "Bottom Ray is the skill-to-learn, chosen by lowest score. Use **Align** to make the rep specific (a decision, a boundary, a start). Use **Inspire** to keep the rep alive through reinforcement and recovery. Do not coach the Top Two first: install tools, run receipts, then widen range.",
-    "starting_tools": "- **Overflow Check** | Cue: You’re giving from empty and calling it service. | Micro-Rep: Ask: “overflow or sacrifice?” If sacrifice, add a boundary.\n- **Boundary of Light** | Cue: Your calendar or home life is leaking energy. | Micro-Rep: Say one warm boundary: “I can’t do that, but I can do ___.”\n- **REPs** | Cue: When you notice ‘that didn’t count’ self-talk. | Micro-Rep: Write one receipt: what you did, not how you felt.",
-    "bottom_ray_focus": "- 10-second body scan when heat/tension hits\n- One boundary sentence practice (cue: asked for something you can’t do)\n- Conversation-type check before responding",
-    "micro_reps": "- Ask: “overflow or sacrifice?” If sacrifice, add a boundary.\n- Say one warm boundary: “I can’t do that, but I can do ___.”\n- Write one receipt: what you did, not how you felt.",
-    "reflection_prompts": "- What is the smallest rep that would make tomorrow easier?\n- Where did I choose (or avoid) the honest boundary today?\n- What did I reinforce that I want repeated: behavior, not vibe?\n- If my Eclipse were 20% higher than I’m admitting, what would I change today?\n- When I want meaning, what is the regulated action version of that want?",
-    "exec_signals": "**Outcome tags (O-series):**\n- O10 Leadership readiness & culture-setting\n- O6 Psychological safety / trust climate\n- O9 Engagement / retention risk proxy\n\n**Executive dashboard signals most often lifted:**\n- Leadership Readiness\n- Psychological Safety Influence\n- Engagement (Retention Proxy)"
-  },
-  {
-    "index": 31,
+    "index": 26,
     "name": "Trusted Confidant",
     "pair_code": "R6-R7",
     "ray_a": "R6",
@@ -589,7 +494,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O5 Conflict repair capacity\n- O1 Sustainability & recovery speed\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Conflict Repair Capacity\n- Burnout Risk (Sustainability)"
   },
   {
-    "index": 32,
+    "index": 27,
     "name": "Authentic Innovator",
     "pair_code": "R6-R8",
     "ray_a": "R6",
@@ -608,26 +513,7 @@
     "exec_signals": "**Outcome tags (O-series):**\n- O7 Learning agility & innovation\n- O3 Change adoption speed\n- O6 Psychological safety / trust climate\n\n**Executive dashboard signals most often lifted:**\n- Learning Agility / Innovation\n- Decision Quality\n- Psychological Safety Influence"
   },
   {
-    "index": 33,
-    "name": "Truth Beacon",
-    "pair_code": "R6-R9",
-    "ray_a": "R6",
-    "ray_b": "R9",
-    "essence": "Truth Beacon is the regulated expression of **Reveal / Inspire Leader** (R6 Authenticity + R9 Be The Light). You set direction early and keep energy honest enough that progress is sustainable. People experience you as a clear starter who still leaves room for humanity.\n\nThis is a capacity pattern, not a label. Under low Eclipse, your Top Two stay online and you can access range. Under higher Eclipse, the same strengths can compress into speed, control, or over-commitment.",
-    "work_expression": "- Says what’s true with respect, even when it risks disapproval.\n- Sets warm, clear boundaries that protect energy and prevent resentment.\n- Shows the same self across rooms (boardroom and living room).\n- Can admit mistakes without collapsing into shame.\n- Models what they want others to do (calm, courage, standards) instead of preaching it.",
-    "life_expression": "- Creates ripple moments where others speak up, lead, or try.\n- Serves from overflow — protects recovery so giving stays real.\n- Invites others to go first and makes it feel safe.\n- Models authenticity publicly — their truth gives others permission to be real.\n- Serves from overflow with clean boundaries, so leadership stays sustainable.",
-    "strengths": "- Models real leadership others copy.\n- Speaks truth respectfully without hiding\n- Sets warm boundaries that protect energy\n- Stays the same self across rooms\n- Tolerates disapproval without collapsing",
-    "stress_distortion": "When Eclipse rises, overexposure; leading from rawness without regulation.\n- Muted side: the regulating/human side.\n- Exaggerated side: the protective side (speed, control, pleasing, withdrawing).\n\n**Common derailments under load:**\n- Stress distortion: overexposure; leading from rawness without regulation.\n- Masks, people-pleases, or over-explains\n- Truth-dumps without regulation\n- Boundaries collapse, then resentment builds\n\n**Load risks to watch (non-shaming):**\n- Masking/people-pleasing then resentment\n- Martyr leadership: serving from empty",
-    "ppd_risk": "If output stays high while recovery and listening drop, you can look “fine” while Presence collapses. Watch for speed-without-breath, control language, and fewer repair reps. Response: state-first tools, then one Bottom-Ray rep you can keep for 7 days.",
-    "coaching_logic": "Bottom Ray is the skill-to-learn, chosen by lowest score. Use **Reveal** to make the rep specific (a decision, a boundary, a start). Use **Inspire** to keep the rep alive through reinforcement and recovery. Do not coach the Top Two first: install tools, run receipts, then widen range.",
-    "starting_tools": "- **Presence Pause** | Cue: You notice you’re not actually here (you’re in the past or future). | Micro-Rep: Exhale long; feel feet; name emotion + need.\n- **90-second window** | Cue: You want immediate relief through a reactive move. | Micro-Rep: Set 90 seconds; breathe; feel; choose one clean next action.\n- **Overflow Check** | Cue: You’re giving from empty and calling it service. | Micro-Rep: Ask: “overflow or sacrifice?” If sacrifice, add a boundary.",
-    "bottom_ray_focus": "- 10-second body scan when heat/tension hits\n- Conversation-type check before responding\n- Watch Me + one 60-second action",
-    "micro_reps": "- Exhale long; feel feet; name emotion + need.\n- Set 90 seconds; breathe; feel; choose one clean next action.\n- Ask: “overflow or sacrifice?” If sacrifice, add a boundary.",
-    "reflection_prompts": "- What is the smallest rep that would make tomorrow easier?\n- Where did I choose (or avoid) the honest boundary today?\n- What did I reinforce that I want repeated: behavior, not vibe?\n- If my Eclipse were 20% higher than I’m admitting, what would I change today?\n- When I want to be real, what is the regulated action version of that want?",
-    "exec_signals": "**Outcome tags (O-series):**\n- O10 Leadership readiness & culture-setting\n- O6 Psychological safety / trust climate\n- O1 Sustainability & recovery speed\n\n**Executive dashboard signals most often lifted:**\n- Leadership Readiness\n- Psychological Safety Influence\n- Burnout Risk (Sustainability)"
-  },
-  {
-    "index": 34,
+    "index": 28,
     "name": "Network Cultivator",
     "pair_code": "R7-R8",
     "ray_a": "R7",
@@ -644,43 +530,5 @@
     "micro_reps": "- Write one If/Then for the next predictable friction moment.\n- Ask one open question, reflect back, confirm “did I get that right?”\n- Exhale long; feel feet; name emotion + need.",
     "reflection_prompts": "- What is the smallest rep that would make tomorrow easier?\n- Where did I choose (or avoid) the honest boundary today?\n- What did I reinforce that I want repeated: behavior, not vibe?\n- If my Eclipse were 20% higher than I’m admitting, what would I change today?\n- When I want connection, what is the regulated action version of that want?",
     "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O3 Change adoption speed\n- O7 Learning agility & innovation\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Decision Quality\n- Learning Agility / Innovation"
-  },
-  {
-    "index": 35,
-    "name": "Relational Light",
-    "pair_code": "R7-R9",
-    "ray_a": "R7",
-    "ray_b": "R9",
-    "essence": "Relational Light is the regulated expression of **Attune / Inspire Leader** (R7 Connection + R9 Be The Light). You set direction early and keep energy honest enough that progress is sustainable. People experience you as a clear starter who still leaves room for humanity.\n\nThis is a capacity pattern, not a label. Under low Eclipse, your Top Two stay online and you can access range. Under higher Eclipse, the same strengths can compress into speed, control, or over-commitment.",
-    "work_expression": "- Reads cues and adjusts tone (knows when to be practical vs emotional).\n- Asks follow-up questions that deepen beyond small talk.\n- Repairs quickly after tension instead of letting drift grow.\n- Makes people feel safe enough to tell the truth.\n- Models what they want others to do (calm, courage, standards) instead of preaching it.",
-    "life_expression": "- Creates ripple moments where others speak up, lead, or try.\n- Serves from overflow — protects recovery so giving stays real.\n- Invites others to go first and makes it feel safe.\n- Builds culture through connection: repair + modeling creates a safer room.\n- Invites others to go first by listening, confirming, and holding the standard.",
-    "strengths": "- Psychological safety.\n- Strong repair.\n- Reads cues and adjusts tone\n- Asks follow-up questions that deepen\n- Repairs quickly after tension",
-    "stress_distortion": "When Eclipse rises, overgiving and emotional exhaustion if boundaries lag.\n- Muted side: the regulating/human side.\n- Exaggerated side: the protective side (speed, control, pleasing, withdrawing).\n\n**Common derailments under load:**\n- Stress distortion: overgiving and emotional exhaustion if boundaries lag.\n- Over-accommodates or tries to control others’ feelings\n- Misses repair and lets drift grow\n- Assumes instead of asking\n\n**Load risks to watch (non-shaming):**\n- Over-accommodating and avoiding directness\n- Martyr leadership: serving from empty",
-    "ppd_risk": "If output stays high while recovery and listening drop, you can look “fine” while Presence collapses. Watch for speed-without-breath, control language, and fewer repair reps. Response: state-first tools, then one Bottom-Ray rep you can keep for 7 days.",
-    "coaching_logic": "Bottom Ray is the skill-to-learn, chosen by lowest score. Use **Attune** to make the rep specific (a decision, a boundary, a start). Use **Inspire** to keep the rep alive through reinforcement and recovery. Do not coach the Top Two first: install tools, run receipts, then widen range.",
-    "starting_tools": "- **Boundary of Light** | Cue: You’re saying yes to avoid discomfort. | Micro-Rep: Say one warm boundary: “I can’t do that, but I can do ___.”\n- **Overflow Check** | Cue: You feel guilty saying no. | Micro-Rep: Ask: “overflow or sacrifice?” If sacrifice, add a boundary.\n- **REPs** | Cue: Right after you do a hard rep (even small). | Micro-Rep: Write one receipt: what you did, not how you felt.",
-    "bottom_ray_focus": "- 10-second body scan when heat/tension hits\n- One boundary sentence practice (cue: asked for something you can’t do)\n- Watch Me + one 60-second action",
-    "micro_reps": "- Say one warm boundary: “I can’t do that, but I can do ___.”\n- Ask: “overflow or sacrifice?” If sacrifice, add a boundary.\n- Write one receipt: what you did, not how you felt.",
-    "reflection_prompts": "- What is the smallest rep that would make tomorrow easier?\n- Where did I choose (or avoid) the honest boundary today?\n- What did I reinforce that I want repeated: behavior, not vibe?\n- If my Eclipse were 20% higher than I’m admitting, what would I change today?\n- When I want connection, what is the regulated action version of that want?",
-    "exec_signals": "**Outcome tags (O-series):**\n- O6 Psychological safety / trust climate\n- O10 Leadership readiness & culture-setting\n- O5 Conflict repair capacity\n\n**Executive dashboard signals most often lifted:**\n- Psychological Safety Influence\n- Leadership Readiness\n- Conflict Repair Capacity"
-  },
-  {
-    "index": 36,
-    "name": "Visionary Servant",
-    "pair_code": "R8-R9",
-    "ray_a": "R8",
-    "ray_b": "R9",
-    "essence": "Visionary Servant is the regulated expression of **Explore / Inspire Leader** (R8 Possibility + R9 Be The Light). You set direction early and keep energy honest enough that progress is sustainable. People experience you as a clear starter who still leaves room for humanity.\n\nThis is a capacity pattern, not a label. Under low Eclipse, your Top Two stay online and you can access range. Under higher Eclipse, the same strengths can compress into speed, control, or over-commitment.",
-    "work_expression": "- Generates options before choosing — in strategy and in personal life choices.\n- Runs small experiments, learns fast, and adjusts without ego.\n- Stays open to new evidence instead of clinging to the first plan.\n- Finds possibilities inside constraints rather than complaining about constraints.\n- Models what they want others to do (calm, courage, standards) instead of preaching it.",
-    "life_expression": "- Creates ripple moments where others speak up, lead, or try.\n- Serves from overflow — protects recovery so giving stays real.\n- Invites others to go first and makes it feel safe.\n- Creates a hopeful future people can believe — possibility plus visible modeling.\n- Turns vision into ripple by running small experiments and celebrating attempts.",
-    "strengths": "- Opens possibility, then models action so others follow.\n- Generates options before committing\n- Runs small experiments and learns fast\n- Stays open under constraints\n- Updates plans when evidence changes",
-    "stress_distortion": "When Eclipse rises, vision fog under pressure; empty inspiration without reps.\n- Muted side: the regulating/human side.\n- Exaggerated side: the protective side (speed, control, pleasing, withdrawing).\n\n**Common derailments under load:**\n- Stress distortion: vision fog under pressure; empty inspiration without reps.\n- Becomes rigid and black-and-white\n- Shuts down options and clings to old models\n- Starts too many experiments and finishes none\n\n**Load risks to watch (non-shaming):**\n- Staying in options to avoid commitment\n- Martyr leadership: serving from empty",
-    "ppd_risk": "If output stays high while recovery and listening drop, you can look “fine” while Presence collapses. Watch for speed-without-breath, control language, and fewer repair reps. Response: state-first tools, then one Bottom-Ray rep you can keep for 7 days.",
-    "coaching_logic": "Bottom Ray is the skill-to-learn, chosen by lowest score. Use **Explore** to make the rep specific (a decision, a boundary, a start). Use **Inspire** to keep the rep alive through reinforcement and recovery. Do not coach the Top Two first: install tools, run receipts, then widen range.",
-    "starting_tools": "- **If/Then** | Cue: You’re about to enter a predictable high-pressure moment (meeting, call, commute, bedtime). | Micro-Rep: Write one If/Then for the next predictable friction moment.\n- **Go First** | Cue: You feel the ‘I should’ but you’re stuck. | Micro-Rep: Do the first 60 seconds of the thing you’re avoiding.\n- **REPs** | Cue: When you notice ‘that didn’t count’ self-talk. | Micro-Rep: Write one receipt: what you did, not how you felt.",
-    "bottom_ray_focus": "- 10-second body scan when heat/tension hits\n- One boundary sentence practice (cue: asked for something you can’t do)\n- Conversation-type check before responding",
-    "micro_reps": "- Write one If/Then for the next predictable friction moment.\n- Do the first 60 seconds of the thing you’re avoiding.\n- Write one receipt: what you did, not how you felt.",
-    "reflection_prompts": "- What is the smallest rep that would make tomorrow easier?\n- Where did I choose (or avoid) the honest boundary today?\n- What did I reinforce that I want repeated: behavior, not vibe?\n- If my Eclipse were 20% higher than I’m admitting, what would I change today?\n- When I want options, what is the regulated action version of that want?",
-    "exec_signals": "**Outcome tags (O-series):**\n- O7 Learning agility & innovation\n- O3 Change adoption speed\n- O10 Leadership readiness & culture-setting\n\n**Executive dashboard signals most often lifted:**\n- Learning Agility / Innovation\n- Decision Quality\n- Leadership Readiness"
   }
 ]
