@@ -1,3 +1,11 @@
+// ⚠️  DEPRECATED — This file is superseded by pipeline.ts (the canonical scorer)
+// and content-loader.mjs (for content loading). Retained only because QA scripts
+// (qa-parity.mjs, generate-sample-report.mjs, render-report.mjs) run as Node .mjs
+// and cannot import TypeScript. Remove this file once QA scripts migrate to tsx.
+//
+// Content loading: use content-loader.mjs instead.
+// Scoring: use pipeline.ts via the scoring/index.ts barrel export.
+
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

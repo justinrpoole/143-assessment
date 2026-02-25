@@ -88,8 +88,14 @@ export default function Closing({ output }: Props) {
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="pt-8" style={{ borderTop: '1px solid var(--surface-border)' }}>
+      {/* Research disclaimer + Footer */}
+      <div className="pt-8 space-y-3" style={{ borderTop: '1px solid var(--surface-border)' }}>
+        <p className="text-[11px] leading-relaxed text-left" style={{ color: 'var(--text-on-dark-muted)' }}>
+          The 143 Leadership Assessment adapts peer-reviewed behavioral science frameworks. It is not a diagnostic instrument and does not assess or treat mental health conditions. Scores reflect self-reported behavior under recent conditions and are designed to change with deliberate practice. Validation studies are in progress.{' '}
+          <a href="/methodology" className="underline underline-offset-2 hover:opacity-80" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            Methodology &amp; limitations
+          </a>
+        </p>
         <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
           143 Be The Light Assessment &middot; {output.assessment_run.instrument_version} &middot; {output.copy_mode.tone_mode === 'JUSTIN_RAY_DIRECT' ? 'Justin Ray Direct' : 'Executive Safe'}
         </p>

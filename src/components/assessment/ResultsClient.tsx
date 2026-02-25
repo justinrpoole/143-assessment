@@ -5,7 +5,10 @@ import Link from "next/link";
 
 import dynamic from "next/dynamic";
 import WelcomeDisclaimer from "@/components/results/WelcomeDisclaimer";
+import IdentityStory from "@/components/results/IdentityStory";
 import LightSignature from "@/components/results/LightSignature";
+import WhyThisMatters from "@/components/results/WhyThisMatters";
+import WeekOneChecklist from "@/components/results/WeekOneChecklist";
 import BottomRay from "@/components/results/BottomRay";
 import CosmicSkeleton from "@/components/ui/CosmicSkeleton";
 import CosmicEmptyState from "@/components/ui/CosmicEmptyState";
@@ -29,6 +32,7 @@ import { RepsRasActions } from "@/components/results/RepsRasActions";
 import { ShareCardButton } from "@/components/sharecards/ShareCardButton";
 import { MetricTooltip } from "@/components/ui/MetricTooltip";
 import { FadeInSection } from "@/components/ui/FadeInSection";
+import { ScienceToggle } from "@/components/results/ScienceToggle";
 import type { AssessmentOutputV1, ConfidenceBand, RayOutput } from "@/lib/types";
 
 interface ResultsClientProps {
@@ -153,10 +157,12 @@ export function ResultsClient({ runId }: ResultsClientProps) {
   const whatNotToDo = recommendations?.what_not_to_do_yet ?? [];
 
   // ---------------------------------------------------------------------------
-  // Layout: sequence of result sections
+  // Layout: STORY FIRST — identity narrative above fold, data below
   // ---------------------------------------------------------------------------
   return (
     <div className="space-y-8">
+
+      {/* ═══ ABOVE THE FOLD: Your Story ═══ */}
 
       {/* 1. Welcome + Confidence */}
       <FadeInSection>
@@ -166,147 +172,38 @@ export function ResultsClient({ runId }: ResultsClientProps) {
         />
       </FadeInSection>
 
-      {/* 2. Light Signature — Archetype + Top Two */}
+      {/* 2. Identity Story — Who You Are Right Now */}
       {lightSignature && (
         <FadeInSection delay={0.15}>
-          <div className="space-y-2">
-            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
-              <MetricTooltip metricId="light_signature">Light Signature</MetricTooltip>
-            </h2>
-            <LightSignature lightSignature={lightSignature} />
-          </div>
-        </FadeInSection>
-      )}
-
-      {/* 2b. Micro-celebration — Affirm top strengths */}
-      {lightSignature && lightSignature.top_two.length > 0 && (
-        <FadeInSection delay={0.2}>
-          <div className="glass-card p-5" style={{ borderColor: 'rgba(248, 208, 17, 0.15)' }}>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-sm" style={{ color: 'var(--brand-gold, #F8D011)' }}>&#9733;</span>
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-                Your Light Is Here
-              </p>
-            </div>
-            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
-              {lightSignature.top_two.length >= 2
-                ? `${lightSignature.top_two[0].ray_name} and ${lightSignature.top_two[1].ray_name} are already resourced. These aren't aspirations — they're active strengths your nervous system defaults to under pressure. Build from here.`
-                : `${lightSignature.top_two[0].ray_name} is already resourced. This isn't aspiration — it's an active strength your nervous system defaults to under pressure. Build from here.`}
-            </p>
-          </div>
-        </FadeInSection>
-      )}
-
-      {/* 3. Gravitational Stability Report — Nine-Ray Radial Visualization */}
-      {output?.rays && lightSignature && (
-        <FadeInSection delay={0.1}>
-          <div className="space-y-2">
-            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
-              <MetricTooltip metricId="gravitational_stability">Gravitational Stability</MetricTooltip>
-            </h2>
-            <SolarCoreScore
-              rays={output.rays}
-              topTwo={lightSignature.top_two.map((r) => r.ray_id)}
-              bottomRay={lightSignature.just_in_ray?.ray_id ?? ''}
-            />
-          </div>
-        </FadeInSection>
-      )}
-
-      {/* 4. Eclipse Meter — System Load Visualization */}
-      {eclipse && (
-        <FadeInSection>
-          <div className="space-y-2">
-            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
-              <MetricTooltip metricId="eclipse_percentage">Eclipse</MetricTooltip>
-            </h2>
-            <EclipseMeter eclipse={eclipse} />
-          </div>
-        </FadeInSection>
-      )}
-
-      {/* 4a. Eclipse Coaching Reframe */}
-      {eclipse && (
-        <FadeInSection>
-          <div className="glass-card p-5" style={{ borderColor: 'var(--surface-border)' }}>
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-              Coaching Note
-            </p>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
-              {eclipse.level === 'LOW' || eclipse.level === 'MODERATE'
-                ? 'Your system is holding steady. That means your capacity for growth work is high right now — the tools will land deeper when your nervous system is not in protection mode.'
-                : 'Your capacity is 100% intact. What you are seeing is load, not limitation. Eclipse is temporary — it means your system is working hard to protect you. Recovery is the rep right now.'}
-            </p>
-            {eclipse.gating && (
-              <p className="mt-2 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
-                Current mode: <strong style={{ color: 'var(--text-on-dark-secondary)' }}>{eclipse.gating.mode.replace(/_/g, ' ').toLowerCase()}</strong> — {eclipse.gating.reason}
-              </p>
-            )}
-          </div>
-        </FadeInSection>
-      )}
-
-      {/* 4b. Moon-to-Sun Slider — Overall Score */}
-      {output?.rays && (
-        <FadeInSection>
-          <MoonToSunSlider
-            score={computeOverallScore(output.rays)}
-            label="Your stability today"
+          <IdentityStory
+            lightSignature={lightSignature}
+            eclipse={eclipse}
+            rays={output?.rays}
           />
         </FadeInSection>
       )}
 
-      {/* 4c. Magnetic Field Ring — Coherence */}
-      {output?.rays && (
-        <FadeInSection>
-          <MagneticFieldRing rays={output.rays} />
-        </FadeInSection>
-      )}
-
-      {/* 4d. Orbit Map — Ray Alignment */}
-      {output?.rays && lightSignature && (
-        <FadeInSection>
-          <OrbitMap
-            rays={output.rays}
-            topTwo={lightSignature.top_two.map((r) => r.ray_id)}
-            bottomRay={lightSignature.just_in_ray?.ray_id ?? ''}
-          />
-        </FadeInSection>
-      )}
-
-      {/* 4e. Black Hole Flags — Energy Leaks */}
-      {output?.rays && eclipse && (
-        <FadeInSection>
-          <BlackHoleFlags rays={output.rays} eclipse={eclipse} />
-        </FadeInSection>
-      )}
-
-      {/* 5. Bottom Ray — Next Skill */}
+      {/* 3. Rise Path — What Comes Next */}
       {justInRay && (
-        <FadeInSection>
+        <FadeInSection delay={0.2}>
           <div className="space-y-2">
             <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
               <MetricTooltip metricId="rise_path">Rise Path</MetricTooltip>
             </h2>
             <BottomRay justInRay={justInRay} />
+            <ScienceToggle
+              mechanism="Your Rise Path is selected by ranking all 9 Rays by net energy and identifying the lowest. The Move Score (0.45 * Access + 0.35 * Tool Readiness + 0.20 * Reflection Depth) determines coaching intensity. Implementation intentions (Gollwitzer, 1999) show that pre-decided responses significantly increase follow-through under pressure."
+              citation="Gollwitzer (1999); Fogg (2019)"
+              anchor="scoring-model"
+            />
           </div>
         </FadeInSection>
       )}
 
-      {/* 6. PPD / Acting vs Capacity */}
-      {acting && acting.status !== 'CLEAR' && (
+      {/* 4. Week 1 Installation Plan */}
+      {lightSignature && (
         <FadeInSection>
-          <div className="space-y-2">
-            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
-              <MetricTooltip metricId="ppd">Performance-Presence Delta</MetricTooltip>
-            </h2>
-            <PPDConditional acting={acting} />
-          </div>
-        </FadeInSection>
-      )}
-      {acting && acting.status === 'CLEAR' && (
-        <FadeInSection>
-          <PPDConditional acting={acting} />
+          <WeekOneChecklist lightSignature={lightSignature} />
         </FadeInSection>
       )}
 
@@ -417,6 +314,199 @@ export function ResultsClient({ runId }: ResultsClientProps) {
           </div>
         </div>
       </FadeInSection>
+
+      {/* ═══ BELOW THE FOLD: Your Data ═══ */}
+
+      {/* Divider */}
+      <div className="py-2">
+        <div
+          className="h-px w-full"
+          style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold, #F8D011), transparent)' }}
+        />
+        <p
+          className="mt-3 text-center text-xs font-medium uppercase tracking-widest"
+          style={{ color: 'var(--text-on-dark-muted)' }}
+        >
+          The data — your 9 Rays, Eclipse, and visualizations
+        </p>
+      </div>
+
+      {/* 6. Eclipse — System Load */}
+      {eclipse && (
+        <FadeInSection>
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+              <MetricTooltip metricId="eclipse_percentage">Eclipse</MetricTooltip>
+            </h2>
+            <EclipseMeter eclipse={eclipse} />
+          </div>
+        </FadeInSection>
+      )}
+
+      {/* 6a. Eclipse Coaching Reframe */}
+      {eclipse && (
+        <FadeInSection>
+          <div className="glass-card p-5" style={{ borderColor: 'var(--surface-border)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              Coaching Note
+            </p>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
+              {eclipse.level === 'LOW' || eclipse.level === 'MODERATE'
+                ? 'Your system is holding steady. That means your capacity for growth work is high right now — the tools will land deeper when your nervous system is not in protection mode.'
+                : 'Your capacity is 100% intact. What you are seeing is load, not limitation. Eclipse is temporary — it means your system is working hard to protect you. Recovery is the rep right now.'}
+            </p>
+            {eclipse.gating && (
+              <p className="mt-2 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+                Current mode: <strong style={{ color: 'var(--text-on-dark-secondary)' }}>{eclipse.gating.mode.replace(/_/g, ' ').toLowerCase()}</strong> — {eclipse.gating.reason}
+              </p>
+            )}
+            <ScienceToggle
+              mechanism="Eclipse is adapted from Maslach's three-dimensional burnout model, measuring emotional, cognitive, and relational load as temporary capacity reducers. McEwen's allostatic load research (2008) shows that sustained stress has measurable, cumulative costs to executive function and recovery capacity."
+              citation="Maslach (1981); McEwen (2008)"
+              anchor="research-pillars"
+            />
+          </div>
+        </FadeInSection>
+      )}
+
+      {/* 7. Why This Matters — Per-Ray State-Aware Context */}
+      {output?.rays && (
+        <FadeInSection>
+          <WhyThisMatters rays={output.rays} eclipse={eclipse} />
+        </FadeInSection>
+      )}
+
+      {/* 8. Gravitational Stability — Nine-Ray Radial Visualization */}
+      {output?.rays && lightSignature && (
+        <FadeInSection>
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+              <MetricTooltip metricId="gravitational_stability">Gravitational Stability</MetricTooltip>
+            </h2>
+            <SolarCoreScore
+              rays={output.rays}
+              topTwo={lightSignature.top_two.map((r) => r.ray_id)}
+              bottomRay={lightSignature.just_in_ray?.ray_id ?? ''}
+            />
+          </div>
+        </FadeInSection>
+      )}
+
+      {/* 8a. Moon-to-Sun Slider — Overall Score */}
+      {output?.rays && (
+        <FadeInSection>
+          <MoonToSunSlider
+            score={computeOverallScore(output.rays)}
+            label="Your stability today"
+          />
+        </FadeInSection>
+      )}
+
+      {/* 8b. Magnetic Field Ring — Coherence */}
+      {output?.rays && (
+        <FadeInSection>
+          <MagneticFieldRing rays={output.rays} />
+        </FadeInSection>
+      )}
+
+      {/* 8c. Orbit Map — Ray Alignment */}
+      {output?.rays && lightSignature && (
+        <FadeInSection>
+          <OrbitMap
+            rays={output.rays}
+            topTwo={lightSignature.top_two.map((r) => r.ray_id)}
+            bottomRay={lightSignature.just_in_ray?.ray_id ?? ''}
+          />
+        </FadeInSection>
+      )}
+
+      {/* 8d. Black Hole Flags — Energy Leaks */}
+      {output?.rays && eclipse && (
+        <FadeInSection>
+          <BlackHoleFlags rays={output.rays} eclipse={eclipse} />
+        </FadeInSection>
+      )}
+
+      {/* 9. Light Signature Detail — Archetype Expressions, Strengths, Tools */}
+      {lightSignature && (
+        <FadeInSection>
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+              <MetricTooltip metricId="light_signature">Light Signature Detail</MetricTooltip>
+            </h2>
+            <LightSignature lightSignature={lightSignature} />
+          </div>
+        </FadeInSection>
+      )}
+
+      {/* 10. PPD / Acting vs Capacity */}
+      {acting && acting.status !== 'CLEAR' && (
+        <FadeInSection>
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+              <MetricTooltip metricId="ppd">Performance-Presence Delta</MetricTooltip>
+            </h2>
+            <PPDConditional acting={acting} />
+          </div>
+        </FadeInSection>
+      )}
+      {acting && acting.status === 'CLEAR' && (
+        <FadeInSection>
+          <PPDConditional acting={acting} />
+        </FadeInSection>
+      )}
+
+      {/* 11. Tool Readiness */}
+      {recommendations && (
+        <FadeInSection>
+          <ToolReadiness recommendations={recommendations} />
+        </FadeInSection>
+      )}
+
+      {/* 12. 30-Day Plan */}
+      {recommendations && (
+        <FadeInSection>
+          <ThirtyDayPlan
+            recommendations={recommendations}
+            whatNotToDo={whatNotToDo}
+            rayName={justInRay?.ray_name}
+            runId={runId}
+          />
+        </FadeInSection>
+      )}
+
+      {/* 13. Coaching Questions */}
+      {coachingQs.length > 0 && (
+        <FadeInSection>
+          <CoachingQuestions questions={coachingQs} />
+        </FadeInSection>
+      )}
+
+      {/* 13b. REPs + RAS */}
+      {output && (
+        <FadeInSection>
+          <RepsRasActions />
+        </FadeInSection>
+      )}
+
+      {/* 14. Confidence Band Detail */}
+      {dataQuality && (
+        <FadeInSection>
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+              <MetricTooltip metricId="confidence_band">Confidence Band</MetricTooltip>
+            </h2>
+            <ConfidenceBandSection dataQuality={dataQuality} />
+          </div>
+        </FadeInSection>
+      )}
+
+      {/* 15. Closing */}
+      {output && (
+        <FadeInSection>
+          <Closing output={output} />
+        </FadeInSection>
+      )}
 
       <FadeInSection>
         <ShareCardButton

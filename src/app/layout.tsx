@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Orelega_One, Inter } from "next/font/google";
-import { SiteFooter } from "@/components/SiteFooter";
-import { MarketingNav } from "@/components/marketing/MarketingNav";
 import { ToastProvider } from "@/components/ui/Toast";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 import "./globals.css";
@@ -78,11 +76,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <ServiceWorkerRegistration />
         <ToastProvider>
-          <MarketingNav />
-          <div id="main-content">
-            {children}
-          </div>
-          <SiteFooter />
+          <div id="main-content">{children}</div>
         </ToastProvider>
       </body>
     </html>

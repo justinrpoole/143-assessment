@@ -154,7 +154,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     },
     whyThisWorks: {
       title:
-        "9 dimensions. Each one trainable. Together, they map your emotional intelligence.",
+        "9 Rays. Each one trainable. Together, they map your emotional intelligence.",
       body: "The first three Rays train emotional intelligence with yourself. The last three train emotional intelligence with others. The middle three are where they meet: power, purpose, authenticity. These are not personality types. They are capacities. Every one of them can be built through reps, not revelation.",
       proof:
         "$43 for the full assessment with your Light Signature and Eclipse Snapshot. $14.33/mo for unlimited retakes and growth tracking. Your scores are the receipt.",

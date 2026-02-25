@@ -148,6 +148,7 @@ export const CANONICAL_EVENT_NAMES = [
   "page_view_weekly",
   "page_view_reps",
   "page_view_welcome",
+  "page_view_methodology",
 ] as const;
 
 export type SetupContextScope = "work" | "home" | "mixed";

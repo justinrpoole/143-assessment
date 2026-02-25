@@ -22,7 +22,7 @@ const REQUIRED_ROUTES = {
     ],
   },
   "/framework": {
-    file: "src/app/framework/page.tsx",
+    file: "src/app/(marketing)/framework/page.tsx",
     tokens: [
       "The Be The Light Framework",
       "The Problem With Most Leadership Development",
@@ -31,19 +31,19 @@ const REQUIRED_ROUTES = {
     ],
   },
   "/143-challenge": {
-    file: "src/app/143-challenge/page.tsx",
+    file: "src/app/(marketing)/143-challenge/page.tsx",
     tokens: ["The 143 Challenge", "The Practice", "Why it works", "Start now"],
   },
   "/organizations": {
-    file: "src/app/organizations/page.tsx",
+    file: "src/app/(marketing)/organizations/page.tsx",
     tokens: ["For Organizations", "How We Work With Organizations"],
   },
   "/about": {
-    file: "src/app/about/page.tsx",
+    file: "src/app/(marketing)/about/page.tsx",
     tokens: ["About Justin Ray", "Credibility", "Method and invitation"],
   },
   "/resources": {
-    file: "src/app/resources/page.tsx",
+    file: "src/app/(marketing)/resources/page.tsx",
     tokens: ["Resources", "Stay in the loop"],
   },
 };
@@ -61,9 +61,11 @@ const HOME_SEQUENCE_TOKENS = [
 
 const NAV_FILE = "src/components/marketing/MarketingNav.tsx";
 const FOOTER_FILE = "src/components/SiteFooter.tsx";
-const NAV_CONFIG_FILE = "src/lib/nav/nav-config.ts";
-const ROOT_LAYOUT_FILE = "src/app/layout.tsx";
+const MARKETING_LAYOUT_FILE = "src/app/(marketing)/layout.tsx";
+const ASSESSMENT_LAYOUT_FILE = "src/app/assessment/layout.tsx";
 const PAGE_COPY_FILE = "src/content/page_copy.v1.ts";
+const PORTAL_LAYOUT_FILE = "src/app/(portal)/layout.tsx";
+const NAV_CONFIG_FILE = "src/lib/nav/nav-config.ts";
 
 function abs(relativePath) {
   return path.join(ROOT, relativePath);
@@ -131,7 +133,7 @@ function main() {
     }
   }
 
-  const homeFile = "src/app/upgrade-your-os/page.tsx";
+  const homeFile = "src/app/(marketing)/upgrade-your-os/page.tsx";
   if (!exists(homeFile)) {
     failures.push(`HOME sequence check: missing ${homeFile}`);
   } else {
@@ -160,24 +162,11 @@ function main() {
       "Outcomes",
       "Pricing",
       "143 Challenge",
-      "For Teams",
+      "For Organizations",
       "About",
-      "Start 143 Challenge",
     ]);
     for (const token of missingNavTokens) {
       failures.push(`nav config: missing token \"${token}\" in ${NAV_CONFIG_FILE}`);
-    }
-  }
-
-  if (!exists(ROOT_LAYOUT_FILE)) {
-    failures.push(`layout missing file ${ROOT_LAYOUT_FILE}`);
-  } else {
-    const layoutContent = read(ROOT_LAYOUT_FILE);
-    if (!layoutContent.includes("MarketingNav")) {
-      failures.push(`layout: ${ROOT_LAYOUT_FILE} must render MarketingNav`);
-    }
-    if (!layoutContent.includes("SiteFooter")) {
-      failures.push(`layout: ${ROOT_LAYOUT_FILE} must render SiteFooter`);
     }
   }
 
@@ -202,7 +191,9 @@ function main() {
       .map((filePath) => path.relative(appRoot, filePath));
 
     const allowedImports = new Set([
-      "layout.tsx",
+      "(marketing)/layout.tsx",
+      "assessment/layout.tsx",
+      "(portal)/layout.tsx",
     ]);
 
     for (const relativePath of appFiles) {
@@ -211,11 +202,41 @@ function main() {
       }
       const content = fs.readFileSync(path.join(appRoot, relativePath), "utf8");
       if (content.includes("MarketingNav")) {
-        failures.push(`navigation: ${relativePath} should not import MarketingNav (use root layout)`);
+        failures.push(`navigation: ${relativePath} should not import MarketingNav (use layout)`);
       }
       if (content.includes("SiteFooter")) {
-        failures.push(`footer: ${relativePath} should not import SiteFooter (use root layout)`);
+        failures.push(`footer: ${relativePath} should not import SiteFooter (use layout)`);
       }
+    }
+  }
+
+  if (exists(MARKETING_LAYOUT_FILE)) {
+    const marketingLayout = read(MARKETING_LAYOUT_FILE);
+    if (!marketingLayout.includes("MarketingNav")) {
+      failures.push(`layout: ${MARKETING_LAYOUT_FILE} must render MarketingNav`);
+    }
+    if (!marketingLayout.includes("SiteFooter")) {
+      failures.push(`layout: ${MARKETING_LAYOUT_FILE} must render SiteFooter`);
+    }
+  }
+
+  if (exists(ASSESSMENT_LAYOUT_FILE)) {
+    const assessmentLayout = read(ASSESSMENT_LAYOUT_FILE);
+    if (!assessmentLayout.includes("MarketingNav")) {
+      failures.push(`layout: ${ASSESSMENT_LAYOUT_FILE} must render MarketingNav`);
+    }
+    if (!assessmentLayout.includes("SiteFooter")) {
+      failures.push(`layout: ${ASSESSMENT_LAYOUT_FILE} must render SiteFooter`);
+    }
+  }
+
+  if (exists(PORTAL_LAYOUT_FILE)) {
+    const portalLayout = read(PORTAL_LAYOUT_FILE);
+    if (!portalLayout.includes("MarketingNav")) {
+      failures.push(`layout: ${PORTAL_LAYOUT_FILE} must render MarketingNav`);
+    }
+    if (!portalLayout.includes("SiteFooter")) {
+      failures.push(`layout: ${PORTAL_LAYOUT_FILE} must render SiteFooter`);
     }
   }
 

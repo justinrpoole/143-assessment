@@ -1,0 +1,996 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "created_at": "2026-02-23",
+    "description": "Claim-to-citation ledger for every science claim in the 143 Leadership Assessment. Each entry maps a claim to its source, DOI (when verified), confidence rating, and verification status.",
+    "confidence_levels": {
+      "STRONG": "Peer-reviewed, replicated, DOI verified, claim matches finding",
+      "MODERATE": "Peer-reviewed, DOI verified, claim is reasonable interpretation",
+      "DIRECTIONAL": "Published but not peer-reviewed, or claim extrapolates beyond finding",
+      "UNVERIFIED": "No DOI found or verification not yet attempted"
+    },
+    "verification_statuses": {
+      "VERIFIED": "DOI resolves, journal is peer-reviewed, finding supports claim",
+      "PARTIAL": "DOI resolves but claim overstates or reframes finding",
+      "PENDING": "Awaiting Perplexity verification pass",
+      "NEEDS_CITATION": "No source given in codebase — citation needed",
+      "FOLK_SCIENCE": "Widely repeated but original source unclear or contested"
+    }
+  },
+  "researchers": [
+    {
+      "researcher_id": "BARRETT",
+      "name": "Lisa Feldman Barrett",
+      "field": "Constructed Emotion Theory",
+      "key_work": "How Emotions Are Made (2017)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "MILKMAN",
+      "name": "Katy Milkman",
+      "field": "Behavioral Change",
+      "key_work": "How to Change (2021)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "LEAF",
+      "name": "Caroline Leaf",
+      "field": "Neuroplasticity / Thought Training",
+      "key_work": "Switch On Your Brain (2013)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "JHA",
+      "name": "Amishi Jha",
+      "field": "Attention Science",
+      "key_work": "Peak Mind (2021); Jha et al. (2013) interoception study",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "FOGG",
+      "name": "BJ Fogg",
+      "field": "Tiny Habits / Behavior Design",
+      "key_work": "Tiny Habits (2019)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "GOLEMAN",
+      "name": "Daniel Goleman",
+      "field": "Emotional Intelligence",
+      "key_work": "Emotional Intelligence (1995)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "MASLACH",
+      "name": "Christina Maslach",
+      "field": "Burnout Research",
+      "key_work": "Maslach Burnout Inventory; three-dimensional burnout model",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "DWECK",
+      "name": "Carol Dweck",
+      "field": "Growth Mindset",
+      "key_work": "Mindset (2006)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "DUCKWORTH",
+      "name": "Angela Duckworth",
+      "field": "Grit & Perseverance",
+      "key_work": "Grit (2016)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "EDMONDSON",
+      "name": "Amy Edmondson",
+      "field": "Psychological Safety",
+      "key_work": "Edmondson (1999) Psychological Safety and Learning Behavior in Work Teams",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "DECI",
+      "name": "Edward Deci",
+      "field": "Self-Determination Theory",
+      "key_work": "Deci & Ryan (2000) The What and Why of Goal Pursuits",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "RYAN",
+      "name": "Richard Ryan",
+      "field": "Self-Determination Theory",
+      "key_work": "Ryan & Deci (2000) Basic Psychological Needs Theory",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "LIEBERMAN",
+      "name": "Matthew Lieberman",
+      "field": "Affect Labeling / Social Cognitive Neuroscience",
+      "key_work": "Lieberman et al. (2007) Putting Feelings into Words",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "GOLLWITZER",
+      "name": "Peter Gollwitzer",
+      "field": "Implementation Intentions",
+      "key_work": "Gollwitzer (1999) Implementation Intentions: Strong Effects of Simple Plans",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "MCEWAN",
+      "name": "Bruce McEwen",
+      "field": "Allostatic Load / Stress Physiology",
+      "key_work": "McEwen (2008) Central effects of stress hormones",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "KROSS",
+      "name": "Ethan Kross",
+      "field": "Self-Distancing / Emotion Regulation",
+      "key_work": "Kross et al. (2014) Self-talk as a regulatory mechanism",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "MORUZZI_MAGOUN",
+      "name": "Moruzzi & Magoun",
+      "field": "Reticular Activating System",
+      "key_work": "Moruzzi & Magoun (1949) Brain stem reticular formation and activation of the EEG",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "TAYLOR",
+      "name": "Jill Bolte Taylor",
+      "field": "Neuroanatomy / Emotion Duration",
+      "key_work": "My Stroke of Insight (2008)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "FLAVELL",
+      "name": "John Flavell",
+      "field": "Metacognition",
+      "key_work": "Flavell (1979) Metacognition and cognitive monitoring",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "DESIMONE_DUNCAN",
+      "name": "Desimone & Duncan",
+      "field": "Neural Mechanisms of Selective Attention",
+      "key_work": "Desimone & Duncan (1995) Neural mechanisms of selective visual attention",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "MARTELL",
+      "name": "Martell et al.",
+      "field": "Behavioral Activation",
+      "key_work": "Behavioral Activation for Depression (2001/2010)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "HOCKEY",
+      "name": "Robert Hockey",
+      "field": "Compensatory Effort / Fatigue",
+      "key_work": "Hockey (2013) The Psychology of Fatigue",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "HANSON",
+      "name": "Rick Hanson",
+      "field": "Positive Neuroplasticity",
+      "key_work": "Hardwiring Happiness (2013)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "OYSERMAN",
+      "name": "Daphna Oyserman",
+      "field": "Identity-Based Motivation",
+      "key_work": "Oyserman identity-based motivation research",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "DAMASIO",
+      "name": "Antonio Damasio",
+      "field": "Somatic Marker Hypothesis / Interoception",
+      "key_work": "Descartes' Error (1994)",
+      "doi": null,
+      "verification_status": "PENDING"
+    },
+    {
+      "researcher_id": "BANDURA",
+      "name": "Albert Bandura",
+      "field": "Self-Efficacy",
+      "key_work": "Self-Efficacy: The Exercise of Control (1997)",
+      "doi": null,
+      "verification_status": "PENDING"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C001",
+      "claim_text": "The neurological lifespan of an emotion is 90 seconds.",
+      "claim_type": "STATISTIC",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["TAYLOR"],
+      "citation_form": "Jill Bolte Taylor (2008)",
+      "doi": null,
+      "confidence": "DIRECTIONAL",
+      "verification_status": "PENDING",
+      "verification_notes": "Popular claim from Taylor's book, not peer-reviewed research. The 90-second figure is from her personal narrative, not a controlled study. Needs Perplexity verification for any supporting evidence.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 17 },
+        { "file": "src/components/portal/TodaysRep.tsx", "line": 33 },
+        { "file": "src/components/portal/TodaysRep.tsx", "line": 64 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C002",
+      "claim_text": "Interoception training improves sustained attention and emotional regulation.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["JHA"],
+      "citation_form": "Jha (2013)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Need to verify specific 2013 Jha paper on interoception. Her work is primarily on mindfulness-based attention training.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 30 },
+        { "file": "src/components/portal/TodaysRep.tsx", "line": 32 },
+        { "file": "src/components/portal/TodaysRep.tsx", "line": 72 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C003",
+      "claim_text": "Deliberate focus overrides reactive focus through prefrontal top-down attention control.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["DESIMONE_DUNCAN"],
+      "citation_form": "Desimone & Duncan (1995)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Classic attention paper. Verify DOI and that the specific claim about 'overriding reactive focus' is supported.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 43 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C004",
+      "claim_text": "Action precedes motivation, not the other way around.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["MARTELL"],
+      "citation_form": "Martell et al.",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Behavioral activation therapy principle. Verify specific publication.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 56 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 47 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C005",
+      "claim_text": "Affect labeling reduces amygdala activation within seconds.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["LIEBERMAN"],
+      "citation_form": "Lieberman et al. (2007)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Widely cited. Verify DOI for 'Putting Feelings into Words' paper. Confirm 'within seconds' is accurate to original findings.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 69 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 57 },
+        { "file": "src/components/IRiseModal.tsx", "line": 133 },
+        { "file": "src/app/(marketing)/faq/page.tsx", "line": 98 },
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 37 },
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 142 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C006",
+      "claim_text": "Reflection on process improves future performance.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["FLAVELL"],
+      "citation_form": "Flavell (1979)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Foundational metacognition paper. Verify DOI and exact claim alignment.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 82 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 67 },
+        { "file": "src/components/portal/TodaysRep.tsx", "line": 40 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C007",
+      "claim_text": "Implementation intentions more than double follow-through rates.",
+      "claim_type": "STATISTIC",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["GOLLWITZER"],
+      "citation_form": "Gollwitzer (1999)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "HIGH PRIORITY: The 'double' claim appears in multiple forms ('more than double', 'double', 'reduces decision fatigue by 50%+'). Need to verify which specific effect sizes are in the original paper. The '50% decision fatigue reduction' claim may overstate or reframe the finding.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 95 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 77 },
+        { "file": "src/components/portal/TodaysRep.tsx", "line": 24 },
+        { "file": "src/components/retention/IfThenPlanClient.tsx", "line": 254 },
+        { "file": "src/components/retention/DailyLoopClient.tsx", "line": 29 },
+        { "file": "src/app/(marketing)/faq/page.tsx", "line": 98 },
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 39 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C008",
+      "claim_text": "Sustained boundary violations increase energy borrowing and deplete executive function.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["MCEWAN"],
+      "citation_form": "McEwen (2008)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "McEwen's allostatic load model is well-established. Verify DOI for the 2008 paper specifically.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 108 },
+        { "file": "src/app/(marketing)/faq/page.tsx", "line": 98 },
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 35 },
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 141 },
+        { "file": "src/lib/retention/energy-audit.ts", "line": 4 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C009",
+      "claim_text": "The brain's attention filter (RAS) is trainable.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["MORUZZI_MAGOUN"],
+      "citation_form": "Moruzzi & Magoun (1949)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "The 1949 paper established RAS existence. The claim that it is 'trainable' is a modern interpretation not in the original paper. Need Perplexity to find supporting evidence for RAS trainability specifically.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 121 },
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 160 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C010",
+      "claim_text": "Curiosity-based questioning builds psychological safety and decision quality.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["EDMONDSON"],
+      "citation_form": "Edmondson (1999)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Edmondson's psych safety research is well-established. Verify the 'curiosity-based questioning' framing is consistent with her findings.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 134 },
+        { "file": "src/components/portal/TodaysRep.tsx", "line": 48 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 134 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C011",
+      "claim_text": "Autonomy support is a core driver of wellbeing and performance.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["DECI", "RYAN"],
+      "citation_form": "Deci & Ryan (2000)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Self-Determination Theory is one of the most well-supported frameworks. Verify DOI for the 2000 paper.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 173 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 137 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C012",
+      "claim_text": "Self-distancing reduces emotional reactivity.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["KROSS"],
+      "citation_form": "Kross et al. (2014)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Verify specific 2014 Kross paper on self-talk / self-distancing.",
+      "locations": [
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 57 },
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 38 },
+        { "file": "src/app/(marketing)/faq/page.tsx", "line": 98 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C013",
+      "claim_text": "Compensatory effort — output stays high while internal recovery costs accumulate invisibly.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["HOCKEY"],
+      "citation_form": "Hockey (2013)",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Verify Hockey's 2013 compensatory effort model publication.",
+      "locations": [
+        { "file": "src/components/results/PPDConditional.tsx", "line": 36 },
+        { "file": "src/lib/metrics/registry.ts", "line": 226 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C014",
+      "claim_text": "Identity-based motivation: when you believe the score can move, you train differently.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["DWECK", "OYSERMAN"],
+      "citation_form": "Dweck, Oyserman",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Combines Dweck's growth mindset with Oyserman's identity-based motivation. Both well-established but verify the specific combination claim.",
+      "locations": [
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 40 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C015",
+      "claim_text": "The RAS filters 11 million bits of sensory data every second.",
+      "claim_type": "STATISTIC",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "HIGH PRIORITY GAP. Appears 3 times with no citation. The '11 million bits per second' figure is widely repeated in popular science but the original source is unclear. Often attributed to Zimmermann (1989) or Norretranders (1998). Need Perplexity to find the strongest available citation.",
+      "locations": [
+        { "file": "src/app/(marketing)/143/page.tsx", "line": 36 },
+        { "file": "src/app/(marketing)/143-challenge/page.tsx", "line": 403 },
+        { "file": "src/components/portal/TodaysRep.tsx", "line": 53 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C016",
+      "claim_text": "21 days to interrupt old patterns, 63 days for new defaults.",
+      "claim_type": "STATISTIC",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "HIGH PRIORITY GAP. The '21 days' myth is often attributed to Maxwell Maltz (1960) Psycho-Cybernetics. The 66-day figure comes from Lally et al. (2010). The '63 days' is close to Lally but not exact. Need Perplexity verification.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 160 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C017",
+      "claim_text": "That is a $240 billion design gap.",
+      "claim_type": "STATISTIC",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "HIGH PRIORITY GAP. Industry cost figure with no citation. Need to identify what this refers to (burnout costs? leadership development market? disengagement costs?) and find a supporting source.",
+      "locations": [
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 78 },
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 84 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C018",
+      "claim_text": "Self-compassion lowers cortisol. Self-criticism spikes it.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "HIGH PRIORITY GAP. Appears twice with no citation. Likely relates to Kristin Neff's self-compassion research or Breines & Chen (2012). Need Perplexity to find specific cortisol study.",
+      "locations": [
+        { "file": "src/app/(marketing)/143-challenge/page.tsx", "line": 437 },
+        { "file": "src/app/(marketing)/143/page.tsx", "line": 64 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 127 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C019",
+      "claim_text": "Your brain can't tell who says 'I love you.' Self-directed love activates the same reward pathways as external validation.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "Bold claim. Need Perplexity to find any supporting neuroimaging research on self-directed affirmations activating reward pathways.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 159 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C020",
+      "claim_text": "Anchors attention to now — disrupts the Default Mode Network in 10-30 seconds.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "DMN disruption through interoception is supported by research but the '10-30 seconds' timing claim needs verification.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 29 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 27 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C021",
+      "claim_text": "Pre-loaded plans bypass the amygdala. Your brain executes the plan before panic arrives.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "Reasonable interpretation of Gollwitzer's implementation intentions research but 'bypass the amygdala' is a strong neuroscience claim that needs verification.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 96 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 78 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C022",
+      "claim_text": "Questions shift the nervous system from defend to explore — reducing threat rigidity.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "Relates to polyvagal theory and approach/avoidance research. Need citation.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 133 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C023",
+      "claim_text": "Prediction errors are how identity updates.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "Draws on prediction error / predictive processing models (Clark, Friston). Need to find supporting research linking prediction error to identity change specifically.",
+      "locations": [
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 489 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 522 },
+        { "file": "src/app/(marketing)/143-challenge/page.tsx", "line": 421 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C024",
+      "claim_text": "Genuine positive emotion expands attention and options — people who access micro-joy think more creatively and build resilience.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "Refers to Fredrickson's Broaden-and-Build Theory. Should cite Fredrickson (2001).",
+      "locations": [
+        { "file": "src/lib/cosmic-copy.ts", "line": 184 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C025",
+      "claim_text": "Co-experienced joy activates mirror neurons and doubles the broaden-and-build effect.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "The 'doubles' claim is very specific and likely needs softening. Mirror neuron claims are increasingly contested. Needs citation or language revision.",
+      "locations": [
+        { "file": "src/lib/cosmic-copy.ts", "line": 198 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C026",
+      "claim_text": "Execution activates the prefrontal cortex. Waiting to feel ready keeps you waiting.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "General behavioral activation principle. Could cite Martell et al. or behavioral neuroscience research on action initiation.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 55 },
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 47 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C027",
+      "claim_text": "Releasing control reduces cortisol and restores agency.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "Relates to SDT autonomy research. The cortisol claim needs specific citation.",
+      "locations": [
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 137 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C028",
+      "claim_text": "Neural pathways are strengthening — the patterns are shifting.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "General neuroplasticity claim used in streak messaging. Acceptable as motivational framing, but could cite Hebb's rule or Leaf.",
+      "locations": [
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 576 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C029",
+      "claim_text": "Every rep rewires your Reticular Activating System — training your brain to find what you practice.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "Core product claim. The RAS 'rewiring' through behavioral repetition is an extrapolation. Needs supporting evidence or language softening.",
+      "locations": [
+        { "file": "src/components/retention/ToolkitClient.tsx", "line": 216 },
+        { "file": "src/components/portal/PortalDashboard.tsx", "line": 313 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C030",
+      "claim_text": "Attention is trainable. Each time you notice distraction and return, you build the muscle of presence.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "Supported by Jha's attention training research. Should cite Jha or mindfulness-based attention training literature.",
+      "locations": [
+        { "file": "src/lib/cosmic-copy.ts", "line": 204 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C031",
+      "claim_text": "Courage is a trained relationship with fear. Each time you act while fear is present, the fear signal loses its grip.",
+      "claim_type": "MECHANISM",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "NEEDS_CITATION",
+      "verification_notes": "Relates to exposure therapy and fear extinction research. Could cite Milad & Quirk (2012) on fear extinction or Rachman on courage.",
+      "locations": [
+        { "file": "src/lib/cosmic-copy.ts", "line": 224 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C032",
+      "claim_text": "The 143 Leadership Assessment is grounded in 12 peer-reviewed research pillars spanning neuroscience, behavioral science, and organizational psychology.",
+      "claim_type": "FRAMEWORK",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Meta-claim about the assessment itself. Accuracy depends on verifying all 12 pillars individually. Not all 12 researchers have peer-reviewed findings directly supporting their mapped claims.",
+      "locations": [
+        { "file": "src/components/results/PsychometricSummary.tsx", "line": 83 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C033",
+      "claim_text": "Every tool in the 143 OS maps to published, peer-reviewed research.",
+      "claim_type": "FRAMEWORK",
+      "specificity": "GENERAL",
+      "researcher_ids": [],
+      "citation_form": null,
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Bold claim. Requires that every single tool in the toolkit has a peer-reviewed citation. Some tools (I Love You counting, Light Loop) may be original methodology rather than directly mapped to published research.",
+      "locations": [
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 168 }
+      ],
+      "priority": "HIGH"
+    },
+    {
+      "claim_id": "C034",
+      "claim_text": "Emotions are constructed predictions, not fixed reactions.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["BARRETT"],
+      "citation_form": "Lisa Feldman Barrett — Constructed Emotion",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Barrett's theory of constructed emotion is well-published. Verify DOI for a key paper (e.g., Barrett 2017 in Current Directions).",
+      "locations": [
+        { "file": "src/components/results/PsychometricSummary.tsx", "line": 12 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C035",
+      "claim_text": "Temptation bundling, fresh starts, and commitment devices drive behavioral change.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["MILKMAN"],
+      "citation_form": "Katy Milkman — Behavioral Change",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Milkman's research on these mechanisms is peer-reviewed. Verify key publications.",
+      "locations": [
+        { "file": "src/components/results/PsychometricSummary.tsx", "line": 13 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C036",
+      "claim_text": "Thought patterns are trainable. Scores are designed to move through deliberate practice.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["LEAF"],
+      "citation_form": "Caroline Leaf — Neuroplasticity",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Note: Caroline Leaf is somewhat controversial in neuroscience circles. Her work is published but some claims have been criticized. May want to supplement with more mainstream neuroplasticity citations (e.g., Doidge, Merzenich).",
+      "locations": [
+        { "file": "src/components/results/PsychometricSummary.tsx", "line": 14 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C037",
+      "claim_text": "Attention is a depletable resource that responds to training.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["JHA"],
+      "citation_form": "Amishi Jha — Attention Science",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Jha's attention training research is well-published. Verify key paper DOI.",
+      "locations": [
+        { "file": "src/components/results/PsychometricSummary.tsx", "line": 15 },
+        { "file": "src/app/(marketing)/framework/page.tsx", "line": 36 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C038",
+      "claim_text": "Behavior change through minimum effective dose.",
+      "claim_type": "FRAMEWORK",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["FOGG"],
+      "citation_form": "BJ Fogg — Tiny Habits",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Fogg's Tiny Habits model. Published as book and academic papers. Verify DOI.",
+      "locations": [
+        { "file": "src/components/results/PsychometricSummary.tsx", "line": 16 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C039",
+      "claim_text": "Three-dimensional burnout model: emotional, cognitive, and relational load.",
+      "claim_type": "FRAMEWORK",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["MASLACH"],
+      "citation_form": "Christina Maslach — Burnout Research",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Note: Maslach's original model uses 'emotional exhaustion, depersonalization, reduced personal accomplishment' — not 'emotional, cognitive, and relational load.' The app's Eclipse system adapts this. Needs transparency about the adaptation.",
+      "locations": [
+        { "file": "src/components/results/PsychometricSummary.tsx", "line": 18 },
+        { "file": "src/components/results/PsychometricSummary.tsx", "line": 46 }
+      ],
+      "priority": "MEDIUM"
+    },
+    {
+      "claim_id": "C040",
+      "claim_text": "Converting positivity into neural traits.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["HANSON"],
+      "citation_form": "Dr. Rick Hanson",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Hanson's positive neuroplasticity concept. Published as book. Verify if any peer-reviewed publications support the specific 'converting positivity into neural traits' claim.",
+      "locations": [
+        { "file": "src/app/(marketing)/143-challenge/page.tsx", "line": 448 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C041",
+      "claim_text": "Allostatic load model — cumulative stress cost is measurable and predictive.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["MCEWAN"],
+      "citation_form": "McEwen & Stellar",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Well-established model. Verify DOI for McEwen & Stellar original paper.",
+      "locations": [
+        { "file": "src/lib/retention/energy-audit.ts", "line": 4 }
+      ],
+      "priority": "LOW"
+    },
+    {
+      "claim_id": "C042",
+      "claim_text": "Reinforcement learning (dopamine prediction error), neuroplasticity (synaptic strengthening), habit loop reinforcement, RAS filtering, self-efficacy research.",
+      "claim_type": "MECHANISM",
+      "specificity": "SPECIFIC",
+      "researcher_ids": ["BANDURA"],
+      "citation_form": "Bandura (self-efficacy) + general neuroscience",
+      "doi": null,
+      "confidence": "UNVERIFIED",
+      "verification_status": "PENDING",
+      "verification_notes": "Composite claim listing multiple mechanisms. Each individual mechanism is well-established but the combination as a unified model is original to 143.",
+      "locations": [
+        { "file": "src/components/retention/RepLogClient.tsx", "line": 962 }
+      ],
+      "priority": "LOW"
+    }
+  ],
+  "high_priority_gaps": [
+    {
+      "gap_id": "GAP-01",
+      "description": "11 million bits per second RAS claim — no citation, appears 3 times",
+      "claim_ids": ["C015"],
+      "action": "Perplexity: find strongest available citation for sensory processing throughput figure"
+    },
+    {
+      "gap_id": "GAP-02",
+      "description": "90-second emotion lifespan — sourced from popular book, not peer-reviewed research",
+      "claim_ids": ["C001"],
+      "action": "Perplexity: verify if any peer-reviewed research supports the 90-second figure"
+    },
+    {
+      "gap_id": "GAP-03",
+      "description": "Implementation intentions 'double' follow-through — magnitude claim varies across instances",
+      "claim_ids": ["C007"],
+      "action": "Perplexity: verify exact effect sizes from Gollwitzer (1999) and meta-analyses"
+    },
+    {
+      "gap_id": "GAP-04",
+      "description": "Self-compassion lowers cortisol — no citation, appears 3 times",
+      "claim_ids": ["C018"],
+      "action": "Perplexity: find Neff or other self-compassion / cortisol studies"
+    },
+    {
+      "gap_id": "GAP-05",
+      "description": "$240 billion design gap — no source, no context for what this measures",
+      "claim_ids": ["C017"],
+      "action": "Perplexity: identify what industry cost this refers to and find citation"
+    },
+    {
+      "gap_id": "GAP-06",
+      "description": "21 days / 63 days pattern — contested folk science",
+      "claim_ids": ["C016"],
+      "action": "Perplexity: verify against Lally et al. (2010) which found 66-day average; consider updating"
+    },
+    {
+      "gap_id": "GAP-07",
+      "description": "RAS is trainable — extrapolation from 1949 paper about RAS existence",
+      "claim_ids": ["C009", "C029"],
+      "action": "Perplexity: find modern research supporting RAS trainability through behavioral repetition"
+    },
+    {
+      "gap_id": "GAP-08",
+      "description": "Every tool maps to peer-reviewed research — bold meta-claim",
+      "claim_ids": ["C033"],
+      "action": "Audit each tool individually; if any lack peer-reviewed backing, soften language"
+    }
+  ]
+}

@@ -25,7 +25,7 @@ function seededRandom(seed: number): number {
 const ACTIONS = [
   { icon: '◇', label: 'Reframe', desc: 'See the pattern differently' },
   { icon: '⬡', label: 'Boundary', desc: 'Protect the energy' },
-  { icon: '↻', label: 'Swap Habit', desc: 'Replace the drain' },
+  { icon: '↻', label: 'Swap Rep', desc: 'Replace the drain' },
 ] as const;
 
 /**

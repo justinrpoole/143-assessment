@@ -1,16 +1,12 @@
 // Scoring Engine — Public API
-// Canonical runtime scorer is pipeline.ts (called by /api/runs/[runId]/complete).
-// score-assessment.mjs is retained only for loadCanonicalContent (HTML report rendering).
+// Canonical runtime scorer is pipeline.ts (full 7-phase deterministic pipeline).
+// score-assessment.mjs is DEPRECATED — retained only for legacy QA scripts.
 
 /** @deprecated Use scoreAssessment from './pipeline' instead. */
-export {
-  scoreAssessment as legacyScoreAssessment,
-  loadCanonicalContent as loadCanonicalScoringContent,
-} from './score-assessment.mjs';
-export {
-  scoreAssessment,
-  type ItemBanks,
-} from './pipeline';
+export { scoreAssessment as legacyScoreAssessment } from './score-assessment.mjs';
+export { scoreAssessment, type ItemBanks } from './pipeline';
+export { loadCanonicalContent } from './content-loader.mjs';
+export { loadCanonicalContent as loadCanonicalScoringContent } from './content-loader.mjs';
 export { scoreItem, bucketOf } from './item-scoring';
 export { computeSubfacetComposites } from './subfacet-scoring';
 export { computeRayComposites } from './ray-scoring';

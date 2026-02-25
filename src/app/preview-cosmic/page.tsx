@@ -316,12 +316,12 @@ export default function CosmicPreview() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl mb-4 uppercase" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)', letterSpacing: '0.04em' }}>How It Works</h2>
             <p className="text-base max-w-lg mx-auto mb-12" style={{ color: 'var(--text-on-dark)', lineHeight: 1.6 }}>
-              The 143 Assessment maps your energy across nine dimensions of leadership capacity.
+              The 143 Assessment maps your energy across nine Rays of leadership capacity.
             </p>
             <div className="grid sm:grid-cols-3 gap-5">
               {[
                 { step: '01', title: 'Take the Assessment', desc: 'Answer honest questions about your current leadership patterns.' },
-                { step: '02', title: 'See Your Rays', desc: 'Get a personalized map of your nine energy dimensions.' },
+                { step: '02', title: 'See Your Rays', desc: 'Get a personalized map of your nine Rays.' },
                 { step: '03', title: 'Build Capacity', desc: 'Use daily reps and targeted practices to expand what is eclipsed.' },
               ].map((item) => (
                 <div

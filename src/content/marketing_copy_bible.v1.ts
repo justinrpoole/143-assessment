@@ -10,7 +10,7 @@ export const MARKETING_COPY_BIBLE_V1 = {
   },
   framework: {
     headline: "The Be The Light Framework",
-    promise: "Nine dimensions. Three phases. One operating system upgrade.",
+    promise: "Nine Rays. Three phases. One operating system upgrade.",
   },
   challenge: {
     headline: "The 143 Challenge",
