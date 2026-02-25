@@ -1,7 +1,11 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { createMagicLinkToken } from "@/lib/auth/magic-link";
-import { isBetaFreeMode } from "@/lib/config/beta";
+import {
+  getBetaPreviewEmail,
+  isBetaFreeMode,
+  isBetaPreviewEmail,
+} from "@/lib/config/beta";
 
 /**
  * Beta login bypass — creates a magic link directly without email delivery.
@@ -19,20 +23,22 @@ function getBaseUrl(request: NextRequest): string {
 }
 
 export async function POST(request: NextRequest) {
-  if (!isBetaFreeMode()) {
-    return NextResponse.json(
-      { error: "beta_login_disabled", message: "Beta login is only available in beta mode." },
-      { status: 403 },
-    );
-  }
-
   const body = (await request.json().catch(() => ({}))) as { email?: string; next?: string };
-  const email = body.email?.toLowerCase().trim();
+  const previewEmail = getBetaPreviewEmail();
+  const requestedEmail = body.email?.toLowerCase().trim();
+  const email = requestedEmail || previewEmail;
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json(
       { error: "invalid_email", message: "Please provide a valid email." },
       { status: 400 },
+    );
+  }
+
+  if (!isBetaFreeMode() && !isBetaPreviewEmail(email)) {
+    return NextResponse.json(
+      { error: "beta_login_disabled", message: "Beta login is only available for preview access." },
+      { status: 403 },
     );
   }
 

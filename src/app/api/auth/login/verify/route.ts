@@ -3,7 +3,8 @@ import { cookies } from "next/headers";
 import { NextResponse, type NextRequest } from "next/server";
 
 import { verifyMagicLinkToken } from "@/lib/auth/magic-link";
-import { isBetaFreeMode } from "@/lib/config/beta";
+import type { UserState } from "@/lib/auth/user-state";
+import { getBetaPreviewEmail, isBetaFreeMode } from "@/lib/config/beta";
 import { supabaseRestFetch } from "@/lib/db/supabase-rest";
 import { trackEvent } from "@/lib/events";
 
@@ -25,6 +26,9 @@ async function findOrCreateUser(email: string): Promise<{
   // or in user_entitlements. For now, we use a deterministic UUID from email.
   // This ensures the same email always maps to the same user_id.
   const emailHash = email.toLowerCase().trim();
+  const previewEmail = getBetaPreviewEmail();
+  const isPreview = previewEmail ? emailHash === previewEmail : false;
+  const previewState: UserState = "sub_active";
 
   // Check if entitlement exists for a user with this email
   // We generate a deterministic user_id from email for simplicity
@@ -41,11 +45,31 @@ async function findOrCreateUser(email: string): Promise<{
 
   if (existing.ok && existing.data && existing.data.length > 0) {
     const row = existing.data[0]!;
+    if (isPreview && row.user_state !== previewState) {
+      const update = await supabaseRestFetch<unknown>({
+        restPath: "user_entitlements",
+        method: "PATCH",
+        query: { user_id: `eq.${row.user_id}` },
+        prefer: "return=minimal",
+        body: {
+          user_state: previewState,
+          updated_at: new Date().toISOString(),
+        },
+      });
+      if (!update.ok) {
+        console.error("[auth:verify] failed_to_update_preview_entitlement", {
+          userId: row.user_id,
+          error: update.error,
+        });
+        return { userId: row.user_id, userState: row.user_state };
+      }
+      return { userId: row.user_id, userState: previewState };
+    }
     return { userId: row.user_id, userState: row.user_state };
   }
 
   // New user — create entitlement
-  const defaultState = isBetaFreeMode() ? "free_email" : "free_email";
+  const defaultState = isPreview ? previewState : isBetaFreeMode() ? "free_email" : "free_email";
 
   const insert = await supabaseRestFetch<unknown>({
     restPath: "user_entitlements",

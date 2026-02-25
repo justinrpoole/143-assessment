@@ -4,6 +4,8 @@ import { type FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 const DEV_TEST_EMAIL = process.env.NODE_ENV === "development" ? "test@143leadership.com" : "";
+const PREVIEW_EMAIL = process.env.NEXT_PUBLIC_BETA_PREVIEW_EMAIL ?? "";
+const DEFAULT_BETA_EMAIL = PREVIEW_EMAIL || DEV_TEST_EMAIL;
 
 type FormState = "idle" | "sending" | "sent" | "error";
 
@@ -120,7 +122,7 @@ export function MagicLinkFormClient() {
         style={{ borderColor: 'rgba(248, 208, 17, 0.3)', background: 'rgba(248, 208, 17, 0.05)', color: 'var(--brand-gold)' }}
         disabled={state === "sending"}
         onClick={async () => {
-          const loginEmail = email.trim() || DEV_TEST_EMAIL;
+          const loginEmail = email.trim() || DEFAULT_BETA_EMAIL;
           setState("sending");
           setErrorMessage(null);
           try {
@@ -153,7 +155,12 @@ export function MagicLinkFormClient() {
           }
         }}
       >
-        {state === "sending" ? "Logging in..." : `Beta Login (${email.trim() || DEV_TEST_EMAIL})`}
+        {state === "sending"
+          ? "Logging in..."
+          : (() => {
+              const labelEmail = email.trim() || DEFAULT_BETA_EMAIL;
+              return labelEmail ? `Beta Login (${labelEmail})` : "Beta Login";
+            })()}
       </button>
     </form>
   );
