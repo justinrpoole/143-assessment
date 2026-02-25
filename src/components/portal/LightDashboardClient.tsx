@@ -8,6 +8,7 @@ import '@/app/(portal)/light-dashboard/dashboard.css';
 
 // ── Constants ──
 
+// Rays 1-8: Trainable leadership capacities displayed as track sliders
 const RAY_META = [
   { id: 'R1', label: 'Intention', phase: 'Reconnect' },
   { id: 'R2', label: 'Joy', phase: 'Reconnect' },
@@ -17,8 +18,13 @@ const RAY_META = [
   { id: 'R6', label: 'Authenticity', phase: 'Radiate' },
   { id: 'R7', label: 'Connection', phase: 'Become' },
   { id: 'R8', label: 'Possibility', phase: 'Become' },
-  { id: 'R9', label: 'Be The Light', phase: 'Become' },
+  // Ray 9 (Be The Light) is NOT in this array — it's a STATE, not a trainable ray.
+  // It's displayed separately as the Radiance Indicator (see below).
 ] as const;
+
+// Ray 9 is the overflow state — evidence that Rays 1-8 are aligned.
+// Displayed as a separate "Radiance Indicator" rather than a regular track slider.
+const RADIANCE_META = { id: 'R9', label: 'Be The Light', phase: 'Radiance' } as const;
 
 const CONTRACTIONS = [
   { value: 'control', label: 'I do not have control', reframe: 'Not control. Range.', line: 'Name it. I do not have control. Then reframe: I can choose range.' },
