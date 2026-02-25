@@ -95,16 +95,36 @@ function DesktopDropdown({ group }: { group: NavGroup }) {
 
   return (
     <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-      <button
-        type="button"
-        className="flex items-center gap-1 text-[13px] font-medium tracking-wide transition-colors"
-        style={{ color: open ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
-        onClick={() => setOpen((p) => !p)}
-        aria-expanded={open}
-      >
-        {group.label}
-        <ChevronDown open={open} />
-      </button>
+      <div className="flex items-center gap-1">
+        {group.href ? (
+          <Link
+            href={group.href}
+            className="dropdown-link text-[13px] font-medium tracking-wide no-underline transition-colors"
+            style={{ color: open ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
+          >
+            {group.label}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            className="text-[13px] font-medium tracking-wide transition-colors"
+            style={{ color: open ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
+            onClick={() => setOpen((p) => !p)}
+          >
+            {group.label}
+          </button>
+        )}
+        <button
+          type="button"
+          className="flex items-center transition-colors"
+          style={{ color: open ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
+          onClick={() => setOpen((p) => !p)}
+          aria-expanded={open}
+          aria-label={`${group.label} submenu`}
+        >
+          <ChevronDown open={open} />
+        </button>
+      </div>
 
       {open && (
         <div className="absolute left-1/2 top-full pt-2" style={{ transform: "translateX(-50%)" }}>
@@ -150,16 +170,37 @@ function MobileSection({
 }) {
   return (
     <div className="w-full max-w-[280px]">
-      <button
-        type="button"
-        onClick={onToggle}
-        className="flex w-full items-center justify-between text-lg font-medium tracking-wide"
-        style={{ color: "var(--text-on-dark)" }}
-        aria-expanded={expanded}
-      >
-        {group.label}
-        <ChevronDown open={expanded} />
-      </button>
+      <div className="flex w-full items-center justify-between">
+        {group.href ? (
+          <Link
+            href={group.href}
+            onClick={onNavigate}
+            className="text-lg font-medium tracking-wide no-underline"
+            style={{ color: "var(--text-on-dark)" }}
+          >
+            {group.label}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={onToggle}
+            className="text-lg font-medium tracking-wide"
+            style={{ color: "var(--text-on-dark)" }}
+          >
+            {group.label}
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={onToggle}
+          className="flex items-center p-2"
+          style={{ color: "var(--text-on-dark)" }}
+          aria-expanded={expanded}
+          aria-label={`${group.label} submenu`}
+        >
+          <ChevronDown open={expanded} />
+        </button>
+      </div>
       {expanded && (
         <div className="mt-2 space-y-1 pl-4">
           {group.children.map((link) => (

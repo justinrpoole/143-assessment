@@ -5,6 +5,7 @@ export type NavLink = {
 
 export type NavGroup = {
   label: string;
+  href?: string;
   children: NavLink[];
 };
 
@@ -48,6 +49,7 @@ export const MARKETING_LINKS = {
 export const MARKETING_NAV_ITEMS: NavItem[] = [
   {
     label: "Why 143",
+    href: "/upgrade-your-os",
     children: [
       MARKETING_LINKS.watchMe,
       MARKETING_LINKS.goFirst,
@@ -58,6 +60,7 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
   },
   {
     label: "The Assessment",
+    href: "/how-it-works",
     children: [
       MARKETING_LINKS.preview,
       MARKETING_LINKS.assessment,
@@ -67,6 +70,7 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
   },
   {
     label: "Practice",
+    href: "/watch-me",
     children: [
       MARKETING_LINKS.challenge,
       MARKETING_LINKS.framework,
