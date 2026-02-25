@@ -223,9 +223,9 @@ export function MarketingNav() {
             <Image
               src="/images/master-logo.png"
               alt="Justin Ray 143 Leadership"
-              width={140}
-              height={40}
-              className="h-[40px] w-auto"
+              width={200}
+              height={52}
+              className="h-[52px] w-auto"
               priority
             />
             {isBeta && (
