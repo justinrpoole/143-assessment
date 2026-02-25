@@ -1,13 +1,14 @@
 // Scoring Engine — Public API
-// Canonical runtime scorer is score-assessment.mjs.
-// Legacy/pipeline exports are explicitly marked experimental to prevent drift.
+// Canonical runtime scorer is pipeline.ts (called by /api/runs/[runId]/complete).
+// score-assessment.mjs is retained only for loadCanonicalContent (HTML report rendering).
 
+/** @deprecated Use scoreAssessment from './pipeline' instead. */
 export {
-  scoreAssessment,
+  scoreAssessment as legacyScoreAssessment,
   loadCanonicalContent as loadCanonicalScoringContent,
 } from './score-assessment.mjs';
 export {
-  scoreAssessment as experimentalPipelineScoreAssessment,
+  scoreAssessment,
   type ItemBanks,
 } from './pipeline';
 export { scoreItem, bucketOf } from './item-scoring';

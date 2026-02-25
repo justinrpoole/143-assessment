@@ -41,7 +41,7 @@ const HOW_WE_WORK = [
     num: "01",
     title: "Assess the Team, Not Just the Leader",
     description:
-      "Every participant takes the full 143-question assessment. Team-level aggregate data reveals systemic patterns no individual assessment can show — which capacities are concentrated, which are missing, and where the blind spots sit.",
+      "Every team member takes the full 143-question assessment. Team-level aggregate data reveals systemic patterns no individual assessment can show — which capacities are concentrated, which are missing, and where the blind spots sit.",
   },
   {
     num: "02",
@@ -76,7 +76,7 @@ const WHY_DIFFERENT = [
   {
     title: "Built-in practice layer",
     description:
-      "Assessment without action is trivia. Every participant gets matched daily micro-practices, rep tracking, and the tools to close the gap between knowing and doing. The practice is the product.",
+      "Assessment without action is trivia. Every person gets matched daily micro-practices, rep tracking, and the tools to close the gap between knowing and doing. The practice is the product.",
   },
 ];
 

@@ -25,7 +25,10 @@ export type EventType =
   | "morning_entry_completed"
   | "phase_checkin_completed"
   | "portal_visited"
-  | "intention_set";
+  | "intention_set"
+  | "email_captured"
+  | "magic_link_sent"
+  | "magic_link_verified";
 
 // ── Server-side track ──────────────────────────────────────────────────────
 export async function trackEvent(params: {

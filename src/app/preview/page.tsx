@@ -70,7 +70,7 @@ export default async function PreviewPage() {
         <GoldDivider />
 
         {/* ─── SECTIONS 2-3 · GRAVITATIONAL STABILITY CHECK + COACHING DEBRIEF ─── */}
-        {/* Single client boundary — assessment, analytics, result panel */}
+        {/* Single browser boundary — assessment, analytics, result panel */}
         <FadeInSection>
           <LightCheckOrchestrator />
         </FadeInSection>

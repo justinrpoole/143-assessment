@@ -12,7 +12,7 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Justin Ray — The Builder Behind 143 Leadership",
+  title: "Justin Ray — The Builder of 143 Leadership",
   description:
     "I do not motivate. I build maps for people who are tired of wandering. Executive development background. Real-world pressure. A framework built on behavioural science and tested where leadership actually happens.",
 };

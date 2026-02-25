@@ -285,7 +285,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     headline:
       "You talk to yourself worse than you would talk to anyone you love. This rewires that in 3 days.",
     subhead:
-      "Your brain filters 11 million bits of data per second. Right now it is scanning for what is wrong with you. The 143 Challenge gives it new instructions \u2014 in 3 minutes a day, for 3 days, using a protocol built on the same neuroscience behind the 143 Leadership Assessment. 143 means I love you. That is not a slogan. That is the mechanism. Free. No card required.",
+      "Your brain filters 11 million bits of data per second. Right now it is scanning for what is wrong with you. The 143 Challenge gives it new instructions \u2014 in 3 minutes a day, for 3 days, using a protocol built on the same neuroscience powering the 143 Leadership Assessment. 143 means I love you. That is not a slogan. That is the mechanism. Free. No card required.",
     ctas: {
       primary: {
         label: "Send Me the Challenge Kit \u2014 Free",
@@ -321,7 +321,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
   preview: {
     headline:
       "Find out in 3 minutes whether exhaustion is covering your strongest capacity.",
-    why: "Most leadership assessments lock your results behind a paywall and a 30-minute intake form. The Gravitational Stability Check gives you a real signal \u2014 your Eclipse Snapshot and your top Rays \u2014 before you spend anything or create an account.",
+    why: "Most leadership assessments lock your results past a paywall and a 30-minute intake form. The Gravitational Stability Check gives you a real signal \u2014 your Eclipse Snapshot and your top Rays \u2014 before you spend anything or create an account.",
     proof:
       "Answer a few targeted questions. See your ray signal across nine dimensions. Know whether your best capacity is online or eclipsed. The whole thing takes less time than your morning coffee order.",
     how: "No email. No account. No credit card. Just honest questions about how you showed up this week \u2014 and a snapshot that tells you what is actually happening underneath the performance.",
