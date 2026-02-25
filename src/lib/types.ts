@@ -279,6 +279,32 @@ export interface ArchetypeBlock {
 }
 
 // ═══════════════════════════════════════════
+// ARCHETYPE PUBLIC (marketing-facing, no R-codes or mechanics)
+// ═══════════════════════════════════════════
+
+export interface ArchetypePublic {
+  index: number;
+  name: string;
+  tagline: string;
+  vibe: string;
+  identity_code: string;
+  the_question: string;
+  people_say: string;
+  you_might_be_this_if: string[];
+  at_your_best: string;
+  what_youre_afraid_of: string;
+  when_your_signal_goes_dark: string;
+  in_the_wild: string;
+  your_counter_signal: string;
+  the_line: string;
+  first_rep: string;
+  famous_signal: string;
+  soundtrack: string;
+  neon_color: string;
+  rays: string[];  // Display names only, e.g. ["Intention", "Joy"]
+}
+
+// ═══════════════════════════════════════════
 // EXECUTIVE METADATA (from STEP4C)
 // ═══════════════════════════════════════════
 
