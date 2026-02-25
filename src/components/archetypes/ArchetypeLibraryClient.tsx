@@ -371,8 +371,11 @@ export default function ArchetypeLibraryClient() {
           className="text-sm"
           style={{ color: 'var(--text-on-dark-secondary)' }}
         >
-          Which one made you stop scrolling? The full assessment maps all 9
-          signals to reveal yours.
+          {resonances.length >= MAX_RESONANCES
+            ? `You resonated with ${resonances.length}. The assessment reveals which one is actually yours — and what it costs under load.`
+            : resonances.length > 0
+              ? `${resonances.length} resonating so far. The assessment reveals which one is actually running your operating system.`
+              : 'One of these made you pause. The full assessment reveals which one is actually running your operating system.'}
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link
@@ -874,7 +877,7 @@ function ArchetypeDetail({
           className="text-xs font-medium transition-colors hover:brightness-110 no-underline"
           style={{ color: 'var(--brand-gold)' }}
         >
-          Take the full assessment to see if this is your signature &rarr;
+          You resonated. The assessment reveals which one is actually yours &rarr;
         </Link>
       </div>
     </div>
