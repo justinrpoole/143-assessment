@@ -9,6 +9,8 @@ interface CosmicImageProps {
   variant?: "hero" | "section" | "decorative" | "product" | "hero-bg";
   priority?: boolean;
   className?: string;
+  /** Base64 blur placeholder for blur-up effect */
+  blurDataURL?: string;
 }
 
 const VARIANT_STYLES: Record<
@@ -64,9 +66,13 @@ export default function CosmicImage({
   variant = "section",
   priority = false,
   className = "",
+  blurDataURL,
 }: CosmicImageProps) {
   const styles = VARIANT_STYLES[variant];
   const isDecorative = variant === "decorative" || variant === "hero-bg";
+  const blurProps = blurDataURL
+    ? { placeholder: "blur" as const, blurDataURL }
+    : {};
 
   if (variant === "hero-bg") {
     return (
@@ -82,6 +88,7 @@ export default function CosmicImage({
           className="object-cover"
           priority={priority}
           sizes="100vw"
+          {...blurProps}
         />
       </div>
     );
@@ -101,6 +108,7 @@ export default function CosmicImage({
         className={`w-full h-auto ${styles.image}`}
         priority={priority}
         sizes={`(max-width: 768px) 100vw, ${maxWidth}`}
+        {...blurProps}
       />
     </div>
   );

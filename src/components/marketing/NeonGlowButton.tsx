@@ -1,7 +1,8 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface NeonGlowButtonProps {
   href: string;
@@ -14,7 +15,7 @@ interface NeonGlowButtonProps {
 /**
  * NeonGlowButton — Primary CTA with layered neon box-shadows.
  * Idle: subtle breathing glow (3s cycle).
- * Hover: intensified glow + lift.
+ * Hover: intensified glow + lift + route prefetch.
  * Optional magnetic cursor-follow.
  */
 export default function NeonGlowButton({
@@ -25,6 +26,15 @@ export default function NeonGlowButton({
 }: NeonGlowButtonProps) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [transform, setTransform] = useState('translate(0, 0)');
+  const router = useRouter();
+  const prefetched = useRef(false);
+
+  const handleMouseEnter = useCallback(() => {
+    if (!prefetched.current && href.startsWith('/')) {
+      router.prefetch(href);
+      prefetched.current = true;
+    }
+  }, [href, router]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!magnetic || !ref.current) return;
@@ -45,6 +55,7 @@ export default function NeonGlowButton({
       ref={ref}
       href={href}
       className={`btn-neon-glow ${className}`}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -54,7 +65,8 @@ export default function NeonGlowButton({
         alignItems: 'center',
         justifyContent: 'center',
         gap: '8px',
-        padding: '12px 28px',
+        padding: '14px 28px',
+        minHeight: '44px',
         borderRadius: 'var(--radius-xl, 20px)',
         background: 'var(--brand-gold, #F8D011)',
         color: 'var(--brand-black, #020202)',

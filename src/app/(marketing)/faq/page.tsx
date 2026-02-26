@@ -179,7 +179,7 @@ export default async function FaqPage() {
               <a
                 key={section.category}
                 href={`#faq-${section.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                className="rounded-full px-3 py-1 text-xs font-semibold transition-colors hover:bg-[rgba(248,208,17,0.15)]"
+                className="rounded-full px-4 py-2.5 text-xs font-semibold transition-colors hover:bg-[rgba(248,208,17,0.15)] min-h-[44px] inline-flex items-center"
                 style={{
                   color: "var(--brand-gold, #F8D011)",
                   border: "1px solid rgba(248,208,17,0.2)",

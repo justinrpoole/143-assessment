@@ -48,6 +48,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
+  viewportFit: "cover",
 };
 
 const JSON_LD_ORG = {
@@ -75,6 +76,7 @@ export default function RootLayout({
         />
         <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <ServiceWorkerRegistration />
+        <div className="gold-noise-overlay" aria-hidden="true" />
         <ToastProvider>
           <div id="main-content">{children}</div>
         </ToastProvider>
