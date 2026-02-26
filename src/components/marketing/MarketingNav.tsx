@@ -64,12 +64,17 @@ function DesktopDropdown({ group, pathname }: { group: NavGroup; pathname: strin
 
   return (
     <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-      <div className="relative flex items-center gap-1 pb-1">
+      <div className="flex items-center gap-1">
         {group.href ? (
           <Link
             href={group.href}
             className="dropdown-link text-[13px] font-medium tracking-wide no-underline transition-colors"
-            style={{ color: open || isActive ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
+            style={{
+              color: open || isActive ? "var(--brand-gold)" : "var(--text-on-dark-secondary)",
+              borderBottom: isActive ? '2px solid var(--brand-gold)' : '2px solid transparent',
+              paddingBottom: 2,
+              transition: 'color 200ms ease, border-color 200ms ease',
+            }}
           >
             {group.label}
           </Link>
@@ -77,7 +82,12 @@ function DesktopDropdown({ group, pathname }: { group: NavGroup; pathname: strin
           <button
             type="button"
             className="text-[13px] font-medium tracking-wide transition-colors"
-            style={{ color: open || isActive ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
+            style={{
+              color: open || isActive ? "var(--brand-gold)" : "var(--text-on-dark-secondary)",
+              borderBottom: isActive ? '2px solid var(--brand-gold)' : '2px solid transparent',
+              paddingBottom: 2,
+              transition: 'color 200ms ease, border-color 200ms ease',
+            }}
             onClick={() => setOpen((p) => !p)}
           >
             {group.label}
@@ -93,13 +103,6 @@ function DesktopDropdown({ group, pathname }: { group: NavGroup; pathname: strin
         >
           <ChevronDown open={open} />
         </button>
-        {/* Active underline indicator */}
-        {isActive && (
-          <span
-            className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
-            style={{ background: 'var(--brand-gold)', opacity: 0.7 }}
-          />
-        )}
       </div>
 
       {open && (
@@ -257,16 +260,15 @@ export function MarketingNav() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="dropdown-link relative text-[13px] font-medium tracking-wide no-underline transition-colors pb-1"
-                  style={{ color: pathname === item.href ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
+                  className="dropdown-link text-[13px] font-medium tracking-wide no-underline"
+                  style={{
+                    color: pathname === item.href ? "var(--brand-gold)" : "var(--text-on-dark-secondary)",
+                    borderBottom: pathname === item.href ? '2px solid var(--brand-gold)' : '2px solid transparent',
+                    paddingBottom: 2,
+                    transition: 'color 200ms ease, border-color 200ms ease',
+                  }}
                 >
                   {item.label}
-                  {pathname === item.href && (
-                    <span
-                      className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
-                      style={{ background: 'var(--brand-gold)', opacity: 0.7 }}
-                    />
-                  )}
                 </Link>
               ),
             )}

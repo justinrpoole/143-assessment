@@ -49,7 +49,7 @@ export default function SectionHero({
       </p>
 
       <HeadingTag
-        className="text-3xl font-bold leading-tight sm:text-4xl"
+        className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl"
         style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
       >
         {heading}

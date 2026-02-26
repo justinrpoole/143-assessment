@@ -9,6 +9,8 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 
@@ -84,14 +86,11 @@ export default async function Challenge143Page() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Your brain is running a threat filter you never installed.
+          <p className="gold-tag">
+            <span style={{ color: '#F8D011' }}>◆</span> Your brain is running a threat filter you never installed.
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             3 days to reprogram it. 3 minutes a day. Free.
@@ -109,9 +108,9 @@ export default async function Challenge143Page() {
             filter. Not affirmation. Not positive thinking. A reprogramming act.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="#challenge-start" className="btn-primary">
+            <NeonGlowButton href="#challenge-start">
               Start the Challenge
-            </Link>
+            </NeonGlowButton>
             <Link href="/assessment" className="btn-watch">
               Take the Full Assessment
             </Link>
@@ -244,6 +243,14 @@ export default async function Challenge143Page() {
             </p>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="143 = I Love You"
+          title="Self-compassion lowers cortisol. Self-criticism spikes it."
+          description="This is not affirmation. It is a reprogramming act backed by neuroscience. 3 days. 3 minutes. Free."
+        />
 
         <GoldDividerAnimated />
 

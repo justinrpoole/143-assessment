@@ -2,6 +2,7 @@ import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import WeeklyReviewClient from "@/components/retention/WeeklyReviewClient";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +24,7 @@ export default async function WeeklyPage() {
   return (
     <>
       <PageHeader title="Weekly Scan" description="Your system changes. This is your weekly snapshot." />
+      <GoldDividerAnimated />
 
       <div className="mt-6">
         <WeeklyReviewClient />

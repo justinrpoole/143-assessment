@@ -2,6 +2,7 @@ import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import IfThenPlanClient from "@/components/retention/IfThenPlanClient";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +24,7 @@ export default async function PlanPage() {
   return (
     <>
       <PageHeader title="If / Then Plans" />
+      <GoldDividerAnimated />
 
       <div className="mt-6">
         <IfThenPlanClient />

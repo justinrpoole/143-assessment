@@ -6,6 +6,7 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -148,14 +149,11 @@ export default async function FaqPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Before you decide
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Before you decide
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             Every question you are thinking. Answered.
@@ -249,6 +247,15 @@ export default async function FaqPage() {
             </FadeInSection>
           ))}
         </section>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Still Curious?"
+          title="The best way to understand it is to feel it."
+          description="Start with the free Stability Check. Three minutes. No account required."
+          cta={{ label: "Check My Stability — Free", href: "/preview" }}
+        />
 
         <GoldDividerAnimated />
 

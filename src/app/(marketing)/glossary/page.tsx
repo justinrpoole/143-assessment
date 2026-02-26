@@ -3,6 +3,7 @@ import Link from "next/link";
 import { GlossaryClient } from "@/components/glossary/GlossaryClient";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -30,21 +31,18 @@ export default async function GlossaryPage() {
       <div className="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16 space-y-12">
 
         {/* ─── HEADER ──────────────────────────────────────────── */}
-        <header className="space-y-3">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Reference
+        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Reference
           </p>
           <h1
-            className="text-3xl font-bold sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             Glossary
           </h1>
           <p
-            className="text-sm leading-relaxed"
+            className="mx-auto max-w-[540px] text-base leading-relaxed"
             style={{
               color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
             }}
@@ -52,10 +50,20 @@ export default async function GlossaryPage() {
             Every term used in the 143 Leadership assessment and report,
             defined and searchable.
           </p>
-        </header>
+        </section>
+
+        <GoldDividerAnimated />
 
         {/* ─── GLOSSARY CLIENT ─────────────────────────────────── */}
         <GlossaryClient />
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Language Shapes Perception"
+          title="When you name it, you can train it."
+          description="Every term in this glossary maps to a measurable capacity. The words are not metaphors — they are coordinates."
+        />
 
         <GoldDividerAnimated />
 

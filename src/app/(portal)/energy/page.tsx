@@ -2,6 +2,7 @@ import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import EnergyAuditClient from "@/components/retention/EnergyAuditClient";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +28,7 @@ export default async function EnergyPage() {
         title="Energy Audit"
         description="Track where your energy goes each day. The audit helps you see patterns — which activities fuel you, which drain you, and where eclipse is creeping in before you notice it. Over time, this log becomes your most honest mirror."
       />
+      <GoldDividerAnimated />
 
       <div className="mt-6">
         <EnergyAuditClient />

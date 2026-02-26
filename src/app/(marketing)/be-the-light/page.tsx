@@ -8,6 +8,8 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -106,14 +108,11 @@ export default async function BeTheLightPage() {
             maxWidth="48px"
             variant="decorative"
           />
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            The Third Commitment
+          <p className="gold-tag">
+            <span style={{ color: '#F8D011' }}>◆</span> The Third Commitment
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             Be The Light.
@@ -276,6 +275,14 @@ export default async function BeTheLightPage() {
 
         <GoldDividerAnimated />
 
+        <GoldHeroBanner
+          kicker="Not Broken. Covered."
+          title="Your light is not gone. It is running on reserves you have not replenished."
+          description="The assessment names the exact pattern — which ray is carrying, which is covered, and what to restore first."
+        />
+
+        <GoldDividerAnimated />
+
         {/* ─── SECTION 5 · SIGNATURE PATTERNS ─────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px] space-y-8">
@@ -394,9 +401,9 @@ export default async function BeTheLightPage() {
                 access.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="/assessment" className="btn-primary">
+                <NeonGlowButton href="/assessment">
                   Take the Assessment
-                </Link>
+                </NeonGlowButton>
                 <Link href="/preview" className="btn-watch">
                   Try the Free Stability Check
                 </Link>

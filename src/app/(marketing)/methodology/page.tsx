@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -119,23 +120,22 @@ export default async function MethodologyPage() {
   });
 
   return (
-    <>
+    <main className="cosmic-page-bg">
+      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
       {/* ── Hero ── */}
-      <section className="mx-auto max-w-[720px] px-5 pt-16 pb-12 text-center sm:px-8 sm:pt-24 sm:pb-16">
+      <section className="mx-auto max-w-[720px] space-y-5 text-center">
         <p
-          className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: "var(--brand-gold, #F8D011)" }}
+          className="gold-tag mx-auto"
         >
-          Scientific Methodology
+          <span style={{ color: '#F8D011' }}>◆</span> Scientific Methodology
         </p>
         <h1
-          className="mt-4 text-3xl font-bold leading-tight sm:text-4xl"
-          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+          className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
         >
           How We Built It. Why It Works. Where It&apos;s Going.
         </h1>
         <p
-          className="mx-auto mt-4 max-w-[540px] text-base leading-relaxed"
+          className="mx-auto max-w-[540px] text-base leading-relaxed"
           style={{
             color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
           }}
@@ -328,6 +328,12 @@ export default async function MethodologyPage() {
         </section>
       </FadeInSection>
 
+      <GoldHeroBanner
+        kicker="Not Personality Types"
+        title="Capacities built through reps."
+        description="Every score is designed to move. That is the difference between a label and a training system."
+      />
+
       <GoldDividerAnimated />
 
       {/* ── 9 Constructs ── */}
@@ -450,6 +456,7 @@ export default async function MethodologyPage() {
           </div>
         </section>
       </FadeInSection>
-    </>
+      </div>
+    </main>
   );
 }

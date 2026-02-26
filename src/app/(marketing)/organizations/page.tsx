@@ -6,6 +6,8 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -120,14 +122,11 @@ export default async function OrganizationsPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            For Organizations
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> For Organizations
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             Your team has the skills. Do they have the capacity to use them?
@@ -144,9 +143,9 @@ export default async function OrganizationsPage() {
             fatigue.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link href="/assessment" className="btn-primary">
+            <NeonGlowButton href="/assessment">
               Try the Individual Assessment
-            </Link>
+            </NeonGlowButton>
             <Link href="/pricing" className="btn-watch">
               See Plans &amp; Pricing
             </Link>
@@ -280,6 +279,14 @@ export default async function OrganizationsPage() {
             </StaggerContainer>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Not Another Programme"
+          title="Train the OS first. Then every initiative you already run works better."
+          description="Most programmes teach skills on top of a depleted operating system. That is why they do not stick."
+        />
 
         <GoldDividerAnimated />
 

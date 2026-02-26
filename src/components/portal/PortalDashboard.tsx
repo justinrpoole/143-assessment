@@ -24,6 +24,7 @@ import NotificationToggle from './NotificationToggle';
 import BadgeShowcase from './BadgeShowcase';
 import WeeklyRepBreakdown from './WeeklyRepBreakdown';
 import { RAY_NAMES } from '@/lib/types';
+import { rayRamp } from '@/lib/ui/ray-colors';
 import MorningMirrorOverlay from './MorningMirrorOverlay';
 import EclipseCalendarHeatmap from './EclipseCalendarHeatmap';
 import InviteColleagueCard from './InviteColleagueCard';
@@ -514,20 +515,26 @@ export default function PortalDashboard() {
               Your Light Signature
             </p>
             <div className="flex gap-2 flex-wrap">
-              {summary.top_ray_ids.map((id) => (
-                <span
-                  key={id}
-                  className="px-3 py-1 rounded-full text-sm font-medium"
-                  style={{ background: 'rgba(96, 5, 141, 0.5)', color: 'var(--text-on-dark)', border: '1px solid rgba(148, 80, 200, 0.4)' }}
-                >
-                  {RAY_NAMES[id] ?? id}
-                </span>
-              ))}
-              {summary.bottom_ray_name && (
-                <span className="px-3 py-1 rounded-full text-sm font-medium" style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)', border: '1px solid rgba(248, 208, 17, 0.3)' }}>
-                  Training: {summary.bottom_ray_name}
-                </span>
-              )}
+              {summary.top_ray_ids.map((id) => {
+                const ramp = rayRamp(id);
+                return (
+                  <span
+                    key={id}
+                    className="px-3 py-1 rounded-full text-sm font-medium"
+                    style={{ background: ramp.badgeBg, color: ramp.full, border: `1px solid ${ramp.hoverBorder}` }}
+                  >
+                    {RAY_NAMES[id] ?? id}
+                  </span>
+                );
+              })}
+              {summary.bottom_ray_name && (() => {
+                const ramp = rayRamp(summary.bottom_ray_id ?? summary.bottom_ray_name);
+                return (
+                  <span className="px-3 py-1 rounded-full text-sm font-medium" style={{ background: ramp.bgTint, color: ramp.full, border: `1px solid ${ramp.border}` }}>
+                    Training: {summary.bottom_ray_name}
+                  </span>
+                );
+              })()}
             </div>
           </div>
         ) : (

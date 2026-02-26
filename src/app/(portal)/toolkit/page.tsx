@@ -3,6 +3,7 @@ import ToolkitClient from "@/components/retention/ToolkitClient";
 import { emitEvent, emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 
 export const dynamic = "force-dynamic";
 
@@ -36,6 +37,7 @@ export default async function ToolkitPage() {
         title="Tool Library"
         description="13 protocols. Each one trains a specific Ray. Each one backed by peer-reviewed research. Each one is a rep."
       />
+      <GoldDividerAnimated />
 
       <div className="mt-6 space-y-8">
         <ToolkitClient />

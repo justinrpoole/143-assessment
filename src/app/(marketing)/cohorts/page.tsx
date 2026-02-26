@@ -6,6 +6,7 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -139,14 +140,11 @@ export default async function CohortsPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Cohorts
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Cohorts
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             10 weeks. 6–8 leaders. The framework, the systems, and the app.
@@ -300,6 +298,14 @@ export default async function CohortsPage() {
             </StaggerContainer>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Shared Language. Individual Paths."
+          title="The cohort builds the skill. The app keeps it alive."
+          description="Every participant gets their own assessment, their own Rise Path, and the shared language to support each other after the programme ends."
+        />
 
         <GoldDividerAnimated />
 

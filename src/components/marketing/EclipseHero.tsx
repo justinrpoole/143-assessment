@@ -322,7 +322,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
           }}
         >
           <motion.p
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
             style={{
               fontFamily: 'var(--font-cosmic-display)',
               color: '#F8D011',
@@ -336,7 +336,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
           </motion.p>
 
           <motion.p
-            className="mt-2 text-lg sm:text-xl font-medium"
+            className="mt-2 text-base sm:text-lg md:text-xl font-medium"
             style={{ color: 'var(--text-on-dark, rgba(255,255,255,0.92))' }}
             initial={animate ? { opacity: 0, y: 16 } : false}
             animate={{ opacity: 1, y: 0 }}
@@ -346,7 +346,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
           </motion.p>
 
           <motion.p
-            className="mt-1 text-sm sm:text-base tracking-wide uppercase"
+            className="mt-1 text-xs sm:text-sm md:text-base tracking-wide uppercase"
             style={{
               color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.70))',
               letterSpacing: '0.12em',

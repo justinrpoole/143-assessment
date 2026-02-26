@@ -24,7 +24,7 @@ export function SiteFooter() {
             style={{ maxWidth: "120px" }}
           />
         </div>
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
           {MARKETING_FOOTER_COLUMNS.map((col) => (
             <div key={col.heading}>
               <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>

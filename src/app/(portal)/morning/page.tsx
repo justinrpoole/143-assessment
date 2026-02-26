@@ -6,6 +6,7 @@ import { emitEvent, emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { currentLocalDateIso } from "@/lib/retention/morning";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +39,7 @@ export default async function MorningPage() {
   return (
     <>
       <PageHeader title="Morning" />
+      <GoldDividerAnimated />
 
       <div className="mt-6 space-y-6">
         <PhaseCheckInClient />

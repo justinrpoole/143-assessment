@@ -6,7 +6,9 @@ import ArchetypeQuizClient from "@/components/quiz/ArchetypeQuizClient";
 import CosmicImage from "@/components/marketing/CosmicImage";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
-import { rayHex } from "@/lib/ui/ray-colors";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 
 export const metadata: Metadata = {
   title: "36 Light Signatures — Which One Are You? | 143 Leadership",
@@ -19,20 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-/* ── static data ───────────────────────────────────────────── */
-
-const NINE_SIGNALS = [
-  { name: "Intention", phase: "Reconnect", color: rayHex("Intention") },
-  { name: "Joy", phase: "Reconnect", color: rayHex("Joy") },
-  { name: "Presence", phase: "Reconnect", color: rayHex("Presence") },
-  { name: "Power", phase: "Expand", color: rayHex("Power") },
-  { name: "Purpose", phase: "Expand", color: rayHex("Purpose") },
-  { name: "Authenticity", phase: "Expand", color: rayHex("Authenticity") },
-  { name: "Connection", phase: "Become", color: rayHex("Connection") },
-  { name: "Possibility", phase: "Become", color: rayHex("Possibility") },
-  { name: "Be The Light", phase: "Become", color: rayHex("Be The Light") },
-];
-
 /* ── page ───────────────────────────────────────────────────── */
 
 export default function ArchetypesPage() {
@@ -42,14 +30,11 @@ export default function ArchetypesPage() {
 
         {/* ─── HERO ──────────────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold)" }}
-          >
-            36 Signals. One Is Yours.
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> 36 Signals. One Is Yours.
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark)" }}
           >
             Your Light Signature is the pattern your leadership runs on.
@@ -67,50 +52,12 @@ export default function ArchetypesPage() {
           </p>
         </section>
 
-        {/* ─── 9 Signals Grid ────────────────────────────────── */}
+        {/* ─── 9 Signals — Vertical Progression ───────────────── */}
         <FadeInSection>
           <div className="mx-auto max-w-[720px]">
-            <div className="grid grid-cols-3 gap-2 sm:gap-3">
-              {NINE_SIGNALS.map((signal) => (
-                <div
-                  key={signal.name}
-                  className="glass-card p-3 text-center"
-                  style={{
-                    background: `${signal.color}08`,
-                    border: `1px solid ${signal.color}15`,
-                  }}
-                >
-                  <p
-                    className="text-[10px] font-bold uppercase tracking-widest"
-                    style={{
-                      color: signal.color,
-                      opacity: 0.7,
-                    }}
-                  >
-                    Signal
-                  </p>
-                  <p
-                    className="mt-1 text-sm font-semibold"
-                    style={{
-                      color: signal.color,
-                      textShadow: `0 0 16px ${signal.color}25`,
-                    }}
-                  >
-                    {signal.name}
-                  </p>
-                  <p
-                    className="mt-0.5 text-[10px] uppercase tracking-widest"
-                    style={{
-                      color: "var(--text-on-dark-muted)",
-                    }}
-                  >
-                    {signal.phase}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <RayProgressionStack />
             <p
-              className="mt-4 text-center text-sm leading-relaxed"
+              className="mt-6 text-center text-sm leading-relaxed"
               style={{
                 color: "var(--text-on-dark-muted)",
               }}
@@ -132,6 +79,14 @@ export default function ArchetypesPage() {
             variant="section"
           />
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Not a Label. A Map."
+          title="Your Light Signature changes as you do. That is the whole point."
+          description="36 combinations of your top two Rays. Each one has a strength, a cost under load, and a training path."
+        />
 
         <GoldDividerAnimated />
 
@@ -180,9 +135,9 @@ export default function ArchetypesPage() {
                 map of what is strong, what is covered, and what to do first.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="/upgrade-your-os" className="btn-primary">
+                <NeonGlowButton href="/upgrade-your-os">
                   Map My Full Light Signature
-                </Link>
+                </NeonGlowButton>
                 <Link href="/preview" className="btn-watch">
                   Check My Stability (Free)
                 </Link>

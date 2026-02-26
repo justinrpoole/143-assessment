@@ -7,6 +7,9 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import RaySpectrumBar from "@/components/marketing/RaySpectrumBar";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -140,14 +143,11 @@ export default async function FrameworkPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Not a theory. A training system.
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Not a theory. A training system.
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             Nine capacities. Each one trainable. Each one measurable. Each one
@@ -327,16 +327,19 @@ export default async function FrameworkPage() {
               ))}
             </StaggerContainer>
 
-            <CosmicImage
-              src="/images/cosmic/framework-mandala.png"
-              alt="The Be The Light Framework — 9 Rays arranged across 3 developmental phases"
-              width={520}
-              height={520}
-              maxWidth="520px"
-              variant="section"
-            />
+            <div className="mt-8">
+              <RayProgressionStack />
+            </div>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Three Phases. One Path."
+          title="Reconnect with yourself. Expand into action. Become the leader who multiplies."
+          description="Each phase builds on the one before it. The assessment shows you where to start."
+        />
 
         <GoldDividerAnimated />
 
@@ -506,9 +509,9 @@ export default async function FrameworkPage() {
                 uniquely yours — along with the map of what to build first.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="/assessment" className="btn-primary">
+                <NeonGlowButton href="/assessment">
                   Map My Light Signature
-                </Link>
+                </NeonGlowButton>
                 <Link href="/preview" className="btn-watch">
                   Check My Stability
                 </Link>

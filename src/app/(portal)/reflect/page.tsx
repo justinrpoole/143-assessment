@@ -2,6 +2,7 @@ import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import EveningReflectionClient from "@/components/retention/EveningReflectionClient";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +24,7 @@ export default async function ReflectPage() {
   return (
     <>
       <PageHeader title="Evening Reflection" />
+      <GoldDividerAnimated />
 
       <div className="mt-6">
         <EveningReflectionClient />

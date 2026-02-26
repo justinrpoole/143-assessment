@@ -8,6 +8,7 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -207,14 +208,11 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Start free. Go deeper when you are ready.
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Start free. Go deeper when you are ready.
           </p>
           <h1
-            className="mx-auto max-w-[640px] text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer mx-auto max-w-[640px] text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             Every tier answers the same question: what happens when your
@@ -466,6 +464,14 @@ export default async function PricingPage() {
             </div>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Built to Prove Change"
+          title="Every tier answers one question: what happens when your strongest capacities come back online?"
+          description="Start free. The assessment proves the rest. No lock-in. No penalties."
+        />
 
         <GoldDividerAnimated />
 

@@ -7,6 +7,8 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -95,14 +97,11 @@ export default async function HowItWorksPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Four stages. One operating system upgrade.
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Four stages. One operating system upgrade.
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             Reset the filter. Map the pattern. Train the gaps. Measure the proof.
@@ -117,9 +116,9 @@ export default async function HowItWorksPage() {
             guessed. You will have receipts.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/143" className="btn-primary">
+            <NeonGlowButton href="/143">
               Start the Challenge — Free
-            </Link>
+            </NeonGlowButton>
             <Link href="/assessment" className="btn-watch">
               Take the Assessment
             </Link>
@@ -207,6 +206,14 @@ export default async function HowItWorksPage() {
             </StaggerContainer>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Designed to Be Outgrown"
+          title="Your scores are supposed to change. That is the whole point."
+          description="No other assessment is designed to be retaken. Yours moves as your capacity moves."
+        />
 
         <GoldDividerAnimated />
 

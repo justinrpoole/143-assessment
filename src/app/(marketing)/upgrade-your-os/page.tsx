@@ -18,7 +18,7 @@ import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
-import { rayRamp } from "@/lib/ui/ray-colors";
+import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 
 export const dynamic = "force-dynamic";
 
@@ -28,17 +28,6 @@ export const metadata = {
 };
 
 /* ── static data ───────────────────────────────────────────────── */
-const NINE_RAYS = [
-  { id: "R1", name: "Ray of Intention",    essence: "You wake up and already know your one thing. Your calendar is a decision, not a reaction." },
-  { id: "R2", name: "Ray of Joy",          essence: "Your energy does not come from pressure. It comes from something deeper. You create it on purpose." },
-  { id: "R3", name: "Ray of Presence",     essence: "Your body is settled. Not numb — regulated. The space between what happens and what you do is yours." },
-  { id: "R4", name: "Ray of Power",        essence: "You move before you feel ready — and you trust yourself after. Confidence is not loud. It is consistent." },
-  { id: "R5", name: "Ray of Purpose",      essence: "Your calendar matches your values. The gap between what you say matters and where you spend time is closing." },
-  { id: "R6", name: "Ray of Authenticity", essence: "You are the same person in every room. No performance. No code-switching your soul." },
-  { id: "R7", name: "Ray of Connection",   essence: "People feel safe enough to be honest around you. Your stability is a leadership multiplier." },
-  { id: "R8", name: "Ray of Possibility",  essence: "You see options where other people see walls. Your brain scans for openings because you trained it to." },
-  { id: "R9", name: "Be The Light",        essence: "Your presence lowers the noise in a room. You hold steady. And somehow that is enough." },
-];
 
 const WHAT_I_DONT_DO = [
   "This is not motivation theatre. No hype. No pep talks. Structure.",
@@ -283,7 +272,7 @@ export default async function UpgradeYourOsPage() {
 
       <GoldDividerAnimated />
 
-      {/* ── 9 RAYS — staggered cards with color ramps ── */}
+      {/* ── 9 RAYS — vertical progression with sun ── */}
       <FadeInSection>
       <section className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
         <div className="relative z-10 mb-10 text-center">
@@ -298,27 +287,9 @@ export default async function UpgradeYourOsPage() {
             middle three are where they meet. Not personality types — <span className="gold-highlight">capacities built through reps</span>.
           </p>
         </div>
-        <StaggerChildren className="relative z-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" staggerMs={80}>
-          {NINE_RAYS.map((ray) => {
-            const ramp = rayRamp(ray.id);
-            return (
-              <div
-                key={ray.id}
-                className="glass-card glass-card--lift p-4"
-                style={{
-                  borderLeft: `3px solid ${ramp.hoverBorder}`,
-                  background: ramp.bgTint,
-                }}
-              >
-                <p className="text-sm font-bold" style={{ color: ramp.full }}>
-                  <span style={{ color: '#F8D011', marginRight: '6px', fontSize: '8px', verticalAlign: 'middle' }}>◆</span>
-                  {ray.name}
-                </p>
-                <p className="mt-1.5 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>{ray.essence}</p>
-              </div>
-            );
-          })}
-        </StaggerChildren>
+        <div className="relative z-10">
+          <RayProgressionStack />
+        </div>
         <div className="relative z-10 mt-8 text-center">
           <MagneticButton href="/preview" className="btn-secondary">
             Which ray leads for you? Find out in 15 minutes.

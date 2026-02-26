@@ -1,5 +1,6 @@
 import RepLogClient from '@/components/retention/RepLogClient';
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 
@@ -49,6 +50,7 @@ export default async function RepsPage({ searchParams }: PageProps) {
           Recognition &bull; Encouragement &bull; Performance &bull; Sustainability
         </p>
       </PageHeader>
+      <GoldDividerAnimated />
 
       <div className="mt-6">
         <RepLogClient initialTool={initialTool} />

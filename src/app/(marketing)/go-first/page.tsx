@@ -8,6 +8,8 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -88,14 +90,11 @@ export default async function GoFirstPage() {
             maxWidth="48px"
             variant="decorative"
           />
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            The Second Commitment
+          <p className="gold-tag">
+            <span style={{ color: '#F8D011' }}>◆</span> The Second Commitment
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             Go First.
@@ -252,6 +251,14 @@ export default async function GoFirstPage() {
 
         <GoldDividerAnimated />
 
+        <GoldHeroBanner
+          kicker="Not a Motivation Gap"
+          title="Confidence is not born. It is built. And it only shows up after you start."
+          description="The gap between knowing and doing is not a knowledge problem. It is a capacity problem."
+        />
+
+        <GoldDividerAnimated />
+
         {/* ─── SECTION 5 · SIGNATURE PATTERNS ─────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px] space-y-8">
@@ -341,9 +348,9 @@ export default async function GoFirstPage() {
                 map with a first step on it.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="/assessment" className="btn-primary">
+                <NeonGlowButton href="/assessment">
                   Take the Assessment
-                </Link>
+                </NeonGlowButton>
                 <Link href="/preview" className="btn-watch">
                   Try the Free Stability Check
                 </Link>

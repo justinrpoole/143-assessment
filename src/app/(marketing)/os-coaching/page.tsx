@@ -7,6 +7,8 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -96,14 +98,11 @@ export default async function OsCoachingPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            OS Coaching
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> OS Coaching
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             Select 1-on-1 coaching. The framework, the systems, and the accountability.
@@ -119,9 +118,9 @@ export default async function OsCoachingPage() {
             the systems to apply it, and then regulate long-term with the app.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link href="/assessment" className="btn-primary">
+            <NeonGlowButton href="/assessment">
               Take the Assessment First
-            </Link>
+            </NeonGlowButton>
             <Link href="#format" className="btn-watch">
               See the Session Format
             </Link>
@@ -223,6 +222,14 @@ export default async function OsCoachingPage() {
             </StaggerContainer>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Data-Led. Not Open Enrolment."
+          title="Coaching builds the skill. The app keeps it alive."
+          description="After coaching, you self-regulate with the 143 app — daily practices, weekly retakes, and the system you learned applied to every new challenge."
+        />
 
         <GoldDividerAnimated />
 

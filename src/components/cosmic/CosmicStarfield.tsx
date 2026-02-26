@@ -2,11 +2,11 @@
 
 /**
  * CosmicStarfield — CSS-only animated star background.
- * Generates three layers of twinkling stars at different sizes and speeds.
+ * Generates deterministic star positions rendered with GPU-accelerated transforms.
  * Used as a subtle background layer in the footer and sparse pages.
  */
 
-const STAR_COUNT = 60;
+const STAR_COUNT = 30;
 
 // Deterministic pseudo-random positions seeded from index
 function starPositions(count: number, seed: number) {
@@ -39,7 +39,7 @@ export default function CosmicStarfield({ className }: CosmicStarfieldProps) {
       {STARS.map((star, i) => (
         <span
           key={i}
-          className="absolute rounded-full"
+          className="absolute rounded-full will-change-transform"
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,

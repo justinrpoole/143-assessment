@@ -5,6 +5,7 @@ import CosmicImage from "@/components/marketing/CosmicImage";
 
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -42,14 +43,11 @@ export default async function SampleReportPage() {
         <section className="mx-auto max-w-[720px] space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-8">
             <div className="flex-1 space-y-5">
-              <p
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Sample Light Signature Map
+              <p className="gold-tag">
+                <span style={{ color: '#F8D011' }}>◆</span> Sample Light Signature Map
               </p>
               <h1
-                className="text-3xl font-bold leading-tight sm:text-4xl"
+                className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
                 This is what a full report reads like. Not a screenshot. The real
@@ -122,6 +120,14 @@ export default async function SampleReportPage() {
             </div>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Not a Template"
+          title="Every line of your report is generated from your specific answers."
+          description="A report that reads like someone who understands you handed you a map and said: start here."
+        />
 
         <GoldDividerAnimated />
 

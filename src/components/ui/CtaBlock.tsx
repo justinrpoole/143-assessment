@@ -35,8 +35,8 @@ export default function CtaBlock({
   className,
 }: CtaBlockProps) {
   return (
-    <section className={`mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8 ${className ?? ''}`}>
-      <div className="glass-card p-8">
+    <section className={`mx-auto max-w-[720px] px-4 pb-16 text-center sm:px-6 md:px-8 sm:pb-20 ${className ?? ''}`}>
+      <div className="glass-card p-5 sm:p-6 md:p-8">
         {kicker && (
           <p
             className="text-xs font-bold uppercase tracking-widest"

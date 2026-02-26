@@ -2,6 +2,7 @@ import { GrowthSummaryClient } from "@/components/retention/GrowthSummaryClient"
 import { emitEvent, emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 
 export const dynamic = "force-dynamic";
 
@@ -67,6 +68,7 @@ export default async function GrowthPage() {
           Access mode: <code>{auth.userState}</code>
         </p>
       </PageHeader>
+      <GoldDividerAnimated />
 
       <GrowthSummaryClient />
     </>

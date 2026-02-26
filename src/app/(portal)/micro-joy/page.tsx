@@ -4,6 +4,7 @@ import { emitEvent, emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { countMicroJoyEntriesForDate } from "@/lib/db/retention";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 
 export const dynamic = "force-dynamic";
 
@@ -59,6 +60,7 @@ export default async function MicroJoyPage() {
         title="Micro Joy"
         description="One small thing that tells your RAS the world has good in it. That signal changes what your brain looks for next."
       />
+      <GoldDividerAnimated />
 
       <MicroJoyClient />
       <FeedbackWidget

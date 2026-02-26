@@ -6,6 +6,7 @@ import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import PatternInterruptHub from "@/components/PatternInterruptHub";
 import IntentionRecall from "@/components/results/IntentionRecall";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -123,6 +124,7 @@ export default async function ResultsPage({ searchParams }: PageProps) {
       >
         <IntentionRecall />
       </PageHeader>
+      <GoldDividerAnimated />
 
       <ResultsClient runId={runId} />
       <PatternInterruptHub />

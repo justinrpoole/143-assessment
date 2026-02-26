@@ -835,6 +835,121 @@
   background: linear-gradient(to right, rgba(248, 208, 17, 0.25), transparent);
 }
 
+/* ── Liquid Fill Button ── */
+
+.btn-liquid-fill {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-xl);
+  background: transparent;
+  color: var(--brand-gold, #F8D011);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1.5px solid rgba(248, 208, 17, 0.5);
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-liquid-fill::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background: var(--brand-gold, #F8D011);
+  transition: height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: -1;
+}
+
+.btn-liquid-fill:hover {
+  color: var(--brand-black, #020202);
+  border-color: var(--brand-gold, #F8D011);
+}
+
+.btn-liquid-fill:hover::before {
+  height: 100%;
+}
+
+.btn-liquid-fill:focus-visible {
+  outline: 3px solid rgba(248, 208, 17, 0.70);
+  outline-offset: 2px;
+}
+
+/* ── Conic Border Card ── */
+
+@property --conic-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes conicSpin {
+  to { --conic-angle: 360deg; }
+}
+
+.conic-border-card {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  padding: 2px;
+  background: conic-gradient(
+    from var(--conic-angle),
+    #F8D011 0%,
+    transparent 15%,
+    transparent 45%,
+    #F8D011 50%,
+    transparent 65%,
+    transparent 95%,
+    #F8D011 100%
+  );
+  animation: conicSpin 4s linear infinite;
+}
+
+.conic-border-card:hover {
+  animation-duration: 2s;
+}
+
+.conic-border-card__inner {
+  border-radius: calc(var(--radius-2xl) - 2px);
+}
+
+/* Glow variant — adds outer blur */
+.conic-border-card--glow::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: calc(var(--radius-2xl) + 3px);
+  background: conic-gradient(
+    from var(--conic-angle),
+    rgba(248, 208, 17, 0.3),
+    transparent 20%,
+    transparent 45%,
+    rgba(248, 208, 17, 0.3) 50%,
+    transparent 70%,
+    transparent 95%,
+    rgba(248, 208, 17, 0.3) 100%
+  );
+  animation: conicSpin 4s linear infinite;
+  filter: blur(8px);
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.conic-border-card--glow:hover::before {
+  opacity: 0.8;
+  animation-duration: 2s;
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,

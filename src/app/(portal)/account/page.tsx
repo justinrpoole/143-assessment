@@ -3,6 +3,7 @@ import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { getEntitlementByUserId } from "@/lib/db/entitlements";
 import { PageHeader } from "@/components/ui/PageHeader";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 
 export const dynamic = "force-dynamic";
 
@@ -32,6 +33,7 @@ export default async function AccountPage() {
         title="Manage Your Account"
         description="View your subscription status, manage billing, and access your assessment history. Your data stays even if you cancel — when you come back, your map is waiting."
       />
+      <GoldDividerAnimated />
 
       <AccountBillingClient
         userState={effectiveState}

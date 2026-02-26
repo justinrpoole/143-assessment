@@ -8,6 +8,7 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -71,14 +72,11 @@ export default async function AboutPage() {
               priority
             />
           </div>
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Not a motivator. A builder.
+          <p className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Not a motivator. A builder.
           </p>
           <h1
-            className="mx-auto max-w-[600px] text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer mx-auto max-w-[600px] text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             I built the map so you do not have to wander for 20 years.
@@ -273,6 +271,14 @@ export default async function AboutPage() {
             </div>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="Why 143"
+          title="One letter. Four letters. Three letters. I love you."
+          description="Not a platitude. An operating condition. Self-directed compassion lowers cortisol. Self-criticism spikes it."
+        />
 
         <GoldDividerAnimated />
 

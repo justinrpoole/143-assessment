@@ -4,8 +4,8 @@ import { useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 interface GoldDividerAnimatedProps {
-  /** Max width of the divider line (default: 200px) */
-  maxWidth?: number;
+  /** Max width of the divider line (default: responsive clamp) */
+  maxWidth?: number | string;
   className?: string;
 }
 
@@ -15,7 +15,7 @@ interface GoldDividerAnimatedProps {
  * Replaces the inline gold divider pattern used across 21+ marketing pages.
  */
 export default function GoldDividerAnimated({
-  maxWidth = 200,
+  maxWidth = 'clamp(100px, 60%, 200px)',
   className,
 }: GoldDividerAnimatedProps) {
   const ref = useRef<HTMLDivElement>(null);
