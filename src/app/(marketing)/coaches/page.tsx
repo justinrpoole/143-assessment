@@ -6,6 +6,7 @@ import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import SectionTOC from "@/components/ui/SectionTOC";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
@@ -60,9 +61,19 @@ export default async function CoachingPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
+      <SectionTOC items={[
+        { id: "hero", label: "Hero" },
+        { id: "leading-the-witness", label: "The Gap" },
+        { id: "archetype-teaser", label: "Light Signature" },
+        { id: "four-phases", label: "Four Phases" },
+        { id: "different", label: "What Is Different" },
+        { id: "what-you-need", label: "What You Need" },
+        { id: "testimonials", label: "Testimonials" },
+        { id: "cta", label: "Get Started" },
+      ]} />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
       {/* Hero */}
-      <section className="mx-auto max-w-[720px] space-y-5 text-center">
+      <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
         <p className="gold-tag mx-auto">
           <span style={{ color: '#F8D011' }}>◆</span> 10-Week Light Activation Program · 7 min read
         </p>
@@ -78,7 +89,7 @@ export default async function CoachingPage() {
 
       {/* Leading the Witness */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px] px-5 pb-12 sm:px-8">
+        <section id="leading-the-witness" className="mx-auto max-w-[720px] px-5 pb-12 sm:px-8">
           <div className="glass-card p-6 sm:p-8 space-y-5">
             <p className="text-sm font-semibold leading-relaxed" style={{ color: 'var(--brand-gold)' }}>
               Have you ever learned something powerful at a workshop and lost it by Monday?
@@ -92,7 +103,7 @@ export default async function CoachingPage() {
 
       {/* Archetype Teaser */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px]">
+        <section id="archetype-teaser" className="mx-auto max-w-[720px]">
           <div className="glass-card glass-card--lift p-6 sm:p-8">
             <h2 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
               The program adapts to how you lead
@@ -111,7 +122,7 @@ export default async function CoachingPage() {
 
       {/* Four Phases */}
       <FadeInSection>
-        <section className="relative mx-auto max-w-[720px] space-y-8">
+        <section id="four-phases" className="relative mx-auto max-w-[720px] space-y-8">
           <FloatingOrbs />
           <div className="space-y-2 text-center">
             <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>The Structure</p>
@@ -150,7 +161,7 @@ export default async function CoachingPage() {
 
       {/* What makes this different */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px]">
+        <section id="different" className="mx-auto max-w-[720px]">
           <div className="glass-card p-6 sm:p-8 space-y-6">
             <div className="space-y-2">
               <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>Not another course</p>
@@ -178,7 +189,7 @@ export default async function CoachingPage() {
 
       {/* What you need */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px]">
+        <section id="what-you-need" className="mx-auto max-w-[720px]">
           <div className="glass-card p-8 space-y-6">
             <div className="space-y-2">
               <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>Before you start</p>
@@ -212,7 +223,7 @@ export default async function CoachingPage() {
 
       {/* Testimonials */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px] space-y-6 text-center">
+        <section id="testimonials" className="mx-auto max-w-[720px] space-y-6 text-center">
           <p
             className="text-xs font-bold uppercase tracking-widest"
             style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -256,7 +267,7 @@ export default async function CoachingPage() {
 
       {/* Pricing + CTA */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px]">
+        <section id="cta" className="mx-auto max-w-[720px]">
           <ConicBorderCard>
           <div className="glass-card glass-card--executive p-8 text-center space-y-5">
             <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>

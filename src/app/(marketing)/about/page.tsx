@@ -14,6 +14,7 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import SectionTOC from "@/components/ui/SectionTOC";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
@@ -67,10 +68,19 @@ export default async function AboutPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
+      <SectionTOC items={[
+        { id: "hero", label: "Hero" },
+        { id: "story", label: "The Story" },
+        { id: "credentials", label: "Background" },
+        { id: "do-dont", label: "What You Get" },
+        { id: "method", label: "The Method" },
+        { id: "testimonials", label: "Testimonials" },
+        { id: "cta", label: "Get Started" },
+      ]} />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
           <div className="mx-auto w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full overflow-hidden border-2" style={{ borderColor: "var(--brand-gold)" }}>
             <Image
               src="/images/justin-ray-headshot.png"
@@ -99,7 +109,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 2 · THE STORY ──────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section id="story" className="mx-auto max-w-[720px]">
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -164,7 +174,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 3 · CREDENTIALS ────────────────────────── */}
         <FadeInSection>
-          <section className="relative mx-auto max-w-[720px] space-y-8">
+          <section id="credentials" className="relative mx-auto max-w-[720px] space-y-8">
             <FloatingOrbs />
             <div className="text-center space-y-3">
               <p
@@ -203,7 +213,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 4 · DO / DON'T ─────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
+          <section id="do-dont" className="mx-auto max-w-[720px] space-y-8">
             <h2
               className="text-center text-xl font-bold sm:text-2xl"
               style={{ color: "var(--text-on-dark, #FFFEF5)" }}
@@ -287,7 +297,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 5 · THE METHOD ─────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <section id="method" className="mx-auto max-w-[720px] space-y-5 text-center">
             <CosmicImage
               src="/images/logo-143-transparent.png"
               alt="143 Leadership"
@@ -328,7 +338,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 5b · TESTIMONIALS ─────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-6 text-center">
+          <section id="testimonials" className="mx-auto max-w-[720px] space-y-6 text-center">
             <p
               className="text-xs font-bold uppercase tracking-widest"
               style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -372,7 +382,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section id="cta" className="mx-auto max-w-[720px]">
             <ConicBorderCard glow>
             <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
               <p

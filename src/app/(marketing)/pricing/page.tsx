@@ -16,6 +16,7 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import SectionTOC from "@/components/ui/SectionTOC";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
@@ -214,10 +215,18 @@ export default async function PricingPage() {
       />
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
+      <SectionTOC items={[
+        { id: "hero", label: "Hero" },
+        { id: "plans", label: "Plans" },
+        { id: "compare", label: "Compare Plans" },
+        { id: "no-lock-in", label: "No Lock-In" },
+        { id: "faq", label: "FAQ" },
+        { id: "cta", label: "Get Started" },
+      ]} />
       <div className="mx-auto max-w-[1100px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
           <p className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> Start free. Go deeper when you are ready.
           </p>
@@ -252,6 +261,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 2 · PLAN CARDS ──────────────────────────── */}
         <FadeInSection>
+          <section id="plans">
           <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PLANS.map((plan) => (
               <StaggerItem key={plan.id}>
@@ -328,6 +338,7 @@ export default async function PricingPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+          </section>
         </FadeInSection>
 
         {/* ─── SOCIAL PROOF ────────────────────────────────────── */}
@@ -350,7 +361,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 3 · COMPARISON TABLE ────────────────────── */}
         <FadeInSection>
-          <section className="relative space-y-6">
+          <section id="compare" className="relative space-y-6">
             <FloatingOrbs />
             <div className="text-center space-y-3">
               <p
@@ -475,7 +486,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 4 · NO LOCK-IN ──────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section id="no-lock-in" className="mx-auto max-w-[720px]">
             <div className="glass-card p-6 sm:p-8 space-y-4 text-center">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -510,7 +521,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 5 · FAQ ─────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-6">
+          <section id="faq" className="mx-auto max-w-[720px] space-y-6">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -579,7 +590,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section id="cta" className="mx-auto max-w-[720px]">
             <ConicBorderCard glow>
             <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
               <p

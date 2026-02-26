@@ -402,7 +402,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── PRICING — gold-bordered featured card ── */}
       <FadeInSection>
-      <section className="section-alt-dark relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="pricing" className="section-alt-dark relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <FloatingOrbs variant="mixed" />
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">
@@ -462,7 +462,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── ABOUT JUSTIN + FINAL CTA ── */}
       <FadeInSection>
-      <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="final-cta" className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <FloatingOrbs variant="gold" />
         <div className="relative z-10 text-center">
           <span className="gold-tag mx-auto">
