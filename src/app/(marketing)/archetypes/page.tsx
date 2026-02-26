@@ -4,11 +4,14 @@ import type { Metadata } from "next";
 import ArchetypeLibraryClient from "@/components/archetypes/ArchetypeLibraryClient";
 import ArchetypeQuizClient from "@/components/quiz/ArchetypeQuizClient";
 import CosmicImage from "@/components/marketing/CosmicImage";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 
 export const metadata: Metadata = {
   title: "36 Light Signatures — Which One Are You? | 143 Leadership",
@@ -26,6 +29,7 @@ export const metadata: Metadata = {
 export default function ArchetypesPage() {
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16 space-y-12">
 
         {/* ─── HERO ──────────────────────────────────────────── */}
@@ -138,14 +142,15 @@ export default function ArchetypesPage() {
                 <NeonGlowButton href="/upgrade-your-os">
                   Map My Full Light Signature
                 </NeonGlowButton>
-                <Link href="/preview" className="btn-watch">
+                <LiquidFillButton href="/preview">
                   Check My Stability (Free)
-                </Link>
+                </LiquidFillButton>
               </div>
             </div>
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }

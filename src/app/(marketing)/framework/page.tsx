@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import CosmicImage from "@/components/marketing/CosmicImage";
 import {
   FadeInSection,
@@ -8,7 +9,9 @@ import {
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import RaySpectrumBar from "@/components/marketing/RaySpectrumBar";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -139,6 +142,7 @@ export default async function FrameworkPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
@@ -512,14 +516,15 @@ export default async function FrameworkPage() {
                 <NeonGlowButton href="/assessment">
                   Map My Light Signature
                 </NeonGlowButton>
-                <Link href="/preview" className="btn-watch">
+                <LiquidFillButton href="/preview">
                   Check My Stability
-                </Link>
+                </LiquidFillButton>
               </div>
             </div>
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }

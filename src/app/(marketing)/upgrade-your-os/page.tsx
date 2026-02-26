@@ -9,11 +9,13 @@ import StarfieldBackground from "@/components/marketing/StarfieldBackground";
 import ScrollProgress from "@/components/marketing/ScrollProgress";
 import CountUp from "@/components/marketing/CountUp";
 import MagneticButton from "@/components/marketing/MagneticButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import StaggerChildren from "@/components/marketing/StaggerChildren";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import RadarMockup from "@/components/marketing/RadarMockup";
 import EmailCaptureBanner from "@/components/marketing/EmailCaptureBanner";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -407,9 +409,9 @@ export default async function UpgradeYourOsPage() {
               <li className="flex items-start gap-2"><span style={{ color: 'rgba(255,255,255,0.2)' }}>◇</span> <span style={{ opacity: 0.4 }}>Full 9-Ray report</span></li>
               <li className="flex items-start gap-2"><span style={{ color: 'rgba(255,255,255,0.2)' }}>◇</span> <span style={{ opacity: 0.4 }}>Rise Path + daily tools</span></li>
             </ul>
-            <MagneticButton href="/preview" className="btn-watch mt-6 block text-center">
+            <LiquidFillButton href="/preview" className="mt-6 block text-center">
               Start Free
-            </MagneticButton>
+            </LiquidFillButton>
           </div>
           {/* Paid option — gold border featured */}
           <div className="glass-card glass-card--lift pricing-featured flex flex-col p-6"
@@ -500,6 +502,7 @@ export default async function UpgradeYourOsPage() {
         </div>
       </section>
       </FadeInSection>
+      <BackToTopButton />
     </main>
   );
 }
