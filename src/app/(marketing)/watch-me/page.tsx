@@ -10,6 +10,9 @@ import {
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -62,6 +65,7 @@ export default async function WatchMePage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
@@ -350,9 +354,9 @@ export default async function WatchMePage() {
                 <NeonGlowButton href="/assessment">
                   Take the Assessment
                 </NeonGlowButton>
-                <Link href="/preview" className="btn-watch">
+                <LiquidFillButton href="/preview">
                   Try the Free Stability Check
-                </Link>
+                </LiquidFillButton>
               </div>
               <p
                 className="text-xs"
@@ -368,6 +372,7 @@ export default async function WatchMePage() {
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }

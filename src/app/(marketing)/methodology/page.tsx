@@ -2,6 +2,10 @@ import Link from "next/link";
 
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -121,6 +125,7 @@ export default async function MethodologyPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
       {/* ── Hero ── */}
       <section className="mx-auto max-w-[720px] space-y-5 text-center">
@@ -446,17 +451,18 @@ export default async function MethodologyPage() {
               The science is real. The practice is simple.
             </h2>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <Link href="/upgrade" className="btn-primary">
+              <NeonGlowButton href="/upgrade">
                 Take the Assessment — $43
-              </Link>
-              <Link href="/glossary" className="btn-watch">
+              </NeonGlowButton>
+              <LiquidFillButton href="/glossary">
                 Explore the Glossary
-              </Link>
+              </LiquidFillButton>
             </div>
           </div>
         </section>
       </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }

@@ -2,6 +2,10 @@ import Link from 'next/link';
 import { FadeInSection } from '@/components/ui/FadeInSection';
 import GoldDividerAnimated from '@/components/ui/GoldDividerAnimated';
 import GoldHeroBanner from '@/components/ui/GoldHeroBanner';
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import StaggerChildren from '@/components/marketing/StaggerChildren';
 import { emitPageView } from '@/lib/analytics/emitter';
 import { getUserStateFromRequest } from '@/lib/auth/user-state';
@@ -51,6 +55,7 @@ export default async function CoachingPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
       {/* Hero */}
       <section className="mx-auto max-w-[720px] space-y-5 text-center">
@@ -214,17 +219,18 @@ export default async function CoachingPage() {
               $1,430 total. Your Gravitational Stability Report and Portal Membership are included for the full duration.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link href="/143" className="btn-primary">
+              <NeonGlowButton href="/143">
                 Start the 143 Challenge — Free
-              </Link>
-              <Link href="/preview" className="btn-watch">
+              </NeonGlowButton>
+              <LiquidFillButton href="/preview">
                 Take the 3-Minute Stability Check
-              </Link>
+              </LiquidFillButton>
             </div>
           </div>
         </section>
       </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }

@@ -3,6 +3,9 @@ import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import StaggerChildren from "@/components/marketing/StaggerChildren";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 
 const resources = [
   {
@@ -68,9 +71,9 @@ export default function ResourcesPage() {
               <article key={resource.title} className="glass-card glass-card--lift p-6 flex flex-col">
                 <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>{resource.title}</h2>
                 <p className="mt-2 flex-1 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{resource.description}</p>
-                <Link href={resource.href} className="btn-watch mt-4 inline-block self-start text-sm">
+                <LiquidFillButton href={resource.href} className="mt-4 inline-block self-start text-sm">
                   {resource.cta}
-                </Link>
+                </LiquidFillButton>
               </article>
             ))}
           </StaggerChildren>
@@ -99,17 +102,18 @@ export default function ResourcesPage() {
                 The Gravitational Stability Check takes 3 minutes and shows you which capacities are carrying your system right now.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="/preview" className="btn-primary">
+                <NeonGlowButton href="/preview">
                   Check My Stability
-                </Link>
-                <Link href="/framework" className="btn-watch">
+                </NeonGlowButton>
+                <LiquidFillButton href="/framework">
                   Read the Framework
-                </Link>
+                </LiquidFillButton>
               </div>
             </div>
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }
