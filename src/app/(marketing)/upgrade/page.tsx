@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import { UpgradeCheckoutClient } from "@/components/billing/UpgradeCheckoutClient";
 import DimmingCarryForwardCard from "@/components/billing/DimmingCarryForwardCard";
@@ -147,12 +149,12 @@ export default async function UpgradePage() {
               that changes as you do.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="#plans" className="btn-primary">
+              <NeonGlowButton href="#plans">
                 See Both Plans
-              </Link>
-              <Link href="/preview" className="btn-watch">
+              </NeonGlowButton>
+              <LiquidFillButton href="/preview">
                 Take the Free Stability Check
-              </Link>
+              </LiquidFillButton>
             </div>
           </div>
           <div className="hidden md:block" aria-hidden="true">

@@ -7,6 +7,7 @@ import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -76,9 +77,11 @@ export default async function ReportsPage({ searchParams }: PageProps) {
       />
       <GoldDividerAnimated />
 
-      <CosmicErrorBoundary sectionLabel="REPORT">
-        <ReportClient runId={runId} />
-      </CosmicErrorBoundary>
+      <RadialSpotlight>
+        <CosmicErrorBoundary sectionLabel="REPORT">
+          <ReportClient runId={runId} />
+        </CosmicErrorBoundary>
+      </RadialSpotlight>
       <FeedbackWidget
         feedback_type="report_resonance"
         source_route="/reports"

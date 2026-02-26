@@ -13,6 +13,7 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -183,35 +184,37 @@ export default async function BeTheLightPage() {
 
         {/* ─── SECTION 3 · SOUND FAMILIAR ─────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
-            <div className="glass-card p-6 sm:p-8">
-              <p
-                className="mb-5 text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Sound Familiar?
-              </p>
-              <StaggerContainer className="space-y-3">
-                {RECOGNITION_SIGNALS.map((signal) => (
-                  <StaggerItem key={signal}>
-                    <div
-                      className="flex items-start gap-3 text-sm leading-relaxed"
-                      style={{
-                        color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-                      }}
-                    >
-                      <span
-                        className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
-                        style={{ background: "var(--brand-gold)" }}
-                      />
-                      {signal}
-                    </div>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-            </div>
-          </section>
+          <RadialSpotlight>
+            <section className="mx-auto max-w-[720px]">
+              <div className="glass-card p-6 sm:p-8">
+                <p
+                  className="mb-5 text-xs font-bold uppercase tracking-widest"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  Sound Familiar?
+                </p>
+                <StaggerContainer className="space-y-3">
+                  {RECOGNITION_SIGNALS.map((signal) => (
+                    <StaggerItem key={signal}>
+                      <div
+                        className="flex items-start gap-3 text-sm leading-relaxed"
+                        style={{
+                          color:
+                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        }}
+                      >
+                        <span
+                          className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
+                          style={{ background: "var(--brand-gold)" }}
+                        />
+                        {signal}
+                      </div>
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
+              </div>
+            </section>
+          </RadialSpotlight>
         </FadeInSection>
 
         <GoldDividerAnimated />

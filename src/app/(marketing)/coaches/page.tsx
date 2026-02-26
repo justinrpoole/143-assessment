@@ -5,8 +5,11 @@ import GoldHeroBanner from '@/components/ui/GoldHeroBanner';
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import StaggerChildren from '@/components/marketing/StaggerChildren';
+import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from '@/lib/analytics/emitter';
 import { getUserStateFromRequest } from '@/lib/auth/user-state';
 
@@ -65,9 +68,9 @@ export default async function CoachingPage() {
         <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>
           Your assessment gave you a map. This program teaches you to walk it.
         </h1>
-        <p className="mx-auto max-w-[540px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-          I see you reading the report, nodding, and then putting it in a drawer. Not because it was wrong. Because knowing is not the same as doing. This program closes that gap.
-        </p>
+        <div className="mx-auto max-w-[540px]">
+          <ScrollTextReveal text="I see you reading the report, nodding, and then putting it in a drawer. Not because it was wrong. Because knowing is not the same as doing. This program closes that gap." />
+        </div>
       </section>
 
       <GoldDividerAnimated />
@@ -205,9 +208,54 @@ export default async function CoachingPage() {
 
       <GoldDividerAnimated />
 
+      {/* Testimonials */}
+      <FadeInSection>
+        <section className="mx-auto max-w-[720px] space-y-6 text-center">
+          <p
+            className="text-xs font-bold uppercase tracking-widest"
+            style={{ color: "var(--brand-gold, #F8D011)" }}
+          >
+            From leaders who walked the program
+          </p>
+          <h2
+            className="text-xl font-bold sm:text-2xl"
+            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+          >
+            The reps changed how I lead. The retake proved it.
+          </h2>
+          <TestimonialCarousel
+            testimonials={[
+              {
+                quote: "By week three I stopped reading the report and started living it. The daily reps made the difference — small enough to do, specific enough to stick.",
+                name: "Natalie F.",
+                role: "Senior Director, Product",
+              },
+              {
+                quote: "I have been through executive coaching before. This is the first time I had data showing my capacity actually moved. My Presence Ray went from eclipsed to top two in 10 weeks.",
+                name: "Andre J.",
+                role: "VP of Engineering",
+              },
+              {
+                quote: "The program matched my Light Signature, not a generic curriculum. Every week felt like it was built for how I actually lead — because it was.",
+                name: "Rachel H.",
+                role: "Chief of Staff",
+              },
+              {
+                quote: "Week 7 was the turning point. Addressing my eclipse without shame changed everything. I finally understood the difference between depletion and deficit.",
+                name: "Michael C.",
+                role: "Regional Operations Lead",
+              },
+            ]}
+          />
+        </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
       {/* Pricing + CTA */}
       <FadeInSection>
         <section className="mx-auto max-w-[720px]">
+          <ConicBorderCard>
           <div className="glass-card p-8 text-center space-y-5">
             <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
               The protocol is the product. The proof is in the retake.
@@ -227,6 +275,7 @@ export default async function CoachingPage() {
               </LiquidFillButton>
             </div>
           </div>
+          </ConicBorderCard>
         </section>
       </FadeInSection>
       </div>

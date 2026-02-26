@@ -13,6 +13,7 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -265,61 +266,63 @@ export default async function GoFirstPage() {
 
         {/* ─── SECTION 5 · SIGNATURE PATTERNS ─────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
-            <div className="space-y-3">
-              <p
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Where You Hesitate Depends on How You Lead
-              </p>
-              <h2
-                className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-              >
-                Your hesitation is not random. It follows your Light Signature.
-              </h2>
-            </div>
+          <RadialSpotlight>
+            <section className="mx-auto max-w-[720px] space-y-8">
+              <div className="space-y-3">
+                <p
+                  className="text-xs font-bold uppercase tracking-widest"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  Where You Hesitate Depends on How You Lead
+                </p>
+                <h2
+                  className="text-2xl font-semibold"
+                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                >
+                  Your hesitation is not random. It follows your Light Signature.
+                </h2>
+              </div>
 
-            <StaggerContainer className="space-y-4">
-              {SIGNATURE_PATTERNS.map((item) => (
-                <StaggerItem key={item.signature}>
-                  <div
-                    className="glass-card p-5"
-                    style={{
-                      borderLeft: "3px solid var(--brand-gold, #F8D011)",
-                    }}
-                  >
-                    <p
-                      className="text-sm leading-relaxed"
+              <StaggerContainer className="space-y-4">
+                {SIGNATURE_PATTERNS.map((item) => (
+                  <StaggerItem key={item.signature}>
+                    <div
+                      className="glass-card p-5"
                       style={{
-                        color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        borderLeft: "3px solid var(--brand-gold, #F8D011)",
                       }}
                     >
-                      <strong
-                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{
+                          color:
+                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        }}
                       >
-                        {item.signature}
-                      </strong>{" "}
-                      {item.pattern}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+                        <strong
+                          style={{ color: "var(--brand-gold, #F8D011)" }}
+                        >
+                          {item.signature}
+                        </strong>{" "}
+                        {item.pattern}
+                      </p>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
 
-            <p
-              className="text-sm leading-relaxed"
-              style={{
-                color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
-              }}
-            >
-              There are 36 Light Signatures. Each one has a Go First edge. The
-              assessment reveals yours — and gives you the specific rep to start
-              this week.
-            </p>
-          </section>
+              <p
+                className="text-sm leading-relaxed"
+                style={{
+                  color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                }}
+              >
+                There are 36 Light Signatures. Each one has a Go First edge. The
+                assessment reveals yours — and gives you the specific rep to start
+                this week.
+              </p>
+            </section>
+          </RadialSpotlight>
         </FadeInSection>
 
         <GoldDividerAnimated />

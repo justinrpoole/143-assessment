@@ -5,7 +5,10 @@ import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import GoldTooltip from "@/components/ui/GoldTooltip";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -139,16 +142,9 @@ export default async function MethodologyPage() {
         >
           How We Built It. Why It Works. Where It&apos;s Going.
         </h1>
-        <p
-          className="mx-auto max-w-[540px] text-base leading-relaxed"
-          style={{
-            color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-          }}
-        >
-          The 143 Leadership Assessment is grounded in 12 <span className="gold-highlight">peer-reviewed research</span>
-          pillars. This page explains every construct, how we measure it, known
-          limitations, and what we plan to improve.
-        </p>
+        <div className="mx-auto max-w-[540px]">
+          <ScrollTextReveal text="The 143 Leadership Assessment is grounded in 12 peer-reviewed research pillars. This page explains every construct, how we measure it, known limitations, and what we plan to improve." />
+        </div>
       </section>
 
       <GoldDividerAnimated />
@@ -234,7 +230,7 @@ export default async function MethodologyPage() {
                   className="text-sm font-bold"
                   style={{ color: "var(--brand-gold, #F8D011)" }}
                 >
-                  Shine (0–100)
+                  <GoldTooltip tip="Your active leadership capacity — what shows up when you're at your best.">Shine</GoldTooltip> (0–100)
                 </p>
                 <p
                   className="mt-1 text-xs leading-relaxed"
@@ -270,7 +266,7 @@ export default async function MethodologyPage() {
                   className="text-sm font-bold"
                   style={{ color: "var(--brand-gold, #F8D011)" }}
                 >
-                  Eclipse (0–100)
+                  <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims.">Eclipse</GoldTooltip> (0–100)
                 </p>
                 <p
                   className="mt-1 text-xs leading-relaxed"
@@ -365,7 +361,7 @@ export default async function MethodologyPage() {
             >
               Each Ray represents a trainable behavioral capacity, not a fixed
               label. Scores reflect current access levels and are
-              <span className="gold-highlight">designed to move</span> with practice.
+              <span className="gold-highlight">designed to move</span> with deliberate <GoldTooltip tip="Repetition-based practice drill that builds leadership capacity through daily micro-actions.">reps</GoldTooltip>.
             </p>
           </div>
           <div className="space-y-3">
@@ -443,6 +439,7 @@ export default async function MethodologyPage() {
       {/* ── Bottom CTA ── */}
       <FadeInSection>
         <section className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
+          <ConicBorderCard>
           <div className="glass-card p-8">
             <h2
               className="text-2xl font-bold"
@@ -459,6 +456,7 @@ export default async function MethodologyPage() {
               </LiquidFillButton>
             </div>
           </div>
+          </ConicBorderCard>
         </section>
       </FadeInSection>
       </div>

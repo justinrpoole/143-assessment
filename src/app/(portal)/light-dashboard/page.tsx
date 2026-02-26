@@ -7,6 +7,7 @@ import GoldDividerAnimated from '@/components/ui/GoldDividerAnimated';
 import PortalBreadcrumb from '@/components/portal/PortalBreadcrumb';
 import { FeedbackWidget } from '@/components/feedback/FeedbackWidget';
 import GoldHeroBanner from '@/components/ui/GoldHeroBanner';
+import RadialSpotlight from '@/components/ui/RadialSpotlight';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,9 +35,11 @@ export default async function LightDashboardPage() {
           description="Nine rays. East to west. See where your light lands this week."
         />
         <GoldDividerAnimated />
-        <CosmicErrorBoundary sectionLabel="LIGHT DASHBOARD">
-          <LightDashboardClient />
-        </CosmicErrorBoundary>
+        <RadialSpotlight>
+          <CosmicErrorBoundary sectionLabel="LIGHT DASHBOARD">
+            <LightDashboardClient />
+          </CosmicErrorBoundary>
+        </RadialSpotlight>
         <FeedbackWidget
           feedback_type="dashboard_value"
           source_route="/light-dashboard"

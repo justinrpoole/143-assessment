@@ -7,6 +7,8 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import StreakBadge from "@/components/portal/StreakBadge";
 
 export const dynamic = "force-dynamic";
 
@@ -58,6 +60,7 @@ export default async function MicroJoyPage() {
   return (
     <>
       <PortalBreadcrumb current="Micro-Joy" />
+      <StreakBadge />
       <PageHeader
         label="Daily Practice"
         title="Micro Joy"
@@ -71,6 +74,21 @@ export default async function MicroJoyPage() {
         source_route="/micro-joy"
         title="Micro Joy value check"
       />
+      <GoldDividerAnimated />
+      <section className="mx-auto max-w-lg">
+        <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
+          Continue Your Practice
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <LiquidFillButton href="/morning">
+            Morning Routine
+          </LiquidFillButton>
+          <LiquidFillButton href="/reflect">
+            Evening Reflection
+          </LiquidFillButton>
+        </div>
+      </section>
+
       <GoldHeroBanner
         kicker="Daily Practice"
         title="Joy is not a luxury. It is a leadership tool."

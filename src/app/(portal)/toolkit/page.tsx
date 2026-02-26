@@ -7,6 +7,7 @@ import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 
 export const dynamic = "force-dynamic";
 
@@ -52,6 +53,21 @@ export default async function ToolkitPage() {
           source_route="/toolkit"
           title="Finding what you need?"
         />
+        <GoldDividerAnimated />
+        <section className="mx-auto max-w-lg">
+          <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
+            Continue Your Practice
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <LiquidFillButton href="/reps">
+              Log a REP
+            </LiquidFillButton>
+            <LiquidFillButton href="/plan">
+              If/Then Plans
+            </LiquidFillButton>
+          </div>
+        </section>
+
         <GoldHeroBanner
           kicker="Your Arsenal"
           title="The right tool at the right time changes everything."

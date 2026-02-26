@@ -14,6 +14,7 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -135,52 +136,54 @@ export default async function Challenge143Page() {
 
         {/* ─── SECTION 2 · THE SCIENCE ────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
-            <div className="space-y-3">
-              <p
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Why This Works
-              </p>
-              <h2
-                className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-              >
-                Your inner critic is not a character flaw. It is a miscalibrated
-                filter.
-              </h2>
-            </div>
+          <RadialSpotlight>
+            <section className="mx-auto max-w-[720px] space-y-8">
+              <div className="space-y-3">
+                <p
+                  className="text-xs font-bold uppercase tracking-widest"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  Why This Works
+                </p>
+                <h2
+                  className="text-2xl font-semibold"
+                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                >
+                  Your inner critic is not a character flaw. It is a miscalibrated
+                  filter.
+                </h2>
+              </div>
 
-            <StaggerContainer className="space-y-4">
-              {SCIENCE_CARDS.map((card) => (
-                <StaggerItem key={card.label}>
-                  <div
-                    className="glass-card p-5"
-                    style={{
-                      borderLeft: "3px solid var(--brand-gold, #F8D011)",
-                    }}
-                  >
-                    <p
-                      className="text-sm font-semibold"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
-                    >
-                      {card.label}
-                    </p>
-                    <p
-                      className="mt-1 text-sm leading-relaxed"
+              <StaggerContainer className="space-y-4">
+                {SCIENCE_CARDS.map((card) => (
+                  <StaggerItem key={card.label}>
+                    <div
+                      className="glass-card p-5"
                       style={{
-                        color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        borderLeft: "3px solid var(--brand-gold, #F8D011)",
                       }}
                     >
-                      {card.body}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </section>
+                      <p
+                        className="text-sm font-semibold"
+                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                      >
+                        {card.label}
+                      </p>
+                      <p
+                        className="mt-1 text-sm leading-relaxed"
+                        style={{
+                          color:
+                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        }}
+                      >
+                        {card.body}
+                      </p>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </section>
+          </RadialSpotlight>
         </FadeInSection>
 
         <GoldDividerAnimated />

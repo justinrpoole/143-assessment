@@ -6,7 +6,9 @@ import CosmicImage from "@/components/marketing/CosmicImage";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -54,16 +56,9 @@ export default async function SampleReportPage() {
                 This is what a full report reads like. Not a screenshot. The real
                 thing.
               </h1>
-              <p
-                className="max-w-[560px] text-base leading-relaxed"
-                style={{
-                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-                }}
-              >
-                Browse a sample Gravitational Stability Report — same format, same
-                depth, same identity-first language. The only difference is the data
-                is not yours. Yet.
-              </p>
+              <div className="max-w-[560px]">
+                <ScrollTextReveal text="Browse a sample Gravitational Stability Report — same format, same depth, same identity-first language. The only difference is the data is not yours. Yet." />
+              </div>
             </div>
             <div className="mt-6 sm:mt-0 shrink-0">
               <CosmicImage
@@ -145,6 +140,7 @@ export default async function SampleReportPage() {
         {/* ─── SECTION 5 · TWO WAYS TO USE ─────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px]">
+            <ConicBorderCard>
             <div className="glass-card p-6 sm:p-8 space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -197,6 +193,7 @@ export default async function SampleReportPage() {
                 />
               </div>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>

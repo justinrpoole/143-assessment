@@ -9,6 +9,8 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import StreakBadge from "@/components/portal/StreakBadge";
 
 export const dynamic = "force-dynamic";
 
@@ -41,6 +43,7 @@ export default async function MorningPage() {
   return (
     <>
       <PortalBreadcrumb current="Morning" />
+      <StreakBadge />
       <PageHeader title="Morning" description="Three minutes. One intention. The rep that primes your operating system for the day ahead." />
       <GoldDividerAnimated />
 
@@ -55,6 +58,21 @@ export default async function MorningPage() {
         source_route="/morning"
         title="Morning value check"
       />
+
+      <GoldDividerAnimated />
+      <section className="mx-auto max-w-lg">
+        <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
+          Continue Your Practice
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <LiquidFillButton href="/energy">
+            Energy Audit
+          </LiquidFillButton>
+          <LiquidFillButton href="/reps">
+            Log a REP
+          </LiquidFillButton>
+        </div>
+      </section>
 
       <GoldHeroBanner
         kicker="Daily Practice"

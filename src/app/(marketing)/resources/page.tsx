@@ -5,7 +5,9 @@ import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import StaggerChildren from "@/components/marketing/StaggerChildren";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
 
 const resources = [
   {
@@ -57,9 +59,9 @@ export default function ResourcesPage() {
           <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>
             Understand the system before you take the test.
           </h1>
-          <p className="mx-auto max-w-[540px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            The framework. The science. A sample report. And a free 3-day challenge that proves the filter can shift before you spend a dollar.
-          </p>
+          <div className="mx-auto max-w-[540px]">
+            <ScrollTextReveal text="The framework. The science. A sample report. And a free 3-day challenge that proves the filter can shift before you spend a dollar." />
+          </div>
         </section>
 
         <GoldDividerAnimated />
@@ -94,6 +96,7 @@ export default function ResourcesPage() {
         {/* ── CTA ── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px]">
+            <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
                 See your first two Rays — free.
@@ -110,6 +113,7 @@ export default function ResourcesPage() {
                 </LiquidFillButton>
               </div>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>

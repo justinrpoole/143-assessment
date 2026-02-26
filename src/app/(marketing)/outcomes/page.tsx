@@ -9,6 +9,8 @@ import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -73,54 +75,56 @@ export default async function OutcomesPage() {
 
         {/* ─── SECTION 2 · WHAT THE REPS PRODUCE ───────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
-            <div className="space-y-3">
-              <p
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                What the reps actually produce
-              </p>
-              <h2
-                className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-              >
-                Seven shifts people report after 90 days.
-              </h2>
-            </div>
+          <RadialSpotlight>
+            <section className="mx-auto max-w-[720px] space-y-8">
+              <div className="space-y-3">
+                <p
+                  className="text-xs font-bold uppercase tracking-widest"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  What the reps actually produce
+                </p>
+                <h2
+                  className="text-2xl font-bold"
+                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                >
+                  Seven shifts people report after 90 days.
+                </h2>
+              </div>
 
-            <CosmicImage
-              src="/images/cosmic/sun-radiance.png"
-              alt="Full radiance — leadership capacities operating at maximum"
-              width={320}
-              height={320}
-              maxWidth="320px"
-              variant="section"
-            />
+              <CosmicImage
+                src="/images/cosmic/sun-radiance.png"
+                alt="Full radiance — leadership capacities operating at maximum"
+                width={320}
+                height={320}
+                maxWidth="320px"
+                variant="section"
+              />
 
-            <StaggerContainer className="space-y-4">
-              {WINS.map((win, i) => (
-                <StaggerItem key={i}>
-                  <div
-                    className="glass-card p-5"
-                    style={{
-                      borderLeft: "3px solid var(--brand-gold, #F8D011)",
-                    }}
-                  >
-                    <p
-                      className="text-sm leading-relaxed"
+              <StaggerContainer className="space-y-4">
+                {WINS.map((win, i) => (
+                  <StaggerItem key={i}>
+                    <div
+                      className="glass-card p-5"
                       style={{
-                        color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        borderLeft: "3px solid var(--brand-gold, #F8D011)",
                       }}
                     >
-                      {win}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </section>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{
+                          color:
+                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        }}
+                      >
+                        {win}
+                      </p>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </section>
+          </RadialSpotlight>
         </FadeInSection>
 
         <GoldDividerAnimated />
@@ -184,6 +188,50 @@ export default async function OutcomesPage() {
                 trust.
               </p>
             </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        {/* ─── SECTION 3b · TESTIMONIALS ────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-6 text-center">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              In their own words
+            </p>
+            <h2
+              className="text-xl font-bold sm:text-2xl"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              The shifts are real. The data backs it up.
+            </h2>
+            <TestimonialCarousel
+              testimonials={[
+                {
+                  quote: "I stopped rehearsing difficult conversations. My Presence Ray came back online and I started trusting myself to handle the moment when it arrived.",
+                  name: "Danielle W.",
+                  role: "Director of People Operations",
+                },
+                {
+                  quote: "My recovery time after hard moments went from days to minutes. The 90-Second Reset rewired my stress response. My team noticed before I did.",
+                  name: "Kevin O.",
+                  role: "Engineering Manager",
+                },
+                {
+                  quote: "I used to absorb everyone else's energy. The Connection Ray training taught me to feel what someone is carrying without picking it up. I stay grounded now.",
+                  name: "Samantha L.",
+                  role: "Head of Client Success",
+                },
+                {
+                  quote: "My confidence used to depend on the last thing that happened. After 90 days of reps it became baseline. Built, not borrowed. The retake confirmed it.",
+                  name: "Jordan T.",
+                  role: "Founding Partner",
+                },
+              ]}
+            />
           </section>
         </FadeInSection>
 

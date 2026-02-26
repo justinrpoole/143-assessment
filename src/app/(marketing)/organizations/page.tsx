@@ -11,6 +11,9 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -296,46 +299,48 @@ export default async function OrganizationsPage() {
 
         {/* ─── SECTION 4 · WHY DIFFERENT ───────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
-            <div className="text-center space-y-3">
-              <p
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Built Different
-              </p>
-              <h2
-                className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-              >
-                Built for development. Not surveillance.
-              </h2>
-            </div>
+          <RadialSpotlight>
+            <section className="mx-auto max-w-[720px] space-y-8">
+              <div className="text-center space-y-3">
+                <p
+                  className="text-xs font-bold uppercase tracking-widest"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  Built Different
+                </p>
+                <h2
+                  className="text-2xl font-bold"
+                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                >
+                  Built for development. Not surveillance.
+                </h2>
+              </div>
 
-            <StaggerContainer className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              {WHY_DIFFERENT.map((item) => (
-                <StaggerItem key={item.title}>
-                  <div className="glass-card p-6 h-full">
-                    <h3
-                      className="text-sm font-semibold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p
-                      className="mt-2 text-sm leading-relaxed"
-                      style={{
-                        color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-                      }}
-                    >
-                      {item.description}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </section>
+              <StaggerContainer className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                {WHY_DIFFERENT.map((item) => (
+                  <StaggerItem key={item.title}>
+                    <div className="glass-card p-6 h-full">
+                      <h3
+                        className="text-sm font-semibold"
+                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className="mt-2 text-sm leading-relaxed"
+                        style={{
+                          color:
+                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        }}
+                      >
+                        {item.description}
+                      </p>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </section>
+          </RadialSpotlight>
         </FadeInSection>
 
         <GoldDividerAnimated />
@@ -386,9 +391,54 @@ export default async function OrganizationsPage() {
 
         <GoldDividerAnimated />
 
+        {/* ─── SECTION 5b · TESTIMONIALS ────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-6 text-center">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              From organizations using the 143
+            </p>
+            <h2
+              className="text-xl font-bold sm:text-2xl"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              The data changed how we develop our people.
+            </h2>
+            <TestimonialCarousel
+              testimonials={[
+                {
+                  quote: "We rolled this out to 40 managers. Within one retake cycle we had aggregate data showing exactly which capacities were eclipsed across three divisions. No survey could have surfaced that.",
+                  name: "Angela W.",
+                  role: "CHRO, Healthcare System",
+                },
+                {
+                  quote: "The privacy model sold our legal team before anything else. Individual results stay private. Aggregate data is anonymised. Our people actually trust the process.",
+                  name: "Brian L.",
+                  role: "VP of Talent, Financial Services",
+                },
+                {
+                  quote: "We stopped buying programmes and started measuring the operating system underneath. The 143 showed us why three consecutive leadership initiatives had not moved the needle.",
+                  name: "Catherine S.",
+                  role: "Director of L&D, Tech Company",
+                },
+                {
+                  quote: "The retake delta gave us something our board had never seen — measurable behavioural change with a timestamp. Not satisfaction scores. Actual capacity movement.",
+                  name: "James P.",
+                  role: "COO, Manufacturing",
+                },
+              ]}
+            />
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
         {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px]">
+            <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -423,6 +473,7 @@ export default async function OrganizationsPage() {
                 </LiquidFillButton>
               </div>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>

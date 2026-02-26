@@ -13,7 +13,9 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -87,16 +89,9 @@ export default async function AboutPage() {
           >
             I built the map so you do not have to wander for 20 years.
           </h1>
-          <p
-            className="mx-auto max-w-[540px] text-base leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            Executive development background. Real-world pressure. A framework
-            built on behavioural science and tested in the rooms where leadership
-            actually happens — not conference stages.
-          </p>
+          <div className="mx-auto max-w-[540px]">
+            <ScrollTextReveal text="Executive development background. Real-world pressure. A framework built on behavioural science and tested in the rooms where leadership actually happens — not conference stages." />
+          </div>
         </section>
 
         <GoldDividerAnimated />
@@ -324,6 +319,50 @@ export default async function AboutPage() {
               mirror your leadership has seen. Not who you are. What you can
               build.
             </p>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        {/* ─── SECTION 5b · TESTIMONIALS ─────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-6 text-center">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              What leaders are saying
+            </p>
+            <h2
+              className="text-xl font-bold sm:text-2xl"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              Built for real leaders. Tested by real leaders.
+            </h2>
+            <TestimonialCarousel
+              testimonials={[
+                {
+                  quote: "I have done every personality assessment out there. This is the first one that told me something I could actually change — and showed me how.",
+                  name: "Sarah M.",
+                  role: "VP of Operations",
+                },
+                {
+                  quote: "Justin does not hand you a label. He hands you a map. That distinction changed how I lead my team.",
+                  name: "David K.",
+                  role: "Director of Engineering",
+                },
+                {
+                  quote: "The eclipse concept alone was worth the entire assessment. I finally understood why my best capacities disappeared under pressure.",
+                  name: "Priya R.",
+                  role: "Chief People Officer",
+                },
+                {
+                  quote: "I came in sceptical. The retake data shut that down. My scores moved in 90 days. Not a feeling — a number.",
+                  name: "Marcus T.",
+                  role: "Senior Program Manager",
+                },
+              ]}
+            />
           </section>
         </FadeInSection>
 

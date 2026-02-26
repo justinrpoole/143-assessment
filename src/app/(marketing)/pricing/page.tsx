@@ -15,6 +15,7 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
@@ -226,17 +227,9 @@ export default async function PricingPage() {
             Every tier answers the same question: what happens when your
             strongest capacities come back online?
           </h1>
-          <p
-            className="mx-auto max-w-[560px] text-base leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            The free Gravitational Stability Check takes 3 minutes. The full
-            assessment takes <span className="gold-highlight">15 minutes</span>. The Portal tracks your growth monthly. Coaching
-            proves it in 10 weeks. Pick the depth that matches where you are
-            right now.
-          </p>
+          <div className="mx-auto max-w-[560px]">
+            <ScrollTextReveal text="The free Gravitational Stability Check takes 3 minutes. The full assessment takes 15 minutes. The Portal tracks your growth monthly. Coaching proves it in 10 weeks. Pick the depth that matches where you are right now." />
+          </div>
           <div className="flex justify-center pt-2">
             <LiveActivityBadge />
           </div>

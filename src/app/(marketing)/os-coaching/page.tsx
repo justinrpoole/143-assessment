@@ -12,6 +12,8 @@ import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -135,43 +137,45 @@ export default async function OsCoachingPage() {
 
         {/* ─── SECTION 2 · FOUR PILLARS ──────────────────────────── */}
         <FadeInSection>
-          <section className="space-y-8">
-            <div className="text-center space-y-3">
-              <p
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                How It Works
-              </p>
-              <h2
-                className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-              >
-                What you get. What stays with you.
-              </h2>
-            </div>
+          <RadialSpotlight>
+            <section className="space-y-8">
+              <div className="text-center space-y-3">
+                <p
+                  className="text-xs font-bold uppercase tracking-widest"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  How It Works
+                </p>
+                <h2
+                  className="text-2xl font-semibold"
+                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                >
+                  What you get. What stays with you.
+                </h2>
+              </div>
 
-            <StaggerContainer className="grid gap-5 sm:grid-cols-2">
-              {COACHING_PILLARS.map((pillar) => (
-                <StaggerItem key={pillar.title}>
-                  <div className="glass-card p-6 h-full space-y-2">
-                    <h3
-                      className="text-sm font-semibold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-                    >
-                      {pillar.title}
-                    </h3>
-                    <p
-                      className="text-sm leading-relaxed"
-                      style={{ color: "var(--text-on-dark-secondary)" }}
-                    >
-                      {pillar.description}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </section>
+              <StaggerContainer className="grid gap-5 sm:grid-cols-2">
+                {COACHING_PILLARS.map((pillar) => (
+                  <StaggerItem key={pillar.title}>
+                    <div className="glass-card p-6 h-full space-y-2">
+                      <h3
+                        className="text-sm font-semibold"
+                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      >
+                        {pillar.title}
+                      </h3>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{ color: "var(--text-on-dark-secondary)" }}
+                      >
+                        {pillar.description}
+                      </p>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </section>
+          </RadialSpotlight>
         </FadeInSection>
 
         <GoldDividerAnimated />
@@ -344,6 +348,7 @@ export default async function OsCoachingPage() {
         {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px]">
+            <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
@@ -370,6 +375,7 @@ export default async function OsCoachingPage() {
                 </LiquidFillButton>
               </div>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>

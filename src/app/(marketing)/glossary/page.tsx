@@ -7,6 +7,7 @@ import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -73,6 +74,7 @@ export default async function GlossaryPage() {
         {/* ─── CTA ─────────────────────────────────────────────── */}
         <FadeInSection>
           <section>
+            <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
@@ -90,6 +92,7 @@ export default async function GlossaryPage() {
                 </LiquidFillButton>
               </div>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>

@@ -294,12 +294,12 @@ export default async function JustinPage() {
                 that the shift is real. Not a feeling. A number.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="/assessment" className="btn-primary">
-                  Take the Assessment
-                </Link>
-                <Link href="/preview" className="btn-watch">
-                  Try the Free Stability Check
-                </Link>
+                <NeonGlowButton href="/upgrade-your-os">
+                  Map My Full Light Signature
+                </NeonGlowButton>
+                <LiquidFillButton href="/preview">
+                  Check My Stability (Free)
+                </LiquidFillButton>
               </div>
             </div>
           </section>

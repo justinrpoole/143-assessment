@@ -10,6 +10,7 @@ import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -130,7 +131,9 @@ export default async function ResultsPage({ searchParams }: PageProps) {
       <ScrollTextReveal text="Below is your complete 9-Ray report — your Light Signature archetype, Eclipse Snapshot, Energy-to-Eclipse Ratio, and Rise Path. Start with your Light Signature to understand your natural leadership force, then explore each section for the full picture. Every metric is explained — hover or tap the information icons for details." />
       <GoldDividerAnimated />
 
-      <ResultsClient runId={runId} />
+      <RadialSpotlight>
+        <ResultsClient runId={runId} />
+      </RadialSpotlight>
       <PatternInterruptHub />
       <FeedbackWidget
         feedback_type="report_resonance"

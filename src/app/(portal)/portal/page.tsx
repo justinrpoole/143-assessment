@@ -7,6 +7,7 @@ import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { PageHeader } from "@/components/ui/PageHeader";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 
 export const dynamic = "force-dynamic";
 
@@ -36,9 +37,11 @@ export default async function PortalPage() {
 
       <GoldDividerAnimated />
 
-      <CosmicErrorBoundary sectionLabel="PORTAL">
-        <PortalDashboard />
-      </CosmicErrorBoundary>
+      <RadialSpotlight>
+        <CosmicErrorBoundary sectionLabel="PORTAL">
+          <PortalDashboard />
+        </CosmicErrorBoundary>
+      </RadialSpotlight>
 
       <GoldDividerAnimated />
 

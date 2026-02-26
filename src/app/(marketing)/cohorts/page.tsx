@@ -10,7 +10,9 @@ import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -154,17 +156,9 @@ export default async function CohortsPage() {
           >
             10 weeks. 6–8 leaders. The framework, the systems, and the app.
           </h1>
-          <p
-            className="mx-auto max-w-[540px] text-base leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            Group coaching cohorts where you learn the full 143 Leadership OS together.
-            Every participant gets their own assessment, individual development path, and
-            the app to self-regulate after the programme ends. This is where lasting
-            leadership change happens.
-          </p>
+          <div className="mx-auto max-w-[540px]">
+            <ScrollTextReveal text="Group coaching cohorts where you learn the full 143 Leadership OS together. Every participant gets their own assessment, individual development path, and the app to self-regulate after the programme ends. This is where lasting leadership change happens." />
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <NeonGlowButton href="/organizations">
               Request a Cohort
@@ -368,6 +362,7 @@ export default async function CohortsPage() {
         {/* ─── SECTION 5 · CTA ────────────────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px]">
+            <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
@@ -394,6 +389,7 @@ export default async function CohortsPage() {
                 </LiquidFillButton>
               </div>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>

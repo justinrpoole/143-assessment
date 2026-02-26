@@ -9,7 +9,9 @@ import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -161,15 +163,9 @@ export default async function FaqPage() {
           >
             Every question you are thinking. Answered.
           </h1>
-          <p
-            className="mx-auto max-w-[480px] text-base leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            How the assessment works, what your results actually show, what the
-            science is, and why your scores are designed to change.
-          </p>
+          <div className="mx-auto max-w-[480px]">
+            <ScrollTextReveal text="How the assessment works, what your results actually show, what the science is, and why your scores are designed to change." />
+          </div>
         </section>
 
         {/* ─── SECTION 2 · QUICK JUMP ────────────────────────────── */}
@@ -265,6 +261,7 @@ export default async function FaqPage() {
         {/* ─── SECTION 4 · CTA ────────────────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px]">
+            <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
@@ -290,6 +287,7 @@ export default async function FaqPage() {
                 </LiquidFillButton>
               </div>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>

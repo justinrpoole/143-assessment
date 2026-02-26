@@ -6,6 +6,8 @@ import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import StreakBadge from "@/components/portal/StreakBadge";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +29,7 @@ export default async function EnergyPage() {
   return (
     <>
       <PortalBreadcrumb current="Energy Audit" />
+      <StreakBadge />
       <PageHeader
         label="Daily Practice"
         title="Energy Audit"
@@ -41,6 +44,21 @@ export default async function EnergyPage() {
           source_route="/energy"
           title="Was this audit useful?"
         />
+        <GoldDividerAnimated />
+        <section className="mx-auto max-w-lg">
+          <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
+            Continue Your Practice
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <LiquidFillButton href="/morning">
+              Morning Routine
+            </LiquidFillButton>
+            <LiquidFillButton href="/reflect">
+              Evening Reflection
+            </LiquidFillButton>
+          </div>
+        </section>
+
         <GoldHeroBanner
           kicker="Daily Practice"
           title="Where your energy goes, your life follows."

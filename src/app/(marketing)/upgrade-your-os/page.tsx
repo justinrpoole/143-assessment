@@ -8,14 +8,15 @@ import MiniAssessmentPreview from "@/components/marketing/MiniAssessmentPreview"
 import StarfieldBackground from "@/components/marketing/StarfieldBackground";
 import ScrollProgress from "@/components/marketing/ScrollProgress";
 import CountUp from "@/components/marketing/CountUp";
-import MagneticButton from "@/components/marketing/MagneticButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import StaggerChildren from "@/components/marketing/StaggerChildren";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import RadarMockup from "@/components/marketing/RadarMockup";
 import EmailCaptureBanner from "@/components/marketing/EmailCaptureBanner";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import GoldTooltip from "@/components/ui/GoldTooltip";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -99,9 +100,9 @@ export default async function UpgradeYourOsPage() {
           </p>
           {/* CTA */}
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <MagneticButton href="/preview" className="btn-primary">
+            <NeonGlowButton href="/preview">
               Take the Free Assessment
-            </MagneticButton>
+            </NeonGlowButton>
             <span className="text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
               Free during beta · No credit card
             </span>
@@ -152,9 +153,9 @@ export default async function UpgradeYourOsPage() {
           ))}
         </StaggerChildren>
         <div className="relative z-10 mt-8 text-center">
-          <MagneticButton href="/preview" className="btn-secondary">
+          <LiquidFillButton href="/preview">
             See where this shows up in your results
-          </MagneticButton>
+          </LiquidFillButton>
           <p className="mt-4 text-sm italic" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>
             Running on survival fuel and calling it discipline.
           </p>
@@ -191,23 +192,23 @@ export default async function UpgradeYourOsPage() {
               A map, not a label
             </h2>
             <p className="mt-6 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              Your <span className="gold-highlight">Light Signature</span> is a radar chart of 9 capacities — showing where you shine, where stress is covering you, and exactly what to train this week.
+              Your <span className="gold-highlight"><GoldTooltip tip="Your unique combination of top two Rays — the pattern your leadership defaults to.">Light Signature</GoldTooltip></span> is a radar chart of 9 capacities — showing where you shine, where stress is covering you, and exactly what to train this week.
             </p>
             <ul className="mt-4 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
               <li className="flex items-start gap-2">
                 <span className="text-gold-glow">◆</span> 9 Ray scores with Shine/Eclipse breakdown
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-gold-glow">◆</span> Eclipse detection — which strength is compensating
+                <span className="text-gold-glow">◆</span> <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims.">Eclipse</GoldTooltip> detection — which strength is compensating
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-gold-glow">◆</span> Rise Path with daily tools for your specific pattern
+                <span className="text-gold-glow">◆</span> <GoldTooltip tip="Your personalized development sequence based on current capacity gaps.">Rise Path</GoldTooltip> with daily tools for your specific pattern
               </li>
             </ul>
             <div className="mt-6">
-              <MagneticButton href="/preview" className="btn-primary">
+              <NeonGlowButton href="/preview">
                 See My Light Signature
-              </MagneticButton>
+              </NeonGlowButton>
             </div>
           </div>
           <RadarMockup className="flex flex-col items-center" />
@@ -263,9 +264,9 @@ export default async function UpgradeYourOsPage() {
               The assessment tells you which version you are running right now — and what is underneath.
             </p>
             <div className="mt-4 text-center">
-              <MagneticButton href="/preview" className="btn-primary">
+              <NeonGlowButton href="/preview">
                 Find Out Which One I&rsquo;m Running
-              </MagneticButton>
+              </NeonGlowButton>
             </div>
           </div>
         </div>
@@ -293,9 +294,9 @@ export default async function UpgradeYourOsPage() {
           <RayProgressionStack />
         </div>
         <div className="relative z-10 mt-8 text-center">
-          <MagneticButton href="/preview" className="btn-secondary">
+          <LiquidFillButton href="/preview">
             Which ray leads for you? Find out in 15 minutes.
-          </MagneticButton>
+          </LiquidFillButton>
         </div>
       </section>
       </FadeInSection>
@@ -429,9 +430,9 @@ export default async function UpgradeYourOsPage() {
               <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.5s' }}>◆</span> Rise Path + daily tools</li>
               <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.6s' }}>◆</span> 90-day retake to track growth</li>
             </ul>
-            <MagneticButton href="/upgrade" className="btn-primary mt-6 block text-center">
+            <NeonGlowButton href="/upgrade">
               Get the Full Map
-            </MagneticButton>
+            </NeonGlowButton>
           </div>
         </div>
         <p className="relative z-10 mt-4 text-center text-xs" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>
@@ -489,9 +490,9 @@ export default async function UpgradeYourOsPage() {
             <span className="gold-highlight">143 questions</span>. 15 minutes. A map that shows you where it went and how to get it back.
           </p>
           <div className="mt-6">
-            <MagneticButton href="/preview" className="btn-primary">
+            <NeonGlowButton href="/preview">
               Take the Free Assessment
-            </MagneticButton>
+            </NeonGlowButton>
           </div>
           <p className="mt-4 text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>
             Free during beta · No credit card required

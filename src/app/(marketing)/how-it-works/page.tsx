@@ -12,6 +12,8 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import GoldTooltip from "@/components/ui/GoldTooltip";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -38,7 +40,7 @@ const FUNNEL_STEPS = [
     step: "Stage 2",
     title: "Map Your Capacities",
     detail:
-      "143 questions. 15 minutes. The assessment scores all 9 Rays across 36 subfacets and generates your Light Signature, Eclipse Snapshot, Energy-to-Eclipse Ratio, and Rise Path. Not who you are. What you can build.",
+      (<>143 questions. 15 minutes. The assessment scores all 9 Rays across 36 subfacets and generates your <GoldTooltip tip="Your unique combination of top two Rays — the pattern your leadership defaults to.">Light Signature</GoldTooltip>, <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims.">Eclipse</GoldTooltip> Snapshot, Energy-to-Eclipse Ratio, and Rise Path. Not who you are. What you can build.</>),
     badge: "$43",
   },
   {
@@ -225,63 +227,65 @@ export default async function HowItWorksPage() {
 
         {/* ─── SECTION 3 · WHAT YOU GET ───────────────────────── */}
         <FadeInSection>
-          <section className="space-y-8">
-            <div className="text-center space-y-3">
-              <p
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Choose Your Entry Point
-              </p>
-              <h2
-                className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-              >
-                Free to start. Priced to prove.
-              </h2>
-            </div>
+          <RadialSpotlight>
+            <section className="space-y-8">
+              <div className="text-center space-y-3">
+                <p
+                  className="text-xs font-bold uppercase tracking-widest"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  Choose Your Entry Point
+                </p>
+                <h2
+                  className="text-2xl font-semibold"
+                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                >
+                  Free to start. Priced to prove.
+                </h2>
+              </div>
 
-            <StaggerContainer className="grid gap-5 sm:grid-cols-3">
-              {OFFER_TIERS.map((tier) => (
-                <StaggerItem key={tier.title}>
-                  <div className="glass-card flex flex-col p-5 h-full space-y-3">
-                    <p
-                      className="text-sm font-semibold"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
-                    >
-                      {tier.title}
-                    </p>
-                    <p
-                      className="text-xl font-bold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-                    >
-                      {tier.price}
-                    </p>
-                    <p
-                      className="flex-1 text-sm leading-relaxed"
-                      style={{
-                        color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.70))",
-                      }}
-                    >
-                      {tier.description}
-                    </p>
-                    <Link
-                      href={tier.href}
-                      className="mt-auto inline-block text-center rounded-lg px-4 py-2 text-sm font-semibold transition-all hover:brightness-105"
-                      style={{
-                        background: "rgba(248,208,17,0.12)",
-                        color: "var(--brand-gold, #F8D011)",
-                        border: "1px solid rgba(248,208,17,0.25)",
-                      }}
-                    >
-                      {tier.cta}
-                    </Link>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </section>
+              <StaggerContainer className="grid gap-5 sm:grid-cols-3">
+                {OFFER_TIERS.map((tier) => (
+                  <StaggerItem key={tier.title}>
+                    <div className="glass-card flex flex-col p-5 h-full space-y-3">
+                      <p
+                        className="text-sm font-semibold"
+                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                      >
+                        {tier.title}
+                      </p>
+                      <p
+                        className="text-xl font-bold"
+                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      >
+                        {tier.price}
+                      </p>
+                      <p
+                        className="flex-1 text-sm leading-relaxed"
+                        style={{
+                          color:
+                            "var(--text-on-dark-secondary, rgba(255,255,255,0.70))",
+                        }}
+                      >
+                        {tier.description}
+                      </p>
+                      <Link
+                        href={tier.href}
+                        className="mt-auto inline-block text-center rounded-lg px-4 py-2 text-sm font-semibold transition-all hover:brightness-105"
+                        style={{
+                          background: "rgba(248,208,17,0.12)",
+                          color: "var(--brand-gold, #F8D011)",
+                          border: "1px solid rgba(248,208,17,0.25)",
+                        }}
+                      >
+                        {tier.cta}
+                      </Link>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </section>
+          </RadialSpotlight>
         </FadeInSection>
 
         <GoldDividerAnimated />

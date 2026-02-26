@@ -12,6 +12,7 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import GoldTooltip from "@/components/ui/GoldTooltip";
 
 export const metadata: Metadata = {
   title: "36 Light Signatures — Which One Are You? | 143 Leadership",
@@ -49,8 +50,8 @@ export default function ArchetypesPage() {
               color: "var(--text-on-dark-secondary)",
             }}
           >
-            Nine trainable capacities. Your top two combine into a Light
-            Signature — not a personality type, but the operating pattern your
+            Nine trainable capacities. Your top two <GoldTooltip tip="One of nine trainable leadership capacities measured by the assessment.">Rays</GoldTooltip> combine into a <GoldTooltip tip="Your unique combination of top two Rays — the pattern your leadership defaults to.">Light
+            Signature</GoldTooltip> — not a personality type, but the operating pattern your
             system defaults to under real conditions. It changes as you do.
             One of these 36 is going to feel uncomfortably accurate.
           </p>

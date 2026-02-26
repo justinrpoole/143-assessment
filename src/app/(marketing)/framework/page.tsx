@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import GoldTooltip from "@/components/ui/GoldTooltip";
 import CosmicImage from "@/components/marketing/CosmicImage";
 import {
   FadeInSection,
@@ -12,6 +13,7 @@ import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import RaySpectrumBar from "@/components/marketing/RaySpectrumBar";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -186,7 +188,7 @@ export default async function FrameworkPage() {
                 className="text-2xl font-bold sm:text-3xl"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
-                Every ray lives on a spectrum. Where does yours land?
+                Every <GoldTooltip tip="One of nine trainable leadership capacities measured by the assessment.">ray</GoldTooltip> lives on a spectrum. Where does yours land?
               </h2>
               <p
                 className="mx-auto max-w-[560px] text-sm leading-relaxed"
@@ -194,7 +196,7 @@ export default async function FrameworkPage() {
                   color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
                 }}
               >
-                Each capacity moves between eclipsed and shining — not as a
+                Each capacity moves between eclipsed and <GoldTooltip tip="Your active leadership capacity — what shows up when you're at your best.">shining</GoldTooltip> — not as a
                 grade, but as a position you can train. The assessment places
                 your marker. The system shows you how to move it.
               </p>
@@ -331,9 +333,11 @@ export default async function FrameworkPage() {
               ))}
             </StaggerContainer>
 
-            <div className="mt-8">
-              <RayProgressionStack />
-            </div>
+            <RadialSpotlight>
+              <div className="mt-8">
+                <RayProgressionStack />
+              </div>
+            </RadialSpotlight>
           </section>
         </FadeInSection>
 
@@ -373,7 +377,7 @@ export default async function FrameworkPage() {
               load research shows exactly what happens to the body — and Dr.
               Matthew Lieberman&apos;s affect labelling research shows that
               simply naming what you feel reduces threat reactivity. The
-              Eclipse Snapshot names the pattern. Not as failure. As a
+              <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims.">Eclipse</GoldTooltip> Snapshot names the pattern. Not as failure. As a
               temporary state with a clear path out.
             </p>
             <p

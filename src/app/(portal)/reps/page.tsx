@@ -4,6 +4,8 @@ import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import StreakBadge from "@/components/portal/StreakBadge";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 
@@ -45,6 +47,7 @@ export default async function RepsPage({ searchParams }: PageProps) {
   return (
     <>
       <PortalBreadcrumb current="REPS" />
+      <StreakBadge />
       <PageHeader
         label="The Engine That Rewires Your Brain"
         title="Your REPS"
@@ -65,6 +68,21 @@ export default async function RepsPage({ searchParams }: PageProps) {
         source_route="/reps"
         title="Did this rep land?"
       />
+
+      <GoldDividerAnimated />
+      <section className="mx-auto max-w-lg">
+        <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
+          Continue Your Practice
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <LiquidFillButton href="/toolkit">
+            Tool Library
+          </LiquidFillButton>
+          <LiquidFillButton href="/morning">
+            Morning Routine
+          </LiquidFillButton>
+        </div>
+      </section>
 
       <GoldHeroBanner
         kicker="The Engine"

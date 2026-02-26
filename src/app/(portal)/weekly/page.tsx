@@ -6,6 +6,7 @@ import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 
 export const dynamic = "force-dynamic";
 
@@ -43,6 +44,21 @@ export default async function WeeklyPage() {
         source_route="/weekly"
         title="Was your weekly scan useful?"
       />
+
+      <GoldDividerAnimated />
+      <section className="mx-auto max-w-lg">
+        <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
+          Continue Your Practice
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <LiquidFillButton href="/growth">
+            Growth Tracking
+          </LiquidFillButton>
+          <LiquidFillButton href="/reps">
+            Log a REP
+          </LiquidFillButton>
+        </div>
+      </section>
 
       <GoldHeroBanner
         kicker="Weekly Practice"

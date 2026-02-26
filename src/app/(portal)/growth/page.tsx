@@ -6,6 +6,7 @@ import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 
 export const dynamic = "force-dynamic";
 
@@ -74,7 +75,9 @@ export default async function GrowthPage() {
       </PageHeader>
       <GoldDividerAnimated />
 
-      <GrowthSummaryClient />
+      <RadialSpotlight>
+        <GrowthSummaryClient />
+      </RadialSpotlight>
       <FeedbackWidget
         feedback_type="growth_value"
         source_route="/growth"
