@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 
 import archetypeData from '@/data/archetype_public.json';
 import type { ArchetypePublic } from '@/lib/types';
+import { rayHex } from '@/lib/ui/ray-colors';
 import ConstellationDot from './ConstellationDot';
 
 const ArchetypeShareCard = dynamic(() => import('./ArchetypeShareCard'), {
@@ -235,33 +236,32 @@ export default function ArchetypeLibraryClient() {
           >
             All
           </button>
-          {ALL_RAY_NAMES.map((name) => (
-            <button
-              key={name}
-              type="button"
-              onClick={() =>
-                setFilterRay(filterRay === name ? null : name)
-              }
-              className="px-3 py-1.5 rounded-full text-xs font-medium transition-all"
-              style={{
-                background:
-                  filterRay === name
-                    ? 'var(--brand-gold)'
+          {ALL_RAY_NAMES.map((name) => {
+            const rc = rayHex(name);
+            const isActive = filterRay === name;
+            return (
+              <button
+                key={name}
+                type="button"
+                onClick={() =>
+                  setFilterRay(filterRay === name ? null : name)
+                }
+                className="px-3 py-1.5 rounded-full text-xs font-medium transition-all"
+                style={{
+                  background: isActive
+                    ? `${rc}25`
                     : 'var(--surface-glass)',
-                color:
-                  filterRay === name
-                    ? 'var(--brand-black)'
+                  color: isActive
+                    ? rc
                     : 'var(--text-on-dark-secondary)',
-                border:
-                  '1px solid ' +
-                  (filterRay === name
-                    ? 'var(--brand-gold)'
-                    : 'var(--surface-border)'),
-              }}
-            >
-              {name}
-            </button>
-          ))}
+                  border: `1px solid ${isActive ? `${rc}60` : 'var(--surface-border)'}`,
+                  textShadow: isActive ? `0 0 12px ${rc}30` : 'none',
+                }}
+              >
+                {name}
+              </button>
+            );
+          })}
         </div>
 
         {/* Mobile swipe toggle */}

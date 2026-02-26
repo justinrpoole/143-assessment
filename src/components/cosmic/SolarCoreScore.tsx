@@ -6,6 +6,7 @@ import SunCore from './SunCore';
 import CosmicRing from './CosmicRing';
 import { RAY_NAMES, RAY_SHORT_NAMES, RAY_VERBS } from '@/lib/types';
 import { getRayExplanation, getModifierLabel, getPhaseExplanation } from '@/lib/cosmic-copy';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 /* ── Types ── */
 
@@ -349,19 +350,20 @@ export default function SolarCoreScore({
               <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
 
-            {/* Top-ray gradients */}
+            {/* Ray-specific gradients — each beam tints toward its ray color */}
             {rayOrder.map(([id], index) => {
-              if (!topTwo.includes(id)) return null;
               const angle = getBeamAngle(index);
               const rad = (angle * Math.PI) / 180;
+              const rc = rayHex(id);
+              const isTop = topTwo.includes(id);
               return (
                 <linearGradient key={`grad-${id}`} id={`scs-grad-${id}`}
                   x1={CENTER + BEAM_START * Math.cos(rad)} y1={CENTER + BEAM_START * Math.sin(rad)}
                   x2={CENTER + BEAM_END_MAX * Math.cos(rad)} y2={CENTER + BEAM_END_MAX * Math.sin(rad)}
                   gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#F8D011" />
-                  <stop offset="60%" stopColor="#F8DC5A" />
-                  <stop offset="100%" stopColor="#FFFEF5" />
+                  <stop offset="0%" stopColor={isTop ? rc : '#F8D011'} />
+                  <stop offset="60%" stopColor={isTop ? rc : rc} stopOpacity={isTop ? 0.8 : 0.5} />
+                  <stop offset="100%" stopColor="#FFFEF5" stopOpacity={0.6} />
                 </linearGradient>
               );
             })}
@@ -495,8 +497,8 @@ export default function SolarCoreScore({
             let fill: string;
             if (isAmplified) fill = 'var(--cosmic-svg-bg)';
             else if (isTop) fill = `url(#scs-grad-${id})`;
-            else if (isBottom) fill = 'rgba(244, 196, 48, 0.35)';
-            else fill = 'rgba(244, 196, 48, 0.55)';
+            else if (isBottom) fill = `url(#scs-grad-${id})`;
+            else fill = `url(#scs-grad-${id})`;
 
             const beamFilter = isActive ? 'url(#scs-hover-glow)'
               : isAmplified ? 'url(#scs-amp-glow)'

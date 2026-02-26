@@ -35,7 +35,7 @@ export default function ConstellationDot({
       viewBox={`0 0 ${size} ${size}`}
       fill="none"
       aria-hidden="true"
-      className="opacity-60 flex-shrink-0"
+      className="flex-shrink-0 transition-opacity duration-200 opacity-75 group-hover:opacity-100"
     >
       {/* Connection line */}
       <line
@@ -45,14 +45,14 @@ export default function ConstellationDot({
         y2={y2}
         stroke={neonColor}
         strokeWidth={1}
-        opacity={0.4}
+        opacity={0.5}
       />
       {/* Star dots */}
-      <circle cx={x1} cy={y1} r={2.5} fill={neonColor} />
-      <circle cx={x2} cy={y2} r={2.5} fill={neonColor} />
+      <circle cx={x1} cy={y1} r={3} fill={neonColor} />
+      <circle cx={x2} cy={y2} r={3} fill={neonColor} />
       {/* Glow halos */}
-      <circle cx={x1} cy={y1} r={5} fill={neonColor} opacity={0.12} />
-      <circle cx={x2} cy={y2} r={5} fill={neonColor} opacity={0.12} />
+      <circle cx={x1} cy={y1} r={6} fill={neonColor} opacity={0.15} />
+      <circle cx={x2} cy={y2} r={6} fill={neonColor} opacity={0.15} />
     </svg>
   );
 }

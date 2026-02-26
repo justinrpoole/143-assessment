@@ -144,14 +144,14 @@ const TOOLS = [
 type ToolKey = typeof TOOLS[number]['key'];
 
 const CATEGORY_LABELS: Record<string, { label: string; color: string }> = {
-  reset: { label: 'Reset', color: '#60058D' },
-  action: { label: 'Action', color: '#D4A843' },
-  reflect: { label: 'Reflect', color: '#7B4BAE' },
-  plan: { label: 'Plan', color: '#F8D011' },
-  protect: { label: 'Protect', color: '#4A90D9' },
-  connect: { label: 'Connect', color: '#5CB85C' },
-  practice: { label: 'Practice', color: '#FF6B35' },
-  release: { label: 'Release', color: '#B39DDB' },
+  reset: { label: 'Reset', color: '#2ECC71' },       // aurora-green — recovery
+  action: { label: 'Action', color: '#C0392B' },      // ray-power — courage/motion
+  reflect: { label: 'Reflect', color: '#8E44AD' },    // ray-presence — attention
+  plan: { label: 'Plan', color: '#60A5FA' },          // ray-intention — direction
+  protect: { label: 'Protect', color: '#1ABC9C' },    // ray-possibility — boundaries
+  connect: { label: 'Connect', color: '#E74C8B' },    // ray-connection — relationship
+  practice: { label: 'Practice', color: '#D4770B' },  // ray-purpose — meaning
+  release: { label: 'Release', color: '#C39BD3' },    // aurora-pink — letting go
 };
 
 const QUALITY_OPTIONS = [

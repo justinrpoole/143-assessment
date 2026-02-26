@@ -5,6 +5,7 @@ import ArchetypeLibraryClient from "@/components/archetypes/ArchetypeLibraryClie
 import ArchetypeQuizClient from "@/components/quiz/ArchetypeQuizClient";
 import CosmicImage from "@/components/marketing/CosmicImage";
 import { FadeInSection } from "@/components/ui/FadeInSection";
+import { rayHex } from "@/lib/ui/ray-colors";
 
 export const metadata: Metadata = {
   title: "36 Light Signatures — Which One Are You? | 143 Leadership",
@@ -20,15 +21,15 @@ export const metadata: Metadata = {
 /* ── static data ───────────────────────────────────────────── */
 
 const NINE_SIGNALS = [
-  { name: "Intention", phase: "Reconnect" },
-  { name: "Joy", phase: "Reconnect" },
-  { name: "Presence", phase: "Reconnect" },
-  { name: "Power", phase: "Expand" },
-  { name: "Purpose", phase: "Expand" },
-  { name: "Authenticity", phase: "Expand" },
-  { name: "Connection", phase: "Become" },
-  { name: "Possibility", phase: "Become" },
-  { name: "Be The Light", phase: "Become" },
+  { name: "Intention", phase: "Reconnect", color: rayHex("Intention") },
+  { name: "Joy", phase: "Reconnect", color: rayHex("Joy") },
+  { name: "Presence", phase: "Reconnect", color: rayHex("Presence") },
+  { name: "Power", phase: "Expand", color: rayHex("Power") },
+  { name: "Purpose", phase: "Expand", color: rayHex("Purpose") },
+  { name: "Authenticity", phase: "Expand", color: rayHex("Authenticity") },
+  { name: "Connection", phase: "Become", color: rayHex("Connection") },
+  { name: "Possibility", phase: "Become", color: rayHex("Possibility") },
+  { name: "Be The Light", phase: "Become", color: rayHex("Be The Light") },
 ];
 
 /* ── page ───────────────────────────────────────────────────── */
@@ -73,19 +74,26 @@ export default function ArchetypesPage() {
                 <div
                   key={signal.name}
                   className="glass-card p-3 text-center"
+                  style={{
+                    background: `${signal.color}08`,
+                    border: `1px solid ${signal.color}15`,
+                  }}
                 >
                   <p
                     className="text-[10px] font-bold uppercase tracking-widest"
                     style={{
-                      color: "var(--brand-gold)",
-                      opacity: 0.6,
+                      color: signal.color,
+                      opacity: 0.7,
                     }}
                   >
                     Signal
                   </p>
                   <p
                     className="mt-1 text-sm font-semibold"
-                    style={{ color: "var(--text-on-dark)" }}
+                    style={{
+                      color: signal.color,
+                      textShadow: `0 0 16px ${signal.color}25`,
+                    }}
                   >
                     {signal.name}
                   </p>

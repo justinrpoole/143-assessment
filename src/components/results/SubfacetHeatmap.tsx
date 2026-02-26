@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { RayOutput } from '@/lib/types';
 import { RAY_SHORT_NAMES, SUBFACET_NAMES } from '@/lib/types';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 interface Props {
   rays: Record<string, RayOutput>;
@@ -89,7 +90,7 @@ export default function SubfacetHeatmap({ rays }: Props) {
 
               return (
                 <tr key={rayId}>
-                  <td className="text-xs font-medium px-2 py-1" style={{ color: 'var(--text-on-dark-secondary)' }}>
+                  <td className="text-xs font-medium px-2 py-1" style={{ color: rayHex(rayId) }}>
                     {RAY_SHORT_NAMES[rayId] ?? rayId}
                   </td>
                   {SUBFACET_SUFFIXES.map((suffix) => {

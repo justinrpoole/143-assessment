@@ -8,30 +8,34 @@ interface Props {
   eclipse: EclipseOutput;
 }
 
-const LEVEL_CONFIG: Record<string, { label: string; level: string; width: string; message: string }> = {
+const LEVEL_CONFIG: Record<string, { label: string; level: string; width: string; message: string; color: string }> = {
   LOW: {
     label: 'Low Load',
     level: 'low',
     width: '25%',
     message: 'Your system is stable. Energy is available for growth work.',
+    color: 'var(--status-low)',
   },
   MODERATE: {
     label: 'Moderate Load',
     level: 'moderate',
     width: '50%',
     message: 'Normal operating range. Stay aware but keep building.',
+    color: 'var(--status-moderate)',
   },
   ELEVATED: {
     label: 'Elevated Load',
     level: 'elevated',
     width: '75%',
     message: 'Your system is under meaningful pressure. Capacity is partially eclipsed. Prioritize recovery.',
+    color: 'var(--status-elevated)',
   },
   HIGH: {
     label: 'High Load',
     level: 'high',
     width: '95%',
     message: 'Your system is conserving energy. Eclipsed capacity is not lost — stabilization first.',
+    color: 'var(--status-high)',
   },
 };
 
@@ -64,7 +68,7 @@ export default function EclipseSnapshot({ eclipse }: Props) {
           <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: 'var(--surface-glass)' }}>
             <div
               className="h-full rounded-full transition-all duration-700"
-              style={{ width: config.width, background: 'linear-gradient(90deg, var(--brand-purple), var(--brand-gold))' }}
+              style={{ width: config.width, background: `linear-gradient(90deg, var(--brand-purple), ${config.color})` }}
             />
           </div>
           <p className="text-sm mt-2" style={{ color: 'var(--text-on-dark-secondary)' }}>{config.message}</p>

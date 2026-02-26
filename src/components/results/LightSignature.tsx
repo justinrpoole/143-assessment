@@ -2,6 +2,7 @@
 
 import type { LightSignatureOutput } from '@/lib/types';
 import { RAY_VERBS } from '@/lib/types';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 interface Props {
   lightSignature: LightSignatureOutput;
@@ -34,15 +35,23 @@ export default function LightSignature({ lightSignature }: Props) {
 
             {/* Top Two Ray Tags */}
             <div className="flex justify-center gap-3 mt-5">
-              {top_two.map((ray) => (
-                <span
-                  key={ray.ray_id}
-                  className="px-3 py-1 rounded-full text-xs font-medium"
-                  style={{ background: 'var(--surface-glass)', color: 'var(--text-on-dark)', border: '1px solid var(--surface-border)' }}
-                >
-                  {ray.ray_name} — {RAY_VERBS[ray.ray_id] || ''}
-                </span>
-              ))}
+              {top_two.map((ray) => {
+                const rc = rayHex(ray.ray_id);
+                return (
+                  <span
+                    key={ray.ray_id}
+                    className="px-3 py-1 rounded-full text-xs font-medium"
+                    style={{
+                      background: `${rc}15`,
+                      color: rc,
+                      border: `1px solid ${rc}30`,
+                      textShadow: `0 0 12px ${rc}25`,
+                    }}
+                  >
+                    {ray.ray_name} — {RAY_VERBS[ray.ray_id] || ''}
+                  </span>
+                );
+              })}
             </div>
           </div>
 
@@ -67,15 +76,17 @@ export default function LightSignature({ lightSignature }: Props) {
       {/* Power Sources */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Your Power Sources</h3>
-        {top_two.map((ray, i) => (
-          <div key={ray.ray_id} className="glass-card p-5">
+        {top_two.map((ray, i) => {
+          const rc = rayHex(ray.ray_id);
+          return (
+          <div key={ray.ray_id} className="glass-card p-5" style={{ borderLeft: `3px solid ${rc}60` }}>
             <div className="flex items-center gap-2 mb-2">
-              <span style={{ color: 'var(--brand-gold)', fontSize: '18px' }}>&#9733;</span>
+              <span style={{ color: rc, fontSize: '18px' }}>&#9733;</span>
               <h4 className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>
                 {ray.ray_name} — {RAY_VERBS[ray.ray_id] || ''}
               </h4>
               {i === 0 && (
-                <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: 'rgba(255, 207, 0, 0.12)', color: 'var(--brand-gold)' }}>
+                <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: `${rc}15`, color: rc }}>
                   Primary
                 </span>
               )}
@@ -85,7 +96,8 @@ export default function LightSignature({ lightSignature }: Props) {
               Under load: {ray.under_load_distortion}
             </p>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Natural Strengths from archetype */}

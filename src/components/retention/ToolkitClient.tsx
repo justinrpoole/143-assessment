@@ -183,14 +183,14 @@ type Category = 'all' | 'reset' | 'action' | 'reflect' | 'plan' | 'connect' | 'p
 
 const CATEGORY_FILTERS: { key: Category; label: string; color: string }[] = [
   { key: 'all', label: 'All tools', color: '#F8D011' },
-  { key: 'reset', label: 'Reset', color: '#60058D' },
-  { key: 'action', label: 'Action', color: '#D4A843' },
-  { key: 'reflect', label: 'Reflect', color: '#7B4BAE' },
-  { key: 'plan', label: 'Plan', color: '#F8D011' },
-  { key: 'connect', label: 'Connect', color: '#5CB85C' },
-  { key: 'protect', label: 'Protect', color: '#4A90D9' },
-  { key: 'release', label: 'Release', color: '#B39DDB' },
-  { key: 'practice', label: 'Practice', color: '#FF6B35' },
+  { key: 'reset', label: 'Reset', color: '#2ECC71' },       // aurora-green — recovery
+  { key: 'action', label: 'Action', color: '#C0392B' },      // ray-power — courage/motion
+  { key: 'reflect', label: 'Reflect', color: '#8E44AD' },    // ray-presence — attention
+  { key: 'plan', label: 'Plan', color: '#60A5FA' },          // ray-intention — direction
+  { key: 'connect', label: 'Connect', color: '#E74C8B' },    // ray-connection — relationship
+  { key: 'protect', label: 'Protect', color: '#1ABC9C' },    // ray-possibility — boundaries
+  { key: 'release', label: 'Release', color: '#C39BD3' },    // aurora-pink — letting go
+  { key: 'practice', label: 'Practice', color: '#D4770B' },  // ray-purpose — meaning
 ];
 
 export default function ToolkitClient() {

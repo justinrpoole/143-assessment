@@ -3,6 +3,7 @@
 import type { LightSignatureOutput } from '@/lib/types';
 import { RAY_VERBS } from '@/lib/types';
 import { getRayExplanation } from '@/lib/cosmic-copy';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 interface Props {
   justInRay: LightSignatureOutput['just_in_ray'];
@@ -39,7 +40,7 @@ export default function BottomRay({ justInRay, selectionBasis }: Props) {
         This is your next skill to train. Small investment here creates the biggest return.
       </p>
 
-      <div className="glass-card p-6" style={{ border: '2px solid rgba(114, 21, 184, 0.25)' }}>
+      <div className="glass-card p-6" style={{ border: `2px solid ${rayHex(justInRay.ray_id)}30` }}>
         <div className="flex items-center gap-3 mb-4">
           <span className="text-2xl">&#129517;</span>
           <div>
@@ -49,7 +50,7 @@ export default function BottomRay({ justInRay, selectionBasis }: Props) {
             {routing && (
               <span
                 className="text-xs px-2 py-0.5 rounded-full font-medium"
-                style={{ background: 'rgba(114, 21, 184, 0.15)', color: 'var(--cosmic-purple-light)' }}
+                style={{ background: `${rayHex(justInRay.ray_id)}15`, color: rayHex(justInRay.ray_id) }}
               >
                 {routing.label}
               </span>

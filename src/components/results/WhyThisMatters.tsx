@@ -1,6 +1,7 @@
 'use client';
 
 import type { RayOutput, EclipseOutput } from '@/lib/types';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 interface Props {
   rays: Record<string, RayOutput>;
@@ -106,15 +107,16 @@ export default function WhyThisMatters({ rays, eclipse }: Props) {
             ? context.high
             : context.low;
 
-          // Visual indicator color
+          // Visual indicator color — ray-specific when online, status colors under load
+          const rc = rayHex(ray.ray_id);
           const indicatorColor = isEclipsed
             ? '#fb923c'
             : isHigh
-            ? '#4ade80'
+            ? rc
             : 'var(--brand-gold, #F8D011)';
 
           return (
-            <div key={ray.ray_id} className="glass-card p-4">
+            <div key={ray.ray_id} className="glass-card p-4" style={{ borderLeft: `3px solid ${isEclipsed ? '#fb923c60' : `${rc}40`}` }}>
               <div className="flex items-center gap-2 mb-1.5">
                 <span
                   className="inline-block h-2 w-2 rounded-full"

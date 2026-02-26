@@ -31,12 +31,12 @@ interface ApiResponse {
   error?: string;
 }
 
-// Band-specific cosmic styling
-const BAND_STYLES: Record<string, { glow: string; border: string }> = {
-  green: { glow: '0 0 20px rgba(34, 197, 94, 0.15)', border: 'rgba(34, 197, 94, 0.3)' },
-  yellow: { glow: '0 0 20px rgba(234, 179, 8, 0.15)', border: 'rgba(234, 179, 8, 0.3)' },
-  orange: { glow: '0 0 20px rgba(249, 115, 22, 0.15)', border: 'rgba(249, 115, 22, 0.3)' },
-  red: { glow: '0 0 20px rgba(239, 68, 68, 0.15)', border: 'rgba(239, 68, 68, 0.3)' },
+// Band-specific cosmic styling — uses status token colors
+const BAND_STYLES: Record<string, { glow: string; border: string; accent: string }> = {
+  green: { glow: '0 0 20px rgba(46, 204, 113, 0.15)', border: 'rgba(46, 204, 113, 0.3)', accent: '#2ECC71' },
+  yellow: { glow: '0 0 20px rgba(248, 208, 17, 0.15)', border: 'rgba(248, 208, 17, 0.3)', accent: '#F8D011' },
+  orange: { glow: '0 0 20px rgba(245, 158, 11, 0.15)', border: 'rgba(245, 158, 11, 0.3)', accent: '#F59E0B' },
+  red: { glow: '0 0 20px rgba(251, 146, 60, 0.20)', border: 'rgba(251, 146, 60, 0.35)', accent: '#FB923C' },
 };
 
 const RAS_INSIGHTS: Record<string, string> = {

@@ -109,12 +109,16 @@
   --cosmic-purple-vivid: #5B2D8E;
   --cosmic-svg-bg: #4A0E78;
   --cosmic-deepest: #0F0A1E;
-  /* Ray colors */
+  /* Ray colors — all 9 rays */
+  --ray-intention: #60A5FA;
   --ray-joy: #F4C430;
-  --ray-power: #C0392B;
   --ray-presence: #8E44AD;
-  --ray-possibility: #1ABC9C;
+  --ray-power: #C0392B;
   --ray-purpose: #D4770B;
+  --ray-authenticity: #2ECC71;
+  --ray-connection: #E74C8B;
+  --ray-possibility: #1ABC9C;
+  --ray-btl: #F8D011;
 
   /* ── Dark Cosmic Theme Tokens (v4 Gravitational Stability) ── */
   --brand-purple: #60058D;
