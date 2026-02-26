@@ -80,8 +80,8 @@ export default async function GlossaryPage() {
                 className="text-2xl font-bold"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
-                Ready to see these concepts mapped to your own leadership
-                pattern?
+                Ready to see these concepts mapped to your own <span className="gold-highlight">leadership
+                pattern</span>?
               </h2>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/assessment">

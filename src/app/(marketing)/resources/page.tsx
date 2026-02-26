@@ -70,7 +70,7 @@ export default function ResourcesPage() {
         <FadeInSection>
           <StaggerChildren className="grid gap-4 sm:grid-cols-2">
             {resources.map((resource) => (
-              <article key={resource.title} className="glass-card glass-card--lift p-6 flex flex-col">
+              <article key={resource.title} className="glass-card glass-card--magnetic glass-card--lift p-6 flex flex-col">
                 <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>{resource.title}</h2>
                 <p className="mt-2 flex-1 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{resource.description}</p>
                 <LiquidFillButton href={resource.href} className="mt-4 inline-block self-start text-sm">
@@ -98,11 +98,11 @@ export default function ResourcesPage() {
           <section className="mx-auto max-w-[720px]">
             <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
-              <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
+              <h2 className="text-2xl font-bold gold-underline" style={{ color: 'var(--text-on-dark)' }}>
                 See your first two Rays — free.
               </h2>
               <p className="mx-auto max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                The Gravitational Stability Check takes 3 minutes and shows you which capacities are carrying your system right now.
+                The Gravitational Stability Check takes 3 minutes and shows you which capacities are <span className="gold-highlight">carrying your system</span> right now.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/preview">

@@ -255,7 +255,7 @@ export default async function PricingPage() {
             {PLANS.map((plan) => (
               <StaggerItem key={plan.id}>
                 <div
-                  className={`glass-card flex flex-col p-6 h-full${plan.highlight ? ' glass-card--executive' : ''}`}
+                  className={`glass-card glass-card--magnetic flex flex-col p-6 h-full${plan.highlight ? ' glass-card--executive' : ''}`}
                 >
                   {plan.highlight && (
                     <span

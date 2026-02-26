@@ -107,7 +107,7 @@ export default async function AboutPage() {
                 The short version
               </p>
               <h2
-                className="text-xl font-bold sm:text-2xl"
+                className="text-xl font-bold sm:text-2xl text-gold-gradient"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
                 I watched the same gap for years. Then I built the bridge.
@@ -182,7 +182,7 @@ export default async function AboutPage() {
             <StaggerContainer className="space-y-3">
               {CREDENTIALS.map((item) => (
                 <StaggerItem key={item}>
-                  <div className="glass-card flex items-start gap-3 p-4">
+                  <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4">
                     <CheckIcon />
                     <span
                       className="text-sm leading-relaxed"
@@ -220,7 +220,7 @@ export default async function AboutPage() {
                 <StaggerContainer className="space-y-3">
                   {DO_LIST.map((item) => (
                     <StaggerItem key={item}>
-                      <div className="glass-card flex items-start gap-3 p-4">
+                      <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4">
                         <span
                           className="shrink-0 font-bold"
                           style={{ color: "var(--brand-gold)" }}
@@ -248,7 +248,7 @@ export default async function AboutPage() {
                 <StaggerContainer className="space-y-3" baseDelay={0.2}>
                   {DONT_LIST.map((item) => (
                     <StaggerItem key={item}>
-                      <div className="glass-card flex items-start gap-3 p-4">
+                      <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4">
                         <span
                           className="shrink-0 font-bold"
                           style={{ color: "rgba(248,208,17,0.5)" }}

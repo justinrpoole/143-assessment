@@ -160,7 +160,7 @@ export default async function MethodologyPage() {
               12 Research Pillars
             </p>
             <h2
-              className="mt-3 text-2xl font-bold"
+              className="mt-3 text-2xl font-bold gold-underline"
               style={{ color: "var(--text-on-dark, #FFFEF5)" }}
             >
               The science supporting the system.
@@ -168,7 +168,7 @@ export default async function MethodologyPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {RESEARCH_PILLARS.map((p) => (
-              <div key={p.researcher} className="glass-card p-4">
+              <div key={p.researcher} className="glass-card glass-card--magnetic p-4">
                 <p
                   className="text-sm font-bold"
                   style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -348,7 +348,7 @@ export default async function MethodologyPage() {
               9 Constructs
             </p>
             <h2
-              className="mt-3 text-2xl font-bold"
+              className="mt-3 text-2xl font-bold text-gold-gradient"
               style={{ color: "var(--text-on-dark, #FFFEF5)" }}
             >
               Nine capacities. Not personality traits.

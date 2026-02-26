@@ -148,7 +148,7 @@ export default async function JustinPage() {
         <FadeInSection>
           <section className="mx-auto max-w-[720px] space-y-8">
             <h2
-              className="text-center text-xl font-bold sm:text-2xl"
+              className="text-center text-xl font-bold sm:text-2xl gold-underline"
               style={{ color: "var(--text-on-dark, #FFFEF5)" }}
             >
               No hype. Structure and receipts.
@@ -238,7 +238,7 @@ export default async function JustinPage() {
               The method is the message
             </p>
             <h2
-              className="text-xl font-bold sm:text-2xl"
+              className="text-xl font-bold sm:text-2xl text-gold-gradient"
               style={{ color: "var(--text-on-dark, #FFFEF5)" }}
             >
               Reset the filter. Map the capacities. Train the gaps. Measure the

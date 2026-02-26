@@ -182,17 +182,17 @@ export default async function CohortsPage() {
                 Why Cohorts Work
               </p>
               <h2
-                className="text-2xl font-semibold"
+                className="text-2xl font-semibold gold-underline"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
-                Learn the framework. Implement the systems. Regulate with the app.
+                Learn the framework. Implement the systems. <span className="gold-highlight">Regulate with the app</span>.
               </h2>
             </div>
 
             <StaggerContainer className="grid gap-5 sm:grid-cols-2">
               {COHORT_BENEFITS.map((benefit) => (
                 <StaggerItem key={benefit.title}>
-                  <div className="glass-card p-6 h-full space-y-2">
+                  <div className="glass-card glass-card--magnetic p-6 h-full space-y-2">
                     <h3
                       className="text-sm font-semibold"
                       style={{ color: "var(--text-on-dark, #FFFEF5)" }}
@@ -235,7 +235,7 @@ export default async function CohortsPage() {
             <StaggerContainer className="grid gap-5 sm:grid-cols-3">
               {COHORT_TIERS.map((tier) => (
                 <StaggerItem key={tier.label}>
-                  <div className="glass-card p-6 h-full space-y-3">
+                  <div className="glass-card glass-card--magnetic p-6 h-full space-y-3">
                     <p
                       className="text-xs font-bold uppercase tracking-widest"
                       style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -319,10 +319,10 @@ export default async function CohortsPage() {
                 Process
               </p>
               <h2
-                className="text-2xl font-semibold"
+                className="text-2xl font-semibold text-gold-gradient"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
-                Assessment → 10 weeks → self-regulation.
+                Assessment → 10 weeks → <span className="gold-highlight">self-regulation</span>.
               </h2>
             </div>
 

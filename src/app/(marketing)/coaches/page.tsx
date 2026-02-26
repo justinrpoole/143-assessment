@@ -113,7 +113,7 @@ export default async function CoachingPage() {
         <section className="mx-auto max-w-[720px] space-y-8">
           <div className="space-y-2 text-center">
             <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>The Structure</p>
-            <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Four phases. One protocol.</h2>
+            <h2 className="text-3xl font-bold gold-underline" style={{ color: 'var(--text-on-dark)' }}>Four phases. One protocol.</h2>
             <p className="text-sm max-w-lg mx-auto leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
               Each phase builds on the one before it. Each week has a specific focus, a matched tool, and a daily practice — all personalised to your <span className="gold-highlight">assessment results</span>.
             </p>
@@ -121,7 +121,7 @@ export default async function CoachingPage() {
 
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {PHASES.map((phase) => (
-              <div key={phase.num} className="glass-card glass-card--lift p-6 space-y-3">
+              <div key={phase.num} className="glass-card glass-card--magnetic glass-card--lift p-6 space-y-3">
                 <div className="flex items-baseline gap-3">
                   <span className="text-2xl font-bold" style={{ color: 'var(--brand-gold)' }}>{phase.num}</span>
                   <div>
@@ -218,7 +218,7 @@ export default async function CoachingPage() {
             From leaders who walked the program
           </p>
           <h2
-            className="text-xl font-bold sm:text-2xl"
+            className="text-xl font-bold sm:text-2xl text-gold-gradient"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             The reps changed how I lead. The retake proved it.

@@ -210,7 +210,7 @@ export default async function OrganizationsPage() {
             <StaggerContainer className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {PROBLEM_STATS.map((item) => (
                 <StaggerItem key={item.stat}>
-                  <div className="glass-card p-5 text-center h-full">
+                  <div className="glass-card glass-card--magnetic p-5 text-center h-full">
                     <p
                       className="text-3xl font-bold"
                       style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -319,7 +319,7 @@ export default async function OrganizationsPage() {
               <StaggerContainer className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 {WHY_DIFFERENT.map((item) => (
                   <StaggerItem key={item.title}>
-                    <div className="glass-card p-6 h-full">
+                    <div className="glass-card glass-card--magnetic p-6 h-full">
                       <h3
                         className="text-sm font-semibold"
                         style={{ color: "var(--text-on-dark, #FFFEF5)" }}

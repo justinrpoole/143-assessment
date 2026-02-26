@@ -111,7 +111,7 @@ export default async function SampleReportPage() {
                 Then the Eclipse Snapshot shows where stress may be suppressing
                 real capacity. Then your Energy-to-Eclipse Ratio. Then your Rise
                 Path with specific tool recommendations. Every section is mapped
-                to your profile. Nothing is generic.
+                to your profile. <span className="gold-highlight">Nothing is generic</span>.
               </p>
             </div>
           </section>
@@ -174,7 +174,7 @@ export default async function SampleReportPage() {
                 }}
               >
                 A report that reads like someone who understands you handed you
-                a map and said: start here. Not who you are. What you can build.
+                a map and said: start here. Not who you are. <span className="gold-highlight">What you can build</span>.
               </p>
               <p
                 className="text-sm leading-relaxed"
