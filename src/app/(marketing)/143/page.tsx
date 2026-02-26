@@ -11,6 +11,11 @@ import {
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
+import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
+import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 
@@ -82,6 +87,7 @@ export default async function Challenge143Page() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
@@ -111,10 +117,14 @@ export default async function Challenge143Page() {
             <NeonGlowButton href="#challenge-start">
               Start the Challenge
             </NeonGlowButton>
-            <Link href="/assessment" className="btn-watch">
+            <LiquidFillButton href="/assessment">
               Take the Full Assessment
-            </Link>
+            </LiquidFillButton>
           </div>
+          <div className="flex justify-start pt-2">
+            <LiveActivityBadge />
+          </div>
+          <TrustBadgeStrip badges={["RAS Reset Protocol", "Neuroscience-Backed", "143 = I Love You"]} />
 
           <div className="mt-6">
             <DigitalClock143 />
@@ -335,9 +345,9 @@ export default async function Challenge143Page() {
                 Start here for free. Go deeper when you are ready.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/preview" className="btn-watch">
+                <LiquidFillButton href="/preview">
                   Take the Free Stability Check
-                </Link>
+                </LiquidFillButton>
                 <Link
                   href="/assessment"
                   className="text-sm font-medium transition-opacity hover:opacity-100"
@@ -371,14 +381,15 @@ export default async function Challenge143Page() {
                 instead of threat. That is restored access. That is the beginning.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="#challenge-start" className="btn-primary">
+                <NeonGlowButton href="#challenge-start">
                   Start the 143 Challenge — Free
-                </Link>
+                </NeonGlowButton>
               </div>
             </div>
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }

@@ -8,6 +8,9 @@ import {
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -118,6 +121,7 @@ export default async function OrganizationsPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
@@ -146,9 +150,9 @@ export default async function OrganizationsPage() {
             <NeonGlowButton href="/assessment">
               Try the Individual Assessment
             </NeonGlowButton>
-            <Link href="/pricing" className="btn-watch">
+            <LiquidFillButton href="/pricing">
               See Plans &amp; Pricing
-            </Link>
+            </LiquidFillButton>
           </div>
         </section>
 
@@ -411,17 +415,18 @@ export default async function OrganizationsPage() {
                 behavioural change looks like inside an organisation.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="/assessment" className="btn-primary">
+                <NeonGlowButton href="/assessment">
                   Try the Assessment Yourself
-                </Link>
-                <Link href="/preview" className="btn-watch">
+                </NeonGlowButton>
+                <LiquidFillButton href="/preview">
                   Try the Free Stability Check
-                </Link>
+                </LiquidFillButton>
               </div>
             </div>
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }

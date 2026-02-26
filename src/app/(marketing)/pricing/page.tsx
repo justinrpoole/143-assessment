@@ -11,6 +11,13 @@ import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
+import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
+import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
 
 export const dynamic = "force-dynamic";
 
@@ -204,6 +211,7 @@ export default async function PricingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
       />
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[1100px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
@@ -229,6 +237,10 @@ export default async function PricingPage() {
             proves it in 10 weeks. Pick the depth that matches where you are
             right now.
           </p>
+          <div className="flex justify-center pt-2">
+            <LiveActivityBadge />
+          </div>
+          <TrustBadgeStrip badges={["9 Rays Measured", "143+ Data Points", "Evidence-Based"]} />
         </section>
 
         <FadeInSection>
@@ -250,15 +262,7 @@ export default async function PricingPage() {
             {PLANS.map((plan) => (
               <StaggerItem key={plan.id}>
                 <div
-                  className="glass-card flex flex-col p-6 h-full"
-                  style={
-                    plan.highlight
-                      ? {
-                          border: "1.5px solid var(--brand-gold, #F8D011)",
-                          boxShadow: "0 0 24px rgba(248,208,17,0.12)",
-                        }
-                      : undefined
-                  }
+                  className={`glass-card flex flex-col p-6 h-full${plan.highlight ? ' glass-card--executive' : ''}`}
                 >
                   {plan.highlight && (
                     <span
@@ -317,16 +321,15 @@ export default async function PricingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href={plan.cta.href}
-                    className={
-                      plan.highlight
-                        ? "btn-primary mt-6 block text-center"
-                        : "btn-watch mt-6 block text-center"
-                    }
-                  >
-                    {plan.cta.label}
-                  </Link>
+                  {plan.highlight ? (
+                    <NeonGlowButton href={plan.cta.href} className="mt-6 w-full justify-center">
+                      {plan.cta.label}
+                    </NeonGlowButton>
+                  ) : (
+                    <LiquidFillButton href={plan.cta.href} className="mt-6 block text-center">
+                      {plan.cta.label}
+                    </LiquidFillButton>
+                  )}
                 </div>
               </StaggerItem>
             ))}
@@ -582,7 +585,8 @@ export default async function PricingPage() {
         {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px]">
-            <div className="glass-card p-8 text-center space-y-5">
+            <ConicBorderCard glow>
+            <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
               <p
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -608,17 +612,19 @@ export default async function PricingPage() {
                 spend a dollar.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="/assessment" className="btn-primary">
+                <NeonGlowButton href="/assessment">
                   Take the Assessment
-                </Link>
-                <Link href="/preview" className="btn-watch">
+                </NeonGlowButton>
+                <LiquidFillButton href="/preview">
                   Try the Free Stability Check
-                </Link>
+                </LiquidFillButton>
               </div>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
     </>
   );

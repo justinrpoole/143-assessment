@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import CosmicImage from "@/components/marketing/CosmicImage";
 import {
   FadeInSection,
@@ -9,6 +7,8 @@ import {
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -213,14 +213,15 @@ export default async function OutcomesPage() {
                 <NeonGlowButton href="/assessment">
                   Take the Assessment
                 </NeonGlowButton>
-                <Link href="/preview" className="btn-watch">
+                <LiquidFillButton href="/preview">
                   Try the Free Stability Check
-                </Link>
+                </LiquidFillButton>
               </div>
             </div>
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }
