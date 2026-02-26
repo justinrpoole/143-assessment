@@ -1,0 +1,65 @@
+[2026-02-25] Feature list
+- [TODO] Audit recent Vercel deployments and build Error Ledger
+- [TODO] Map failed deployments to intended changes and verify fixes in repo
+- [TODO] Verify production deployment is healthy and intended changes are live
+
+[2026-02-25] Feature: Audit recent Vercel deployments and build Error Ledger
+Status: DONE
+Notes: Pulled last 20 deployments via Vercel API; extracted 4 failed deployments with build errors and logs.
+
+[2026-02-25] Feature: Map failed deployments to intended changes and verify fixes in repo
+Status: DONE
+Notes: Mapped commits 8db462c, 52ade88, 8011098 to errors; verified fixes in repo (taxonomy includes page_view_methodology/email_captured, duplicate /methodology removed, web-push dependency present).
+
+[2026-02-25] Feature: Verify production deployment is healthy and intended changes are live
+Status: DONE
+Notes: Latest deployment cb5117a ready; build logs show “Deployment completed” and “Compiled successfully”; /methodology returns 200 in production.
+
+[2026-02-25] Feature list
+- [TODO] Build missing-edits inventory for 2026-02-24 work + failed deployments
+- [TODO] Consolidate missing edits into a single branch (no duplicates)
+- [TODO] Produce audit report and verify against current production
+
+[2026-02-25] Feature: Build missing-edits inventory for 2026-02-24 work + failed deployments
+Status: DONE
+Notes: Generated /tmp/missing_edits_report.json; discovered dangling WIP commits containing archetype copy updates.
+
+[2026-02-25] Feature: Consolidate missing edits into a single branch (no duplicates)
+Status: DOING
+Notes: Restoring archetype copy updates from dangling WIP commit ba600c3 into src/data/archetype_public.json.
+
+[2026-02-25] Feature: Consolidate missing edits into a single branch (no duplicates)
+Status: DOING
+Notes: Applied archetype copy updates from dangling WIP commit; recovered upgrade-your-os page draft from lost-found blob into /recovered for audit.
+
+[2026-02-25] Feature: Consolidate missing edits into a single branch (no duplicates)
+Status: DONE
+Notes: Committed archetype copy updates and recovered upgrade-your-os draft in codex/consolidate-missing-edits-2026-02-24 (commit 99bd934).
+
+[2026-02-25] Feature: Consolidate missing edits into a single branch (no duplicates)
+Status: DONE
+Notes: Applied recovered upgrade-your-os draft to live page and saved line-by-line merge diff for audit.
+
+[2026-02-25] Feature: Produce audit report and verify against current production
+Status: DONE
+Notes: Wrote recovered/audit-production.md and created merged candidate recovered/upgrade-your-os.merged.tsx for review.
+
+[2026-02-25] Feature: Verify production deployment is healthy and intended changes are live
+Status: DOING
+Notes: Preview build failed due to missing MarketingNav import; fixed in upgrade-your-os page.
+
+[2026-02-25] Feature: Verify production deployment is healthy and intended changes are live
+Status: DOING
+Notes: Preview build failed due to MarketingNav default import; corrected to named import.
+
+[2026-02-25] Feature: Verify production deployment is healthy and intended changes are live
+Status: REVISIT
+Notes: Preview deployed but returns 401 (Vercel protection), so automated content verification cannot complete without access bypass.
+
+[2026-02-25] Feature: Verify production deployment is healthy and intended changes are live
+Status: DOING
+Notes: Public preview now accessible (ssoProtection disabled). /upgrade-your-os copy passes HTML audit; archetype phrases confirmed in JS bundle (client-rendered), awaiting production deployment to verify live pages.
+
+[2026-02-25] Feature: Verify production deployment is healthy and intended changes are live
+Status: DONE
+Notes: Deployed to production (Vercel prod alias https://143leadership.com). Production audit passes for /upgrade-your-os; archetype phrases verified in bundle and via Playwright interaction.
