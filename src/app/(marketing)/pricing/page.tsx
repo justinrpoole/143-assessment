@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import CosmicImage from "@/components/marketing/CosmicImage";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import SocialProofTicker from "@/components/marketing/SocialProofTicker";
 import {
   FadeInSection,
@@ -349,7 +350,8 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 3 · COMPARISON TABLE ────────────────────── */}
         <FadeInSection>
-          <section className="space-y-6">
+          <section className="relative space-y-6">
+            <FloatingOrbs />
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"

@@ -16,6 +16,7 @@ import HowItWorks from "@/components/marketing/HowItWorks";
 import RadarMockup from "@/components/marketing/RadarMockup";
 import EmailCaptureBanner from "@/components/marketing/EmailCaptureBanner";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import SectionTOC from "@/components/ui/SectionTOC";
 import GoldTooltip from "@/components/ui/GoldTooltip";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
@@ -60,6 +61,19 @@ export default async function UpgradeYourOsPage() {
       {/* ── Global visual layers ── */}
       <StarfieldBackground />
       <ScrollProgress />
+      <SectionTOC items={[
+        { id: "hero", label: "Hero" },
+        { id: "conversion-questions", label: "The Questions" },
+        { id: "try-it", label: "Try 3 Questions" },
+        { id: "how-it-works", label: "How It Works" },
+        { id: "product-preview", label: "Your Results" },
+        { id: "eclipse-concept", label: "Eclipse" },
+        { id: "nine-rays", label: "The 9 Rays" },
+        { id: "what-this-is-not", label: "What This Is Not" },
+        { id: "testimonials", label: "Testimonials" },
+        { id: "pricing", label: "Pricing" },
+        { id: "final-cta", label: "Get Started" },
+      ]} />
 
       {/* ── ECLIPSE HERO — Single brand moment (sun/moon + 143 with Justin Ray) ── */}
       <div className="relative z-10">
@@ -67,7 +81,7 @@ export default async function UpgradeYourOsPage() {
       </div>
 
       {/* ── HERO TEXT ── */}
-      <section className="relative z-10 mx-auto max-w-[960px] px-5 pb-12 sm:px-8 sm:pb-16">
+      <section id="hero" className="relative z-10 mx-auto max-w-[960px] px-5 pb-12 sm:px-8 sm:pb-16">
         <div>
           {/* Social proof pill with gold border */}
           <div className="proof-pill mb-6 inline-flex cursor-default items-center gap-2 rounded-full px-4 py-1.5"
@@ -125,7 +139,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── CONVERSION QUESTIONS ── */}
       <FadeInSection>
-      <section className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
+      <section id="conversion-questions" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
         <FloatingOrbs variant="purple" />
         <StaggerChildren className="relative z-10 grid gap-5 md:grid-cols-3">
           {[
@@ -165,7 +179,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── TRY 3 QUESTIONS ── */}
       <FadeInSection>
-      <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="try-it" className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <MiniAssessmentPreview />
         <EmailCaptureBanner />
       </section>
@@ -175,14 +189,14 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── HOW IT WORKS — 3-step walkthrough ── */}
       <FadeInSection>
-      <section className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+      <section id="how-it-works" className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
         <HowItWorks />
       </section>
       </FadeInSection>
 
       {/* ── PRODUCT PREVIEW — radar chart mockup ── */}
       <FadeInSection>
-      <section className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+      <section id="product-preview" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
         <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
           <div className="gold-accent-left">
             <span className="gold-tag">
@@ -220,7 +234,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── ECLIPSE CONCEPT ── */}
       <FadeInSection>
-      <section className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+      <section id="eclipse-concept" className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
         <FloatingOrbs variant="gold" />
         <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
           <div className="gold-accent-left">
@@ -277,7 +291,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── 9 RAYS — vertical progression with sun ── */}
       <FadeInSection>
-      <section className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
+      <section id="nine-rays" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> The 9 Rays
@@ -308,7 +322,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── WHAT THIS IS NOT ── */}
       <FadeInSection>
-      <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="what-this-is-not" className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <div className="mb-8 text-center">
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> No Hype. No Shortcuts.
@@ -336,7 +350,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── TESTIMONIALS — gold stripe accent ── */}
       <FadeInSection>
-      <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="testimonials" className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <div className="mb-8 text-center">
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> What Leaders Say

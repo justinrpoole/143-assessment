@@ -207,7 +207,7 @@ export default async function FaqPage() {
                 <StaggerContainer className="space-y-3">
                   {section.items.map((faq) => (
                     <StaggerItem key={faq.q}>
-                      <details className="glass-card glass-card--magnetic group p-5">
+                      <details className="glass-card glass-card--magnetic glass-card--lift group p-5">
                         <summary
                           className="flex cursor-pointer items-center justify-between text-sm font-semibold"
                           style={{ color: "var(--text-on-dark, #FFFEF5)" }}

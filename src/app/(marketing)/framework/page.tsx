@@ -13,6 +13,7 @@ import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import SectionTOC from "@/components/ui/SectionTOC";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import RaySpectrumBar from "@/components/marketing/RaySpectrumBar";
@@ -145,12 +146,21 @@ export default async function FrameworkPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
+      <SectionTOC items={[
+        { id: "hero", label: "Hero" },
+        { id: "spectrum", label: "Your Light Signature" },
+        { id: "problem", label: "The Problem" },
+        { id: "three-phases", label: "Three Phases" },
+        { id: "eclipse", label: "Eclipse" },
+        { id: "science", label: "Research Pillars" },
+        { id: "cta", label: "Get Started" },
+      ]} />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Not a theory. A training system.
+            <span style={{ color: '#F8D011' }}>◆</span> Not a theory. A training system. · 8 min read
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
@@ -176,7 +186,7 @@ export default async function FrameworkPage() {
 
         {/* ─── SECTION 2 · THE SPECTRUM ──────────────────────── */}
         <FadeInSection>
-          <section className="space-y-6">
+          <section id="spectrum" className="space-y-6">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -212,7 +222,7 @@ export default async function FrameworkPage() {
 
         {/* ─── SECTION 3 · THE PROBLEM ────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section id="problem" className="mx-auto max-w-[720px]">
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -248,7 +258,7 @@ export default async function FrameworkPage() {
 
         {/* ─── SECTION 4 · THREE PHASES ───────────────────────── */}
         <FadeInSection>
-          <section className="space-y-8">
+          <section id="three-phases" className="space-y-8">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -353,7 +363,7 @@ export default async function FrameworkPage() {
 
         {/* ─── SECTION 5 · ECLIPSE ────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <section id="eclipse" className="mx-auto max-w-[720px] space-y-5 text-center">
             <p
               className="text-xs font-bold uppercase tracking-widest"
               style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -406,7 +416,7 @@ export default async function FrameworkPage() {
 
         {/* ─── SECTION 6 · SCIENCE ────────────────────────────── */}
         <FadeInSection>
-          <section className="space-y-8">
+          <section id="science" className="space-y-8">
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -498,7 +508,7 @@ export default async function FrameworkPage() {
 
         {/* ─── SECTION 7 · CTA ────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section id="cta" className="mx-auto max-w-[720px]">
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"

@@ -2,9 +2,11 @@ import Link from "next/link";
 
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import SectionTOC from "@/components/ui/SectionTOC";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoldTooltip from "@/components/ui/GoldTooltip";
@@ -129,13 +131,21 @@ export default async function MethodologyPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
+      <SectionTOC items={[
+        { id: "hero", label: "Hero" },
+        { id: "research-pillars", label: "Research Pillars" },
+        { id: "scoring", label: "How Scoring Works" },
+        { id: "constructs", label: "9 Constructs" },
+        { id: "limitations", label: "Known Limitations" },
+        { id: "cta", label: "Get Started" },
+      ]} />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
       {/* ── Hero ── */}
-      <section className="mx-auto max-w-[720px] space-y-5 text-center">
+      <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
         <p
           className="gold-tag mx-auto"
         >
-          <span style={{ color: '#F8D011' }}>◆</span> Scientific Methodology
+          <span style={{ color: '#F8D011' }}>◆</span> Scientific Methodology · 10 min read
         </p>
         <h1
           className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
@@ -151,7 +161,7 @@ export default async function MethodologyPage() {
 
       {/* ── 12 Research Pillars ── */}
       <FadeInSection>
-        <section className="mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+        <section id="research-pillars" className="mx-auto max-w-[960px] px-5 py-16 sm:px-8">
           <div className="mb-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
@@ -168,7 +178,7 @@ export default async function MethodologyPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {RESEARCH_PILLARS.map((p) => (
-              <div key={p.researcher} className="glass-card glass-card--magnetic p-4">
+              <div key={p.researcher} className="glass-card glass-card--magnetic glass-card--lift p-4">
                 <p
                   className="text-sm font-bold"
                   style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -200,8 +210,8 @@ export default async function MethodologyPage() {
 
       {/* ── Scoring Model ── */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
-          <div className="glass-card p-6 sm:p-8">
+        <section id="scoring" className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+          <div className="glass-card glass-card--executive p-6 sm:p-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
               style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -339,7 +349,8 @@ export default async function MethodologyPage() {
 
       {/* ── 9 Constructs ── */}
       <FadeInSection>
-        <section className="mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+        <section id="constructs" className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+          <FloatingOrbs />
           <div className="mb-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
@@ -400,7 +411,7 @@ export default async function MethodologyPage() {
 
       {/* ── Known Limitations ── */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+        <section id="limitations" className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
           <div className="glass-card p-6 sm:p-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
@@ -438,7 +449,7 @@ export default async function MethodologyPage() {
 
       {/* ── Bottom CTA ── */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
+        <section id="cta" className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
           <ConicBorderCard>
           <div className="glass-card p-8">
             <h2

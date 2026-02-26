@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import CosmicImage from "@/components/marketing/CosmicImage";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import {
   FadeInSection,
   StaggerContainer,
@@ -81,7 +82,7 @@ export default async function AboutPage() {
             />
           </div>
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Not a motivator. A builder.
+            <span style={{ color: '#F8D011' }}>◆</span> Not a motivator. A builder. · 6 min read
           </p>
           <h1
             className="text-shimmer mx-auto max-w-[600px] text-3xl font-bold leading-tight sm:text-4xl"
@@ -99,7 +100,7 @@ export default async function AboutPage() {
         {/* ─── SECTION 2 · THE STORY ──────────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px]">
-            <div className="glass-card p-6 sm:p-8 space-y-4">
+            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -163,7 +164,8 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 3 · CREDENTIALS ────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
+          <section className="relative mx-auto max-w-[720px] space-y-8">
+            <FloatingOrbs />
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"

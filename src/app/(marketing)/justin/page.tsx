@@ -67,7 +67,7 @@ export default async function JustinPage() {
             />
           </div>
           <p className="gold-tag">
-            <span style={{ color: '#F8D011' }}>&#x25C6;</span> The person who built the system — because he needed it first.
+            <span style={{ color: '#F8D011' }}>&#x25C6;</span> The person who built the system — because he needed it first. · 5 min read
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"

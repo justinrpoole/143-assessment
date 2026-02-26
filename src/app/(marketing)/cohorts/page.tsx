@@ -148,7 +148,7 @@ export default async function CohortsPage() {
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Cohorts
+            <span style={{ color: '#F8D011' }}>◆</span> Cohorts · 6 min read
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
@@ -235,7 +235,7 @@ export default async function CohortsPage() {
             <StaggerContainer className="grid gap-5 sm:grid-cols-3">
               {COHORT_TIERS.map((tier) => (
                 <StaggerItem key={tier.label}>
-                  <div className="glass-card glass-card--magnetic p-6 h-full space-y-3">
+                  <div className="glass-card glass-card--magnetic glass-card--lift p-6 h-full space-y-3">
                     <p
                       className="text-xs font-bold uppercase tracking-widest"
                       style={{ color: "var(--brand-gold, #F8D011)" }}

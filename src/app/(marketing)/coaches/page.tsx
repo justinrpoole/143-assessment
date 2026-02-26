@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FadeInSection } from '@/components/ui/FadeInSection';
 import GoldDividerAnimated from '@/components/ui/GoldDividerAnimated';
 import GoldHeroBanner from '@/components/ui/GoldHeroBanner';
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
@@ -63,7 +64,7 @@ export default async function CoachingPage() {
       {/* Hero */}
       <section className="mx-auto max-w-[720px] space-y-5 text-center">
         <p className="gold-tag mx-auto">
-          <span style={{ color: '#F8D011' }}>◆</span> 10-Week Light Activation Program
+          <span style={{ color: '#F8D011' }}>◆</span> 10-Week Light Activation Program · 7 min read
         </p>
         <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>
           Your assessment gave you a map. This program teaches you to walk it.
@@ -110,7 +111,8 @@ export default async function CoachingPage() {
 
       {/* Four Phases */}
       <FadeInSection>
-        <section className="mx-auto max-w-[720px] space-y-8">
+        <section className="relative mx-auto max-w-[720px] space-y-8">
+          <FloatingOrbs />
           <div className="space-y-2 text-center">
             <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>The Structure</p>
             <h2 className="text-3xl font-bold gold-underline" style={{ color: 'var(--text-on-dark)' }}>Four phases. One protocol.</h2>
@@ -256,7 +258,7 @@ export default async function CoachingPage() {
       <FadeInSection>
         <section className="mx-auto max-w-[720px]">
           <ConicBorderCard>
-          <div className="glass-card p-8 text-center space-y-5">
+          <div className="glass-card glass-card--executive p-8 text-center space-y-5">
             <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
               The protocol is the product. The proof is in the retake.
             </h2>
