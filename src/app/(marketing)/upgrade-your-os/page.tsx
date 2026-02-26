@@ -6,7 +6,6 @@ import HeroVideoThumb from "@/components/marketing/HeroVideoThumb";
 import StickyCtaBar from "@/components/marketing/StickyCtaBar";
 import MiniAssessmentPreview from "@/components/marketing/MiniAssessmentPreview";
 import StarfieldBackground from "@/components/marketing/StarfieldBackground";
-import BrandLockup from "@/components/marketing/BrandLockup";
 import ScrollProgress from "@/components/marketing/ScrollProgress";
 import CountUp from "@/components/marketing/CountUp";
 import MagneticButton from "@/components/marketing/MagneticButton";
@@ -70,28 +69,23 @@ export default async function UpgradeYourOsPage() {
       <StarfieldBackground />
       <ScrollProgress />
 
-      {/* ── BRAND LOCKUP — designed "143 Leadership with Justin Ray" ── */}
-      <section className="relative z-10 mx-auto max-w-[960px] px-5 pt-10 sm:px-8 sm:pt-20">
-        <BrandLockup className="mb-6" />
-      </section>
-
-      {/* ── ECLIPSE HERO — Animated sun/moon header ── */}
+      {/* ── ECLIPSE HERO — Single brand moment (sun/moon + 143 with Justin Ray) ── */}
       <div className="relative z-10">
-        <EclipseHero className="mx-auto max-w-[960px] px-5 pt-2 sm:px-8 sm:pt-4" />
+        <EclipseHero className="mx-auto max-w-[960px] px-5 pt-6 sm:px-8 sm:pt-12" />
       </div>
 
       {/* ── HERO TEXT ── */}
       <section className="relative z-10 mx-auto max-w-[960px] px-5 pb-12 sm:px-8 sm:pb-16">
         <div>
-          {/* Social proof pill — interactive hover (Enhancement #1) */}
+          {/* Social proof pill with gold border */}
           <div className="proof-pill mb-6 inline-flex cursor-default items-center gap-2 rounded-full px-4 py-1.5"
-            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+            style={{ background: 'rgba(248, 208, 17, 0.04)', border: '1px solid rgba(248, 208, 17, 0.2)' }}
           >
             <CountUp
               end={2400}
               suffix="+"
-              className="text-xs font-medium"
-              style={{ color: 'rgba(255,255,255,0.7)' }}
+              className="tabular-nums text-xs font-bold"
+              style={{ color: '#F8D011' }}
             />
             <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.7)' }}>
               leaders assessed
@@ -101,47 +95,47 @@ export default async function UpgradeYourOsPage() {
             </span>
           </div>
 
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Leadership Assessment
-          </p>
-          {/* Hero H1 with text shimmer (Enhancement #2) */}
+          <span className="gold-tag mb-4 block w-fit">
+            <span style={{ color: '#F8D011' }}>◆</span> Leadership Assessment
+          </span>
+
+          {/* Hero H1 */}
           <h1 className="text-shimmer mt-4 max-w-[720px] text-3xl font-bold leading-tight sm:text-4xl lg:text-[44px]">
             Find out why you&rsquo;re performing well but feeling empty.
           </h1>
-          <p className="mt-4 max-w-[560px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            A 15-minute assessment that maps 9 trainable leadership capacities — and shows you what to do this week.
+          <p className="mt-4 max-w-[560px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            A 15-minute assessment that maps <span className="gold-highlight">9 trainable leadership capacities</span> — and shows you what to do this week.
           </p>
-          {/* Magnetic CTA button (Enhancement #3) */}
+          {/* CTA */}
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <MagneticButton href="/preview" className="btn-primary">
               Take the Free Assessment
             </MagneticButton>
             <span className="text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
-              Free during beta. No credit card.
+              Free during beta · No credit card
             </span>
           </div>
           <HeroVideoThumb />
         </div>
       </section>
 
-      {/* Proof strip — social proof below hero */}
+      {/* Proof strip */}
       <div className="relative z-10">
         <HeroProofStrip />
       </div>
 
-      {/* Sticky CTA bar for mobile */}
       <StickyCtaBar />
 
-      {/* Star separator (Enhancement #4) */}
-      <div className="star-separator mx-auto max-w-[960px]" aria-hidden="true">
-        <span className="text-xs" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>&#x2726;</span>
+      {/* Gold rule separator */}
+      <div className="mx-auto max-w-[960px] px-5 py-4 sm:px-8">
+        <hr className="gold-rule" />
       </div>
 
-      {/* ── CONVERSION QUESTIONS — staggered entry (Enhancement #5) ── */}
+      {/* ── CONVERSION QUESTIONS ── */}
       <FadeInSection>
-      <section className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
+      <section className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
         <FloatingOrbs variant="purple" />
-        <StaggerChildren className="grid gap-5 md:grid-cols-3">
+        <StaggerChildren className="relative z-10 grid gap-5 md:grid-cols-3">
           {[
             {
               q: "Have you ever learned something powerful and lost it by Monday?",
@@ -156,28 +150,28 @@ export default async function UpgradeYourOsPage() {
               a: "If you had to think about it, that is the eclipse talking. It does not always look like falling apart.",
             },
           ].map((item) => (
-            <div key={item.q} className="glass-card glass-card--lift p-5">
-              <p className="text-sm font-semibold leading-relaxed" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <div key={item.q} className="glass-card glass-card--lift glass-card--executive p-5">
+              <p className="text-sm font-semibold leading-relaxed" style={{ color: '#F8D011' }}>
                 {item.q}
               </p>
-              <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+              <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 {item.a}
               </p>
             </div>
           ))}
         </StaggerChildren>
         <div className="relative z-10 mt-8 text-center">
-          <MagneticButton href="/preview" className="btn-watch">
+          <MagneticButton href="/preview" className="btn-secondary">
             See where this shows up in your results
           </MagneticButton>
-          <p className="mt-4 text-sm italic" style={{ color: 'rgba(255,255,255,0.35)' }}>
+          <p className="mt-4 text-sm italic" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>
             Running on survival fuel and calling it discipline.
           </p>
         </div>
       </section>
       </FadeInSection>
 
-      {/* ── TRY 3 QUESTIONS — moved up for conversion ── */}
+      {/* ── TRY 3 QUESTIONS ── */}
       <FadeInSection>
       <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <MiniAssessmentPreview />
@@ -196,27 +190,27 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── PRODUCT PREVIEW — radar chart mockup ── */}
       <FadeInSection>
-      <section className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
-        <div className="grid items-center gap-8 md:grid-cols-2">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-              Your Results
-            </p>
-            <h2 className="mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+      <section className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+        <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
+          <div className="gold-accent-left">
+            <span className="gold-tag">
+              <span style={{ color: '#F8D011' }}>◆</span> Your Results
+            </span>
+            <h2 className="gold-underline mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
               A map, not a label
             </h2>
-            <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-              Your Light Signature is a radar chart of 9 capacities — showing where you shine, where stress is covering you, and exactly what to train this week. Retake in 90 days to see what moved.
+            <p className="mt-6 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              Your <span className="gold-highlight">Light Signature</span> is a radar chart of 9 capacities — showing where you shine, where stress is covering you, and exactly what to train this week.
             </p>
-            <ul className="mt-4 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+            <ul className="mt-4 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
               <li className="flex items-start gap-2">
-                <span style={{ color: '#4ADE80' }}>&#x2713;</span> 9 Ray scores with Shine/Eclipse breakdown
+                <span className="text-gold-glow">◆</span> 9 Ray scores with Shine/Eclipse breakdown
               </li>
               <li className="flex items-start gap-2">
-                <span style={{ color: '#4ADE80' }}>&#x2713;</span> Eclipse detection — which strength is compensating
+                <span className="text-gold-glow">◆</span> Eclipse detection — which strength is compensating
               </li>
               <li className="flex items-start gap-2">
-                <span style={{ color: '#4ADE80' }}>&#x2713;</span> Rise Path with daily tools for your specific pattern
+                <span className="text-gold-glow">◆</span> Rise Path with daily tools for your specific pattern
               </li>
             </ul>
             <div className="mt-6">
@@ -232,51 +226,49 @@ export default async function UpgradeYourOsPage() {
 
       <GoldDividerAnimated />
 
-      {/* ── ECLIPSE CONCEPT — with floating orbs (Enhancement #6) ── */}
+      {/* ── ECLIPSE CONCEPT ── */}
       <FadeInSection>
       <section className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
         <FloatingOrbs variant="gold" />
         <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-              The Eclipse Concept
-            </p>
-            {/* Gradient heading (Enhancement #7) */}
-            <h2 className="text-gold-gradient mt-3 text-2xl font-bold leading-tight">
+          <div className="gold-accent-left">
+            <span className="gold-tag">
+              <span style={{ color: '#F8D011' }}>◆</span> The Eclipse Concept
+            </span>
+            <h2 className="text-gold-gradient gold-underline mt-3 text-2xl font-bold leading-tight">
               Your light is not gone. It is covered.
             </h2>
-            <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+            <p className="mt-6 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               When stress stays elevated too long, your strongest capacity starts carrying
-              your weakest. You deliver at work and come home empty. That is not failure.
+              your weakest. You deliver at work and <span className="gold-highlight">come home empty</span>. That is not failure.
               That is biology. The assessment names that exact pattern.
             </p>
           </div>
-          {/* Eclipse comparison cards with hover lift (Enhancement #8) */}
           <StaggerChildren className="grid gap-4" staggerMs={200}>
             {/* Eclipsed day */}
-            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid rgba(248,208,17,0.3)' }}>
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>
-                Eclipsed Monday
+            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid rgba(248,208,17,0.25)' }}>
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011', opacity: 0.5 }}>
+                ◇ Eclipsed Monday
               </p>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 7am: alarm goes off, already dreading the 9am. You run the meeting well. Nobody
                 knows the cost. By 3pm your creativity is gone. By 6pm you are running on fumes
                 and calling it discipline.
               </p>
             </div>
             {/* Light-online day */}
-            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid var(--brand-gold)' }}>
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
-                Light-Online Monday
+            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid #F8D011' }}>
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+                ◆ Light-Online Monday
               </p>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 7am: you wake up knowing your one thing. The 9am is clear. By 3pm you have energy
                 left for thinking. By 6pm you chose what to give, not what was taken.
               </p>
             </div>
           </StaggerChildren>
           <div className="col-span-full">
-            <p className="mt-1 text-center text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
+            <p className="mt-1 text-center text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
               The assessment tells you which version you are running right now — and what is underneath.
             </p>
             <div className="mt-4 text-center">
@@ -291,23 +283,22 @@ export default async function UpgradeYourOsPage() {
 
       <GoldDividerAnimated />
 
-      {/* ── 9 RAYS — staggered cards with color ramps (Enhancement #9) ── */}
+      {/* ── 9 RAYS — staggered cards with color ramps ── */}
       <FadeInSection>
-      <section className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
-        <div className="mb-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            The 9 Rays
-          </p>
-          <h2 className="text-shimmer mt-3 text-2xl font-bold sm:text-3xl">
-            9 dimensions. Each one trainable. Together, they map your emotional intelligence.
+      <section className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
+        <div className="relative z-10 mb-10 text-center">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> The 9 Rays
+          </span>
+          <h2 className="text-shimmer mt-4 text-2xl font-bold sm:text-3xl">
+            9 dimensions. Each one trainable.
           </h2>
-          <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+          <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
             The first three train EQ with yourself. The last three train EQ with others. The
-            middle three are where they meet. Not personality types. Capacities — built through
-            reps, not revelation.
+            middle three are where they meet. Not personality types — <span className="gold-highlight">capacities built through reps</span>.
           </p>
         </div>
-        <StaggerChildren className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" staggerMs={80}>
+        <StaggerChildren className="relative z-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" staggerMs={80}>
           {NINE_RAYS.map((ray) => {
             const ramp = rayRamp(ray.id);
             return (
@@ -319,94 +310,101 @@ export default async function UpgradeYourOsPage() {
                   background: ramp.bgTint,
                 }}
               >
-                <p className="text-sm font-bold" style={{ color: ramp.full }}>{ray.name}</p>
-                <p className="mt-1.5 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>{ray.essence}</p>
+                <p className="text-sm font-bold" style={{ color: ramp.full }}>
+                  <span style={{ color: '#F8D011', marginRight: '6px', fontSize: '8px', verticalAlign: 'middle' }}>◆</span>
+                  {ray.name}
+                </p>
+                <p className="mt-1.5 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>{ray.essence}</p>
               </div>
             );
           })}
         </StaggerChildren>
-        <div className="mt-8 text-center">
-          <MagneticButton href="/preview" className="btn-watch">
+        <div className="relative z-10 mt-8 text-center">
+          <MagneticButton href="/preview" className="btn-secondary">
             Which ray leads for you? Find out in 15 minutes.
           </MagneticButton>
         </div>
       </section>
       </FadeInSection>
 
-      {/* Star separator */}
-      <div className="star-separator mx-auto max-w-[960px]" aria-hidden="true">
-        <span className="text-xs" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>&#x2726;</span>
+      {/* Gold rule separator */}
+      <div className="mx-auto max-w-[960px] px-5 py-4 sm:px-8">
+        <hr className="gold-rule" />
       </div>
 
-      {/* ── WHAT THIS IS NOT — staggered reveal (Enhancement #10) ── */}
+      {/* ── WHAT THIS IS NOT ── */}
       <FadeInSection>
       <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
-        <p className="text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-          No hype. No shortcuts.
-        </p>
-        <h2 className="mt-3 text-center text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-          What This Is Not
-        </h2>
-        <StaggerChildren className="mt-8 space-y-3">
+        <div className="mb-8 text-center">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> No Hype. No Shortcuts.
+          </span>
+          <h2 className="mt-4 text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
+            What This Is Not
+          </h2>
+        </div>
+        <StaggerChildren className="space-y-3">
           {WHAT_I_DONT_DO.map((item) => (
             <div key={item} className="glass-card glass-card--lift flex items-start gap-3 p-4">
-              <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2715;</span>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>{item}</p>
+              <span className="shrink-0 text-sm font-bold" style={{ color: '#F8D011' }}>✕</span>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>{item}</p>
             </div>
           ))}
         </StaggerChildren>
-        <p className="mt-6 text-center text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+        <p className="mt-6 text-center text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
           I map your pattern. I give you the next rep. I help you track progress so growth
-          stays visible — not hoped for, measured.
+          stays visible — <span className="gold-highlight">not hoped for, measured</span>.
         </p>
       </section>
       </FadeInSection>
 
       <GoldDividerAnimated />
 
-      {/* ── TESTIMONIALS — with quote marks and hover lift (Enhancement #11) ── */}
+      {/* ── TESTIMONIALS — gold stripe accent ── */}
       <FadeInSection>
       <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
-        <p className="mb-8 text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-          What Leaders Say
-        </p>
+        <div className="mb-8 text-center">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> What Leaders Say
+          </span>
+        </div>
         <StaggerChildren className="space-y-4">
           {TESTIMONIALS.map((t) => (
-            <div key={t.attribution} className="glass-card testimonial-card p-5 pl-8">
-              <p className="text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-                {t.quote}
+            <div key={t.attribution} className="glass-card testimonial-card testimonial-gold-stripe p-5 pl-6">
+              <p className="text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
+                &ldquo;{t.quote}&rdquo;
               </p>
-              <p className="mt-2 text-xs font-semibold" style={{ color: 'var(--brand-gold, #F8D011)', opacity: 0.7 }}>
+              <p className="mt-3 text-xs font-bold" style={{ color: '#F8D011' }}>
                 — {t.attribution}
               </p>
             </div>
           ))}
         </StaggerChildren>
 
-        {/* Metric boxes with count-up (Enhancement #12) */}
+        {/* Metric badges with executive styling */}
         <div className="mt-10 grid grid-cols-3 gap-4 text-center">
-          <div>
+          <div className="metric-badge">
             <CountUp
               end={2400}
               suffix="+"
-              className="text-2xl font-bold sm:text-3xl"
+              className="tabular-nums text-2xl font-bold sm:text-3xl"
               style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)' }}
             />
-            <p className="mt-1 text-[11px]" style={{ color: 'rgba(255,255,255,0.5)' }}>leaders assessed</p>
+            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'rgba(248, 208, 17, 0.6)' }}>leaders assessed</p>
           </div>
-          <div>
-            <span className="text-2xl font-bold sm:text-3xl" style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)' }}>
+          <div className="metric-badge">
+            <span className="tabular-nums text-2xl font-bold sm:text-3xl" style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)' }}>
               90<span className="text-lg">-day</span>
             </span>
-            <p className="mt-1 text-[11px]" style={{ color: 'rgba(255,255,255,0.5)' }}>measurable growth</p>
+            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'rgba(248, 208, 17, 0.6)' }}>measurable growth</p>
           </div>
-          <div>
+          <div className="metric-badge">
             <CountUp
               end={9}
-              className="text-2xl font-bold sm:text-3xl"
+              className="tabular-nums text-2xl font-bold sm:text-3xl"
               style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)' }}
             />
-            <p className="mt-1 text-[11px]" style={{ color: 'rgba(255,255,255,0.5)' }}>trainable capacities</p>
+            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'rgba(248, 208, 17, 0.6)' }}>trainable capacities</p>
           </div>
         </div>
       </section>
@@ -414,100 +412,108 @@ export default async function UpgradeYourOsPage() {
 
       <GoldDividerAnimated />
 
-      {/* ── PRICING — with featured glow and animated checks (Enhancement #13) ── */}
+      {/* ── PRICING — gold-bordered featured card ── */}
       <FadeInSection>
       <section className="section-alt-dark relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <FloatingOrbs variant="mixed" />
         <div className="relative z-10 mb-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Choose Your Path
-          </p>
-          <h2 className="mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Choose Your Path
+          </span>
+          <h2 className="mt-4 text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
             Start free. Go deeper when you&rsquo;re ready.
           </h2>
         </div>
         <div className="relative z-10 grid gap-4 sm:grid-cols-2">
-          {/* Free option — hover lift */}
+          {/* Free option */}
           <div className="glass-card glass-card--lift flex flex-col p-6">
-            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)', opacity: 0.7 }}>Free Preview</p>
-            <p className="mt-2 text-3xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)', fontFamily: 'var(--font-cosmic-display)' }}>$0</p>
-            <ul className="mt-4 flex-1 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#4ADE80', animationDelay: '0.1s' }}>&#x2713;</span> 3-minute stability check</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#4ADE80', animationDelay: '0.2s' }}>&#x2713;</span> Top 2 Ray preview</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#4ADE80', animationDelay: '0.3s' }}>&#x2713;</span> Eclipse indicator</li>
-              <li className="flex items-start gap-2"><span style={{ color: 'rgba(255,255,255,0.25)' }}>&#x2717;</span> <span style={{ opacity: 0.5 }}>Full 9-Ray report</span></li>
-              <li className="flex items-start gap-2"><span style={{ color: 'rgba(255,255,255,0.25)' }}>&#x2717;</span> <span style={{ opacity: 0.5 }}>Rise Path + daily tools</span></li>
+            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#F8D011', opacity: 0.7 }}>Free Preview</p>
+            <p className="mt-2 text-3xl font-bold tabular-nums" style={{ color: 'var(--text-on-dark)', fontFamily: 'var(--font-cosmic-display)' }}>$0</p>
+            <ul className="mt-4 flex-1 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.1s' }}>◆</span> 3-minute stability check</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.2s' }}>◆</span> Top 2 Ray preview</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.3s' }}>◆</span> Eclipse indicator</li>
+              <li className="flex items-start gap-2"><span style={{ color: 'rgba(255,255,255,0.2)' }}>◇</span> <span style={{ opacity: 0.4 }}>Full 9-Ray report</span></li>
+              <li className="flex items-start gap-2"><span style={{ color: 'rgba(255,255,255,0.2)' }}>◇</span> <span style={{ opacity: 0.4 }}>Rise Path + daily tools</span></li>
             </ul>
             <MagneticButton href="/preview" className="btn-watch mt-6 block text-center">
               Start Free
             </MagneticButton>
           </div>
-          {/* Paid option — featured glow pulse (Enhancement #14) */}
+          {/* Paid option — gold border featured */}
           <div className="glass-card glass-card--lift pricing-featured flex flex-col p-6"
-            style={{ border: '1.5px solid var(--brand-gold, #F8D011)' }}
+            style={{ border: '1.5px solid #F8D011' }}
           >
-            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Full Assessment</p>
-            <p className="text-gold-gradient mt-2 text-3xl font-bold" style={{ fontFamily: 'var(--font-cosmic-display)' }}>$43</p>
-            <ul className="mt-4 flex-1 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#4ADE80', animationDelay: '0.1s' }}>&#x2713;</span> 143 questions, 15 minutes</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#4ADE80', animationDelay: '0.2s' }}>&#x2713;</span> All 9 Ray scores</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#4ADE80', animationDelay: '0.3s' }}>&#x2713;</span> Your Light Signature</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#4ADE80', animationDelay: '0.4s' }}>&#x2713;</span> Eclipse Snapshot</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#4ADE80', animationDelay: '0.5s' }}>&#x2713;</span> Rise Path + daily tools</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#4ADE80', animationDelay: '0.6s' }}>&#x2713;</span> 90-day retake to track growth</li>
+            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+              ◆ Full Assessment
+            </p>
+            <p className="text-gold-gradient mt-2 text-3xl font-bold tabular-nums" style={{ fontFamily: 'var(--font-cosmic-display)' }}>$43</p>
+            <ul className="mt-4 flex-1 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.1s' }}>◆</span> 143 questions, 15 minutes</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.2s' }}>◆</span> All 9 Ray scores</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.3s' }}>◆</span> Your Light Signature</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.4s' }}>◆</span> Eclipse Snapshot</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.5s' }}>◆</span> Rise Path + daily tools</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.6s' }}>◆</span> 90-day retake to track growth</li>
             </ul>
             <MagneticButton href="/upgrade" className="btn-primary mt-6 block text-center">
               Get the Full Map
             </MagneticButton>
           </div>
         </div>
-        <p className="relative z-10 mt-4 text-center text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
-          Free during beta. Assessment price increases after launch.
+        <p className="relative z-10 mt-4 text-center text-xs" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>
+          Free during beta · Assessment price increases after launch
         </p>
       </section>
       </FadeInSection>
 
-      {/* Star separator */}
-      <div className="star-separator mx-auto max-w-[960px]" aria-hidden="true">
-        <span className="text-xs" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>&#x2726;</span>
+      {/* Gold rule separator */}
+      <div className="mx-auto max-w-[960px] px-5 py-4 sm:px-8">
+        <hr className="gold-rule" />
       </div>
 
-      {/* ── ABOUT JUSTIN + FINAL CTA — with orbs (Enhancement #15) ── */}
+      {/* ── ABOUT JUSTIN + FINAL CTA ── */}
       <FadeInSection>
       <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <FloatingOrbs variant="gold" />
         <div className="relative z-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Built by
-          </p>
-          <h2 className="text-gold-gradient mt-3 text-xl font-bold">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Built By
+          </span>
+          <h2 className="text-gold-gradient mt-4 text-xl font-bold">
             Justin Ray
           </h2>
-          <p className="mx-auto mt-1 text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
-            Educator &bull; Coach &bull; System Builder
+          <p className="mx-auto mt-1 text-xs font-medium uppercase tracking-widest" style={{ color: '#F8D011', opacity: 0.6 }}>
+            Educator · Coach · System Builder
           </p>
-          <p className="mx-auto mt-4 max-w-[520px] text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+
+          {/* Gold decorative line */}
+          <div className="mx-auto my-4 h-px w-24" style={{ background: 'linear-gradient(to right, transparent, #F8D011, transparent)' }} />
+
+          <p className="mx-auto max-w-[520px] text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
             &ldquo;I spent years watching leadership programs teach information that never
             landed — smart people learning powerful ideas that disappeared by Monday.
-            So I built a different system. One that measures capacity instead of labeling
-            personality. One that trains through daily reps instead of one-time workshops.
-            One that proves growth is happening instead of hoping it is.&rdquo;
+            So I built a different system. One that <span className="gold-highlight">measures capacity</span> instead of labeling
+            personality. One that trains through <span className="gold-highlight">daily reps</span> instead of one-time workshops.
+            One that <span className="gold-highlight">proves growth</span> is happening instead of hoping it is.&rdquo;
           </p>
-          <p className="mx-auto mt-3 max-w-[520px] text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            <CountUp end={2400} suffix="+" style={{ color: 'rgba(255,255,255,0.45)' }} /> leaders assessed &bull; Grounded in behavioural science
+          <p className="mx-auto mt-3 max-w-[520px] text-xs" style={{ color: 'rgba(248, 208, 17, 0.5)' }}>
+            <CountUp end={2400} suffix="+" className="tabular-nums" style={{ color: 'rgba(248, 208, 17, 0.5)' }} /> leaders assessed · Grounded in behavioural science
           </p>
-          <Link href="/about" className="mt-3 inline-block text-sm font-medium transition-colors hover:brightness-110" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Read the full story &rarr;
+          <Link href="/about" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold transition-all hover:brightness-110 hover:gap-2" style={{ color: '#F8D011' }}>
+            Read the full story <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
 
-        {/* Final CTA — with gold border glow */}
-        <div className="glass-card relative z-10 mt-12 p-8 text-center" style={{ borderColor: 'rgba(248,208,17,0.2)' }}>
+        {/* Final CTA — gold accent card */}
+        <div className="glass-card glass-card--executive relative z-10 mt-12 p-8 text-center"
+          style={{ borderTopColor: '#F8D011' }}
+        >
           <h2 className="text-shimmer text-2xl font-bold sm:text-3xl">
             Your light is still there.
           </h2>
-          <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            143 questions. 15 minutes. A map that shows you where it went and how to get it back.
+          <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            <span className="gold-highlight">143 questions</span>. 15 minutes. A map that shows you where it went and how to get it back.
           </p>
           <div className="mt-6">
             <MagneticButton href="/preview" className="btn-primary">
@@ -515,9 +521,9 @@ export default async function UpgradeYourOsPage() {
             </MagneticButton>
           </div>
           <p className="mt-4 text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>
-            Free during beta. No credit card required.
+            Free during beta · No credit card required
           </p>
-          <p className="mt-3 text-sm" style={{ color: '#F8D011', opacity: 0.6, fontFamily: 'var(--font-cosmic-display)' }}>
+          <p className="mt-3 text-sm text-gold-glow" style={{ fontFamily: 'var(--font-cosmic-display)', opacity: 0.7 }}>
             143 means I love you. That is where this starts.
           </p>
         </div>
