@@ -6,7 +6,7 @@ interface CosmicImageProps {
   width: number;
   height: number;
   maxWidth?: string;
-  variant?: "hero" | "section" | "decorative" | "product";
+  variant?: "hero" | "section" | "decorative" | "product" | "hero-bg";
   priority?: boolean;
   className?: string;
 }
@@ -18,6 +18,17 @@ const VARIANT_STYLES: Record<
   hero: {
     wrapper: {},
     image: "rounded-2xl",
+  },
+  "hero-bg": {
+    wrapper: {
+      position: "absolute" as const,
+      inset: 0,
+      opacity: 0.15,
+      overflow: "hidden",
+      maskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
+      WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
+    },
+    image: "",
   },
   section: {
     wrapper: {
@@ -55,7 +66,26 @@ export default function CosmicImage({
   className = "",
 }: CosmicImageProps) {
   const styles = VARIANT_STYLES[variant];
-  const isDecorative = variant === "decorative";
+  const isDecorative = variant === "decorative" || variant === "hero-bg";
+
+  if (variant === "hero-bg") {
+    return (
+      <div
+        className={className}
+        style={styles.wrapper}
+        aria-hidden
+      >
+        <Image
+          src={src}
+          alt=""
+          fill
+          className="object-cover"
+          priority={priority}
+          sizes="100vw"
+        />
+      </div>
+    );
+  }
 
   return (
     <div

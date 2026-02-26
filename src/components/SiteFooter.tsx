@@ -1,15 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import CosmicStarfield from "@/components/cosmic/CosmicStarfield";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { MARKETING_FOOTER_COLUMNS } from "@/lib/nav/nav-config";
 
 export function SiteFooter() {
   return (
     <footer
-      className="border-t px-6 py-12 sm:px-8"
+      className="relative border-t px-6 py-12 sm:px-8 overflow-hidden"
       style={{ borderColor: 'var(--surface-border)', background: 'var(--overlay-light)' }}
     >
-      <div className="mx-auto max-w-5xl">
+      <CosmicStarfield />
+      <GoldDividerAnimated className="mb-10" />
+      <div className="relative z-10 mx-auto max-w-5xl">
         <div className="mb-8">
           <Image
             src="/images/logo-full-transparent.png"

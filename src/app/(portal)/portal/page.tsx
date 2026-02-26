@@ -23,9 +23,9 @@ export default async function PortalPage() {
   return (
     <>
       <PageHeader
-        label="Portal"
-        title="Your Leadership Dashboard"
-        description="Welcome back. Pick up where you left off — start a new assessment, review your results, or continue your daily practices. Everything you have built is here."
+        label="Light Portal"
+        title="Your Light Portal"
+        description="Welcome back to your Light Portal. Pick up where you left off — start a new assessment, review your results, or continue your daily practices. Everything you have built is here."
       />
 
       <CosmicErrorBoundary sectionLabel="PORTAL">

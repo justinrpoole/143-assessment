@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { isBetaFreeMode } from "@/lib/config/beta";
 import {
@@ -41,9 +42,10 @@ function ChevronDown({ open }: { open: boolean }) {
 
 /* ── Desktop dropdown ────────────────────────────────────── */
 
-function DesktopDropdown({ group }: { group: NavGroup }) {
+function DesktopDropdown({ group, pathname }: { group: NavGroup; pathname: string }) {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isActive = pathname === group.href || group.children.some((c) => pathname === c.href);
 
   const handleEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -62,12 +64,12 @@ function DesktopDropdown({ group }: { group: NavGroup }) {
 
   return (
     <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-      <div className="flex items-center gap-1">
+      <div className="relative flex items-center gap-1 pb-1">
         {group.href ? (
           <Link
             href={group.href}
             className="dropdown-link text-[13px] font-medium tracking-wide no-underline transition-colors"
-            style={{ color: open ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
+            style={{ color: open || isActive ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
           >
             {group.label}
           </Link>
@@ -75,7 +77,7 @@ function DesktopDropdown({ group }: { group: NavGroup }) {
           <button
             type="button"
             className="text-[13px] font-medium tracking-wide transition-colors"
-            style={{ color: open ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
+            style={{ color: open || isActive ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
             onClick={() => setOpen((p) => !p)}
           >
             {group.label}
@@ -84,13 +86,20 @@ function DesktopDropdown({ group }: { group: NavGroup }) {
         <button
           type="button"
           className="flex items-center transition-colors"
-          style={{ color: open ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
+          style={{ color: open || isActive ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
           onClick={() => setOpen((p) => !p)}
           aria-expanded={open}
           aria-label={`${group.label} submenu`}
         >
           <ChevronDown open={open} />
         </button>
+        {/* Active underline indicator */}
+        {isActive && (
+          <span
+            className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
+            style={{ background: 'var(--brand-gold)', opacity: 0.7 }}
+          />
+        )}
       </div>
 
       {open && (
@@ -191,6 +200,7 @@ function MobileSection({
 
 export function MarketingNav() {
   const isBeta = isBetaFreeMode();
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
   const [hasSession, setHasSession] = useState(false);
@@ -242,15 +252,21 @@ export function MarketingNav() {
           <div className="hidden items-center gap-5 lg:flex">
             {MARKETING_NAV_ITEMS.map((item) =>
               isNavGroup(item) ? (
-                <DesktopDropdown key={item.label} group={item} />
+                <DesktopDropdown key={item.label} group={item} pathname={pathname} />
               ) : (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="dropdown-link text-[13px] font-medium tracking-wide no-underline transition-colors"
-                  style={{ color: "var(--text-on-dark-secondary)" }}
+                  className="dropdown-link relative text-[13px] font-medium tracking-wide no-underline transition-colors pb-1"
+                  style={{ color: pathname === item.href ? "var(--brand-gold)" : "var(--text-on-dark-secondary)" }}
                 >
                   {item.label}
+                  {pathname === item.href && (
+                    <span
+                      className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
+                      style={{ background: 'var(--brand-gold)', opacity: 0.7 }}
+                    />
+                  )}
                 </Link>
               ),
             )}
@@ -279,7 +295,11 @@ export function MarketingNav() {
             <Link
               href={MARKETING_NAV_CTAS.primary.href}
               className="shrink-0 rounded-lg px-4 py-2 text-[13px] font-bold tracking-wide no-underline transition-all hover:brightness-105"
-              style={{ background: "var(--brand-gold)", color: "var(--brand-black)" }}
+              style={{
+                background: "var(--brand-gold)",
+                color: "var(--brand-black)",
+                animation: "btn-glow-pulse 3s ease-in-out infinite",
+              }}
             >
               {MARKETING_NAV_CTAS.primary.label}
             </Link>

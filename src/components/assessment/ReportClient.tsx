@@ -538,7 +538,7 @@ export function ReportClient({ runId }: ReportClientProps) {
             { id: 'rpt-rise-path', label: 'Rise Path' },
             { id: 'rpt-tools', label: 'Tool Readiness' },
             { id: 'rpt-30day', label: '30-Day Plan' },
-            { id: 'rpt-coaching', label: 'Coaching Questions' },
+            { id: 'rpt-coaching', label: 'Shooting Star Cues' },
             { id: 'rpt-conversation-starters', label: 'Conversation Starters' },
             { id: 'rpt-coaching-brief', label: 'Coaching Brief' },
             { id: 'rpt-psychometric', label: 'Psychometric Foundation' },
@@ -756,7 +756,7 @@ export function ReportClient({ runId }: ReportClientProps) {
                 </h2>
                 <p className="text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>
                   Each star represents a subfacet skill. Gold lit stars are active capacities (score 60+).
-                  Larger stars mark major breakthroughs in your top two rays. Click any star for details.
+                  Larger stars mark major breakthroughs in your Power Sources. Click any star for details.
                 </p>
                 <ConstellationProgress
                   stars={constellationStars}
@@ -855,13 +855,13 @@ export function ReportClient({ runId }: ReportClientProps) {
             </FadeInSection>
           )}
 
-          {/* ── 17. Coaching Questions ── */}
+          {/* ── 17. Shooting Star Cues ── */}
           {coachingQs.length > 0 && (
             <FadeInSection>
               <div id="rpt-coaching">
                 <Highlightable
                   blockId="coaching-questions"
-                  text="Coaching Questions"
+                  text="Shooting Star Cues"
                   isHighlighted={isHighlighted("coaching-questions")}
                   onToggle={toggleHighlight}
                 >

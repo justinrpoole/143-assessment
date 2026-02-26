@@ -125,8 +125,8 @@
   --brand-gold: #F8D011;
   --brand-black: #020202;
 
-  --bg-deep: #1A0A2E;
-  --bg-deep-alt: #221040;
+  --bg-deep: #1E0E35;
+  --bg-deep-alt: #251345;
   --bg-deep-mid: #2D1450;
   --surface-glass: rgba(96, 5, 141, 0.35);
   --surface-glass-hover: rgba(96, 5, 141, 0.45);
@@ -134,9 +134,9 @@
   --surface-border: rgba(148, 80, 200, 0.30);
   --surface-border-hover: rgba(148, 80, 200, 0.45);
 
-  --text-on-dark: rgba(255, 255, 255, 0.92);
-  --text-on-dark-secondary: rgba(255, 255, 255, 0.70);
-  --text-on-dark-muted: rgba(255, 255, 255, 0.60);
+  --text-on-dark: rgba(255, 255, 255, 0.94);
+  --text-on-dark-secondary: rgba(255, 255, 255, 0.80);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.55);
 
   --focus-ring-gold: 0 0 0 3px rgba(248, 208, 17, 0.45);
 

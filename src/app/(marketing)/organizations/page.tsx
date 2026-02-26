@@ -5,6 +5,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -152,7 +153,7 @@ export default async function OrganizationsPage() {
           </div>
         </section>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · THE PROBLEM ─────────────────────────── */}
         <FadeInSection>
@@ -226,7 +227,7 @@ export default async function OrganizationsPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 3 · HOW WE WORK ────────────────────────── */}
         <FadeInSection>
@@ -280,7 +281,7 @@ export default async function OrganizationsPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 4 · WHY DIFFERENT ───────────────────────── */}
         <FadeInSection>
@@ -326,7 +327,7 @@ export default async function OrganizationsPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 5 · OPERATIONAL FIT ─────────────────────── */}
         <FadeInSection>
@@ -372,7 +373,7 @@ export default async function OrganizationsPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
         <FadeInSection>
@@ -415,21 +416,5 @@ export default async function OrganizationsPage() {
         </FadeInSection>
       </div>
     </main>
-  );
-}
-
-/* ── utility ───────────────────────────────────────────────── */
-
-function GoldDivider() {
-  return (
-    <div className="mx-auto max-w-[200px]">
-      <div
-        className="h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
-        }}
-      />
-    </div>
   );
 }

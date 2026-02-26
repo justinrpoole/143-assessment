@@ -5,7 +5,7 @@ export type ModuleName =
   | "Email Gate Module"
   | "Toolkit Delivery Module"
   | "Assessment Module"
-  | "Snapshot Preview Output Module"
+  | "Light OS Snapshot Module"
   | "Upgrade/Paywall Module"
   | "Report Artifact Module (HTML + PDF status/download)"
   | "Share Cards Module"
@@ -61,7 +61,7 @@ export const V1_ROUTE_SPECS: Record<string, V1RouteSpec> = {
     pageViewEvent: "page_view_preview",
     modules: [
       "Assessment Module",
-      "Snapshot Preview Output Module",
+      "Light OS Snapshot Module",
       "Upgrade/Paywall Module",
     ],
     requiresFreeEmail: false,

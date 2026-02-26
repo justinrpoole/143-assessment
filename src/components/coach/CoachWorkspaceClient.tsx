@@ -133,7 +133,7 @@ export function CoachWorkspaceClient() {
         </section>
 
         <footer className="flex flex-wrap gap-3">
-          <Link href="/portal" className="btn-primary">Open Dashboard</Link>
+          <Link href="/portal" className="btn-primary">Open Light Portal</Link>
           <Link href="/results" className="btn-watch">Back to Results</Link>
         </footer>
       </div>

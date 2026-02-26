@@ -226,14 +226,14 @@ export function ResultsClient({ runId }: ResultsClientProps) {
         </FadeInSection>
       )}
 
-      {/* 9. Coaching Questions */}
+      {/* 9. Shooting Star Cues */}
       {coachingQs.length > 0 && (
         <FadeInSection>
           <CoachingQuestions questions={coachingQs} />
         </FadeInSection>
       )}
 
-      {/* 9b. REPs + RAS */}
+      {/* 9b. Next Reps */}
       {output && (
         <FadeInSection>
           <RepsRasActions />
@@ -475,14 +475,14 @@ export function ResultsClient({ runId }: ResultsClientProps) {
         </FadeInSection>
       )}
 
-      {/* 13. Coaching Questions */}
+      {/* 13. Shooting Star Cues */}
       {coachingQs.length > 0 && (
         <FadeInSection>
           <CoachingQuestions questions={coachingQs} />
         </FadeInSection>
       )}
 
-      {/* 13b. REPs + RAS */}
+      {/* 13b. Next Reps */}
       {output && (
         <FadeInSection>
           <RepsRasActions />

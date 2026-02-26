@@ -144,7 +144,7 @@ export function PreviewSnapshotClient() {
 
       <div className="mt-4 flex flex-wrap gap-3">
         <Link href="/sample-report" className="btn-watch">
-          View Sample Report
+          View Sample Light Signature Map
         </Link>
         <Link href="/upgrade" className="btn-watch">
           Upgrade to Full Assessment

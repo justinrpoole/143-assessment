@@ -8,6 +8,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 
@@ -121,7 +122,7 @@ export default async function Challenge143Page() {
           </div>
         </section>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · THE SCIENCE ────────────────────────── */}
         <FadeInSection>
@@ -173,7 +174,7 @@ export default async function Challenge143Page() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 3 · THE PROTOCOL ───────────────────────── */}
         <FadeInSection>
@@ -244,7 +245,7 @@ export default async function Challenge143Page() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 4 · THE CHALLENGE KIT ──────────────────── */}
         <FadeInSection>
@@ -296,7 +297,7 @@ export default async function Challenge143Page() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 5 · THE BRIDGE ─────────────────────────── */}
         <FadeInSection>
@@ -372,21 +373,5 @@ export default async function Challenge143Page() {
         </FadeInSection>
       </div>
     </main>
-  );
-}
-
-/* ── utility ───────────────────────────────────────────────── */
-
-function GoldDivider() {
-  return (
-    <div className="mx-auto max-w-[200px]">
-      <div
-        className="h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
-        }}
-      />
-    </div>
   );
 }

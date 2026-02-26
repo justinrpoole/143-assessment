@@ -7,6 +7,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -120,7 +121,7 @@ export default async function GoFirstPage() {
           </p>
         </section>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · SELF-RECOGNITION ───────────────────── */}
         <FadeInSection>
@@ -159,7 +160,7 @@ export default async function GoFirstPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 3 · SOUND FAMILIAR ─────────────────────── */}
         <FadeInSection>
@@ -194,7 +195,7 @@ export default async function GoFirstPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 4 · THE REAL PROBLEM ───────────────────── */}
         <FadeInSection>
@@ -249,7 +250,7 @@ export default async function GoFirstPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 5 · SIGNATURE PATTERNS ─────────────────── */}
         <FadeInSection>
@@ -310,7 +311,7 @@ export default async function GoFirstPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
         <FadeInSection>
@@ -362,21 +363,5 @@ export default async function GoFirstPage() {
         </FadeInSection>
       </div>
     </main>
-  );
-}
-
-/* ── utility ───────────────────────────────────────────────── */
-
-function GoldDivider() {
-  return (
-    <div className="mx-auto max-w-[200px]">
-      <div
-        className="h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
-        }}
-      />
-    </div>
   );
 }

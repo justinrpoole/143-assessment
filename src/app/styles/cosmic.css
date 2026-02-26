@@ -510,6 +510,331 @@
   animation: shimmer 2s ease-in-out infinite;
 }
 
+/* ── Visual Enhancement Layer ──────────────────────────────────── */
+
+/* Gradient text shimmer — used on hero headings and brand elements */
+.text-shimmer {
+  background: linear-gradient(
+    110deg,
+    var(--text-on-dark, #FFFEF5) 0%,
+    var(--text-on-dark, #FFFEF5) 40%,
+    #F8D011 50%,
+    var(--text-on-dark, #FFFEF5) 60%,
+    var(--text-on-dark, #FFFEF5) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShimmer 6s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+  0%, 100% { background-position: 100% center; }
+  50% { background-position: 0% center; }
+}
+
+/* Interactive card lift — enhanced hover for conversion cards */
+.glass-card--lift {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.glass-card--lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(248, 208, 17, 0.08);
+  border-color: rgba(248, 208, 17, 0.2);
+}
+
+/* Testimonial card — large quote marks and hover lift */
+.testimonial-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  left: 16px;
+  font-size: 48px;
+  font-family: Georgia, serif;
+  color: rgba(248, 208, 17, 0.15);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25),
+              0 0 16px rgba(248, 208, 17, 0.06);
+}
+
+/* Animated checkmark entry */
+@keyframes checkReveal {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.check-animated {
+  animation: checkReveal 0.3s ease-out both;
+}
+
+/* Pricing card featured pulse glow */
+@keyframes pricingGlow {
+  0%, 100% { box-shadow: 0 0 24px rgba(248, 208, 17, 0.12); }
+  50% { box-shadow: 0 0 36px rgba(248, 208, 17, 0.2), 0 0 60px rgba(248, 208, 17, 0.06); }
+}
+
+.pricing-featured {
+  animation: pricingGlow 4s ease-in-out infinite;
+}
+
+/* Gold gradient text for brand elements */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFFEF5 0%, #F8D011 40%, #E89D0C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle cursor glow — follows mouse on sections */
+.section-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-glow::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(248, 208, 17, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.section-glow:hover::before {
+  opacity: 1;
+}
+
+/* "143" watermark pattern for section backgrounds */
+.watermark-143 {
+  position: relative;
+}
+
+.watermark-143::after {
+  content: '143';
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  font-family: var(--font-cosmic-display);
+  font-size: 180px;
+  color: rgba(248, 208, 17, 0.02);
+  pointer-events: none;
+  line-height: 1;
+  z-index: 0;
+}
+
+/* Social proof pill hover */
+.proof-pill {
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.proof-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(248, 208, 17, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Section separator with star decoration */
+.star-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.star-separator::before,
+.star-separator::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(to var(--dir, right), rgba(248, 208, 17, 0.3), transparent);
+}
+
+.star-separator::after {
+  --dir: left;
+}
+
+/* ── Alternating section backgrounds ── */
+/* Creates visual rhythm: default cosmic purple → darker contrast sections */
+.section-alt-dark {
+  background: rgba(15, 7, 32, 0.5);
+  border-radius: 0;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50% + 20px);
+  padding-right: calc(50vw - 50% + 20px);
+}
+
+@media (min-width: 640px) {
+  .section-alt-dark {
+    padding-left: calc(50vw - 50% + 32px);
+    padding-right: calc(50vw - 50% + 32px);
+  }
+}
+
+/* ── Executive Gold Accent System ─────────────────────────── */
+
+/* Gold accent bar — left border for executive feel */
+.gold-accent-left {
+  border-left: 3px solid #F8D011;
+  padding-left: 16px;
+}
+
+/* Gold section tag — pill with gold border for section labels */
+.gold-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 208, 17, 0.3);
+  background: rgba(248, 208, 17, 0.06);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F8D011;
+}
+
+/* Gold underline accent for headings */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(to right, #F8D011, rgba(248, 208, 17, 0.2));
+  border-radius: 1px;
+}
+
+/* Gold keyword highlight — inline accent for key phrases */
+.gold-highlight {
+  color: #F8D011;
+  font-weight: 600;
+}
+
+/* Metric badge — executive dashboard feel for numbers */
+.metric-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(248, 208, 17, 0.15);
+  background: rgba(248, 208, 17, 0.04);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.metric-badge:hover {
+  border-color: rgba(248, 208, 17, 0.3);
+  background: rgba(248, 208, 17, 0.08);
+}
+
+/* Gold dot grid pattern — futuristic background texture */
+.gold-dot-grid {
+  position: relative;
+}
+
+.gold-dot-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(248, 208, 17, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.5) 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.5) 70%, transparent 100%);
+}
+
+/* Testimonial gold stripe — left accent bar on testimonial cards */
+.testimonial-gold-stripe {
+  position: relative;
+  border-left: 2px solid rgba(248, 208, 17, 0.4);
+}
+
+.testimonial-gold-stripe:hover {
+  border-left-color: #F8D011;
+}
+
+/* Gold ring — circular border element for executive authority sections */
+.gold-ring {
+  border: 1px solid rgba(248, 208, 17, 0.2);
+  border-radius: 50%;
+  padding: 4px;
+}
+
+/* Gold horizontal rule — replaces generic dividers */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(248, 208, 17, 0.3), transparent);
+  border: none;
+  margin: 0;
+}
+
+/* Tabular numbers — monospace digits for stats and metrics */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Gold glow text — for emphasis without gradient complexity */
+.text-gold-glow {
+  color: #F8D011;
+  text-shadow: 0 0 20px rgba(248, 208, 17, 0.3);
+}
+
+/* Executive card — refined glass with gold top border */
+.glass-card--executive {
+  border-top: 2px solid rgba(248, 208, 17, 0.3);
+}
+
+.glass-card--executive:hover {
+  border-top-color: rgba(248, 208, 17, 0.6);
+}
+
+/* How It Works step connector */
+.how-step-connector {
+  position: relative;
+}
+
+.how-step-connector::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(to right, rgba(248, 208, 17, 0.25), transparent);
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,

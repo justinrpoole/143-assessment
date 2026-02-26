@@ -329,7 +329,7 @@ export default function SampleReportClient() {
       <FadeInSection>
         <div className="glass-card p-5">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--brand-gold, #F8D011)" }}>
-            Sample Report — Driven Leader
+            Sample Light Signature Map — Driven Leader
           </p>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-on-dark)" }}>
             Not a test you pass. This is a mirror you can use.
@@ -520,7 +520,7 @@ export default function SampleReportClient() {
           </h2>
           <p className="text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>
             Each star represents a subfacet skill. Gold lit stars are active capacities (score 60+).
-            Larger stars mark major breakthroughs in your top two rays. Click any star for details.
+            Larger stars mark major breakthroughs in your Power Sources. Click any star for details.
           </p>
           <ConstellationProgress
             stars={constellationStars}
@@ -579,7 +579,7 @@ export default function SampleReportClient() {
         <ToolReadiness recommendations={SAMPLE_RECOMMENDATIONS} />
       </FadeInSection>
 
-      {/* ── 17. Coaching Questions ── */}
+      {/* ── 17. Shooting Star Cues ── */}
       <FadeInSection>
         <CoachingQuestions questions={SAMPLE_RECOMMENDATIONS.coaching_questions ?? []} runId="sample" />
       </FadeInSection>

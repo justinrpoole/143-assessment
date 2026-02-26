@@ -128,7 +128,7 @@ export default async function SpecCenterReportPreviewPage({ searchParams }: Page
             Back to Spec Center
           </Link>
           <Link href="/sample-report" className="btn-watch">
-            Open Static Sample Report
+            Open Sample Light Signature Map
           </Link>
         </footer>
       </div>

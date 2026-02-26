@@ -4,13 +4,14 @@ import SampleReportCTA from "@/components/billing/SampleReportCTA";
 import CosmicImage from "@/components/marketing/CosmicImage";
 
 import { FadeInSection } from "@/components/ui/FadeInSection";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Sample Report — 143 Leadership",
+  title: "Sample Light Signature Map — 143 Leadership",
   description:
     "Preview what your 143 Leadership report looks like — 9-Ray scores, Light Signature, Eclipse Snapshot, and personalised training plan. Not a screenshot. The real thing.",
 };
@@ -45,7 +46,7 @@ export default async function SampleReportPage() {
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: "var(--brand-gold, #F8D011)" }}
               >
-                Sample Report
+                Sample Light Signature Map
               </p>
               <h1
                 className="text-3xl font-bold leading-tight sm:text-4xl"
@@ -78,7 +79,7 @@ export default async function SampleReportPage() {
           </div>
         </section>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · WHAT PEOPLE SAY ─────────────────────── */}
         <FadeInSection>
@@ -122,7 +123,7 @@ export default async function SampleReportPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 3 · DIMMING DETECTOR ────────────────────── */}
         <FadeInSection>
@@ -132,7 +133,7 @@ export default async function SampleReportPage() {
         {/* ─── SECTION 4 · INTERACTIVE SAMPLE REPORT ───────────── */}
         <SampleReportClient />
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 5 · TWO WAYS TO USE ─────────────────────── */}
         <FadeInSection>
@@ -196,18 +197,3 @@ export default async function SampleReportPage() {
   );
 }
 
-/* ── utility ───────────────────────────────────────────────── */
-
-function GoldDivider() {
-  return (
-    <div className="mx-auto max-w-[200px]">
-      <div
-        className="h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
-        }}
-      />
-    </div>
-  );
-}

@@ -5,13 +5,14 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Group Coaching Cohorts — 143 Leadership",
+  title: "Light Cohorts — 143 Leadership",
   description:
     "10 weeks. 6–8 leaders. The full 143 framework, the systems to apply it, and the app to sustain it. Group coaching that produces measurable leadership change.",
 };
@@ -99,7 +100,7 @@ const HOW_IT_WORKS_STEPS = [
   },
   {
     num: "02",
-    title: "10 Weeks of Group Coaching",
+    title: "10 Weeks of Light Cohort Coaching",
     description:
       "Weekly sessions with 6–8 leaders. Learn the full framework, the science behind the tools, and the systems to apply them. Executives get additional professional development modules and strategic capacity intelligence.",
   },
@@ -171,7 +172,7 @@ export default async function CohortsPage() {
           </div>
         </section>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · BENEFITS ──────────────────────────────── */}
         <FadeInSection>
@@ -214,7 +215,7 @@ export default async function CohortsPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 3 · COHORT TIERS ──────────────────────────── */}
         <FadeInSection>
@@ -300,7 +301,7 @@ export default async function CohortsPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 4 · HOW IT WORKS ──────────────────────────── */}
         <FadeInSection>
@@ -351,7 +352,7 @@ export default async function CohortsPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 5 · CTA ────────────────────────────────── */}
         <FadeInSection>
@@ -386,21 +387,5 @@ export default async function CohortsPage() {
         </FadeInSection>
       </div>
     </main>
-  );
-}
-
-/* ── utility ───────────────────────────────────────────────── */
-
-function GoldDivider() {
-  return (
-    <div className="mx-auto max-w-[200px]">
-      <div
-        className="h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
-        }}
-      />
-    </div>
   );
 }

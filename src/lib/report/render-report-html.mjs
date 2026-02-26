@@ -934,7 +934,7 @@ export function renderReportHtml({
       <!-- Top Two Power Sources -->
       <section class="section" data-section="top-two">
         <div class="section-eyebrow">Your Power Sources</div>
-        <h2>Your Top Two Rays</h2>
+        <h2>Power Sources</h2>
         <p>These are the capacities your system runs strongest. They are not gifts you were lucky to get. They are behaviors you have practiced — and they power everything else in this report.</p>
         <div class="top-two-grid">
           <div class="ray-card ray-card-top">
@@ -971,7 +971,7 @@ ${rayBarsHtml}
       <!-- Micro-Wins -->
       <section class="section" data-section="micro-wins">
         <div class="section-eyebrow">Repeatable Reps</div>
-        <h2>Your First Reps</h2>
+        <h2>Next Reps</h2>
         <p>${escapeHtml(microWinsLead)}</p>
         <p>These are reps — the smallest unit of behavior change. Do one today. Then log it as a receipt.</p>
         <ul class="rep-list">
@@ -979,10 +979,10 @@ ${microWinsItems}
         </ul>
       </section>
 
-      <!-- Coaching Questions -->
+      <!-- Shooting Star Cues -->
       <section class="section" data-section="coaching-questions">
-        <div class="section-eyebrow">Daily Reflection</div>
-        <h2>Coaching Questions</h2>
+        <div class="section-eyebrow">Shooting Star Cues</div>
+        <h2>Shooting Star Cues</h2>
         <p>Run these at the end of your day. As a rep. What you notice is the data. Receipts, then reflection.</p>
         <ol class="coaching-list">
 ${coachingItems}

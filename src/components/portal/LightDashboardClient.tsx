@@ -313,7 +313,7 @@ export default function LightDashboardClient() {
           <div>
             <p className="ld-kicker">143 Leadership</p>
             <h1 className="ld-heading text-2xl sm:text-3xl mt-2" style={{ color: 'var(--text-on-dark)' }}>
-              Light Dashboard
+              Light Portal
             </h1>
             <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
               Nine rays. East to west. This is where your light lands this week.

@@ -59,11 +59,11 @@ export default function CoachingQuestions({ questions, runId }: Props) {
     <section className="space-y-4">
       <div>
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-          Coaching Prompt
+          Shooting Star Cues
         </p>
-        <h3 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Sit With These</h3>
+        <h3 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Shooting Star Cues</h3>
         <p className="mt-1 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-          These are not test questions. They are mirrors. The first one is open — start there. No rush. No right answer. Just honest reflection.
+          Questions that light the next move. The first one is open — start there. No rush. No right answer. Just honest reflection.
         </p>
       </div>
 

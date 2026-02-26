@@ -121,7 +121,7 @@ const FRAMEWORK_TERMS: Array<{ term: string; definition: string; category?: stri
     term: "Net Energy",
     category: "Scoring",
     definition:
-      "A composite measure combining Shine and Eclipse: (Shine - Eclipse + 100) / 2. Scores above 50 indicate more capacity than load. Net Energy determines your top two Rays and your Rise Path.",
+      "A composite measure combining Shine and Eclipse: (Shine - Eclipse + 100) / 2. Scores above 50 indicate more capacity than load. Net Energy determines your Power Sources and your Rise Path.",
   },
   {
     term: "Confidence Band",
@@ -134,7 +134,7 @@ const FRAMEWORK_TERMS: Array<{ term: string; definition: string; category?: stri
     term: "Light Signature Archetype",
     category: "Assessment Output",
     definition:
-      "The named pattern created by your top two Rays working together. Examples include Strategic Optimist (Intention + Joy), Decisive Director (Intention + Power), Relational Light (Connection + Be The Light), and Visionary Servant (Possibility + Be The Light). There are 36 possible archetypes.",
+      "The named pattern created by your two Power Sources working together. Examples include Strategic Optimist (Intention + Joy), Decisive Director (Intention + Power), Relational Light (Connection + Be The Light), and Visionary Servant (Possibility + Be The Light). There are 36 possible archetypes.",
   },
   {
     term: "Eclipse Snapshot",

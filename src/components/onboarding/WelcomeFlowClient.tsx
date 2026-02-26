@@ -121,7 +121,7 @@ export default function WelcomeFlowClient() {
                 {
                   step: '3',
                   title: 'Your 30-Day Plan.',
-                  detail: 'Daily micro-reps matched to your bottom ray. Tools, coaching questions, and if/then plans — all personalized.',
+                  detail: 'Daily micro-reps matched to your bottom ray. Tools, Shooting Star Cues, and if/then plans — all personalized.',
                 },
                 {
                   step: '4',

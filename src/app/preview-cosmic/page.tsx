@@ -199,7 +199,7 @@ export default function CosmicPreview() {
           <div className="text-center"><button className="btn-primary cosmic-focus-target" onClick={() => setShowNova(true)}>Trigger Nova</button></div>
         </Sec>
 
-        <Sec id="s-expansion" n="12" title="Expansion Arc Timeline" desc="Your growth journey — from tight past orbits to spacious present system.">
+        <Sec id="s-expansion" n="12" title="Expansion Arc Timeline" desc="Your growth arc — from tight past orbits to spacious present system.">
           <ExpansionArc milestones={[
             { id: 'm1', label: 'Collaborator arrived', rayColor: '#1ABC9C' },
             { id: 'm2', label: 'New opportunity', rayColor: '#D4770B' },
@@ -216,7 +216,7 @@ export default function CosmicPreview() {
         {/* ═══ EXTENDED CONCEPTS (14-28) ═══ */}
         <div id="extended" className="pt-8"><CatHead title="Extended Concepts" sub="Components 14–28" /></div>
 
-        <Sec id="s-slider" n="14" title="Moon-to-Sun Slider" desc="Overall score as a transformation from crescent moon to radiant sun.">
+        <Sec id="s-slider" n="14" title="Moon-to-Sun Slider" desc="Overall score mapped from crescent moon to radiant sun.">
           <MoonToSunSlider score={overallScore(MOCK_RAYS)} label="Your light today" />
         </Sec>
 

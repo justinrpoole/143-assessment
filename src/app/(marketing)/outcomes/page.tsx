@@ -6,6 +6,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -69,7 +70,7 @@ export default async function OutcomesPage() {
           </p>
         </section>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · WHAT THE REPS PRODUCE ───────────────── */}
         <FadeInSection>
@@ -123,7 +124,7 @@ export default async function OutcomesPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 3 · HOW IT HAPPENS ──────────────────────── */}
         <FadeInSection>
@@ -179,7 +180,7 @@ export default async function OutcomesPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 4 · CTA ─────────────────────────────────── */}
         <FadeInSection>
@@ -214,21 +215,5 @@ export default async function OutcomesPage() {
         </FadeInSection>
       </div>
     </main>
-  );
-}
-
-/* ── utility ───────────────────────────────────────────────── */
-
-function GoldDivider() {
-  return (
-    <div className="mx-auto max-w-[200px]">
-      <div
-        className="h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
-        }}
-      />
-    </div>
   );
 }

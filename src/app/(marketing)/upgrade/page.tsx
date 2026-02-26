@@ -11,6 +11,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -164,7 +165,7 @@ export default async function UpgradePage() {
           <DimmingCarryForwardCard />
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 3 · WHAT YOU GET ────────────────────────── */}
         <FadeInSection>
@@ -227,7 +228,7 @@ export default async function UpgradePage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 4 · HOW THIS IS DIFFERENT ───────────────── */}
         <FadeInSection>
@@ -279,7 +280,7 @@ export default async function UpgradePage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 5 · TESTIMONIALS ────────────────────────── */}
         <FadeInSection>
@@ -327,7 +328,7 @@ export default async function UpgradePage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 6 · PLANS + CHECKOUT ────────────────────── */}
         <FadeInSection>
@@ -447,7 +448,7 @@ export default async function UpgradePage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 7 · FEEDBACK + EXIT ─────────────────────── */}
         <section className="space-y-4">
@@ -483,20 +484,6 @@ export default async function UpgradePage() {
 }
 
 /* ── utility ───────────────────────────────────────────────── */
-
-function GoldDivider() {
-  return (
-    <div className="mx-auto max-w-[200px]">
-      <div
-        className="h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
-        }}
-      />
-    </div>
-  );
-}
 
 function CheckIcon() {
   return (

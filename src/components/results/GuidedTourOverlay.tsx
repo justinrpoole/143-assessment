@@ -51,8 +51,8 @@ const TOUR_STEPS: TourStep[] = [
   },
   {
     sectionId: 'rpt-coaching',
-    title: 'Coaching Questions',
-    explanation: 'These are designed to surface insights your scores can\'t capture. Write your reflections — they become part of your growth record.',
+    title: 'Shooting Star Cues',
+    explanation: 'Questions that light the next move. These are designed to surface insights your scores can\'t capture. Write your reflections — they become part of your growth record.',
   },
 ];
 

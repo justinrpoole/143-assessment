@@ -5,6 +5,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -51,7 +52,7 @@ const FAQS = [
     items: [
       {
         q: "What is a Light Signature?",
-        a: "Your Light Signature is a unique archetype based on your top two Rays. There are 36 possible combinations (the mathematical C(9,2) pairs). Examples include the Visionary Servant, the Bold Authentic, and the Driven Leader. Your Light Signature describes the combination of capacities that define your natural leadership force.",
+        a: "Your Light Signature is a unique archetype based on your two Power Sources — your top two Rays. There are 36 possible combinations (the mathematical C(9,2) pairs). Examples include the Visionary Servant, the Bold Authentic, and the Driven Leader. Your Light Signature describes the combination of capacities that define your current leadership force.",
       },
       {
         q: "What is the Eclipse Snapshot?",
@@ -189,7 +190,7 @@ export default async function FaqPage() {
           </div>
         </section>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 3 · FAQ CATEGORIES ────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-12">
@@ -249,7 +250,7 @@ export default async function FaqPage() {
           ))}
         </section>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── SECTION 4 · CTA ────────────────────────────────── */}
         <FadeInSection>
@@ -283,21 +284,5 @@ export default async function FaqPage() {
         </FadeInSection>
       </div>
     </main>
-  );
-}
-
-/* ── utility ───────────────────────────────────────────────── */
-
-function GoldDivider() {
-  return (
-    <div className="mx-auto max-w-[200px]">
-      <div
-        className="h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
-        }}
-      />
-    </div>
   );
 }

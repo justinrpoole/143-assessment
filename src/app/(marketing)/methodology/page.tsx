@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import { FadeInSection } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -144,254 +146,90 @@ export default async function MethodologyPage() {
         </p>
       </section>
 
-      {/* ── Gold Divider ── */}
-      <div className="mx-auto max-w-[200px]">
-        <div
-          className="h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #F8D011, transparent)",
-          }}
-        />
-      </div>
+      <GoldDividerAnimated />
 
       {/* ── 12 Research Pillars ── */}
-      <section className="mx-auto max-w-[960px] px-5 py-16 sm:px-8">
-        <div className="mb-8">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            12 Research Pillars
-          </p>
-          <h2
-            className="mt-3 text-2xl font-bold"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-          >
-            The science supporting the system.
-          </h2>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {RESEARCH_PILLARS.map((p) => (
-            <div key={p.researcher} className="glass-card p-4">
-              <p
-                className="text-sm font-bold"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                {p.researcher}
-              </p>
-              <p
-                className="mt-1 text-xs italic"
-                style={{ color: "rgba(248,208,17,0.5)" }}
-              >
-                {p.field}
-              </p>
-              <p
-                className="mt-2 text-xs leading-relaxed"
-                style={{
-                  color:
-                    "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
-                }}
-              >
-                {p.mapping}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <FadeInSection>
+        <section className="mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+          <div className="mb-8">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              12 Research Pillars
+            </p>
+            <h2
+              className="mt-3 text-2xl font-bold"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              The science supporting the system.
+            </h2>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {RESEARCH_PILLARS.map((p) => (
+              <div key={p.researcher} className="glass-card p-4">
+                <p
+                  className="text-sm font-bold"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  {p.researcher}
+                </p>
+                <p
+                  className="mt-1 text-xs italic"
+                  style={{ color: "rgba(248,208,17,0.5)" }}
+                >
+                  {p.field}
+                </p>
+                <p
+                  className="mt-2 text-xs leading-relaxed"
+                  style={{
+                    color:
+                      "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  }}
+                >
+                  {p.mapping}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </FadeInSection>
 
-      {/* ── Gold Divider ── */}
-      <div className="mx-auto max-w-[200px]">
-        <div
-          className="h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #F8D011, transparent)",
-          }}
-        />
-      </div>
+      <GoldDividerAnimated />
 
       {/* ── Scoring Model ── */}
-      <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
-        <div className="glass-card p-6 sm:p-8">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            How Scoring Works
-          </p>
-          <h2
-            className="mt-3 text-xl font-bold sm:text-2xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-          >
-            Transparent by design.
-          </h2>
-          <p
-            className="mt-4 text-sm leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            Every score is deterministic — the same responses always produce the
-            same output.
-          </p>
+      <FadeInSection>
+        <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+          <div className="glass-card p-6 sm:p-8">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              How Scoring Works
+            </p>
+            <h2
+              className="mt-3 text-xl font-bold sm:text-2xl"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              Transparent by design.
+            </h2>
+            <p
+              className="mt-4 text-sm leading-relaxed"
+              style={{
+                color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+              }}
+            >
+              Every score is deterministic — the same responses always produce the
+              same output.
+            </p>
 
-          <div className="mt-6 space-y-3">
-            <div>
-              <p
-                className="text-sm font-bold"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Shine (0–100)
-              </p>
-              <p
-                className="mt-1 text-xs leading-relaxed"
-                style={{
-                  color:
-                    "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
-                }}
-              >
-                Baseline capacity under normal conditions.
-              </p>
-            </div>
-
-            <div>
-              <p
-                className="text-sm font-bold"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Access (0–100)
-              </p>
-              <p
-                className="mt-1 text-xs leading-relaxed"
-                style={{
-                  color:
-                    "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
-                }}
-              >
-                Capacity under pressure.
-              </p>
-            </div>
-
-            <div>
-              <p
-                className="text-sm font-bold"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Eclipse (0–100)
-              </p>
-              <p
-                className="mt-1 text-xs leading-relaxed"
-                style={{
-                  color:
-                    "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
-                }}
-              >
-                Current system load / distortion.
-              </p>
-            </div>
-
-            <div>
-              <p
-                className="text-sm font-bold"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Net Energy
-              </p>
-              <p
-                className="mt-1 text-xs leading-relaxed"
-                style={{
-                  color:
-                    "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
-                }}
-              >
-                (Shine &minus; Eclipse + 100) / 2
-              </p>
-            </div>
-
-            <div>
-              <p
-                className="text-sm font-bold"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                Confidence Band
-              </p>
-              <p
-                className="mt-1 text-xs leading-relaxed"
-                style={{
-                  color:
-                    "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
-                }}
-              >
-                LOW, MODERATE, or HIGH based on validity checks.
-              </p>
-            </div>
-          </div>
-
-          <p
-            className="mt-6 text-sm leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            No AI or machine learning is involved in scoring. The pipeline is a
-            fixed mathematical model.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Gold Divider ── */}
-      <div className="mx-auto max-w-[200px]">
-        <div
-          className="h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #F8D011, transparent)",
-          }}
-        />
-      </div>
-
-      {/* ── 9 Constructs ── */}
-      <section className="mx-auto max-w-[960px] px-5 py-16 sm:px-8">
-        <div className="mb-8">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            9 Constructs
-          </p>
-          <h2
-            className="mt-3 text-2xl font-bold"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-          >
-            Nine capacities. Not personality traits.
-          </h2>
-          <p
-            className="mt-2 max-w-[540px] text-sm leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            Each Ray represents a trainable behavioral capacity, not a fixed
-            label. Scores reflect current access levels and are
-            designed to move with practice.
-          </p>
-        </div>
-        <div className="space-y-3">
-          {NINE_RAYS.map((ray, i) => (
-            <div key={ray.name} className="glass-card flex items-baseline gap-4 p-4">
-              <span
-                className="shrink-0 text-sm font-bold"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
-              >
-                {i + 1}.
-              </span>
+            <div className="mt-6 space-y-3">
               <div>
                 <p
                   className="text-sm font-bold"
                   style={{ color: "var(--brand-gold, #F8D011)" }}
                 >
-                  {ray.name}
+                  Shine (0–100)
                 </p>
                 <p
                   className="mt-1 text-xs leading-relaxed"
@@ -400,80 +238,218 @@ export default async function MethodologyPage() {
                       "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
                   }}
                 >
-                  {ray.description}
+                  Baseline capacity under normal conditions.
+                </p>
+              </div>
+
+              <div>
+                <p
+                  className="text-sm font-bold"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  Access (0–100)
+                </p>
+                <p
+                  className="mt-1 text-xs leading-relaxed"
+                  style={{
+                    color:
+                      "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  }}
+                >
+                  Capacity under pressure.
+                </p>
+              </div>
+
+              <div>
+                <p
+                  className="text-sm font-bold"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  Eclipse (0–100)
+                </p>
+                <p
+                  className="mt-1 text-xs leading-relaxed"
+                  style={{
+                    color:
+                      "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  }}
+                >
+                  Current system load / distortion.
+                </p>
+              </div>
+
+              <div>
+                <p
+                  className="text-sm font-bold"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  Net Energy
+                </p>
+                <p
+                  className="mt-1 text-xs leading-relaxed"
+                  style={{
+                    color:
+                      "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  }}
+                >
+                  (Shine &minus; Eclipse + 100) / 2
+                </p>
+              </div>
+
+              <div>
+                <p
+                  className="text-sm font-bold"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  Confidence Band
+                </p>
+                <p
+                  className="mt-1 text-xs leading-relaxed"
+                  style={{
+                    color:
+                      "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  }}
+                >
+                  LOW, MODERATE, or HIGH based on validity checks.
                 </p>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* ── Gold Divider ── */}
-      <div className="mx-auto max-w-[200px]">
-        <div
-          className="h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #F8D011, transparent)",
-          }}
-        />
-      </div>
+            <p
+              className="mt-6 text-sm leading-relaxed"
+              style={{
+                color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+              }}
+            >
+              No AI or machine learning is involved in scoring. The pipeline is a
+              fixed mathematical model.
+            </p>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
+      {/* ── 9 Constructs ── */}
+      <FadeInSection>
+        <section className="mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+          <div className="mb-8">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              9 Constructs
+            </p>
+            <h2
+              className="mt-3 text-2xl font-bold"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              Nine capacities. Not personality traits.
+            </h2>
+            <p
+              className="mt-2 max-w-[540px] text-sm leading-relaxed"
+              style={{
+                color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+              }}
+            >
+              Each Ray represents a trainable behavioral capacity, not a fixed
+              label. Scores reflect current access levels and are
+              designed to move with practice.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {NINE_RAYS.map((ray, i) => (
+              <div key={ray.name} className="glass-card flex items-baseline gap-4 p-4">
+                <span
+                  className="shrink-0 text-sm font-bold"
+                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                >
+                  {i + 1}.
+                </span>
+                <div>
+                  <p
+                    className="text-sm font-bold"
+                    style={{ color: "var(--brand-gold, #F8D011)" }}
+                  >
+                    {ray.name}
+                  </p>
+                  <p
+                    className="mt-1 text-xs leading-relaxed"
+                    style={{
+                      color:
+                        "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                    }}
+                  >
+                    {ray.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
 
       {/* ── Known Limitations ── */}
-      <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
-        <div className="glass-card p-6 sm:p-8">
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            Known Limitations
-          </p>
-          <h2
-            className="mt-3 text-xl font-bold sm:text-2xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-          >
-            What this assessment is not.
-          </h2>
-          <ul className="mt-5 space-y-3">
-            {LIMITATIONS.map((item) => (
-              <li
-                key={item}
-                className="flex gap-3 text-sm leading-relaxed"
-                style={{
-                  color:
-                    "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
-                }}
-              >
-                <span
-                  className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
-                  style={{ background: "var(--brand-gold, #F8D011)" }}
-                />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <FadeInSection>
+        <section className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+          <div className="glass-card p-6 sm:p-8">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              Known Limitations
+            </p>
+            <h2
+              className="mt-3 text-xl font-bold sm:text-2xl"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              What this assessment is not.
+            </h2>
+            <ul className="mt-5 space-y-3">
+              {LIMITATIONS.map((item) => (
+                <li
+                  key={item}
+                  className="flex gap-3 text-sm leading-relaxed"
+                  style={{
+                    color:
+                      "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  }}
+                >
+                  <span
+                    className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
+                    style={{ background: "var(--brand-gold, #F8D011)" }}
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </FadeInSection>
 
       {/* ── Bottom CTA ── */}
-      <section className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
-        <div className="glass-card p-8">
-          <h2
-            className="text-2xl font-bold"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-          >
-            The science is real. The practice is simple.
-          </h2>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/upgrade" className="btn-primary">
-              Take the Assessment — $43
-            </Link>
-            <Link href="/glossary" className="btn-watch">
-              Explore the Glossary
-            </Link>
+      <FadeInSection>
+        <section className="mx-auto max-w-[720px] px-5 pb-20 text-center sm:px-8">
+          <div className="glass-card p-8">
+            <h2
+              className="text-2xl font-bold"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              The science is real. The practice is simple.
+            </h2>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <Link href="/upgrade" className="btn-primary">
+                Take the Assessment — $43
+              </Link>
+              <Link href="/glossary" className="btn-watch">
+                Explore the Glossary
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </FadeInSection>
     </>
   );
 }

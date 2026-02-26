@@ -48,7 +48,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
               {isSaveMap ? "Save Your Map" : "Sign In"}
             </p>
             <h1 className="mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-              {isSaveMap ? "Your results are ready." : "Welcome back."}
+              {isSaveMap ? "Your Light Signature Map is ready." : "Welcome back."}
             </h1>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
               {isSaveMap

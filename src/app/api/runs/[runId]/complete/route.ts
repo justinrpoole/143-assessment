@@ -264,7 +264,7 @@ export async function POST(_request: Request, context: RouteParams) {
     const dripSchedule = [
       { day: 2, section: "Eclipse Snapshot", anchor: "rpt-eclipse" },
       { day: 3, section: "Rise Path", anchor: "rpt-rise-path" },
-      { day: 4, section: "Coaching Questions", anchor: "rpt-coaching" },
+      { day: 4, section: "Shooting Star Cues", anchor: "rpt-coaching" },
       { day: 5, section: "30-Day Plan", anchor: "rpt-30day" },
       { day: 6, section: "Energy Ratio", anchor: "rpt-system-health" },
       { day: 7, section: "Portal & Retake", anchor: "" },

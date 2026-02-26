@@ -1,0 +1,234 @@
+import Link from "next/link";
+
+import CosmicImage from "@/components/marketing/CosmicImage";
+import {
+  FadeInSection,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/FadeInSection";
+import { emitPageView } from "@/lib/analytics/emitter";
+import { getUserStateFromRequest } from "@/lib/auth/user-state";
+
+export const dynamic = "force-dynamic";
+
+export const metadata = {
+  title: "Outcomes — 143 Leadership",
+  description:
+    "What changes when you upgrade your operating system. Not promises. Patterns we see in people who do the reps. Every outcome maps to a specific Ray and a specific mechanism.",
+};
+
+/* ── static data ───────────────────────────────────────────── */
+
+const WINS = [
+  "You stop rehearsing conversations before they happen. Your nervous system learns you can handle the moment when it arrives. That is your Presence Ray coming back online.",
+  "You recover from hard moments in minutes instead of days. The 90-Second Reset teaches your body to feel the spike, name it, and let it pass. People around you notice the difference before you do.",
+  "You notice what is working before someone has to point it out. Your RAS recalibrates. The negativity bias loosens its grip. You start scanning for evidence of capacity instead of threat.",
+  "You stop absorbing other people\u2019s energy as your own. Your Connection Ray trains you to feel what someone is carrying without picking it up. You stay grounded. They feel safer.",
+  "You say the hard thing without the adrenaline spike. Courageous conversations stop feeling like combat. Your Power Ray and your Authenticity Ray start working together instead of against each other.",
+  "You make decisions faster because your signal is clearer. The fog lifts when your operating system runs clean. One leader told us she went from 3 days of deliberation to 3 hours.",
+  "Your confidence stops depending on the last thing that happened. It becomes baseline — built through reps, not reactive. That is the difference between borrowed energy and generated capacity.",
+];
+
+/* ── page ───────────────────────────────────────────────────── */
+
+export default async function OutcomesPage() {
+  const userState = await getUserStateFromRequest();
+
+  emitPageView({
+    eventName: "page_view_outcomes",
+    sourceRoute: "/outcomes",
+    userState,
+  });
+
+  return (
+    <main className="cosmic-page-bg">
+      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+
+        {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
+        <section className="mx-auto max-w-[720px] space-y-5">
+          <p
+            className="text-xs font-bold uppercase tracking-widest"
+            style={{ color: "var(--brand-gold, #F8D011)" }}
+          >
+            This is what changes when the operating system upgrades.
+          </p>
+          <h1
+            className="text-3xl font-bold leading-tight sm:text-4xl"
+            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+          >
+            The room changes when you do. So does Tuesday.
+          </h1>
+          <p
+            className="max-w-[560px] text-base leading-relaxed"
+            style={{
+              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+            }}
+          >
+            Not promises. Patterns we see in people who do the reps. Every
+            outcome maps to a specific Ray and a specific mechanism.
+          </p>
+        </section>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 2 · WHAT THE REPS PRODUCE ───────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-8">
+            <div className="space-y-3">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                What the reps actually produce
+              </p>
+              <h2
+                className="text-2xl font-bold"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                Seven shifts people report after 90 days.
+              </h2>
+            </div>
+
+            <CosmicImage
+              src="/images/cosmic/sun-radiance.png"
+              alt="Full radiance — leadership capacities operating at maximum"
+              width={320}
+              height={320}
+              maxWidth="320px"
+              variant="section"
+            />
+
+            <StaggerContainer className="space-y-4">
+              {WINS.map((win, i) => (
+                <StaggerItem key={i}>
+                  <div
+                    className="glass-card p-5"
+                    style={{
+                      borderLeft: "3px solid var(--brand-gold, #F8D011)",
+                    }}
+                  >
+                    <p
+                      className="text-sm leading-relaxed"
+                      style={{
+                        color:
+                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                      }}
+                    >
+                      {win}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </section>
+        </FadeInSection>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 3 · HOW IT HAPPENS ──────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px]">
+            <div className="glass-card p-6 sm:p-8 space-y-4">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                How these outcomes happen
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                None of this is magic. All of it is mechanism.
+              </h2>
+              <p
+                className="text-sm leading-relaxed"
+                style={{
+                  color:
+                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                }}
+              >
+                The RAS filter resets. The stress response shortens. Identity
+                updates through evidence, not affirmation. Eclipse lifts when
+                you stop borrowing energy and start building capacity. Every
+                tool in the system maps to published, peer-reviewed research.
+                The language is human. The science is real.
+              </p>
+              <p
+                className="text-sm leading-relaxed"
+                style={{
+                  color:
+                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                }}
+              >
+                Take the assessment and see where you stand. Your results are
+                the starting line, not the finish. Your Light Signature tells
+                you where to begin. Your Rise Path tells you what to do first.
+              </p>
+              <p
+                className="text-sm leading-relaxed"
+                style={{
+                  color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                }}
+              >
+                Retake in 90 days and watch your scores move. Growth becomes
+                visible. Not a feeling. A number. That is a receipt you can
+                trust.
+              </p>
+            </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDivider />
+
+        {/* ─── SECTION 4 · CTA ─────────────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px]">
+            <div className="glass-card p-8 text-center space-y-5">
+              <h2
+                className="text-2xl font-bold"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                These outcomes start with one map.
+              </h2>
+              <p
+                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                style={{
+                  color:
+                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                }}
+              >
+                143 questions. 15 minutes. Your Light Signature shows exactly
+                where to begin.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <Link href="/assessment" className="btn-primary">
+                  Take the Assessment
+                </Link>
+                <Link href="/preview" className="btn-watch">
+                  Try the Free Stability Check
+                </Link>
+              </div>
+            </div>
+          </section>
+        </FadeInSection>
+      </div>
+    </main>
+  );
+}
+
+/* ── utility ───────────────────────────────────────────────── */
+
+function GoldDivider() {
+  return (
+    <div className="mx-auto max-w-[200px]">
+      <div
+        className="h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
+        }}
+      />
+    </div>
+  );
+}

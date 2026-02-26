@@ -5,6 +5,7 @@ import ArchetypeLibraryClient from "@/components/archetypes/ArchetypeLibraryClie
 import ArchetypeQuizClient from "@/components/quiz/ArchetypeQuizClient";
 import CosmicImage from "@/components/marketing/CosmicImage";
 import { FadeInSection } from "@/components/ui/FadeInSection";
+import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { rayHex } from "@/lib/ui/ray-colors";
 
 export const metadata: Metadata = {
@@ -132,7 +133,7 @@ export default function ArchetypesPage() {
           />
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── INLINE QUICK QUIZ ─────────────────────────────── */}
         <FadeInSection>
@@ -149,14 +150,14 @@ export default function ArchetypesPage() {
           </section>
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── ARCHETYPE LIBRARY ─────────────────────────────── */}
         <FadeInSection>
           <ArchetypeLibraryClient />
         </FadeInSection>
 
-        <GoldDivider />
+        <GoldDividerAnimated />
 
         {/* ─── FINAL CTA ─────────────────────────────────────── */}
         <FadeInSection>
@@ -191,21 +192,5 @@ export default function ArchetypesPage() {
         </FadeInSection>
       </div>
     </main>
-  );
-}
-
-/* ── utility ───────────────────────────────────────────────── */
-
-function GoldDivider() {
-  return (
-    <div className="mx-auto max-w-[200px]">
-      <div
-        className="h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, var(--brand-gold), transparent)",
-        }}
-      />
-    </div>
   );
 }

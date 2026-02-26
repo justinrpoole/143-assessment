@@ -152,7 +152,7 @@ export function EnterprisePortalClient() {
         </section>
 
         <footer className="flex flex-wrap gap-3">
-          <Link href="/portal" className="btn-primary">Open Dashboard</Link>
+          <Link href="/portal" className="btn-primary">Open Light Portal</Link>
           <Link href="/" className="btn-watch">Back Home</Link>
         </footer>
       </div>

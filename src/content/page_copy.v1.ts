@@ -150,7 +150,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     },
     nextStepSection: {
       title: "Which leader are you when the light is on?",
-      body: "Your top two Rays combine into one of 36 Light Signatures. You might be a Strategic Optimist, a Decisive Director, or a Calm Center. The assessment reveals yours.",
+      body: "Your two Power Sources combine into one of 36 Light Signatures. You might be a Strategic Optimist, a Decisive Director, or a Calm Center. The assessment reveals yours.",
     },
     whyThisWorks: {
       title:
@@ -333,7 +333,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
       "The $43 Gravitational Stability Report gives you your Light Signature, Eclipse Snapshot, Energy Ratio, and Rise Path \u2014 a complete map of where your light is strong and where it is covered, with specific tool recommendations. The $14.33/month Portal Membership adds unlimited retakes, daily micro-practices, and a growth dashboard that proves the reps are landing.",
   },
   sampleReport: {
-    label: "Sample Report",
+    label: "Sample Light Signature Map",
     headline: "This is what a full report reads like. Not a screenshot. The real thing.",
     subhead: "Browse a sample Gravitational Stability Report \u2014 same format, same depth, same identity-first language. The only difference is the data is not yours. Yet.",
     samplePairId: "R4-R5",

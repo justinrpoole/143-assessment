@@ -458,10 +458,10 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
           </div>
         )}
 
-        {/* Coaching Questions */}
+        {/* Shooting Star Cues */}
         {coachingQs.length > 0 && (
           <div className="section">
-            <div className="section-title">Session Starters</div>
+            <div className="section-title">Shooting Star Cues</div>
             {coachingQs.map((q, i) => (
               <div key={i} className="q-item">{q}</div>
             ))}
