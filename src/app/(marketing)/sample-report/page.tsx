@@ -6,6 +6,7 @@ import CosmicImage from "@/components/marketing/CosmicImage";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -199,6 +200,7 @@ export default async function SampleReportPage() {
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }

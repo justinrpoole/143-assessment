@@ -7,6 +7,12 @@ import {
   StaggerItem,
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -45,6 +51,7 @@ export default async function JustinPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
@@ -59,14 +66,11 @@ export default async function JustinPage() {
               priority
             />
           </div>
-          <p
-            className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
-          >
-            The person who built the system — because he needed it first.
+          <p className="gold-tag">
+            <span style={{ color: '#F8D011' }}>&#x25C6;</span> The person who built the system — because he needed it first.
           </p>
           <h1
-            className="text-3xl font-bold leading-tight sm:text-4xl"
+            className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
             I do not motivate. I build maps for people who are tired of
@@ -213,6 +217,14 @@ export default async function JustinPage() {
             </div>
           </section>
         </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        <GoldHeroBanner
+          kicker="The Method Is The Message"
+          title="Fix the operating system first. Then every tactic works."
+          description="Nine trainable capacities backed by peer-reviewed science. Not who you are. What you can build."
+        />
 
         <GoldDividerAnimated />
 

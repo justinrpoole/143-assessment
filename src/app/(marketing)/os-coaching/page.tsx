@@ -8,7 +8,10 @@ import {
 } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -94,6 +97,7 @@ export default async function OsCoachingPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
@@ -121,9 +125,9 @@ export default async function OsCoachingPage() {
             <NeonGlowButton href="/assessment">
               Take the Assessment First
             </NeonGlowButton>
-            <Link href="#format" className="btn-watch">
+            <LiquidFillButton href="#format">
               See the Session Format
-            </Link>
+            </LiquidFillButton>
           </div>
         </section>
 
@@ -358,17 +362,18 @@ export default async function OsCoachingPage() {
                 clients based on fit, readiness, and commitment to the reps.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link href="/assessment" className="btn-primary">
+                <NeonGlowButton href="/assessment">
                   Take the Assessment
-                </Link>
-                <Link href="/preview" className="btn-watch">
+                </NeonGlowButton>
+                <LiquidFillButton href="/preview">
                   Try the Free Stability Check
-                </Link>
+                </LiquidFillButton>
               </div>
             </div>
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }
