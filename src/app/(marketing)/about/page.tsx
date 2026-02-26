@@ -30,7 +30,7 @@ export const metadata = {
 const DO_LIST = [
   "Name the real problem in plain language. No jargon. No cushion.",
   "Back every claim with published research you can read yourself.",
-  "Build tools that measure change \u2014 and show you the receipt at retake.",
+  "Build tools that <span className=\"gold-highlight\">measure change</span> \u2014 and show you the receipt at retake.",
   "Use non-shame language. Your gaps are not failures. They are covered capacities. People develop faster when they feel safe to be honest.",
 ];
 
@@ -44,9 +44,9 @@ const DONT_LIST = [
 const CREDENTIALS = [
   "Executive development consulting across tech, healthcare, finance, and education \u2014 inside the rooms where leadership pressure is real, not theoretical",
   "Trained in behavioural science, positive psychology, and applied neuroscience \u2014 every tool in the system maps to published, peer-reviewed research",
-  "Built and validated the 143 Assessment from the ground up \u2014 143 questions measuring 9 trainable leadership capacities",
+  "Built and validated the 143 Assessment from the ground up \u2014 143 questions measuring <span className=\"gold-highlight\">9 trainable leadership capacities</span>",
   "Designed a deterministic scoring engine \u2014 auditable, reproducible, SHA-256 verified. No black boxes. No vibes.",
-  "Created the Eclipse concept \u2014 a non-shame framework for explaining why high-performers lose access to their strongest capacities under sustained stress",
+  "Created the Eclipse concept \u2014 a <span className=\"gold-highlight\">non-shame framework</span> for explaining why high-performers lose access to their strongest capacities under sustained stress",
   "Developed 36 Light Signature archetypes from C(9,2) ray pair combinations \u2014 a combinatorial identity system, not a personality label",
 ];
 

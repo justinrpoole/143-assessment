@@ -145,7 +145,7 @@ export default async function MethodologyPage() {
             color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
           }}
         >
-          The 143 Leadership Assessment is grounded in 12 peer-reviewed research
+          The 143 Leadership Assessment is grounded in 12 <span className="gold-highlight">peer-reviewed research</span>
           pillars. This page explains every construct, how we measure it, known
           limitations, and what we plan to improve.
         </p>
@@ -224,7 +224,7 @@ export default async function MethodologyPage() {
                 color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
               }}
             >
-              Every score is deterministic — the same responses always produce the
+              Every score is <span className="gold-highlight">deterministic</span> — the same responses always produce the
               same output.
             </p>
 
@@ -365,7 +365,7 @@ export default async function MethodologyPage() {
             >
               Each Ray represents a trainable behavioral capacity, not a fixed
               label. Scores reflect current access levels and are
-              designed to move with practice.
+              <span className="gold-highlight">designed to move</span> with practice.
             </p>
           </div>
           <div className="space-y-3">

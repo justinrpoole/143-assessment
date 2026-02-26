@@ -233,7 +233,7 @@ export default async function PricingPage() {
             }}
           >
             The free Gravitational Stability Check takes 3 minutes. The full
-            assessment takes 15. The Portal tracks your growth monthly. Coaching
+            assessment takes <span className="gold-highlight">15 minutes</span>. The Portal tracks your growth monthly. Coaching
             proves it in 10 weeks. Pick the depth that matches where you are
             right now.
           </p>

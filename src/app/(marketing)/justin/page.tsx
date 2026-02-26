@@ -83,7 +83,7 @@ export default async function JustinPage() {
             }}
           >
             Executive development background. Real organisations. Real pressure.
-            A framework built on behavioural science and tested in the rooms
+            A framework built on <span className="gold-highlight">behavioural science</span> and tested in the rooms
             where leadership actually happens — not conference stages.
           </p>
         </section>
@@ -131,11 +131,11 @@ export default async function JustinPage() {
                 but because they assumed an operating system that was not
                 running. I was stretched. Performing well and coming home empty.
                 Running on borrowed energy and calling it discipline. So I
-                started from scratch. Nine trainable capacities backed by
+                started from scratch. <span className="gold-highlight">Nine trainable capacities</span> backed by
                 peer-reviewed science. An Eclipse Snapshot that names the gap
                 without shame. Non-diagnostic language because people develop
-                faster when they feel safe. A retake system that proves growth
-                is real. I did not study this from a distance. I trained myself
+                faster when they feel safe. A retake system that proves <span className="gold-highlight">growth
+                is real</span>. I did not study this from a distance. I trained myself
                 with these tools and watched my own Light Signature change.
               </p>
             </div>

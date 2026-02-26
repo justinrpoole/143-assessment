@@ -94,7 +94,7 @@ export default async function CoachingPage() {
               The program adapts to how you lead
             </h2>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              A Driven Leader needs a different protocol than a Deep Listener. A True North Leader trains different edges than a Community Builder. The coaching is matched to your Light Signature — not a generic curriculum.
+              A Driven Leader needs a different protocol than a Deep Listener. A True North Leader trains different edges than a Community Builder. The coaching is matched to your <span className="gold-highlight">Light Signature</span> — not a generic curriculum.
             </p>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
               There are 36 Light Signatures. The assessment reveals yours. The program trains from it.
@@ -112,7 +112,7 @@ export default async function CoachingPage() {
             <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>The Structure</p>
             <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Four phases. One protocol.</h2>
             <p className="text-sm max-w-lg mx-auto leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
-              Each phase builds on the one before it. Each week has a specific focus, a matched tool, and a daily practice — all personalised to your assessment results.
+              Each phase builds on the one before it. Each week has a specific focus, a matched tool, and a daily practice — all personalised to your <span className="gold-highlight">assessment results</span>.
             </p>
           </div>
 
@@ -162,7 +162,7 @@ export default async function CoachingPage() {
               </div>
               <div className="flex items-start gap-3">
                 <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2715;</span>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>No motivation speeches. Daily reps, specific tools, measurable change.</p>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>No motivation speeches. Daily reps, specific tools, <span className="gold-highlight">measurable change</span>.</p>
               </div>
             </div>
           </div>
