@@ -41,7 +41,7 @@ export default async function MorningPage() {
   return (
     <>
       <PortalBreadcrumb current="Morning" />
-      <PageHeader title="Morning" />
+      <PageHeader title="Morning" description="Three minutes. One intention. The rep that primes your operating system for the day ahead." />
       <GoldDividerAnimated />
 
       <div className="mt-6 space-y-6">

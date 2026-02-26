@@ -27,7 +27,11 @@ export default async function WeeklyPage() {
   return (
     <>
       <PortalBreadcrumb current="Weekly Scan" />
-      <PageHeader title="Weekly Scan" description="Your system changes. This is your weekly snapshot." />
+      <PageHeader
+        label="Weekly Practice"
+        title="Weekly Scan"
+        description="Your system changes week by week. This snapshot tracks capacity shifts, notices patterns, and shows where your operating system is updating."
+      />
       <GoldDividerAnimated />
 
       <div className="mt-6">

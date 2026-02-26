@@ -27,7 +27,11 @@ export default async function ReflectPage() {
   return (
     <>
       <PortalBreadcrumb current="Reflect" />
-      <PageHeader title="Evening Reflection" />
+      <PageHeader
+        title="Evening Reflection"
+        label="Daily Practice"
+        description="End-of-day reflection. Notice what you gave, what you received, and what is still in motion. The rep that trains awareness."
+      />
       <GoldDividerAnimated />
 
       <div className="mt-6">

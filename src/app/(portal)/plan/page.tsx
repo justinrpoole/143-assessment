@@ -27,7 +27,11 @@ export default async function PlanPage() {
   return (
     <>
       <PortalBreadcrumb current="If/Then Plans" />
-      <PageHeader title="If / Then Plans" />
+      <PageHeader
+        label="Daily Practice"
+        title="If / Then Plans"
+        description="Build implementation intentions that fire automatically. If the cue happens, then the behavior follows — no willpower required."
+      />
       <GoldDividerAnimated />
 
       <div className="mt-6">

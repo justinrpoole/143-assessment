@@ -38,6 +38,7 @@ export default async function ToolkitPage() {
     <>
       <PortalBreadcrumb current="Toolkit" />
       <PageHeader
+        label="Tool Library"
         title="Tool Library"
         description="13 protocols. Each one trains a specific Ray. Each one backed by peer-reviewed research. Each one is a rep."
       />
