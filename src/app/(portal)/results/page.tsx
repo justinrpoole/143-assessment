@@ -7,6 +7,8 @@ import PatternInterruptHub from "@/components/PatternInterruptHub";
 import IntentionRecall from "@/components/results/IntentionRecall";
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -115,6 +117,7 @@ export default async function ResultsPage({ searchParams }: PageProps) {
 
   return (
     <>
+      <PortalBreadcrumb current="Results" />
       <PageHeader
         label="Results"
         title="Your behavioural map is ready."
@@ -139,6 +142,11 @@ export default async function ResultsPage({ searchParams }: PageProps) {
         source_route="/results"
         run_id={runId}
         title="Do you have your next REP?"
+      />
+      <GoldHeroBanner
+        kicker="Your Map"
+        title="Every score is a starting point, not a sentence."
+        description="What you see here is where you are. What you do next determines where you go."
       />
     </>
   );

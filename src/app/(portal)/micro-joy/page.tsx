@@ -5,6 +5,8 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { countMicroJoyEntriesForDate } from "@/lib/db/retention";
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 
 export const dynamic = "force-dynamic";
 
@@ -55,6 +57,7 @@ export default async function MicroJoyPage() {
 
   return (
     <>
+      <PortalBreadcrumb current="Micro-Joy" />
       <PageHeader
         label="Daily Practice"
         title="Micro Joy"
@@ -67,6 +70,11 @@ export default async function MicroJoyPage() {
         feedback_type="microjoy_value"
         source_route="/micro-joy"
         title="Micro Joy value check"
+      />
+      <GoldHeroBanner
+        kicker="Daily Practice"
+        title="Joy is not a luxury. It is a leadership tool."
+        description="Micro-joy trains your system to notice what is working. That changes everything downstream."
       />
     </>
   );

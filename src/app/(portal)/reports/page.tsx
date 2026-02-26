@@ -2,9 +2,11 @@ import { redirect } from "next/navigation";
 
 import { ReportClient } from "@/components/assessment/ReportClient";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -65,6 +67,7 @@ export default async function ReportsPage({ searchParams }: PageProps) {
 
   return (
     <>
+      <PortalBreadcrumb current="Full Report" />
       <PageHeader
         label="Full Report"
         title="Your complete Gravitational Stability Report."
@@ -81,6 +84,11 @@ export default async function ReportsPage({ searchParams }: PageProps) {
         source_route="/reports"
         run_id={runId}
         title="Report resonance check"
+      />
+      <GoldHeroBanner
+        kicker="Your Full Report"
+        title="Every visualization is built from your data. This is yours."
+        description="Nine rays. One signature. A full map of where your light is shining and where it is covered."
       />
     </>
   );

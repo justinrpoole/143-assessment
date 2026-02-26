@@ -1,6 +1,9 @@
 import RepLogClient from '@/components/retention/RepLogClient';
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
+import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 
@@ -41,6 +44,7 @@ export default async function RepsPage({ searchParams }: PageProps) {
 
   return (
     <>
+      <PortalBreadcrumb current="REPS" />
       <PageHeader
         label="The Engine That Rewires Your Brain"
         title="Your REPS"
@@ -55,6 +59,18 @@ export default async function RepsPage({ searchParams }: PageProps) {
       <div className="mt-6">
         <RepLogClient initialTool={initialTool} />
       </div>
+
+      <FeedbackWidget
+        feedback_type="rep_value"
+        source_route="/reps"
+        title="Did this rep land?"
+      />
+
+      <GoldHeroBanner
+        kicker="The Engine"
+        title="Every rep rewires something. This one counts."
+        description="Repetition is not punishment. It is the mechanism that turns insight into instinct."
+      />
     </>
   );
 }

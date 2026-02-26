@@ -3,6 +3,9 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 import WeeklyReviewClient from "@/components/retention/WeeklyReviewClient";
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
+import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 
 export const dynamic = "force-dynamic";
 
@@ -23,12 +26,25 @@ export default async function WeeklyPage() {
 
   return (
     <>
+      <PortalBreadcrumb current="Weekly Scan" />
       <PageHeader title="Weekly Scan" description="Your system changes. This is your weekly snapshot." />
       <GoldDividerAnimated />
 
       <div className="mt-6">
         <WeeklyReviewClient />
       </div>
+
+      <FeedbackWidget
+        feedback_type="weekly_value"
+        source_route="/weekly"
+        title="Was your weekly scan useful?"
+      />
+
+      <GoldHeroBanner
+        kicker="Weekly Practice"
+        title="Your system changes. This scan proves it."
+        description="One scan per week. Five minutes. The data that turns effort into evidence."
+      />
     </>
   );
 }

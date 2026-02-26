@@ -3,6 +3,9 @@ import { emitEvent, emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
+import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 
 export const dynamic = "force-dynamic";
 
@@ -58,6 +61,7 @@ export default async function GrowthPage() {
 
   return (
     <>
+      <PortalBreadcrumb current="Growth" />
       <PageHeader
         label="Growth"
         title="Track what changed across your runs."
@@ -71,6 +75,16 @@ export default async function GrowthPage() {
       <GoldDividerAnimated />
 
       <GrowthSummaryClient />
+      <FeedbackWidget
+        feedback_type="growth_value"
+        source_route="/growth"
+        title="Is this tracking useful?"
+      />
+      <GoldHeroBanner
+        kicker="Your Trendline"
+        title="Growth is not linear. But it is visible."
+        description="Every retake adds a data point. Every data point tells a story. This is yours."
+      />
     </>
   );
 }

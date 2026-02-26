@@ -7,6 +7,8 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { currentLocalDateIso } from "@/lib/retention/morning";
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +40,7 @@ export default async function MorningPage() {
 
   return (
     <>
+      <PortalBreadcrumb current="Morning" />
       <PageHeader title="Morning" />
       <GoldDividerAnimated />
 
@@ -51,6 +54,12 @@ export default async function MorningPage() {
         feedback_type="morning_value"
         source_route="/morning"
         title="Morning value check"
+      />
+
+      <GoldHeroBanner
+        kicker="Daily Practice"
+        title="The morning sets the tone. You just set yours."
+        description="Three minutes. One intention. The rep that primes your operating system for the day ahead."
       />
     </>
   );

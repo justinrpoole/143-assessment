@@ -1,6 +1,8 @@
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 import { emitPageView } from "@/lib/analytics/emitter";
 import PortalDashboard from "@/components/portal/PortalDashboard";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
+import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
@@ -24,6 +26,8 @@ export default async function PortalPage() {
 
   return (
     <>
+      <PortalBreadcrumb current="Dashboard" />
+
       <PageHeader
         label="Light Portal"
         title="Your Light Portal"
@@ -37,6 +41,12 @@ export default async function PortalPage() {
       </CosmicErrorBoundary>
 
       <GoldDividerAnimated />
+
+      <FeedbackWidget
+        feedback_type="portal_value"
+        source_route="/portal"
+        title="Is your portal useful?"
+      />
 
       <GoldHeroBanner
         kicker="Your Operating System"

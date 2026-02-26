@@ -3,6 +3,9 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 import IfThenPlanClient from "@/components/retention/IfThenPlanClient";
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
+import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 
 export const dynamic = "force-dynamic";
 
@@ -23,12 +26,25 @@ export default async function PlanPage() {
 
   return (
     <>
+      <PortalBreadcrumb current="If/Then Plans" />
       <PageHeader title="If / Then Plans" />
       <GoldDividerAnimated />
 
       <div className="mt-6">
         <IfThenPlanClient />
       </div>
+
+      <FeedbackWidget
+        feedback_type="plan_value"
+        source_route="/plan"
+        title="Are your plans landing?"
+      />
+
+      <GoldHeroBanner
+        kicker="Implementation"
+        title="If the cue happens, then the behavior follows."
+        description="Implementation intentions increase goal achievement 2-3x. The negotiation with yourself is already over."
+      />
     </>
   );
 }

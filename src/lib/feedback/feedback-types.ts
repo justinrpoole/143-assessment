@@ -9,6 +9,16 @@ export const FEEDBACK_TYPES = [
   "share_motivation",
   "overall_experience",
   "coaching_inquiry",
+  "portal_value",
+  "rep_value",
+  "toolkit_value",
+  "energy_value",
+  "growth_value",
+  "account_value",
+  "dashboard_value",
+  "plan_value",
+  "reflect_value",
+  "weekly_value",
 ] as const;
 
 export type FeedbackType = (typeof FEEDBACK_TYPES)[number];

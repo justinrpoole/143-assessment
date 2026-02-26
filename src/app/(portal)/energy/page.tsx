@@ -3,6 +3,9 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 import EnergyAuditClient from "@/components/retention/EnergyAuditClient";
 import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
+import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
+import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +26,7 @@ export default async function EnergyPage() {
 
   return (
     <>
+      <PortalBreadcrumb current="Energy Audit" />
       <PageHeader
         label="Daily Practice"
         title="Energy Audit"
@@ -32,6 +36,16 @@ export default async function EnergyPage() {
 
       <div className="mt-6">
         <EnergyAuditClient />
+        <FeedbackWidget
+          feedback_type="energy_value"
+          source_route="/energy"
+          title="Was this audit useful?"
+        />
+        <GoldHeroBanner
+          kicker="Daily Practice"
+          title="Where your energy goes, your life follows."
+          description="This audit makes the invisible visible — so you can stop spending and start investing."
+        />
       </div>
     </>
   );
