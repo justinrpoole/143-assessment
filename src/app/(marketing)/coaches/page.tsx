@@ -279,7 +279,7 @@ export default async function CoachingPage() {
       <RayDivider ray="R7" />
 
       {/* Pricing + CTA */}
-      <FadeInSection>
+      <FadeInSection blur>
         <section id="cta" className="mx-auto max-w-[720px]">
           <ConicBorderCard>
           <div className="glass-card glass-card--executive p-8 text-center space-y-5">

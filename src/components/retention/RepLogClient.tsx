@@ -145,14 +145,14 @@ const TOOLS = [
 type ToolKey = typeof TOOLS[number]['key'];
 
 const CATEGORY_LABELS: Record<string, { label: string; color: string }> = {
-  reset: { label: 'Reset', color: '#2ECC71' },       // aurora-green — recovery
-  action: { label: 'Action', color: '#C0392B' },      // ray-power — courage/motion
-  reflect: { label: 'Reflect', color: '#8E44AD' },    // ray-presence — attention
-  plan: { label: 'Plan', color: '#60A5FA' },          // ray-intention — direction
-  protect: { label: 'Protect', color: '#1ABC9C' },    // ray-possibility — boundaries
-  connect: { label: 'Connect', color: '#E74C8B' },    // ray-connection — relationship
-  practice: { label: 'Practice', color: '#D4770B' },  // ray-purpose — meaning
-  release: { label: 'Release', color: '#C39BD3' },    // aurora-pink — letting go
+  reset: { label: 'Reset', color: rayHex('R6') },       // authenticity — recovery
+  action: { label: 'Action', color: rayHex('R4') },      // power — courage/motion
+  reflect: { label: 'Reflect', color: rayHex('R3') },    // presence — attention
+  plan: { label: 'Plan', color: rayHex('R1') },          // intention — direction
+  protect: { label: 'Protect', color: rayHex('R8') },    // possibility — boundaries
+  connect: { label: 'Connect', color: rayHex('R7') },    // connection — relationship
+  practice: { label: 'Practice', color: rayHex('R5') },  // purpose — meaning
+  release: { label: 'Release', color: '#C39BD3' },       // aurora-pink — letting go
 };
 
 const QUALITY_OPTIONS = [

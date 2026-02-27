@@ -6,11 +6,13 @@ import {
 } from "@/components/ui/FadeInSection";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -62,15 +64,9 @@ export default async function OutcomesPage() {
           >
             The room changes when you do. So does Tuesday.
           </h1>
-          <p
-            className="max-w-[560px] text-base leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            Not promises. Patterns we see in people who do the reps. Every
-            outcome maps to a specific Ray and a specific mechanism.
-          </p>
+          <div className="mx-auto max-w-[540px]">
+            <ScrollTextReveal text="Not promises. Patterns we see in people who do the reps. Every outcome maps to a specific Ray and a specific mechanism." />
+          </div>
         </section>
 
         <RayDivider />
@@ -240,8 +236,9 @@ export default async function OutcomesPage() {
         <RayDivider />
 
         {/* ─── SECTION 4 · CTA ─────────────────────────────────── */}
-        <FadeInSection>
+        <FadeInSection blur>
           <section className="mx-auto max-w-[720px]">
+            <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
@@ -268,6 +265,7 @@ export default async function OutcomesPage() {
                 </LiquidFillButton>
               </div>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>

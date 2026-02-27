@@ -15,6 +15,7 @@ import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -140,17 +141,9 @@ export default async function OrganizationsPage() {
           >
             Your team has the skills. Do they have the capacity to use them?
           </h1>
-          <p
-            className="mx-auto max-w-[540px] text-base leading-relaxed"
-            style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-            }}
-          >
-            The 143 Leadership OS maps 9 trainable behavioural capacities
-            across your team — and gives leaders aggregate intelligence to act
-            before the cost shows up in turnover, disengagement, or initiative
-            fatigue.
-          </p>
+          <div className="mx-auto max-w-[540px]">
+            <ScrollTextReveal text="The 143 Leadership OS maps 9 trainable behavioural capacities across your team — and gives leaders aggregate intelligence to act before the cost shows up in turnover, disengagement, or initiative fatigue." />
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <NeonGlowButton href="/assessment">
               Let Me Try It First
@@ -466,7 +459,7 @@ export default async function OrganizationsPage() {
         <RayDivider ray="R4" />
 
         {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
-        <FadeInSection>
+        <FadeInSection blur>
           <section className="mx-auto max-w-[720px]">
             <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">

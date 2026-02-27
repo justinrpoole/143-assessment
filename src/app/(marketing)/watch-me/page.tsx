@@ -15,6 +15,7 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -327,8 +328,9 @@ export default async function WatchMePage() {
         <RayDivider ray="R9" />
 
         {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
-        <FadeInSection>
+        <FadeInSection blur>
           <section className="mx-auto max-w-[720px]">
+            <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -372,6 +374,7 @@ export default async function WatchMePage() {
                 what is covered.
               </p>
             </div>
+            </ConicBorderCard>
           </section>
         </FadeInSection>
       </div>

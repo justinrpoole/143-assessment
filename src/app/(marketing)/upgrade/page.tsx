@@ -132,7 +132,7 @@ export default async function UpgradePage() {
               You Already Felt the Shift
             </p>
             <h1
-              className="text-3xl font-semibold leading-tight sm:text-4xl"
+              className="text-shimmer text-3xl font-semibold leading-tight sm:text-4xl"
               style={{ color: "var(--text-on-dark, #FFFEF5)" }}
             >
               The Stability Check showed you something real. The full assessment

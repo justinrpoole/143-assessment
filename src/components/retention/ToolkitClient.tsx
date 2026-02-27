@@ -183,15 +183,15 @@ const TOOLS = [
 type Category = 'all' | 'reset' | 'action' | 'reflect' | 'plan' | 'connect' | 'protect' | 'practice' | 'release';
 
 const CATEGORY_FILTERS: { key: Category; label: string; color: string }[] = [
-  { key: 'all', label: 'All tools', color: '#F8D011' },
-  { key: 'reset', label: 'Reset', color: '#2ECC71' },       // aurora-green — recovery
-  { key: 'action', label: 'Action', color: '#C0392B' },      // ray-power — courage/motion
-  { key: 'reflect', label: 'Reflect', color: '#8E44AD' },    // ray-presence — attention
-  { key: 'plan', label: 'Plan', color: '#60A5FA' },          // ray-intention — direction
-  { key: 'connect', label: 'Connect', color: '#E74C8B' },    // ray-connection — relationship
-  { key: 'protect', label: 'Protect', color: '#1ABC9C' },    // ray-possibility — boundaries
-  { key: 'release', label: 'Release', color: '#C39BD3' },    // aurora-pink — letting go
-  { key: 'practice', label: 'Practice', color: '#D4770B' },  // ray-purpose — meaning
+  { key: 'all', label: 'All tools', color: rayHex('R9') },
+  { key: 'reset', label: 'Reset', color: rayHex('R6') },       // authenticity — recovery
+  { key: 'action', label: 'Action', color: rayHex('R4') },      // power — courage/motion
+  { key: 'reflect', label: 'Reflect', color: rayHex('R3') },    // presence — attention
+  { key: 'plan', label: 'Plan', color: rayHex('R1') },          // intention — direction
+  { key: 'connect', label: 'Connect', color: rayHex('R7') },    // connection — relationship
+  { key: 'protect', label: 'Protect', color: rayHex('R8') },    // possibility — boundaries
+  { key: 'release', label: 'Release', color: '#C39BD3' },       // aurora-pink — letting go
+  { key: 'practice', label: 'Practice', color: rayHex('R5') },  // purpose — meaning
 ];
 
 export default function ToolkitClient() {

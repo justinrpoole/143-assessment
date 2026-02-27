@@ -310,7 +310,7 @@ export default async function HowItWorksPage() {
               <StaggerContainer className="grid gap-5 sm:grid-cols-3">
                 {OFFER_TIERS.map((tier) => (
                   <StaggerItem key={tier.title}>
-                    <div className="glass-card flex flex-col p-5 h-full space-y-3">
+                    <div className="glass-card glass-card--magnetic flex flex-col p-5 h-full space-y-3">
                       <p
                         className="text-sm font-semibold"
                         style={{ color: "var(--brand-gold, #F8D011)" }}

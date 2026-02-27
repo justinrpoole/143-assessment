@@ -281,25 +281,25 @@ export default async function UpgradeYourOsPage() {
             <li className="flex items-start gap-2">
               <span style={{ color: '#F8D011', textShadow: '0 0 8px rgba(248,208,17,0.4)' }}>◆</span>
               <span style={{ color: 'var(--text-on-dark-secondary)' }}>
-                <span style={{ color: '#F8D011' }}>9 Ray scores</span> with <span style={{ color: '#60A5FA' }}>Shine</span>/<span style={{ color: '#8E44AD' }}>Eclipse</span> breakdown
+                <span style={{ color: rayHex('R9') }}>9 Ray scores</span> with <span style={{ color: rayHex('R1') }}>Shine</span>/<span style={{ color: rayHex('R3') }}>Eclipse</span> breakdown
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <span style={{ color: '#8E44AD', textShadow: '0 0 8px rgba(142,68,173,0.4)' }}>◆</span>
+              <span style={{ color: rayHex('R3'), textShadow: `0 0 8px ${rayHex('R3')}66` }}>◆</span>
               <span style={{ color: 'var(--text-on-dark-secondary)' }}>
-                <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims."><span style={{ color: '#8E44AD' }}>Eclipse</span></GoldTooltip> detection — which <span style={{ color: '#C0392B' }}>strength</span> is compensating
+                <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims."><span style={{ color: rayHex('R3') }}>Eclipse</span></GoldTooltip> detection — which <span style={{ color: rayHex('R4') }}>strength</span> is compensating
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <span style={{ color: '#2ECC71', textShadow: '0 0 8px rgba(46,204,113,0.4)' }}>◆</span>
+              <span style={{ color: rayHex('R6'), textShadow: `0 0 8px ${rayHex('R6')}66` }}>◆</span>
               <span style={{ color: 'var(--text-on-dark-secondary)' }}>
-                <GoldTooltip tip="Your personalized development sequence based on current capacity gaps."><span style={{ color: '#2ECC71' }}>Rise Path</span></GoldTooltip> with daily tools for your specific pattern
+                <GoldTooltip tip="Your personalized development sequence based on current capacity gaps."><span style={{ color: rayHex('R6') }}>Rise Path</span></GoldTooltip> with daily tools for your specific pattern
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <span style={{ color: '#E74C8B', textShadow: '0 0 8px rgba(231,76,139,0.4)' }}>◆</span>
+              <span style={{ color: rayHex('R7'), textShadow: `0 0 8px ${rayHex('R7')}66` }}>◆</span>
               <span style={{ color: 'var(--text-on-dark-secondary)' }}>
-                Your <span style={{ color: '#E74C8B' }}>Light Signature</span> — the pattern your leadership defaults to
+                Your <span style={{ color: rayHex('R7') }}>Light Signature</span> — the pattern your leadership defaults to
               </span>
             </li>
           </ul>
