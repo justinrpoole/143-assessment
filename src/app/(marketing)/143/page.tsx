@@ -8,7 +8,6 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -17,6 +16,9 @@ import BackToTopButton from "@/components/ui/BackToTopButton";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 
@@ -33,14 +35,17 @@ export const metadata = {
 const SCIENCE_CARDS = [
   {
     label: "The Filter",
+    rayKey: "R3" as const,
     body: "Your Reticular Activating System filters 11 million bits of sensory data every second down to about 40. It decides what you notice. Right now, it is tuned to find threat.",
   },
   {
     label: "The Rewire",
+    rayKey: "R9" as const,
     body: "143 means I love you. One letter. Four letters. Three letters. Every clock at :43 becomes a cue your brain cannot ignore. Hand over heart. The protocol starts.",
   },
   {
     label: "The Proof",
+    rayKey: "R8" as const,
     body: "Self-compassion lowers cortisol. Self-criticism spikes it. Dr. Jill Bolte Taylor's research shows the chemical flood lasts 90 seconds. After that, you are re-triggering yourself through thought. The 143 Challenge interrupts the loop.",
   },
 ];
@@ -49,18 +54,21 @@ const CHALLENGE_STEPS = [
   {
     week: "Days 1\u20133",
     title: "Notice",
+    rayKey: "R3" as const,
     instruction:
       "Just notice 143 on clocks, receipts, signs, license plates. Do not force it. Your brain will start scanning within 72 hours.",
   },
   {
     week: "Days 4\u20137",
     title: "Activate",
+    rayKey: "R9" as const,
     instruction:
       'Every time you see :43 on a clock, look at the hour number. Say "I love you" that many times, using your name. 1:43 = once. 7:43 = seven times. 12:43 = twelve.',
   },
   {
     week: "Week 2+",
     title: "Make It Yours",
+    rayKey: "R8" as const,
     instruction:
       "Add your own layer. A breath. A hand on your chest. A phrase that lands. The cue system is installed. Now you own it.",
   },
@@ -130,9 +138,10 @@ export default async function Challenge143Page() {
           <div className="mt-6">
             <DigitalClock143 />
           </div>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ─── SECTION 2 · THE SCIENCE ────────────────────────── */}
         <FadeInSection blur>
@@ -141,7 +150,7 @@ export default async function Challenge143Page() {
               <div className="space-y-3">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex('R3') }}
                 >
                   Why This Works
                 </p>
@@ -155,17 +164,18 @@ export default async function Challenge143Page() {
               </div>
 
               <StaggerContainer className="space-y-4">
-                {SCIENCE_CARDS.map((card) => (
+                {SCIENCE_CARDS.map((card) => { const color = rayHex(card.rayKey); return (
                   <StaggerItem key={card.label}>
                     <div
-                      className="glass-card p-5"
+                      className="glass-card glass-card--magnetic p-5"
                       style={{
-                        borderLeft: "3px solid var(--brand-gold, #F8D011)",
+                        borderLeft: `3px solid ${color}40`,
+                        background: `${color}06`,
                       }}
                     >
                       <p
                         className="text-sm font-semibold"
-                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                        style={{ color }}
                       >
                         {card.label}
                       </p>
@@ -180,13 +190,13 @@ export default async function Challenge143Page() {
                       </p>
                     </div>
                   </StaggerItem>
-                ))}
+                );})}
               </StaggerContainer>
             </section>
           </RadialSpotlight>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R3" />
 
         {/* ─── SECTION 3 · THE PROTOCOL ───────────────────────── */}
         <FadeInSection>
@@ -197,7 +207,7 @@ export default async function Challenge143Page() {
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R9') }}
               >
                 The Protocol
               </p>
@@ -210,14 +220,14 @@ export default async function Challenge143Page() {
             </div>
 
             <StaggerContainer className="space-y-4">
-              {CHALLENGE_STEPS.map((step) => (
+              {CHALLENGE_STEPS.map((step) => { const stepColor = rayHex(step.rayKey); return (
                 <StaggerItem key={step.title}>
                   <div className="glass-card p-5 space-y-2">
                     <div className="flex items-center gap-3">
                       <span
                         className="shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest"
                         style={{
-                          background: "var(--brand-gold, #F8D011)",
+                          background: stepColor,
                           color: "#020202",
                         }}
                       >
@@ -241,7 +251,7 @@ export default async function Challenge143Page() {
                     </p>
                   </div>
                 </StaggerItem>
-              ))}
+              );})}
             </StaggerContainer>
 
             <p
@@ -257,7 +267,7 @@ export default async function Challenge143Page() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         <GoldHeroBanner
           kicker="143 = I Love You"
@@ -265,7 +275,7 @@ export default async function Challenge143Page() {
           description="This is not affirmation. It is a reprogramming act backed by neuroscience. 3 days. 3 minutes. Free."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── THE DESIGN PHILOSOPHY ─────────────────────────── */}
         <FadeInSection>
@@ -273,7 +283,7 @@ export default async function Challenge143Page() {
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R5') }}
               >
                 The Design Philosophy
               </p>
@@ -311,7 +321,7 @@ export default async function Challenge143Page() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R5" />
 
         {/* ─── SECTION 4 · THE CHALLENGE KIT ──────────────────── */}
         <FadeInSection>
@@ -328,7 +338,7 @@ export default async function Challenge143Page() {
               />
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R8') }}
               >
                 Your Challenge Kit
               </p>
@@ -340,7 +350,9 @@ export default async function Challenge143Page() {
               </h2>
 
               <ul className="space-y-2">
-                {KIT_INCLUDES.map((item) => (
+                {KIT_INCLUDES.map((item, i) => {
+                  const dotColors = ['R1','R3','R9','R6','R8'] as const;
+                  return (
                   <li
                     key={item}
                     className="flex items-start gap-2 text-sm leading-relaxed"
@@ -351,11 +363,11 @@ export default async function Challenge143Page() {
                   >
                     <span
                       className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
-                      style={{ background: "var(--brand-gold)" }}
+                      style={{ background: rayHex(dotColors[i % 5]) }}
                     />
                     {item}
                   </li>
-                ))}
+                );})}
               </ul>
 
               <ToolkitDeliveryClient isAuthenticated={auth.isAuthenticated} />
@@ -363,7 +375,7 @@ export default async function Challenge143Page() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── SECTION 5 · THE BRIDGE ─────────────────────────── */}
         <FadeInSection>
@@ -371,7 +383,7 @@ export default async function Challenge143Page() {
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R1') }}
               >
                 What Comes Next
               </p>

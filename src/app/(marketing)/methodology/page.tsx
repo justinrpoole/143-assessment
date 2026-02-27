@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
@@ -14,6 +13,9 @@ import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { FadeInSection, StaggerContainer, StaggerItem } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 
 export const dynamic = "force-dynamic";
 
@@ -179,9 +181,10 @@ export default async function MethodologyPage() {
         <div className="mx-auto max-w-[540px]">
           <ScrollTextReveal text="The 143 Leadership Assessment is grounded in 12 peer-reviewed research pillars. This page explains every construct, how we measure it, known limitations, and what we plan to improve." />
         </div>
+        <RaySpectrumStrip className="mt-6" />
       </section>
 
-      <GoldDividerAnimated />
+      <RayDivider />
 
       {/* ── 12 Research Pillars ── */}
       <FadeInSection>
@@ -189,7 +192,7 @@ export default async function MethodologyPage() {
           <div className="mb-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R6') }}
             >
               12 Research Pillars
             </p>
@@ -201,18 +204,18 @@ export default async function MethodologyPage() {
             </h2>
           </div>
           <StaggerContainer className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {RESEARCH_PILLARS.map((p) => (
+            {RESEARCH_PILLARS.map((p, i) => (
               <StaggerItem key={p.researcher}>
-              <div className="glass-card glass-card--magnetic glass-card--lift p-4">
+              <div className="glass-card glass-card--magnetic glass-card--lift p-4" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}40`, background: `${rayHex(cycleRay(i))}04` }}>
                 <p
                   className="text-sm font-bold"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex(cycleRay(i)) }}
                 >
                   {p.researcher}
                 </p>
                 <p
                   className="mt-1 text-xs italic"
-                  style={{ color: "rgba(248,208,17,0.5)" }}
+                  style={{ color: `${rayHex(cycleRay(i))}80` }}
                 >
                   {p.field}
                 </p>
@@ -242,7 +245,7 @@ export default async function MethodologyPage() {
 
       <hr className="gold-rule" />
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R6" />
 
       {/* ── Scoring Model ── */}
       <FadeInSection>
@@ -250,7 +253,7 @@ export default async function MethodologyPage() {
           <div className="glass-card glass-card--executive p-6 sm:p-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R1') }}
             >
               How Scoring Works
             </p>
@@ -405,7 +408,7 @@ export default async function MethodologyPage() {
         description="Every score is designed to move. That is the difference between a label and a training system."
       />
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R1" />
 
       {/* ── 9 Constructs ── */}
       <FadeInSection>
@@ -414,7 +417,7 @@ export default async function MethodologyPage() {
           <div className="mb-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R9') }}
             >
               9 Constructs
             </p>
@@ -436,18 +439,20 @@ export default async function MethodologyPage() {
             </p>
           </div>
           <div className="space-y-3">
-            {NINE_RAYS.map((ray, i) => (
-              <div key={ray.name} className="glass-card flex items-baseline gap-4 p-4">
+            {NINE_RAYS.map((ray, i) => {
+              const color = rayHex(cycleRay(i));
+              return (
+              <div key={ray.name} className="glass-card glass-card--magnetic flex items-baseline gap-4 p-4" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
                 <span
                   className="shrink-0 text-sm font-bold"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color }}
                 >
                   {i + 1}.
                 </span>
                 <div>
                   <p
                     className="text-sm font-bold"
-                    style={{ color: "var(--brand-gold, #F8D011)" }}
+                    style={{ color }}
                   >
                     {ray.name}
                   </p>
@@ -462,12 +467,13 @@ export default async function MethodologyPage() {
                   </p>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R4" />
 
       {/* ── Reps, Not Resolutions (#10) ── */}
       <FadeInSection>
@@ -475,7 +481,7 @@ export default async function MethodologyPage() {
           <div className="glass-card p-6 sm:p-8 space-y-4">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R4') }}
             >
               Reps, Not Resolutions
             </p>
@@ -508,7 +514,7 @@ export default async function MethodologyPage() {
         </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R8" />
 
       {/* ── Built for Real Brains (#3) ── */}
       <FadeInSection>
@@ -516,7 +522,7 @@ export default async function MethodologyPage() {
           <div className="glass-card p-6 sm:p-8 space-y-4">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R8') }}
             >
               Built for Real Brains
             </p>
@@ -549,7 +555,7 @@ export default async function MethodologyPage() {
         </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R3" />
 
       {/* ── Designed to Be Outgrown (#8) ── */}
       <FadeInSection>
@@ -557,7 +563,7 @@ export default async function MethodologyPage() {
           <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R3') }}
             >
               Designed to Be Outgrown
             </p>
@@ -588,7 +594,7 @@ export default async function MethodologyPage() {
         </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R5" />
 
       {/* ── Open Methodology Commitment (#29) ── */}
       <FadeInSection>
@@ -596,7 +602,7 @@ export default async function MethodologyPage() {
           <div className="glass-card p-6 sm:p-8 space-y-4">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R5') }}
             >
               Our Commitment
             </p>
@@ -642,7 +648,7 @@ export default async function MethodologyPage() {
         </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R9" />
 
       {/* ── Known Limitations ── */}
       <FadeInSection>
@@ -650,7 +656,7 @@ export default async function MethodologyPage() {
           <div className="glass-card p-6 sm:p-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R9') }}
             >
               Known Limitations
             </p>

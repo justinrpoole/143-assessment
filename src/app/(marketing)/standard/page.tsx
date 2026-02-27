@@ -3,7 +3,6 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -12,6 +11,9 @@ import BackToTopButton from "@/components/ui/BackToTopButton";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -151,9 +153,10 @@ export default async function StandardPage() {
           <div className="mx-auto max-w-[540px]">
             <ScrollTextReveal text="10 principles that define what every leadership assessment should be. We did not just build an assessment. We defined the standard we wish existed — then held ourselves to it." />
           </div>
+          <RaySpectrumStrip className="mt-4" />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── THE 10 PRINCIPLES ───────────────────────────────── */}
         <FadeInSection>
@@ -162,7 +165,7 @@ export default async function StandardPage() {
               <div className="space-y-3 text-center">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex('R9') }}
                 >
                   The 10 Principles
                 </p>
@@ -175,19 +178,20 @@ export default async function StandardPage() {
               </div>
 
               <StaggerContainer className="space-y-4">
-                {PRINCIPLES.map((p) => (
+                {PRINCIPLES.map((p, i) => { const color = rayHex(cycleRay(i)); return (
                   <StaggerItem key={p.number}>
                     <div
-                      className="glass-card p-5"
+                      className="glass-card glass-card--magnetic p-5"
                       style={{
-                        borderLeft: "3px solid var(--brand-gold, #F8D011)",
+                        borderLeft: `3px solid ${color}40`,
+                        background: `${color}04`,
                       }}
                     >
                       <div className="flex items-baseline gap-3">
                         <span
                           className="shrink-0 text-lg font-bold"
                           style={{
-                            color: "var(--brand-gold, #F8D011)",
+                            color,
                             fontFamily: "var(--font-cosmic-display)",
                           }}
                         >
@@ -195,7 +199,7 @@ export default async function StandardPage() {
                         </span>
                         <p
                           className="text-sm font-bold"
-                          style={{ color: "var(--brand-gold, #F8D011)" }}
+                          style={{ color }}
                         >
                           {p.name}
                         </p>
@@ -212,20 +216,20 @@ export default async function StandardPage() {
                       <p
                         className="mt-2 text-xs leading-relaxed italic"
                         style={{
-                          color: "rgba(255,255,255,0.4)",
+                          color: `${color}66`,
                         }}
                       >
                         143 Standard: {p.standard}
                       </p>
                     </div>
                   </StaggerItem>
-                ))}
+                );})}
               </StaggerContainer>
             </section>
           </RadialSpotlight>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ─── LEGACY vs STANDARD ──────────────────────────────── */}
         <FadeInSection>
@@ -233,7 +237,7 @@ export default async function StandardPage() {
             <div className="space-y-3 text-center">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R1') }}
               >
                 Legacy Assessments vs. The 143 Standard
               </p>
@@ -275,6 +279,7 @@ export default async function StandardPage() {
                       i < COMPARISON_ROWS.length - 1
                         ? "1px solid rgba(255,255,255,0.05)"
                         : "none",
+                    borderLeft: `2px solid ${rayHex(cycleRay(i))}25`,
                   }}
                 >
                   <span
@@ -286,7 +291,7 @@ export default async function StandardPage() {
                   <span style={{ color: "rgba(255,255,255,0.3)" }}>
                     {row.legacy}
                   </span>
-                  <span style={{ color: "var(--brand-gold, #F8D011)" }}>
+                  <span style={{ color: rayHex(cycleRay(i)) }}>
                     {row.standard}
                   </span>
                 </div>
@@ -295,7 +300,7 @@ export default async function StandardPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         <GoldHeroBanner
           kicker="The Standard"
@@ -303,7 +308,7 @@ export default async function StandardPage() {
           description="Every competitor will be measured against this framework. Not because we said so — but because leaders deserve it."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── WHY THIS MATTERS ────────────────────────────────── */}
         <FadeInSection>
@@ -311,7 +316,7 @@ export default async function StandardPage() {
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R4') }}
               >
                 Why This Matters
               </p>
@@ -354,7 +359,7 @@ export default async function StandardPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── CTA ─────────────────────────────────────────────── */}
         <FadeInSection>

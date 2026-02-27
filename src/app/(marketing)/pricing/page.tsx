@@ -8,7 +8,6 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -22,6 +21,9 @@ import BackToTopButton from "@/components/ui/BackToTopButton";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
 import CompetitorPricingContext from "@/components/marketing/CompetitorPricingContext";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 
 export const dynamic = "force-dynamic";
 
@@ -245,6 +247,7 @@ export default async function PricingPage() {
             <LiveActivityBadge />
           </div>
           <TrustBadgeStrip badges={["9 Rays Measured", "143+ Data Points", "Evidence-Based"]} />
+          <RaySpectrumStrip />
         </section>
 
         <FadeInSection blur>
@@ -258,7 +261,7 @@ export default async function PricingPage() {
           />
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 2 · PLAN CARDS ──────────────────────────── */}
         <FadeInSection>
@@ -321,7 +324,7 @@ export default async function PricingPage() {
                         className="check-animated flex items-start gap-2 text-sm"
                         style={{ color: "var(--text-on-dark, #FFFEF5)", animationDelay: `${index * 0.1}s` }}
                       >
-                        <CheckIcon />
+                        <CheckIcon color={rayHex(cycleRay(index))} />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -360,7 +363,7 @@ export default async function PricingPage() {
 
         <hr className="gold-rule" />
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 3 · COMPARISON TABLE ────────────────────── */}
         <FadeInSection>
@@ -369,7 +372,7 @@ export default async function PricingPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R1') }}
               >
                 Side by Side
               </p>
@@ -446,6 +449,7 @@ export default async function PricingPage() {
                           i < COMPARISON_FEATURES.length - 1
                             ? "1px solid var(--surface-border, rgba(255,255,255,0.06))"
                             : "none",
+                        borderLeft: `2px solid ${rayHex(cycleRay(i))}25`,
                       }}
                     >
                       <td
@@ -477,7 +481,7 @@ export default async function PricingPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ─── COMPETITOR PRICING CONTEXT (#7) ────────────────── */}
         <FadeInSection>
@@ -486,7 +490,7 @@ export default async function PricingPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         <GoldHeroBanner
           kicker="Built to Prove Change"
@@ -494,7 +498,7 @@ export default async function PricingPage() {
           description="Start free. The assessment proves the rest. No lock-in. No penalties."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── LEADERSHIP MRI + STREAK (#11, #13) ────────────── */}
         <FadeInSection>
@@ -502,7 +506,7 @@ export default async function PricingPage() {
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R9') }}
               >
                 Your Weekly Leadership MRI
               </p>
@@ -533,7 +537,7 @@ export default async function PricingPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R6" />
 
         {/* ─── SECTION 4 · NO LOCK-IN ──────────────────────────── */}
         <FadeInSection>
@@ -541,7 +545,7 @@ export default async function PricingPage() {
             <div className="glass-card p-6 sm:p-8 space-y-4 text-center">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R6') }}
               >
                 No Lock-In
               </p>
@@ -568,7 +572,7 @@ export default async function PricingPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── SECTION 5 · FAQ ─────────────────────────────────── */}
         <FadeInSection>
@@ -576,7 +580,7 @@ export default async function PricingPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R8') }}
               >
                 Common Questions
               </p>
@@ -637,7 +641,7 @@ export default async function PricingPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
         <FadeInSection>
@@ -689,7 +693,7 @@ export default async function PricingPage() {
 
 /* ── utility ───────────────────────────────────────────────── */
 
-function CheckIcon() {
+function CheckIcon({ color = "#F8D011" }: { color?: string }) {
   return (
     <svg
       width="16"
@@ -699,10 +703,10 @@ function CheckIcon() {
       aria-hidden="true"
       className="mt-0.5 shrink-0"
     >
-      <circle cx="8" cy="8" r="7" stroke="#F8D011" strokeWidth="1.5" />
+      <circle cx="8" cy="8" r="7" stroke={color} strokeWidth="1.5" />
       <path
         d="M5 8l2 2 4-4"
-        stroke="#F8D011"
+        stroke={color}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

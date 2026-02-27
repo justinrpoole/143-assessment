@@ -8,7 +8,6 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -20,6 +19,9 @@ import BackToTopButton from "@/components/ui/BackToTopButton";
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 
 export const dynamic = "force-dynamic";
 
@@ -103,9 +105,10 @@ export default async function AboutPage() {
           <div className="mx-auto max-w-[540px]">
             <ScrollTextReveal text="Executive development background. Real-world pressure. A framework built on behavioural science and tested in the rooms where leadership actually happens — not conference stages." />
           </div>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ─── SECTION 2 · THE STORY ──────────────────────────── */}
         <FadeInSection blur>
@@ -113,7 +116,7 @@ export default async function AboutPage() {
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R1') }}
               >
                 The short version
               </p>
@@ -170,7 +173,7 @@ export default async function AboutPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R6" />
 
         {/* ─── SECTION 3 · CREDENTIALS ────────────────────────── */}
         <FadeInSection>
@@ -179,7 +182,7 @@ export default async function AboutPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R6') }}
               >
                 Background
               </p>
@@ -194,7 +197,7 @@ export default async function AboutPage() {
             <StaggerContainer className="space-y-3">
               {CREDENTIALS.map((item, idx) => (
                 <StaggerItem key={item}>
-                  <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4 check-animated" style={{ animationDelay: `${idx * 0.1}s` }}>
+                  <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4 check-animated" style={{ animationDelay: `${idx * 0.1}s`, borderLeft: `2px solid ${rayHex(cycleRay(idx))}40` }}>
                     <CheckIcon />
                     <span
                       className="text-sm leading-relaxed"
@@ -209,7 +212,7 @@ export default async function AboutPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R4" />
 
         {/* ─── SECTION 4 · DO / DON'T ─────────────────────────── */}
         <FadeInSection>
@@ -225,7 +228,7 @@ export default async function AboutPage() {
               <div>
                 <p
                   className="mb-4 text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex('R6') }}
                 >
                   What I do
                 </p>
@@ -253,7 +256,7 @@ export default async function AboutPage() {
               <div>
                 <p
                   className="mb-4 text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "rgba(248,208,17,0.55)" }}
+                  style={{ color: `${rayHex('R4')}88` }}
                 >
                   What I don&apos;t do
                 </p>
@@ -285,7 +288,7 @@ export default async function AboutPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── BUILT FOR REAL BRAINS (#3) ──────────────────────── */}
         <FadeInSection>
@@ -293,7 +296,7 @@ export default async function AboutPage() {
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R8') }}
               >
                 Built for Real Brains
               </p>
@@ -324,13 +327,13 @@ export default async function AboutPage() {
               </p>
               <div className="grid gap-3 sm:grid-cols-2 mt-2">
                 {[
-                  { label: "3-5 min", desc: "Daily practices — not 60-min sessions" },
-                  { label: "Weekly scan", desc: "5-minute retake — not annual reassessment" },
-                  { label: "Visible proof", desc: "Scores you can see move — not abstract insight" },
-                  { label: "No willpower gate", desc: "Smallest viable rep — not behavior overhaul" },
+                  { label: "3-5 min", desc: "Daily practices — not 60-min sessions", rayKey: "R1" },
+                  { label: "Weekly scan", desc: "5-minute retake — not annual reassessment", rayKey: "R9" },
+                  { label: "Visible proof", desc: "Scores you can see move — not abstract insight", rayKey: "R8" },
+                  { label: "No willpower gate", desc: "Smallest viable rep — not behavior overhaul", rayKey: "R4" },
                 ].map((item) => (
-                  <div key={item.label} className="glass-card p-3">
-                    <p className="text-sm font-bold" style={{ color: "#F8D011" }}>{item.label}</p>
+                  <div key={item.label} className="glass-card glass-card--magnetic p-3" style={{ borderTop: `2px solid ${rayHex(item.rayKey)}30` }}>
+                    <p className="text-sm font-bold" style={{ color: rayHex(item.rayKey) }}>{item.label}</p>
                     <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>{item.desc}</p>
                   </div>
                 ))}
@@ -339,7 +342,7 @@ export default async function AboutPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         <GoldHeroBanner
           kicker="Why 143"
@@ -347,7 +350,7 @@ export default async function AboutPage() {
           description="Not a platitude. An operating condition. Self-directed compassion lowers cortisol. Self-criticism spikes it. The number is the design philosophy."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R3" />
 
         {/* ─── THE 143 DESIGN PHILOSOPHY (#24) ────────────────── */}
         <FadeInSection>
@@ -355,7 +358,7 @@ export default async function AboutPage() {
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R3') }}
               >
                 The 143 Design Philosophy
               </p>
@@ -393,7 +396,7 @@ export default async function AboutPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R5" />
 
         {/* ─── SECTION 5 · THE METHOD ─────────────────────────── */}
         <FadeInSection>
@@ -408,7 +411,7 @@ export default async function AboutPage() {
             />
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R5') }}
             >
               The method is the message
             </p>
@@ -434,14 +437,14 @@ export default async function AboutPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         {/* ─── SECTION 5b · TESTIMONIALS ─────────────────────────── */}
         <FadeInSection>
           <section id="testimonials" className="relative mx-auto max-w-[720px] space-y-6 text-center section-blend-bottom">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R7') }}
             >
               What leaders are saying
             </p>
@@ -478,7 +481,7 @@ export default async function AboutPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
         <FadeInSection>
@@ -487,7 +490,7 @@ export default async function AboutPage() {
             <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R9') }}
               >
                 Ready to see your map?
               </p>
@@ -518,7 +521,7 @@ export default async function AboutPage() {
 
 /* ── utility ───────────────────────────────────────────────── */
 
-function CheckIcon() {
+function CheckIcon({ color = "#F8D011" }: { color?: string }) {
   return (
     <svg
       width="16"
@@ -528,10 +531,10 @@ function CheckIcon() {
       aria-hidden="true"
       className="mt-0.5 shrink-0"
     >
-      <circle cx="8" cy="8" r="7" stroke="#F8D011" strokeWidth="1.5" />
+      <circle cx="8" cy="8" r="7" stroke={color} strokeWidth="1.5" />
       <path
         d="M5 8l2 2 4-4"
-        stroke="#F8D011"
+        stroke={color}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
