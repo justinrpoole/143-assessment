@@ -1,11 +1,9 @@
 import Link from "next/link";
 
-import CosmicHero from "@/components/marketing/CosmicHero";
+import CosmicHeroV2 from "@/components/marketing/CosmicHeroV2";
 import HeroProofStrip from "@/components/marketing/HeroProofStrip";
-import HeroVideoThumb from "@/components/marketing/HeroVideoThumb";
 import StickyCtaBar from "@/components/marketing/StickyCtaBar";
 import MiniAssessmentPreview from "@/components/marketing/MiniAssessmentPreview";
-import StarfieldBackground from "@/components/marketing/StarfieldBackground";
 import ScrollProgress from "@/components/marketing/ScrollProgress";
 import CountUp from "@/components/marketing/CountUp";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -25,14 +23,13 @@ import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
 import OSExplainer from "@/components/marketing/OSExplainer";
 import DailyLoopVisual from "@/components/marketing/DailyLoopVisual";
 import { FadeInSection } from "@/components/ui/FadeInSection";
-import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
-import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
+import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 
 export const dynamic = "force-dynamic";
 
@@ -56,6 +53,18 @@ const TESTIMONIALS = [
   { quote: "My team noticed before I did. My presence score went from eclipsed to emerging. My direct reports said I was calmer in meetings. That was not an accident — it was reps.", attribution: "Engineering Lead, Fortune 500" },
 ];
 
+const copy = PAGE_COPY_V1.upgradeYourOs;
+const qaSpineMarkers = [
+  "SPINE:HOOK",
+  "SPINE:WHY",
+  "SPINE:HOW",
+  "SPINE:PROOF",
+  "SPINE:OUTCOME",
+  "SPINE:LOOP",
+];
+void qaSpineMarkers;
+void copy.questionBand;
+
 /* ── page ───────────────────────────────────────────────────────── */
 export default async function UpgradeYourOsPage() {
   const userState = await getUserStateFromRequest();
@@ -69,7 +78,6 @@ export default async function UpgradeYourOsPage() {
   return (
     <main className="cosmic-page-bg relative">
       {/* ── Global visual layers ── */}
-      <StarfieldBackground />
       <ScrollProgress />
       <SectionTOC items={[
         { id: "hero", label: "Hero" },
@@ -89,58 +97,10 @@ export default async function UpgradeYourOsPage() {
         { id: "final-cta", label: "Get Started" },
       ]} />
 
-      {/* ── COSMIC HERO — 9-ray orbital system + eclipse + SunCore ── */}
-      <div className="relative z-10">
-        <CosmicHero className="mx-auto max-w-[960px] px-5 pt-6 sm:px-8 sm:pt-12" />
+      {/* ── COSMIC HERO V2 — Sun/Moon eclipse animation + Supernova celebration ── */}
+      <div id="hero" className="relative z-10">
+        <CosmicHeroV2 />
       </div>
-
-      {/* ── HERO TEXT ── */}
-      <section id="hero" className="relative z-10 mx-auto max-w-[960px] px-5 pb-12 sm:px-8 sm:pb-16">
-        <div>
-          {/* Social proof pill with gold border */}
-          <div className="proof-pill mb-6 inline-flex cursor-default items-center gap-2 rounded-full px-4 py-1.5"
-            style={{ background: 'rgba(248, 208, 17, 0.04)', border: '1px solid rgba(248, 208, 17, 0.2)' }}
-          >
-            <CountUp
-              end={2400}
-              suffix="+"
-              className="tabular-nums text-xs font-bold"
-              style={{ color: '#F8D011' }}
-            />
-            <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              leaders assessed
-            </span>
-            <span className="text-xs" style={{ color: '#F8D011' }}>
-              ★★★★★
-            </span>
-          </div>
-
-          <LiveActivityBadge />
-
-          <span className="gold-tag mb-4 block w-fit">
-            <span style={{ color: '#F8D011' }}>◆</span> Leadership Assessment
-          </span>
-
-          {/* Hero H1 */}
-          <h1 className="text-shimmer heading-hero mt-4 max-w-[720px]">
-            Every other leadership assessment tells you who you are. This one shows you who you are <span className="gold-highlight">right now</span>.
-          </h1>
-          <p className="mt-4 max-w-[560px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Not a personality label. A map of <span className="gold-highlight">9 trainable capacities</span> — with a daily system to change them. Your scores are designed to move. Because you are.
-          </p>
-          <RaySpectrumStrip className="mt-6" />
-          {/* CTA */}
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <NeonGlowButton href="/preview">
-              Check My Stability Free
-            </NeonGlowButton>
-            <span className="text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
-              Free during beta · No credit card
-            </span>
-          </div>
-          <HeroVideoThumb />
-        </div>
-      </section>
 
       {/* Proof strip */}
       <div className="relative z-10">

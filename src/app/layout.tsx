@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Orelega_One, Inter } from "next/font/google";
+import { Orelega_One, Inter, Playfair_Display } from "next/font/google";
 import { ToastProvider } from "@/components/ui/Toast";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 import "./globals.css";
@@ -14,6 +14,12 @@ const orelega = Orelega_One({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -68,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${orelega.variable} ${inter.variable}`}>
+    <html lang="en" className={`${orelega.variable} ${inter.variable} ${playfair.variable}`}>
       <body className="antialiased min-h-screen overflow-x-hidden" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
         <script
           type="application/ld+json"
