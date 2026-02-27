@@ -116,10 +116,10 @@ export default async function Challenge143Page() {
           </p>
           <div className="flex flex-wrap gap-3">
             <NeonGlowButton href="#challenge-start">
-              Start the Challenge
+              Start My Challenge
             </NeonGlowButton>
             <LiquidFillButton href="/assessment">
-              Take the Full Assessment
+              Show Me All 9 Rays
             </LiquidFillButton>
           </div>
           <div className="flex justify-start pt-2">
@@ -267,6 +267,52 @@ export default async function Challenge143Page() {
 
         <GoldDividerAnimated />
 
+        {/* ─── THE DESIGN PHILOSOPHY ─────────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px]">
+            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                The Design Philosophy
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl text-gold-gradient"
+              >
+                We named it 143 because self-directed compassion is the
+                operating principle, not a nice-to-have.
+              </h2>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                A regulated nervous system sustains high standards. A shamed
+                one collapses. Kristin Neff&rsquo;s research on fierce
+                self-compassion shows that compassion drives sustained
+                motivation <span className="gold-highlight">without the cost
+                of self-criticism</span>. That is why the number is not
+                decoration. It is the design philosophy. Every interaction
+                with this system reinforces: you are not broken. You are
+                covered. And coverage lifts.
+              </p>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+              >
+                In a market full of clinical language and deficit framing,
+                this is a deliberate act. Other assessments find your
+                weaknesses and label them &ldquo;derailment risks.&rdquo;
+                We find what is covering your light and call it what it is:
+                eclipse. Not damage. Coverage. Not permanent. Temporary.
+                Not who you are. What is happening to you right now.
+              </p>
+            </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
         {/* ─── SECTION 4 · THE CHALLENGE KIT ──────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px] space-y-6">
@@ -349,7 +395,7 @@ export default async function Challenge143Page() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <LiquidFillButton href="/preview">
-                  Take the Free Stability Check
+                  Check My Stability Free
                 </LiquidFillButton>
                 <Link
                   href="/assessment"
@@ -385,7 +431,7 @@ export default async function Challenge143Page() {
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="#challenge-start">
-                  Start the 143 Challenge — Free
+                  Start My 143 Challenge — Free
                 </NeonGlowButton>
               </div>
             </div>

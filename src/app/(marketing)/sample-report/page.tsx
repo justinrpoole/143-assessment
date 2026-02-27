@@ -190,10 +190,10 @@ export default async function SampleReportPage() {
               </p>
               <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/upgrade-your-os">
-                  Take the Assessment
+                  Show Me My Map
                 </NeonGlowButton>
                 <LiquidFillButton href="/how-it-works">
-                  See How It Works
+                  Show Me How It Works
                 </LiquidFillButton>
               </div>
             </div>

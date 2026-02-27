@@ -173,7 +173,7 @@ export default async function CohortsPage() {
               Request a Cohort
             </NeonGlowButton>
             <LiquidFillButton href="#how-it-works">
-              See How It Works
+              Show Me How It Works
             </LiquidFillButton>
           </div>
         </section>
@@ -392,10 +392,10 @@ export default async function CohortsPage() {
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/assessment">
-                  Take the Assessment
+                  Show Me All 9 Rays
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">
-                  Try the Free Stability Check
+                  Check My Stability Free
                 </LiquidFillButton>
               </div>
             </div>

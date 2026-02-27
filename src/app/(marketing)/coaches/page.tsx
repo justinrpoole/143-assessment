@@ -281,10 +281,10 @@ export default async function CoachingPage() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <NeonGlowButton href="/143">
-                Start the 143 Challenge — Free
+                Start My 143 Challenge — Free
               </NeonGlowButton>
               <LiquidFillButton href="/preview">
-                Take the 3-Minute Stability Check
+                Check My Stability (3 Min)
               </LiquidFillButton>
             </div>
           </div>

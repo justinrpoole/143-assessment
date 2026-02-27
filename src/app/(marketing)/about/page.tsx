@@ -344,8 +344,54 @@ export default async function AboutPage() {
         <GoldHeroBanner
           kicker="Why 143"
           title="One letter. Four letters. Three letters. I love you."
-          description="Not a platitude. An operating condition. Self-directed compassion lowers cortisol. Self-criticism spikes it."
+          description="Not a platitude. An operating condition. Self-directed compassion lowers cortisol. Self-criticism spikes it. The number is the design philosophy."
         />
+
+        <GoldDividerAnimated />
+
+        {/* ─── THE 143 DESIGN PHILOSOPHY (#24) ────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px]">
+            <div className="glass-card p-6 sm:p-8 space-y-4">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                The 143 Design Philosophy
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                We named it 143 because self-directed compassion is the
+                operating principle, not a nice-to-have.
+              </h2>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                Kristin Neff&rsquo;s research on fierce self-compassion
+                demonstrates that <span className="gold-highlight">compassion
+                drives sustained motivation without the cost of
+                self-criticism</span>. A regulated nervous system sustains
+                high standards. A shamed one collapses. That distinction
+                shaped every design decision in this system — from how we
+                name your gaps (eclipse, not derailment) to how we frame
+                your scores (coverage, not weakness) to how we speak to
+                you in your results (what to restore, not what to fix).
+              </p>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+              >
+                In a market of clinical language and deficit framing, 143
+                is a deliberate act. The number is not branding. It is the
+                principle. Every interaction with this system reinforces:
+                you are not broken. You are covered. And coverage lifts.
+              </p>
+            </div>
+          </section>
+        </FadeInSection>
 
         <GoldDividerAnimated />
 
@@ -454,10 +500,10 @@ export default async function AboutPage() {
               </h2>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/assessment">
-                  Take the Assessment
+                  Show Me All 9 Rays
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">
-                  Try the Free Stability Check
+                  Check My Stability Free
                 </LiquidFillButton>
               </div>
             </div>

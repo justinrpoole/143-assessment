@@ -35,8 +35,8 @@ import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Leadership Assessment — Map 9 Trainable Capacities",
-  description: "Find out why you're performing well but feeling empty. A 15-minute assessment that maps 9 trainable leadership capacities and shows you what to do this week.",
+  title: "Leadership Assessment — The Only One That Changes With You",
+  description: "Every other leadership assessment tells you who you are. This one shows you who you are right now — and gives you the daily system to change it. 9 trainable capacities. Scores designed to move.",
 };
 
 /* ── static data ───────────────────────────────────────────────── */
@@ -121,15 +121,15 @@ export default async function UpgradeYourOsPage() {
 
           {/* Hero H1 */}
           <h1 className="text-shimmer mt-4 max-w-[720px] text-3xl font-bold leading-tight sm:text-4xl lg:text-[44px]">
-            Find out why you&rsquo;re performing well but feeling empty.
+            Every other leadership assessment tells you who you are. This one shows you who you are <span className="gold-highlight">right now</span>.
           </h1>
           <p className="mt-4 max-w-[560px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            A 15-minute assessment that maps <span className="gold-highlight">9 trainable leadership capacities</span> — and shows you what to do this week.
+            Not a personality label. A map of <span className="gold-highlight">9 trainable capacities</span> — with a daily system to change them. Your scores are designed to move. Because you are.
           </p>
           {/* CTA */}
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <NeonGlowButton href="/preview">
-              Take the Free Assessment
+              Check My Stability Free
             </NeonGlowButton>
             <span className="text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
               Free during beta · No credit card
@@ -631,7 +631,7 @@ export default async function UpgradeYourOsPage() {
           </p>
           <div className="mt-6">
             <NeonGlowButton href="/preview">
-              Take the Free Assessment
+              Check My Stability Free
             </NeonGlowButton>
           </div>
           <p className="mt-4 text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>

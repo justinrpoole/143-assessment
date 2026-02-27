@@ -125,10 +125,10 @@ export default async function OsCoachingPage() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <NeonGlowButton href="/assessment">
-              Take the Assessment First
+              Map My Light First
             </NeonGlowButton>
             <LiquidFillButton href="#format">
-              See the Session Format
+              Show Me the Session Format
             </LiquidFillButton>
           </div>
         </section>

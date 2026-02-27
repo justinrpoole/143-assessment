@@ -126,10 +126,10 @@ export default async function HowItWorksPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <NeonGlowButton href="/143">
-              Start the Challenge — Free
+              Start My Challenge — Free
             </NeonGlowButton>
             <LiquidFillButton href="/assessment">
-              Take the Assessment
+              Show Me All 9 Rays
             </LiquidFillButton>
           </div>
           <TrustBadgeStrip badges={["4-Stage System", "Evidence-Based", "Designed to Be Outgrown"]} />
@@ -557,10 +557,10 @@ export default async function HowItWorksPage() {
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/assessment">
-                  Take the Assessment
+                  Show Me All 9 Rays
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">
-                  Try the Free Stability Check
+                  Check My Stability Free
                 </LiquidFillButton>
               </div>
             </div>

@@ -29,72 +29,96 @@ const RESEARCH_PILLARS = [
     field: "Constructed Emotion",
     mapping:
       "Emotions are predictions, not reactions. The assessment measures regulation capacity, not emotional types.",
+    citation:
+      "How Emotions Are Made (2017). Theory of Constructed Emotion — emotions are not hardwired but constructed by the brain in context.",
   },
   {
     researcher: "Katy Milkman",
     field: "Behavioral Change",
     mapping:
       "Temptation bundling, fresh starts, commitment devices. The rep system uses these mechanisms.",
+    citation:
+      "How to Change (2021). Fresh start effect increases goal-directed behavior by 20-30% at temporal landmarks.",
   },
   {
     researcher: "Caroline Leaf",
     field: "Neuroplasticity",
     mapping:
       "Thought patterns are trainable. Scores are designed to move through deliberate practice.",
+    citation:
+      "Cleaning Up Your Mental Mess (2021). The Neurocycle — a 5-step process for directed neuroplasticity validated in clinical trials.",
   },
   {
     researcher: "Amishi Jha",
     field: "Attention Science",
     mapping:
       "Attention is depletable and trainable. The Presence Ray measures attentional capacity.",
+    citation:
+      "Peak Mind (2021). 12 minutes/day of mindfulness practice significantly improved attentional performance in military cohorts under high stress.",
   },
   {
     researcher: "BJ Fogg",
     field: "Tiny Habits",
     mapping:
       "Minimum effective dose. The Rise Path prescribes the smallest viable rep.",
+    citation:
+      "Tiny Habits (2019). Behavior = Motivation × Ability × Prompt. Scaling down to the smallest viable behavior removes the willpower bottleneck.",
   },
   {
     researcher: "Daniel Goleman",
     field: "Emotional Intelligence",
     mapping:
       "Self-awareness, self-regulation, social awareness, relationship management. Four pillars mapped across Rays.",
+    citation:
+      "Emotional Intelligence (1995); Primal Leadership (2002). EI accounts for up to 90% of the difference between star performers and average leaders at senior levels.",
   },
   {
     researcher: "Christina Maslach",
     field: "Burnout Research",
     mapping:
       "Three-dimensional burnout model adapted for Eclipse system: emotional, cognitive, relational load.",
+    citation:
+      "Maslach Burnout Inventory (1981, updated 2016). Three-factor model: emotional exhaustion, depersonalization, reduced personal accomplishment — mapped to Eclipse dimensions.",
   },
   {
     researcher: "Carol Dweck",
     field: "Growth Mindset",
     mapping:
       "Fixed vs growth orientation. The assessment treats capacity as trainable.",
+    citation:
+      "Mindset (2006). Growth-oriented individuals show higher resilience and sustained effort; meta-analysis (Sisk et al., 2018) confirms d=0.10 on achievement outcomes.",
   },
   {
     researcher: "Angela Duckworth",
     field: "Grit & Perseverance",
     mapping:
       "Sustained effort toward long-term goals. Power and Purpose Rays measure consistency under pressure.",
+    citation:
+      "Grit (2016). Grit Scale predicts retention in West Point cadets, National Spelling Bee finalists, and novice teachers beyond IQ and conscientiousness.",
   },
   {
     researcher: "Amy Edmondson",
     field: "Psychological Safety",
     mapping:
       "Team-level trust and candor. Connection and Be The Light measure capacity to hold safe space.",
+    citation:
+      "The Fearless Organization (2018). Google's Project Aristotle confirmed psychological safety as the #1 predictor of high-performing teams.",
   },
   {
-    researcher: "Edward Deci",
-    field: "Self-Determination",
+    researcher: "Edward Deci & Richard Ryan",
+    field: "Self-Determination Theory",
     mapping:
       "Autonomy, competence, relatedness. Intrinsic motivation mapped through Purpose and Authenticity.",
+    citation:
+      "Self-Determination Theory (1985, updated 2017). Intrinsic motivation — driven by autonomy, competence, and relatedness — produces more sustained behavior change than external rewards.",
   },
   {
-    researcher: "Richard Ryan",
-    field: "Self-Determination",
+    researcher: "Kristin Neff",
+    field: "Self-Compassion",
     mapping:
-      "Basic psychological needs satisfaction drives sustained growth.",
+      "Fierce self-compassion drives sustained motivation without the cost of self-criticism. The foundation of the 143 Eclipse framework.",
+    citation:
+      "Self-Compassion (2011); Fierce Self-Compassion (2021). Self-compassion lowers cortisol, reduces rumination, and sustains motivation — the design philosophy behind 143.",
   },
 ];
 
@@ -200,6 +224,14 @@ export default async function MethodologyPage() {
                   }}
                 >
                   {p.mapping}
+                </p>
+                <p
+                  className="mt-2 text-[10px] leading-relaxed italic"
+                  style={{
+                    color: "rgba(255,255,255,0.3)",
+                  }}
+                >
+                  {p.citation}
                 </p>
               </div>
               </StaggerItem>
@@ -337,8 +369,32 @@ export default async function MethodologyPage() {
               }}
             >
               No AI or machine learning is involved in scoring. The pipeline is a
-              fixed mathematical model.
+              fixed mathematical model. Same responses always produce the same
+              output. SHA-256 verified. Fully auditable.
             </p>
+
+            <div
+              className="mt-6 p-4 rounded-lg"
+              style={{ background: "rgba(248,208,17,0.04)", border: "1px solid rgba(248,208,17,0.15)" }}
+            >
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Scoring Transparency
+              </p>
+              <p
+                className="mt-2 text-xs leading-relaxed"
+                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+              >
+                In an era of AI hype and algorithmic opacity, radical
+                transparency is not optional — it is required. We publish
+                our confidence bands. We state our known limitations. We
+                tell you exactly what the score means and what it does not.
+                If you cannot audit the assessment, why would you trust it
+                with your development?
+              </p>
+            </div>
           </div>
         </section>
       </FadeInSection>
@@ -534,6 +590,60 @@ export default async function MethodologyPage() {
 
       <GoldDividerAnimated />
 
+      {/* ── Open Methodology Commitment (#29) ── */}
+      <FadeInSection>
+        <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+          <div className="glass-card p-6 sm:p-8 space-y-4">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              Our Commitment
+            </p>
+            <h2
+              className="text-xl font-bold sm:text-2xl"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              We hold ourselves to the standard we wish existed in this
+              industry.
+            </h2>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+            >
+              Most leadership assessments hide behind proprietary black
+              boxes. We are building toward full methodological
+              transparency — not because it is easy, but because it is the
+              only way to earn trust from leaders who have been burned by
+              tools that overpromise and underdeliver.
+            </p>
+            <div className="space-y-2 mt-2">
+              {[
+                "Population-specific reliability data as pilot cohorts complete",
+                "Predictive validity studies published openly",
+                "Known limitations clearly stated — not buried in footnotes",
+                "Confidence band methodology explained in plain language",
+                "Scoring logic auditable — no black boxes, no AI interpretation",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-2 text-sm leading-relaxed"
+                  style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+                >
+                  <span
+                    className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
+                    style={{ background: "var(--brand-gold)" }}
+                  />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
       {/* ── Known Limitations ── */}
       <FadeInSection>
         <section id="limitations" className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8 watermark-143 section-blend-bottom">
@@ -585,7 +695,7 @@ export default async function MethodologyPage() {
             </h2>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <NeonGlowButton href="/upgrade">
-                Take the Assessment — $43
+                Show Me My Map — $43
               </NeonGlowButton>
               <LiquidFillButton href="/glossary">
                 Explore the Glossary

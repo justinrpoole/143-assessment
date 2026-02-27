@@ -259,10 +259,10 @@ export default async function OutcomesPage() {
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/assessment">
-                  Take the Assessment
+                  Show Me All 9 Rays
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">
-                  Try the Free Stability Check
+                  Check My Stability Free
                 </LiquidFillButton>
               </div>
             </div>

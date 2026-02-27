@@ -150,10 +150,10 @@ export default async function UpgradePage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <NeonGlowButton href="#plans">
-                See Both Plans
+                Show Me Both Plans
               </NeonGlowButton>
               <LiquidFillButton href="/preview">
-                Take the Free Stability Check
+                Check My Stability Free
               </LiquidFillButton>
             </div>
           </div>

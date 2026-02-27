@@ -151,10 +151,10 @@ export default async function OrganizationsPage() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <NeonGlowButton href="/assessment">
-              Try the Individual Assessment
+              Let Me Try It First
             </NeonGlowButton>
             <LiquidFillButton href="/pricing">
-              See Plans &amp; Pricing
+              Show Me Plans &amp; Pricing
             </LiquidFillButton>
           </div>
         </section>
@@ -466,10 +466,10 @@ export default async function OrganizationsPage() {
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/assessment">
-                  Try the Assessment Yourself
+                  Let Me Try It First
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">
-                  Try the Free Stability Check
+                  Check My Stability Free
                 </LiquidFillButton>
               </div>
             </div>
