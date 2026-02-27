@@ -28,7 +28,8 @@ export type EventType =
   | "intention_set"
   | "email_captured"
   | "magic_link_sent"
-  | "magic_link_verified";
+  | "magic_link_verified"
+  | "google_oauth_verified";
 
 // ── Server-side track ──────────────────────────────────────────────────────
 export async function trackEvent(params: {
