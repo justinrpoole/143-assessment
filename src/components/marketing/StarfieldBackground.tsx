@@ -24,9 +24,9 @@ export default function StarfieldBackground() {
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio, 2);
       canvas.width = window.innerWidth * dpr;
-      canvas.height = document.documentElement.scrollHeight * dpr;
+      canvas.height = window.innerHeight * dpr;
       canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${document.documentElement.scrollHeight}px`;
+      canvas.style.height = `${window.innerHeight}px`;
       ctx.scale(dpr, dpr);
     };
     resize();
@@ -45,11 +45,16 @@ export default function StarfieldBackground() {
     }
 
     const stars: Star[] = [];
-    const h = document.documentElement.scrollHeight;
+    const h = window.innerHeight;
     const w = window.innerWidth;
 
     for (let i = 0; i < STAR_COUNT; i++) {
-      const isGold = Math.random() < 0.12; // 12% gold stars
+      const roll = Math.random();
+      const color = roll < 0.12 ? '#F8D011'   // 12% gold
+                  : roll < 0.17 ? '#25f6ff'   // 5% cyan
+                  : roll < 0.20 ? '#ff3fb4'   // 3% pink
+                  : roll < 0.22 ? '#c6ff4d'   // 2% lime
+                  : '#FFFEF5';                 // 78% white
       stars.push({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -57,7 +62,7 @@ export default function StarfieldBackground() {
         baseAlpha: Math.random() * 0.5 + 0.15,
         twinkleSpeed: Math.random() * 0.003 + 0.001,
         twinkleOffset: Math.random() * Math.PI * 2,
-        color: isGold ? '#F8D011' : '#FFFEF5',
+        color,
       });
     }
 

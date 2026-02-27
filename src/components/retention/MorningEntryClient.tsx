@@ -129,9 +129,12 @@ export function MorningEntryClient() {
       />
       {/* Header */}
       <div className="glass-card p-5 space-y-2" style={{ borderColor: "rgba(248, 208, 17, 0.2)" }}>
-        <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
-          ☀️ Morning Affirmation
-        </p>
+        <div className="flex items-center gap-2">
+          <span className="neon-tag text-xs font-bold">MORNING</span>
+          <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
+            Morning Affirmation
+          </p>
+        </div>
         <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary)" }}>
           Your first words set the filter. What you tell your RAS in the morning is what it looks for all day.
           This is the priming rep — one clear statement that anchors your attention.
@@ -223,10 +226,10 @@ export function MorningEntryClient() {
               initial={shouldAnimate ? { opacity: 0 } : false}
               animate={{ opacity: 1 }}
               transition={{ duration: shouldAnimate ? undefined : 0 }}
-              className="glass-card p-4 text-center"
+              className="glass-card gold-accent-left p-4 text-center"
               style={{ borderColor: "rgba(34, 197, 94, 0.3)" }}
             >
-              <p className="text-sm font-medium" style={{ color: "#22C55E" }}>
+              <p className="text-sm font-medium score-reveal" style={{ color: "#22C55E" }}>
                 ✓ Morning intention set. Your RAS is primed.
               </p>
               <p className="text-xs mt-1" style={{ color: "var(--text-on-dark-muted)" }}>

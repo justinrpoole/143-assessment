@@ -77,16 +77,16 @@ export default function HowItWorks() {
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
           How It Works
         </p>
-        <h2 className="mt-3 text-2xl font-bold sm:text-3xl" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+        <h2 className="heading-section mt-3" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
           Three steps. One system. Proof it is working.
         </h2>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-3 md:gap-8">
         {STEPS.map((step, i) => (
           <div
             key={step.number}
-            className="glass-card glass-card--lift relative overflow-hidden p-6 text-center"
+            className="glass-card glass-card--lift relative overflow-hidden p-7 sm:p-8 text-center"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(20px)',
@@ -98,8 +98,8 @@ export default function HowItWorks() {
               className="absolute right-3 top-2 select-none"
               style={{
                 fontFamily: 'var(--font-cosmic-display)',
-                fontSize: '64px',
-                color: 'rgba(248, 208, 17, 0.04)',
+                fontSize: '72px',
+                color: 'rgba(248, 208, 17, 0.05)',
                 lineHeight: 1,
               }}
               aria-hidden="true"
@@ -108,8 +108,8 @@ export default function HowItWorks() {
             </span>
 
             <div className="relative z-10">
-              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full"
-                style={{ background: 'rgba(248, 208, 17, 0.06)', border: '1px solid rgba(248, 208, 17, 0.15)' }}
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full"
+                style={{ background: 'rgba(248, 208, 17, 0.06)', border: '1px solid rgba(248, 208, 17, 0.2)', boxShadow: '0 0 16px rgba(248, 208, 17, 0.06)' }}
               >
                 {step.icon}
               </div>

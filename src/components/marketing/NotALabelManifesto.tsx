@@ -34,7 +34,7 @@ export default function NotALabelManifesto() {
           The Paradigm Shift
         </p>
         <h2
-          className="mx-auto max-w-[640px] text-2xl font-bold leading-tight sm:text-3xl"
+          className="heading-section mx-auto max-w-[640px]"
           style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
         >
           Every other assessment tells you who you are.{' '}
@@ -53,19 +53,19 @@ export default function NotALabelManifesto() {
         {PANELS.map((panel) => (
           <StaggerItem key={panel.kicker}>
             <div
-              className={`glass-card p-5 h-full space-y-4 ${!panel.muted ? 'glass-card--lift' : ''}`}
+              className={`glass-card p-5 md:p-6 h-full space-y-4 ${!panel.muted ? 'glass-card--lift' : ''}`}
               style={!panel.muted ? { border: '1px solid rgba(248,208,17,0.2)' } : undefined}
             >
               <p
                 className="text-[10px] font-bold uppercase tracking-widest"
                 style={{
-                  color: panel.muted ? 'rgba(255,255,255,0.35)' : '#F8D011',
+                  color: panel.muted ? 'rgba(255,255,255,0.45)' : '#F8D011',
                 }}
               >
                 {panel.kicker}
               </p>
               <p
-                className="text-base font-bold"
+                className="text-lg font-semibold"
                 style={{
                   color: panel.muted
                     ? 'var(--text-on-dark-muted, rgba(255,255,255,0.5))'
@@ -78,9 +78,10 @@ export default function NotALabelManifesto() {
                 {panel.steps.map((step, i) => (
                   <div key={step} className="flex items-center gap-2">
                     <span
-                      className="text-xs"
+                      className="text-sm font-bold"
                       style={{
                         color: panel.muted ? 'rgba(255,255,255,0.2)' : '#F8D011',
+                        textShadow: !panel.muted ? '0 0 6px rgba(248,208,17,0.2)' : undefined,
                       }}
                     >
                       {i < panel.steps.length - 1 ? '↓' : '◆'}

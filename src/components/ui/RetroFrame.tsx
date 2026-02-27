@@ -52,11 +52,11 @@ export default function RetroFrame({
       {/* ── Corner brackets with status pips ── */}
       <svg className="absolute top-0 left-0 w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M0 14 L0 2 Q0 0 2 0 L14 0" fill="none" stroke={accent} strokeWidth="1" opacity="0.5" />
-        <circle cx="3" cy="3" r="1.5" fill={accent} opacity="0.4" />
+        <circle cx="3" cy="3" r="1.5" fill={accent} opacity="0.6" filter={`drop-shadow(0 0 3px ${accent})`} />
       </svg>
       <svg className="absolute top-0 right-0 w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M10 0 L22 0 Q24 0 24 2 L24 14" fill="none" stroke={accent} strokeWidth="1" opacity="0.5" />
-        <circle cx="21" cy="3" r="1.5" fill={accent} opacity="0.4" />
+        <circle cx="21" cy="3" r="1.5" fill={accent} opacity="0.6" filter={`drop-shadow(0 0 3px ${accent})`} />
       </svg>
       <svg className="absolute bottom-0 left-0 w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M0 10 L0 22 Q0 24 2 24 L14 24" fill="none" stroke={accent} strokeWidth="1" opacity="0.3" />
@@ -95,7 +95,7 @@ export default function RetroFrame({
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.05) 2px, rgba(0, 0, 0, 0.05) 4px)',
+            'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.17) 2px, rgba(0, 0, 0, 0.17) 4px)',
           mixBlendMode: 'multiply',
         }}
       />
@@ -105,10 +105,10 @@ export default function RetroFrame({
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.008) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.008) 1px, transparent 1px)
+            linear-gradient(rgba(37,246,255,0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(37,246,255,0.08) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px',
+          backgroundSize: '48px 48px',
         }}
       />
 
@@ -122,9 +122,9 @@ export default function RetroFrame({
         style={{
           background: `linear-gradient(90deg,
             transparent 0%,
-            color-mix(in srgb, ${accent} 6%, transparent) 10%,
-            color-mix(in srgb, ${accent} 15%, transparent) 50%,
-            color-mix(in srgb, ${accent} 6%, transparent) 90%,
+            color-mix(in srgb, ${accent} 10%, transparent) 10%,
+            color-mix(in srgb, ${accent} 25%, transparent) 50%,
+            color-mix(in srgb, ${accent} 10%, transparent) 90%,
             transparent 100%
           )`,
         }}

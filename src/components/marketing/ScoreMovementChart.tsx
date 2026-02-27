@@ -23,7 +23,7 @@ export default function ScoreMovementChart() {
   return (
     <div className="space-y-5">
       {/* Chart container */}
-      <div className="glass-card p-5 sm:p-6">
+      <div className="glass-card p-5 sm:p-7">
         <div className="mb-4 flex items-center justify-between">
           <div>
             <p
@@ -41,8 +41,8 @@ export default function ScoreMovementChart() {
           </div>
           <div className="text-right">
             <p
-              className="text-2xl font-bold tabular-nums"
-              style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)' }}
+              className="text-3xl font-bold tabular-nums"
+              style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)', textShadow: '0 0 16px rgba(248,208,17,0.2)' }}
             >
               {activeWeek ? activeWeek.score : WEEKS[WEEKS.length - 1].score}
             </p>
@@ -76,7 +76,7 @@ export default function ScoreMovementChart() {
                     x={-4}
                     y={y + 3}
                     fill="rgba(255,255,255,0.25)"
-                    fontSize={9}
+                    fontSize={10}
                     textAnchor="end"
                   >
                     {val}
@@ -151,7 +151,7 @@ export default function ScoreMovementChart() {
                     x={x}
                     y={155}
                     fill="rgba(255,255,255,0.3)"
-                    fontSize={9}
+                    fontSize={10}
                     textAnchor="middle"
                   >
                     W{w.week}

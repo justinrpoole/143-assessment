@@ -94,13 +94,13 @@ export default function CompletionReveal({ topRayNames, onComplete }: Completion
         }}
       >
         <p
-          className="text-xs font-bold uppercase tracking-[0.2em]"
+          className="text-neon-bloom text-xs font-bold uppercase tracking-[0.2em]"
           style={{ color: 'var(--brand-gold, #F8D011)' }}
         >
           Your Light Signature
         </p>
         <h1
-          className="mt-4 text-4xl font-bold sm:text-5xl"
+          className="text-shimmer mt-4 text-4xl font-bold sm:text-5xl"
           style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
         >
           {archetypeName}

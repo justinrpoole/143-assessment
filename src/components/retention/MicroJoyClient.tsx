@@ -159,9 +159,12 @@ export function MicroJoyClient() {
     <div className="space-y-6">
       {/* Header */}
       <div className="glass-card p-5 space-y-2" style={{ borderColor: "rgba(96, 5, 141, 0.3)" }}>
-        <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
-          ✨ Micro Joy Generator
-        </p>
+        <div className="flex items-center gap-2">
+          <span className="neon-tag text-xs font-bold">JOY</span>
+          <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
+            Micro Joy Generator
+          </p>
+        </div>
         <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary)" }}>
           Generate one small reset for today. Joy isn&apos;t a luxury — it&apos;s a signal to your RAS
           that the world has good in it. That signal changes what your brain looks for next.
@@ -182,7 +185,7 @@ export function MicroJoyClient() {
                 key={opt.key}
                 type="button"
                 onClick={() => setCategory(opt.key)}
-                className={`glass-card p-3 text-center transition-all ${
+                className={`glass-card glass-card--interactive p-3 text-center transition-all ${
                   active ? "shadow-[0_0_12px_rgba(96,5,141,0.3)]" : ""
                 }`}
                 style={{
@@ -289,10 +292,10 @@ export function MicroJoyClient() {
       {/* Recent picks */}
       {(recentEntries ?? []).length > 0 && (
         <div className="glass-card p-4 space-y-3">
-          <p className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}>
+          <p className="gold-tag inline-block text-xs font-bold">
             Recent picks
           </p>
+          <div className="gold-rule my-2" />
           <ul className="space-y-2">
             {(recentEntries ?? []).map((entry) => (
               <li key={entry.id} className="flex items-start gap-2">

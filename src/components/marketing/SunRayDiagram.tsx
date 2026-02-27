@@ -47,7 +47,7 @@ export default function SunRayDiagram({ className }: { className?: string }) {
 
   return (
     <div ref={ref} className={className}>
-      <svg viewBox={`0 0 ${size} ${size}`} width="100%" style={{ maxWidth: 480, margin: '0 auto', display: 'block' }}>
+      <svg viewBox={`0 0 ${size} ${size}`} width="100%" overflow="hidden" style={{ maxWidth: 480, margin: '0 auto', display: 'block' }}>
         <defs>
           {/* Sun core gradient */}
           <radialGradient id="srd-sun" cx="46%" cy="44%" r="52%">

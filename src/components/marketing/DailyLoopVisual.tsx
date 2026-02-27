@@ -56,7 +56,7 @@ export default function DailyLoopVisual() {
           The 143 Loop
         </p>
         <h2
-          className="mx-auto max-w-[640px] text-2xl font-bold leading-tight sm:text-3xl"
+          className="heading-section mx-auto max-w-[640px]"
           style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
         >
           Your daily operating system.{' '}
@@ -99,7 +99,7 @@ export default function DailyLoopVisual() {
             </div>
 
             {/* Content */}
-            <div className="glass-card flex-1 p-4">
+            <div className="glass-card flex-1 p-4 sm:p-5">
               <div className="flex items-center justify-between">
                 <p
                   className="text-sm font-bold"
@@ -138,14 +138,13 @@ export default function DailyLoopVisual() {
 
       {/* Competitor time comparison */}
       <div
-        className="rounded-xl p-5"
+        className="glass-card rounded-xl p-5 sm:p-6"
         style={{
-          background: 'rgba(248,208,17,0.03)',
-          border: '1px solid rgba(248,208,17,0.1)',
+          border: '1px solid rgba(248,208,17,0.15)',
         }}
       >
         <p
-          className="mb-3 text-[10px] font-bold uppercase tracking-widest"
+          className="mb-3 text-xs font-bold uppercase tracking-widest"
           style={{ color: '#F8D011' }}
         >
           Time Comparison

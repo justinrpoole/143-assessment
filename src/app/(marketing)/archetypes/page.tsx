@@ -14,6 +14,8 @@ import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoldTooltip from "@/components/ui/GoldTooltip";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
+import SocialProofCounter from "@/components/marketing/SocialProofCounter";
 
 export const metadata: Metadata = {
   title: "36 Light Signatures — Which One Are You? | 143 Leadership",
@@ -35,7 +37,8 @@ export default function ArchetypesPage() {
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16 space-y-12">
 
         {/* ─── HERO ──────────────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section className="relative mx-auto max-w-[720px] space-y-5 text-center">
+          <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> 36 Signals. One Is Yours.
           </p>
@@ -57,6 +60,17 @@ export default function ArchetypesPage() {
             One of these 36 is going to feel uncomfortably accurate.
           </p>
         </section>
+
+        {/* ─── Social Proof ─── */}
+        <FadeInSection>
+          <SocialProofCounter
+            metrics={[
+              { value: 2847, label: 'Leaders assessed', suffix: '+' },
+              { value: 36, label: 'Light Signatures' },
+              { value: 9, label: 'Rays measured' },
+            ]}
+          />
+        </FadeInSection>
 
         {/* ─── 9 Signals — Vertical Progression ───────────────── */}
         <FadeInSection>
@@ -122,8 +136,9 @@ export default function ArchetypesPage() {
 
         {/* ─── FINAL CTA ─────────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
-            <div className="glass-card p-8 text-center space-y-5">
+          <section className="relative mx-auto max-w-[720px]">
+            <FloatingOrbs variant="gold" />
+            <div className="glass-card relative z-10 p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
                 style={{ color: "var(--text-on-dark)" }}

@@ -120,6 +120,10 @@
   --ray-possibility: #1ABC9C;
   --ray-btl: #F8D011;
 
+  /* Eclipse / cosmic element tokens */
+  --cosmic-moon: #2A0440;
+  --cosmic-warm-white: #FFFEF5;
+
   /* ── Dark Cosmic Theme Tokens (v4 Gravitational Stability) ── */
   --brand-purple: #60058D;
   --brand-gold: #F8D011;
@@ -147,6 +151,39 @@
   --shadow-glow-md: 0 4px 28px rgba(96, 5, 141, 0.40), 0 0 56px rgba(96, 5, 141, 0.20);
   --shadow-glow-gold: 0 0 20px rgba(248, 208, 17, 0.18);
   --shadow-depth: 0 8px 32px rgba(0, 0, 0, 0.50);
+
+  /* ── Neon Spark Palette (80s accents) ── */
+  --neon-cyan:    #25f6ff;
+  --neon-pink:    #ff3fb4;
+  --neon-lime:    #c6ff4d;
+  --neon-violet:  #8b5bff;
+  --neon-amber:   #ffd166;
+
+  /* Neon opacity variants */
+  --neon-cyan-10:   rgba(37, 246, 255, 0.10);
+  --neon-cyan-20:   rgba(37, 246, 255, 0.20);
+  --neon-cyan-40:   rgba(37, 246, 255, 0.40);
+  --neon-pink-10:   rgba(255, 63, 180, 0.10);
+  --neon-pink-20:   rgba(255, 63, 180, 0.20);
+  --neon-pink-40:   rgba(255, 63, 180, 0.40);
+  --neon-violet-10: rgba(139, 91, 255, 0.10);
+  --neon-violet-20: rgba(139, 91, 255, 0.20);
+  --neon-violet-40: rgba(139, 91, 255, 0.40);
+
+  /* Neon glow shadows */
+  --shadow-glow-cyan: 0 0 20px rgba(37, 246, 255, 0.15);
+  --shadow-glow-pink: 0 0 20px rgba(255, 63, 180, 0.12);
+  --shadow-glow-violet: 0 0 20px rgba(139, 91, 255, 0.12);
+
+  /* Neon text shadows */
+  --text-glow-cyan: 0 0 12px rgba(37, 246, 255, 0.4), 0 0 30px rgba(37, 246, 255, 0.15);
+  --text-glow-pink: 0 0 12px rgba(255, 63, 180, 0.35), 0 0 30px rgba(255, 63, 180, 0.12);
+
+  /* Atmosphere texture control */
+  --scanline-opacity: 0.18;
+  --grid-opacity: 0.09;
+  --grid-color: rgba(37, 246, 255, 0.10);
+  --grid-size: 48px;
 
   --overlay-heavy: rgba(11, 2, 18, 0.92);
   --overlay-medium: rgba(11, 2, 18, 0.80);

@@ -51,7 +51,7 @@ export default function OSExplainer() {
           Your Operating System
         </p>
         <h2
-          className="mx-auto max-w-[640px] text-2xl font-bold leading-tight sm:text-3xl"
+          className="heading-section mx-auto max-w-[640px]"
           style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
         >
           Your leadership runs on an{' '}
@@ -74,7 +74,7 @@ export default function OSExplainer() {
               {/* Timeline connector */}
               <div className="flex flex-col items-center">
                 <div
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold"
                   style={{
                     background: phase.highlight
                       ? 'rgba(248,208,17,0.15)'
@@ -98,19 +98,19 @@ export default function OSExplainer() {
 
               {/* Content */}
               <div
-                className={`glass-card flex-1 p-4 ${phase.highlight ? 'glass-card--lift' : ''}`}
+                className={`glass-card flex-1 p-4 sm:p-5 ${phase.highlight ? 'glass-card--lift' : ''}`}
                 style={phase.highlight ? { borderLeft: '2px solid rgba(248,208,17,0.3)' } : undefined}
               >
                 <p
                   className="text-[10px] font-bold uppercase tracking-widest"
                   style={{
-                    color: phase.highlight ? '#F8D011' : 'rgba(255,255,255,0.35)',
+                    color: phase.highlight ? '#F8D011' : 'rgba(255,255,255,0.45)',
                   }}
                 >
                   {phase.label}
                 </p>
                 <p
-                  className="mt-1 text-sm font-bold"
+                  className="mt-1 text-base font-semibold"
                   style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
                 >
                   {phase.title}

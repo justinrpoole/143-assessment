@@ -11,4 +11,8 @@
   --color-on-dark: var(--text-on-dark);
   --color-on-dark-secondary: var(--text-on-dark-secondary);
   --color-on-dark-muted: var(--text-on-dark-muted);
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-pink: var(--neon-pink);
+  --color-neon-lime: var(--neon-lime);
+  --color-neon-violet: var(--neon-violet);
 }

@@ -69,7 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${orelega.variable} ${inter.variable}`}>
-      <body className="antialiased min-h-screen" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
+      <body className="antialiased min-h-screen overflow-x-hidden" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_ORG) }}

@@ -65,7 +65,7 @@ export default function FearReframe() {
     return (
       <div className="glass-card p-5 space-y-4">
         <div className="flex items-center justify-between">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
+          <p className="neon-tag neon-tag--pink text-xs font-bold uppercase tracking-widest">
             Reframe Complete
           </p>
           <button
@@ -93,10 +93,7 @@ export default function FearReframe() {
           ))}
         </div>
 
-        <div
-          className="rounded-xl p-4"
-          style={{ background: 'rgba(248, 208, 17, 0.06)', border: '1px solid rgba(248, 208, 17, 0.12)' }}
-        >
+        <div className="glass-card gold-accent-left rounded-xl p-4">
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
             You named it. You checked it. You found the capacity. Now you have one rep.
             That is the eclipse losing grip — not through force, but through attention.
@@ -191,9 +188,9 @@ export default function FearReframe() {
 
   // ── INITIAL ──
   return (
-    <div className="glass-card p-5">
+    <div className="glass-card glass-card--interactive p-5">
       <div className="flex items-start gap-3">
-        <span className="text-2xl" style={{ opacity: 0.8 }}>◑</span>
+        <span className="neon-tag neon-tag--pink text-xs font-bold">REFRAME</span>
         <div className="flex-1 space-y-2">
           <div className="flex items-center justify-between">
             <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>Fear Reframe</p>

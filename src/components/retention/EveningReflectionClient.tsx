@@ -148,16 +148,18 @@ export default function EveningReflectionClient() {
     return (
       <div className="glass-card p-5 space-y-4">
         <div className="flex items-center justify-between">
-          <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Evening Reflection</p>
+          <p className="gold-underline text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Evening Reflection</p>
           <div className="flex items-center gap-2">
             {qualityScore !== null && qualityScore > 0 && (
-              <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)' }}>
+              <span className="gold-tag text-xs">
                 {QUALITY_LABELS[qualityScore] ?? ''}
               </span>
             )}
-            <span className="text-xs text-emerald-400 font-medium">Done</span>
+            <span className="gold-tag text-xs">Done</span>
           </div>
         </div>
+
+        <div className="gold-rule my-3" />
 
         <div className="space-y-3">
           {REFLECTION_STEPS.map((rs, i) => (
@@ -172,7 +174,7 @@ export default function EveningReflectionClient() {
         </div>
 
         {/* Post-save deepening prompts */}
-        <div className="pt-3 space-y-3" style={{ borderTop: '1px solid var(--surface-border)' }}>
+        <div className="section-alt-dark pt-3 space-y-3 rounded-xl p-4">
           <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
             Go deeper (optional)
           </p>
@@ -279,9 +281,9 @@ export default function EveningReflectionClient() {
       duration={celebration?.duration ?? 2500}
       onDone={() => setCelebration(null)}
     />
-    <div className="glass-card p-5">
+    <div className="glass-card glass-card--interactive p-5">
       <div className="flex items-start gap-3">
-        <span className="text-2xl">◐</span>
+        <span className="neon-tag--violet neon-tag text-xs font-bold">REFLECT</span>
         <div className="flex-1 space-y-2">
           <div className="flex items-center justify-between">
             <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>Evening Reflection</p>

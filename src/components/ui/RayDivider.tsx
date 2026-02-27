@@ -24,17 +24,19 @@ const SPECTRUM_COLORS = [
  */
 export default function RayDivider({
   ray = 'spectrum',
-  maxWidth = 'clamp(100px, 60%, 200px)',
+  maxWidth = 'clamp(120px, 65%, 260px)',
   className,
 }: RayDividerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-40px' });
   const prefersReduced = useReducedMotion();
 
+  const color = ray === 'spectrum' ? '#F8D011' : rayHex(ray);
   const gradient =
     ray === 'spectrum'
       ? `linear-gradient(90deg, ${SPECTRUM_COLORS.join(', ')})`
-      : `linear-gradient(90deg, transparent, ${rayHex(ray)}, transparent)`;
+      : `linear-gradient(90deg, transparent, ${color}, transparent)`;
+  const glow = `0 0 8px ${color}33, 0 0 20px ${color}15`;
 
   return (
     <div
@@ -46,15 +48,18 @@ export default function RayDivider({
         className="h-px"
         style={{
           background: gradient,
+          boxShadow: glow,
           transformOrigin: 'center',
         }}
-        initial={prefersReduced ? false : { scaleX: 0 }}
+        initial={prefersReduced ? false : { scaleX: 0, opacity: 0 }}
         animate={
-          prefersReduced || isInView ? { scaleX: 1 } : { scaleX: 0 }
+          prefersReduced || isInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }
         }
         transition={{
-          duration: 0.8,
-          ease: [0.2, 0.8, 0.2, 1],
+          type: 'spring',
+          stiffness: 60,
+          damping: 18,
+          mass: 0.8,
         }}
       />
     </div>

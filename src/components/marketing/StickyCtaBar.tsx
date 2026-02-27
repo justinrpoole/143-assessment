@@ -25,24 +25,37 @@ export default function StickyCtaBar() {
 
       {visible && (
         <div
-          className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
+          className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t"
           style={{
-            background: 'rgba(2, 2, 2, 0.92)',
-            backdropFilter: 'blur(16px)',
-            borderTop: '1px solid rgba(248, 208, 17, 0.15)',
+            background: 'rgba(2, 2, 2, 0.94)',
+            WebkitBackdropFilter: 'blur(20px)',
+            backdropFilter: 'blur(20px)',
+            borderColor: 'rgba(248, 208, 17, 0.12)',
+            animation: 'stickyBarSlideUp 0.3s ease-out',
           }}
         >
-          <div className="flex items-center justify-between gap-3 px-5 py-3">
+          <div className="flex items-center justify-between gap-3 px-5 py-3.5">
             <p className="text-xs font-medium truncate" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
               See where your light is covered. 3 min. Free.
             </p>
             <Link
               href="/preview"
-              className="shrink-0 rounded-lg bg-brand-gold px-4 py-2 text-xs font-bold tracking-wide text-brand-black no-underline transition-all hover:brightness-105"
+              className="shrink-0 rounded-lg px-4 py-2.5 text-xs font-bold tracking-wide no-underline transition-all hover:brightness-110"
+              style={{
+                background: 'var(--brand-gold, #F8D011)',
+                color: 'var(--brand-black, #020202)',
+                boxShadow: '0 0 12px rgba(248, 208, 17, 0.2)',
+              }}
             >
               Start Free
             </Link>
           </div>
+          <style>{`
+            @keyframes stickyBarSlideUp {
+              from { transform: translateY(100%); opacity: 0; }
+              to { transform: translateY(0); opacity: 1; }
+            }
+          `}</style>
         </div>
       )}
     </>

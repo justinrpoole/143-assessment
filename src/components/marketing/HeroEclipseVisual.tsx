@@ -75,7 +75,7 @@ export default function HeroEclipseVisual({ className }: { className?: string })
           </radialGradient>
 
           {/* Bloom filter */}
-          <filter id={`${uid}-bloom`} x="-150%" y="-150%" width="400%" height="400%">
+          <filter id={`${uid}-bloom`} x="-80%" y="-80%" width="260%" height="260%">
             <feGaussianBlur stdDeviation="14" result="b1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b2" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b3" />
@@ -89,7 +89,7 @@ export default function HeroEclipseVisual({ className }: { className?: string })
           </filter>
 
           {/* Wisp blur */}
-          <filter id={`${uid}-wisp-blur`} x="-300%" y="-300%" width="700%" height="700%">
+          <filter id={`${uid}-wisp-blur`} x="-80%" y="-80%" width="260%" height="260%">
             <feGaussianBlur stdDeviation="8" result="s1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="s2" />
             <feMerge>

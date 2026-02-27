@@ -587,6 +587,49 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
             {/* CRT scanline overlay */}
             <rect x="0" y="0" width={CENTER * 2} height={CENTER * 2} rx="16" fill="url(#ecl-scanlines)" opacity={0.4} />
 
+            {/* "You're eclipsed..." reveal — fades in after moon reaches center */}
+            {anim ? (
+              <motion.text
+                x={CENTER}
+                y={CENTER + SUN_RADIUS + 28}
+                textAnchor="middle"
+                dominantBaseline="central"
+                fill="#FDFCFD"
+                filter="url(#ecl-text-outline)"
+                initial={{ opacity: 0, y: CENTER + SUN_RADIUS + 34 }}
+                animate={{ opacity: [0, 0, 0.9], y: CENTER + SUN_RADIUS + 28 }}
+                transition={{ duration: 1.2, delay: 1.8, ease: 'easeOut' }}
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 300,
+                  fontFamily: 'var(--font-body), sans-serif',
+                  letterSpacing: '0.08em',
+                  fontStyle: 'italic',
+                }}
+              >
+                You&apos;re eclipsed…
+              </motion.text>
+            ) : (
+              <text
+                x={CENTER}
+                y={CENTER + SUN_RADIUS + 28}
+                textAnchor="middle"
+                dominantBaseline="central"
+                fill="#FDFCFD"
+                filter="url(#ecl-text-outline)"
+                opacity={0.9}
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 300,
+                  fontFamily: 'var(--font-body), sans-serif',
+                  letterSpacing: '0.08em',
+                  fontStyle: 'italic',
+                }}
+              >
+                You&apos;re eclipsed…
+              </text>
+            )}
+
             {/* Level label — Orelega One, all caps */}
             <text
               x={CENTER}

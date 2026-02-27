@@ -95,24 +95,34 @@ export function AttentionPrimer({ onComplete }: Props) {
   return (
     <section className="glass-card p-6">
       <div className="flex flex-col items-center text-center space-y-6">
-        <p
-          className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
-        >
+        <p className="gold-tag inline-block">
           Attention Primer
         </p>
 
         {!done ? (
           <>
-            {/* Breathing circle */}
+            {/* Breathing circle with glow ring */}
             <div className="relative flex items-center justify-center" style={{ height: 140 }}>
+              {/* Outer glow ring */}
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: 130,
+                  height: 130,
+                  background: 'transparent',
+                  boxShadow: '0 0 30px rgba(37, 246, 255, 0.12), 0 0 60px rgba(248, 208, 17, 0.08), inset 0 0 30px rgba(37, 246, 255, 0.06)',
+                  border: '1px solid rgba(37, 246, 255, 0.15)',
+                  transform: `scale(${circleScale})`,
+                  transition: `transform ${transitionDuration} ease-in-out`,
+                }}
+              />
               <div
                 className="rounded-full"
                 style={{
                   width: 100,
                   height: 100,
                   background: 'radial-gradient(circle, rgba(248, 208, 17, 0.25) 0%, rgba(114, 21, 184, 0.15) 70%, transparent 100%)',
-                  boxShadow: '0 0 40px rgba(248, 208, 17, 0.15)',
+                  boxShadow: '0 0 40px rgba(248, 208, 17, 0.15), 0 0 80px rgba(96, 5, 141, 0.1)',
                   transform: `scale(${circleScale})`,
                   transition: `transform ${transitionDuration} ease-in-out`,
                 }}
@@ -139,7 +149,7 @@ export function AttentionPrimer({ onComplete }: Props) {
             <button
               type="button"
               onClick={onComplete}
-              className="text-xs hover:underline"
+              className="btn-ghost text-xs"
               style={{ color: 'var(--text-on-dark-muted)' }}
             >
               Skip
@@ -149,8 +159,8 @@ export function AttentionPrimer({ onComplete }: Props) {
           <>
             {/* Complete state */}
             <p
-              className="text-lg font-medium"
-              style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+              className="text-lg font-medium score-reveal"
+              style={{ color: 'var(--brand-gold, #F8D011)' }}
             >
               Good. Your attention is here.
             </p>
@@ -163,7 +173,7 @@ export function AttentionPrimer({ onComplete }: Props) {
             <button
               type="button"
               onClick={onComplete}
-              className="btn-primary"
+              className="btn-primary score-reveal"
             >
               Begin Assessment
             </button>

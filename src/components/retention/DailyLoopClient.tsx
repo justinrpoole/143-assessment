@@ -152,8 +152,10 @@ export default function DailyLoopClient() {
       <div className="glass-card p-5 space-y-4">
         <div className="flex items-center justify-between">
           <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Today&apos;s Loop</p>
-          <span className="text-xs text-emerald-400 font-medium">Complete</span>
+          <span className="gold-tag text-xs">Complete</span>
         </div>
+
+        <div className="gold-rule my-3" />
 
         <div className="space-y-3">
           {LOOP_STEPS.map((loopStep, i) => (
@@ -272,9 +274,9 @@ export default function DailyLoopClient() {
       duration={celebration?.duration ?? 2500}
       onDone={() => setCelebration(null)}
     />
-    <div className="glass-card p-5">
+    <div className="glass-card glass-card--interactive p-5">
       <div className="flex items-start gap-3">
-        <span className="text-2xl">◉</span>
+        <span className="neon-tag text-xs font-bold">DAILY</span>
         <div className="flex-1 space-y-2">
           <div className="flex items-center justify-between">
             <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>Daily Loop</p>

@@ -42,43 +42,48 @@ export function RasResetLesson({ onComplete }: Props) {
   };
 
   return (
-    <section className="glass-card p-6 space-y-5">
+    <section className="relative glass-card p-6 space-y-5">
+      {/* Subtle dot grid texture */}
+      <div className="gold-dot-grid absolute inset-0 rounded-[inherit] pointer-events-none" aria-hidden="true" />
+
       {/* Progress dots */}
-      <div className="flex items-center gap-2">
+      <div className="relative flex items-center gap-2">
         {STEPS.map((_, i) => (
           <div
             key={i}
             className="h-1.5 rounded-full transition-all duration-300"
             style={{
               width: i === step ? 24 : 8,
-              background: i <= step ? 'var(--brand-gold, #F8D011)' : 'var(--surface-border)',
+              background: i <= step ? 'var(--neon-cyan, #25f6ff)' : 'var(--surface-border)',
+              boxShadow: i <= step ? '0 0 8px rgba(37, 246, 255, 0.3)' : 'none',
             }}
           />
         ))}
       </div>
 
       <p
-        className="text-xs font-bold uppercase tracking-widest"
-        style={{ color: 'var(--brand-gold, #F8D011)' }}
+        className="relative gold-tag inline-block"
       >
         {current.eyebrow}
       </p>
 
       <h2
-        className="text-xl font-bold leading-tight"
+        className="relative text-neon-bloom text-xl font-bold leading-tight"
         style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
       >
         {current.headline}
       </h2>
 
-      <p
-        className="text-sm leading-relaxed"
-        style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
-      >
-        {current.body}
-      </p>
+      <div className="relative gold-accent-left">
+        <p
+          className="text-sm leading-relaxed"
+          style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+        >
+          {current.body}
+        </p>
+      </div>
 
-      <div className="flex items-center gap-3 pt-2">
+      <div className="relative flex items-center gap-3 pt-2">
         <button
           type="button"
           onClick={handleNext}
@@ -90,7 +95,7 @@ export function RasResetLesson({ onComplete }: Props) {
           <button
             type="button"
             onClick={onComplete}
-            className="text-xs hover:underline"
+            className="btn-ghost text-xs"
             style={{ color: 'var(--text-on-dark-muted)' }}
           >
             Skip — I know this

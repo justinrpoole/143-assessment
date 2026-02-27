@@ -223,14 +223,7 @@ export function AssessmentSetupClient() {
         <section className="glass-card p-5 mb-4 space-y-4">
           {/* Gate label: Full vs Retake */}
           <div className="flex items-center gap-3">
-            <span
-              className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold"
-              style={{
-                background: 'rgba(248, 208, 17, 0.12)',
-                color: 'var(--brand-gold, #F8D011)',
-                border: '1px solid rgba(248, 208, 17, 0.2)',
-              }}
-            >
+            <span className="gold-tag">
               Full Assessment
             </span>
             <span className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -267,7 +260,7 @@ export function AssessmentSetupClient() {
               { num: '9', label: 'trainable capacities scored' },
               { num: '1', label: 'personalized Rise Path' },
             ].map((item) => (
-              <div key={item.label} className="flex items-baseline gap-2">
+              <div key={item.label} className="glass-surface flex items-baseline gap-2 rounded-lg px-3 py-2">
                 <span className="text-lg font-bold tabular-nums" style={{ color: 'var(--brand-gold, #F8D011)' }}>{item.num}</span>
                 <span className="text-xs" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>{item.label}</span>
               </div>
@@ -276,9 +269,9 @@ export function AssessmentSetupClient() {
         </section>
       )}
 
-      <form onSubmit={onSubmit} className="glass-card p-6">
+      <form onSubmit={onSubmit} className="glass-card glass-card--interactive p-6">
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Configure</p>
-        <h2 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>Set Your Context</h2>
+        <h2 className="gold-underline mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>Set Your Context</h2>
         <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
           Choose the lens for your assessment. Your first run maps all 143 behavioural
           capacities across the 9 Rays. Monthly retakes use the focused 43-question

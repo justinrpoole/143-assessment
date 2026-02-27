@@ -48,6 +48,16 @@ export default function GoldHeroBanner({
           }}
         />
 
+        {/* Neon edge accent */}
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 right-0 h-[2px]"
+          aria-hidden="true"
+          style={{
+            background: 'linear-gradient(90deg, transparent 5%, var(--neon-cyan, #25f6ff) 30%, var(--neon-pink, #ff3fb4) 70%, transparent 95%)',
+            opacity: 0.4,
+          }}
+        />
+
         {/* Subtle 143 watermark */}
         <span
           className="pointer-events-none absolute bottom-[-20px] right-[-10px] select-none"

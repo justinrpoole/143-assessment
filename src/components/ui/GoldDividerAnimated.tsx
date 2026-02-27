@@ -6,6 +6,8 @@ import { motion, useInView, useReducedMotion } from 'framer-motion';
 interface GoldDividerAnimatedProps {
   /** Max width of the divider line (default: responsive clamp) */
   maxWidth?: number | string;
+  /** Use neon gradient (cyan→gold→pink) instead of pure gold */
+  neon?: boolean;
   className?: string;
 }
 
@@ -16,6 +18,7 @@ interface GoldDividerAnimatedProps {
  */
 export default function GoldDividerAnimated({
   maxWidth = 'clamp(100px, 60%, 200px)',
+  neon = false,
   className,
 }: GoldDividerAnimatedProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -31,8 +34,9 @@ export default function GoldDividerAnimated({
       <motion.div
         className="h-px"
         style={{
-          background:
-            'linear-gradient(90deg, transparent, var(--brand-gold, #F8D011), transparent)',
+          background: neon
+            ? 'linear-gradient(90deg, var(--neon-cyan, #25f6ff), var(--brand-gold, #F8D011), var(--neon-pink, #ff3fb4))'
+            : 'linear-gradient(90deg, transparent, var(--brand-gold, #F8D011), transparent)',
           transformOrigin: 'center',
         }}
         initial={prefersReduced ? false : { scaleX: 0 }}

@@ -39,7 +39,7 @@ export default function HeroVideoThumb() {
   }, []);
 
   return (
-    <div ref={containerRef} className="mt-8 max-w-[640px]">
+    <div ref={containerRef} className="mt-8 sm:mt-10 max-w-[640px] mx-auto">
       {playing && visible ? (
         <div className="relative w-full overflow-hidden rounded-2xl" style={{ paddingBottom: '56.25%' }}>
           <iframe
@@ -74,10 +74,10 @@ export default function HeroVideoThumb() {
 
             {/* Play button */}
             <div
-              className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full transition-transform group-hover:scale-110"
+              className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full transition-all duration-200 group-hover:scale-110"
               style={{
                 background: 'var(--brand-gold, #F8D011)',
-                boxShadow: '0 0 32px rgba(248,208,17,0.3)',
+                boxShadow: '0 0 32px rgba(248,208,17,0.3), 0 0 60px rgba(248,208,17,0.15)',
               }}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -85,8 +85,8 @@ export default function HeroVideoThumb() {
               </svg>
             </div>
 
-            {/* Bottom text */}
-            <div className="absolute bottom-0 left-0 right-0 px-5 pb-4">
+            {/* Bottom text with gradient overlay */}
+            <div className="absolute bottom-0 left-0 right-0 px-5 pb-5" style={{ background: 'linear-gradient(to top, rgba(2,2,2,0.7), transparent)' }}>
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
                 Watch (90 sec)
               </p>

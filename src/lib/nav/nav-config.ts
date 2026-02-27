@@ -34,6 +34,7 @@ export const MARKETING_LINKS = {
   osCoaching: { href: "/cohorts", label: "Group Coaching" },
   enterprise: { href: "/enterprise", label: "Enterprise" },
   cohorts: { href: "/cohorts", label: "Light Cohort" },
+  podcast: { href: "/podcast", label: "Podcast" },
   about: { href: "/about", label: "About" },
   forTeams: { href: "/organizations", label: "For Organizations" },
   privacy: { href: "/privacy", label: "Privacy" },
@@ -79,6 +80,7 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
       MARKETING_LINKS.framework,
       MARKETING_LINKS.archetypes,
       MARKETING_LINKS.glossary,
+      MARKETING_LINKS.podcast,
     ],
   },
   {
@@ -128,6 +130,7 @@ export const MARKETING_FOOTER_COLUMNS = [
       MARKETING_LINKS.watchMe,
       MARKETING_LINKS.goFirst,
       MARKETING_LINKS.beTheLight,
+      MARKETING_LINKS.podcast,
     ],
   },
   {

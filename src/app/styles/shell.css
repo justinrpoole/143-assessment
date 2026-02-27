@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Match cosmic dark background to prevent white flash on swipe/overscroll */
+  background: var(--bg-deep, #1E0E35);
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
 html,
 body {
   margin: 0;
@@ -10,11 +17,20 @@ body {
 }
 
 body {
-  background: var(--bg-page);
+  /* Dark base background prevents white flash on all platforms */
+  background: var(--bg-deep, #1E0E35);
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: var(--type-sm);
   line-height: var(--line-normal);
+  /* Mobile: prevent horizontal scroll and overscroll bounce */
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  /* Only allow vertical pan and pinch zoom — blocks swipe-to-navigate */
+  touch-action: pan-y pinch-zoom;
+  /* Contain layout so children cannot cause horizontal overflow */
+  position: relative;
+  width: 100%;
 }
 
 a {

@@ -84,9 +84,9 @@ export default function MicroWinsLedger() {
   const totalWins = wins.length;
 
   return (
-    <div className="glass-card p-5 space-y-4">
-      <div>
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R8') }}>
+    <div className="glass-card glass-card--interactive p-5 space-y-4">
+      <div className="gold-accent-left">
+        <p className="neon-tag inline-block text-xs font-bold">
           Evidence Board
         </p>
         <p className="mt-2 text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -139,7 +139,8 @@ export default function MicroWinsLedger() {
 
       {/* Recent wins */}
       {!loading && wins.length > 0 && (
-        <div className="space-y-2 pt-2" style={{ borderTop: '1px solid var(--surface-border)' }}>
+        <div className="space-y-2 pt-2">
+          <div className="gold-rule mb-3" />
           <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
             Recent receipts
           </p>

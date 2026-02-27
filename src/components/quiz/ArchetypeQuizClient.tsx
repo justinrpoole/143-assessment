@@ -4,6 +4,8 @@ import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import archetypeBlocks from '@/data/archetype_blocks.json';
+import archetypePublic from '@/data/archetype_public.json';
+import ShareableSignatureCard from '@/components/marketing/ShareableSignatureCard';
 
 /**
  * 9 quick scenario questions — one per ray.
@@ -121,6 +123,9 @@ interface ArchetypeResult {
   essence: string;
   topRays: [string, string];
   topRayNames: [string, string];
+  tagline: string;
+  neonColor: string;
+  identityCode: string;
 }
 
 function computeResult(scores: Record<string, number>): ArchetypeResult {
@@ -148,11 +153,18 @@ function computeResult(scores: Record<string, number>): ArchetypeResult {
     R7: 'Connection', R8: 'Possibility', R9: 'Be The Light',
   };
 
+  // Look up public archetype data for shareable card fields
+  const pub = (archetypePublic as { name: string; tagline: string; neon_color: string; identity_code: string }[])
+    .find((a) => a.name === name);
+
   return {
     name,
     essence,
     topRays: [top1, top2] as [string, string],
     topRayNames: [rayNameMap[top1] ?? top1, rayNameMap[top2] ?? top2] as [string, string],
+    tagline: pub?.tagline ?? essence.slice(0, 80),
+    neonColor: pub?.neon_color ?? '#F8D011',
+    identityCode: pub?.identity_code ?? '',
   };
 }
 
@@ -287,6 +299,15 @@ export default function ArchetypeQuizClient() {
                 {result.essence.replace(/\*\*/g, '')}
               </p>
             </div>
+
+            {/* Shareable card */}
+            <ShareableSignatureCard
+              name={result.name}
+              tagline={result.tagline}
+              rays={result.topRayNames}
+              neonColor={result.neonColor}
+              identityCode={result.identityCode}
+            />
 
             {/* Blurred teaser */}
             <div className="glass-card p-6 relative overflow-hidden">

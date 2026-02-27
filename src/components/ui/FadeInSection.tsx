@@ -20,13 +20,17 @@ interface FadeInSectionProps {
 }
 
 const OFFSETS: Record<string, Record<string, number>> = {
-  up: { y: 24 },
-  down: { y: -24 },
-  left: { x: 24 },
-  right: { x: -24 },
-  scale: { scale: 0.92 },
+  up: { y: 32 },
+  down: { y: -32 },
+  left: { x: 32 },
+  right: { x: -32 },
+  scale: { scale: 0.88 },
   none: {},
 };
+
+/* Spring physics presets — snappy with slight overshoot for premium feel */
+const SPRING_SMOOTH = { type: 'spring' as const, stiffness: 80, damping: 20, mass: 0.8 };
+const SPRING_BLUR = { type: 'spring' as const, stiffness: 60, damping: 18, mass: 1 };
 
 export function FadeInSection({
   children,
@@ -61,9 +65,8 @@ export function FadeInSection({
       initial={initialState}
       animate={animateState}
       transition={{
-        duration: blur ? 0.8 : 0.5,
+        ...(blur ? SPRING_BLUR : SPRING_SMOOTH),
         delay,
-        ease: [0.2, 0.8, 0.2, 1],
       }}
       className={className}
     >
@@ -127,7 +130,7 @@ export function StaggerItem({
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.2, 0.8, 0.2, 1] } },
+        visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 22, mass: 0.7 } },
       }}
       className={className}
     >

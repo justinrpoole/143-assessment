@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import EclipseHero from "@/components/marketing/EclipseHero";
+import CosmicHero from "@/components/marketing/CosmicHero";
 import HeroProofStrip from "@/components/marketing/HeroProofStrip";
 import HeroVideoThumb from "@/components/marketing/HeroVideoThumb";
 import StickyCtaBar from "@/components/marketing/StickyCtaBar";
@@ -89,9 +89,9 @@ export default async function UpgradeYourOsPage() {
         { id: "final-cta", label: "Get Started" },
       ]} />
 
-      {/* ── ECLIPSE HERO — Single brand moment (sun/moon + 143 with Justin Ray) ── */}
+      {/* ── COSMIC HERO — 9-ray orbital system + eclipse + SunCore ── */}
       <div className="relative z-10">
-        <EclipseHero className="mx-auto max-w-[960px] px-5 pt-6 sm:px-8 sm:pt-12" />
+        <CosmicHero className="mx-auto max-w-[960px] px-5 pt-6 sm:px-8 sm:pt-12" />
       </div>
 
       {/* ── HERO TEXT ── */}
@@ -122,7 +122,7 @@ export default async function UpgradeYourOsPage() {
           </span>
 
           {/* Hero H1 */}
-          <h1 className="text-shimmer mt-4 max-w-[720px] text-3xl font-bold leading-tight sm:text-4xl lg:text-[44px]">
+          <h1 className="text-shimmer heading-hero mt-4 max-w-[720px]">
             Every other leadership assessment tells you who you are. This one shows you who you are <span className="gold-highlight">right now</span>.
           </h1>
           <p className="mt-4 max-w-[560px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -160,7 +160,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── NOT A LABEL MANIFESTO (#2) ── */}
       <FadeInSection>
-      <section id="not-a-label" className="relative z-10 mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+      <section id="not-a-label" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
         <NotALabelManifesto />
       </section>
       </FadeInSection>
@@ -169,7 +169,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── CONVERSION QUESTIONS ── */}
       <FadeInSection blur>
-      <section id="conversion-questions" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
+      <section id="conversion-questions" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 watermark-143">
         <FloatingOrbs variant="purple" />
         <StaggerChildren className="relative z-10 grid gap-5 md:grid-cols-3">
           {[
@@ -201,7 +201,7 @@ export default async function UpgradeYourOsPage() {
         </StaggerChildren>
         <div className="relative z-10 mt-8 text-center">
           <LiquidFillButton href="/preview">
-            See where this shows up in your results
+            Show Me Where This Shows Up
           </LiquidFillButton>
           <p className="mt-4 text-sm italic" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>
             Running on survival fuel and calling it discipline.
@@ -212,7 +212,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── TRY 3 QUESTIONS ── */}
       <FadeInSection>
-      <section id="try-it" className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="try-it" className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <MiniAssessmentPreview />
         <EmailCaptureBanner />
       </section>
@@ -222,7 +222,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── YOUR OPERATING SYSTEM (#6) ── */}
       <FadeInSection>
-      <section id="os-explainer" className="relative z-10 mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+      <section id="os-explainer" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
         <OSExplainer />
       </section>
       </FadeInSection>
@@ -231,14 +231,14 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── HOW IT WORKS — 3-step walkthrough ── */}
       <FadeInSection>
-      <section id="how-it-works" className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+      <section id="how-it-works" className="relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
         <HowItWorks />
       </section>
       </FadeInSection>
 
       {/* ── PRODUCT PREVIEW — radar chart mockup ── */}
       <FadeInSection>
-      <section id="product-preview" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 overflow-hidden">
+      <section id="product-preview" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 overflow-hidden">
         {/* ── Astrology / Star Chart background decoration ── */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
           <svg viewBox="0 0 600 600" width="600" height="600" className="opacity-[0.06]" style={{ maxWidth: '100%' }}>
@@ -268,7 +268,7 @@ export default async function UpgradeYourOsPage() {
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> Your Results
           </span>
-          <h2 className="gold-underline mx-auto mt-3 text-2xl font-bold sm:text-3xl" style={{ color: 'var(--text-on-dark)' }}>
+          <h2 className="gold-underline heading-section mx-auto mt-3" style={{ color: 'var(--text-on-dark)' }}>
             A map, not a label
           </h2>
           <p className="mx-auto max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -317,12 +317,12 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SCORE MOVEMENT CHART (#4) ── */}
       <FadeInSection>
-      <section id="score-movement" className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="score-movement" className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <div className="text-center space-y-3 mb-8">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
             Scores That Move
           </p>
-          <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+          <h2 className="heading-section" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
             Watch the growth happen — week by week.
           </h2>
           <p className="mx-auto max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -339,14 +339,14 @@ export default async function UpgradeYourOsPage() {
       {/* ── ECLIPSE CONCEPT ── */}
       <FadeInSection>
       <RadialSpotlight>
-      <section id="eclipse-concept" className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+      <section id="eclipse-concept" className="relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
         <FloatingOrbs variant="gold" />
         <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
           <div className="gold-accent-left">
             <span className="gold-tag">
               <span style={{ color: '#F8D011' }}>◆</span> The Eclipse Concept
             </span>
-            <h2 className="text-gold-gradient gold-underline mt-3 text-2xl font-bold leading-tight">
+            <h2 className="text-gold-gradient gold-underline heading-section mt-3">
               Your light is not gone. It is covered.
             </h2>
             <p className="mt-6 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -397,12 +397,12 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── 9 RAYS — vertical progression with sun ── */}
       <FadeInSection>
-      <section id="nine-rays" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
+      <section id="nine-rays" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 watermark-143">
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> The 9 Rays
           </span>
-          <h2 className="text-shimmer mt-4 text-2xl font-bold sm:text-3xl">
+          <h2 className="text-shimmer heading-section mt-4">
             9 dimensions. Each one trainable.
           </h2>
           <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -415,7 +415,7 @@ export default async function UpgradeYourOsPage() {
         </div>
         <div className="relative z-10 mt-8 text-center">
           <LiquidFillButton href="/preview">
-            Which ray leads for you? Find out in 15 minutes.
+            Show Me All 9 Rays
           </LiquidFillButton>
         </div>
       </section>
@@ -423,12 +423,12 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── ECLIPSE IS NOT FAILURE (#14) ── */}
       <FadeInSection>
-      <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
             Eclipse Is Not Failure
           </p>
-          <h2 className="text-xl font-bold sm:text-2xl text-gold-gradient">
+          <h2 className="heading-section text-gold-gradient">
             Other assessments call it a &ldquo;derailment risk.&rdquo; We call it what it is.
           </h2>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -449,7 +449,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── THE 143 LOOP — Daily Practice (#9, #16) ── */}
       <FadeInSection>
-      <section id="daily-loop" className="relative z-10 mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+      <section id="daily-loop" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
         <DailyLoopVisual />
       </section>
       </FadeInSection>
@@ -458,7 +458,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── MICRO-JOY — Smallest Viable Practice (#12) ── */}
       <FadeInSection>
-      <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <div className="glass-card p-6 sm:p-8 space-y-4" style={{ border: '1px solid rgba(248,208,17,0.15)' }}>
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R2') }}>
             Smallest Viable Practice
@@ -483,7 +483,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── COMPETITOR COMPARISON (#1) ── */}
       <FadeInSection>
-      <section id="competitor-comparison" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+      <section id="competitor-comparison" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
         <FloatingOrbs variant="purple" />
         <div className="relative z-10">
           <CompetitorComparison />
@@ -495,12 +495,12 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── WHAT THIS IS NOT ── */}
       <FadeInSection>
-      <section id="what-this-is-not" className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="what-this-is-not" className="mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <div className="mb-8 text-center">
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> No Hype. No Shortcuts.
           </span>
-          <h2 className="mt-4 text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
+          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
             What This Is Not
           </h2>
         </div>
@@ -526,7 +526,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── TESTIMONIALS — gold stripe accent ── */}
       <FadeInSection>
-      <section id="testimonials" className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="testimonials" className="relative mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <div className="mb-8 text-center">
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> What Leaders Say
@@ -581,13 +581,13 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── PRICING — gold-bordered featured card ── */}
       <FadeInSection>
-      <section id="pricing" className="section-alt-dark relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="pricing" className="section-alt-dark relative mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <FloatingOrbs variant="mixed" />
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> Choose Your Path
           </span>
-          <h2 className="mt-4 text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
+          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
             Start free. Go deeper when you&rsquo;re ready.
           </h2>
         </div>
@@ -608,9 +608,7 @@ export default async function UpgradeYourOsPage() {
             </LiquidFillButton>
           </div>
           {/* Paid option — gold border featured */}
-          <div className="glass-card glass-card--lift pricing-featured flex flex-col p-6"
-            style={{ border: '1.5px solid #F8D011' }}
-          >
+          <div className="glass-card glass-card--featured pricing-featured flex flex-col p-6">
             <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
               ◆ Full Assessment
             </p>
@@ -641,7 +639,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── ABOUT JUSTIN + FINAL CTA ── */}
       <FadeInSection>
-      <section id="final-cta" className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+      <section id="final-cta" className="relative mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <FloatingOrbs variant="gold" />
         <div className="relative z-10 text-center">
           <span className="gold-tag mx-auto">
@@ -673,10 +671,8 @@ export default async function UpgradeYourOsPage() {
         </div>
 
         {/* Final CTA — gold accent card */}
-        <div className="glass-card glass-card--executive relative z-10 mt-12 p-8 text-center"
-          style={{ borderTopColor: '#F8D011' }}
-        >
-          <h2 className="text-shimmer text-2xl font-bold sm:text-3xl">
+        <div className="glass-card glass-card--hero relative z-10 mt-12 p-8 sm:p-10 text-center">
+          <h2 className="text-shimmer heading-section">
             Your light is still there.
           </h2>
           <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>

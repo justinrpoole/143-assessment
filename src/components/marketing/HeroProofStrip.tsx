@@ -21,7 +21,7 @@ export default function HeroProofStrip() {
       aria-label="What leaders discovered"
     >
       <div
-        className="flex w-max gap-12 whitespace-nowrap"
+        className="flex w-max gap-8 whitespace-nowrap"
         style={{
           animation: 'proofScroll 40s linear infinite',
         }}
@@ -29,11 +29,11 @@ export default function HeroProofStrip() {
         {doubled.map((line, i) => (
           <span
             key={`${line}-${i}`}
-            className="text-xs font-medium tracking-wide"
-            style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.45))' }}
+            className="text-xs sm:text-sm font-medium tracking-wide"
+            style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.50))' }}
           >
             {line}
-            <span className="mx-6 inline-block" style={{ color: 'var(--brand-gold, #F8D011)', opacity: 0.4 }} aria-hidden="true">
+            <span className="mx-6 inline-block" style={{ color: 'var(--brand-gold, #F8D011)', opacity: 0.6, textShadow: '0 0 6px rgba(248,208,17,0.3)' }} aria-hidden="true">
               &#x2726;
             </span>
           </span>

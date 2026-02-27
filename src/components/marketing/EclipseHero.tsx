@@ -62,7 +62,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
     <div
       className={className}
       role="img"
-      aria-label="143 with Justin Ray — we upgrade your operating system"
+      aria-label="143 Leadership — Live just in a ray of light — with Justin Ray — we upgrade your operating system"
     >
       <div className="relative overflow-hidden" style={{ minHeight: 'min(420px, 56vw)' }}>
         {/* ── SVG Celestial Visual ── */}
@@ -110,7 +110,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             </radialGradient>
 
             {/* Bloom filter — multi-pass gaussian for soft glow */}
-            <filter id={`${uid}-bloom`} x="-150%" y="-150%" width="400%" height="400%">
+            <filter id={`${uid}-bloom`} x="-80%" y="-80%" width="260%" height="260%">
               <feGaussianBlur stdDeviation="12" result="b1" />
               <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b2" />
               <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b3" />
@@ -124,7 +124,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             </filter>
 
             {/* Wisp blur */}
-            <filter id={`${uid}-wisp-blur`} x="-300%" y="-300%" width="700%" height="700%">
+            <filter id={`${uid}-wisp-blur`} x="-80%" y="-80%" width="260%" height="260%">
               <feGaussianBlur stdDeviation="7" result="s1" />
               <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="s2" />
               <feMerge>
@@ -134,7 +134,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             </filter>
 
             {/* Diamond flash filter */}
-            <filter id={`${uid}-diamond-bloom`} x="-200%" y="-200%" width="500%" height="500%">
+            <filter id={`${uid}-diamond-bloom`} x="-100%" y="-100%" width="300%" height="300%">
               <feGaussianBlur stdDeviation="4" result="glow" />
               <feMerge>
                 <feMergeNode in="glow" />
@@ -310,9 +310,32 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
               transformOrigin: `${diamondX}px ${diamondY}px`,
             }}
           />
+
+          {/* Supernova flash — radial burst from sun center */}
+          <motion.circle
+            cx={sunCx}
+            cy={sunCy}
+            r={sunR * 2.5}
+            fill="white"
+            initial={animate ? { opacity: 0, scale: 0.3 } : { opacity: 0 }}
+            animate={
+              animate
+                ? { opacity: [0, 0.55, 0], scale: [0.3, 1.8, 2.5] }
+                : { opacity: 0 }
+            }
+            transition={{
+              duration: 0.8,
+              delay: 2.5,
+              ease: EASE,
+            }}
+            style={{
+              transformOrigin: `${sunCx}px ${sunCy}px`,
+              mixBlendMode: 'screen',
+            }}
+          />
         </svg>
 
-        {/* ── Text Content ── */}
+        {/* ── Text Content — Supernova Sequence ── */}
         <div
           className="relative z-10 flex flex-col items-center justify-end text-center px-4"
           style={{
@@ -321,26 +344,101 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             paddingBottom: '1.5rem',
           }}
         >
+          {/* ── Phase 1: "143" purple outline burst → gold settle ── */}
+          <div style={{ position: 'relative', overflow: 'visible' }}>
+            {/* Burst: purple outline glow (visible 2.5s–4.3s) */}
+            <motion.p
+              className="absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold pointer-events-none"
+              style={{
+                fontFamily: 'var(--font-cosmic-display)',
+                color: 'transparent',
+                WebkitTextStroke: '2px #8b5bff',
+                textShadow:
+                  '0 0 20px rgba(139,91,255,0.8), 0 0 50px rgba(139,91,255,0.4), 0 0 80px rgba(139,91,255,0.2)',
+              }}
+              initial={animate ? { opacity: 0, scale: 0.4 } : { opacity: 0 }}
+              animate={
+                animate
+                  ? { opacity: [0, 1, 1, 0], scale: [0.4, 1.8, 1.6, 0.8] }
+                  : { opacity: 0 }
+              }
+              transition={{
+                duration: 2.0,
+                delay: 2.5,
+                times: [0, 0.15, 0.7, 1],
+                ease: EASE,
+              }}
+              aria-hidden="true"
+            >
+              143
+            </motion.p>
+
+            {/* Final: gold fill (settles at 4.0s) */}
+            <motion.p
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
+              style={{
+                fontFamily: 'var(--font-cosmic-display)',
+                color: '#F8D011',
+                textShadow: '0 0 40px rgba(248, 208, 17, 0.3)',
+              }}
+              initial={animate ? { opacity: 0, y: 20 } : false}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 4.0, ease: EASE }}
+            >
+              143
+            </motion.p>
+          </div>
+
+          {/* ── Phase 1b: "LEADERSHIP" stamp (3.0s) ── */}
           <motion.p
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
+            className="mt-1 font-black text-xl sm:text-2xl md:text-3xl uppercase"
             style={{
-              fontFamily: 'var(--font-cosmic-display)',
-              color: '#F8D011',
-              textShadow: '0 0 40px rgba(248, 208, 17, 0.3)',
+              fontFamily: 'var(--font-body)',
+              color: '#FFFEF5',
+              letterSpacing: '0.15em',
+              transformOrigin: 'center top',
             }}
-            initial={animate ? { opacity: 0, y: 20 } : false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 3.0, ease: EASE }}
+            initial={animate ? { opacity: 0, scaleY: 0 } : false}
+            animate={{ opacity: 1, scaleY: 1 }}
+            transition={{
+              duration: 0.4,
+              delay: 3.0,
+              ease: [0.34, 1.56, 0.64, 1],
+            }}
           >
-            143
+            LEADERSHIP
           </motion.p>
 
+          {/* ── Phase 2: Neon tagline flash (3.2s) ── */}
           <motion.p
-            className="mt-2 text-base sm:text-lg md:text-xl font-medium"
+            className={`mt-3 text-sm sm:text-base md:text-lg font-extrabold uppercase${animate ? ' neon-shimmer-text' : ''}`}
+            style={{
+              letterSpacing: '0.08em',
+              color: animate ? undefined : 'var(--cosmic-purple-light, #7B4FA2)',
+            }}
+            initial={animate ? { opacity: 0, scale: 0.9 } : false}
+            animate={
+              animate
+                ? { opacity: [0, 1, 1], scale: [0.9, 1.05, 1.0] }
+                : { opacity: 1, scale: 1 }
+            }
+            transition={{
+              duration: 1.0,
+              delay: 3.2,
+              times: [0, 0.3, 1],
+              ease: EASE,
+            }}
+          >
+            Live just in a ray of light
+          </motion.p>
+
+          {/* ── Phase 3: Settle — remaining text fades in ── */}
+          <motion.p
+            className="mt-3 text-base sm:text-lg md:text-xl font-medium"
             style={{ color: 'var(--text-on-dark, rgba(255,255,255,0.92))' }}
             initial={animate ? { opacity: 0, y: 16 } : false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 3.3, ease: EASE }}
+            transition={{ duration: 0.5, delay: 4.5, ease: EASE }}
           >
             with Justin Ray
           </motion.p>
@@ -353,7 +451,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             }}
             initial={animate ? { opacity: 0, y: 12 } : false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 3.6, ease: EASE }}
+            transition={{ duration: 0.5, delay: 4.8, ease: EASE }}
           >
             we upgrade your operating system
           </motion.p>
