@@ -402,7 +402,7 @@ export default async function AboutPage() {
         <FadeInSection>
           <section id="method" className="mx-auto max-w-[720px] space-y-5 text-center">
             <CosmicImage
-              src="/images/logo-143-transparent.png"
+              src="/images/logo-leadership-full.svg"
               alt="143 Leadership"
               width={160}
               height={160}

@@ -234,13 +234,19 @@ export function MarketingNav() {
           {/* Logo */}
           <Link href="/" className="flex shrink-0 items-center gap-2 no-underline" aria-label="143 Leadership — Home" onClick={closeMenu}>
             <Image
-              src="/images/master-logo.png"
-              alt="Justin Ray 143 Leadership"
-              width={200}
-              height={52}
-              className="h-[52px] w-auto"
+              src="/images/logo-143-sun.svg"
+              alt="143 Leadership"
+              width={40}
+              height={40}
+              className="h-[40px] w-auto"
               priority
             />
+            <span
+              className="text-[15px] font-bold tracking-[0.18em]"
+              style={{ color: "#FFFFFF", letterSpacing: "0.18em" }}
+            >
+              LEADERSHIP
+            </span>
             {isBeta && (
               <span
                 className="ml-1.5 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.06em]"

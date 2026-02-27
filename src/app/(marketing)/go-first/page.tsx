@@ -92,7 +92,7 @@ export default async function GoFirstPage() {
             />
           </div>
           <CosmicImage
-            src="/images/logo-justin-ray-transparent.png"
+            src="/images/logo-143-sun.svg"
             alt="Justin Ray"
             width={48}
             height={48}

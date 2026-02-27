@@ -7,13 +7,13 @@ export function SiteFooter() {
   return (
     <footer
       className="relative px-6 py-14 sm:px-8 sm:py-20 overflow-hidden"
-      style={{ background: "#F8D011" }}
+      style={{ background: "#D4AD0E" }}
     >
       <div className="relative z-10 mx-auto max-w-5xl">
         {/* Logo + tagline */}
         <div className="mb-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
           <Image
-            src="/images/143-sun-eclipsed-logo.svg"
+            src="/images/logo-leadership-full.svg"
             alt="143 Leadership"
             width={160}
             height={160}
