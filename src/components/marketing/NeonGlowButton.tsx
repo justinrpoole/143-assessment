@@ -3,6 +3,7 @@
 import { useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import GoldParticleBurst from '@/components/ui/GoldParticleBurst';
 
 interface NeonGlowButtonProps {
   href: string;
@@ -51,37 +52,40 @@ export default function NeonGlowButton({
   };
 
   return (
-    <Link
-      ref={ref}
-      href={href}
-      className={`btn-neon-glow ${className}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transform,
-        transition: 'transform 0.2s ease-out, box-shadow 0.3s ease',
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        padding: '14px 28px',
-        minHeight: '44px',
-        borderRadius: 'var(--radius-xl, 20px)',
-        background: 'var(--brand-gold, #F8D011)',
-        color: 'var(--brand-black, #020202)',
-        fontWeight: 600,
-        fontSize: '14px',
-        letterSpacing: '0.02em',
-        textDecoration: 'none',
-        border: 'none',
-        cursor: 'pointer',
-        boxShadow:
-          '0 0 8px rgba(248,208,17,0.3), 0 0 20px rgba(248,208,17,0.15), 0 0 40px rgba(248,208,17,0.08)',
-        animation: 'btn-glow-pulse 3s ease-in-out infinite',
-      }}
-    >
-      {children}
-    </Link>
+    <GoldParticleBurst>
+      <Link
+        ref={ref}
+        href={href}
+        className={`btn-neon-glow ${className}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          transform,
+          transition: 'transform 0.2s ease-out, box-shadow 0.3s ease',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          padding: '14px 28px',
+          minHeight: '44px',
+          borderRadius: 'var(--radius-xl, 20px)',
+          background: 'var(--brand-gold, #F8D011)',
+          color: 'var(--brand-black, #020202)',
+          fontWeight: 600,
+          fontSize: '14px',
+          letterSpacing: '0.02em',
+          textDecoration: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          overflow: 'visible',
+          boxShadow:
+            '0 0 8px rgba(248,208,17,0.3), 0 0 20px rgba(248,208,17,0.15), 0 0 40px rgba(248,208,17,0.08)',
+          animation: 'btn-glow-pulse 3s ease-in-out infinite',
+        }}
+      >
+        {children}
+      </Link>
+    </GoldParticleBurst>
   );
 }

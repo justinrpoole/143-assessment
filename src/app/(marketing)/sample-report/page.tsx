@@ -2,6 +2,8 @@ import DimmingDetector from "@/components/assessment/DimmingDetector";
 import SampleReportClient from "@/components/assessment/SampleReportClient";
 import SampleReportCTA from "@/components/billing/SampleReportCTA";
 import CosmicImage from "@/components/marketing/CosmicImage";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
@@ -186,11 +188,13 @@ export default async function SampleReportPage() {
                 evolve. When it shifts, that is not inconsistency. That is
                 growth you can see.
               </p>
-              <div className="mt-2">
-                <SampleReportCTA
-                  primaryLabel="Check My Stability — Free"
-                  secondaryLabel="Get Your Full Report — $43"
-                />
+              <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
+                <NeonGlowButton href="/upgrade-your-os">
+                  Take the Assessment
+                </NeonGlowButton>
+                <LiquidFillButton href="/how-it-works">
+                  See How It Works
+                </LiquidFillButton>
               </div>
             </div>
             </ConicBorderCard>

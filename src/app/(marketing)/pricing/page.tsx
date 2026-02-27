@@ -234,8 +234,8 @@ export default async function PricingPage() {
             className="text-shimmer mx-auto max-w-[640px] text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark, #FFFEF5)" }}
           >
-            Every tier answers the same question: what happens when your
-            strongest capacities come back online?
+            Every tier answers the same question: what happens when your{" "}
+            <span className="gold-highlight">strongest capacities come back online</span>?
           </h1>
           <div className="mx-auto max-w-[560px]">
             <ScrollTextReveal text="The free Gravitational Stability Check takes 3 minutes. The full assessment takes 15 minutes. The Portal tracks your growth monthly. Coaching proves it in 10 weeks. Pick the depth that matches where you are right now." />
@@ -246,7 +246,7 @@ export default async function PricingPage() {
           <TrustBadgeStrip badges={["9 Rays Measured", "143+ Data Points", "Evidence-Based"]} />
         </section>
 
-        <FadeInSection>
+        <FadeInSection blur>
           <CosmicImage
             src="/images/cosmic/light-dashboard.png"
             alt="The 143 Leadership Portal — your growth dashboard with weekly retakes and progress tracking"
@@ -261,7 +261,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 2 · PLAN CARDS ──────────────────────────── */}
         <FadeInSection>
-          <section id="plans">
+          <section id="plans" className="relative section-blend-top">
           <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PLANS.map((plan) => (
               <StaggerItem key={plan.id}>
@@ -288,7 +288,7 @@ export default async function PricingPage() {
                   <div className="mt-2 flex items-baseline gap-1">
                     <span
                       className="text-3xl font-bold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      style={{ color: "var(--text-on-dark, #FFFEF5)", fontFamily: "var(--font-cosmic-display)" }}
                     >
                       {plan.price}
                     </span>
@@ -314,11 +314,11 @@ export default async function PricingPage() {
                     {plan.description}
                   </p>
                   <ul className="mt-4 flex-1 space-y-2">
-                    {plan.features.map((feature) => (
+                    {plan.features.map((feature, index) => (
                       <li
                         key={feature}
-                        className="flex items-start gap-2 text-sm"
-                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                        className="check-animated flex items-start gap-2 text-sm"
+                        style={{ color: "var(--text-on-dark, #FFFEF5)", animationDelay: `${index * 0.1}s` }}
                       >
                         <CheckIcon />
                         <span>{feature}</span>
@@ -356,6 +356,8 @@ export default async function PricingPage() {
             variant="section"
           />
         </FadeInSection>
+
+        <hr className="gold-rule" />
 
         <GoldDividerAnimated />
 
@@ -486,7 +488,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 4 · NO LOCK-IN ──────────────────────────── */}
         <FadeInSection>
-          <section id="no-lock-in" className="mx-auto max-w-[720px]">
+          <section id="no-lock-in" className="relative mx-auto max-w-[720px] watermark-143">
             <div className="glass-card p-6 sm:p-8 space-y-4 text-center">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -510,8 +512,8 @@ export default async function PricingPage() {
                 Cancel your Portal Membership anytime. No exit interviews. No
                 penalties. If your payment lapses, your assessment history stays.
                 Your data does not disappear. When you come back, your map is
-                waiting. We believe the work should earn your attention every
-                month — not trap it.
+                waiting. We believe <span className="gold-highlight">the work should earn your attention every
+                month</span> — not trap it.
               </p>
             </div>
           </section>
@@ -521,7 +523,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 5 · FAQ ─────────────────────────────────── */}
         <FadeInSection>
-          <section id="faq" className="mx-auto max-w-[720px] space-y-6">
+          <section id="faq" className="relative mx-auto max-w-[720px] space-y-6 section-blend-bottom">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"

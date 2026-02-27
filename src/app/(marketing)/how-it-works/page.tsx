@@ -146,8 +146,8 @@ export default async function HowItWorksPage() {
         <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · THE FUNNEL ─────────────────────────── */}
-        <FadeInSection>
-          <section className="space-y-8">
+        <FadeInSection blur>
+          <section className="relative space-y-8 gold-dot-grid">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"

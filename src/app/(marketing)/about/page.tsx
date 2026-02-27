@@ -108,8 +108,8 @@ export default async function AboutPage() {
         <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · THE STORY ──────────────────────────── */}
-        <FadeInSection>
-          <section id="story" className="mx-auto max-w-[720px]">
+        <FadeInSection blur>
+          <section id="story" className="relative mx-auto max-w-[720px] section-blend-top">
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -192,9 +192,9 @@ export default async function AboutPage() {
             </div>
 
             <StaggerContainer className="space-y-3">
-              {CREDENTIALS.map((item) => (
+              {CREDENTIALS.map((item, idx) => (
                 <StaggerItem key={item}>
-                  <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4">
+                  <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4 check-animated" style={{ animationDelay: `${idx * 0.1}s` }}>
                     <CheckIcon />
                     <span
                       className="text-sm leading-relaxed"
@@ -338,7 +338,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 5b · TESTIMONIALS ─────────────────────────── */}
         <FadeInSection>
-          <section id="testimonials" className="mx-auto max-w-[720px] space-y-6 text-center">
+          <section id="testimonials" className="relative mx-auto max-w-[720px] space-y-6 text-center section-blend-bottom">
             <p
               className="text-xs font-bold uppercase tracking-widest"
               style={{ color: "var(--brand-gold, #F8D011)" }}

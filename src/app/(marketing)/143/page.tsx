@@ -135,7 +135,7 @@ export default async function Challenge143Page() {
         <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · THE SCIENCE ────────────────────────── */}
-        <FadeInSection>
+        <FadeInSection blur>
           <RadialSpotlight>
             <section className="mx-auto max-w-[720px] space-y-8">
               <div className="space-y-3">

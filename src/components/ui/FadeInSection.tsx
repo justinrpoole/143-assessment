@@ -15,6 +15,8 @@ interface FadeInSectionProps {
   className?: string;
   /** Trigger margin for intersection observer (default: '-60px') */
   margin?: MarginType;
+  /** Apply blur-entrance effect: starts blurred and deblurs on reveal (0.8s) */
+  blur?: boolean;
 }
 
 const OFFSETS: Record<string, Record<string, number>> = {
@@ -32,6 +34,7 @@ export function FadeInSection({
   direction = 'up',
   className,
   margin = '-60px' as MarginType,
+  blur = false,
 }: FadeInSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin });
@@ -43,13 +46,22 @@ export function FadeInSection({
 
   const offset = OFFSETS[direction];
 
+  /* When blur is enabled, start with filter: blur(4px) and animate to blur(0px) */
+  const initialState = blur
+    ? { opacity: 0, filter: 'blur(4px)', ...offset }
+    : { opacity: 0, ...offset };
+
+  const animateState = isInView
+    ? { opacity: 1, x: 0, y: 0, scale: 1, ...(blur ? { filter: 'blur(0px)' } : {}) }
+    : initialState;
+
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, ...offset }}
-      animate={isInView ? { opacity: 1, x: 0, y: 0, scale: 1 } : { opacity: 0, ...offset }}
+      initial={initialState}
+      animate={animateState}
       transition={{
-        duration: 0.5,
+        duration: blur ? 0.8 : 0.5,
         delay,
         ease: [0.2, 0.8, 0.2, 1],
       }}

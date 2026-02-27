@@ -15,6 +15,7 @@ import StaggerChildren from "@/components/marketing/StaggerChildren";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import RadarMockup from "@/components/marketing/RadarMockup";
 import EmailCaptureBanner from "@/components/marketing/EmailCaptureBanner";
+import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import SectionTOC from "@/components/ui/SectionTOC";
 import GoldTooltip from "@/components/ui/GoldTooltip";
@@ -22,6 +23,8 @@ import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
+import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 
 export const dynamic = "force-dynamic";
@@ -101,6 +104,8 @@ export default async function UpgradeYourOsPage() {
             </span>
           </div>
 
+          <LiveActivityBadge />
+
           <span className="gold-tag mb-4 block w-fit">
             <span style={{ color: '#F8D011' }}>◆</span> Leadership Assessment
           </span>
@@ -130,6 +135,10 @@ export default async function UpgradeYourOsPage() {
         <HeroProofStrip />
       </div>
 
+      <div className="relative z-10 mx-auto max-w-[960px] px-5 sm:px-8">
+        <TrustBadgeStrip badges={["9 Rays Measured", "143+ Data Points", "Evidence-Based"]} />
+      </div>
+
       <StickyCtaBar />
 
       {/* Gold rule separator */}
@@ -138,7 +147,7 @@ export default async function UpgradeYourOsPage() {
       </div>
 
       {/* ── CONVERSION QUESTIONS ── */}
-      <FadeInSection>
+      <FadeInSection blur>
       <section id="conversion-questions" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
         <FloatingOrbs variant="purple" />
         <StaggerChildren className="relative z-10 grid gap-5 md:grid-cols-3">
@@ -234,6 +243,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── ECLIPSE CONCEPT ── */}
       <FadeInSection>
+      <RadialSpotlight>
       <section id="eclipse-concept" className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
         <FloatingOrbs variant="gold" />
         <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
@@ -285,6 +295,7 @@ export default async function UpgradeYourOsPage() {
           </div>
         </div>
       </section>
+      </RadialSpotlight>
       </FadeInSection>
 
       <GoldDividerAnimated />

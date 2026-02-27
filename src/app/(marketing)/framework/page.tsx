@@ -258,7 +258,7 @@ export default async function FrameworkPage() {
 
         {/* ─── SECTION 4 · THREE PHASES ───────────────────────── */}
         <FadeInSection>
-          <section id="three-phases" className="space-y-8">
+          <section id="three-phases" className="relative space-y-8 gold-dot-grid">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"

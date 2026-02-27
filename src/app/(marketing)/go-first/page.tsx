@@ -128,7 +128,7 @@ export default async function GoFirstPage() {
         <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · SELF-RECOGNITION ───────────────────── */}
-        <FadeInSection>
+        <FadeInSection blur>
           <section className="mx-auto max-w-[720px]">
             <div className="glass-card p-6 sm:p-8 space-y-5">
               <p
@@ -168,7 +168,7 @@ export default async function GoFirstPage() {
 
         {/* ─── SECTION 3 · SOUND FAMILIAR ─────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="relative mx-auto max-w-[720px] gold-dot-grid">
             <div className="glass-card p-6 sm:p-8">
               <p
                 className="mb-5 text-xs font-bold uppercase tracking-widest"

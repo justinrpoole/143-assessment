@@ -8,6 +8,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -76,6 +77,7 @@ export default async function ReportsPage({ searchParams }: PageProps) {
         size="large"
       />
       <GoldDividerAnimated />
+      <ScrollTextReveal text="Every cosmic visualization — Solar Core, Eclipse Meter, Black Hole Flags, Planetary Alignment, Solar Flare Journal, Constellation Progress, and more." />
 
       <RadialSpotlight>
         <CosmicErrorBoundary sectionLabel="REPORT">

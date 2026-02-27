@@ -191,10 +191,11 @@ export default async function FaqPage() {
 
         {/* ─── SECTION 3 · FAQ CATEGORIES ────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-12">
-          {FAQS.map((section) => (
+          {FAQS.map((section, idx) => (
             <FadeInSection
               key={section.category}
             >
+              {idx > 0 && <hr className="gold-rule mb-12" />}
               <div
                 id={`faq-${section.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
               >
@@ -267,7 +268,7 @@ export default async function FaqPage() {
                 className="text-2xl font-bold"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
-                The best way to understand it is to feel it.
+                The best way to understand it is to <span className="gold-highlight">feel it</span>.
               </h2>
               <p
                 className="mx-auto max-w-[480px] text-sm leading-relaxed"
@@ -275,7 +276,7 @@ export default async function FaqPage() {
                   color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
                 }}
               >
-                Start with the free Stability Check and see your pattern right now.
+                Start with the free Stability Check and <span className="gold-highlight">see your pattern right now</span>.
                 Or take the full assessment and get your complete map today.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">

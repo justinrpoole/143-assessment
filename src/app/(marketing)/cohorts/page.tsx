@@ -14,6 +14,7 @@ import SectionTOC from "@/components/ui/SectionTOC";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -181,7 +182,8 @@ export default async function CohortsPage() {
 
         {/* ─── SECTION 2 · BENEFITS ──────────────────────────────── */}
         <FadeInSection>
-          <section id="benefits" className="space-y-8">
+          <section id="benefits" className="relative space-y-8 section-blend-top">
+            <FloatingOrbs />
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -224,7 +226,7 @@ export default async function CohortsPage() {
 
         {/* ─── SECTION 3 · COHORT TIERS ──────────────────────────── */}
         <FadeInSection>
-          <section id="tiers" className="space-y-8">
+          <section id="tiers" className="relative space-y-8 watermark-143">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -252,7 +254,7 @@ export default async function CohortsPage() {
                     </p>
                     <p
                       className="text-lg font-bold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      style={{ color: "var(--text-on-dark, #FFFEF5)", fontFamily: "var(--font-cosmic-display)" }}
                     >
                       {tier.size}
                     </p>
@@ -269,11 +271,11 @@ export default async function CohortsPage() {
                       {tier.description}
                     </p>
                     <ul className="space-y-2">
-                      {tier.includes.map((item) => (
+                      {tier.includes.map((item, idx) => (
                         <li
                           key={item}
-                          className="flex items-start gap-2 text-xs leading-relaxed"
-                          style={{ color: "var(--text-on-dark-secondary)" }}
+                          className="flex items-start gap-2 text-xs leading-relaxed check-animated"
+                          style={{ color: "var(--text-on-dark-secondary)", animationDelay: `${idx * 0.1}s` }}
                         >
                           <svg
                             className="mt-0.5 h-3 w-3 shrink-0"
@@ -318,7 +320,7 @@ export default async function CohortsPage() {
 
         {/* ─── SECTION 4 · HOW IT WORKS ──────────────────────────── */}
         <FadeInSection>
-          <section id="how-it-works" className="space-y-8">
+          <section id="how-it-works" className="relative space-y-8 section-blend-bottom">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"

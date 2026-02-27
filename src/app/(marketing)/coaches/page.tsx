@@ -89,7 +89,7 @@ export default async function CoachingPage() {
 
       {/* Leading the Witness */}
       <FadeInSection>
-        <section id="leading-the-witness" className="mx-auto max-w-[720px] px-5 pb-12 sm:px-8">
+        <section id="leading-the-witness" className="relative mx-auto max-w-[720px] px-5 pb-12 sm:px-8 section-blend-top">
           <div className="glass-card p-6 sm:p-8 space-y-5">
             <p className="text-sm font-semibold leading-relaxed" style={{ color: 'var(--brand-gold)' }}>
               Have you ever learned something powerful at a workshop and lost it by Monday?
@@ -161,22 +161,22 @@ export default async function CoachingPage() {
 
       {/* What makes this different */}
       <FadeInSection>
-        <section id="different" className="mx-auto max-w-[720px]">
+        <section id="different" className="relative mx-auto max-w-[720px] watermark-143">
           <div className="glass-card p-6 sm:p-8 space-y-6">
             <div className="space-y-2">
               <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>Not another course</p>
               <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>What makes this different</h2>
             </div>
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 check-animated" style={{ animationDelay: '0s' }}>
                 <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2715;</span>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>No generic curriculum. Every week is matched to your actual assessment data.</p>
               </div>
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 check-animated" style={{ animationDelay: '0.1s' }}>
                 <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2715;</span>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>No guessing whether it worked. You retake the assessment at the end and compare.</p>
               </div>
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 check-animated" style={{ animationDelay: '0.2s' }}>
                 <span className="shrink-0 font-bold" style={{ color: 'var(--brand-gold)' }}>&#x2715;</span>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>No motivation speeches. Daily reps, specific tools, <span className="gold-highlight">measurable change</span>.</p>
               </div>
@@ -223,7 +223,7 @@ export default async function CoachingPage() {
 
       {/* Testimonials */}
       <FadeInSection>
-        <section id="testimonials" className="mx-auto max-w-[720px] space-y-6 text-center">
+        <section id="testimonials" className="relative mx-auto max-w-[720px] space-y-6 text-center section-blend-bottom">
           <p
             className="text-xs font-bold uppercase tracking-widest"
             style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -273,7 +273,7 @@ export default async function CoachingPage() {
             <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
               The protocol is the product. The proof is in the retake.
             </h2>
-            <p className="max-w-lg mx-auto text-lg font-semibold" style={{ color: 'var(--brand-gold)' }}>
+            <p className="max-w-lg mx-auto text-lg font-semibold" style={{ color: 'var(--brand-gold)', fontFamily: 'var(--font-cosmic-display)' }}>
               $143 per week for 10 weeks.
             </p>
             <p className="max-w-lg mx-auto text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>

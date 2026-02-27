@@ -76,7 +76,7 @@ export default async function OutcomesPage() {
         {/* ─── SECTION 2 · WHAT THE REPS PRODUCE ───────────────── */}
         <FadeInSection>
           <RadialSpotlight>
-            <section className="mx-auto max-w-[720px] space-y-8">
+            <section className="relative mx-auto max-w-[720px] space-y-8 gold-dot-grid">
               <div className="space-y-3">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"

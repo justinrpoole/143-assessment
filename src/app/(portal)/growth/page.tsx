@@ -7,6 +7,7 @@ import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 
 export const dynamic = "force-dynamic";
 
@@ -73,6 +74,7 @@ export default async function GrowthPage() {
           Access mode: <code>{auth.userState}</code>
         </p>
       </PageHeader>
+      <ScrollTextReveal text="Your trendline turns effort into proof: run history, deltas, and Day 7/21/66 checkpoints in one place." />
       <GoldDividerAnimated />
 
       <RadialSpotlight>

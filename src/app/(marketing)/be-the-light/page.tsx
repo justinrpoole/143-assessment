@@ -145,7 +145,7 @@ export default async function BeTheLightPage() {
         <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · SELF-RECOGNITION ───────────────────── */}
-        <FadeInSection>
+        <FadeInSection blur>
           <section className="mx-auto max-w-[720px]">
             <div className="glass-card p-6 sm:p-8 space-y-5">
               <p
@@ -221,7 +221,7 @@ export default async function BeTheLightPage() {
 
         {/* ─── SECTION 4 · THE ECLIPSE COST ───────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
+          <section className="relative mx-auto max-w-[720px] space-y-8 gold-dot-grid">
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"

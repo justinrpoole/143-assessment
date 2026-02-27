@@ -11,7 +11,7 @@ import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoldTooltip from "@/components/ui/GoldTooltip";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
-import { FadeInSection } from "@/components/ui/FadeInSection";
+import { FadeInSection, StaggerContainer, StaggerItem } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -161,7 +161,7 @@ export default async function MethodologyPage() {
 
       {/* ── 12 Research Pillars ── */}
       <FadeInSection>
-        <section id="research-pillars" className="mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+        <section id="research-pillars" className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 section-blend-top">
           <div className="mb-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
@@ -176,9 +176,10 @@ export default async function MethodologyPage() {
               The science supporting the system.
             </h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <StaggerContainer className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {RESEARCH_PILLARS.map((p) => (
-              <div key={p.researcher} className="glass-card glass-card--magnetic glass-card--lift p-4">
+              <StaggerItem key={p.researcher}>
+              <div className="glass-card glass-card--magnetic glass-card--lift p-4">
                 <p
                   className="text-sm font-bold"
                   style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -201,10 +202,13 @@ export default async function MethodologyPage() {
                   {p.mapping}
                 </p>
               </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </section>
       </FadeInSection>
+
+      <hr className="gold-rule" />
 
       <GoldDividerAnimated />
 
@@ -411,7 +415,7 @@ export default async function MethodologyPage() {
 
       {/* ── Known Limitations ── */}
       <FadeInSection>
-        <section id="limitations" className="mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+        <section id="limitations" className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8 watermark-143 section-blend-bottom">
           <div className="glass-card p-6 sm:p-8">
             <p
               className="text-xs font-bold uppercase tracking-widest"
