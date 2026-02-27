@@ -13,7 +13,6 @@
   --ink:#060014;--deep:#0c0023;
   --grape:rgba(126,63,255,0.98);
   --font:'Outfit',system-ui,sans-serif;
-  /* Eclipse phase driven by JS — everything reads these */
   --eclipse:0;--sun-bright:1;--temp:0;
 }
 body{margin:0;background:var(--ink);font-family:var(--font);overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -102,6 +101,7 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   display:grid;place-items:center;pointer-events:none;
   margin-bottom:-80px;
   transform-style:preserve-3d;
+  transition:opacity 0.3s;
 }
 
 /* ====== SUN GLOW — JS brightness, much more radiance ====== */
@@ -203,6 +203,30 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   pointer-events:none;margin-top:6%;transition:opacity 0.15s,transform 0.15s;
 }
 
+/* ====== SUPERNOVA FLASH ====== */
+.supernova-flash{
+  position:absolute;inset:0;z-index:25;pointer-events:none;
+  background:radial-gradient(circle at 50% 40%,
+    rgba(255,255,255,1),rgba(255,240,200,0.85) 18%,
+    rgba(255,200,100,0.45) 45%,transparent 78%);
+  opacity:0;
+}
+
+/* ====== LOGO REVEAL ====== */
+.logo-reveal{
+  position:absolute;z-index:14;
+  top:44%;left:50%;transform:translate(-50%,-50%) scale(0.82);
+  width:min(520px,82vw);
+  opacity:0;pointer-events:none;
+  filter:drop-shadow(0 0 40px rgba(126,63,255,0.50)) drop-shadow(0 0 80px rgba(100,40,220,0.25));
+  transition:opacity 2s ease-out,transform 2s cubic-bezier(.2,.8,.2,1),filter 2s ease-out;
+}
+.logo-reveal.visible{
+  opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto;
+  filter:drop-shadow(0 0 30px rgba(126,63,255,0.35)) drop-shadow(0 0 60px rgba(100,40,220,0.15));
+}
+.logo-reveal img{width:100%;height:auto;display:block}
+
 /* ====== GLASSMORPHISM PLATE — JS light ====== */
 .hero-copy{
   position:relative;z-index:12;text-align:center;
@@ -291,12 +315,16 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   .brand-143{font-size:clamp(40px,14vw,80px)}
   .cursor-glow{display:none}
   .row-1{font-size:clamp(24px,7vw,38px)}
+  .logo-reveal{width:min(420px,88vw);top:42%}
 }
 @media(prefers-reduced-motion:reduce){
   .rays,.rays::after,.cta::after,.lens-flare,.eclipse-bloom,
   .eclipse-darkness,.eclipse-ring,.grain,.rays-wrap,.moon-layer,.sun-glow,
   .atmosphere,.shooting-star,.row-1::after{animation:none!important}
   .word,.row-2,.row-3,.cta{animation:none!important;opacity:1;transform:none}
+  .supernova-flash{display:none}
+  .logo-reveal{opacity:1;transform:translate(-50%,-50%) scale(1);transition:none}
+  .eclipse-stage{opacity:0}
 }
 </style>
 </head>
@@ -309,6 +337,7 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   <div class="shooting-star ss-3" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
   <div class="eclipse-darkness" aria-hidden="true"></div>
+  <div class="supernova-flash" aria-hidden="true"></div>
   <canvas class="grain" aria-hidden="true"></canvas>
   <div class="cursor-glow" aria-hidden="true"></div>
   <div class="horizon" aria-hidden="true"></div>
@@ -420,6 +449,11 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
     <div class="lens-flare"></div>
   </div>
 
+  <!-- Logo reveal — appears after supernova -->
+  <div class="logo-reveal" aria-hidden="true">
+    <img src="../../../public/images/143-sun-eclipsed-logo.svg" alt="143 Leadership" />
+  </div>
+
   <div class="hero-copy">
     <h1 class="row-1">
       <span class="word" style="--i:0">UPGRADE</span>
@@ -435,33 +469,47 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 
 <script>
 /* =====================================================
-   UNIFIED SCENE ENGINE — One clock rules everything.
-   Every visual element reads from the same eclipse phase.
-   Nothing runs independently. This is what makes it
-   feel like a world instead of PowerPoint.
+   UNIFIED SCENE ENGINE — Phase-Based One-Shot Timeline
+
+   Sequence:
+   SUN (0-2s)       → Establishing shot, 143 on sun
+   ECLIPSE (2-16s)  → Moon traverses, totality, moon exits
+   RECOVERY (16-17.5s) → Sun brightens back to full glory
+   SUPERNOVA (17.5-20.5s) → Sun explodes AFTER moon passes
+   LOGO (20.5-23s)  → 143 Leadership logo fades in
+   IDLE (23s+)      → Logo visible, ambient starfield
    ===================================================== */
 (function(){
-  const DUR = 14; // eclipse cycle seconds
+  // === PHASE TIMING (seconds) ===
+  var T_SUN = 2, T_ECL = 14, T_REC = 1.5, T_NOV = 3, T_LOG = 2.5;
+  var P_SUN   = T_SUN;
+  var P_ECL   = P_SUN + T_ECL;
+  var P_REC   = P_ECL + T_REC;
+  var P_NOV   = P_REC + T_NOV;
+  var P_LOG   = P_NOV + T_LOG;
 
-  // DOM refs
-  const scene    = document.querySelector('.scene');
-  const ctx      = scene.getContext('2d', { alpha: true });
-  const atmo     = document.querySelector('.atmosphere');
-  const darkness = document.querySelector('.eclipse-darkness');
-  const sunGlow  = document.querySelector('.sun-glow');
-  const sunSvg   = document.querySelector('.sun-svg');
-  const raysWrap = document.querySelector('.rays-wrap');
-  const brand143 = document.querySelector('.brand-143');
-  const moonEl   = document.querySelector('.moon-layer');
-  const ring     = document.querySelector('.eclipse-ring');
-  const bloom    = document.querySelector('.eclipse-bloom');
-  const diamond  = document.querySelector('.diamond-ring');
-  const flare    = document.querySelector('.lens-flare');
-  const plate    = document.querySelector('.hero-copy');
-  const row1     = document.querySelector('.row-1');
-  const glow     = document.querySelector('.cursor-glow');
+  // === DOM REFS ===
+  var scene    = document.querySelector('.scene');
+  var ctx      = scene.getContext('2d', { alpha: true });
+  var atmo     = document.querySelector('.atmosphere');
+  var darkness = document.querySelector('.eclipse-darkness');
+  var sunGlow  = document.querySelector('.sun-glow');
+  var sunSvg   = document.querySelector('.sun-svg');
+  var raysWrap = document.querySelector('.rays-wrap');
+  var brand143 = document.querySelector('.brand-143');
+  var moonEl   = document.querySelector('.moon-layer');
+  var ring     = document.querySelector('.eclipse-ring');
+  var eclBloom = document.querySelector('.eclipse-bloom');
+  var diamond  = document.querySelector('.diamond-ring');
+  var flareEl  = document.querySelector('.lens-flare');
+  var plate    = document.querySelector('.hero-copy');
+  var row1     = document.querySelector('.row-1');
+  var glow     = document.querySelector('.cursor-glow');
+  var flash    = document.querySelector('.supernova-flash');
+  var logoEl   = document.querySelector('.logo-reveal');
+  var eclStage = document.querySelector('.eclipse-stage');
 
-  let w, h, dpr;
+  var w, h, dpr;
   function resize(){
     dpr = Math.min(2, devicePixelRatio || 1);
     w = scene.clientWidth; h = scene.clientHeight;
@@ -471,17 +519,17 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   }
 
   // ====== STARS ======
-  const layers = [
+  var layers = [
     { count: 200, maxR: 1.0,  speed: 0.03, tw: 0.20 },
     { count: 140, maxR: 1.5,  speed: 0.07, tw: 0.26 },
     { count: 70,  maxR: 2.2,  speed: 0.11, tw: 0.32 }
   ];
-  let stars = [];
+  var stars = [];
   function seedStars(){
     stars = [];
-    for(let li = 0; li < layers.length; li++){
-      const L = layers[li];
-      for(let i = 0; i < L.count; i++) stars.push({
+    for(var li = 0; li < layers.length; li++){
+      var L = layers[li];
+      for(var i = 0; i < L.count; i++) stars.push({
         layer: li, x: Math.random()*w, y: Math.random()*h,
         r: Math.random()*L.maxR + 0.15,
         a0: Math.random()*0.50 + 0.08,
@@ -493,25 +541,25 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   }
 
   // Constellation links
-  let links = [];
+  var links = [];
   function buildLinks(){
     links = [];
-    const mid = stars.filter(s => s.layer >= 1);
-    for(let i = 0; i < mid.length; i++){
-      let c = 0;
-      for(let j = i+1; j < mid.length && c < 2; j++){
-        const dx = mid[i].x - mid[j].x, dy = mid[i].y - mid[j].y;
-        const d = Math.sqrt(dx*dx + dy*dy);
+    var mid = stars.filter(function(s){ return s.layer >= 1; });
+    for(var i = 0; i < mid.length; i++){
+      var c = 0;
+      for(var j = i+1; j < mid.length && c < 2; j++){
+        var dx = mid[i].x - mid[j].x, dy = mid[i].y - mid[j].y;
+        var d = Math.sqrt(dx*dx + dy*dy);
         if(d < 85 && d > 18 && Math.random() < 0.25){ links.push([mid[i], mid[j]]); c++; }
       }
     }
   }
 
   // Dust motes — tiny particles that catch sunlight
-  let motes = [];
+  var motes = [];
   function seedMotes(){
     motes = [];
-    for(let i = 0; i < 40; i++) motes.push({
+    for(var i = 0; i < 40; i++) motes.push({
       x: Math.random()*w, y: Math.random()*h,
       r: Math.random()*0.8 + 0.3,
       vx: (Math.random()-0.5)*0.15, vy: (Math.random()-0.5)*0.08,
@@ -520,315 +568,468 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   }
 
   // ====== MOUSE ======
-  let mx = 0.5, my = 0.5, tmx = 0.5, tmy = 0.5;
-  document.addEventListener('mousemove', e => {
+  var mx = 0.5, my = 0.5, tmx = 0.5, tmy = 0.5;
+  document.addEventListener('mousemove', function(e){
     tmx = e.clientX / innerWidth;
     tmy = e.clientY / innerHeight;
   });
 
   // Plate inner light
-  plate.addEventListener('mousemove', e => {
-    const r = plate.getBoundingClientRect();
+  plate.addEventListener('mousemove', function(e){
+    var r = plate.getBoundingClientRect();
     plate.style.setProperty('--glow-x', (e.clientX - r.left) / r.width * 100 + '%');
     plate.style.setProperty('--glow-y', (e.clientY - r.top) / r.height * 100 + '%');
   });
 
   // CTA gravity
-  const cta = document.querySelector('.cta');
-  let grav = null;
-  cta.addEventListener('mouseenter', () => {
-    const r = cta.getBoundingClientRect();
+  var cta = document.querySelector('.cta');
+  var grav = null;
+  cta.addEventListener('mouseenter', function(){
+    var r = cta.getBoundingClientRect();
     grav = { x: (r.left + r.width/2) / innerWidth * w, y: (r.top + r.height/2) / innerHeight * h };
   });
-  cta.addEventListener('mouseleave', () => { grav = null; });
+  cta.addEventListener('mouseleave', function(){ grav = null; });
 
   // ====== ECLIPSE MATH ======
-  // Smooth bell curve centered at 0.5 (totality)
   function eclipseCurve(phase){
-    // phase 0..1 through the cycle
-    // Eclipse window: 0.32..0.68 (centered at 0.50)
     if(phase < 0.32 || phase > 0.68) return 0;
-    const t = (phase - 0.32) / 0.36; // 0..1 within eclipse window
-    return Math.sin(t * Math.PI); // smooth bell
+    var t = (phase - 0.32) / 0.36;
+    return Math.sin(t * Math.PI);
   }
 
-  // Moon arc path — parabolic arc, 34% moon centers on sun at totality
-  // Sun visual center is roughly at 50%,54% of the eclipse-stage
-  // Moon is 34% wide, so to center it on the sun: left = 50-17 = 33%, top = 54-17 = 37%
   function moonPos(phase){
     if(phase < 0.03 || phase > 0.97) return { x: -5, y: 88, opacity: 0 };
-    const t = Math.max(0, Math.min(1, (phase - 0.03) / 0.94));
-    // Arc: starts bottom-left(-5%,88%), peaks at sun center(33%,37%), exits bottom-right(71%,88%)
-    const x = -5 + t * 76;
-    const y = 88 - Math.sin(t * Math.PI) * 51;
-    const opacity = t < 0.06 ? t / 0.06 : t > 0.94 ? (1 - t) / 0.06 : 1;
-    return { x, y, opacity: Math.min(1, opacity * 0.98) };
+    var t = Math.max(0, Math.min(1, (phase - 0.03) / 0.94));
+    var x = -5 + t * 76;
+    var y = 88 - Math.sin(t * Math.PI) * 51;
+    var opacity = t < 0.06 ? t / 0.06 : t > 0.94 ? (1 - t) / 0.06 : 1;
+    return { x: x, y: y, opacity: Math.min(1, opacity * 0.98) };
   }
 
-  // Diamond ring flash — fires at first and last contact
-  function diamondRing(phase){
-    // First contact around phase 0.38, last contact around 0.62
-    const d1 = Math.abs(phase - 0.38);
-    const d2 = Math.abs(phase - 0.62);
-    const closest = Math.min(d1, d2);
+  function diamondRingCalc(phase){
+    var d1 = Math.abs(phase - 0.38);
+    var d2 = Math.abs(phase - 0.62);
+    var closest = Math.min(d1, d2);
     if(closest > 0.025) return { opacity: 0, x: 50, y: 50 };
-    const intensity = 1 - closest / 0.025;
-    // Position at the limb edge
-    const side = d1 < d2 ? -1 : 1; // left side for first contact, right for last
-    return {
-      opacity: Math.pow(intensity, 2),
-      x: 50 + side * 14, // offset from center
-      y: 52
-    };
+    var intensity = 1 - closest / 0.025;
+    var side = d1 < d2 ? -1 : 1;
+    return { opacity: Math.pow(intensity, 2), x: 50 + side * 14, y: 52 };
   }
 
-  // ====== MAIN LOOP — REAL CLOCK, not frame counting ======
-  const startTime = performance.now();
-  let prevTime = startTime;
+  // ====== SUPERNOVA PARTICLES ======
+  var novaParticles = [];
+  var novaSpawned = false;
+  function spawnNova(){
+    novaParticles = [];
+    var cx = w * 0.5, cy = h * 0.40;
+    for(var i = 0; i < 600; i++){
+      var angle = Math.random() * Math.PI * 2;
+      var speed = 60 + Math.random() * 500;
+      var life = 1.8 + Math.random() * 2.5;
+      var hue = Math.random();
+      novaParticles.push({
+        x: cx, y: cy,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed * 0.55,
+        life: life, maxLife: life,
+        size: 1 + Math.random() * 3.5,
+        cr: hue < 0.25 ? 255 : hue < 0.5 ? 255 : hue < 0.7 ? 200 : 180,
+        cg: hue < 0.25 ? 230 : hue < 0.5 ? 180 : hue < 0.7 ? 160 : 130,
+        cb: hue < 0.25 ? 100 : hue < 0.5 ? 255 : hue < 0.7 ? 255 : 255
+      });
+    }
+    novaSpawned = true;
+  }
+
+  // ====== MAIN LOOP — PHASE-BASED TIMELINE ======
+  var startTime = performance.now();
+  var prevTime = startTime;
+  var logoRevealed = false;
 
   function frame(now){
-    const dt = (now - prevTime) / 1000; // seconds since last frame
+    var dt = (now - prevTime) / 1000;
     prevTime = now;
-    const t = (now - startTime) / 1000; // total seconds elapsed (real time)
+    var t = (now - startTime) / 1000;
 
     mx += (tmx - mx) * Math.min(1, dt * 4);
     my += (tmy - my) * Math.min(1, dt * 4);
 
-    // Eclipse phase (0..1) — uses REAL time, not frame count
-    const phase = (t % DUR) / DUR;
-    const ecl = eclipseCurve(phase); // 0..1 eclipse intensity
+    // ====== PHASE DETERMINATION ======
+    var phase, phaseT;
+    if(t < P_SUN){
+      phase = 'sun'; phaseT = t / T_SUN;
+    } else if(t < P_ECL){
+      phase = 'eclipse'; phaseT = (t - P_SUN) / T_ECL;
+    } else if(t < P_REC){
+      phase = 'recovery'; phaseT = (t - P_ECL) / T_REC;
+    } else if(t < P_NOV){
+      phase = 'supernova'; phaseT = (t - P_REC) / T_NOV;
+    } else if(t < P_LOG){
+      phase = 'logo'; phaseT = (t - P_NOV) / T_LOG;
+    } else {
+      phase = 'idle'; phaseT = 1;
+    }
 
-    // Derived values — EVERY element uses these
-    const sunBright = 1 - ecl * 0.97;       // sun dims to 3% at totality — MUCH darker
-    const starBoost = 1 + ecl * 2.5;        // stars get 3.5x brighter during eclipse
-    const warmth = 1 - ecl;                 // color temp: warm(1) → cool(0)
-    const glowScale = 1 + Math.sin(t * 1.2) * 0.04; // breathing
+    // ====== DERIVED VALUES ======
+    var ecl = 0, sunBright = 1, starBoost = 1, warmth = 1;
 
-    // ====== DRAW STARFIELD ON CANVAS ======
+    if(phase === 'eclipse'){
+      ecl = eclipseCurve(phaseT);
+      sunBright = 1 - ecl * 0.97;
+      starBoost = 1 + ecl * 2.5;
+      warmth = 1 - ecl;
+    } else if(phase === 'supernova'){
+      // Sun rapidly brightens to 6x then fades to 0
+      if(phaseT < 0.12){
+        sunBright = 1 + (phaseT / 0.12) * 5;
+      } else if(phaseT < 0.40){
+        sunBright = 6 * Math.max(0, 1 - (phaseT - 0.12) / 0.28);
+      } else {
+        sunBright = 0;
+      }
+      starBoost = 1 + phaseT * 3.5;
+      warmth = Math.max(0, 1 - phaseT * 1.5);
+    } else if(phase === 'logo' || phase === 'idle'){
+      sunBright = 0;
+      starBoost = 1.8;
+      warmth = 0.3;
+    }
+    // sun + recovery: defaults (ecl=0, sunBright=1, starBoost=1, warmth=1)
+
+    var glowScale = 1 + Math.sin(t * 1.2) * 0.04;
+
+    // ====== CANVAS: CLEAR ======
     ctx.clearRect(0, 0, w, h);
 
-    // Nebula on canvas — reacts to eclipse, MUCH more saturated
-    const nebulaAlpha = 0.14 + ecl * 0.08;
-    const drift = Math.sin(t * 0.08) * 14;
-    const drift2 = Math.cos(t * 0.06) * 10;
+    // ====== CANVAS: NEBULA ======
+    var nebulaAlpha = 0.14 + ecl * 0.08;
+    var driftX = Math.sin(t * 0.08) * 14;
+    var driftY = Math.cos(t * 0.06) * 10;
 
-    // Deep purple nebula — large, dominant
-    const g1 = ctx.createRadialGradient(w*0.28+drift, h*0.42+drift2, 0, w*0.28+drift, h*0.42+drift2, w*0.40);
-    g1.addColorStop(0, `rgba(160,90,255,${nebulaAlpha * 1.5})`);
-    g1.addColorStop(0.5, `rgba(120,50,200,${nebulaAlpha * 0.6})`);
+    var g1 = ctx.createRadialGradient(w*0.28+driftX, h*0.42+driftY, 0, w*0.28+driftX, h*0.42+driftY, w*0.40);
+    g1.addColorStop(0, 'rgba(160,90,255,' + (nebulaAlpha * 1.5) + ')');
+    g1.addColorStop(0.5, 'rgba(120,50,200,' + (nebulaAlpha * 0.6) + ')');
     g1.addColorStop(1, 'transparent');
     ctx.fillStyle = g1; ctx.fillRect(0, 0, w, h);
 
-    // Hot pink nebula — vivid
-    const g2 = ctx.createRadialGradient(w*0.72-drift, h*0.34-drift2*0.5, 0, w*0.72-drift, h*0.34-drift2*0.5, w*0.32);
-    g2.addColorStop(0, `rgba(255,80,180,${nebulaAlpha * 1.2})`);
-    g2.addColorStop(0.4, `rgba(255,120,210,${nebulaAlpha * 0.7})`);
+    var g2 = ctx.createRadialGradient(w*0.72-driftX, h*0.34-driftY*0.5, 0, w*0.72-driftX, h*0.34-driftY*0.5, w*0.32);
+    g2.addColorStop(0, 'rgba(255,80,180,' + (nebulaAlpha * 1.2) + ')');
+    g2.addColorStop(0.4, 'rgba(255,120,210,' + (nebulaAlpha * 0.7) + ')');
     g2.addColorStop(1, 'transparent');
     ctx.fillStyle = g2; ctx.fillRect(0, 0, w, h);
 
-    // Electric blue nebula
-    const g3 = ctx.createRadialGradient(w*0.55+drift*0.7, h*0.65+drift2, 0, w*0.55+drift*0.7, h*0.65+drift2, w*0.30);
-    g3.addColorStop(0, `rgba(60,130,255,${nebulaAlpha * 1.1})`);
-    g3.addColorStop(0.5, `rgba(80,100,220,${nebulaAlpha * 0.5})`);
+    var g3 = ctx.createRadialGradient(w*0.55+driftX*0.7, h*0.65+driftY, 0, w*0.55+driftX*0.7, h*0.65+driftY, w*0.30);
+    g3.addColorStop(0, 'rgba(60,130,255,' + (nebulaAlpha * 1.1) + ')');
+    g3.addColorStop(0.5, 'rgba(80,100,220,' + (nebulaAlpha * 0.5) + ')');
     g3.addColorStop(1, 'transparent');
     ctx.fillStyle = g3; ctx.fillRect(0, 0, w, h);
 
-    // Second pink cloud — lower right
-    const g5 = ctx.createRadialGradient(w*0.80+drift*0.3, h*0.60, 0, w*0.80+drift*0.3, h*0.60, w*0.22);
-    g5.addColorStop(0, `rgba(255,100,200,${nebulaAlpha * 0.8})`);
+    var g5 = ctx.createRadialGradient(w*0.80+driftX*0.3, h*0.60, 0, w*0.80+driftX*0.3, h*0.60, w*0.22);
+    g5.addColorStop(0, 'rgba(255,100,200,' + (nebulaAlpha * 0.8) + ')');
     g5.addColorStop(1, 'transparent');
     ctx.fillStyle = g5; ctx.fillRect(0, 0, w, h);
 
-    // Second blue cloud — upper left
-    const g6 = ctx.createRadialGradient(w*0.18-drift*0.4, h*0.25, 0, w*0.18-drift*0.4, h*0.25, w*0.24);
-    g6.addColorStop(0, `rgba(70,120,255,${nebulaAlpha * 0.7})`);
+    var g6 = ctx.createRadialGradient(w*0.18-driftX*0.4, h*0.25, 0, w*0.18-driftX*0.4, h*0.25, w*0.24);
+    g6.addColorStop(0, 'rgba(70,120,255,' + (nebulaAlpha * 0.7) + ')');
     g6.addColorStop(1, 'transparent');
     ctx.fillStyle = g6; ctx.fillRect(0, 0, w, h);
 
-    // Warm sunlight nebula that fades during eclipse
-    const g4 = ctx.createRadialGradient(w*0.5, h*0.45, 0, w*0.5, h*0.45, w*0.38);
-    g4.addColorStop(0, `rgba(255,200,90,${0.07 * sunBright})`);
-    g4.addColorStop(0.6, `rgba(255,160,60,${0.03 * sunBright})`);
+    var sbClamped = Math.min(1, Math.max(0, sunBright));
+    var g4 = ctx.createRadialGradient(w*0.5, h*0.45, 0, w*0.5, h*0.45, w*0.38);
+    g4.addColorStop(0, 'rgba(255,200,90,' + (0.07 * sbClamped) + ')');
+    g4.addColorStop(0.6, 'rgba(255,160,60,' + (0.03 * sbClamped) + ')');
     g4.addColorStop(1, 'transparent');
     ctx.fillStyle = g4; ctx.fillRect(0, 0, w, h);
 
-    // Stars — brightness reacts to eclipse
-    const pxF = [0.010, 0.025, 0.040];
-    for(const s of stars){
-      const L = layers[s.layer];
-      s.x += s.drift * dt * 60; // normalize to 60fps equivalent
+    // ====== CANVAS: STARS ======
+    var pxF = [0.010, 0.025, 0.040];
+    for(var si = 0; si < stars.length; si++){
+      var s = stars[si];
+      var L = layers[s.layer];
+      s.x += s.drift * dt * 60;
       if(s.x < -4) s.x = w + 4;
       if(s.x > w + 4) s.x = -4;
       if(grav){
-        const dx = grav.x - s.x, dy = grav.y - s.y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if(d < 200 && d > 5){ const p = 0.003*(1-d/200); s.x += dx*p; s.y += dy*p; }
+        var gdx = grav.x - s.x, gdy = grav.y - s.y;
+        var gd = Math.sqrt(gdx*gdx + gdy*gdy);
+        if(gd < 200 && gd > 5){ var gp = 0.003*(1-gd/200); s.x += gdx*gp; s.y += gdy*gp; }
       }
-      const px = s.x + (mx-0.5)*w*pxF[s.layer];
-      const py = s.y + (my-0.5)*h*pxF[s.layer];
-      const tw = (s.a0 + Math.sin(t*(1.1+L.tw) + s.phase)*0.16) * starBoost;
-      const a = Math.max(0, Math.min(1, tw));
-      const c = s.hue < 0.06 ? `rgba(180,205,255,${a})`
-              : s.hue > 0.95 ? `rgba(255,215,175,${a})`
-              : `rgba(255,255,255,${a})`;
-      ctx.beginPath(); ctx.arc(px, py, s.r, 0, Math.PI*2); ctx.fillStyle = c; ctx.fill();
+      var px = s.x + (mx-0.5)*w*pxF[s.layer];
+      var py = s.y + (my-0.5)*h*pxF[s.layer];
+      var tw = (s.a0 + Math.sin(t*(1.1+L.tw) + s.phase)*0.16) * starBoost;
+      var a = Math.max(0, Math.min(1, tw));
+      var sc = s.hue < 0.06 ? 'rgba(180,205,255,' + a + ')'
+             : s.hue > 0.95 ? 'rgba(255,215,175,' + a + ')'
+             : 'rgba(255,255,255,' + a + ')';
+      ctx.beginPath(); ctx.arc(px, py, s.r, 0, Math.PI*2); ctx.fillStyle = sc; ctx.fill();
     }
 
-    // Constellations — also brighter during eclipse
-    const ca = (0.025 + Math.sin(t*0.4)*0.012) * starBoost;
-    ctx.strokeStyle = `rgba(160,130,255,${Math.min(0.15, ca)})`;
+    // ====== CANVAS: CONSTELLATIONS ======
+    var ca = (0.025 + Math.sin(t*0.4)*0.012) * starBoost;
+    ctx.strokeStyle = 'rgba(160,130,255,' + Math.min(0.15, ca) + ')';
     ctx.lineWidth = 0.5;
-    for(const[a, b] of links){
+    for(var li2 = 0; li2 < links.length; li2++){
+      var la = links[li2][0], lb = links[li2][1];
       ctx.beginPath();
-      ctx.moveTo(a.x+(mx-0.5)*w*pxF[a.layer], a.y+(my-0.5)*h*pxF[a.layer]);
-      ctx.lineTo(b.x+(mx-0.5)*w*pxF[b.layer], b.y+(my-0.5)*h*pxF[b.layer]);
+      ctx.moveTo(la.x+(mx-0.5)*w*pxF[la.layer], la.y+(my-0.5)*h*pxF[la.layer]);
+      ctx.lineTo(lb.x+(mx-0.5)*w*pxF[lb.layer], lb.y+(my-0.5)*h*pxF[lb.layer]);
       ctx.stroke();
     }
 
-    // Dust motes — catch sunlight
-    for(const m of motes){
+    // ====== CANVAS: DUST MOTES ======
+    for(var mi = 0; mi < motes.length; mi++){
+      var m = motes[mi];
       m.x += (m.vx + Math.sin(t*0.3 + m.phase)*0.1) * dt * 60;
       m.y += (m.vy + Math.cos(t*0.2 + m.phase)*0.05) * dt * 60;
       if(m.x < 0) m.x = w; if(m.x > w) m.x = 0;
       if(m.y < 0) m.y = h; if(m.y > h) m.y = 0;
-      const moteA = (0.06 + Math.sin(t*0.8 + m.phase)*0.03) * sunBright;
+      var moteA = (0.06 + Math.sin(t*0.8 + m.phase)*0.03) * sbClamped;
       ctx.beginPath(); ctx.arc(m.x, m.y, m.r, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(255,230,180,${moteA})`; ctx.fill();
+      ctx.fillStyle = 'rgba(255,230,180,' + moteA + ')'; ctx.fill();
     }
 
-    // Volumetric god rays from sun center — thick, cinematic
+    // ====== CANVAS: GOD RAYS ======
     if(sunBright > 0.12){
-      const sunScreenX = w * 0.5;
-      const sunScreenY = h * 0.40;
+      var sunScreenX = w * 0.5;
+      var sunScreenY = h * 0.40;
+      var sbRay = Math.min(sunBright, 6);
       ctx.save();
       ctx.globalCompositeOperation = 'screen';
-      for(let i = 0; i < 18; i++){
-        const angle = (i / 18) * Math.PI * 2 + t * 0.015;
-        const baseLen = w * (0.18 + Math.sin(t*0.25 + i*1.1)*0.10);
-        const len = baseLen * sunBright;
-        const width = (3 + Math.sin(t*0.4 + i*0.7) * 2) * sunBright;
-        // Gradient along the ray
-        const grad = ctx.createLinearGradient(
+      for(var ri = 0; ri < 18; ri++){
+        var rAngle = (ri / 18) * Math.PI * 2 + t * 0.015;
+        var baseLen = w * (0.18 + Math.sin(t*0.25 + ri*1.1)*0.10);
+        var rLen = baseLen * Math.min(sbRay, 3);
+        var rWidth = Math.min(20, (3 + Math.sin(t*0.4 + ri*0.7) * 2) * sbRay);
+        var grad = ctx.createLinearGradient(
           sunScreenX, sunScreenY,
-          sunScreenX + Math.cos(angle) * len,
-          sunScreenY + Math.sin(angle) * len * 0.55
+          sunScreenX + Math.cos(rAngle) * rLen,
+          sunScreenY + Math.sin(rAngle) * rLen * 0.55
         );
-        grad.addColorStop(0, `rgba(255,230,140,${0.08 * sunBright})`);
-        grad.addColorStop(0.3, `rgba(255,210,100,${0.05 * sunBright})`);
+        var rayA = Math.min(0.5, 0.08 * sbRay);
+        var rayA2 = Math.min(0.35, 0.05 * sbRay);
+        grad.addColorStop(0, 'rgba(255,230,140,' + rayA + ')');
+        grad.addColorStop(0.3, 'rgba(255,210,100,' + rayA2 + ')');
         grad.addColorStop(1, 'rgba(255,200,80,0)');
         ctx.beginPath();
         ctx.moveTo(sunScreenX, sunScreenY);
-        ctx.lineTo(
-          sunScreenX + Math.cos(angle) * len,
-          sunScreenY + Math.sin(angle) * len * 0.55
-        );
-        ctx.lineWidth = width;
+        ctx.lineTo(sunScreenX + Math.cos(rAngle) * rLen, sunScreenY + Math.sin(rAngle) * rLen * 0.55);
+        ctx.lineWidth = rWidth;
         ctx.strokeStyle = grad;
         ctx.stroke();
       }
       ctx.restore();
     }
 
-    // ====== UPDATE DOM ELEMENTS VIA JS (UNIFIED CLOCK) ======
+    // ====== CANVAS: SUPERNOVA PARTICLES ======
+    if(phase === 'supernova' && !novaSpawned && phaseT > 0.05){
+      spawnNova();
+    }
+    if(novaSpawned){
+      ctx.save();
+      ctx.globalCompositeOperation = 'screen';
+      for(var ni = 0; ni < novaParticles.length; ni++){
+        var np = novaParticles[ni];
+        if(np.life <= 0) continue;
+        np.x += np.vx * dt;
+        np.y += np.vy * dt;
+        np.vx *= (1 - 1.2 * dt);
+        np.vy *= (1 - 1.2 * dt);
+        np.life -= dt;
+        var na = Math.max(0, np.life / np.maxLife);
+        ctx.beginPath();
+        ctx.arc(np.x, np.y, np.size * (0.3 + na * 0.7), 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + np.cr + ',' + np.cg + ',' + np.cb + ',' + (na * 0.75) + ')';
+        ctx.fill();
+      }
+      ctx.restore();
+    }
 
-    // Atmosphere — color temp shifts cool during eclipse
-    const warmR = Math.round(120 + warmth * 40);
-    const warmG = Math.round(60 + warmth * 30);
-    const warmB = Math.round(220 - warmth * 60);
-    const coolR = Math.round(60 + ecl * 20);
-    const coolB = Math.round(180 + ecl * 75);
-    atmo.style.background = `
-      radial-gradient(600px 500px at ${28 + Math.sin(t*0.1)*3}% ${42 + Math.cos(t*0.08)*2}%, rgba(${warmR},${warmG},${warmB},${0.10 + ecl*0.04}), transparent 65%),
-      radial-gradient(650px 520px at ${72 - Math.sin(t*0.12)*3}% 34%, rgba(255,${120 - ecl*40},${210 - ecl*60},${0.07 + ecl*0.03}), transparent 68%),
-      radial-gradient(720px 600px at 50% 62%, rgba(${coolR},${60},${coolB},${0.06 + ecl*0.05}), transparent 70%)
-    `;
+    // ====== CANVAS: SHOCKWAVE RING ======
+    if(phase === 'supernova' && phaseT > 0.08){
+      var swP = (phaseT - 0.08) / 0.92;
+      var swR = swP * Math.max(w, h) * 0.55;
+      var swA = Math.max(0, 1 - swP * 1.4);
+      ctx.save();
+      ctx.globalCompositeOperation = 'screen';
+      // Outer purple ring
+      ctx.beginPath();
+      ctx.arc(w * 0.5, h * 0.40, swR, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(200,160,255,' + (swA * 0.4) + ')';
+      ctx.lineWidth = 4 + (1 - swP) * 12;
+      ctx.stroke();
+      // Inner golden ring
+      ctx.beginPath();
+      ctx.arc(w * 0.5, h * 0.40, swR * 0.96, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(255,240,200,' + (swA * 0.25) + ')';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.restore();
+    }
 
-    // Eclipse darkness — goes nearly black at totality
+    // ====== DOM: ATMOSPHERE ======
+    var wR = Math.round(120 + warmth * 40);
+    var wG = Math.round(60 + warmth * 30);
+    var wB = Math.round(220 - warmth * 60);
+    var cR = Math.round(60 + ecl * 20);
+    var cB = Math.round(180 + ecl * 75);
+    atmo.style.background =
+      'radial-gradient(600px 500px at ' + (28 + Math.sin(t*0.1)*3) + '% ' + (42 + Math.cos(t*0.08)*2) + '%, rgba(' + wR + ',' + wG + ',' + wB + ',' + (0.10 + ecl*0.04) + '), transparent 65%),' +
+      'radial-gradient(650px 520px at ' + (72 - Math.sin(t*0.12)*3) + '% 34%, rgba(255,' + Math.round(120 - ecl*40) + ',' + Math.round(210 - ecl*60) + ',' + (0.07 + ecl*0.03) + '), transparent 68%),' +
+      'radial-gradient(720px 600px at 50% 62%, rgba(' + cR + ',60,' + cB + ',' + (0.06 + ecl*0.05) + '), transparent 70%)';
+
+    // ====== DOM: ECLIPSE DARKNESS ======
     darkness.style.opacity = ecl * 0.88;
 
-    // Sun glow
-    sunGlow.style.opacity = sunBright * (0.7 + Math.sin(t*1.2)*0.15);
-    sunGlow.style.transform = `scale(${glowScale})`;
+    // ====== DOM: SUN ELEMENTS ======
+    if(phase === 'sun' || phase === 'eclipse' || phase === 'recovery'){
+      // Normal sun rendering
+      sunGlow.style.opacity = sbClamped * (0.7 + Math.sin(t*1.2)*0.15);
+      sunGlow.style.transform = 'scale(' + glowScale + ')';
+      raysWrap.style.opacity = Math.pow(sbClamped, 2);
+      sunSvg.style.filter = 'brightness(' + sbClamped + ')';
+      sunSvg.style.opacity = 1;
+      eclStage.style.opacity = 1;
+      eclStage.style.transform = 'scale(1)';
 
-    // Rays — disappear aggressively during eclipse
-    raysWrap.style.opacity = Math.pow(sunBright, 2); // quadratic falloff
+      // 143 brand mark
+      if(phase === 'eclipse'){
+        var brandFade = Math.pow(sbClamped, 1.5);
+        brand143.style.filter = 'brightness(' + (0.05 + brandFade * 0.95) + ')';
+        brand143.style.opacity = brandFade * (0.92 + Math.sin(t*0.6)*0.04);
+      } else {
+        brand143.style.filter = 'brightness(1)';
+        brand143.style.opacity = 0.92 + Math.sin(t*0.6)*0.04;
+      }
+      brand143.style.transform = 'scale(1)';
+    } else if(phase === 'supernova'){
+      // Sun goes hyperbright then dissolves
+      var stageVis = Math.max(0, 1 - phaseT * 2.5);
+      var sbSuper = Math.min(6, sunBright);
+      eclStage.style.opacity = stageVis;
+      eclStage.style.transform = 'scale(' + (1 + phaseT * 0.4) + ')';
+      sunGlow.style.opacity = Math.min(1, sbSuper * 0.5) * stageVis;
+      sunGlow.style.transform = 'scale(' + (1 + phaseT * 2.5) + ')';
+      raysWrap.style.opacity = Math.min(1, Math.pow(sbSuper, 0.5) * 0.8) * stageVis;
+      sunSvg.style.filter = 'brightness(' + sbSuper + ') saturate(' + (1 + phaseT * 3) + ')';
+      sunSvg.style.opacity = stageVis;
+      // 143 text scales up and burns away
+      var brandVis = Math.max(0, 1 - phaseT * 3.5);
+      brand143.style.filter = 'brightness(' + sbSuper + ')';
+      brand143.style.opacity = brandVis;
+      brand143.style.transform = 'scale(' + (1 + phaseT * 0.8) + ')';
+    } else {
+      // Logo/idle — sun is gone
+      eclStage.style.opacity = 0;
+    }
 
-    // Sun SVG itself dims during eclipse
-    sunSvg.style.filter = `brightness(${sunBright})`;
+    // ====== DOM: MOON ======
+    if(phase === 'eclipse'){
+      var mp = moonPos(phaseT);
+      moonEl.style.left = mp.x + '%';
+      moonEl.style.top = mp.y + '%';
+      moonEl.style.opacity = mp.opacity;
+      var mg = ecl * 0.9;
+      moonEl.style.filter =
+        'drop-shadow(0 0 ' + (14 + mg*46) + 'px rgba(160,90,255,' + (0.45 + mg*0.55) + '))' +
+        ' drop-shadow(0 0 ' + (30 + mg*90) + 'px rgba(140,60,255,' + (0.18 + mg*0.67) + '))' +
+        ' drop-shadow(0 0 ' + (60 + mg*140) + 'px rgba(120,40,255,' + (mg*0.55) + '))';
+    } else {
+      moonEl.style.opacity = 0;
+    }
 
-    // 143 brand mark — fades smoothly into eclipse, doesn't clip behind moon
-    const brandFade = Math.pow(sunBright, 1.5); // faster fade than linear
-    brand143.style.filter = `brightness(${0.05 + brandFade * 0.95})`;
-    brand143.style.opacity = brandFade * (0.92 + Math.sin(t*0.6)*0.04);
+    // ====== DOM: ECLIPSE RING, BLOOM, FLARE, DIAMOND ======
+    if(phase === 'eclipse'){
+      var ringA = ecl > 0.3 ? (ecl - 0.3) / 0.7 : 0;
+      ring.style.borderColor = 'rgba(180,120,255,' + (ringA * 0.50) + ')';
+      ring.style.boxShadow =
+        '0 0 ' + (60*ringA) + 'px rgba(160,90,255,' + (ringA*0.55) + '),' +
+        '0 0 ' + (130*ringA) + 'px rgba(140,60,255,' + (ringA*0.35) + '),' +
+        '0 0 ' + (200*ringA) + 'px rgba(120,40,255,' + (ringA*0.18) + '),' +
+        'inset 0 0 ' + (50*ringA) + 'px rgba(160,90,255,' + (ringA*0.25) + ')';
 
-    // Moon position
-    const mp = moonPos(phase);
-    moonEl.style.left = mp.x + '%';
-    moonEl.style.top = mp.y + '%';
-    moonEl.style.opacity = mp.opacity;
-    // Moon glow intensifies near totality
-    const moonGlow = ecl * 0.9;
-    moonEl.style.filter = `
-      drop-shadow(0 0 ${14 + moonGlow*46}px rgba(160,90,255,${0.45 + moonGlow*0.55}))
-      drop-shadow(0 0 ${30 + moonGlow*90}px rgba(140,60,255,${0.18 + moonGlow*0.67}))
-      drop-shadow(0 0 ${60 + moonGlow*140}px rgba(120,40,255,${moonGlow*0.55}))
-    `;
+      var bloomA = ecl > 0.25 ? (ecl - 0.25) / 0.75 : 0;
+      eclBloom.style.opacity = bloomA;
+      eclBloom.style.transform = 'scale(' + (0.8 + bloomA * 0.35) + ')';
 
-    // Eclipse corona ring
-    const ringA = ecl > 0.3 ? (ecl - 0.3) / 0.7 : 0;
-    ring.style.borderColor = `rgba(180,120,255,${ringA * 0.50})`;
-    ring.style.boxShadow = `
-      0 0 ${60*ringA}px rgba(160,90,255,${ringA*0.55}),
-      0 0 ${130*ringA}px rgba(140,60,255,${ringA*0.35}),
-      0 0 ${200*ringA}px rgba(120,40,255,${ringA*0.18}),
-      inset 0 0 ${50*ringA}px rgba(160,90,255,${ringA*0.25})
-    `;
+      var flareA = ecl > 0.35 ? Math.pow((ecl - 0.35) / 0.65, 2) : 0;
+      flareEl.style.opacity = flareA;
 
-    // Bloom
-    const bloomA = ecl > 0.25 ? (ecl - 0.25) / 0.75 : 0;
-    bloom.style.opacity = bloomA;
-    bloom.style.transform = `scale(${0.8 + bloomA * 0.35})`;
+      var dr = diamondRingCalc(phaseT);
+      diamond.style.opacity = dr.opacity;
+      diamond.style.left = dr.x + '%';
+      diamond.style.top = dr.y + '%';
+    } else {
+      ring.style.borderColor = 'transparent';
+      ring.style.boxShadow = '0 0 0 transparent';
+      eclBloom.style.opacity = 0;
+      flareEl.style.opacity = 0;
+      diamond.style.opacity = 0;
+    }
 
-    // Lens flare
-    const flareA = ecl > 0.35 ? Math.pow((ecl - 0.35) / 0.65, 2) : 0;
-    flare.style.opacity = flareA;
+    // ====== DOM: SUPERNOVA FLASH ======
+    if(phase === 'supernova'){
+      var flashA = 0;
+      if(phaseT > 0.06 && phaseT < 0.48){
+        if(phaseT < 0.14) flashA = (phaseT - 0.06) / 0.08;
+        else flashA = Math.max(0, 1 - (phaseT - 0.14) / 0.34);
+        flashA *= 0.88;
+      }
+      flash.style.opacity = flashA;
+    } else {
+      flash.style.opacity = 0;
+    }
 
-    // Diamond ring flash at first/last contact
-    const dr = diamondRing(phase);
-    diamond.style.opacity = dr.opacity;
-    diamond.style.left = dr.x + '%';
-    diamond.style.top = dr.y + '%';
+    // ====== DOM: LOGO REVEAL ======
+    if((phase === 'logo' || phase === 'idle') && !logoRevealed){
+      logoEl.classList.add('visible');
+      logoRevealed = true;
+    }
 
-    // ====== PLATE REACTS TO SUNLIGHT ======
-    // Warm golden glow on the top edge when sun is bright — STRONGER
-    const warmGlow = sunBright * 0.22;
-    const eclGlow = ecl * 0.22;
-    plate.style.background = `
-      radial-gradient(700px 160px at 50% -30px,
-        rgba(255,210,90,${warmGlow}),rgba(255,180,60,${warmGlow*0.4}) 50%,transparent 85%),
-      radial-gradient(900px 300px at 50% 8%,
-        rgba(0,0,0,0),rgba(0,0,0,${0.24 + ecl*0.16}) 50%,rgba(0,0,0,${0.36 + ecl*0.14}) 100%),
-      linear-gradient(180deg,rgba(10,0,24,${0.03 + ecl*0.08}),rgba(10,0,24,${0.26 + ecl*0.14}))
-    `;
-    plate.style.boxShadow = `
-      0 26px 80px rgba(0,0,0,${0.35 + ecl*0.15}),
-      inset 0 1px 0 rgba(255,${Math.round(230*sunBright+180*(1-sunBright))},${Math.round(180*sunBright+255*(1-sunBright))},${0.10 + sunBright*0.08}),
-      0 -12px ${40*sunBright}px rgba(255,200,80,${warmGlow*0.6}),
-      0 0 ${55*ecl}px rgba(126,63,255,${eclGlow})
-    `;
-    // Border: warm gold shimmer in bright, purple glow during eclipse
-    plate.style.borderColor = `rgba(${Math.round(255*sunBright+160*ecl)},${Math.round(220*sunBright+90*ecl)},${Math.round(160*sunBright+255*ecl)},${0.12 + sunBright*0.06 + ecl*0.06})`;
+    // ====== DOM: PLATE LIGHTING ======
+    if(phase === 'logo' || phase === 'idle'){
+      // Ambient purple glow after supernova
+      plate.style.background =
+        'radial-gradient(700px 160px at 50% -30px,' +
+          'rgba(126,63,255,0.07),rgba(100,40,200,0.025) 50%,transparent 85%),' +
+        'radial-gradient(900px 300px at 50% 8%,' +
+          'rgba(0,0,0,0),rgba(0,0,0,0.28) 50%,rgba(0,0,0,0.40) 100%),' +
+        'linear-gradient(180deg,rgba(10,0,24,0.05),rgba(10,0,24,0.28))';
+      plate.style.boxShadow =
+        '0 26px 80px rgba(0,0,0,0.40),' +
+        'inset 0 1px 0 rgba(200,160,255,0.12),' +
+        '0 0 40px rgba(126,63,255,0.10)';
+      plate.style.borderColor = 'rgba(160,90,255,0.14)';
+      row1.style.textShadow =
+        '0 0 8px rgba(255,255,255,0.40),' +
+        '0 0 20px rgba(200,160,255,0.30),' +
+        '0 0 40px rgba(160,100,255,0.15),' +
+        '0 6px 24px rgba(0,0,0,0.50)';
+    } else {
+      // Normal sun-reactive plate lighting
+      var wGlow = sbClamped * 0.22;
+      var eGlow = ecl * 0.22;
+      plate.style.background =
+        'radial-gradient(700px 160px at 50% -30px,' +
+          'rgba(255,210,90,' + wGlow + '),rgba(255,180,60,' + (wGlow*0.4) + ') 50%,transparent 85%),' +
+        'radial-gradient(900px 300px at 50% 8%,' +
+          'rgba(0,0,0,0),rgba(0,0,0,' + (0.24 + ecl*0.16) + ') 50%,rgba(0,0,0,' + (0.36 + ecl*0.14) + ') 100%),' +
+        'linear-gradient(180deg,rgba(10,0,24,' + (0.03 + ecl*0.08) + '),rgba(10,0,24,' + (0.26 + ecl*0.14) + '))';
+      plate.style.boxShadow =
+        '0 26px 80px rgba(0,0,0,' + (0.35 + ecl*0.15) + '),' +
+        'inset 0 1px 0 rgba(255,' + Math.round(230*sbClamped+180*(1-sbClamped)) + ',' + Math.round(180*sbClamped+255*(1-sbClamped)) + ',' + (0.10 + sbClamped*0.08) + '),' +
+        '0 -12px ' + (40*sbClamped) + 'px rgba(255,200,80,' + (wGlow*0.6) + '),' +
+        '0 0 ' + (55*ecl) + 'px rgba(126,63,255,' + eGlow + ')';
+      plate.style.borderColor = 'rgba(' + Math.round(255*sbClamped+160*ecl) + ',' + Math.round(220*sbClamped+90*ecl) + ',' + Math.round(160*sbClamped+255*ecl) + ',' + (0.12 + sbClamped*0.06 + ecl*0.06) + ')';
 
-    // Headline glow reacts to sun
-    const headGlow = sunBright * 0.55 + Math.sin(t*1.1)*0.10;
-    row1.style.textShadow = `
-      0 0 ${12*sunBright}px rgba(255,255,255,${0.5 + sunBright*0.35}),
-      0 0 ${30*sunBright}px rgba(255,220,100,${headGlow}),
-      0 0 ${60*sunBright}px rgba(255,180,60,${headGlow*0.5}),
-      0 6px 24px rgba(0,0,0,0.50)
-    `;
+      var headGlow = sbClamped * 0.55 + Math.sin(t*1.1)*0.10;
+      row1.style.textShadow =
+        '0 0 ' + (12*sbClamped) + 'px rgba(255,255,255,' + (0.5 + sbClamped*0.35) + '),' +
+        '0 0 ' + (30*sbClamped) + 'px rgba(255,220,100,' + headGlow + '),' +
+        '0 0 ' + (60*sbClamped) + 'px rgba(255,180,60,' + (headGlow*0.5) + '),' +
+        '0 6px 24px rgba(0,0,0,0.50)';
+    }
 
-    // Cursor glow
+    // ====== DOM: CURSOR GLOW ======
     if(innerWidth > 720){
       glow.style.left = mx * innerWidth + 'px';
       glow.style.top = my * innerHeight + 'px';
@@ -837,18 +1038,18 @@ canvas.scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
     requestAnimationFrame(frame);
   }
 
-  new ResizeObserver(() => { resize(); seedStars(); buildLinks(); seedMotes(); }).observe(scene);
+  new ResizeObserver(function(){ resize(); seedStars(); buildLinks(); seedMotes(); }).observe(scene);
   resize(); seedStars(); buildLinks(); seedMotes();
-  requestAnimationFrame(frame); // rAF passes DOMHighResTimeStamp = performance.now()
+  requestAnimationFrame(frame);
 })();
 
 /* ====== FILM GRAIN ====== */
 (function(){
-  const g = document.querySelector('.grain'), c = g.getContext('2d');
-  const s = 256; g.width = s; g.height = s;
-  const img = c.createImageData(s, s);
-  for(let i = 0; i < img.data.length; i += 4){
-    const v = Math.random()*255;
+  var g = document.querySelector('.grain'), c = g.getContext('2d');
+  var s = 256; g.width = s; g.height = s;
+  var img = c.createImageData(s, s);
+  for(var i = 0; i < img.data.length; i += 4){
+    var v = Math.random()*255;
     img.data[i] = img.data[i+1] = img.data[i+2] = v; img.data[i+3] = 255;
   }
   c.putImageData(img, 0, 0);
