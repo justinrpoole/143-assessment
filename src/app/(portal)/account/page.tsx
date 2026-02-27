@@ -3,10 +3,11 @@ import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { getEntitlementByUserId } from "@/lib/db/entitlements";
 import { PageHeader } from "@/components/ui/PageHeader";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
 
 export const dynamic = "force-dynamic";
 
@@ -37,7 +38,8 @@ export default async function AccountPage() {
         title="Manage Your Account"
         description="View your subscription status, manage billing, and access your assessment history. Your data stays even if you cancel — when you come back, your map is waiting."
       />
-      <GoldDividerAnimated />
+      <RaySpectrumStrip className="mt-4" />
+      <RayDivider ray="R9" />
 
       <AccountBillingClient
         userState={effectiveState}

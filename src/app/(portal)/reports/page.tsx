@@ -5,10 +5,11 @@ import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 import { PageHeader } from "@/components/ui/PageHeader";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -76,7 +77,8 @@ export default async function ReportsPage({ searchParams }: PageProps) {
         description="Every cosmic visualization — Solar Core, Eclipse Meter, Black Hole Flags, Planetary Alignment, Solar Flare Journal, Constellation Progress, and more. Hover or tap any chart for detailed breakdowns. Generate PDF on demand for sharing."
         size="large"
       />
-      <GoldDividerAnimated />
+      <RaySpectrumStrip className="mt-4" />
+      <RayDivider ray="R9" />
       <ScrollTextReveal text="Every cosmic visualization — Solar Core, Eclipse Meter, Black Hole Flags, Planetary Alignment, Solar Flare Journal, Constellation Progress, and more." />
 
       <RadialSpotlight>
@@ -84,6 +86,7 @@ export default async function ReportsPage({ searchParams }: PageProps) {
           <ReportClient runId={runId} />
         </CosmicErrorBoundary>
       </RadialSpotlight>
+      <RayDivider ray="R5" />
       <FeedbackWidget
         feedback_type="report_resonance"
         source_route="/reports"

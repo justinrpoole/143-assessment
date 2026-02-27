@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { rayHex, cycleRay } from '@/lib/ui/ray-colors';
 
 type RasPrimeState = {
   items: string[];
@@ -106,7 +107,7 @@ export function RasPrimeCard({ variant = 'full' }: RasPrimeCardProps) {
   return (
     <div className="glass-card p-5 space-y-4">
       <div className="space-y-1">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R1') }}>
           RAS Prime
         </p>
         <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -115,8 +116,8 @@ export function RasPrimeCard({ variant = 'full' }: RasPrimeCardProps) {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-3">
-        {items.map((value, index) => (
-          <label key={`ras-${index}`} className="space-y-1 text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
+        {items.map((value, index) => { const signalColor = rayHex(cycleRay(index)); return (
+          <label key={`ras-${index}`} className="space-y-1 text-xs" style={{ color: signalColor }}>
             Signal {index + 1}
             <input
               value={value}
@@ -130,7 +131,7 @@ export function RasPrimeCard({ variant = 'full' }: RasPrimeCardProps) {
               }}
             />
           </label>
-        ))}
+        );})}
       </div>
 
       <div className="flex flex-wrap items-center gap-3">
@@ -155,7 +156,7 @@ export function RasPrimeCard({ variant = 'full' }: RasPrimeCardProps) {
 
       {variant === 'full' ? (
         <div className="space-y-2">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
             Noticed
           </p>
           <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>

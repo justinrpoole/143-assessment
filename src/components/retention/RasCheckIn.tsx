@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 const RAY_PROMPTS = [
   { id: 'R1', name: 'Intention', prompt: 'I want my attention to find moments where I am clear about what matters most.' },
@@ -59,9 +60,9 @@ export default function RasCheckIn({ bottomRayId }: { bottomRayId?: string }) {
 
   if (isSet) {
     return (
-      <div className="glass-card p-5 space-y-3" style={{ borderColor: 'rgba(248, 208, 17, 0.15)' }}>
+      <div className="glass-card p-5 space-y-3" style={{ borderColor: `${rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`)}25` }}>
         <div className="flex items-center justify-between">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`) }}>
             RAS Focus Set
           </p>
           <button
@@ -77,7 +78,7 @@ export default function RasCheckIn({ bottomRayId }: { bottomRayId?: string }) {
           {customFocus || activePrompt?.prompt}
         </p>
         <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
-          Your RAS is scanning for <span style={{ color: 'var(--brand-gold)' }}>{activePrompt?.name}</span> today. You will notice it.
+          Your RAS is scanning for <span style={{ color: rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`) }}>{activePrompt?.name}</span> today. You will notice it.
         </p>
       </div>
     );
@@ -99,16 +100,16 @@ export default function RasCheckIn({ bottomRayId }: { bottomRayId?: string }) {
 
       {/* Ray selector */}
       <div className="flex flex-wrap gap-2">
-        {RAY_PROMPTS.map((ray) => (
+        {RAY_PROMPTS.map((ray) => { const rc = rayHex(ray.id as `R${1|2|3|4|5|6|7|8|9}`); return (
           <button
             key={ray.id}
             type="button"
             onClick={() => setSelectedRay(ray.id)}
             className="rounded-full px-3 py-1.5 text-xs font-medium transition-all"
             style={{
-              background: selectedRay === ray.id ? 'rgba(248, 208, 17, 0.15)' : 'rgba(255,255,255,0.06)',
-              border: `1px solid ${selectedRay === ray.id ? 'rgba(248, 208, 17, 0.4)' : 'var(--surface-border)'}`,
-              color: selectedRay === ray.id ? 'var(--brand-gold)' : 'var(--text-on-dark-muted)',
+              background: selectedRay === ray.id ? `${rc}20` : 'rgba(255,255,255,0.06)',
+              border: `1px solid ${selectedRay === ray.id ? `${rc}60` : 'var(--surface-border)'}`,
+              color: selectedRay === ray.id ? rc : 'var(--text-on-dark-muted)',
             }}
           >
             {ray.name}
@@ -116,13 +117,13 @@ export default function RasCheckIn({ bottomRayId }: { bottomRayId?: string }) {
               <span className="ml-1 text-[10px] opacity-60">Rise</span>
             )}
           </button>
-        ))}
+        );})}
       </div>
 
       {/* Generated prompt */}
       <div
         className="rounded-xl p-4"
-        style={{ background: 'rgba(248, 208, 17, 0.06)', border: '1px solid rgba(248, 208, 17, 0.12)' }}
+        style={{ background: `${rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`)}08`, border: `1px solid ${rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`)}15` }}
       >
         <p className="text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
           &ldquo;{activePrompt?.prompt}&rdquo;

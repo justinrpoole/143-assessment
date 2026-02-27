@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>143 Leadership — Hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --space-ink: #060014;
+      --space-deep: #0a001c;
+      --sun-gold: #ffc842;
+      --sun-amber: #ff9d2e;
+      --sun-warm: #ffc040;
+      --brand-purple: #9340ff;
+      --brand-purple-bright: #a855ff;
+      --brand-purple-soft: #b97fff;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--space-ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+      background:
+        radial-gradient(ellipse 140% 100% at 50% 38%, rgba(147, 64, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 120% 90% at 50% 38%, #12002e 0%, var(--space-ink) 70%);
+    }
+
+    canvas.starfield {
+      position: absolute;
+      inset: -20px;
+      width: calc(100% + 40px);
+      height: calc(100% + 40px);
+      z-index: 0;
+      will-change: transform;
+    }
+
+    .sun-ambient {
+      position: absolute;
+      z-index: 1;
+      width: 160%;
+      height: 140%;
+      top: -25%;
+      left: -30%;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 45% 50% at 50% 42%,
+          rgba(255, 180, 60, 0.12) 0%,
+          rgba(255, 150, 40, 0.06) 30%,
+          rgba(255, 120, 20, 0.02) 55%,
+          transparent 75%);
+      mix-blend-mode: screen;
+      will-change: opacity;
+    }
+
+    .nebula {
+      position: absolute;
+      inset: -30%;
+      z-index: 1;
+      pointer-events: none;
+      will-change: transform, opacity;
+      background:
+        radial-gradient(900px 700px at 50% 40%, rgba(147, 64, 255, 0.14), transparent 65%),
+        radial-gradient(1200px 800px at 30% 50%, rgba(147, 64, 255, 0.10), transparent 70%),
+        radial-gradient(1200px 800px at 70% 35%, rgba(168, 85, 255, 0.08), transparent 70%),
+        radial-gradient(600px 500px at 50% 42%, rgba(255, 180, 60, 0.06), transparent 55%);
+      filter: blur(30px);
+      mix-blend-mode: screen;
+      opacity: 0.85;
+    }
+
+    /* Supernova celebration wash — FULL VIEWPORT, vivid purple + gold */
+    .celebration-wash {
+      position: absolute;
+      inset: -20%;
+      z-index: 6;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 90% 80% at 50% 40%,
+          rgba(255, 200, 80, 0.28) 0%,
+          rgba(255, 160, 50, 0.15) 20%,
+          rgba(200, 100, 255, 0.18) 40%,
+          rgba(147, 64, 255, 0.12) 60%,
+          rgba(120, 40, 255, 0.06) 80%,
+          transparent 100%);
+      opacity: 0;
+      mix-blend-mode: screen;
+    }
+
+    .shooting-star {
+      position: absolute;
+      z-index: 1;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7) 40%, transparent);
+      opacity: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 0 3px rgba(255,255,255,0.2));
+    }
+    .shooting-star--1 { width: 140px; top: 14%; left: -18%; animation: shoot1 14s 4s ease-in-out infinite; }
+    .shooting-star--2 { width: 100px; top: 28%; left: -12%; animation: shoot2 18s 11s ease-in-out infinite; }
+
+    @keyframes shoot1 {
+      0%, 72% { opacity: 0; transform: translateX(0) rotate(16deg); }
+      75% { opacity: 0.75; }
+      82% { opacity: 0; transform: translateX(160vw) rotate(16deg); }
+      100% { opacity: 0; }
+    }
+    @keyframes shoot2 {
+      0%, 70% { opacity: 0; transform: translateX(0) rotate(22deg); }
+      73% { opacity: 0.6; }
+      80% { opacity: 0; transform: translateX(150vw) rotate(22deg); }
+      100% { opacity: 0; }
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      pointer-events: none;
+      background: radial-gradient(ellipse 65% 55% at 50% 42%, transparent 35%, rgba(0,0,0,0.55) 100%);
+    }
+
+    .eclipse-darkness {
+      position: absolute;
+      inset: 0;
+      z-index: 7;
+      pointer-events: none;
+      background: radial-gradient(ellipse 80% 70% at 50% 42%, #000 0%, rgba(0,0,0,0.95) 50%, rgba(0,0,0,0.85) 100%);
+      opacity: 0;
+    }
+
+    .grain {
+      position: absolute;
+      inset: -50%;
+      z-index: 20;
+      pointer-events: none;
+      opacity: 0.02;
+      mix-blend-mode: overlay;
+    }
+
+    /* ====== ECLIPSE STAGE ====== */
+    .eclipse-stage {
+      position: relative;
+      z-index: 9;
+      width: min(620px, 85vw);
+      aspect-ratio: 1 / 1;
+      margin-top: 20px;
+      margin-bottom: -80px;
+      pointer-events: none;
+      will-change: transform;
+      overflow: visible;
+    }
+
+    .sun-canvas {
+      position: absolute;
+      left: -40%;
+      top: -40%;
+      width: 180%;
+      height: 180%;
+      z-index: 1;
+    }
+
+    .sun-svg {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      width: 72%;
+      height: 72%;
+      transform: translate(-50%, -50%) scale(1);
+      transform-origin: center center;
+      object-fit: contain;
+      pointer-events: none;
+      filter:
+        drop-shadow(0 0 20px rgba(255, 200, 70, 0.50))
+        drop-shadow(0 0 50px rgba(255, 170, 50, 0.30))
+        drop-shadow(0 0 100px rgba(255, 140, 30, 0.15))
+        drop-shadow(0 0 180px rgba(255, 110, 10, 0.08));
+      animation: sunBreathe 6s ease-in-out infinite;
+    }
+
+    @keyframes sunBreathe {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.012); }
+    }
+
+    .brand-143 {
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 900;
+      font-size: clamp(52px, 11vw, 120px);
+      letter-spacing: 0.03em;
+      color: #fff8e8;
+      text-shadow:
+        0 0 6px rgba(255,255,255,0.95),
+        0 0 16px rgba(255,240,200,0.80),
+        0 0 35px rgba(255,210,120,0.50),
+        0 0 60px rgba(255,180,60,0.35),
+        0 0 100px rgba(255,150,30,0.20);
+      pointer-events: none;
+      -webkit-user-select: none;
+      user-select: none;
+      animation: sunBreathe 6s ease-in-out infinite;
+    }
+
+    .moon {
+      position: absolute;
+      width: 38%;
+      height: 38%;
+      object-fit: contain;
+      z-index: 10;
+      opacity: 0;
+      will-change: transform, opacity, filter;
+    }
+
+    /* ====== HERO COPY ====== */
+    .hero-copy {
+      position: relative;
+      z-index: 12;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 880px;
+    }
+
+    .row-1 {
+      margin: 0;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: clamp(28px, 4.5vw, 58px);
+      letter-spacing: 0.06em;
+      line-height: 1.08;
+      color: var(--sun-warm);
+      paint-order: stroke fill;
+      text-shadow:
+        0 0 10px rgba(255, 200, 60, 0.55),
+        0 0 30px rgba(255, 180, 40, 0.35),
+        0 0 60px rgba(255, 150, 20, 0.18),
+        0 4px 20px rgba(0,0,0,0.50);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: textIn 1200ms 600ms cubic-bezier(.16,1,.3,1) forwards;
+    }
+
+    .row-2 {
+      margin: 12px 0 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-size: clamp(12px, 1.8vw, 21px);
+      letter-spacing: 0.22em;
+      line-height: 1.2;
+      color: var(--brand-purple-bright);
+      text-shadow:
+        0 0 14px rgba(168, 85, 255, 0.50),
+        0 0 35px rgba(147, 64, 255, 0.30),
+        0 0 70px rgba(147, 64, 255, 0.15);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: textIn 1000ms 900ms cubic-bezier(.16,1,.3,1) forwards;
+    }
+
+    .row-3 {
+      margin-top: 18px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: clamp(10px, 1.2vw, 14px);
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.38);
+      opacity: 0;
+      transform: translateY(12px);
+      animation: textIn 900ms 1200ms cubic-bezier(.16,1,.3,1) forwards;
+    }
+
+    .row-3 em {
+      font-style: italic;
+      font-weight: 600;
+      color: rgba(255,255,255,0.68);
+      letter-spacing: 0.02em;
+    }
+
+    @keyframes textIn { to { opacity: 1; transform: translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shooting-star { animation: none !important; }
+      .sun-svg, .brand-143 { animation: none !important; }
+      .row-1, .row-2, .row-3 { animation: none !important; opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 600px) {
+      .eclipse-stage { width: 88vw; margin-bottom: -50px; }
+      .hero-copy { padding: 0 16px; }
+      .brand-143 { font-size: clamp(40px, 14vw, 90px); }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero" aria-label="143 Leadership hero">
+    <canvas class="starfield" aria-hidden="true"></canvas>
+    <div class="sun-ambient" aria-hidden="true"></div>
+    <div class="nebula" aria-hidden="true"></div>
+    <div class="shooting-star shooting-star--1" aria-hidden="true"></div>
+    <div class="shooting-star shooting-star--2" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="celebration-wash" aria-hidden="true"></div>
+    <div class="eclipse-darkness" aria-hidden="true"></div>
+    <canvas class="grain" aria-hidden="true"></canvas>
+
+    <div class="eclipse-stage" aria-hidden="true">
+      <canvas class="sun-canvas"></canvas>
+      <img class="sun-svg" src="./Sun 143.svg" alt="" />
+      <span class="brand-143">143</span>
+      <img class="moon" src="./Purple Moon 143.svg" alt="" />
+    </div>
+
+    <div class="hero-copy">
+      <h1 class="row-1">Upgrade Your Internal OS</h1>
+      <p class="row-2">Live Just In A Ray Of Light</p>
+      <p class="row-3"><em>Watch Me Go First &amp; Be The Light</em> &mdash; Book Coming 2026</p>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ============================================================
+       CONFIG — the five acts
+       ============================================================
+       Act 1  RADIANCE     0.00 → 0.34   Sun shines, warm and full
+       Act 2  APPROACH     0.34 → 0.44   Moon enters, tension
+       Act 3  ECLIPSE      0.44 → 0.56   Total darkness, corona
+       Act 4  EMERGENCE    0.56 → 0.66   Diamond ring, light returns
+       Act 5  CELEBRATION  0.66 → 0.88   Nebula bloom, you are MORE
+       Act 6  PEACE        0.88 → 1.00   Settle, ready again
+       ============================================================ */
+    const ECLIPSE_DUR = 18;
+    const SUN_FRAC = 0.72;
+    const MOON_FRAC = 0.38;
+
+    /* ===== PERLIN NOISE ===== */
+    const _p = new Uint8Array(512);
+    for (let i = 0; i < 256; i++) _p[i] = _p[i + 256] = (Math.random() * 256) | 0;
+    const _fade = t => t * t * t * (t * (t * 6 - 15) + 10);
+    const _lerp = (a, b, t) => a + t * (b - a);
+    const _grad = (h, x, y) => ((h & 1) ? -x : x) + ((h & 2) ? -y : y);
+
+    function noise2(x, y) {
+      const X = ~~x & 255, Y = ~~y & 255;
+      x -= ~~x; y -= ~~y;
+      const u = _fade(x), v = _fade(y);
+      const a = _p[X] + Y, b = _p[X + 1] + Y;
+      return _lerp(
+        _lerp(_grad(_p[a], x, y), _grad(_p[b], x - 1, y), u),
+        _lerp(_grad(_p[a + 1], x, y - 1), _grad(_p[b + 1], x - 1, y - 1), u), v
+      );
+    }
+
+    function fbm(x, y, oct) {
+      let v = 0, a = 1, f = 1, m = 0;
+      for (let i = 0; i < oct; i++) { v += noise2(x * f, y * f) * a; m += a; a *= 0.5; f *= 2; }
+      return v / m;
+    }
+
+    /* ===== DOM ===== */
+    const starCvs  = document.querySelector('.starfield');
+    const starCtx  = starCvs.getContext('2d', { alpha: true });
+    const sunCvs   = document.querySelector('.sun-canvas');
+    const sunCtx   = sunCvs.getContext('2d', { alpha: true });
+    const grainCvs = document.querySelector('.grain');
+    const sunSvg   = document.querySelector('.sun-svg');
+    const moonEl   = document.querySelector('.moon');
+    const brand    = document.querySelector('.brand-143');
+    const darkEl   = document.querySelector('.eclipse-darkness');
+    const stageEl  = document.querySelector('.eclipse-stage');
+    const nebEl    = document.querySelector('.nebula');
+    const ambEl    = document.querySelector('.sun-ambient');
+    const washEl   = document.querySelector('.celebration-wash');
+    const row1El   = document.querySelector('.row-1');
+    const row2El   = document.querySelector('.row-2');
+
+    /* ===== STARFIELD ===== */
+    let sw, sh, sdpr;
+    const LAYERS = [
+      { count: 180, maxR: 0.9,  speed: 0.03, tw: 0.18 },
+      { count: 120, maxR: 1.4,  speed: 0.06, tw: 0.24 },
+      { count: 55,  maxR: 2.0,  speed: 0.10, tw: 0.30 },
+    ];
+    let stars = [];
+
+    function resizeStars() {
+      sdpr = Math.min(2, devicePixelRatio || 1);
+      sw = starCvs.clientWidth; sh = starCvs.clientHeight;
+      starCvs.width = Math.floor(sw * sdpr);
+      starCvs.height = Math.floor(sh * sdpr);
+      starCtx.setTransform(sdpr, 0, 0, sdpr, 0, 0);
+    }
+
+    function seedStars() {
+      stars = [];
+      for (let li = 0; li < LAYERS.length; li++) {
+        const L = LAYERS[li];
+        for (let i = 0; i < L.count; i++) {
+          stars.push({
+            li, x: Math.random() * sw, y: Math.random() * sh,
+            r: Math.random() * L.maxR + 0.12,
+            a0: Math.random() * 0.45 + 0.06,
+            ph: Math.random() * Math.PI * 2,
+            dr: (Math.random() * 2 - 1) * L.speed,
+            hue: Math.random()
+          });
+        }
+      }
+    }
+
+    /* Leo */
+    const LEO = [
+      { n: 'Regulus',  x: 0.64, y: 0.42, m: 1.36 },
+      { n: 'Eta',      x: 0.63, y: 0.32, m: 3.48 },
+      { n: 'Algieba',  x: 0.66, y: 0.24, m: 2.08 },
+      { n: 'Adhafera', x: 0.65, y: 0.18, m: 3.33 },
+      { n: 'Rasalas',  x: 0.60, y: 0.13, m: 3.88 },
+      { n: 'Epsilon',  x: 0.72, y: 0.15, m: 2.98 },
+      { n: 'Zosma',    x: 0.78, y: 0.20, m: 2.56 },
+      { n: 'Chertan',  x: 0.78, y: 0.30, m: 3.32 },
+      { n: 'Denebola', x: 0.88, y: 0.25, m: 2.14 },
+    ];
+    const LEO_LINES = [
+      ['Regulus','Eta'],['Eta','Algieba'],['Algieba','Adhafera'],
+      ['Adhafera','Rasalas'],['Rasalas','Epsilon'],['Epsilon','Algieba'],
+      ['Algieba','Zosma'],['Zosma','Chertan'],['Chertan','Regulus'],
+      ['Zosma','Denebola'],['Chertan','Denebola'],
+    ];
+    function leoXY(n) { const s = LEO.find(s => s.n === n); return s ? [s.x * sw, s.y * sh] : null; }
+
+    function drawStars(t, eclBright, celebI) {
+      starCtx.clearRect(0, 0, sw, sh);
+      /* Stars visible during eclipse, dim during celebration (sun reclaims sky) */
+      const vis = Math.max(0, 0.35 + eclBright * 0.65 - celebI * 0.50);
+
+      for (const s of stars) {
+        const L = LAYERS[s.li];
+        s.x += s.dr;
+        if (s.x < -4) s.x = sw + 4;
+        if (s.x > sw + 4) s.x = -4;
+        const tw = s.a0 + Math.sin(t * (0.9 + L.tw) + s.ph) * 0.14;
+        const a = Math.max(0, Math.min(1, tw)) * vis;
+        if (a < 0.01) continue;
+        const c = s.hue < 0.06 ? `rgba(180,210,255,${a})`
+                : s.hue > 0.96 ? `rgba(255,220,180,${a})`
+                : `rgba(255,255,255,${a})`;
+        starCtx.beginPath();
+        starCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        starCtx.fillStyle = c;
+        starCtx.fill();
+      }
+
+      starCtx.strokeStyle = `rgba(255,255,255,${0.04 * vis})`;
+      starCtx.lineWidth = 0.5;
+      for (const [a, b] of LEO_LINES) {
+        const pa = leoXY(a), pb = leoXY(b);
+        if (pa && pb) {
+          starCtx.beginPath(); starCtx.moveTo(pa[0], pa[1]);
+          starCtx.lineTo(pb[0], pb[1]); starCtx.stroke();
+        }
+      }
+      for (const s of LEO) {
+        const x = s.x * sw, y = s.y * sh;
+        const r = Math.max(1.0, (5 - s.m) * 0.8);
+        starCtx.beginPath(); starCtx.arc(x, y, r + 1.2, 0, Math.PI * 2);
+        starCtx.fillStyle = `rgba(255,245,220,${0.06 * vis})`; starCtx.fill();
+        starCtx.beginPath(); starCtx.arc(x, y, r, 0, Math.PI * 2);
+        starCtx.fillStyle = `rgba(255,250,235,${Math.min(0.80, 0.35 + (5 - s.m) * 0.11) * vis})`; starCtx.fill();
+      }
+    }
+
+    /* ===== SUN CANVAS ===== */
+    let scW, scH, scDpr;
+
+    function resizeSun() {
+      scDpr = Math.min(2, devicePixelRatio || 1);
+      scW = sunCvs.clientWidth; scH = sunCvs.clientHeight;
+      sunCvs.width = Math.floor(scW * scDpr);
+      sunCvs.height = Math.floor(scH * scDpr);
+      sunCtx.setTransform(scDpr, 0, 0, scDpr, 0, 0);
+    }
+
+    function drawSunScene(time, bright, eclI, celebI, progress) {
+      sunCtx.clearRect(0, 0, scW, scH);
+      const cx = scW / 2, cy = scH / 2;
+      const R = (stageEl.clientWidth * SUN_FRAC) / 2;
+
+      /* Atmospheric glow — base warmth */
+      const glowMult = bright + celebI * 0.6;
+      const g1r = R * 4.5;
+      const g1 = sunCtx.createRadialGradient(cx, cy, R * 0.3, cx, cy, g1r);
+      g1.addColorStop(0, `rgba(255,200,80,${0.16 * glowMult})`);
+      g1.addColorStop(0.1, `rgba(255,180,60,${0.10 * glowMult})`);
+      g1.addColorStop(0.3, `rgba(255,150,40,${0.05 * glowMult})`);
+      g1.addColorStop(0.55, `rgba(255,120,20,${0.018 * glowMult})`);
+      g1.addColorStop(1, 'transparent');
+      sunCtx.fillStyle = g1;
+      sunCtx.beginPath(); sunCtx.arc(cx, cy, g1r, 0, Math.PI * 2); sunCtx.fill();
+
+      /* Tighter hot core */
+      const g2r = R * 1.8;
+      const g2 = sunCtx.createRadialGradient(cx, cy, R * 0.3, cx, cy, g2r);
+      g2.addColorStop(0, `rgba(255,220,130,${0.20 * glowMult})`);
+      g2.addColorStop(0.4, `rgba(255,190,80,${0.10 * glowMult})`);
+      g2.addColorStop(1, 'transparent');
+      sunCtx.fillStyle = g2;
+      sunCtx.beginPath(); sunCtx.arc(cx, cy, g2r, 0, Math.PI * 2); sunCtx.fill();
+
+      /* Corona streamers during eclipse */
+      if (eclI > 0.08) drawStreamers(cx, cy, R, eclI, time);
+
+      /* Diamond ring */
+      drawDiamondRing(cx, cy, R, progress);
+
+      /* ===== ACT 5: CELEBRATION NEBULA ===== */
+      if (celebI > 0.01) {
+        drawNebulaBloom(cx, cy, R, celebI, time);
+        drawGodRays(cx, cy, R, celebI, time);
+        drawEmbers(cx, cy, R, celebI, time);
+      }
+    }
+
+    /* ===== CORONA STREAMERS (eclipse) ===== */
+    function drawStreamers(cx, cy, R, intensity, time) {
+      const N = 48;
+      const base = R * 0.9;
+      sunCtx.save();
+      sunCtx.globalCompositeOperation = 'screen';
+
+      for (let i = 0; i < N; i++) {
+        const angle = (i / N) * Math.PI * 2 + Math.sin(time * 0.1) * 0.02;
+        const n1 = fbm(i * 0.6 + time * 0.15, time * 0.06 + i * 0.25, 3) * 0.5 + 0.5;
+        const len = base * (0.4 + n1 * 2.0);
+        const w = R * 0.03 * (0.3 + n1 * 0.7);
+        const startR = R * 0.85;
+        const x1 = cx + Math.cos(angle) * startR;
+        const y1 = cy + Math.sin(angle) * startR;
+        const x2 = cx + Math.cos(angle) * (startR + len);
+        const y2 = cy + Math.sin(angle) * (startR + len);
+        const drift = Math.sin(angle * 3 + time * 0.3) * w * 4;
+        const ctrlX = (x1 + x2) / 2 - Math.sin(angle) * drift;
+        const ctrlY = (y1 + y2) / 2 + Math.cos(angle) * drift;
+
+        const sg = sunCtx.createLinearGradient(x1, y1, x2, y2);
+        sg.addColorStop(0, `rgba(255,240,220,${0.50 * intensity})`);
+        sg.addColorStop(0.12, `rgba(255,210,140,${0.35 * intensity})`);
+        sg.addColorStop(0.35, `rgba(200,120,255,${0.28 * intensity})`);
+        sg.addColorStop(0.6, `rgba(147,64,255,${0.18 * intensity})`);
+        sg.addColorStop(1, 'transparent');
+
+        sunCtx.strokeStyle = sg;
+        sunCtx.lineWidth = w;
+        sunCtx.lineCap = 'round';
+        sunCtx.beginPath();
+        sunCtx.moveTo(x1, y1);
+        sunCtx.quadraticCurveTo(ctrlX, ctrlY, x2, y2);
+        sunCtx.stroke();
+      }
+
+      const rg = sunCtx.createRadialGradient(cx, cy, R * 0.75, cx, cy, R * 1.6);
+      rg.addColorStop(0, `rgba(255,200,120,${0.25 * intensity})`);
+      rg.addColorStop(0.25, `rgba(200,120,255,${0.22 * intensity})`);
+      rg.addColorStop(0.5, `rgba(147,64,255,${0.14 * intensity})`);
+      rg.addColorStop(1, 'transparent');
+      sunCtx.fillStyle = rg;
+      sunCtx.beginPath(); sunCtx.arc(cx, cy, R * 1.4, 0, Math.PI * 2); sunCtx.fill();
+      sunCtx.restore();
+    }
+
+    /* ===== DIAMOND RING ===== */
+    function drawDiamondRing(cx, cy, R, progress) {
+      const c1 = 0.44, c2 = 0.56, w = 0.025;
+      let I = 0;
+      if (Math.abs(progress - c1) < w) I = 1 - Math.abs(progress - c1) / w;
+      else if (Math.abs(progress - c2) < w) I = 1 - Math.abs(progress - c2) / w;
+      if (I < 0.01) return;
+      I *= I;
+
+      const side = progress < 0.5 ? -1 : 1;
+      const dx = cx + side * R * 0.80, dy = cy;
+
+      sunCtx.save();
+      sunCtx.globalCompositeOperation = 'screen';
+      const fl = sunCtx.createRadialGradient(dx, dy, 0, dx, dy, R * 0.4);
+      fl.addColorStop(0, `rgba(255,255,255,${I})`);
+      fl.addColorStop(0.06, `rgba(255,250,230,${I * 0.85})`);
+      fl.addColorStop(0.2, `rgba(255,220,160,${I * 0.35})`);
+      fl.addColorStop(0.5, `rgba(255,180,80,${I * 0.10})`);
+      fl.addColorStop(1, 'transparent');
+      sunCtx.fillStyle = fl;
+      sunCtx.fillRect(0, 0, scW, scH);
+      sunCtx.globalAlpha = I * 0.40;
+      sunCtx.fillStyle = 'rgba(255,240,210,0.5)';
+      sunCtx.fillRect(0, dy - 1, scW, 2);
+      sunCtx.restore();
+    }
+
+    /* =============================================================
+       ACT 5: CELEBRATION NEBULA
+       The eclipse is over. You don't just return — you ERUPT.
+       Warm nebula rings expand. Golden embers scatter. God rays
+       fan out. The sun is brighter than before.
+       ============================================================= */
+
+    /* --- Nebula bloom: expanding noise-edged rings --- */
+    function drawNebulaBloom(cx, cy, R, intensity, time) {
+      sunCtx.save();
+      sunCtx.globalCompositeOperation = 'screen';
+
+      const rings = 6;
+      for (let ring = 0; ring < rings; ring++) {
+        /* Each ring expands at a different rate */
+        const ringDelay = ring * 0.08;
+        const localI = Math.max(0, Math.min(1, (intensity - ringDelay) / (1 - ringDelay)));
+        if (localI < 0.01) continue;
+
+        /* Ring expands outward with ease-out */
+        const expand = 1 - Math.pow(1 - localI, 2.5);
+        const ringR = R * (1.0 + ring * 0.5 + expand * (1.5 + ring * 0.8));
+        const ringOpacity = localI * (0.14 - ring * 0.018) * (1 - expand * 0.4);
+
+        /* Noise-perturbed circle for organic edge */
+        sunCtx.beginPath();
+        const steps = 80;
+        for (let s = 0; s <= steps; s++) {
+          const a = (s / steps) * Math.PI * 2;
+          const nx = fbm(Math.cos(a) * 2.5 + time * 0.2 + ring * 1.3,
+                         Math.sin(a) * 2.5 + time * 0.15 + ring * 0.7, 3) * 0.5 + 0.5;
+          const r = ringR * (0.82 + nx * 0.36);
+          const x = cx + Math.cos(a) * r;
+          const y = cy + Math.sin(a) * r;
+          if (s === 0) sunCtx.moveTo(x, y);
+          else sunCtx.lineTo(x, y);
+        }
+        sunCtx.closePath();
+
+        /* Color: gold center → amber → vivid purple edge */
+        const hue = ring / rings;
+        const cr = Math.round(255 - hue * 108);
+        const cg = Math.round(200 - hue * 136);
+        const cb = Math.round(60 + hue * 195);
+        sunCtx.fillStyle = `rgba(${cr},${cg},${cb},${(ringOpacity * 1.4).toFixed(3)})`;
+        sunCtx.fill();
+      }
+
+      /* Central warm bloom */
+      const bloomR = R * (1.2 + intensity * 2.5);
+      const bloom = sunCtx.createRadialGradient(cx, cy, R * 0.5, cx, cy, bloomR);
+      bloom.addColorStop(0, `rgba(255,220,120,${0.30 * intensity})`);
+      bloom.addColorStop(0.15, `rgba(255,190,80,${0.20 * intensity})`);
+      bloom.addColorStop(0.4, `rgba(200,120,255,${0.12 * intensity})`);
+      bloom.addColorStop(0.65, `rgba(147,64,255,${0.08 * intensity})`);
+      bloom.addColorStop(1, 'transparent');
+      sunCtx.fillStyle = bloom;
+      sunCtx.beginPath(); sunCtx.arc(cx, cy, bloomR, 0, Math.PI * 2); sunCtx.fill();
+
+      sunCtx.restore();
+    }
+
+    /* --- God rays: radial light beams fanning out --- */
+    function drawGodRays(cx, cy, R, intensity, time) {
+      if (intensity < 0.05) return;
+      sunCtx.save();
+      sunCtx.globalCompositeOperation = 'screen';
+
+      const numRays = 16;
+      for (let i = 0; i < numRays; i++) {
+        const baseAngle = (i / numRays) * Math.PI * 2;
+        const angle = baseAngle + Math.sin(time * 0.15 + i * 0.8) * 0.04;
+        const n = fbm(i * 0.4, time * 0.1, 2) * 0.5 + 0.5;
+        const width = (0.03 + n * 0.05) * Math.PI;
+        const len = R * (2.0 + n * 2.5) * intensity;
+
+        const grad = sunCtx.createRadialGradient(cx, cy, R * 0.6, cx, cy, R * 0.6 + len);
+        grad.addColorStop(0, `rgba(255,230,150,${0.10 * intensity})`);
+        grad.addColorStop(0.25, `rgba(255,200,90,${0.05 * intensity})`);
+        grad.addColorStop(0.6, `rgba(255,170,60,${0.02 * intensity})`);
+        grad.addColorStop(1, 'transparent');
+
+        sunCtx.beginPath();
+        sunCtx.moveTo(cx, cy);
+        sunCtx.arc(cx, cy, R * 0.6 + len, angle - width / 2, angle + width / 2);
+        sunCtx.closePath();
+        sunCtx.fillStyle = grad;
+        sunCtx.fill();
+      }
+
+      sunCtx.restore();
+    }
+
+    /* --- Golden ember particles --- */
+    const EMBERS = [];
+    for (let i = 0; i < 120; i++) {
+      EMBERS.push({
+        angle: Math.random() * Math.PI * 2,
+        speed: 0.4 + Math.random() * 1.4,
+        delay: Math.random() * 0.35,
+        size: 0.5 + Math.random() * 2.0,
+        sparklePhase: Math.random() * Math.PI * 2,
+        sparkleSpeed: 2.5 + Math.random() * 4,
+        warmth: Math.random(),
+        drift: (Math.random() - 0.5) * 0.3
+      });
+    }
+
+    function drawEmbers(cx, cy, R, intensity, time) {
+      if (intensity < 0.03) return;
+      sunCtx.save();
+      sunCtx.globalCompositeOperation = 'screen';
+
+      for (const e of EMBERS) {
+        const localI = Math.max(0, (intensity - e.delay) / (1 - e.delay));
+        if (localI <= 0) continue;
+
+        /* Expand outward with ease-out deceleration */
+        const expand = 1 - Math.pow(1 - localI, 2);
+        const dist = R * (0.6 + expand * e.speed * 3.5);
+        const driftAngle = e.angle + e.drift * localI * 2;
+        const x = cx + Math.cos(driftAngle + time * 0.05) * dist;
+        const y = cy + Math.sin(driftAngle + time * 0.05) * dist;
+
+        /* Sparkle */
+        const sparkle = 0.4 + 0.6 * Math.sin(time * e.sparkleSpeed + e.sparklePhase);
+        const alpha = localI * sparkle * (1 - expand * 0.5);
+        if (alpha < 0.01) continue;
+
+        /* Color: white-hot → gold → amber based on warmth */
+        const cr = 255;
+        const cg = Math.round(230 - e.warmth * 40);
+        const cb = Math.round(180 - e.warmth * 120);
+
+        /* Glow halo first */
+        sunCtx.beginPath();
+        sunCtx.arc(x, y, e.size * 3, 0, Math.PI * 2);
+        sunCtx.fillStyle = `rgba(${cr},${cg},${cb},${(alpha * 0.08).toFixed(3)})`;
+        sunCtx.fill();
+
+        /* Core point */
+        sunCtx.beginPath();
+        sunCtx.arc(x, y, e.size * (0.4 + localI * 0.6), 0, Math.PI * 2);
+        sunCtx.fillStyle = `rgba(${cr},${cg},${cb},${(alpha * 0.65).toFixed(3)})`;
+        sunCtx.fill();
+      }
+
+      sunCtx.restore();
+    }
+
+    /* ===== MOON PATH ===== */
+    function moonPos(p) {
+      const enter = 0.06, exit = 0.94;
+      if (p < enter || p > exit) return { x: -0.2, y: 0.85, o: 0 };
+      const t = (p - enter) / (exit - enter);
+      const x = -0.08 + 1.16 * t;
+      const y = 0.80 - 0.32 * Math.sin(Math.PI * t);
+      let o = 1;
+      if (t < 0.06) o = t / 0.06;
+      if (t > 0.94) o = (1 - t) / 0.06;
+      return { x, y, o };
+    }
+
+    function eclipseIntensity(p) {
+      if (p < 0.36 || p > 0.64) return 0;
+      return p <= 0.5
+        ? Math.pow((p - 0.36) / 0.14, 1.8)
+        : Math.pow((0.64 - p) / 0.14, 1.8);
+    }
+
+    function celebrationIntensity(p) {
+      if (p < 0.66 || p > 0.88) return 0;
+      if (p <= 0.73) return Math.pow((p - 0.66) / 0.07, 1.6);
+      if (p <= 0.78) return 1;
+      return Math.pow((0.88 - p) / 0.10, 1.3);
+    }
+
+    /* ===== MOUSE PARALLAX ===== */
+    let mTx = 0, mTy = 0, mX = 0, mY = 0;
+    document.addEventListener('mousemove', e => {
+      mTx = (e.clientX / innerWidth - 0.5) * 2;
+      mTy = (e.clientY / innerHeight - 0.5) * 2;
+    });
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', e => {
+        if (e.gamma != null) mTx = Math.max(-1, Math.min(1, e.gamma / 30));
+        if (e.beta != null) mTy = Math.max(-1, Math.min(1, (e.beta - 45) / 30));
+      });
+    }
+
+    /* ===== FILM GRAIN ===== */
+    (function () {
+      const ctx = grainCvs.getContext('2d');
+      const S = 256;
+      grainCvs.width = grainCvs.height = S;
+      const img = ctx.createImageData(S, S);
+      for (let i = 0; i < img.data.length; i += 4) {
+        const v = Math.random() * 255;
+        img.data[i] = img.data[i + 1] = img.data[i + 2] = v;
+        img.data[i + 3] = 255;
+      }
+      ctx.putImageData(img, 0, 0);
+    })();
+
+    /* ===== RESIZE ===== */
+    function onResize() { resizeStars(); seedStars(); resizeSun(); }
+    new ResizeObserver(onResize).observe(starCvs);
+    new ResizeObserver(resizeSun).observe(sunCvs);
+    onResize();
+
+    /* ===== MAIN LOOP ===== */
+    const t0 = performance.now();
+
+    function frame(now) {
+      const t = (now - t0) / 1000;
+      const progress = (t % ECLIPSE_DUR) / ECLIPSE_DUR;
+      const eclI = eclipseIntensity(progress);
+      const celebI = celebrationIntensity(progress);
+      const sunBright = Math.min(1, (1 - eclI * 0.94) + celebI * 0.3);
+
+      /* Parallax */
+      mX += (mTx - mX) * 0.03;
+      mY += (mTy - mY) * 0.03;
+      starCvs.style.transform = `translate(${mX * -2}px, ${mY * -2}px)`;
+      nebEl.style.transform = `translate(${mX * -5}px, ${mY * -5}px)`;
+      stageEl.style.transform = `translate(${mX * -8}px, ${mY * -8}px)`;
+
+      /* Starfield */
+      drawStars(t, eclI, celebI);
+
+      /* Sun canvas: glow + corona + diamond ring + CELEBRATION */
+      drawSunScene(t, sunBright, eclI, celebI, progress);
+
+      /* Sun SVG: brightness + celebration scale pulse */
+      const celebScale = 1 + celebI * 0.04;
+      const svgBright = sunBright + celebI * 0.15;
+      sunSvg.style.filter = `brightness(${svgBright.toFixed(3)}) drop-shadow(0 0 ${(15 + svgBright * 15 + celebI * 25).toFixed(0)}px rgba(255,200,70,${(0.40 * svgBright).toFixed(2)})) drop-shadow(0 0 ${(40 + svgBright * 30 + celebI * 50).toFixed(0)}px rgba(255,160,40,${(0.20 * svgBright).toFixed(2)})) drop-shadow(0 0 ${(80 + svgBright * 50 + celebI * 80).toFixed(0)}px rgba(255,120,20,${(0.08 * svgBright).toFixed(2)}))`;
+      sunSvg.style.transform = `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`;
+
+      /* Sun ambient + celebration wash */
+      ambEl.style.opacity = Math.min(1, sunBright + celebI * 0.5).toFixed(3);
+      washEl.style.opacity = (celebI * 1.0).toFixed(3);
+
+      /* Nebula CSS brightens during celebration */
+      nebEl.style.opacity = (0.85 + celebI * 0.15).toFixed(3);
+
+      /* Moon */
+      const mp = moonPos(progress);
+      const stW = stageEl.clientWidth, stH = stageEl.clientHeight;
+      const mSize = MOON_FRAC * stW;
+      moonEl.style.left = (mp.x * stW - mSize / 2) + 'px';
+      moonEl.style.top = (mp.y * stH - mSize / 2) + 'px';
+      moonEl.style.opacity = mp.o;
+
+      const moonGlow = eclI > 0.1
+        ? `drop-shadow(0 0 ${(12 + eclI * 30).toFixed(0)}px rgba(160,100,255,${(0.35 + eclI * 0.45).toFixed(2)})) drop-shadow(0 0 ${(40 + eclI * 120).toFixed(0)}px rgba(130,60,240,${(0.15 + eclI * 0.50).toFixed(2)}))`
+        : 'drop-shadow(0 0 10px rgba(160,100,255,0.30)) drop-shadow(0 0 25px rgba(130,60,240,0.12))';
+      moonEl.style.filter = moonGlow;
+
+      /* Eclipse darkness */
+      darkEl.style.opacity = (eclI * 0.88).toFixed(3);
+
+      /* 143 text: dim during eclipse, bright during celebration */
+      brand.style.filter = `brightness(${(sunBright + celebI * 0.2).toFixed(3)})`;
+      brand.style.transform = `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`;
+
+      /* ===== SUPERNOVA TEXT — white outline, brighter-than-sun yellow ===== */
+      if (celebI > 0.1) {
+        const sn = Math.min(1, (celebI - 0.1) / 0.6);
+        /* Headline goes VIVID yellow with white outline */
+        row1El.style.color = `rgb(255, ${Math.round(192 + sn * 50)}, ${Math.round(64 + sn * 30)})`;
+        row1El.style.webkitTextStroke = `${(1.5 * sn).toFixed(1)}px rgba(255,255,255,${(0.85 * sn).toFixed(2)})`;
+        row1El.style.textShadow = `0 0 ${(10 + sn * 25).toFixed(0)}px rgba(255,220,80,${(0.55 + sn * 0.40).toFixed(2)}), 0 0 ${(30 + sn * 50).toFixed(0)}px rgba(255,190,50,${(0.30 + sn * 0.35).toFixed(2)}), 0 0 ${(60 + sn * 80).toFixed(0)}px rgba(255,160,20,${(0.15 + sn * 0.25).toFixed(2)}), 0 0 ${(sn * 120).toFixed(0)}px rgba(147,64,255,${(sn * 0.12).toFixed(2)}), 0 4px 20px rgba(0,0,0,0.40)`;
+        /* Purple row glows brighter too */
+        row2El.style.textShadow = `0 0 ${(14 + sn * 20).toFixed(0)}px rgba(168,85,255,${(0.50 + sn * 0.35).toFixed(2)}), 0 0 ${(35 + sn * 45).toFixed(0)}px rgba(147,64,255,${(0.30 + sn * 0.30).toFixed(2)}), 0 0 ${(sn * 100).toFixed(0)}px rgba(147,64,255,${(sn * 0.15).toFixed(2)})`;
+      } else {
+        row1El.style.color = '';
+        row1El.style.webkitTextStroke = '';
+        row1El.style.textShadow = '';
+        row2El.style.textShadow = '';
+      }
+
+      /* Film grain */
+      grainCvs.style.opacity = (0.018 + eclI * 0.03 + celebI * 0.01).toFixed(3);
+      grainCvs.style.transform = `translate(${(Math.sin(t * 3.8) * 2).toFixed(1)}%, ${(Math.cos(t * 3.2) * 2).toFixed(1)}%)`;
+
+      requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>

@@ -1,15 +1,27 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { DEFAULT_WATCH_ME_PROMPTS, WATCH_ME_PROMPTS_BY_RAY } from '@/lib/retention/rep-prompts';
 
 interface Props {
   onClose: () => void;
   onRepLogged?: () => void;
+  bottomRayId?: string | null;
+  bottomRayName?: string | null;
+  initialTarget?: string | null;
+  initialMove?: string | null;
 }
 
 type Step = 'setup' | 'countdown' | 'confirm' | 'receipt';
 
-export default function WatchMeModal({ onClose, onRepLogged }: Props) {
+export default function WatchMeModal({
+  onClose,
+  onRepLogged,
+  bottomRayId,
+  bottomRayName,
+  initialTarget,
+  initialMove,
+}: Props) {
   const [step, setStep] = useState<Step>('setup');
   const [target, setTarget] = useState('');
   const [nextMove, setNextMove] = useState('');
@@ -17,6 +29,7 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
   const [logging, setLogging] = useState(false);
   const startTimeRef = useRef<number>(Date.now());
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const prefilledRef = useRef(false);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
@@ -43,6 +56,15 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [step]);
+
+  useEffect(() => {
+    if (prefilledRef.current) return;
+    if (initialTarget || initialMove) {
+      setTarget(initialTarget ?? '');
+      setNextMove(initialMove ?? '');
+      prefilledRef.current = true;
+    }
+  }, [initialTarget, initialMove]);
 
   async function logRep() {
     setLogging(true);
@@ -76,6 +98,10 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
     border: '1px solid var(--surface-border)',
     color: 'var(--text-on-dark)',
   } as const;
+
+  const quickPrompts = bottomRayId && WATCH_ME_PROMPTS_BY_RAY[bottomRayId]
+    ? WATCH_ME_PROMPTS_BY_RAY[bottomRayId]
+    : DEFAULT_WATCH_ME_PROMPTS;
 
   return (
     <div
@@ -116,6 +142,42 @@ export default function WatchMeModal({ onClose, onRepLogged }: Props) {
           {/* Setup */}
           {step === 'setup' && (
             <div className="space-y-4">
+              {bottomRayName && (
+                <div className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+                  Training: {bottomRayName}
+                </div>
+              )}
+
+              <div className="rounded-xl p-4 space-y-2" style={{ background: 'rgba(255,255,255,0.04)' }}>
+                <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
+                  Quick prompts
+                </p>
+                <div className="grid gap-2">
+                  {quickPrompts.map((prompt) => (
+                    <button
+                      key={prompt.label}
+                      type="button"
+                      onClick={() => {
+                        setTarget(prompt.target);
+                        setNextMove(prompt.move);
+                      }}
+                      className="text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01]"
+                      style={{ border: '1px solid var(--surface-border)', background: 'rgba(2, 2, 2, 0.35)', color: 'var(--text-on-dark)' }}
+                    >
+                      <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+                        {prompt.label}
+                      </p>
+                      <p className="text-xs mt-0.5" style={{ color: 'var(--text-on-dark-secondary)' }}>
+                        {prompt.target}
+                      </p>
+                    </button>
+                  ))}
+                </div>
+                <p className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
+                  Tap one to fill both fields below.
+                </p>
+              </div>
+
               <div className="space-y-1">
                 <label htmlFor="watchme-target" className="block text-xs font-semibold text-brand-gold uppercase tracking-wide">
                   What are you locking onto? (optional)

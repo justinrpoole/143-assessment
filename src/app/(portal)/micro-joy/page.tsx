@@ -4,7 +4,10 @@ import { emitEvent, emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { countMicroJoyEntriesForDate } from "@/lib/db/retention";
 import { PageHeader } from "@/components/ui/PageHeader";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RayDivider from "@/components/ui/RayDivider";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import { rayHex } from "@/lib/ui/ray-colors";
+import { FadeInSection } from "@/components/ui/FadeInSection";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -66,28 +69,32 @@ export default async function MicroJoyPage() {
         title="Micro Joy"
         description="One small thing that tells your RAS the world has good in it. That signal changes what your brain looks for next."
       />
-      <GoldDividerAnimated />
+      <RayDivider ray="R2" />
 
-      <MicroJoyClient />
+      <FadeInSection>
+        <MicroJoyClient />
+      </FadeInSection>
       <FeedbackWidget
         feedback_type="microjoy_value"
         source_route="/micro-joy"
         title="Micro Joy value check"
       />
-      <GoldDividerAnimated />
-      <section className="mx-auto max-w-lg">
-        <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
-          Continue Your Practice
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <LiquidFillButton href="/morning">
-            Morning Routine
-          </LiquidFillButton>
-          <LiquidFillButton href="/reflect">
-            Evening Reflection
-          </LiquidFillButton>
-        </div>
-      </section>
+      <RayDivider ray="R2" />
+      <FadeInSection>
+        <section className="mx-auto max-w-lg">
+          <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: rayHex('R2') }}>
+            Continue Your Practice
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <LiquidFillButton href="/morning">
+              Morning Routine
+            </LiquidFillButton>
+            <LiquidFillButton href="/reflect">
+              Evening Reflection
+            </LiquidFillButton>
+          </div>
+        </section>
+      </FadeInSection>
 
       <GoldHeroBanner
         kicker="Daily Practice"

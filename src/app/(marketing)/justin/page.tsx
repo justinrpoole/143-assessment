@@ -6,8 +6,10 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex } from "@/lib/ui/ray-colors";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
@@ -88,7 +90,7 @@ export default async function JustinPage() {
           </p>
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 2 · THE STORY ───────────────────────────── */}
         <FadeInSection>
@@ -96,7 +98,7 @@ export default async function JustinPage() {
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R1') }}
               >
                 The short version
               </p>
@@ -142,7 +144,7 @@ export default async function JustinPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 3 · TRUST ───────────────────────────────── */}
         <FadeInSection>
@@ -158,17 +160,17 @@ export default async function JustinPage() {
               <div>
                 <p
                   className="mb-4 text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex('R6') }}
                 >
                   What I do
                 </p>
                 <StaggerContainer className="space-y-3">
-                  {DO_LIST.map((item) => (
+                  {DO_LIST.map((item, i) => { const color = rayHex((['R6','R8','R1'] as const)[i] ?? 'R6'); return (
                     <StaggerItem key={item}>
-                      <div className="glass-card flex items-start gap-3 p-4">
+                      <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4">
                         <span
                           className="shrink-0 font-bold"
-                          style={{ color: "var(--brand-gold)" }}
+                          style={{ color }}
                         >
                           &#x2713;
                         </span>
@@ -180,13 +182,13 @@ export default async function JustinPage() {
                         </p>
                       </div>
                     </StaggerItem>
-                  ))}
+                  );})}
                 </StaggerContainer>
               </div>
               <div>
                 <p
                   className="mb-4 text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "rgba(248,208,17,0.55)" }}
+                  style={{ color: `${rayHex('R4')}88` }}
                 >
                   What I don&apos;t do
                 </p>
@@ -218,7 +220,7 @@ export default async function JustinPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         <GoldHeroBanner
           kicker="The Method Is The Message"
@@ -226,14 +228,14 @@ export default async function JustinPage() {
           description="Nine trainable capacities backed by peer-reviewed science. Not who you are. What you can build."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 4 · THE METHOD ──────────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px] space-y-5 text-center">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R5') }}
             >
               The method is the message
             </p>
@@ -270,7 +272,7 @@ export default async function JustinPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 5 · CTA ─────────────────────────────────── */}
         <FadeInSection>

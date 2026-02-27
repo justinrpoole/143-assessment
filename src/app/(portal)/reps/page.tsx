@@ -1,6 +1,9 @@
 import RepLogClient from '@/components/retention/RepLogClient';
 import { PageHeader } from "@/components/ui/PageHeader";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RayDivider from "@/components/ui/RayDivider";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import { rayHex } from "@/lib/ui/ray-colors";
+import { FadeInSection } from "@/components/ui/FadeInSection";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
@@ -57,11 +60,13 @@ export default async function RepsPage({ searchParams }: PageProps) {
           Recognition &bull; Encouragement &bull; Performance &bull; Sustainability
         </p>
       </PageHeader>
-      <GoldDividerAnimated />
+      <RayDivider ray="R4" />
 
-      <div className="mt-6">
-        <RepLogClient initialTool={initialTool} />
-      </div>
+      <FadeInSection>
+        <div className="mt-6">
+          <RepLogClient initialTool={initialTool} />
+        </div>
+      </FadeInSection>
 
       <FeedbackWidget
         feedback_type="rep_value"
@@ -69,20 +74,22 @@ export default async function RepsPage({ searchParams }: PageProps) {
         title="Did this rep land?"
       />
 
-      <GoldDividerAnimated />
-      <section className="mx-auto max-w-lg">
-        <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
-          Continue Your Practice
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <LiquidFillButton href="/toolkit">
-            Tool Library
-          </LiquidFillButton>
-          <LiquidFillButton href="/morning">
-            Morning Routine
-          </LiquidFillButton>
-        </div>
-      </section>
+      <RayDivider ray="R4" />
+      <FadeInSection>
+        <section className="mx-auto max-w-lg">
+          <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: rayHex('R4') }}>
+            Continue Your Practice
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <LiquidFillButton href="/toolkit">
+              Tool Library
+            </LiquidFillButton>
+            <LiquidFillButton href="/morning">
+              Morning Routine
+            </LiquidFillButton>
+          </div>
+        </section>
+      </FadeInSection>
 
       <GoldHeroBanner
         kicker="The Engine"

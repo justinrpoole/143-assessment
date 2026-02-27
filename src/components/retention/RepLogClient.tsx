@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCosmicMotion } from '@/lib/motion/use-cosmic-motion';
 import { humanizeError } from '@/lib/ui/error-messages';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 // ---------------------------------------------------------------------------
 // Tool catalog — 13 core tools from the OS protocol stack
@@ -478,7 +479,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
           >
             🏅
           </motion.div>
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
             Micro Win
           </p>
           <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
@@ -509,7 +510,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                 if (!text) return null;
                 return (
                   <div key={step.id}>
-                    <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                    <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
                       {step.letter} &mdash; {step.label}
                     </p>
                     <p className="text-sm mt-1 italic" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -536,7 +537,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
           {receipt.reflection_note && (
             <div className="glass-card p-4" style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}>
               <p className="text-xs uppercase tracking-widest mb-2"
-                style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                style={{ color: rayHex('R4') }}>
                 Your reflection
               </p>
               <p className="text-sm italic" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -633,7 +634,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
             {/* Letter + Label */}
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
                 {currentStep.letter} &mdash; {currentStep.label}
               </p>
               <p className="text-lg font-semibold mt-2" style={{ color: 'var(--text-on-dark)' }}>
@@ -742,7 +743,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         <div className="glass-card p-6 space-y-5" style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}>
           {/* Summary of R-E-P-S */}
           <div className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
               Your REPS
             </p>
             {REPS_STEPS.map((step, i) => (
@@ -903,7 +904,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
       {/* Full REPS start card (when mode is full and step is -1) */}
       {mode === 'full' && (
         <div className="glass-card p-6 space-y-4" style={{ borderColor: 'rgba(248, 208, 17, 0.2)', boxShadow: '0 0 20px rgba(248, 208, 17, 0.06)' }}>
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
             Recognition &bull; Encouragement &bull; Performance &bull; Sustainability
           </p>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -1273,7 +1274,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
       {/* History */}
       <section className="space-y-3">
-        <h3 className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <h3 className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
           Recent reps
         </h3>
 

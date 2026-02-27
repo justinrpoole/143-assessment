@@ -6,6 +6,7 @@ import { useCosmicMotion } from '@/lib/motion/use-cosmic-motion';
 import CosmicSkeleton from "@/components/ui/CosmicSkeleton";
 import { ShareCardButton } from "@/components/sharecards/ShareCardButton";
 import { humanizeError } from "@/lib/ui/error-messages";
+import { rayHex } from '@/lib/ui/ray-colors';
 
 interface MorningEntryResponse {
   entry_date: string;
@@ -130,7 +131,7 @@ export function MorningEntryClient() {
           {/* Affirmation input */}
           <div className="glass-card p-5 space-y-3">
             <label className="block text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R1') }}
               htmlFor="morning_affirmation">
               Today&apos;s affirmation
             </label>
@@ -155,7 +156,7 @@ export function MorningEntryClient() {
           {/* Reps target */}
           <div className="glass-card p-5 space-y-3">
             <label className="block text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R1') }}
               htmlFor="morning_reps">
               Reps planned today
             </label>

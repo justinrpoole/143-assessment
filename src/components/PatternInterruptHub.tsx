@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
 const WatchMeModal = dynamic(() => import('./WatchMeModal'), { ssr: false });
@@ -9,14 +9,39 @@ const IRiseModal = dynamic(() => import('./IRiseModal'), { ssr: false });
 
 type ActiveModal = 'watch_me' | 'go_first' | 'i_rise' | null;
 
+type SignalPrefill = {
+  watchMe?: { target?: string | null; move?: string | null };
+  goFirst?: { action?: string | null };
+};
+
 interface Props {
   /** Called after any rep is successfully logged */
   onRepLogged?: () => void;
+  bottomRayId?: string | null;
+  bottomRayName?: string | null;
+  openSignal?: ActiveModal;
+  prefill?: SignalPrefill;
+  onSignalHandled?: () => void;
 }
 
-export default function PatternInterruptHub({ onRepLogged }: Props) {
+export default function PatternInterruptHub({
+  onRepLogged,
+  bottomRayId,
+  bottomRayName,
+  openSignal,
+  prefill,
+  onSignalHandled,
+}: Props) {
   const [expanded, setExpanded] = useState(false);
   const [active, setActive] = useState<ActiveModal>(null);
+
+  useEffect(() => {
+    if (openSignal) {
+      setExpanded(false);
+      setActive(openSignal);
+      onSignalHandled?.();
+    }
+  }, [openSignal, onSignalHandled]);
 
   function open(modal: ActiveModal) {
     setExpanded(false);
@@ -109,12 +134,19 @@ export default function PatternInterruptHub({ onRepLogged }: Props) {
         <WatchMeModal
           onClose={close}
           onRepLogged={onRepLogged}
+          bottomRayId={bottomRayId}
+          bottomRayName={bottomRayName}
+          initialTarget={prefill?.watchMe?.target ?? null}
+          initialMove={prefill?.watchMe?.move ?? null}
         />
       )}
       {active === 'go_first' && (
         <GoFirstModal
           onClose={close}
           onRepLogged={onRepLogged}
+          bottomRayId={bottomRayId}
+          bottomRayName={bottomRayName}
+          initialAction={prefill?.goFirst?.action ?? null}
         />
       )}
       {active === 'i_rise' && (

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { humanizeError } from '@/lib/ui/error-messages';
+import { rayHex, cycleRay } from '@/lib/ui/ray-colors';
 
 interface WinEntry {
   id: string;
@@ -85,7 +86,7 @@ export default function MicroWinsLedger() {
   return (
     <div className="glass-card p-5 space-y-4">
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R8') }}>
           Evidence Board
         </p>
         <p className="mt-2 text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -142,11 +143,11 @@ export default function MicroWinsLedger() {
           <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
             Recent receipts
           </p>
-          {wins.slice(0, 7).map((win) => (
+          {wins.slice(0, 7).map((win, i) => (
             <div key={win.id} className="flex gap-3 items-start">
               <div
                 className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                style={{ background: 'var(--brand-gold, #F8D011)' }}
+                style={{ background: rayHex(cycleRay(i)) }}
               />
               <div className="min-w-0 flex-1">
                 <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>

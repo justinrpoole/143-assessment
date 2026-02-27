@@ -5,7 +5,9 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -166,19 +168,20 @@ export default async function FaqPage() {
           <div className="mx-auto max-w-[480px]">
             <ScrollTextReveal text="How the assessment works, what your results actually show, what the science is, and why your scores are designed to change." />
           </div>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
         {/* ─── SECTION 2 · QUICK JUMP ────────────────────────────── */}
         <section className="mx-auto max-w-[720px]">
           <div className="flex flex-wrap items-center justify-center gap-2">
-            {FAQS.map((section) => (
+            {FAQS.map((section, i) => (
               <a
                 key={section.category}
                 href={`#faq-${section.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                 className="rounded-full px-4 py-2.5 text-xs font-semibold transition-colors hover:bg-[rgba(248,208,17,0.15)] min-h-[44px] inline-flex items-center"
                 style={{
-                  color: "var(--brand-gold, #F8D011)",
-                  border: "1px solid rgba(248,208,17,0.2)",
+                  color: rayHex(cycleRay(i)),
+                  border: `1px solid ${rayHex(cycleRay(i))}33`,
                 }}
               >
                 {section.category}
@@ -187,7 +190,7 @@ export default async function FaqPage() {
           </div>
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R6" />
 
         {/* ─── SECTION 3 · FAQ CATEGORIES ────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-12">
@@ -201,7 +204,7 @@ export default async function FaqPage() {
               >
                 <h2
                   className="mb-4 text-lg font-bold"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex(cycleRay(idx)) }}
                 >
                   {section.category}
                 </h2>
@@ -248,7 +251,7 @@ export default async function FaqPage() {
           ))}
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         <GoldHeroBanner
           kicker="Still Curious?"
@@ -257,7 +260,7 @@ export default async function FaqPage() {
           cta={{ label: "Check My Stability — Free", href: "/preview" }}
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── SECTION 4 · CTA ────────────────────────────────── */}
         <FadeInSection>

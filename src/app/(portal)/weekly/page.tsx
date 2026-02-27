@@ -2,7 +2,10 @@ import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import WeeklyReviewClient from "@/components/retention/WeeklyReviewClient";
 import { PageHeader } from "@/components/ui/PageHeader";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RayDivider from "@/components/ui/RayDivider";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import { rayHex } from "@/lib/ui/ray-colors";
+import { FadeInSection } from "@/components/ui/FadeInSection";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
@@ -33,11 +36,13 @@ export default async function WeeklyPage() {
         title="Weekly Scan"
         description="Your system changes week by week. This snapshot tracks capacity shifts, notices patterns, and shows where your operating system is updating."
       />
-      <GoldDividerAnimated />
+      <RayDivider ray="R9" />
 
-      <div className="mt-6">
-        <WeeklyReviewClient />
-      </div>
+      <FadeInSection>
+        <div className="mt-6">
+          <WeeklyReviewClient />
+        </div>
+      </FadeInSection>
 
       <FeedbackWidget
         feedback_type="weekly_value"
@@ -45,20 +50,22 @@ export default async function WeeklyPage() {
         title="Was your weekly scan useful?"
       />
 
-      <GoldDividerAnimated />
-      <section className="mx-auto max-w-lg">
-        <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
-          Continue Your Practice
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <LiquidFillButton href="/growth">
-            Growth Tracking
-          </LiquidFillButton>
-          <LiquidFillButton href="/reps">
-            Log a REP
-          </LiquidFillButton>
-        </div>
-      </section>
+      <RayDivider ray="R9" />
+      <FadeInSection>
+        <section className="mx-auto max-w-lg">
+          <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: rayHex('R9') }}>
+            Continue Your Practice
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <LiquidFillButton href="/growth">
+              Growth Tracking
+            </LiquidFillButton>
+            <LiquidFillButton href="/reps">
+              Log a REP
+            </LiquidFillButton>
+          </div>
+        </section>
+      </FadeInSection>
 
       <GoldHeroBanner
         kicker="Weekly Practice"

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import TodaysRep from './TodaysRep';
@@ -23,6 +23,8 @@ import TimezoneSync from '@/components/TimezoneSync';
 import NotificationToggle from './NotificationToggle';
 import BadgeShowcase from './BadgeShowcase';
 import WeeklyRepBreakdown from './WeeklyRepBreakdown';
+import SignalPickerCard from './SignalPickerCard';
+import RepReceiptCard from './RepReceiptCard';
 import { RAY_NAMES } from '@/lib/types';
 import { rayRamp } from '@/lib/ui/ray-colors';
 import MorningMirrorOverlay from './MorningMirrorOverlay';
@@ -79,6 +81,12 @@ interface PortalSummary {
   subscription_state: 'active' | 'grace' | 'expired' | 'past_due' | 'none';
   grace_period_end: string | null;
 }
+
+type SignalModal = 'watch_me' | 'go_first' | 'i_rise' | null;
+type SignalPrefill = {
+  watchMe?: { target?: string | null; move?: string | null };
+  goFirst?: { action?: string | null };
+};
 
 function ResumeBanner({ runId, answered, total }: { runId: string; answered: number; total: number }) {
   const pct = total > 0 ? Math.round((answered / total) * 100) : 0;
@@ -159,7 +167,7 @@ function SubscriptionBanner({ state, gracePeriodEnd }: { state: PortalSummary['s
   );
 }
 
-function PriorityActions() {
+function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
   return (
     <div className="glass-card p-5 space-y-3">
       <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
@@ -185,7 +193,9 @@ function PriorityActions() {
           <span className="text-lg">👁️</span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Take a small step</p>
-            <p className="text-[11px]" style={{ color: 'var(--text-on-dark-muted)' }}>Watch Me / Go First</p>
+            <p className="text-[11px]" style={{ color: 'var(--text-on-dark-muted)' }}>
+              {bottomRayName ? `Training: ${bottomRayName}` : 'Watch Me / Go First'}
+            </p>
           </div>
         </Link>
         <Link
@@ -210,6 +220,10 @@ export default function PortalDashboard() {
   const [summary, setSummary] = useState<PortalSummary | null>(null);
   const [loading, setLoading] = useState(true);
   const [showRepLink, setShowRepLink] = useState(false);
+  const [showGlow, setShowGlow] = useState(false);
+  const [signalOpen, setSignalOpen] = useState<SignalModal>(null);
+  const [signalPrefill, setSignalPrefill] = useState<SignalPrefill>({});
+  const glowTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const loadSummary = useCallback(async () => {
     try {
@@ -227,9 +241,35 @@ export default function PortalDashboard() {
     void loadSummary();
   }, [loadSummary]);
 
+  useEffect(() => {
+    return () => {
+      if (glowTimerRef.current) {
+        clearTimeout(glowTimerRef.current);
+      }
+    };
+  }, []);
+
   function onRepLogged() {
     void loadSummary();
     setShowRepLink(true);
+    setShowGlow(true);
+    if (glowTimerRef.current) {
+      clearTimeout(glowTimerRef.current);
+    }
+    glowTimerRef.current = setTimeout(() => {
+      setShowGlow(false);
+      glowTimerRef.current = null;
+    }, 5000);
+  }
+
+  function openWatchMe(target: string, move: string) {
+    setSignalPrefill({ watchMe: { target, move } });
+    setSignalOpen('watch_me');
+  }
+
+  function openGoFirst(action: string) {
+    setSignalPrefill({ goFirst: { action } });
+    setSignalOpen('go_first');
   }
 
   if (loading) {
@@ -270,7 +310,7 @@ export default function PortalDashboard() {
         )}
 
         {/* Priority Actions — Today */}
-        <PriorityActions />
+        <PriorityActions bottomRayName={summary.bottom_ray_name} />
 
         {/* Phase Check-In */}
         <PhaseCheckInClient />
@@ -303,7 +343,11 @@ export default function PortalDashboard() {
           </Link>
         </p>
 
-        <PatternInterruptHub onRepLogged={onRepLogged} />
+        <PatternInterruptHub
+          onRepLogged={onRepLogged}
+          bottomRayId={summary.bottom_ray_id}
+          bottomRayName={summary.bottom_ray_name}
+        />
 
         {/* Floating rep button */}
         <QuickRepFAB />
@@ -338,7 +382,7 @@ export default function PortalDashboard() {
         {summary && <SubscriptionBanner state={summary.subscription_state} gracePeriodEnd={summary.grace_period_end} />}
 
         {/* Priority Actions — Today */}
-        <PriorityActions />
+        <PriorityActions bottomRayName={summary?.bottom_ray_name ?? null} />
 
         {summary?.in_progress_run_id ? (
           <ResumeBanner
@@ -380,7 +424,11 @@ export default function PortalDashboard() {
 
         <RasPrimeCard />
 
-        <PatternInterruptHub onRepLogged={onRepLogged} />
+        <PatternInterruptHub
+          onRepLogged={onRepLogged}
+          bottomRayId={summary?.bottom_ray_id ?? null}
+          bottomRayName={summary?.bottom_ray_name ?? null}
+        />
       </div>
     );
   }
@@ -435,7 +483,17 @@ export default function PortalDashboard() {
 
       {/* Priority Actions — Today */}
       <FadeInSection delay={0.04}>
-        <PriorityActions />
+        <PriorityActions bottomRayName={summary.bottom_ray_name} />
+      </FadeInSection>
+
+      {/* Signal Picker */}
+      <FadeInSection delay={0.045}>
+        <SignalPickerCard
+          bottomRayId={summary.bottom_ray_id}
+          bottomRayName={summary.bottom_ray_name}
+          onOpenWatchMe={openWatchMe}
+          onOpenGoFirst={openGoFirst}
+        />
       </FadeInSection>
 
       {/* Daily Loop — primary daily engagement */}
@@ -529,8 +587,17 @@ export default function PortalDashboard() {
               })}
               {summary.bottom_ray_name && (() => {
                 const ramp = rayRamp(summary.bottom_ray_id ?? summary.bottom_ray_name);
+                const glowStyle = showGlow
+                  ? {
+                      boxShadow: '0 0 0 2px rgba(248, 208, 17, 0.6), 0 0 18px rgba(248, 208, 17, 0.35)',
+                      borderColor: 'rgba(248, 208, 17, 0.8)',
+                    }
+                  : {};
                 return (
-                  <span className="px-3 py-1 rounded-full text-sm font-medium" style={{ background: ramp.bgTint, color: ramp.full, border: `1px solid ${ramp.border}` }}>
+                  <span
+                    className={`px-3 py-1 rounded-full text-sm font-medium ${showGlow ? 'animate-pulse' : ''}`}
+                    style={{ background: ramp.bgTint, color: ramp.full, border: `1px solid ${ramp.border}`, ...glowStyle }}
+                  >
                     Training: {summary.bottom_ray_name}
                   </span>
                 );
@@ -557,6 +624,10 @@ export default function PortalDashboard() {
             window.location.href = '/reps';
           }}
         />
+      </FadeInSection>
+
+      <FadeInSection delay={0.205}>
+        <RepReceiptCard onLogged={onRepLogged} />
       </FadeInSection>
 
       <FadeInSection delay={0.22}>
@@ -651,7 +722,14 @@ export default function PortalDashboard() {
         </FadeInSection>
       )}
 
-      <PatternInterruptHub onRepLogged={onRepLogged} />
+      <PatternInterruptHub
+        onRepLogged={onRepLogged}
+        bottomRayId={summary.bottom_ray_id}
+        bottomRayName={summary.bottom_ray_name}
+        openSignal={signalOpen}
+        prefill={signalPrefill}
+        onSignalHandled={() => setSignalOpen(null)}
+      />
 
       {/* Floating rep button */}
       <QuickRepFAB />

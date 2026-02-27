@@ -6,7 +6,9 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 
 import { FadeInSection } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
@@ -61,6 +63,7 @@ export default async function SampleReportPage() {
               <div className="max-w-[560px]">
                 <ScrollTextReveal text="Browse a sample Gravitational Stability Report — same format, same depth, same identity-first language. The only difference is the data is not yours. Yet." />
               </div>
+              <RaySpectrumStrip className="mt-6" />
             </div>
             <div className="mt-6 sm:mt-0 shrink-0">
               <CosmicImage
@@ -75,7 +78,7 @@ export default async function SampleReportPage() {
           </div>
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── SECTION 2 · WHAT PEOPLE SAY ─────────────────────── */}
         <FadeInSection>
@@ -83,7 +86,7 @@ export default async function SampleReportPage() {
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R7') }}
               >
                 What people say when they open their report
               </p>
@@ -119,7 +122,7 @@ export default async function SampleReportPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R6" />
 
         <GoldHeroBanner
           kicker="Not a Template"
@@ -127,7 +130,7 @@ export default async function SampleReportPage() {
           description="A report that reads like someone who understands you handed you a map and said: start here."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R3" />
 
         {/* ─── SECTION 3 · DIMMING DETECTOR ────────────────────── */}
         <FadeInSection>
@@ -137,7 +140,7 @@ export default async function SampleReportPage() {
         {/* ─── SECTION 4 · INTERACTIVE SAMPLE REPORT ───────────── */}
         <SampleReportClient />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R2" />
 
         {/* ─── SECTION 5 · TWO WAYS TO USE ─────────────────────── */}
         <FadeInSection>
@@ -146,12 +149,12 @@ export default async function SampleReportPage() {
             <div className="glass-card p-6 sm:p-8 space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R2') }}
               >
                 Two ways to use your report
               </p>
               <ul className="space-y-3">
-                {PAID_TIER_ITEMS.map((item) => (
+                {PAID_TIER_ITEMS.map((item, i) => (
                   <li
                     key={item}
                     className="flex items-start gap-2 text-sm leading-relaxed"
@@ -162,7 +165,7 @@ export default async function SampleReportPage() {
                   >
                     <span
                       className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
-                      style={{ background: "var(--brand-gold)" }}
+                      style={{ background: rayHex(cycleRay(i)) }}
                     />
                     {item}
                   </li>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 /**
  * Coaching questions per Ray, drawn from ray_pairs.json and
@@ -87,7 +88,7 @@ export default function CoachQuestion({ rayId, bottomRayId }: Props) {
   return (
     <div className="glass-card p-5 space-y-3">
       <div className="flex items-center justify-between">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R7') }}>
           Coach Question
         </p>
         <span

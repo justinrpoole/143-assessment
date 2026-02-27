@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { rayHex } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -26,7 +27,7 @@ export default async function PrivacyPage() {
       <article className="mx-auto max-w-[720px] px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
         {/* ── Header ── */}
         <header className="mb-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R6') }}>
             Legal
           </p>
           <h1 className="mt-4 text-3xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
@@ -40,7 +41,7 @@ export default async function PrivacyPage() {
         {/* ── Content ── */}
         <div className="glass-card space-y-8 p-6 sm:p-8">
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R1') }}>
               1. Introduction
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -49,7 +50,7 @@ export default async function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R2') }}>
               2. Information We Collect
             </h2>
             <p className="mt-3 text-sm font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>Personal Information</p>
@@ -71,7 +72,7 @@ export default async function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
               3. How We Use Your Information
             </h2>
             <ul className="mt-3 space-y-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>

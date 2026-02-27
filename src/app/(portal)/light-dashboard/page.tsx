@@ -3,11 +3,12 @@ import { getUserStateFromRequest } from '@/lib/auth/user-state';
 import LightDashboardClient from '@/components/portal/LightDashboardClient';
 import CosmicErrorBoundary from '@/components/ui/CosmicErrorBoundary';
 import { PageHeader } from '@/components/ui/PageHeader';
-import GoldDividerAnimated from '@/components/ui/GoldDividerAnimated';
 import PortalBreadcrumb from '@/components/portal/PortalBreadcrumb';
 import { FeedbackWidget } from '@/components/feedback/FeedbackWidget';
 import GoldHeroBanner from '@/components/ui/GoldHeroBanner';
 import RadialSpotlight from '@/components/ui/RadialSpotlight';
+import RaySpectrumStrip from '@/components/ui/RaySpectrumStrip';
+import RayDivider from '@/components/ui/RayDivider';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,7 +35,8 @@ export default async function LightDashboardPage() {
           title="Your Light Dashboard"
           description="Nine rays. East to west. See where your light lands this week."
         />
-        <GoldDividerAnimated />
+        <RaySpectrumStrip className="mt-4" />
+        <RayDivider ray="R1" />
         <RadialSpotlight>
           <CosmicErrorBoundary sectionLabel="LIGHT DASHBOARD">
             <LightDashboardClient />

@@ -4,10 +4,11 @@ import PortalDashboard from "@/components/portal/PortalDashboard";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import { PageHeader } from "@/components/ui/PageHeader";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
 
 export const dynamic = "force-dynamic";
 
@@ -34,8 +35,9 @@ export default async function PortalPage() {
         title="Your Light Portal"
         description="Welcome back to your Light Portal. Pick up where you left off — start a new assessment, review your results, or continue your daily practices. Everything you have built is here."
       />
+      <RaySpectrumStrip className="mt-4" />
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R9" />
 
       <RadialSpotlight>
         <CosmicErrorBoundary sectionLabel="PORTAL">
@@ -43,7 +45,7 @@ export default async function PortalPage() {
         </CosmicErrorBoundary>
       </RadialSpotlight>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R2" />
 
       <FeedbackWidget
         feedback_type="portal_value"

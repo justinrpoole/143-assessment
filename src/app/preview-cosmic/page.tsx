@@ -85,16 +85,7 @@ export default function CosmicPreview() {
       <AuroraCelebration show={showAurora} improvedRay="R4" rayName="Ray of Power" duration={5000} onComplete={() => setShowAurora(false)} />
       <NovaMoment show={showNova} rayName="Ray of Power" message="Ray of Power remembered." duration={4000} onComplete={() => setShowNova(false)} />
 
-      <a href="#main-content" className="skip-to-content">Skip to content</a>
-
-      <header
-        className="sticky top-0 z-50 flex items-center justify-between px-6"
-        style={{ height: '56px', background: 'var(--overlay-medium)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderBottom: '1px solid var(--surface-border)' }}
-      >
-        <span className="text-sm uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)' }}>
-          143 Leadership
-        </span>
-        <nav aria-label="Main navigation" className="flex gap-6">
+      <nav aria-label="Section navigation" className="sticky top-[60px] z-40 flex items-center justify-center gap-6 px-6 py-3" style={{ background: 'var(--overlay-medium)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderBottom: '1px solid var(--surface-border)' }}>
           {NAV_SECTIONS.map(({ href, label }) => (
             <a
               key={href}
@@ -107,8 +98,7 @@ export default function CosmicPreview() {
               {label}
             </a>
           ))}
-        </nav>
-      </header>
+      </nav>
 
       <section className="relative flex flex-col items-center justify-center text-center px-6 overflow-hidden" style={{ minHeight: '50vh' }}>
         <div

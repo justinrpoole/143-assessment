@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import CosmicSkeleton from '@/components/ui/CosmicSkeleton';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 interface JournalEntry {
   id: string;

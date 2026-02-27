@@ -35,25 +35,25 @@ const WHAT_ENTERPRISE_GETS = [
 const PRICING = [
   {
     name: 'Team Cohort',
-    price: '$14,300',
+    price: 'Contact Us',
     seats: '50 seats',
     includes: ['Full 143 Assessment per participant', 'Aggregate capacity dashboard', 'One structured debrief session', 'Governance-compliant reporting', 'Implementation support'],
-    cta: 'Start with your team',
+    cta: 'Contact us',
   },
   {
     name: 'Enterprise Pilot',
-    price: '$28,600',
+    price: 'Contact Us',
     seats: '200 seats',
     highlight: true,
     includes: ['Everything in Team Cohort', 'Load Signal Count and depletion detection', 'Multi-cohort aggregate dashboard', 'Two live debrief sessions with retake cycle', 'Dedicated implementation and coaching support'],
-    cta: 'Launch a pilot',
+    cta: 'Contact us',
   },
   {
     name: 'Annual License',
-    price: '$143,000',
+    price: 'Contact Us',
     seats: '1,000 seats',
     includes: ['Everything in Enterprise Pilot', 'Unlimited cohort rollouts with retake cycles', 'Custom onboarding and change management', 'Structured coaching playbook for team leads', 'Quarterly strategy reviews with behavioral ROI', 'Priority access + API integration'],
-    cta: 'Contact us for licensing',
+    cta: 'Contact us',
   },
 ];
 
@@ -81,7 +81,7 @@ export default function EnterpriseSalesPage() {
               Contact us
             </a>
             <Link href="#pricing" className="btn-watch px-8 py-3">
-              See pricing
+              See plans
             </Link>
           </div>
         </div>
@@ -187,8 +187,8 @@ export default function EnterpriseSalesPage() {
       {/* Pricing */}
       <section id="pricing" className="px-6 py-16 max-w-5xl mx-auto space-y-8">
         <div className="space-y-2 text-center">
-          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Investment</p>
-          <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Priced for serious deployment</h2>
+          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Get Started</p>
+          <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Built for serious deployment</h2>
           <p className="text-sm max-w-xl mx-auto" style={{ color: 'var(--text-on-dark-muted)' }}>
             All tiers include aggregate dashboards, governance-compliant reporting, and consent-gated privacy controls.
           </p>

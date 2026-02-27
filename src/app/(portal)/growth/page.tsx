@@ -2,12 +2,14 @@ import { GrowthSummaryClient } from "@/components/retention/GrowthSummaryClient"
 import { emitEvent, emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { PageHeader } from "@/components/ui/PageHeader";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { FadeInSection } from "@/components/ui/FadeInSection";
 
 export const dynamic = "force-dynamic";
 
@@ -75,16 +77,22 @@ export default async function GrowthPage() {
         </p>
       </PageHeader>
       <ScrollTextReveal text="Your trendline turns effort into proof: run history, deltas, and Day 7/21/66 checkpoints in one place." />
-      <GoldDividerAnimated />
+      <RaySpectrumStrip className="mt-4" />
+      <RayDivider ray="R4" />
 
-      <RadialSpotlight>
-        <GrowthSummaryClient />
-      </RadialSpotlight>
-      <FeedbackWidget
-        feedback_type="growth_value"
-        source_route="/growth"
-        title="Is this tracking useful?"
-      />
+      <FadeInSection>
+        <RadialSpotlight>
+          <GrowthSummaryClient />
+        </RadialSpotlight>
+      </FadeInSection>
+      <RayDivider ray="R8" />
+      <FadeInSection>
+        <FeedbackWidget
+          feedback_type="growth_value"
+          source_route="/growth"
+          title="Is this tracking useful?"
+        />
+      </FadeInSection>
       <GoldHeroBanner
         kicker="Your Trendline"
         title="Growth is not linear. But it is visible."

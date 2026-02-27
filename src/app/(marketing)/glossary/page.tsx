@@ -2,7 +2,9 @@ import Link from "next/link";
 
 import { GlossaryClient } from "@/components/glossary/GlossaryClient";
 import { FadeInSection } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -54,14 +56,15 @@ export default async function GlossaryPage() {
             Every term used in the 143 Leadership assessment and report,
             defined and searchable.
           </p>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R6" />
 
         {/* ─── GLOSSARY CLIENT ─────────────────────────────────── */}
         <GlossaryClient />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R3" />
 
         <GoldHeroBanner
           kicker="Language Shapes Perception"
@@ -69,7 +72,7 @@ export default async function GlossaryPage() {
           description="Every term in this glossary maps to a measurable capacity. The words are not metaphors — they are coordinates."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── CTA ─────────────────────────────────────────────── */}
         <FadeInSection>

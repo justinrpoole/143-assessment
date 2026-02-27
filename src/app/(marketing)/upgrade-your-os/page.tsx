@@ -25,7 +25,9 @@ import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
 import OSExplainer from "@/components/marketing/OSExplainer";
 import DailyLoopVisual from "@/components/marketing/DailyLoopVisual";
 import { FadeInSection } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
@@ -126,6 +128,7 @@ export default async function UpgradeYourOsPage() {
           <p className="mt-4 max-w-[560px] text-base leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
             Not a personality label. A map of <span className="gold-highlight">9 trainable capacities</span> — with a daily system to change them. Your scores are designed to move. Because you are.
           </p>
+          <RaySpectrumStrip className="mt-6" />
           {/* CTA */}
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <NeonGlowButton href="/preview">
@@ -162,7 +165,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R3" />
 
       {/* ── CONVERSION QUESTIONS ── */}
       <FadeInSection blur>
@@ -182,16 +185,19 @@ export default async function UpgradeYourOsPage() {
               q: "When was the last time someone asked how you were and you told the truth?",
               a: "If you had to think about it, that is the eclipse talking. It does not always look like falling apart.",
             },
-          ].map((item) => (
-            <div key={item.q} className="glass-card glass-card--lift glass-card--executive p-5">
-              <p className="text-sm font-semibold leading-relaxed" style={{ color: '#F8D011' }}>
+          ].map((item, i) => {
+            const color = rayHex(cycleRay(i));
+            return (
+            <div key={item.q} className="glass-card glass-card--lift glass-card--executive glass-card--magnetic p-5" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
+              <p className="text-sm font-semibold leading-relaxed" style={{ color }}>
                 {item.q}
               </p>
               <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 {item.a}
               </p>
             </div>
-          ))}
+            );
+          })}
         </StaggerChildren>
         <div className="relative z-10 mt-8 text-center">
           <LiquidFillButton href="/preview">
@@ -212,7 +218,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R1" />
 
       {/* ── YOUR OPERATING SYSTEM (#6) ── */}
       <FadeInSection>
@@ -221,7 +227,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R8" />
 
       {/* ── HOW IT WORKS — 3-step walkthrough ── */}
       <FadeInSection>
@@ -232,47 +238,88 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── PRODUCT PREVIEW — radar chart mockup ── */}
       <FadeInSection>
-      <section id="product-preview" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
-        <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
-          <div className="gold-accent-left">
-            <span className="gold-tag">
-              <span style={{ color: '#F8D011' }}>◆</span> Your Results
-            </span>
-            <h2 className="gold-underline mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
-              A map, not a label
-            </h2>
-            <p className="mt-6 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              Your <span className="gold-highlight"><GoldTooltip tip="Your unique combination of top two Rays — the pattern your leadership defaults to.">Light Signature</GoldTooltip></span> is a radar chart of 9 capacities — showing where you shine, where stress is covering you, and exactly what to train this week.
-            </p>
-            <ul className="mt-4 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              <li className="flex items-start gap-2">
-                <span className="text-gold-glow">◆</span> 9 Ray scores with Shine/Eclipse breakdown
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-gold-glow">◆</span> <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims.">Eclipse</GoldTooltip> detection — which strength is compensating
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-gold-glow">◆</span> <GoldTooltip tip="Your personalized development sequence based on current capacity gaps.">Rise Path</GoldTooltip> with daily tools for your specific pattern
-              </li>
-            </ul>
-            <div className="mt-6">
-              <NeonGlowButton href="/preview">
-                See My Light Signature
-              </NeonGlowButton>
-            </div>
-          </div>
+      <section id="product-preview" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 overflow-hidden">
+        {/* ── Astrology / Star Chart background decoration ── */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+          <svg viewBox="0 0 600 600" width="600" height="600" className="opacity-[0.06]" style={{ maxWidth: '100%' }}>
+            <circle cx="300" cy="300" r="280" fill="none" stroke="#F8D011" strokeWidth="0.5" strokeDasharray="4 8" />
+            <circle cx="300" cy="300" r="220" fill="none" stroke="#F8D011" strokeWidth="0.5" strokeDasharray="3 6" />
+            <circle cx="300" cy="300" r="160" fill="none" stroke="rgba(248,208,17,0.8)" strokeWidth="0.5" strokeDasharray="2 5" />
+            <circle cx="300" cy="300" r="100" fill="none" stroke="rgba(248,208,17,0.6)" strokeWidth="0.5" strokeDasharray="2 4" />
+            <circle cx="300" cy="300" r="50" fill="none" stroke="rgba(248,208,17,0.4)" strokeWidth="0.5" />
+            {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
+              <line key={deg} x1="300" y1="300" x2={300 + 280 * Math.cos((deg - 90) * Math.PI / 180)} y2={300 + 280 * Math.sin((deg - 90) * Math.PI / 180)} stroke="#F8D011" strokeWidth="0.3" opacity="0.5" />
+            ))}
+            {Array.from({ length: 36 }, (_, i) => i * 10).map((deg) => {
+              const rad = (deg - 90) * Math.PI / 180;
+              return (<line key={`tick-${deg}`} x1={300 + 270 * Math.cos(rad)} y1={300 + 270 * Math.sin(rad)} x2={300 + 280 * Math.cos(rad)} y2={300 + 280 * Math.sin(rad)} stroke="#F8D011" strokeWidth="0.5" opacity="0.6" />);
+            })}
+            {[[300,20],[300,80],[300,140],[300,580],[300,520],[300,460],[20,300],[80,300],[140,300],[580,300],[520,300],[460,300],[85,85],[515,85],[85,515],[515,515],[160,160],[440,160],[160,440],[440,440],[200,100],[400,100],[100,200],[500,200],[200,500],[400,500],[100,400],[500,400]].map(([cx2,cy2], i) => (
+              <circle key={`star-${i}`} cx={cx2} cy={cy2} r={i % 3 === 0 ? 2.5 : 1.5} fill="#F8D011" opacity={0.5 + (i % 3) * 0.2} />
+            ))}
+            <polyline points="85,85 160,160 200,100 300,20 400,100 440,160 515,85" fill="none" stroke="#F8D011" strokeWidth="0.4" opacity="0.4" />
+            <polyline points="85,515 160,440 200,500 300,580 400,500 440,440 515,515" fill="none" stroke="#F8D011" strokeWidth="0.4" opacity="0.4" />
+            <polyline points="85,85 100,200 20,300 100,400 85,515" fill="none" stroke="#F8D011" strokeWidth="0.4" opacity="0.3" />
+            <polyline points="515,85 500,200 580,300 500,400 515,515" fill="none" stroke="#F8D011" strokeWidth="0.4" opacity="0.3" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 text-center space-y-6">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Your Results
+          </span>
+          <h2 className="gold-underline mx-auto mt-3 text-2xl font-bold sm:text-3xl" style={{ color: 'var(--text-on-dark)' }}>
+            A map, not a label
+          </h2>
+          <p className="mx-auto max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            Your <span className="gold-highlight"><GoldTooltip tip="Your unique combination of top two Rays — the pattern your leadership defaults to.">Light Signature</GoldTooltip></span> is a radar chart of <span style={{ color: '#F8D011' }}>9 rays of light</span> — showing where you shine, where stress is blocking you, and exactly what to train this week.
+          </p>
+
           <RadarMockup className="flex flex-col items-center" />
+
+          <ul className="mx-auto max-w-[480px] space-y-3 text-sm text-left">
+            <li className="flex items-start gap-2">
+              <span style={{ color: '#F8D011', textShadow: '0 0 8px rgba(248,208,17,0.4)' }}>◆</span>
+              <span style={{ color: 'var(--text-on-dark-secondary)' }}>
+                <span style={{ color: '#F8D011' }}>9 Ray scores</span> with <span style={{ color: '#60A5FA' }}>Shine</span>/<span style={{ color: '#8E44AD' }}>Eclipse</span> breakdown
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span style={{ color: '#8E44AD', textShadow: '0 0 8px rgba(142,68,173,0.4)' }}>◆</span>
+              <span style={{ color: 'var(--text-on-dark-secondary)' }}>
+                <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims."><span style={{ color: '#8E44AD' }}>Eclipse</span></GoldTooltip> detection — which <span style={{ color: '#C0392B' }}>strength</span> is compensating
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span style={{ color: '#2ECC71', textShadow: '0 0 8px rgba(46,204,113,0.4)' }}>◆</span>
+              <span style={{ color: 'var(--text-on-dark-secondary)' }}>
+                <GoldTooltip tip="Your personalized development sequence based on current capacity gaps."><span style={{ color: '#2ECC71' }}>Rise Path</span></GoldTooltip> with daily tools for your specific pattern
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span style={{ color: '#E74C8B', textShadow: '0 0 8px rgba(231,76,139,0.4)' }}>◆</span>
+              <span style={{ color: 'var(--text-on-dark-secondary)' }}>
+                Your <span style={{ color: '#E74C8B' }}>Light Signature</span> — the pattern your leadership defaults to
+              </span>
+            </li>
+          </ul>
+
+          <div className="mt-6">
+            <NeonGlowButton href="/preview">
+              See My Light Signature
+            </NeonGlowButton>
+          </div>
         </div>
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R5" />
 
       {/* ── SCORE MOVEMENT CHART (#4) ── */}
       <FadeInSection>
       <section id="score-movement" className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <div className="text-center space-y-3 mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
             Scores That Move
           </p>
           <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
@@ -287,7 +334,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R4" />
 
       {/* ── ECLIPSE CONCEPT ── */}
       <FadeInSection>
@@ -346,7 +393,7 @@ export default async function UpgradeYourOsPage() {
       </RadialSpotlight>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R3" />
 
       {/* ── 9 RAYS — vertical progression with sun ── */}
       <FadeInSection>
@@ -378,7 +425,7 @@ export default async function UpgradeYourOsPage() {
       <FadeInSection>
       <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
             Eclipse Is Not Failure
           </p>
           <h2 className="text-xl font-bold sm:text-2xl text-gold-gradient">
@@ -398,7 +445,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R6" />
 
       {/* ── THE 143 LOOP — Daily Practice (#9, #16) ── */}
       <FadeInSection>
@@ -407,13 +454,13 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R2" />
 
       {/* ── MICRO-JOY — Smallest Viable Practice (#12) ── */}
       <FadeInSection>
       <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
         <div className="glass-card p-6 sm:p-8 space-y-4" style={{ border: '1px solid rgba(248,208,17,0.15)' }}>
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R2') }}>
             Smallest Viable Practice
           </p>
           <h3 className="text-xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
@@ -432,7 +479,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R7" />
 
       {/* ── COMPETITOR COMPARISON (#1) ── */}
       <FadeInSection>
@@ -444,7 +491,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R8" />
 
       {/* ── WHAT THIS IS NOT ── */}
       <FadeInSection>
@@ -458,12 +505,15 @@ export default async function UpgradeYourOsPage() {
           </h2>
         </div>
         <StaggerChildren className="space-y-3">
-          {WHAT_I_DONT_DO.map((item) => (
-            <div key={item} className="glass-card glass-card--lift flex items-start gap-3 p-4">
-              <span className="shrink-0 text-sm font-bold" style={{ color: '#F8D011' }}>✕</span>
+          {WHAT_I_DONT_DO.map((item, i) => {
+            const color = rayHex(cycleRay(i));
+            return (
+            <div key={item} className="glass-card glass-card--lift glass-card--magnetic flex items-start gap-3 p-4" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
+              <span className="shrink-0 text-sm font-bold" style={{ color }}>✕</span>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>{item}</p>
             </div>
-          ))}
+            );
+          })}
         </StaggerChildren>
         <p className="mt-6 text-center text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
           I map your pattern. I give you the next rep. I help you track progress so growth
@@ -472,7 +522,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R5" />
 
       {/* ── TESTIMONIALS — gold stripe accent ── */}
       <FadeInSection>
@@ -483,16 +533,19 @@ export default async function UpgradeYourOsPage() {
           </span>
         </div>
         <StaggerChildren className="space-y-4">
-          {TESTIMONIALS.map((t) => (
-            <div key={t.attribution} className="glass-card testimonial-card testimonial-gold-stripe p-5 pl-6">
+          {TESTIMONIALS.map((t, i) => {
+            const color = rayHex(cycleRay(i));
+            return (
+            <div key={t.attribution} className="glass-card glass-card--magnetic testimonial-card p-5 pl-6" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
               <p className="text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <p className="mt-3 text-xs font-bold" style={{ color: '#F8D011' }}>
+              <p className="mt-3 text-xs font-bold" style={{ color }}>
                 — {t.attribution}
               </p>
             </div>
-          ))}
+            );
+          })}
         </StaggerChildren>
 
         {/* Metric badges with executive styling */}
@@ -524,7 +577,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R9" />
 
       {/* ── PRICING — gold-bordered featured card ── */}
       <FadeInSection>

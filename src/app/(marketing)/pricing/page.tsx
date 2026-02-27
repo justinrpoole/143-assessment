@@ -30,7 +30,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Plans & Pricing — 143 Leadership",
   description:
-    "Start free. Go deeper when you are ready. From a 3-minute Gravitational Stability Check to the full Be The Light Assessment, Portal Membership, and 10-week Coaching. Every tier is built to prove change, not just describe you.",
+    "Start free. Go deeper when you are ready. From a 3-minute Gravitational Stability Check to the full Be The Light Assessment, Portal Membership, and group coaching. Every tier is built to prove change, not just describe you.",
 };
 
 /* ── static data ───────────────────────────────────────────── */
@@ -96,10 +96,10 @@ const PLANS = [
   {
     id: "coaching-10wk",
     title: "10-Week Coaching",
-    price: "$143",
-    frequency: "/week",
+    price: "Contact Us",
+    frequency: "",
     description:
-      "Structured coaching built on your Gravitational Stability Report. 10 weeks. Your Portal Membership is included for the duration. $1,430 total.",
+      "Structured coaching built on your Gravitational Stability Report. 10 weeks. Your Portal Membership is included for the duration.",
     features: [
       "Full Gravitational Stability Report included",
       "Portal Membership included for 10 weeks",
@@ -108,13 +108,13 @@ const PLANS = [
       "Mid-point and final retake with comparison",
       "Direct support between sessions",
     ],
-    cta: { label: "Learn About Coaching", href: "/coaches" },
+    cta: { label: "Contact Us", href: "/coaches" },
     highlight: false,
   },
   {
     id: "enterprise",
     title: "Enterprise",
-    price: "Custom",
+    price: "Contact Us",
     frequency: "",
     description:
       "Team-wide assessment with aggregate pattern analysis, individual Rise Paths, executive coaching, and behavioural ROI — proof of change, not satisfaction surveys.",
@@ -169,7 +169,7 @@ const FAQS = [
   },
   {
     q: "What is the 10-Week Coaching?",
-    a: "$143 per week for 10 weeks. Structured coaching built on your Gravitational Stability Report. Your Portal Membership is included for the duration. Weekly sessions matched to your results, with a mid-point retake and a final comparison.",
+    a: "Structured coaching built on your Gravitational Stability Report. Your Portal Membership is included for the duration. Weekly sessions matched to your results, with a mid-point retake and a final comparison. Contact us for pricing.",
   },
   {
     q: "Is this backed by research?",

@@ -7,7 +7,9 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -112,6 +114,7 @@ export default async function WatchMePage() {
             I see you rehearsing the conversation in the shower for the third day
             in a row. You know what to say. Your body will not let you start.
           </p>
+          <RaySpectrumStrip className="mt-6" />
           <p
             className="text-sm leading-relaxed max-w-[560px]"
             style={{
@@ -124,7 +127,7 @@ export default async function WatchMePage() {
           </p>
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R4" />
 
         {/* ─── SECTION 2 · SELF-RECOGNITION ───────────────────── */}
         <FadeInSection>
@@ -132,7 +135,7 @@ export default async function WatchMePage() {
             <div className="glass-card p-6 sm:p-8 space-y-5">
               <p
                 className="text-sm font-semibold leading-relaxed"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R3') }}
               >
                 Have you ever been completely ready in your head and completely
                 frozen in your body?
@@ -162,7 +165,7 @@ export default async function WatchMePage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R3" />
 
         {/* ─── SECTION 3 · SOUND FAMILIAR ─────────────────────── */}
         <FadeInSection>
@@ -170,12 +173,12 @@ export default async function WatchMePage() {
             <div className="glass-card p-6 sm:p-8">
               <p
                 className="mb-5 text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R7') }}
               >
                 Sound Familiar?
               </p>
               <StaggerContainer className="space-y-3">
-                {RECOGNITION_SIGNALS.map((signal) => (
+                {RECOGNITION_SIGNALS.map((signal, i) => (
                   <StaggerItem key={signal}>
                     <div
                       className="flex items-start gap-3 text-sm leading-relaxed"
@@ -186,7 +189,7 @@ export default async function WatchMePage() {
                     >
                       <span
                         className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
-                        style={{ background: "var(--brand-gold)" }}
+                        style={{ background: rayHex(cycleRay(i)) }}
                       />
                       {signal}
                     </div>
@@ -197,7 +200,7 @@ export default async function WatchMePage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         {/* ─── SECTION 4 · WHY YOU FREEZE ─────────────────────── */}
         <FadeInSection>
@@ -205,7 +208,7 @@ export default async function WatchMePage() {
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R4') }}
               >
                 Why This Happens
               </p>
@@ -252,7 +255,7 @@ export default async function WatchMePage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R5" />
 
         <GoldHeroBanner
           kicker="Not Cowardice. Conservation."
@@ -260,7 +263,7 @@ export default async function WatchMePage() {
           description="The assessment names the specific pattern — which ray is carrying, which is eclipsed, and the rep to start this week."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── SECTION 5 · SIGNATURE PATTERNS ─────────────────── */}
         <FadeInSection>
@@ -268,7 +271,7 @@ export default async function WatchMePage() {
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R8') }}
               >
                 This Shows Up Differently in Different Leaders
               </p>
@@ -281,12 +284,12 @@ export default async function WatchMePage() {
             </div>
 
             <StaggerContainer className="space-y-4">
-              {SIGNATURE_PATTERNS.map((item) => (
+              {SIGNATURE_PATTERNS.map((item, i) => (
                 <StaggerItem key={item.signature}>
                   <div
-                    className="glass-card p-5"
+                    className="glass-card glass-card--magnetic p-5"
                     style={{
-                      borderLeft: "3px solid var(--brand-gold, #F8D011)",
+                      borderLeft: `3px solid ${rayHex(cycleRay(i))}`,
                     }}
                   >
                     <p
@@ -297,7 +300,7 @@ export default async function WatchMePage() {
                       }}
                     >
                       <strong
-                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                        style={{ color: rayHex(cycleRay(i)) }}
                       >
                         {item.signature}
                       </strong>{" "}
@@ -321,7 +324,7 @@ export default async function WatchMePage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
         <FadeInSection>
@@ -329,7 +332,7 @@ export default async function WatchMePage() {
             <div className="glass-card p-8 text-center space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R9') }}
               >
                 The Practice
               </p>

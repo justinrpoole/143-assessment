@@ -31,7 +31,7 @@ export const MARKETING_LINKS = {
   glossary: { href: "/glossary", label: "Glossary" },
   resources: { href: "/resources", label: "Resources" },
   coaches: { href: "/coaches", label: "Light Activation Program" },
-  osCoaching: { href: "/os-coaching", label: "1-on-1 OS Coaching" },
+  osCoaching: { href: "/cohorts", label: "Group Coaching" },
   enterprise: { href: "/enterprise", label: "Enterprise" },
   cohorts: { href: "/cohorts", label: "Light Cohort" },
   about: { href: "/about", label: "About" },
@@ -87,7 +87,6 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
     children: [
       MARKETING_LINKS.enterprise,
       MARKETING_LINKS.coaches,
-      MARKETING_LINKS.osCoaching,
       MARKETING_LINKS.cohorts,
     ],
   },

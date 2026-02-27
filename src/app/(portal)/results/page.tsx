@@ -7,10 +7,11 @@ import PatternInterruptHub from "@/components/PatternInterruptHub";
 import IntentionRecall from "@/components/results/IntentionRecall";
 import { PageHeader } from "@/components/ui/PageHeader";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -129,12 +130,15 @@ export default async function ResultsPage({ searchParams }: PageProps) {
         <IntentionRecall />
       </PageHeader>
       <ScrollTextReveal text="Below is your complete 9-Ray report — your Light Signature archetype, Eclipse Snapshot, Energy-to-Eclipse Ratio, and Rise Path. Start with your Light Signature to understand your natural leadership force, then explore each section for the full picture. Every metric is explained — hover or tap the information icons for details." />
-      <GoldDividerAnimated />
+      <RaySpectrumStrip className="mt-4" />
+      <RayDivider ray="R9" />
 
       <RadialSpotlight>
         <ResultsClient runId={runId} />
       </RadialSpotlight>
+      <RayDivider ray="R3" />
       <PatternInterruptHub />
+      <RayDivider ray="R6" />
       <FeedbackWidget
         feedback_type="report_resonance"
         source_route="/results"

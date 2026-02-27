@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 // ---------------------------------------------------------------------------
 // Tool catalog — all 13 OS tools with science grounding + RAS hooks

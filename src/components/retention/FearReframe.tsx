@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 const REFRAME_STEPS = [
   {
@@ -64,7 +65,7 @@ export default function FearReframe() {
     return (
       <div className="glass-card p-5 space-y-4">
         <div className="flex items-center justify-between">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
             Reframe Complete
           </p>
           <button

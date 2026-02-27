@@ -273,15 +273,12 @@ export default async function CoachingPage() {
             <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
               The protocol is the product. The proof is in the retake.
             </h2>
-            <p className="max-w-lg mx-auto text-lg font-semibold" style={{ color: 'var(--brand-gold)', fontFamily: 'var(--font-cosmic-display)' }}>
-              $143 per week for 10 weeks.
-            </p>
             <p className="max-w-lg mx-auto text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
-              $1,430 total. Your Gravitational Stability Report and Portal Membership are included for the full duration.
+              Your Gravitational Stability Report and Portal Membership are included for the full duration.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <NeonGlowButton href="/143">
-                Start My 143 Challenge — Free
+              <NeonGlowButton href="mailto:enterprise@143leadership.com">
+                Contact Us
               </NeonGlowButton>
               <LiquidFillButton href="/preview">
                 Check My Stability (3 Min)

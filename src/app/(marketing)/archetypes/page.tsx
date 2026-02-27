@@ -6,8 +6,10 @@ import ArchetypeQuizClient from "@/components/quiz/ArchetypeQuizClient";
 import CosmicImage from "@/components/marketing/CosmicImage";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import { FadeInSection } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex } from "@/lib/ui/ray-colors";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
@@ -85,7 +87,7 @@ export default function ArchetypesPage() {
           />
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         <GoldHeroBanner
           kicker="Not a Label. A Map."
@@ -93,7 +95,7 @@ export default function ArchetypesPage() {
           description="36 combinations of your top two Rays. Each one has a strength, a cost under load, and a training path."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── INLINE QUICK QUIZ ─────────────────────────────── */}
         <FadeInSection>
@@ -101,7 +103,7 @@ export default function ArchetypesPage() {
             <div className="text-center mb-2">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold)" }}
+                style={{ color: rayHex('R3') }}
               >
                 Find Your Signal
               </p>
@@ -110,14 +112,14 @@ export default function ArchetypesPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── ARCHETYPE LIBRARY ─────────────────────────────── */}
         <FadeInSection>
           <ArchetypeLibraryClient />
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── FINAL CTA ─────────────────────────────────────── */}
         <FadeInSection>

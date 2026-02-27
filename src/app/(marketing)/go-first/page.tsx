@@ -7,7 +7,9 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -123,9 +125,10 @@ export default async function GoFirstPage() {
             Confidence is not born. It is built. And it only shows up after you
             start.
           </p>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ─── SECTION 2 · SELF-RECOGNITION ───────────────────── */}
         <FadeInSection blur>
@@ -133,7 +136,7 @@ export default async function GoFirstPage() {
             <div className="glass-card p-6 sm:p-8 space-y-5">
               <p
                 className="text-sm font-semibold leading-relaxed"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R1') }}
               >
                 When was the last time you were fully prepared and still did not
                 move?
@@ -164,7 +167,7 @@ export default async function GoFirstPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R4" />
 
         {/* ─── SECTION 3 · SOUND FAMILIAR ─────────────────────── */}
         <FadeInSection>
@@ -172,12 +175,12 @@ export default async function GoFirstPage() {
             <div className="glass-card p-6 sm:p-8">
               <p
                 className="mb-5 text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R4') }}
               >
                 Sound Familiar?
               </p>
               <StaggerContainer className="space-y-3">
-                {RECOGNITION_SIGNALS.map((signal) => (
+                {RECOGNITION_SIGNALS.map((signal, i) => (
                   <StaggerItem key={signal}>
                     <div
                       className="flex items-start gap-3 text-sm leading-relaxed"
@@ -188,7 +191,7 @@ export default async function GoFirstPage() {
                     >
                       <span
                         className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
-                        style={{ background: "var(--brand-gold)" }}
+                        style={{ background: rayHex(cycleRay(i)) }}
                       />
                       {signal}
                     </div>
@@ -199,7 +202,7 @@ export default async function GoFirstPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R5" />
 
         {/* ─── SECTION 4 · THE REAL PROBLEM ───────────────────── */}
         <FadeInSection>
@@ -207,7 +210,7 @@ export default async function GoFirstPage() {
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R5') }}
               >
                 Why This Happens
               </p>
@@ -254,7 +257,7 @@ export default async function GoFirstPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R6" />
 
         <GoldHeroBanner
           kicker="Not a Motivation Gap"
@@ -262,7 +265,7 @@ export default async function GoFirstPage() {
           description="The gap between knowing and doing is not a knowledge problem. It is a capacity problem."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── SECTION 5 · SIGNATURE PATTERNS ─────────────────── */}
         <FadeInSection>
@@ -271,7 +274,7 @@ export default async function GoFirstPage() {
               <div className="space-y-3">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex('R8') }}
                 >
                   Where You Hesitate Depends on How You Lead
                 </p>
@@ -284,12 +287,12 @@ export default async function GoFirstPage() {
               </div>
 
               <StaggerContainer className="space-y-4">
-                {SIGNATURE_PATTERNS.map((item) => (
+                {SIGNATURE_PATTERNS.map((item, i) => (
                   <StaggerItem key={item.signature}>
                     <div
-                      className="glass-card p-5"
+                      className="glass-card glass-card--magnetic p-5"
                       style={{
-                        borderLeft: "3px solid var(--brand-gold, #F8D011)",
+                        borderLeft: `3px solid ${rayHex(cycleRay(i))}`,
                       }}
                     >
                       <p
@@ -300,7 +303,7 @@ export default async function GoFirstPage() {
                         }}
                       >
                         <strong
-                          style={{ color: "var(--brand-gold, #F8D011)" }}
+                          style={{ color: rayHex(cycleRay(i)) }}
                         >
                           {item.signature}
                         </strong>{" "}
@@ -325,7 +328,7 @@ export default async function GoFirstPage() {
           </RadialSpotlight>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
         <FadeInSection>
@@ -333,7 +336,7 @@ export default async function GoFirstPage() {
             <div className="glass-card p-8 text-center space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R9') }}
               >
                 The Practice
               </p>

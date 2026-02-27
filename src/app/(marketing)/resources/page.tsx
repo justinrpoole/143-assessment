@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { FadeInSection } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import StaggerChildren from "@/components/marketing/StaggerChildren";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
@@ -62,15 +64,16 @@ export default function ResourcesPage() {
           <div className="mx-auto max-w-[540px]">
             <ScrollTextReveal text="The framework. The science. A sample report. And a free 3-day challenge that proves the filter can shift before you spend a dollar." />
           </div>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ── Resource Cards ── */}
         <FadeInSection>
           <StaggerChildren className="grid gap-4 sm:grid-cols-2">
-            {resources.map((resource) => (
-              <article key={resource.title} className="glass-card glass-card--magnetic glass-card--lift p-6 flex flex-col">
+            {resources.map((resource, i) => (
+              <article key={resource.title} className="glass-card glass-card--magnetic glass-card--lift p-6 flex flex-col" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
                 <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>{resource.title}</h2>
                 <p className="mt-2 flex-1 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{resource.description}</p>
                 <LiquidFillButton href={resource.href} className="mt-4 inline-block self-start text-sm">
@@ -81,7 +84,7 @@ export default function ResourcesPage() {
           </StaggerChildren>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ── Gold Banner ── */}
         <GoldHeroBanner
@@ -91,7 +94,7 @@ export default function ResourcesPage() {
           cta={{ label: "Start the 143 Challenge — Free", href: "/143" }}
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ── CTA ── */}
         <FadeInSection>

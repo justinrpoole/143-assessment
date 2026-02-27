@@ -245,7 +245,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
           body: "Everything in the report plus daily micro-practices, unlimited monthly retakes, a growth dashboard, and Watch Me and Go First interactive flows. See your scores change month over month. Cancel anytime.",
         },
         {
-          title: "$143/week \u2014 10-Week Coaching",
+          title: "10-Week Coaching",
           body: "Structured coaching built on your report. Weekly sessions matched to your results. Mid-point and final retake with comparison. Direct support between sessions. Portal Membership included.",
         },
       ],

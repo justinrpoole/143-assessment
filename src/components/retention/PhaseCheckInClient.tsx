@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import CosmicSkeleton from '@/components/ui/CosmicSkeleton';
 import { humanizeError } from '@/lib/ui/error-messages';
+import { rayHex } from '@/lib/ui/ray-colors';
 import {
   PHASE_CHECKIN_QUESTIONS,
   PHASE_GUIDANCE,

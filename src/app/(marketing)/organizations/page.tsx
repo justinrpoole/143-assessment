@@ -5,7 +5,9 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -157,9 +159,10 @@ export default async function OrganizationsPage() {
               Show Me Plans &amp; Pricing
             </LiquidFillButton>
           </div>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         {/* ─── SECTION 2 · THE PROBLEM ─────────────────────────── */}
         <FadeInSection>
@@ -167,7 +170,7 @@ export default async function OrganizationsPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R7') }}
               >
                 The gap no one is measuring
               </p>
@@ -208,32 +211,41 @@ export default async function OrganizationsPage() {
             </div>
 
             <StaggerContainer className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {PROBLEM_STATS.map((item) => (
-                <StaggerItem key={item.stat}>
-                  <div className="glass-card glass-card--magnetic metric-badge p-5 text-center h-full">
-                    <p
-                      className="text-3xl font-bold"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
-                    >
-                      {item.stat}
-                    </p>
-                    <p
-                      className="mt-2 text-xs leading-relaxed"
+              {PROBLEM_STATS.map((item, i) => {
+                const color = rayHex(cycleRay(i));
+                return (
+                  <StaggerItem key={item.stat}>
+                    <div
+                      className="glass-card glass-card--magnetic metric-badge p-5 text-center h-full"
                       style={{
-                        color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        borderLeft: `3px solid ${color}40`,
+                        background: `${color}04`,
                       }}
                     >
-                      {item.label}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
+                      <p
+                        className="text-3xl font-bold"
+                        style={{ color }}
+                      >
+                        {item.stat}
+                      </p>
+                      <p
+                        className="mt-2 text-xs leading-relaxed"
+                        style={{
+                          color:
+                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        }}
+                      >
+                        {item.label}
+                      </p>
+                    </div>
+                  </StaggerItem>
+                );
+              })}
             </StaggerContainer>
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R4" />
 
         {/* ─── SECTION 3 · HOW WE WORK ────────────────────────── */}
         <FadeInSection>
@@ -241,7 +253,7 @@ export default async function OrganizationsPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R4') }}
               >
                 How We Work With Organizations
               </p>
@@ -254,40 +266,49 @@ export default async function OrganizationsPage() {
             </div>
 
             <StaggerContainer className="space-y-4">
-              {HOW_WE_WORK.map((step) => (
-                <StaggerItem key={step.num}>
-                  <div className="glass-card flex gap-5 p-6">
-                    <span
-                      className="shrink-0 text-2xl font-bold"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+              {HOW_WE_WORK.map((step, i) => {
+                const color = rayHex(cycleRay(i));
+                return (
+                  <StaggerItem key={step.num}>
+                    <div
+                      className="glass-card glass-card--magnetic flex gap-5 p-6"
+                      style={{
+                        borderLeft: `3px solid ${color}40`,
+                        background: `${color}04`,
+                      }}
                     >
-                      {step.num}
-                    </span>
-                    <div>
-                      <h3
-                        className="text-sm font-semibold"
-                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      <span
+                        className="shrink-0 text-2xl font-bold"
+                        style={{ color }}
                       >
-                        {step.title}
-                      </h3>
-                      <p
-                        className="mt-1 text-sm leading-relaxed"
-                        style={{
-                          color:
-                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
-                        }}
-                      >
-                        {step.description}
-                      </p>
+                        {step.num}
+                      </span>
+                      <div>
+                        <h3
+                          className="text-sm font-semibold"
+                          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                        >
+                          {step.title}
+                        </h3>
+                        <p
+                          className="mt-1 text-sm leading-relaxed"
+                          style={{
+                            color:
+                              "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                          }}
+                        >
+                          {step.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </StaggerItem>
-              ))}
+                  </StaggerItem>
+                );
+              })}
             </StaggerContainer>
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         <GoldHeroBanner
           kicker="Not Another Programme"
@@ -295,7 +316,7 @@ export default async function OrganizationsPage() {
           description="Most programmes teach skills on top of a depleted operating system. That is why they do not stick."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── SECTION 4 · WHY DIFFERENT ───────────────────────── */}
         <FadeInSection>
@@ -304,7 +325,7 @@ export default async function OrganizationsPage() {
               <div className="text-center space-y-3">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex('R8') }}
                 >
                   Built Different
                 </p>
@@ -317,33 +338,42 @@ export default async function OrganizationsPage() {
               </div>
 
               <StaggerContainer className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                {WHY_DIFFERENT.map((item) => (
-                  <StaggerItem key={item.title}>
-                    <div className="glass-card glass-card--magnetic p-6 h-full">
-                      <h3
-                        className="text-sm font-semibold"
-                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        className="mt-2 text-sm leading-relaxed"
+                {WHY_DIFFERENT.map((item, i) => {
+                  const color = rayHex(cycleRay(i));
+                  return (
+                    <StaggerItem key={item.title}>
+                      <div
+                        className="glass-card glass-card--magnetic p-6 h-full"
                         style={{
-                          color:
-                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                          borderLeft: `3px solid ${color}40`,
+                          background: `${color}04`,
                         }}
                       >
-                        {item.description}
-                      </p>
-                    </div>
-                  </StaggerItem>
-                ))}
+                        <h3
+                          className="text-sm font-semibold"
+                          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                        >
+                          {item.title}
+                        </h3>
+                        <p
+                          className="mt-2 text-sm leading-relaxed"
+                          style={{
+                            color:
+                              "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                          }}
+                        >
+                          {item.description}
+                        </p>
+                      </div>
+                    </StaggerItem>
+                  );
+                })}
               </StaggerContainer>
             </section>
           </RadialSpotlight>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ─── SECTION 5 · OPERATIONAL FIT ─────────────────────── */}
         <FadeInSection>
@@ -354,7 +384,7 @@ export default async function OrganizationsPage() {
             >
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R1') }}
               >
                 Operational Fit
               </p>
@@ -389,14 +419,14 @@ export default async function OrganizationsPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         {/* ─── SECTION 5b · TESTIMONIALS ────────────────────────── */}
         <FadeInSection>
           <section className="mx-auto max-w-[720px] space-y-6 text-center">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R7') }}
             >
               From organizations using the 143
             </p>
@@ -433,7 +463,7 @@ export default async function OrganizationsPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R4" />
 
         {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
         <FadeInSection>
@@ -442,7 +472,7 @@ export default async function OrganizationsPage() {
             <div className="glass-card p-8 text-center space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R8') }}
               >
                 See What Your Team Is Carrying
               </p>
