@@ -55,6 +55,8 @@ interface PortalSummary {
   reps_this_week: number;
   streak_days: number;
   total_reps: number;
+  bottom_ray_name: string | null;
+  eclipse_level: "low" | "medium" | "high" | null;
 }
 
 interface ResultsData {
@@ -122,6 +124,9 @@ export default function LightDashboardClient() {
   const [repsThisWeek, setRepsThisWeek] = useState(0);
   const [streakDays, setStreakDays] = useState(0);
   const [hasRun, setHasRun] = useState(false);
+  const [lastRunId, setLastRunId] = useState<string | null>(null);
+  const [bottomRayName, setBottomRayName] = useState<string | null>(null);
+  const [eclipseLevel, setEclipseLevel] = useState<string | null>(null);
 
   // Coaching panel state
   const [panelMode, setPanelMode] = useState<PanelMode>(null);
@@ -145,6 +150,9 @@ export default function LightDashboardClient() {
       setHasRun(summary.has_completed_run);
       setRepsThisWeek(summary.reps_this_week);
       setStreakDays(summary.streak_days);
+      setLastRunId(summary.last_run_id ?? null);
+      setBottomRayName(summary.bottom_ray_name ?? null);
+      setEclipseLevel(summary.eclipse_level ?? null);
 
       if (summary.has_completed_run && summary.last_run_id) {
         const resultsRes = await fetch(`/api/runs/${summary.last_run_id}/results`);
@@ -266,6 +274,11 @@ export default function LightDashboardClient() {
     : 0;
 
   const insightText = computeInsight(avg);
+  const topTwoLabels = topRays.slice(0, 2).map((rayId) => {
+    const meta = RAY_META.find((r) => r.id === rayId) ?? (rayId === 'R9' ? RADIANCE_META : null);
+    return meta?.label ?? rayId;
+  });
+  const topTwoLine = topTwoLabels.length === 2 ? `${topTwoLabels[0]} + ${topTwoLabels[1]}` : '—';
 
   // ── Loading State ──
 
@@ -313,10 +326,10 @@ export default function LightDashboardClient() {
           <div>
             <p className="ld-kicker">143 Leadership</p>
             <h1 className="ld-heading text-2xl sm:text-3xl mt-2" style={{ color: 'var(--text-on-dark)' }}>
-              Light Portal
+              Light Dashboard
             </h1>
             <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
-              Nine rays. East to west. This is where your light lands this week.
+              Your daily home for clarity, reps, and range. Start here.
             </p>
           </div>
           <div className="flex flex-col items-end gap-2">
@@ -331,8 +344,81 @@ export default function LightDashboardClient() {
         </div>
       </FadeInSection>
 
-      {/* Ray Tracks */}
+      {/* Start Here */}
+      <FadeInSection delay={0.05}>
+        <RetroFrame label="START HERE" accent="var(--brand-gold)">
+          <div className="space-y-4">
+            <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              This is your weekly anchor. Start with your Top Two, then train the next skill. One rep changes the range.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="glass-card p-4">
+                <p className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>Top Two</p>
+                <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark)' }}>{topTwoLine}</p>
+              </div>
+              <div className="glass-card p-4">
+                <p className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>Eclipse</p>
+                <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark)' }}>
+                  {eclipseLevel ? `${eclipseLevel.charAt(0).toUpperCase()}${eclipseLevel.slice(1)}` : 'Unknown'}
+                </p>
+              </div>
+              <div className="glass-card p-4">
+                <p className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>Next Skill</p>
+                <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark)' }}>{bottomRayName ?? 'See report'}</p>
+              </div>
+            </div>
+            {lastRunId && (
+              <div className="flex flex-wrap gap-3">
+                <Link href={`/results?run_id=${encodeURIComponent(lastRunId)}`} className="ld-action-btn secondary">
+                  Open Interactive Report
+                </Link>
+                <Link href={`/reports?run_id=${encodeURIComponent(lastRunId)}`} className="ld-action-btn primary">
+                  Download Full Report
+                </Link>
+              </div>
+            )}
+          </div>
+        </RetroFrame>
+      </FadeInSection>
+
+      {/* Action Buttons */}
       <FadeInSection delay={0.1}>
+        <div className="glass-card p-5 flex flex-wrap items-center gap-4">
+          <button type="button" className="ld-action-btn primary" onClick={() => openPanel('watch')}>
+            Watch Me
+          </button>
+          <button type="button" className="ld-action-btn secondary" onClick={() => openPanel('go')}>
+            Go First
+          </button>
+          <button type="button" className="ld-action-btn ghost" onClick={() => openPanel('reps')}>
+            Log Reps
+          </button>
+          <div className="ml-auto flex flex-col items-end gap-0.5 px-3 py-2 rounded-lg" style={{ background: 'rgba(10, 5, 28, 0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div className="ld-reps-count">{repsToday}</div>
+            <div className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
+              Reps today
+            </div>
+          </div>
+        </div>
+      </FadeInSection>
+
+      {/* Insight Card */}
+      <FadeInSection delay={0.2}>
+        <div className="glass-card p-5" style={{ borderColor: 'rgba(96, 5, 141, 0.35)' }}>
+          <div className="ld-insight-label">This week</div>
+          <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark)' }}>
+            {insightText}
+          </p>
+          <div className="mt-3 flex flex-wrap gap-3 text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
+            <span>{repsThisWeek} reps this week</span>
+            <span>·</span>
+            <span>{streakDays} day streak</span>
+          </div>
+        </div>
+      </FadeInSection>
+
+      {/* Ray Tracks */}
+      <FadeInSection delay={0.25}>
         <RetroFrame label="NINE RAYS OF LIGHT" accent="var(--brand-gold)">
           <div className="flex items-center justify-between mb-4">
             <p className="text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -389,51 +475,21 @@ export default function LightDashboardClient() {
         </RetroFrame>
       </FadeInSection>
 
-      {/* Action Buttons */}
-      <FadeInSection delay={0.2}>
-        <div className="glass-card p-5 flex flex-wrap items-center gap-4">
-          <button type="button" className="ld-action-btn primary" onClick={() => openPanel('watch')}>
-            Watch Me
-          </button>
-          <button type="button" className="ld-action-btn secondary" onClick={() => openPanel('go')}>
-            Go First
-          </button>
-          <button type="button" className="ld-action-btn ghost" onClick={() => openPanel('reps')}>
-            Log Reps
-          </button>
-          <div className="ml-auto flex flex-col items-end gap-0.5 px-3 py-2 rounded-lg" style={{ background: 'rgba(10, 5, 28, 0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
-            <div className="ld-reps-count">{repsToday}</div>
-            <div className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
-              Reps today
-            </div>
-          </div>
-        </div>
-      </FadeInSection>
-
-      {/* Insight Card */}
-      <FadeInSection delay={0.3}>
-        <div className="glass-card p-5" style={{ borderColor: 'rgba(96, 5, 141, 0.35)' }}>
-          <div className="ld-insight-label">This week</div>
-          <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark)' }}>
-            {insightText}
-          </p>
-          <div className="mt-3 flex flex-wrap gap-3 text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
-            <span>{repsThisWeek} reps this week</span>
-            <span>·</span>
-            <span>{streakDays} day streak</span>
-          </div>
-        </div>
-      </FadeInSection>
-
       {/* Quick Nav */}
-      <FadeInSection delay={0.4}>
+      <FadeInSection delay={0.3}>
         <div className="flex flex-wrap gap-3">
           <Link href="/portal" className="glass-card px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform" style={{ color: 'var(--text-on-dark-secondary)' }}>
             Portal
           </Link>
-          <Link href="/results" className="glass-card px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Full Results
-          </Link>
+          {lastRunId ? (
+            <Link href={`/results?run_id=${encodeURIComponent(lastRunId)}`} className="glass-card px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              Open Report
+            </Link>
+          ) : (
+            <Link href="/results" className="glass-card px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              Open Report
+            </Link>
+          )}
           <Link href="/reps" className="glass-card px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform" style={{ color: 'var(--text-on-dark-secondary)' }}>
             Rep History
           </Link>
