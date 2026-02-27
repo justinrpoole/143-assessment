@@ -1,14 +1,26 @@
 'use client';
 
+import { useId } from 'react';
+
 export interface StreakDimension {
   label: string;
   days: number;
+}
+
+export interface StreakFireAccent {
+  base: string;
+  mid: string;
+  tip: string;
+  core: string;
+  glow: string;
 }
 
 interface StreakFireProps {
   days: number;
   /** Optional multi-dimension streaks shown as small badges below the flame */
   dimensions?: StreakDimension[];
+  /** Optional accent colors derived from most practiced tool */
+  accent?: StreakFireAccent;
 }
 
 /**
@@ -19,8 +31,20 @@ interface StreakFireProps {
  * Pure CSS animations — no Framer Motion dependency.
  * Supports multi-dimension streak display (reps, loop, reflection).
  */
-export default function StreakFire({ days, dimensions }: StreakFireProps) {
+export default function StreakFire({ days, dimensions, accent: accentProp }: StreakFireProps) {
   if (days <= 0 && !dimensions?.some((d) => d.days > 0)) return null;
+
+  const accent: StreakFireAccent = {
+    base: '#E89D0C',
+    mid: '#F8D011',
+    tip: '#FFEC80',
+    core: '#FFFEF5',
+    glow: 'rgba(248, 208, 17, 0.55)',
+    ...(accentProp ?? {}),
+  };
+
+  const flameGradId = useId();
+  const innerGradId = useId();
 
   const tier = days >= 30 ? 'cosmic' : days >= 14 ? 'full' : days >= 7 ? 'medium' : days >= 3 ? 'small' : 'ember';
 
@@ -44,8 +68,8 @@ export default function StreakFire({ days, dimensions }: StreakFireProps) {
           width: tier === 'cosmic' ? 36 : tier === 'full' ? 30 : tier === 'medium' ? 24 : tier === 'small' ? 18 : 12,
           height: tier === 'cosmic' ? 36 : tier === 'full' ? 30 : tier === 'medium' ? 24 : tier === 'small' ? 18 : 12,
           background: tier === 'ember'
-            ? 'radial-gradient(circle, rgba(245,158,11,0.5) 0%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(248,208,17,0.4) 0%, rgba(245,158,11,0.2) 50%, transparent 80%)',
+            ? `radial-gradient(circle, ${accent.glow} 0%, transparent 70%)`
+            : `radial-gradient(circle, ${accent.glow} 0%, rgba(245,158,11,0.2) 50%, transparent 80%)`,
           filter: `blur(${tier === 'cosmic' ? 6 : tier === 'full' ? 5 : 3}px)`,
           animation: tier !== 'ember' ? 'streakFlicker 1.5s ease-in-out infinite' : undefined,
         }}
@@ -58,33 +82,33 @@ export default function StreakFire({ days, dimensions }: StreakFireProps) {
         height={tier === 'cosmic' ? 35 : tier === 'full' ? 30 : tier === 'medium' ? 25 : tier === 'small' ? 20 : 15}
         className="relative z-10"
         style={{
-          filter: `drop-shadow(0 0 ${tier === 'cosmic' ? 8 : tier === 'full' ? 6 : 4}px rgba(248,208,17,0.5))`,
+          filter: `drop-shadow(0 0 ${tier === 'cosmic' ? 8 : tier === 'full' ? 6 : 4}px ${accent.glow})`,
           animation: tier !== 'ember' ? 'streakDance 0.8s ease-in-out infinite alternate' : undefined,
         }}
       >
         <defs>
-          <linearGradient id="flame-grad" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stopColor="#E89D0C" />
-            <stop offset="40%" stopColor="#F8D011" />
-            <stop offset="70%" stopColor="#FFEC80" />
-            <stop offset="100%" stopColor="#FFFEF5" />
+          <linearGradient id={flameGradId} x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stopColor={accent.base} />
+            <stop offset="40%" stopColor={accent.mid} />
+            <stop offset="70%" stopColor={accent.tip} />
+            <stop offset="100%" stopColor={accent.core} />
           </linearGradient>
-          <linearGradient id="flame-inner" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stopColor="#F0B800" />
-            <stop offset="60%" stopColor="#FFFEF5" />
+          <linearGradient id={innerGradId} x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stopColor={accent.mid} />
+            <stop offset="60%" stopColor={accent.core} />
             <stop offset="100%" stopColor="#FFFFFF" />
           </linearGradient>
         </defs>
         {/* Outer flame */}
         <path
           d="M16 2C16 2 6 14 6 24C6 30 10 36 16 38C22 36 26 30 26 24C26 14 16 2 16 2Z"
-          fill="url(#flame-grad)"
+          fill={`url(#${flameGradId})`}
           opacity={tier === 'ember' ? 0.7 : 1}
         />
         {/* Inner bright core */}
         <path
           d="M16 14C16 14 11 20 11 26C11 30 13 34 16 35C19 34 21 30 21 26C21 20 16 14 16 14Z"
-          fill="url(#flame-inner)"
+          fill={`url(#${innerGradId})`}
           opacity={0.8}
         />
       </svg>

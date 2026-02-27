@@ -7,7 +7,7 @@ import TodaysRep from './TodaysRep';
 import DailyStackCard from './DailyStackCard';
 import QuickRepFAB from './QuickRepFAB';
 import DailyLoopClient from '@/components/retention/DailyLoopClient';
-import StreakFire, { StreakDimensions } from './StreakFire';
+import StreakFire, { StreakDimensions, StreakFireAccent } from './StreakFire';
 import PhaseCheckInClient from '@/components/retention/PhaseCheckInClient';
 import CueBasedNudge from '@/components/retention/CueBasedNudge';
 import ContextualActions from './ContextualActions';
@@ -25,6 +25,8 @@ import BadgeShowcase from './BadgeShowcase';
 import WeeklyRepBreakdown from './WeeklyRepBreakdown';
 import SignalPickerCard from './SignalPickerCard';
 import RepReceiptCard from './RepReceiptCard';
+import RaySwitchboardCard from './RaySwitchboardCard';
+import RetroBootSequence from './RetroBootSequence';
 import { RAY_NAMES } from '@/lib/types';
 import { rayRamp } from '@/lib/ui/ray-colors';
 import MorningMirrorOverlay from './MorningMirrorOverlay';
@@ -216,6 +218,100 @@ function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
 
 const WEEKLY_TARGET = 5; // reps per week
 
+const TOOL_ACCENTS: Record<string, StreakFireAccent> = {
+  '90_second_window': {
+    base: '#F59E0B',
+    mid: '#F8D011',
+    tip: '#FDE68A',
+    core: '#FFFBEB',
+    glow: 'rgba(245, 158, 11, 0.55)',
+  },
+  presence_pause: {
+    base: '#7C3AED',
+    mid: '#A78BFA',
+    tip: '#DDD6FE',
+    core: '#F5F3FF',
+    glow: 'rgba(167, 139, 250, 0.55)',
+  },
+  watch_me: {
+    base: '#E89D0C',
+    mid: '#F8D011',
+    tip: '#FFEC80',
+    core: '#FFFEF5',
+    glow: 'rgba(248, 208, 17, 0.6)',
+  },
+  go_first: {
+    base: '#EA580C',
+    mid: '#FB923C',
+    tip: '#FED7AA',
+    core: '#FFF7ED',
+    glow: 'rgba(251, 146, 60, 0.6)',
+  },
+  i_rise: {
+    base: '#0284C7',
+    mid: '#38BDF8',
+    tip: '#BAE6FD',
+    core: '#F0F9FF',
+    glow: 'rgba(56, 189, 248, 0.55)',
+  },
+  reflection_loop: {
+    base: '#0F766E',
+    mid: '#2DD4BF',
+    tip: '#99F6E4',
+    core: '#F0FDFA',
+    glow: 'rgba(45, 212, 191, 0.55)',
+  },
+  if_then_planning: {
+    base: '#059669',
+    mid: '#34D399',
+    tip: '#A7F3D0',
+    core: '#ECFDF5',
+    glow: 'rgba(52, 211, 153, 0.55)',
+  },
+  boundary_of_light: {
+    base: '#DB2777',
+    mid: '#F472B6',
+    tip: '#FBCFE8',
+    core: '#FFF1F2',
+    glow: 'rgba(244, 114, 182, 0.55)',
+  },
+  ras_reset: {
+    base: '#2563EB',
+    mid: '#60A5FA',
+    tip: '#BFDBFE',
+    core: '#EFF6FF',
+    glow: 'rgba(96, 165, 250, 0.55)',
+  },
+  question_loop: {
+    base: '#7C3AED',
+    mid: '#C084FC',
+    tip: '#E9D5FF',
+    core: '#F5F3FF',
+    glow: 'rgba(192, 132, 252, 0.55)',
+  },
+  witness: {
+    base: '#4F46E5',
+    mid: '#818CF8',
+    tip: '#C7D2FE',
+    core: '#EEF2FF',
+    glow: 'rgba(129, 140, 248, 0.55)',
+  },
+  '143_challenge': {
+    base: '#B45309',
+    mid: '#F59E0B',
+    tip: '#FDE68A',
+    core: '#FFFBEB',
+    glow: 'rgba(245, 158, 11, 0.6)',
+  },
+  let_them: {
+    base: '#BE123C',
+    mid: '#FB7185',
+    tip: '#FBCFE8',
+    core: '#FFF1F2',
+    glow: 'rgba(251, 113, 133, 0.55)',
+  },
+};
+
 export default function PortalDashboard() {
   const [summary, setSummary] = useState<PortalSummary | null>(null);
   const [loading, setLoading] = useState(true);
@@ -282,6 +378,7 @@ export default function PortalDashboard() {
   }
 
   const isHighEclipse = summary?.eclipse_level === 'high';
+  const streakAccent = summary?.most_practiced_tool ? TOOL_ACCENTS[summary.most_practiced_tool] : undefined;
 
   // ─── HIGH ECLIPSE: simple, grounding layout ───────────────────────────────
   if (summary?.has_completed_run && isHighEclipse) {
@@ -529,7 +626,7 @@ export default function PortalDashboard() {
           </div>
 
           <div className="glass-card p-4 text-center space-y-1 flex flex-col items-center">
-            <StreakFire days={summary.streak_days} />
+            <StreakFire days={summary.streak_days} accent={streakAccent} />
             <p className="text-2xl font-bold text-brand-gold">
               {summary.streak_days > 0 ? summary.streak_days : '—'}
             </p>
@@ -612,6 +709,15 @@ export default function PortalDashboard() {
             actionHref={`/results?run_id=${summary.last_run_id ?? ''}`}
           />
         )}
+      </FadeInSection>
+
+      <FadeInSection delay={0.19}>
+        <RaySwitchboardCard
+          bottomRayId={summary.bottom_ray_id}
+          topRayIds={summary.top_ray_ids}
+          onOpenWatchMe={openWatchMe}
+          onOpenGoFirst={openGoFirst}
+        />
       </FadeInSection>
 
       {/* Today's Rep */}
@@ -730,6 +836,8 @@ export default function PortalDashboard() {
         prefill={signalPrefill}
         onSignalHandled={() => setSignalOpen(null)}
       />
+
+      <RetroBootSequence trainingRayName={summary.bottom_ray_name} />
 
       {/* Floating rep button */}
       <QuickRepFAB />
