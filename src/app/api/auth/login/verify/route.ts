@@ -1,118 +1,9 @@
-import { createHash, randomUUID } from "crypto";
 import { cookies } from "next/headers";
 import { NextResponse, type NextRequest } from "next/server";
 
 import { verifyMagicLinkToken } from "@/lib/auth/magic-link";
-import type { UserState } from "@/lib/auth/user-state";
-import { getBetaPreviewEmail, isBetaFreeMode } from "@/lib/config/beta";
-import { supabaseRestFetch } from "@/lib/db/supabase-rest";
+import { findOrCreateUser, setSessionCookies } from "@/lib/auth/session";
 import { trackEvent } from "@/lib/events";
-
-interface UserEntitlementRow {
-  user_id: string;
-  user_state: string;
-}
-
-/**
- * Find or create a user entitlement record for this email.
- * In BETA_FREE_MODE, new users are granted "free_email" state immediately.
- * Otherwise, new users start as "free_email" after email verification.
- */
-async function findOrCreateUser(email: string): Promise<{
-  userId: string;
-  userState: string;
-}> {
-  // Look up existing user by email in assessment_runs (email is stored there)
-  // or in user_entitlements. For now, we use a deterministic UUID from email.
-  // This ensures the same email always maps to the same user_id.
-  const emailHash = email.toLowerCase().trim();
-  const previewEmail = getBetaPreviewEmail();
-  const isPreview = previewEmail ? emailHash === previewEmail : false;
-  const previewState: UserState = "sub_active";
-
-  // Check if entitlement exists for a user with this email
-  // We generate a deterministic user_id from email for simplicity
-  const userId = generateDeterministicUserId(emailHash);
-
-  const existing = await supabaseRestFetch<UserEntitlementRow[]>({
-    restPath: "user_entitlements",
-    query: {
-      select: "user_id,user_state",
-      user_id: `eq.${userId}`,
-      limit: 1,
-    },
-  });
-
-  if (existing.ok && existing.data && existing.data.length > 0) {
-    const row = existing.data[0]!;
-    if (isPreview && row.user_state !== previewState) {
-      const update = await supabaseRestFetch<unknown>({
-        restPath: "user_entitlements",
-        method: "PATCH",
-        query: { user_id: `eq.${row.user_id}` },
-        prefer: "return=minimal",
-        body: {
-          user_state: previewState,
-          updated_at: new Date().toISOString(),
-        },
-      });
-      if (!update.ok) {
-        console.error("[auth:verify] failed_to_update_preview_entitlement", {
-          userId: row.user_id,
-          error: update.error,
-        });
-        return { userId: row.user_id, userState: row.user_state };
-      }
-      return { userId: row.user_id, userState: previewState };
-    }
-    return { userId: row.user_id, userState: row.user_state };
-  }
-
-  // New user — create entitlement
-  const defaultState = isPreview ? previewState : isBetaFreeMode() ? "free_email" : "free_email";
-
-  const insert = await supabaseRestFetch<unknown>({
-    restPath: "user_entitlements",
-    method: "POST",
-    query: { on_conflict: "user_id" },
-    prefer: "resolution=merge-duplicates,return=minimal",
-    body: {
-      user_id: userId,
-      user_state: defaultState,
-      updated_at: new Date().toISOString(),
-    },
-  });
-
-  if (!insert.ok) {
-    console.error("[auth:verify] failed_to_create_entitlement", {
-      userId,
-      error: insert.error,
-    });
-  }
-
-  return { userId, userState: defaultState };
-}
-
-/**
- * Generate a deterministic UUID v5-like ID from an email address.
- * Uses a simple namespace approach to ensure the same email always
- * produces the same user_id.
- */
-function generateDeterministicUserId(email: string): string {
-  // Use crypto to create a deterministic hash, then format as UUID
-  const hash = createHash("sha256").update(`143-leadership:${email}`).digest("hex");
-
-  // Format first 32 hex chars as UUID v4-like format
-  return [
-    hash.slice(0, 8),
-    hash.slice(8, 12),
-    "4" + hash.slice(13, 16), // version 4
-    ((parseInt(hash[16]!, 16) & 0x3) | 0x8).toString(16) + hash.slice(17, 20), // variant
-    hash.slice(20, 32),
-  ].join("-");
-}
-
-const ONE_WEEK_SECONDS = 7 * 24 * 60 * 60;
 
 export async function GET(request: NextRequest) {
   const token = request.nextUrl.searchParams.get("token");
@@ -132,46 +23,11 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // Find or create the user
     const { userId, userState } = await findOrCreateUser(payload.email);
 
-    // Set session cookies
     const store = await cookies();
-    const sessionId = randomUUID();
+    const sessionId = setSessionCookies(store, userId, userState);
 
-    store.set("auth_session", sessionId, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      path: "/",
-      maxAge: ONE_WEEK_SECONDS,
-    });
-
-    store.set("user_id", userId, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      path: "/",
-      maxAge: ONE_WEEK_SECONDS,
-    });
-
-    store.set("user_state", userState, {
-      httpOnly: false, // Middleware needs to read this
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      path: "/",
-      maxAge: ONE_WEEK_SECONDS,
-    });
-
-    store.set("session_id", sessionId, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      path: "/",
-      maxAge: ONE_WEEK_SECONDS,
-    });
-
-    // Track successful verification (fire-and-forget)
     void trackEvent({ userId, eventType: "magic_link_verified", eventData: { userState } });
 
     console.info("[auth:verify] session_created", {
@@ -180,7 +36,6 @@ export async function GET(request: NextRequest) {
       sourceRoute: payload.sourceRoute,
     });
 
-    // Redirect to the intended destination
     const redirectTo = payload.sourceRoute || "/portal";
     return NextResponse.redirect(new URL(redirectTo, request.url));
   } catch (error) {

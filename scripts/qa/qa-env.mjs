@@ -23,14 +23,14 @@ const REQUIRED_GROUPS = {
     { type: "all", keys: [] },
   ],
   "Email provider": [
-    { type: "all", keys: ["EMAIL_PROVIDER_API_URL", "EMAIL_PROVIDER_API_KEY"] },
+    { type: "any", keys: ["RESEND_API_KEY", "EMAIL_PROVIDER_API_KEY"] },
   ],
   "App base URL": [
     { type: "all", keys: ["APP_BASE_URL"] },
   ],
 };
 
-const RECOMMENDED_KEYS = ["MAGIC_LINK_SECRET", "ENV_SPEC_CENTER_KEY"];
+const RECOMMENDED_KEYS = ["MAGIC_LINK_SECRET", "ENV_SPEC_CENTER_KEY", "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"];
 
 function isTruthy(value) {
   if (!value) {
