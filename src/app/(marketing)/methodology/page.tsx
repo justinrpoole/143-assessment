@@ -413,6 +413,86 @@ export default async function MethodologyPage() {
 
       <GoldDividerAnimated />
 
+      {/* ── Built for Real Brains (#3) ── */}
+      <FadeInSection>
+        <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+          <div className="glass-card p-6 sm:p-8 space-y-4">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              Built for Real Brains
+            </p>
+            <h2
+              className="text-xl font-bold sm:text-2xl"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              Designed for the hardest attention case first.
+            </h2>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+            >
+              This system was built by someone with ADHD who needed it to work.
+              Traditional assessments are 60 to 240 items, no breaks, abstract language,
+              one sitting. The 143 system needs: <span className="gold-highlight">short practices, clear structure,
+              immediate feedback, visible progress, no willpower required to start</span>.
+              That is not accommodation — that is better design for every brain.
+            </p>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+            >
+              This aligns with Universal Design for Learning (UDL) principles
+              and the ALIGN framework for neurodivergent-inclusive assessment.
+              When you build for the brain that needs the most structure,
+              the result works better for all brains.
+            </p>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
+      {/* ── Designed to Be Outgrown (#8) ── */}
+      <FadeInSection>
+        <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+          <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              Designed to Be Outgrown
+            </p>
+            <h2
+              className="text-xl font-bold sm:text-2xl text-gold-gradient"
+            >
+              Your scores should change. That is the point.
+            </h2>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+            >
+              Most assessments want you to accept a label forever. We built one
+              that expects you to outgrow it. When your Intention score moves
+              from 45 to 72, you did not discover something about yourself.
+              You <span className="gold-highlight">built something in yourself</span>.
+            </p>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+            >
+              We could have built a test that gives you a permanent type. It would
+              be simpler to market. But it would be a lie. Capacities are trainable.
+              We built for that truth. The retake is not a repeat — it is a measurement
+              of what changed. That is why the assessment exists.
+            </p>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
       {/* ── Known Limitations ── */}
       <FadeInSection>
         <section id="limitations" className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8 watermark-143 section-blend-bottom">

@@ -287,6 +287,60 @@ export default async function AboutPage() {
 
         <GoldDividerAnimated />
 
+        {/* ─── BUILT FOR REAL BRAINS (#3) ──────────────────────── */}
+        <FadeInSection>
+          <section className="relative mx-auto max-w-[720px] space-y-5">
+            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Built for Real Brains
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl text-gold-gradient"
+              >
+                This system was built because its creator needed it.
+              </h2>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                ADHD does not wait for long assessments or abstract frameworks.
+                It needs: short practices. Clear structure. Immediate feedback.
+                Visible progress. No willpower required to start.
+                That is not accommodation — that is <span className="gold-highlight">better design for every brain</span>.
+              </p>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                Traditional assessments are 60 to 240 items, no breaks, abstract
+                language, one sitting. The 143 system was built for a brain that
+                needs structure to function — and that structure makes it work better
+                for everyone. This is Universal Design for Learning applied to
+                leadership development. We built for the hardest attention case first.
+                That is why it works for everyone.
+              </p>
+              <div className="grid gap-3 sm:grid-cols-2 mt-2">
+                {[
+                  { label: "3-5 min", desc: "Daily practices — not 60-min sessions" },
+                  { label: "Weekly scan", desc: "5-minute retake — not annual reassessment" },
+                  { label: "Visible proof", desc: "Scores you can see move — not abstract insight" },
+                  { label: "No willpower gate", desc: "Smallest viable rep — not behavior overhaul" },
+                ].map((item) => (
+                  <div key={item.label} className="glass-card p-3">
+                    <p className="text-sm font-bold" style={{ color: "#F8D011" }}>{item.label}</p>
+                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
         <GoldHeroBanner
           kicker="Why 143"
           title="One letter. Four letters. Three letters. I love you."

@@ -21,6 +21,7 @@ import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
+import CompetitorPricingContext from "@/components/marketing/CompetitorPricingContext";
 
 export const dynamic = "force-dynamic";
 
@@ -473,6 +474,15 @@ export default async function PricingPage() {
                 </tbody>
               </table>
             </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        {/* ─── COMPETITOR PRICING CONTEXT (#7) ────────────────── */}
+        <FadeInSection>
+          <section className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+            <CompetitorPricingContext />
           </section>
         </FadeInSection>
 

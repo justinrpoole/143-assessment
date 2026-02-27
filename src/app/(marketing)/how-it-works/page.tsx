@@ -217,6 +217,57 @@ export default async function HowItWorksPage() {
 
         <GoldDividerAnimated />
 
+        {/* ─── THE KNOWING-DOING GAP (#5) ───────────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-5">
+            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                The Knowing-Doing Gap
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl text-gold-gradient"
+              >
+                You have taken the courses. Read the books. Done the 360.
+                And nothing changed.
+              </h2>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                Because knowing what to do and doing it are completely different
+                problems. <span className="gold-highlight">85% of leadership training fails to produce lasting
+                behavior change</span> (Beer, Finnstrom, Schrader — Harvard Business Review).
+                Every other tool stops at knowing. 143 starts at doing.
+              </p>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                The daily rep system is built on implementation intentions — the
+                behavioral science mechanism with a d=0.781 effect size across
+                10,466 participants. An if/then plan attached to a specific moment
+                in your day. Not advice. Not inspiration. A behavioral trigger that
+                rewires how you show up.
+              </p>
+              <div className="mt-2 grid gap-3 sm:grid-cols-2">
+                <div className="glass-card p-4" style={{ borderLeft: "2px solid rgba(255,255,255,0.1)" }}>
+                  <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.3)" }}>Traditional approach</p>
+                  <p className="mt-2 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>Learn something powerful → Forget by Monday → Repeat annually</p>
+                </div>
+                <div className="glass-card p-4" style={{ borderLeft: "2px solid rgba(248,208,17,0.3)" }}>
+                  <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "#F8D011" }}>The 143 approach</p>
+                  <p className="mt-2 text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>Measure → Practice daily → Retake weekly → See the proof</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
         <GoldHeroBanner
           kicker="Designed to Be Outgrown"
           title="Your scores are supposed to change. That is the whole point."

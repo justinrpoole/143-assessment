@@ -19,6 +19,10 @@ import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import SectionTOC from "@/components/ui/SectionTOC";
 import GoldTooltip from "@/components/ui/GoldTooltip";
+import CompetitorComparison from "@/components/marketing/CompetitorComparison";
+import NotALabelManifesto from "@/components/marketing/NotALabelManifesto";
+import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
+import OSExplainer from "@/components/marketing/OSExplainer";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -66,12 +70,16 @@ export default async function UpgradeYourOsPage() {
       <ScrollProgress />
       <SectionTOC items={[
         { id: "hero", label: "Hero" },
+        { id: "not-a-label", label: "Not a Label" },
         { id: "conversion-questions", label: "The Questions" },
         { id: "try-it", label: "Try 3 Questions" },
+        { id: "os-explainer", label: "Your OS" },
         { id: "how-it-works", label: "How It Works" },
         { id: "product-preview", label: "Your Results" },
+        { id: "score-movement", label: "Score Movement" },
         { id: "eclipse-concept", label: "Eclipse" },
         { id: "nine-rays", label: "The 9 Rays" },
+        { id: "competitor-comparison", label: "Why 143" },
         { id: "what-this-is-not", label: "What This Is Not" },
         { id: "testimonials", label: "Testimonials" },
         { id: "pricing", label: "Pricing" },
@@ -146,6 +154,15 @@ export default async function UpgradeYourOsPage() {
         <hr className="gold-rule" />
       </div>
 
+      {/* ── NOT A LABEL MANIFESTO (#2) ── */}
+      <FadeInSection>
+      <section id="not-a-label" className="relative z-10 mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+        <NotALabelManifesto />
+      </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
       {/* ── CONVERSION QUESTIONS ── */}
       <FadeInSection blur>
       <section id="conversion-questions" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-16 sm:px-8 watermark-143">
@@ -196,6 +213,15 @@ export default async function UpgradeYourOsPage() {
 
       <GoldDividerAnimated />
 
+      {/* ── YOUR OPERATING SYSTEM (#6) ── */}
+      <FadeInSection>
+      <section id="os-explainer" className="relative z-10 mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+        <OSExplainer />
+      </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
       {/* ── HOW IT WORKS — 3-step walkthrough ── */}
       <FadeInSection>
       <section id="how-it-works" className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
@@ -236,6 +262,27 @@ export default async function UpgradeYourOsPage() {
           </div>
           <RadarMockup className="flex flex-col items-center" />
         </div>
+      </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
+      {/* ── SCORE MOVEMENT CHART (#4) ── */}
+      <FadeInSection>
+      <section id="score-movement" className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+        <div className="text-center space-y-3 mb-8">
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+            Scores That Move
+          </p>
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+            Watch the growth happen — week by week.
+          </h2>
+          <p className="mx-auto max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            No other leadership assessment is designed to be retaken weekly.
+            Every data point is evidence that the practice is landing.
+          </p>
+        </div>
+        <ScoreMovementChart />
       </section>
       </FadeInSection>
 
@@ -326,10 +373,17 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      {/* Gold rule separator */}
-      <div className="mx-auto max-w-[960px] px-5 py-4 sm:px-8">
-        <hr className="gold-rule" />
-      </div>
+      {/* ── COMPETITOR COMPARISON (#1) ── */}
+      <FadeInSection>
+      <section id="competitor-comparison" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+        <FloatingOrbs variant="purple" />
+        <div className="relative z-10">
+          <CompetitorComparison />
+        </div>
+      </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
 
       {/* ── WHAT THIS IS NOT ── */}
       <FadeInSection>
