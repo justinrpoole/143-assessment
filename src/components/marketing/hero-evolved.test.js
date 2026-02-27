@@ -24,6 +24,7 @@ async function runValidation() {
 
   // === TEST 1: All critical DOM elements exist ===
   const elements = [
+    '.site-nav', '.nav-brand', '.nav-links',
     '.hero', '.scene', '.atmosphere', '.eclipse-darkness',
     '.supernova-flash', '.grain', '.cursor-glow', '.horizon',
     '.eclipse-stage', '.sun-glow', '.rays-wrap', '.rays',
