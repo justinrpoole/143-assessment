@@ -5,6 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useCosmicMotion } from '@/lib/motion/use-cosmic-motion';
 import { humanizeError } from '@/lib/ui/error-messages';
 import { rayHex } from '@/lib/ui/ray-colors';
+import CelebrationToast from '@/components/ui/CelebrationToast';
+import { REP_LOGGED, FIRST_REP_EVER, maybeVariableReward, type CelebrationTrigger } from '@/lib/celebrations/triggers';
+import { haptic } from '@/lib/haptics';
+import { useOfflineQueue } from '@/hooks/useOfflineQueue';
 
 // ---------------------------------------------------------------------------
 // Tool catalog — 13 core tools from the OS protocol stack
@@ -306,6 +310,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
   const [receipt, setReceipt] = useState<RepRow | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showScience, setShowScience] = useState(false);
+  const [celebration, setCelebration] = useState<CelebrationTrigger | null>(null);
+  const isFirstRep = useRef(true);
+  const { enqueue } = useOfflineQueue();
 
   // Data
   const [history, setHistory] = useState<RepRow[]>([]);
@@ -322,6 +329,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
       if (repsRes.ok) {
         const d = await repsRes.json() as { reps: RepRow[] };
         setHistory(d.reps ?? []);
+        if ((d.reps ?? []).length > 0) isFirstRep.current = false;
       }
       if (summaryRes.ok) {
         const s = await summaryRes.json() as RepsSummary;
@@ -388,6 +396,11 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
       }
       const d = await res.json() as { rep: RepRow };
       setReceipt(d.rep);
+      // Celebration
+      const trigger = isFirstRep.current ? FIRST_REP_EVER : (maybeVariableReward() ?? REP_LOGGED);
+      setCelebration(trigger);
+      if (trigger.haptic) haptic('medium');
+      isFirstRep.current = false;
       // Reset
       setRepsStep(-1);
       setRepsTexts(['', '', '', '']);
@@ -432,6 +445,11 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
       const d = await res.json() as { rep: RepRow };
       setReceipt(d.rep);
+      // Celebration
+      const trigger = isFirstRep.current ? FIRST_REP_EVER : (maybeVariableReward() ?? REP_LOGGED);
+      setCelebration(trigger);
+      if (trigger.haptic) haptic('medium');
+      isFirstRep.current = false;
 
       // Reset form
       setReflection('');
@@ -442,7 +460,20 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
       // Reload data
       await loadData();
     } catch {
-      setError('Something went wrong. Try again.');
+      // Queue for offline retry if network is down
+      if (!navigator.onLine) {
+        enqueue('/api/reps', 'POST', {
+          tool_name: toolKey,
+          duration_seconds: effectiveDuration > 0 ? effectiveDuration : null,
+          quality,
+          reflection_note: reflection.trim() || null,
+          trigger_type: 'ad_hoc',
+        });
+        setError(null);
+        setReceipt({ tool_name: toolKey, quality, duration_seconds: effectiveDuration } as RepRow);
+      } else {
+        setError('Something went wrong. Try again.');
+      }
     } finally {
       setSubmitting(false);
     }
@@ -462,6 +493,13 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
     const tool = toolByKey(receipt.tool_name);
     const qualityOpt = QUALITY_OPTIONS.find((q) => q.value === receipt.quality);
     return (
+      <>
+      <CelebrationToast
+        message={celebration?.message ?? ''}
+        show={!!celebration}
+        duration={celebration?.duration ?? 2500}
+        onDone={() => setCelebration(null)}
+      />
       <motion.div
         initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
         animate={{ opacity: 1, y: 0 }}
@@ -594,6 +632,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
           </div>
         )}
       </motion.div>
+      </>
     );
   }
 
@@ -719,10 +758,13 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         </AnimatePresence>
 
         {error && (
-          <div className="rounded-lg px-4 py-3" role="alert"
+          <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
             style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
           >
             <p className="text-sm" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+            <button type="button" onClick={() => setError(null)} className="btn-primary text-xs py-1.5 px-4 flex-shrink-0">
+              Dismiss
+            </button>
           </div>
         )}
       </div>
@@ -854,10 +896,13 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         </div>
 
         {error && (
-          <div className="rounded-lg px-4 py-3" role="alert"
+          <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
             style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
           >
             <p className="text-sm" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+            <button type="button" onClick={() => setError(null)} className="btn-primary text-xs py-1.5 px-4 flex-shrink-0">
+              Dismiss
+            </button>
           </div>
         )}
       </motion.div>
@@ -1022,10 +1067,13 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Log a rep</h2>
 
         {error && (
-          <div className="rounded-lg px-4 py-3" role="alert"
+          <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
             style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
           >
             <p className="text-sm" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+            <button type="button" onClick={() => setError(null)} className="btn-primary text-xs py-1.5 px-4 flex-shrink-0">
+              Dismiss
+            </button>
           </div>
         )}
 

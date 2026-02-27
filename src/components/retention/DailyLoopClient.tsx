@@ -2,7 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react';
 import CosmicSkeleton from '@/components/ui/CosmicSkeleton';
+import CelebrationToast from '@/components/ui/CelebrationToast';
 import { humanizeError } from '@/lib/ui/error-messages';
+import { DAILY_LOOP_SAVED, FIRST_LOOP_EVER, maybeVariableReward, type CelebrationTrigger } from '@/lib/celebrations/triggers';
+import { haptic } from '@/lib/haptics';
+import { useOfflineQueue } from '@/hooks/useOfflineQueue';
 
 const LOOP_STEPS = [
   {
@@ -48,7 +52,10 @@ export default function DailyLoopClient() {
   const [savedTexts, setSavedTexts] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [celebration, setCelebration] = useState<CelebrationTrigger | null>(null);
+  const isFirstLoop = useRef(true);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const { enqueue, isOnline } = useOfflineQueue();
 
   useEffect(() => {
     let canceled = false;
@@ -61,6 +68,7 @@ export default function DailyLoopClient() {
         if (data.has_loop && data.name_it && data.ground_it && data.move_action) {
           setSaved(true);
           setSavedTexts([data.name_it, data.ground_it, data.move_action]);
+          isFirstLoop.current = false;
         }
       } finally {
         if (!canceled) setLoading(false);
@@ -97,8 +105,26 @@ export default function DailyLoopClient() {
       }
       setSaved(true);
       setSavedTexts(finalTexts);
+      // Celebration
+      const trigger = isFirstLoop.current ? FIRST_LOOP_EVER : (maybeVariableReward() ?? DAILY_LOOP_SAVED);
+      setCelebration(trigger);
+      if (trigger.haptic) haptic('medium');
+      isFirstLoop.current = false;
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'save_failed');
+      // Queue for offline retry if network is down
+      if (!navigator.onLine) {
+        enqueue('/api/daily-loop', 'POST', {
+          entry_date: new Date().toISOString().slice(0, 10),
+          name_it: finalTexts[0],
+          ground_it: finalTexts[1],
+          move_action: finalTexts[2],
+        });
+        setSaved(true);
+        setSavedTexts(finalTexts);
+        setError(null);
+      } else {
+        setError(err instanceof Error ? err.message : 'save_failed');
+      }
     } finally {
       setSaving(false);
     }
@@ -219,7 +245,19 @@ export default function DailyLoopClient() {
         </div>
 
         {error && (
-          <p className="text-xs text-rose-400" role="alert">{humanizeError(error)}</p>
+          <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
+            style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
+          >
+            <p className="text-xs" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+            <button
+              type="button"
+              onClick={() => void saveLoop(texts)}
+              disabled={saving}
+              className="btn-primary text-xs py-1.5 px-4 flex-shrink-0"
+            >
+              {saving ? 'Retrying\u2026' : 'Try Again'}
+            </button>
+          </div>
         )}
       </div>
     );
@@ -227,6 +265,13 @@ export default function DailyLoopClient() {
 
   // ─── INITIAL STATE ─────────────────────────────────────────────────────────
   return (
+    <>
+    <CelebrationToast
+      message={celebration?.message ?? ''}
+      show={!!celebration}
+      duration={celebration?.duration ?? 2500}
+      onDone={() => setCelebration(null)}
+    />
     <div className="glass-card p-5">
       <div className="flex items-start gap-3">
         <span className="text-2xl">◉</span>
@@ -247,5 +292,6 @@ export default function DailyLoopClient() {
         </div>
       </div>
     </div>
+    </>
   );
 }

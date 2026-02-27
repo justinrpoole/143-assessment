@@ -10,6 +10,7 @@ import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
 import { FadeInSection } from "@/components/ui/FadeInSection";
+import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 
 export const dynamic = "force-dynamic";
 
@@ -82,7 +83,9 @@ export default async function GrowthPage() {
 
       <FadeInSection>
         <RadialSpotlight>
-          <GrowthSummaryClient />
+          <CosmicErrorBoundary sectionLabel="GROWTH">
+            <GrowthSummaryClient />
+          </CosmicErrorBoundary>
         </RadialSpotlight>
       </FadeInSection>
       <RayDivider ray="R8" />

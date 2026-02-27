@@ -10,6 +10,12 @@ import DailyLoopClient from '@/components/retention/DailyLoopClient';
 import StreakFire, { StreakDimensions, StreakFireAccent } from './StreakFire';
 import PhaseCheckInClient from '@/components/retention/PhaseCheckInClient';
 import CueBasedNudge from '@/components/retention/CueBasedNudge';
+import StreakRecovery from '@/components/retention/StreakRecovery';
+import WeeklyGoalRing from '@/components/retention/WeeklyGoalRing';
+import CelebrationToast from '@/components/ui/CelebrationToast';
+import { streakMilestone, type CelebrationTrigger } from '@/lib/celebrations/triggers';
+import { portalWelcome } from '@/lib/identity/identity-messages';
+import { haptic } from '@/lib/haptics';
 import ContextualActions from './ContextualActions';
 import { RasPrimeCard } from '@/components/retention/RasPrimeCard';
 import RasCheckIn from '@/components/retention/RasCheckIn';
@@ -34,6 +40,7 @@ import EclipseCalendarHeatmap from './EclipseCalendarHeatmap';
 import InviteColleagueCard from './InviteColleagueCard';
 import JournalBrowser from '@/components/retention/JournalBrowser';
 import ChallengeProgress from '@/components/retention/ChallengeProgress';
+import SocialProofBadge from './SocialProofBadge';
 
 const PatternInterruptHub = dynamic(() => import('@/components/PatternInterruptHub'), { ssr: false });
 
@@ -319,7 +326,9 @@ export default function PortalDashboard() {
   const [showGlow, setShowGlow] = useState(false);
   const [signalOpen, setSignalOpen] = useState<SignalModal>(null);
   const [signalPrefill, setSignalPrefill] = useState<SignalPrefill>({});
+  const [celebration, setCelebration] = useState<CelebrationTrigger | null>(null);
   const glowTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const streakCheckedRef = useRef(false);
 
   const loadSummary = useCallback(async () => {
     try {
@@ -336,6 +345,17 @@ export default function PortalDashboard() {
   useEffect(() => {
     void loadSummary();
   }, [loadSummary]);
+
+  // Streak milestone celebration — fires once per page load
+  useEffect(() => {
+    if (!summary || streakCheckedRef.current) return;
+    streakCheckedRef.current = true;
+    const milestone = streakMilestone(summary.streak_days);
+    if (milestone) {
+      setCelebration(milestone);
+      if (milestone.haptic) haptic('strong');
+    }
+  }, [summary]);
 
   useEffect(() => {
     return () => {
@@ -539,7 +559,14 @@ export default function PortalDashboard() {
   return (
     <div className="space-y-6">
 
-      {/* Welcome header */}
+      <CelebrationToast
+        message={celebration?.message ?? ''}
+        show={!!celebration}
+        duration={celebration?.duration ?? 2500}
+        onDone={() => setCelebration(null)}
+      />
+
+      {/* Welcome header — identity-based language */}
       <div className="text-on-dark rounded-2xl p-7 space-y-2" style={{ background: 'linear-gradient(to bottom right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
         <div className="flex items-center justify-between">
           <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -551,10 +578,9 @@ export default function PortalDashboard() {
           Good to see you.
         </h2>
         <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-          {summary.streak_days > 0
-            ? `${summary.streak_days} day${summary.streak_days !== 1 ? 's' : ''} in a row. Keep it going.`
-            : 'Every rep counts. Start where you are.'}
+          {portalWelcome(summary.streak_days)}
         </p>
+        <SocialProofBadge />
         {summary.last_run_id && (
           <Link
             href={`/results?run_id=${summary.last_run_id}`}
@@ -568,6 +594,9 @@ export default function PortalDashboard() {
 
       {/* Subscription state banner */}
       <SubscriptionBanner state={summary.subscription_state} gracePeriodEnd={summary.grace_period_end} />
+
+      {/* Streak recovery — warm comeback when streak lost */}
+      <StreakRecovery streakDays={summary.streak_days} totalReps={summary.total_reps} />
 
       {/* Resume banner for in-progress assessment */}
       {summary.in_progress_run_id && (
@@ -607,21 +636,21 @@ export default function PortalDashboard() {
       <FadeInSection delay={0.15}>
         <div className="grid grid-cols-2 gap-3">
           <div className="glass-card p-4 space-y-2">
-            <div className="flex items-center justify-between">
-              <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-secondary)' }}>This week</p>
-              <p className="text-xs text-brand-gold font-semibold">
-                {summary.reps_this_week}/{WEEKLY_TARGET}
-              </p>
+            <div className="flex items-center gap-3">
+              <WeeklyGoalRing current={summary.reps_this_week} target={WEEKLY_TARGET} />
+              <div className="flex-1 space-y-1.5">
+                <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-secondary)' }}>Weekly reps</p>
+                <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.1)' }}>
+                  <div
+                    className="h-full bg-gradient-to-r from-brand-purple to-brand-gold rounded-full transition-all duration-500"
+                    style={{ width: `${progressPct}%` }}
+                  />
+                </div>
+                <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
+                  {progressPct >= 100 ? 'Week complete' : `${WEEKLY_TARGET - summary.reps_this_week} more to hit target`}
+                </p>
+              </div>
             </div>
-            <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.1)' }}>
-              <div
-                className="h-full bg-gradient-to-r from-brand-purple to-brand-gold rounded-full transition-all duration-500"
-                style={{ width: `${progressPct}%` }}
-              />
-            </div>
-            <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
-              {progressPct >= 100 ? 'Week complete' : `${WEEKLY_TARGET - summary.reps_this_week} more to hit target`}
-            </p>
             <WeeklyRepBreakdown weeklyTarget={WEEKLY_TARGET} repsThisWeek={summary.reps_this_week} />
           </div>
 

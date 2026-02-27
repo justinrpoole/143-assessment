@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
  */
 export default function StreakBadge() {
   const [streak, setStreak] = useState<number | null>(null);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     fetch('/api/stats/streak')
@@ -15,9 +16,11 @@ export default function StreakBadge() {
       .then((data) => {
         if (data?.streak > 0) setStreak(data.streak);
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setLoaded(true));
   }, []);
 
+  if (!loaded) return null;
   if (streak === null) return null;
 
   return (

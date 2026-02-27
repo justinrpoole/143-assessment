@@ -4,7 +4,10 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCosmicMotion } from '@/lib/motion/use-cosmic-motion';
 import CosmicSkeleton from '@/components/ui/CosmicSkeleton';
+import CelebrationToast from '@/components/ui/CelebrationToast';
 import { humanizeError } from '@/lib/ui/error-messages';
+import { ENERGY_AUDIT_SAVED, maybeVariableReward, type CelebrationTrigger } from '@/lib/celebrations/triggers';
+import { haptic } from '@/lib/haptics';
 import {
   ENERGY_DIMENSIONS,
   computeLoadBand,
@@ -55,6 +58,7 @@ export default function EnergyAuditClient() {
   const [scores, setScores] = useState<Record<string, number>>({});
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [celebration, setCelebration] = useState<CelebrationTrigger | null>(null);
 
   const loadAudit = useCallback(async () => {
     try {
@@ -102,6 +106,10 @@ export default function EnergyAuditClient() {
           guidance: data.guidance,
           scores: finalScores,
         });
+        // Celebration
+        const trigger = maybeVariableReward() ?? ENERGY_AUDIT_SAVED;
+        setCelebration(trigger);
+        if (trigger.haptic) haptic('medium');
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'save_failed');
@@ -349,9 +357,17 @@ export default function EnergyAuditClient() {
           )}
 
           {error && (
-            <div className="rounded-lg px-4 py-3"
+            <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
               style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}>
-              <p className="text-xs" style={{ color: '#FCA5A5' }} role="alert">{humanizeError(error)}</p>
+              <p className="text-xs" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+              <button
+                type="button"
+                onClick={() => handleSelect(ENERGY_DIMENSIONS[step].id, scores[ENERGY_DIMENSIONS[step].id] ?? 0)}
+                disabled={saving}
+                className="btn-primary text-xs py-1.5 px-4 flex-shrink-0"
+              >
+                {saving ? 'Retrying\u2026' : 'Try Again'}
+              </button>
             </div>
           )}
         </motion.div>
@@ -361,6 +377,13 @@ export default function EnergyAuditClient() {
 
   // ─── INITIAL STATE ─────────────────────────────────────────────────────────
   return (
+    <>
+    <CelebrationToast
+      message={celebration?.message ?? ''}
+      show={!!celebration}
+      duration={celebration?.duration ?? 2500}
+      onDone={() => setCelebration(null)}
+    />
     <div className="glass-card p-5">
       <div className="flex items-start gap-3">
         <span className="text-2xl">⚡</span>
@@ -383,5 +406,6 @@ export default function EnergyAuditClient() {
         </div>
       </div>
     </div>
+    </>
   );
 }

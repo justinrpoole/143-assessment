@@ -8,6 +8,7 @@ import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import StreakBadge from "@/components/portal/StreakBadge";
+import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 
@@ -63,7 +64,9 @@ export default async function RepsPage({ searchParams }: PageProps) {
 
       <FadeInSection>
         <div className="mt-6">
-          <RepLogClient initialTool={initialTool} />
+          <CosmicErrorBoundary sectionLabel="REPS">
+            <RepLogClient initialTool={initialTool} />
+          </CosmicErrorBoundary>
         </div>
       </FadeInSection>
 

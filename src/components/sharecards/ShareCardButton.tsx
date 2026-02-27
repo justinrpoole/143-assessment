@@ -73,9 +73,14 @@ export function ShareCardButton({
         {loading ? "Generating..." : buttonLabel}
       </button>
       {error ? (
-        <p className="text-sm text-rose-700" role="alert">
-          {error}
-        </p>
+        <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
+          style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
+        >
+          <p className="text-sm" style={{ color: '#FCA5A5' }}>{error}</p>
+          <button type="button" onClick={onGenerate} disabled={loading} className="btn-primary text-xs py-1.5 px-4 flex-shrink-0">
+            {loading ? 'Retrying\u2026' : 'Try Again'}
+          </button>
+        </div>
       ) : null}
       {signedUrl ? (
         <p className="text-sm">

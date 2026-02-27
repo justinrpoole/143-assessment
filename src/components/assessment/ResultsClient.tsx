@@ -33,6 +33,8 @@ import { ShareCardButton } from "@/components/sharecards/ShareCardButton";
 import { MetricTooltip } from "@/components/ui/MetricTooltip";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import { ScienceToggle } from "@/components/results/ScienceToggle";
+import ResultsTableOfContents from "@/components/results/ResultsTableOfContents";
+import ResultsScrollProgress from "@/components/results/ResultsScrollProgress";
 import type { AssessmentOutputV1, ConfidenceBand, RayOutput } from "@/lib/types";
 
 interface ResultsClientProps {
@@ -161,6 +163,8 @@ export function ResultsClient({ runId }: ResultsClientProps) {
   // ---------------------------------------------------------------------------
   return (
     <div className="space-y-8">
+      <ResultsScrollProgress />
+      <ResultsTableOfContents />
 
       {/* ═══ ABOVE THE FOLD: Your Story ═══ */}
 
@@ -175,18 +179,20 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       {/* 2. Identity Story — Who You Are Right Now */}
       {lightSignature && (
         <FadeInSection delay={0.15}>
+          <div id="section-identity">
           <IdentityStory
             lightSignature={lightSignature}
             eclipse={eclipse}
             rays={output?.rays}
           />
+          </div>
         </FadeInSection>
       )}
 
       {/* 3. Rise Path — What Comes Next */}
       {justInRay && (
         <FadeInSection delay={0.2}>
-          <div className="space-y-2">
+          <div id="section-rise-path" className="space-y-2">
             <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
               <MetricTooltip metricId="rise_path">Rise Path</MetricTooltip>
             </h2>
@@ -203,7 +209,9 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       {/* 4. Week 1 Installation Plan */}
       {lightSignature && (
         <FadeInSection>
+          <div id="section-week-one">
           <WeekOneChecklist lightSignature={lightSignature} />
+          </div>
         </FadeInSection>
       )}
 
@@ -217,12 +225,14 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       {/* 8. 30-Day Plan */}
       {recommendations && (
         <FadeInSection>
-          <ThirtyDayPlan
-            recommendations={recommendations}
-            whatNotToDo={whatNotToDo}
-            rayName={justInRay?.ray_name}
-            runId={runId}
-          />
+          <div id="section-30-day">
+            <ThirtyDayPlan
+              recommendations={recommendations}
+              whatNotToDo={whatNotToDo}
+              rayName={justInRay?.ray_name}
+              runId={runId}
+            />
+          </div>
         </FadeInSection>
       )}
 
@@ -282,7 +292,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
 
       {/* Primary Action — Your Next Move */}
       <FadeInSection>
-        <div className="glass-card p-6 space-y-4" style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}>
+        <div id="section-actions" className="glass-card p-6 space-y-4" style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}>
           <div>
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
               Your Next Move
@@ -334,7 +344,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       {/* 6. Eclipse — System Load */}
       {eclipse && (
         <FadeInSection>
-          <div className="space-y-2">
+          <div id="section-eclipse" className="space-y-2">
             <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
               <MetricTooltip metricId="eclipse_percentage">Eclipse</MetricTooltip>
             </h2>
@@ -379,7 +389,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       {/* 8. Gravitational Stability — Nine-Ray Radial Visualization */}
       {output?.rays && lightSignature && (
         <FadeInSection>
-          <div className="space-y-2">
+          <div id="section-stability" className="space-y-2">
             <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
               <MetricTooltip metricId="gravitational_stability">Gravitational Stability</MetricTooltip>
             </h2>
@@ -430,7 +440,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       {/* 9. Light Signature Detail — Archetype Expressions, Strengths, Tools */}
       {lightSignature && (
         <FadeInSection>
-          <div className="space-y-2">
+          <div id="section-light-signature" className="space-y-2">
             <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
               <MetricTooltip metricId="light_signature">Light Signature Detail</MetricTooltip>
             </h2>

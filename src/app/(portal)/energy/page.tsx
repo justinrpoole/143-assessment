@@ -10,6 +10,7 @@ import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import StreakBadge from "@/components/portal/StreakBadge";
+import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 
 export const dynamic = "force-dynamic";
 
@@ -41,7 +42,9 @@ export default async function EnergyPage() {
 
       <FadeInSection>
         <div className="mt-6">
-          <EnergyAuditClient />
+          <CosmicErrorBoundary sectionLabel="ENERGY AUDIT">
+            <EnergyAuditClient />
+          </CosmicErrorBoundary>
           <FeedbackWidget
             feedback_type="energy_value"
             source_route="/energy"

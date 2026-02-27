@@ -4,8 +4,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCosmicMotion } from '@/lib/motion/use-cosmic-motion';
 import CosmicSkeleton from "@/components/ui/CosmicSkeleton";
+import CelebrationToast from "@/components/ui/CelebrationToast";
 import { ShareCardButton } from "@/components/sharecards/ShareCardButton";
 import { humanizeError } from "@/lib/ui/error-messages";
+import { MORNING_ENTRY_SAVED, maybeVariableReward, type CelebrationTrigger } from "@/lib/celebrations/triggers";
+import { haptic } from "@/lib/haptics";
+import { useOfflineQueue } from '@/hooks/useOfflineQueue';
 import { rayHex } from '@/lib/ui/ray-colors';
 
 interface MorningEntryResponse {
@@ -24,9 +28,11 @@ export function MorningEntryClient() {
   const [saving, setSaving] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [entryDate, setEntryDate] = useState<string>("");
+  const { enqueue } = useOfflineQueue();
   const [affirmation, setAffirmation] = useState<string>("");
   const [repsLogged, setRepsLogged] = useState<number>(1);
   const [saved, setSaved] = useState<boolean>(false);
+  const [celebration, setCelebration] = useState<CelebrationTrigger | null>(null);
 
   useEffect(() => {
     let canceled = false;
@@ -87,12 +93,27 @@ export function MorningEntryClient() {
         return;
       }
       setSaved(true);
+      // Celebration
+      const trigger = maybeVariableReward() ?? MORNING_ENTRY_SAVED;
+      setCelebration(trigger);
+      if (trigger.haptic) haptic('medium');
     } catch (requestError) {
-      setError(
-        requestError instanceof Error
-          ? requestError.message
-          : "morning_entry_save_failed",
-      );
+      // Queue for offline retry if network is down
+      if (!navigator.onLine) {
+        enqueue('/api/morning/entry', 'PUT', {
+          entry_date: entryDate,
+          affirmation_text: affirmation,
+          reps_logged: repsLogged,
+        });
+        setSaved(true);
+        setError(null);
+      } else {
+        setError(
+          requestError instanceof Error
+            ? requestError.message
+            : "morning_entry_save_failed",
+        );
+      }
     } finally {
       setSaving(false);
     }
@@ -100,6 +121,12 @@ export function MorningEntryClient() {
 
   return (
     <div className="space-y-6">
+      <CelebrationToast
+        message={celebration?.message ?? ''}
+        show={!!celebration}
+        duration={celebration?.duration ?? 2500}
+        onDone={() => setCelebration(null)}
+      />
       {/* Header */}
       <div className="glass-card p-5 space-y-2" style={{ borderColor: "rgba(248, 208, 17, 0.2)" }}>
         <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
@@ -218,9 +245,17 @@ export function MorningEntryClient() {
 
       {/* Error */}
       {error && (
-        <div className="rounded-lg px-4 py-3"
+        <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
           style={{ background: "rgba(220, 38, 38, 0.15)", border: "1px solid rgba(220, 38, 38, 0.3)" }}>
-          <p className="text-sm" style={{ color: "#FCA5A5" }} role="alert">{humanizeError(error)}</p>
+          <p className="text-sm" style={{ color: "#FCA5A5" }}>{humanizeError(error)}</p>
+          <button
+            type="button"
+            onClick={() => void onSave()}
+            disabled={saving}
+            className="btn-primary text-xs py-1.5 px-4 flex-shrink-0"
+          >
+            {saving ? 'Retrying\u2026' : 'Try Again'}
+          </button>
         </div>
       )}
     </div>

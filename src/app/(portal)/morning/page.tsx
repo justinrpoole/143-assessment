@@ -13,6 +13,7 @@ import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import StreakBadge from "@/components/portal/StreakBadge";
+import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 
 export const dynamic = "force-dynamic";
 
@@ -51,9 +52,15 @@ export default async function MorningPage() {
 
       <FadeInSection>
         <div className="mt-6 space-y-6">
-          <PhaseCheckInClient />
-          <DailyLoopClient />
-          <MorningEntryClient />
+          <CosmicErrorBoundary sectionLabel="PHASE CHECK-IN">
+            <PhaseCheckInClient />
+          </CosmicErrorBoundary>
+          <CosmicErrorBoundary sectionLabel="DAILY LOOP">
+            <DailyLoopClient />
+          </CosmicErrorBoundary>
+          <CosmicErrorBoundary sectionLabel="MORNING ENTRY">
+            <MorningEntryClient />
+          </CosmicErrorBoundary>
         </div>
       </FadeInSection>
 
