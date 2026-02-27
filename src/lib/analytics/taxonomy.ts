@@ -51,6 +51,7 @@ export const PAGE_VIEW_EVENTS = [
   "page_view_reps",
   "page_view_welcome",
   "page_view_methodology",
+  "page_view_standard",
 ] as const;
 
 export type PageViewEvent = (typeof PAGE_VIEW_EVENTS)[number];
@@ -164,6 +165,7 @@ export const CANONICAL_EVENT_NAMES = [
   "page_view_reps",
   "page_view_welcome",
   "page_view_methodology",
+  "page_view_standard",
 ] as const;
 
 export type SetupContextScope = "work" | "home" | "mixed";
