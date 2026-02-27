@@ -7,7 +7,6 @@ import CosmicImage from "@/components/marketing/CosmicImage";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
-import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
 import { rayHex } from "@/lib/ui/ray-colors";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";

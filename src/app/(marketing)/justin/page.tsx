@@ -88,6 +88,7 @@ export default async function JustinPage() {
             A framework built on <span className="gold-highlight">behavioural science</span> and tested in the rooms
             where leadership actually happens — not conference stages.
           </p>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
         <RayDivider />

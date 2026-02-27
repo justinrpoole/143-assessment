@@ -5,7 +5,6 @@ import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { countMicroJoyEntriesForDate } from "@/lib/db/retention";
 import { PageHeader } from "@/components/ui/PageHeader";
 import RayDivider from "@/components/ui/RayDivider";
-import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import { rayHex } from "@/lib/ui/ray-colors";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";

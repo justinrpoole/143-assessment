@@ -67,6 +67,7 @@ export default async function OutcomesPage() {
           <div className="mx-auto max-w-[540px]">
             <ScrollTextReveal text="Not promises. Patterns we see in people who do the reps. Every outcome maps to a specific Ray and a specific mechanism." />
           </div>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
         <RayDivider />
