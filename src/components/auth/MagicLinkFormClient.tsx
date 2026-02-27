@@ -9,12 +9,22 @@ const DEFAULT_BETA_EMAIL = PREVIEW_EMAIL || DEV_TEST_EMAIL;
 
 type FormState = "idle" | "sending" | "sent" | "error";
 
+const AUTH_ERROR_MESSAGES: Record<string, string> = {
+  invalid_or_expired: "Your sign-in link has expired. Enter your email below to get a new one.",
+  google_denied: "Google sign-in was canceled. You can try again or use a magic link instead.",
+  google_missing_email: "We couldn't get your email from Google. Try signing in with a magic link instead.",
+  google_error: "Something went wrong with Google sign-in. Try again or use a magic link.",
+};
+
 export function MagicLinkFormClient() {
   const searchParams = useSearchParams();
   const next = searchParams.get("next") ?? searchParams.get("source_route") ?? "/portal";
+  const authError = searchParams.get("error");
   const [email, setEmail] = useState("");
   const [state, setState] = useState<FormState>("idle");
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(
+    authError && AUTH_ERROR_MESSAGES[authError] ? AUTH_ERROR_MESSAGES[authError] : null,
+  );
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

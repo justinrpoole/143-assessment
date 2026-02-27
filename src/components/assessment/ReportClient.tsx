@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 
 import dynamic from "next/dynamic";
@@ -120,6 +120,57 @@ function ReportLoadingSequence() {
         ))}
       </div>
     </div>
+  );
+}
+
+function CollapsibleSection({
+  id,
+  title,
+  description,
+  defaultOpen = false,
+  children,
+}: {
+  id: string;
+  title: string;
+  description?: string;
+  defaultOpen?: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <details id={id} open={defaultOpen} className="glass-card p-5">
+      <summary className="cursor-pointer" style={{ listStyle: "none" }}>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p
+              className="text-[10px] uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              Optional Dashboards
+            </p>
+            <h2 className="text-lg font-semibold" style={{ color: "var(--text-on-dark)" }}>
+              {title}
+            </h2>
+            {description && (
+              <p
+                className="mt-1 text-xs"
+                style={{ color: "var(--text-on-dark-muted)" }}
+              >
+                {description}
+              </p>
+            )}
+          </div>
+          <span
+            className="text-xs uppercase tracking-widest"
+            style={{ color: "var(--text-on-dark-muted)" }}
+          >
+            Expand
+          </span>
+        </div>
+      </summary>
+      <div className="mt-4 space-y-8">
+        {children}
+      </div>
+    </details>
   );
 }
 
@@ -520,28 +571,13 @@ export function ReportClient({ runId }: ReportClientProps) {
         <>
           <ReportTableOfContents entries={[
             { id: 'rpt-summary', label: 'Summary' },
-            { id: 'rpt-overview', label: 'State Overview' },
             { id: 'rpt-light-signature', label: 'Light Signature' },
-            { id: 'rpt-solar-core', label: 'Solar Core Score' },
-            { id: 'rpt-subfacets', label: 'Subfacet Map' },
-            { id: 'rpt-eclipse', label: 'Eclipse Meter' },
-            { id: 'rpt-health', label: 'System Health' },
-            { id: 'rpt-planetary', label: 'Planetary Alignment' },
-            { id: 'rpt-magnetic', label: 'Magnetic Field' },
-            { id: 'rpt-orbit', label: 'Orbit Map' },
-            { id: 'rpt-black-hole', label: 'Black Hole Flags' },
-            { id: 'rpt-solar-flare', label: 'Solar Flare Journal' },
-            { id: 'rpt-constellation', label: 'Constellation Progress' },
-            { id: 'rpt-exec-signals', label: 'Executive Signals' },
-            { id: 'rpt-outcomes', label: 'Outcome Patterns' },
-            { id: 'rpt-edge-cases', label: 'Pattern Flags' },
+            { id: 'rpt-eclipse', label: 'Eclipse' },
             { id: 'rpt-rise-path', label: 'Rise Path' },
             { id: 'rpt-tools', label: 'Tool Readiness' },
             { id: 'rpt-30day', label: '30-Day Plan' },
-            { id: 'rpt-coaching', label: 'Shooting Star Cues' },
-            { id: 'rpt-conversation-starters', label: 'Conversation Starters' },
-            { id: 'rpt-coaching-brief', label: 'Coaching Brief' },
-            { id: 'rpt-psychometric', label: 'Psychometric Foundation' },
+            { id: 'rpt-coaching', label: 'Coaching Questions' },
+            { id: 'rpt-dashboards', label: 'Dashboards (Optional)' },
             { id: 'rpt-closing', label: 'Closing' },
           ]} />
 

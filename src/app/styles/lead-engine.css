@@ -1,11 +1,11 @@
 :root {
-  /* Signature palette extracted from reference shots */
-  --lead-purple: #6b3ce6;
-  --lead-purple-deep: #5b22c8;
-  --lead-gold: #f8d011;
-  --lead-gold-strong: #e3b900;
-  --lead-ink: #1b1233;
-  --lead-white: #fdfbff;
+  /* Lead-engine palette — aliases to canonical design tokens from tokens.css */
+  --lead-purple: var(--brand-purple, #60058D);
+  --lead-purple-deep: var(--cosmic-purple-mid, #3a0066);
+  --lead-gold: var(--brand-gold, #f8d011);
+  --lead-gold-strong: var(--brand-gold-deep, #e3b900);
+  --lead-ink: var(--brand-black, #0c0118);
+  --lead-white: var(--text-on-dark, #fdfbff);
 }
 
 .lead-hero {

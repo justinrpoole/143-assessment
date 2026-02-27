@@ -110,7 +110,7 @@ function DesktopDropdown({ group, pathname }: { group: NavGroup; pathname: strin
           <div
             className="min-w-[190px] rounded-xl border p-1.5"
             style={{
-              background: "rgba(12, 1, 24, 0.96)",
+              background: "var(--overlay-heavy, rgba(11, 2, 18, 0.92))",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
               borderColor: "rgba(248, 208, 17, 0.12)",
@@ -243,7 +243,7 @@ export function MarketingNav() {
             />
             <span
               className="text-[15px] font-bold tracking-[0.18em]"
-              style={{ color: "#FFFFFF", letterSpacing: "0.18em" }}
+              style={{ color: "var(--text-on-dark, rgba(255, 255, 255, 0.94))", letterSpacing: "0.18em" }}
             >
               LEADERSHIP
             </span>
@@ -342,7 +342,7 @@ export function MarketingNav() {
 
       {/* Full-screen mobile overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 flex flex-col lg:hidden" style={{ background: "rgba(2, 2, 2, 0.97)" }}>
+        <div className="fixed inset-0 z-40 flex flex-col lg:hidden" style={{ background: "var(--overlay-heavy, rgba(11, 2, 18, 0.92))" }}>
           <div className="h-[60px] shrink-0" />
 
           <div className="flex flex-1 flex-col items-center justify-center gap-5 overflow-y-auto py-8">
@@ -399,8 +399,7 @@ export function MarketingNav() {
       )}
 
       <style>{`
-        .dropdown-link:hover { color: var(--brand-gold) !important; }
-        .dropdown-link:hover { background: rgba(248, 208, 17, 0.06); }
+        .dropdown-link:hover { color: var(--brand-gold) !important; background: rgba(248, 208, 17, 0.06); }
       `}</style>
     </>
   );

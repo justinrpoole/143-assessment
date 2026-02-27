@@ -18,7 +18,7 @@ function setCapturedCookie() {
   document.cookie = `${COOKIE_KEY}=1; path=/; max-age=${60 * 60 * 24 * 90}`; // 90 days
 }
 
-export function ToolkitDeliveryClient({ isAuthenticated }: ToolkitDeliveryClientProps) {
+export function ToolkitDeliveryClient(_props: ToolkitDeliveryClientProps) {
   const [captured, setCaptured] = useState(false);
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -40,24 +40,16 @@ export function ToolkitDeliveryClient({ isAuthenticated }: ToolkitDeliveryClient
     setError(null);
 
     try {
-      const res = await fetch("/api/email-capture", {
+      // Single endpoint: captures email + queues kit delivery (no auth required)
+      const res = await fetch("/api/toolkit/deliver-anonymous", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: trimmed, source: "143_challenge" }),
+        body: JSON.stringify({ email: trimmed, source_route: "/143", toolkit_version: "v1" }),
       });
 
       if (!res.ok) {
         const data = (await res.json().catch(() => ({}))) as { error?: string };
-        throw new Error(data.error ?? "capture_failed");
-      }
-
-      // If authenticated, also trigger toolkit email delivery
-      if (isAuthenticated) {
-        void fetch("/api/toolkit/deliver", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ source_route: "/143", toolkit_version: "v1" }),
-        });
+        throw new Error(data.error ?? "delivery_failed");
       }
 
       setCapturedCookie();

@@ -419,14 +419,26 @@ export async function POST(request: Request) {
 
   const body = await request.text();
 
+  let event: Stripe.Event;
   try {
     const stripe = await getStripeClient();
-    const event = stripe.webhooks.constructEvent(
+    event = stripe.webhooks.constructEvent(
       body,
       signature,
       env.STRIPE_WEBHOOK_SECRET,
     );
+  } catch (signatureError) {
+    // Signature verification failed — bad request, do NOT retry
+    return NextResponse.json(
+      {
+        error: "stripe_signature_invalid",
+        detail: signatureError instanceof Error ? signatureError.message : String(signatureError),
+      },
+      { status: 400 },
+    );
+  }
 
+  try {
     const processing = await markWebhookEventProcessing({
       eventId: event.id,
       eventType: event.type,
@@ -452,12 +464,13 @@ export async function POST(request: Request) {
       throw processingError;
     }
   } catch (error) {
+    // Processing error — return 500 so Stripe will retry
     return NextResponse.json(
       {
-        error: "stripe_webhook_failed",
+        error: "stripe_webhook_processing_failed",
         detail: error instanceof Error ? error.message : String(error),
       },
-      { status: 400 },
+      { status: 500 },
     );
   }
 }

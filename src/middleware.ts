@@ -49,6 +49,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    // Portal pages
     "/portal",
     "/morning",
     "/micro-joy",
@@ -65,5 +66,18 @@ export const config = {
     "/reflect",
     "/welcome",
     "/light-dashboard",
+    "/plan",
+    // Protected API routes
+    "/api/portal/:path*",
+    "/api/morning/:path*",
+    "/api/reflections/:path*",
+    "/api/reps/:path*",
+    "/api/if-then-plans/:path*",
+    "/api/energy/:path*",
+    "/api/micro-joy/:path*",
+    "/api/weekly/:path*",
+    "/api/notifications/:path*",
+    "/api/runs/:path*",
+    "/api/invites/:path*",
   ],
 };

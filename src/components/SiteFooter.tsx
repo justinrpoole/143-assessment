@@ -7,7 +7,7 @@ export function SiteFooter() {
   return (
     <footer
       className="relative px-6 py-14 sm:px-8 sm:py-20 overflow-hidden"
-      style={{ background: "#D4AD0E" }}
+      style={{ background: "var(--brand-gold, #F8D011)" }}
     >
       <div className="relative z-10 mx-auto max-w-5xl">
         {/* Logo + tagline */}
@@ -22,7 +22,7 @@ export function SiteFooter() {
           />
           <p
             className="text-sm font-semibold tracking-wide sm:text-right"
-            style={{ color: "#020202", maxWidth: "280px", lineHeight: 1.5 }}
+            style={{ color: "var(--brand-black, #020202)", maxWidth: "280px", lineHeight: 1.5 }}
           >
             Measure your light.<br />
             Train your light.<br />
@@ -39,7 +39,7 @@ export function SiteFooter() {
             <div key={col.heading}>
               <p
                 className="text-[11px] font-bold uppercase tracking-widest mb-4"
-                style={{ color: "#FFFFFF", letterSpacing: "0.18em", textShadow: "0 1px 2px rgba(0,0,0,0.08)" }}
+                style={{ color: "var(--text-on-dark, #FFFFFF)", letterSpacing: "0.18em", textShadow: "0 1px 2px rgba(0,0,0,0.08)" }}
               >
                 {col.heading}
               </p>
@@ -49,7 +49,7 @@ export function SiteFooter() {
                     <Link
                       href={link.href}
                       className="text-sm transition-all duration-200 hover:text-white inline-block"
-                      style={{ color: "#020202" }}
+                      style={{ color: "var(--brand-black, #020202)" }}
                     >
                       {link.label}
                     </Link>
@@ -66,7 +66,7 @@ export function SiteFooter() {
           style={{ borderTop: "2px solid rgba(2, 2, 2, 0.12)", color: "rgba(2, 2, 2, 0.55)" }}
         >
           <p>&copy; {new Date().getFullYear()} 143 Leadership. All rights reserved.</p>
-          <p style={{ color: "#FFFFFF", fontWeight: 600, fontStyle: "italic", textShadow: "0 1px 2px rgba(0,0,0,0.08)" }}>
+          <p style={{ color: "var(--text-on-dark, #FFFFFF)", fontWeight: 600, fontStyle: "italic", textShadow: "0 1px 2px rgba(0,0,0,0.08)" }}>
             143 means I love you. That is where this starts.
           </p>
         </div>

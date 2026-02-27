@@ -5,11 +5,12 @@ import { sanitizeSourceRoute } from "@/lib/nav/source-route";
 
 function getOAuthSecret(): string {
   const secret = process.env.MAGIC_LINK_SECRET;
-  if (secret) return secret;
-  if (process.env.NODE_ENV === "production") {
-    throw new Error("MAGIC_LINK_SECRET is required in production");
+  if (!secret) {
+    throw new Error(
+      "MAGIC_LINK_SECRET is required. Set it in .env.local for development or as an environment variable in production.",
+    );
   }
-  return "dev-only-insecure-secret-do-not-use-in-prod";
+  return secret;
 }
 
 function getBaseUrl(request: NextRequest): string {

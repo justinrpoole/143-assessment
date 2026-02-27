@@ -176,8 +176,6 @@
   color: var(--text-on-dark);
   font-family: var(--font-body);
   min-height: 100vh;
-  /* Prevent child breakout patterns from causing horizontal scroll */
-  overflow-x: hidden;
   width: 100%;
 }
 

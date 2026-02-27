@@ -151,6 +151,34 @@ export default async function ResultsPage({ searchParams }: PageProps) {
         run_id={runId}
         title="Do you have your next REP?"
       />
+
+      {/* Portal CTA — bridge from results to daily practice */}
+      <section className="mx-auto max-w-2xl px-6 py-16 text-center">
+        <p className="text-sm uppercase tracking-widest mb-3" style={{ color: "var(--brand-gold, #F8D011)" }}>
+          Your Next Step
+        </p>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+          Your Light Signature unlocked 14 daily practice tools.
+        </h2>
+        <p className="text-base mb-8" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}>
+          Morning intentions, energy audits, micro-joy tracking, behavioural reps, evening reflections, and more — all personalised to your map.
+        </p>
+        <a
+          href="/portal"
+          className="inline-flex items-center gap-2 rounded-2xl px-8 py-4 text-base font-bold transition-all duration-200"
+          style={{
+            background: "var(--brand-gold, #F8D011)",
+            color: "var(--text-on-gold, #020202)",
+            boxShadow: "0 0 24px rgba(248,208,17,0.25), 0 0 60px rgba(248,208,17,0.10)",
+          }}
+        >
+          Open My Light Portal
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
+      </section>
+
       <GoldHeroBanner
         kicker="Your Map"
         title="Every score is a starting point, not a sentence."

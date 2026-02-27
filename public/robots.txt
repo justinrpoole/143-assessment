@@ -1,0 +1,15 @@
+# 143 Leadership — robots.txt
+User-agent: *
+Allow: /
+
+# Block internal/admin routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /spec-center/
+
+# Block auth flow pages from indexing
+Disallow: /login
+Disallow: /welcome
+
+# Sitemap
+Sitemap: https://143leadership.com/sitemap.xml
