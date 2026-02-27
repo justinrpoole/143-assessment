@@ -684,11 +684,12 @@ export default function CosmicHeroV2() {
     onResize();
 
     /* ===== STYLE CACHE — avoid redundant DOM writes ===== */
-    const styleCache: Record<string, string> = {};
+    const styleCache = new WeakMap<HTMLElement, Record<string, string>>();
     function setStyle(el: HTMLElement, prop: string, val: string) {
-      const key = prop;
-      if (styleCache[key] === val) return;
-      styleCache[key] = val;
+      let cache = styleCache.get(el);
+      if (!cache) { cache = {}; styleCache.set(el, cache); }
+      if (cache[prop] === val) return;
+      cache[prop] = val;
       (el.style as unknown as Record<string, string>)[prop] = val;
     }
 
@@ -723,8 +724,17 @@ export default function CosmicHeroV2() {
       /* Cosmo celebration canvas */
       drawCosmoScene(t, celebI);
 
-      /* Sun SVG — ONLY update filter when phase changes (expensive!) */
-      const celebScale = 1 + celebI * 0.04;
+      /* ── Sun ↔ Sunnova seamless transition ──
+         NOVA_MATCH = 72% / 110% = 0.6545 — the scale at which sunnova
+         visually matches the sun-svg disc size. By starting and ending
+         at this scale, the crossfade is invisible. */
+      const NOVA_MATCH = 0.6545;
+
+      /* Fast crossfade over the first/last 20% of celebI so the swap
+         happens during the bright god-ray flash and is imperceptible. */
+      const swapT = Math.min(1, celebI * 5);
+
+      /* Sun SVG filter — expensive, only on phase change */
       if (phase !== prevPhase) {
         if (phase === 'celeb') {
           sunSvg.style.filter = `brightness(1.3) drop-shadow(0 0 40px rgba(255,200,70,0.50)) drop-shadow(0 0 80px rgba(255,160,40,0.25))`;
@@ -734,37 +744,29 @@ export default function CosmicHeroV2() {
           sunSvg.style.filter = '';
         }
       }
-      /* Transform + opacity are cheap (composite-only) — update every frame */
+
+      /* Sun: gentle celebration pulse + fade out during swap */
+      const celebScale = 1 + celebI * 0.04;
       setStyle(sunSvg, 'transform', `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`);
-      setStyle(sunSvg, 'opacity', sunBright.toFixed(3));
+      setStyle(sunSvg, 'opacity', (sunBright * (1 - swapT)).toFixed(3));
 
-      /* Sunnova burst — transform/opacity only, filter on phase change */
-      if (celebI > 0.02) {
-        const burstT = Math.min(1, celebI / 0.5);
-        const elastic = burstT < 0.6
-          ? Math.pow(burstT / 0.6, 0.4) * 1.15
-          : 1.15 - 0.15 * Math.pow((burstT - 0.6) / 0.4, 0.8);
+      /* Sunnova: fade in during swap, smooth S-curve growth */
+      setStyle(sunnovaEl, 'opacity', swapT.toFixed(3));
 
-        const novaOpacity = burstT < 0.15
-          ? Math.pow(burstT / 0.15, 0.3)
-          : celebI > 0.6 ? celebI : 1;
+      const growT = Math.min(1, celebI / 0.5);
+      const ease = growT < 0.5
+        ? 2 * growT * growT
+        : 1 - 2 * (1 - growT) * (1 - growT);
+      const novaScale = NOVA_MATCH + (1.12 - NOVA_MATCH) * ease;
+      setStyle(sunnovaEl, 'transform', `translate(-50%, -50%) scale(${novaScale.toFixed(4)})`);
 
-        setStyle(sunnovaEl, 'opacity', novaOpacity.toFixed(3));
-        setStyle(sunnovaEl, 'transform', `translate(-50%, -50%) scale(${elastic.toFixed(4)})`);
-
-        /* Only set sunnova filter once on phase enter */
-        if (phase !== prevPhase) {
+      /* Sunnova filter — expensive, only on phase change */
+      if (phase !== prevPhase) {
+        if (celebI > 0.01) {
           sunnovaEl.style.filter = `brightness(2.0) drop-shadow(0 0 80px rgba(255,230,100,0.70)) drop-shadow(0 0 180px rgba(255,200,60,0.40))`;
-        }
-
-        setStyle(sunSvg, 'opacity', Math.max(0, 1 - celebI * 4).toFixed(3));
-      } else {
-        setStyle(sunnovaEl, 'opacity', '0');
-        setStyle(sunnovaEl, 'transform', 'translate(-50%, -50%) scale(0)');
-        if (phase !== prevPhase) {
+        } else {
           sunnovaEl.style.filter = '';
         }
-        setStyle(sunSvg, 'opacity', '1');
       }
 
       prevPhase = phase;
