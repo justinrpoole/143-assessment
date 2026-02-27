@@ -84,9 +84,9 @@ export default function JournalBrowser() {
   return (
     <section className="space-y-3">
       <div className="flex items-center justify-between px-1">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
+        <span className="neon-tag neon-tag--violet text-xs font-bold">
           Reflection Journal
-        </p>
+        </span>
         <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
           {entries.length} entries
         </p>
@@ -101,7 +101,7 @@ export default function JournalBrowser() {
               key={entry.id}
               type="button"
               onClick={() => setExpandedId(isExpanded ? null : entry.id)}
-              className="w-full text-left glass-card p-4 transition-all"
+              className="w-full text-left glass-card glass-card--interactive p-4 transition-all"
               style={{ borderColor: isExpanded ? 'rgba(248, 208, 17, 0.2)' : undefined }}
             >
               {/* Header row */}

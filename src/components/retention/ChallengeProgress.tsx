@@ -95,8 +95,8 @@ export default function ChallengeProgress() {
   return (
     <section className="glass-card p-5 space-y-4">
       <div className="flex items-center justify-between">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <div className="gold-accent-left">
+          <p className="gold-tag inline-block text-xs font-bold">
             30-Day Challenge
           </p>
           <p className="mt-1 text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -178,7 +178,7 @@ export default function ChallengeProgress() {
       )}
 
       {progress.pct >= 100 && (
-        <div className="rounded-xl p-3 text-center" style={{ background: 'rgba(52, 211, 153, 0.08)', border: '1px solid rgba(52, 211, 153, 0.2)' }}>
+        <div className="glass-card gold-accent-left rounded-xl p-3 text-center">
           <p className="text-sm font-semibold" style={{ color: '#34D399' }}>
             Challenge Complete
           </p>

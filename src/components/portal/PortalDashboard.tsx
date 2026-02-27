@@ -179,16 +179,18 @@ function SubscriptionBanner({ state, gracePeriodEnd }: { state: PortalSummary['s
 function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
   return (
     <div className="glass-card p-5 space-y-3">
-      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+      <p className="gold-underline text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
         Today
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
         <Link
           href="/reps"
-          className="flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
+          className="neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
           style={{ background: 'rgba(96, 5, 141, 0.2)', border: '1px solid rgba(148, 80, 200, 0.25)' }}
         >
-          <span className="text-lg">⚡</span>
+          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(248, 208, 17, 0.15)' }}>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#F8D011' }} />
+          </span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Capture a moment</p>
             <p className="text-[11px]" style={{ color: 'var(--text-on-dark-muted)' }}>Log what you practiced</p>
@@ -196,10 +198,12 @@ function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
         </Link>
         <Link
           href="/watch-me"
-          className="flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
+          className="neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
           style={{ background: 'rgba(96, 5, 141, 0.2)', border: '1px solid rgba(148, 80, 200, 0.25)' }}
         >
-          <span className="text-lg">👁️</span>
+          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(139, 91, 255, 0.15)' }}>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#8b5bff' }} />
+          </span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Take a small step</p>
             <p className="text-[11px]" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -209,10 +213,12 @@ function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
         </Link>
         <Link
           href="/reflect"
-          className="flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
+          className="neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
           style={{ background: 'rgba(96, 5, 141, 0.2)', border: '1px solid rgba(148, 80, 200, 0.25)' }}
         >
-          <span className="text-lg">✍️</span>
+          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(46, 204, 113, 0.15)' }}>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#2ECC71' }} />
+          </span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Daily Debrief</p>
             <p className="text-[11px]" style={{ color: 'var(--text-on-dark-muted)' }}>What did you notice?</p>
@@ -574,7 +580,7 @@ export default function PortalDashboard() {
           </p>
           <SignOutButton />
         </div>
-        <h2 className="text-xl font-semibold">
+        <h2 className="text-shimmer text-xl font-semibold">
           Good to see you.
         </h2>
         <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>

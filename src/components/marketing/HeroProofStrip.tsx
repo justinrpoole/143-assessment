@@ -33,7 +33,7 @@ export default function HeroProofStrip() {
             style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.50))' }}
           >
             {line}
-            <span className="mx-6 inline-block" style={{ color: 'var(--brand-gold, #F8D011)', opacity: 0.6, textShadow: '0 0 6px rgba(248,208,17,0.3)' }} aria-hidden="true">
+            <span className="mx-6 inline-block" style={{ color: 'var(--brand-gold, #F8D011)', opacity: 0.8, textShadow: '0 0 12px rgba(248,208,17,0.4), 0 0 24px rgba(248,208,17,0.1)' }} aria-hidden="true">
               &#x2726;
             </span>
           </span>

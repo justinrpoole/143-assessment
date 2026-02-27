@@ -12,6 +12,7 @@ import RayDivider from "@/components/ui/RayDivider";
 import { rayHex } from "@/lib/ui/ray-colors";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
@@ -58,6 +59,7 @@ export default async function JustinPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5">
+          <FloatingOrbs variant="mixed" />
           <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-full overflow-hidden border-2" style={{ borderColor: "var(--brand-gold)" }}>
             <Image
               src="/images/justin-ray-headshot.png"

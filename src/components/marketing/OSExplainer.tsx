@@ -90,7 +90,7 @@ export default function OSExplainer() {
                     className="w-px flex-1"
                     style={{
                       background: 'linear-gradient(to bottom, rgba(248,208,17,0.2), rgba(248,208,17,0.05))',
-                      minHeight: 12,
+                      minHeight: 'clamp(8px, 2vw, 24px)',
                     }}
                   />
                 )}
@@ -102,7 +102,7 @@ export default function OSExplainer() {
                 style={phase.highlight ? { borderLeft: '2px solid rgba(248,208,17,0.3)' } : undefined}
               >
                 <p
-                  className="text-[10px] font-bold uppercase tracking-widest"
+                  className="text-xs font-bold uppercase tracking-widest"
                   style={{
                     color: phase.highlight ? '#F8D011' : 'rgba(255,255,255,0.45)',
                   }}

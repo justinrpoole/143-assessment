@@ -96,10 +96,10 @@ export default function InviteColleagueCard() {
   const completedPairs = invites.filter((i) => i.status === 'completed' && i.invitee_archetype);
 
   return (
-    <div className="glass-card p-5 space-y-4">
+    <div className="conic-border-card glass-card p-5 space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+          <h3 className="text-sm font-semibold" style={{ color: 'var(--brand-gold, #F8D011)', textShadow: '0 0 12px rgba(248, 208, 17, 0.3)' }}>
             Team Constellation
           </h3>
           <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>

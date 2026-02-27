@@ -124,7 +124,10 @@ export default function IfThenPlanClient() {
     <div className="glass-card p-5 space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>If / Then Plans</p>
+          <div className="flex items-center gap-2">
+            <span className="neon-tag neon-tag--pink text-xs font-bold">PLANS</span>
+            <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>If / Then Plans</p>
+          </div>
           <p className="text-xs mt-0.5" style={{ color: 'var(--text-on-dark-muted)' }}>
             Pre-commit your response before the moment arrives. Your RAS executes pre-loaded plans faster than live decisions.
           </p>
@@ -133,12 +136,7 @@ export default function IfThenPlanClient() {
           <button
             type="button"
             onClick={() => setCreating(true)}
-            className="text-xs font-medium px-3 py-1.5 rounded-full transition-colors"
-            style={{
-              color: 'var(--brand-gold, #F8D011)',
-              border: '1px solid rgba(248, 208, 17, 0.3)',
-              background: 'rgba(248, 208, 17, 0.08)',
-            }}
+            className="gold-tag text-xs font-medium cursor-pointer transition-colors hover:brightness-110"
           >
             + New plan
           </button>

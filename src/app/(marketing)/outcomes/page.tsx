@@ -6,6 +6,8 @@ import {
 } from "@/components/ui/FadeInSection";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
@@ -51,10 +53,12 @@ export default async function OutcomesPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5">
+          <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> This is what changes when the operating system upgrades.
           </p>

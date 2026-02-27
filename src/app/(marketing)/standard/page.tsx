@@ -9,6 +9,7 @@ import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
@@ -141,6 +142,7 @@ export default async function StandardPage() {
 
         {/* ─── HERO ────────────────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
             <span style={{ color: "#F8D011" }}>◆</span> Category-Defining Principles
           </p>

@@ -5,7 +5,7 @@
 
 @keyframes cosmic-pulse {
   0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.03); opacity: 0.92; }
+  50% { transform: scale(1.06); opacity: 0.88; }
 }
 
 @keyframes cosmic-glow {
@@ -66,7 +66,8 @@
   background: radial-gradient(
     ellipse at 50% 30%,
     #2D1450 0%,
-    #1A0A2E 50%,
+    #1A1045 25%,
+    #1A0A2E 55%,
     #0B0212 100%
   );
 }
@@ -414,9 +415,11 @@
 .btn-primary:focus-visible,
 .btn-secondary:focus-visible,
 .btn-watch:focus-visible,
-.btn-ghost:focus-visible {
+.btn-ghost:focus-visible,
+.btn-neon-glow:focus-visible,
+.btn-liquid-fill:focus-visible {
   outline: 3px solid rgba(248, 208, 17, 0.70);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .btn-primary:disabled,

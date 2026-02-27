@@ -57,25 +57,27 @@ function RayCard({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{
-        duration: 0.5,
-        delay: index * 0.12,
-        ease: [0.2, 0.8, 0.2, 1],
+        type: 'spring',
+        stiffness: 80,
+        damping: 20,
+        mass: 0.8,
+        delay: index * 0.1,
       }}
     >
       <div className="flex items-center justify-between gap-3">
         <div className="min-w-0 flex-1">
           <p
             className="text-[10px] font-bold uppercase tracking-widest"
-            style={{ color: hex, opacity: 0.7 }}
+            style={{ color: hex, opacity: 0.8 }}
           >
             {ray.phase}
           </p>
-          <p className="mt-0.5 text-sm font-semibold sm:text-base" style={{ color: hex }}>
+          <p className="mt-0.5 text-base font-semibold" style={{ color: hex }}>
             {ray.name}
           </p>
           {ray.description && (
             <p
-              className="mt-1 text-xs leading-relaxed"
+              className="mt-1 text-xs leading-relaxed sm:text-sm"
               style={{ color: 'var(--text-on-dark-muted)' }}
             >
               {ray.description}
@@ -87,13 +89,13 @@ function RayCard({
         {score !== undefined && (
           <div className="flex flex-col items-center">
             <span
-              className="text-lg font-bold tabular-nums"
-              style={{ color: hex, textShadow: `0 0 16px ${ramp.glow}` }}
+              className="text-xl font-bold tabular-nums"
+              style={{ color: hex, textShadow: `0 0 8px ${ramp.glow}, 0 0 20px ${ramp.glow}33, 0 0 32px ${ramp.glow}15` }}
             >
               {score}
             </span>
             <span
-              className="text-[9px] uppercase tracking-widest"
+              className="text-[10px] uppercase tracking-widest"
               style={{ color: 'var(--text-on-dark-muted)' }}
             >
               score
@@ -152,7 +154,7 @@ export default function RayProgressionStack({
           initial={prefersReduced ? undefined : { opacity: 0, scale: 0.9 }}
           whileInView={prefersReduced ? undefined : { opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
+          transition={{ type: 'spring', stiffness: 60, damping: 18, mass: 0.8 }}
         >
           <div
             className="glass-card relative overflow-hidden p-6 text-center sm:p-8"

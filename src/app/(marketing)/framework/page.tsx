@@ -14,6 +14,7 @@ import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import SectionTOC from "@/components/ui/SectionTOC";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import RaySpectrumBar from "@/components/marketing/RaySpectrumBar";
@@ -165,6 +166,7 @@ export default async function FrameworkPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
+          <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> Not a theory. A training system. · 8 min read
           </p>

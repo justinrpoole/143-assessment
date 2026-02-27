@@ -47,17 +47,17 @@ export function MagicLinkFormClient() {
   if (state === "sent") {
     return (
       <div className="text-center">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ background: 'rgba(248,208,17,0.15)' }}>
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ background: 'rgba(248,208,17,0.15)', boxShadow: '0 0 20px rgba(248, 208, 17, 0.15)' }}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M3 8l9 6 9-6" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             <rect x="3" y="6" width="18" height="12" rx="2" stroke="#F8D011" strokeWidth="1.5" />
           </svg>
         </div>
-        <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+        <p className="score-reveal text-sm font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
           Check your email.
         </p>
         <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-          We sent a secure sign-in link to <strong style={{ color: 'var(--brand-gold, #F8D011)' }}>{email}</strong>.
+          We sent a secure sign-in link to <strong style={{ color: 'var(--brand-gold, #F8D011)', textShadow: '0 0 8px rgba(248, 208, 17, 0.3)' }}>{email}</strong>.
           Click the link in the email to sign in. The link expires in 15 minutes.
         </p>
         <button

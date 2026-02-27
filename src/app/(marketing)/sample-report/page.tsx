@@ -2,8 +2,10 @@ import DimmingDetector from "@/components/assessment/DimmingDetector";
 import SampleReportClient from "@/components/assessment/SampleReportClient";
 import SampleReportCTA from "@/components/billing/SampleReportCTA";
 import CosmicImage from "@/components/marketing/CosmicImage";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
@@ -44,10 +46,12 @@ export default async function SampleReportPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5">
+          <FloatingOrbs variant="mixed" />
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-8">
             <div className="flex-1 space-y-5">
               <p className="gold-tag">

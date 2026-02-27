@@ -82,7 +82,7 @@ export default function RadarMockup({ className }: { className?: string }) {
             cy={CY}
             r={R_MAX * pct}
             fill="none"
-            stroke="rgba(255,255,255,0.06)"
+            stroke="rgba(255,255,255,0.08)"
             strokeWidth="1"
           />
         ))}
@@ -98,7 +98,7 @@ export default function RadarMockup({ className }: { className?: string }) {
                 y1={CY}
                 x2={end.x}
                 y2={end.y}
-                stroke="rgba(255,255,255,0.08)"
+                stroke="rgba(255,255,255,0.10)"
                 strokeWidth="1"
               />
               <text
@@ -106,8 +106,8 @@ export default function RadarMockup({ className }: { className?: string }) {
                 y={labelPos.y}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fill="rgba(255,255,255,0.35)"
-                fontSize="7"
+                fill="rgba(255,255,255,0.45)"
+                fontSize="8"
                 fontFamily="var(--font-body, Inter, sans-serif)"
               >
                 {r.label}
@@ -138,6 +138,7 @@ export default function RadarMockup({ className }: { className?: string }) {
             strokeDasharray: 800,
             strokeDashoffset: visible ? 0 : 800,
             transition: 'stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)',
+            filter: visible ? 'drop-shadow(0 0 6px rgba(248,208,17,0.3))' : 'none',
           }}
         />
 
@@ -147,7 +148,7 @@ export default function RadarMockup({ className }: { className?: string }) {
             key={RAYS[i].label}
             cx={p.x}
             cy={p.y}
-            r={3}
+            r={3.5}
             fill="#F8D011"
             style={{
               opacity: visible ? 1 : 0,
@@ -163,7 +164,7 @@ export default function RadarMockup({ className }: { className?: string }) {
       {/* Caption */}
       <p
         className="mt-3 text-center text-[11px]"
-        style={{ color: 'rgba(255,255,255,0.4)' }}
+        style={{ color: 'rgba(255,255,255,0.5)' }}
       >
         Sample Light Signature — your results will be unique to you
       </p>

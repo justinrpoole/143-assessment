@@ -4,8 +4,10 @@ import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import StaggerChildren from "@/components/marketing/StaggerChildren";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
@@ -52,9 +54,11 @@ export const metadata = {
 export default function ResourcesPage() {
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
         {/* ── Hero ── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> Resources
           </p>

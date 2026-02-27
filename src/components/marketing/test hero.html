@@ -76,10 +76,10 @@
       pointer-events: none;
       will-change: transform, opacity;
       background:
-        radial-gradient(900px 700px at 50% 40%, rgba(147, 64, 255, 0.14), transparent 65%),
-        radial-gradient(1200px 800px at 30% 50%, rgba(147, 64, 255, 0.10), transparent 70%),
-        radial-gradient(1200px 800px at 70% 35%, rgba(168, 85, 255, 0.08), transparent 70%),
-        radial-gradient(600px 500px at 50% 42%, rgba(255, 180, 60, 0.06), transparent 55%);
+        radial-gradient(ellipse 120% 100% at 50% 40%, rgba(147, 64, 255, 0.14), transparent 65%),
+        radial-gradient(ellipse 130% 110% at 30% 50%, rgba(147, 64, 255, 0.10), transparent 70%),
+        radial-gradient(ellipse 130% 110% at 70% 35%, rgba(168, 85, 255, 0.08), transparent 70%),
+        radial-gradient(ellipse 90% 80% at 50% 42%, rgba(255, 180, 60, 0.06), transparent 55%);
       filter: blur(30px);
       mix-blend-mode: screen;
       opacity: 0.85;
@@ -314,7 +314,7 @@
       transform: translateY(16px);
       transform-origin: center center;
       animation: textIn 1000ms 900ms cubic-bezier(.16,1,.3,1) forwards;
-      transition: transform 600ms cubic-bezier(.16,1,.3,1), font-weight 400ms ease;
+      transition: transform 800ms cubic-bezier(.16,1,.3,1), font-weight 300ms ease, letter-spacing 600ms ease;
     }
 
     .row-3 {
@@ -755,23 +755,36 @@
       cosmoCtx.restore();
     }
 
-    /* --- God rays: long radiant beams, not wedges — tapered stroked lines --- */
+    /* --- God rays: BLINDING radiant beams that wash everything white-gold --- */
     function drawGodRays(cx, cy, maxR, intensity, time) {
       if (intensity < 0.05) return;
       cosmoCtx.save();
       cosmoCtx.globalCompositeOperation = 'screen';
 
-      const numRays = 32;
+      /* === BLINDING CENTER FLASH — white-hot wash at burst moment === */
+      const flashI = Math.pow(intensity, 0.6);
+      const flashR = maxR * (0.25 + flashI * 0.45);
+      const flash = cosmoCtx.createRadialGradient(cx, cy, 0, cx, cy, flashR);
+      flash.addColorStop(0, `rgba(255,255,240,${(0.70 * flashI).toFixed(2)})`);
+      flash.addColorStop(0.15, `rgba(255,245,200,${(0.50 * flashI).toFixed(2)})`);
+      flash.addColorStop(0.35, `rgba(255,220,140,${(0.30 * flashI).toFixed(2)})`);
+      flash.addColorStop(0.6, `rgba(255,190,80,${(0.12 * flashI).toFixed(2)})`);
+      flash.addColorStop(1, 'transparent');
+      cosmoCtx.fillStyle = flash;
+      cosmoCtx.fillRect(0, 0, cW, cH);
+
+      /* === RADIANT BEAMS — thick, bright, reaching viewport edges === */
+      const numRays = 48;
       for (let i = 0; i < numRays; i++) {
         const baseAngle = (i / numRays) * Math.PI * 2;
         const angle = baseAngle + Math.sin(time * 0.10 + i * 0.6) * 0.04;
         const n = fbm(i * 0.3, time * 0.07, 2) * 0.5 + 0.5;
         /* Long rays that extend to viewport edges */
-        const len = maxR * (0.5 + n * 0.6) * intensity;
-        /* Beam width: thicker at core, thins to nothing */
-        const beamWidth = maxR * (0.005 + n * 0.012);
+        const len = maxR * (0.6 + n * 0.5) * intensity;
+        /* MUCH thicker beams — wide enough to overlap and wash together */
+        const beamWidth = maxR * (0.012 + n * 0.028);
 
-        const startR = maxR * 0.06;
+        const startR = maxR * 0.03;
         const x1 = cx + Math.cos(angle) * startR;
         const y1 = cy + Math.sin(angle) * startR;
         const x2 = cx + Math.cos(angle) * (startR + len);
@@ -781,10 +794,12 @@
         const [cr, cg, cb] = COSMIC_COLORS[ci];
 
         const grad = cosmoCtx.createLinearGradient(x1, y1, x2, y2);
-        grad.addColorStop(0, `rgba(255,250,210,${(0.25 * intensity).toFixed(2)})`);
-        grad.addColorStop(0.1, `rgba(255,230,150,${(0.18 * intensity).toFixed(2)})`);
-        grad.addColorStop(0.3, `rgba(${cr},${cg},${cb},${(0.12 * intensity).toFixed(2)})`);
-        grad.addColorStop(0.6, `rgba(${cr},${cg},${cb},${(0.04 * intensity).toFixed(2)})`);
+        /* Much higher opacity — these should BLIND */
+        grad.addColorStop(0, `rgba(255,255,230,${(0.60 * intensity).toFixed(2)})`);
+        grad.addColorStop(0.06, `rgba(255,245,190,${(0.45 * intensity).toFixed(2)})`);
+        grad.addColorStop(0.18, `rgba(255,220,130,${(0.30 * intensity).toFixed(2)})`);
+        grad.addColorStop(0.35, `rgba(${cr},${cg},${cb},${(0.18 * intensity).toFixed(2)})`);
+        grad.addColorStop(0.65, `rgba(${cr},${cg},${cb},${(0.06 * intensity).toFixed(2)})`);
         grad.addColorStop(1, 'transparent');
 
         cosmoCtx.strokeStyle = grad;
@@ -856,6 +871,115 @@
       cosmoCtx.restore();
     }
 
+    /* --- Sparkly twinkling stars — scattered across viewport during celebration --- */
+    const SPARKLE_STARS = [];
+    for (let i = 0; i < 120; i++) {
+      SPARKLE_STARS.push({
+        x: Math.random(),             // viewport fraction 0-1
+        y: Math.random(),
+        size: 0.4 + Math.random() * 1.8,
+        twinkleSpeed: 3 + Math.random() * 8,
+        twinklePhase: Math.random() * Math.PI * 2,
+        delay: Math.random() * 0.4,
+        hue: Math.random()            // determines color tint
+      });
+    }
+
+    function drawSparkleStars(intensity, time) {
+      if (intensity < 0.05) return;
+      cosmoCtx.save();
+      cosmoCtx.globalCompositeOperation = 'screen';
+
+      for (const s of SPARKLE_STARS) {
+        const localI = Math.max(0, (intensity - s.delay) / (1 - s.delay));
+        if (localI <= 0) continue;
+
+        const x = s.x * cW;
+        const y = s.y * cH;
+
+        /* Twinkle: fast oscillation between dim and bright */
+        const twinkle = 0.15 + 0.85 * Math.pow(Math.max(0, Math.sin(time * s.twinkleSpeed + s.twinklePhase)), 3);
+        const alpha = localI * twinkle;
+        if (alpha < 0.02) continue;
+
+        /* Color: mostly white, some blue-tinted, some purple-tinted */
+        let r, g, b;
+        if (s.hue < 0.35) {
+          r = 200; g = 210; b = 255; // cool blue-white
+        } else if (s.hue < 0.55) {
+          r = 200; g = 170; b = 255; // purple-white
+        } else if (s.hue < 0.70) {
+          r = 180; g = 220; b = 255; // ice blue
+        } else {
+          r = 255; g = 250; b = 240; // warm white
+        }
+
+        /* 4-point cross sparkle */
+        const sz = s.size * (0.8 + twinkle * 0.6);
+        const armLen = sz * 4;
+
+        cosmoCtx.strokeStyle = `rgba(${r},${g},${b},${(alpha * 0.7).toFixed(3)})`;
+        cosmoCtx.lineWidth = sz * 0.3;
+        cosmoCtx.beginPath();
+        cosmoCtx.moveTo(x - armLen, y); cosmoCtx.lineTo(x + armLen, y);
+        cosmoCtx.moveTo(x, y - armLen); cosmoCtx.lineTo(x, y + armLen);
+        cosmoCtx.stroke();
+
+        /* Bright core dot */
+        cosmoCtx.beginPath();
+        cosmoCtx.arc(x, y, sz * 0.6, 0, Math.PI * 2);
+        cosmoCtx.fillStyle = `rgba(${r},${g},${b},${(alpha * 0.95).toFixed(3)})`;
+        cosmoCtx.fill();
+
+        /* Soft glow halo */
+        cosmoCtx.beginPath();
+        cosmoCtx.arc(x, y, sz * 3.5, 0, Math.PI * 2);
+        cosmoCtx.fillStyle = `rgba(${r},${g},${b},${(alpha * 0.08).toFixed(3)})`;
+        cosmoCtx.fill();
+      }
+
+      cosmoCtx.restore();
+    }
+
+    /* --- Purple & blue nebula clouds — viewport-spanning cosmic atmosphere --- */
+    function drawNebulaGlows(cx, cy, maxR, intensity, time) {
+      if (intensity < 0.05) return;
+      cosmoCtx.save();
+      cosmoCtx.globalCompositeOperation = 'screen';
+
+      /* Several large, soft nebula clouds drifting slowly */
+      const clouds = [
+        { ox: -0.25, oy: -0.15, r: 147, g: 64,  b: 255, size: 0.55, drift: 0.08 },  // deep purple
+        { ox:  0.30, oy:  0.20, r: 60,  g: 120, b: 255, size: 0.50, drift: 0.06 },  // electric blue
+        { ox: -0.15, oy:  0.30, r: 100, g: 60,  b: 220, size: 0.45, drift: 0.10 },  // violet
+        { ox:  0.20, oy: -0.25, r: 80,  g: 150, b: 255, size: 0.40, drift: 0.07 },  // sky blue
+        { ox:  0.00, oy:  0.10, r: 180, g: 50,  b: 220, size: 0.60, drift: 0.05 },  // magenta-purple
+      ];
+
+      for (let i = 0; i < clouds.length; i++) {
+        const c = clouds[i];
+        /* Clouds drift gently with time */
+        const driftX = Math.sin(time * c.drift + i * 1.7) * maxR * 0.08;
+        const driftY = Math.cos(time * c.drift * 0.7 + i * 2.3) * maxR * 0.06;
+        const cloudCx = cx + c.ox * cW + driftX;
+        const cloudCy = cy + c.oy * cH + driftY;
+        const cloudR = maxR * c.size;
+
+        /* Soft nebula gradient — very wide, very subtle */
+        const ng = cosmoCtx.createRadialGradient(cloudCx, cloudCy, 0, cloudCx, cloudCy, cloudR);
+        const coreAlpha = (0.12 * intensity).toFixed(3);
+        const midAlpha = (0.06 * intensity).toFixed(3);
+        ng.addColorStop(0,   `rgba(${c.r},${c.g},${c.b},${coreAlpha})`);
+        ng.addColorStop(0.3, `rgba(${c.r},${c.g},${c.b},${midAlpha})`);
+        ng.addColorStop(0.6, `rgba(${c.r},${c.g},${c.b},${(0.02 * intensity).toFixed(3)})`);
+        ng.addColorStop(1,   'transparent');
+        cosmoCtx.fillStyle = ng;
+        cosmoCtx.fillRect(0, 0, cW, cH);
+      }
+
+      cosmoCtx.restore();
+    }
+
     /* --- Orchestrator: draws all celebration on full-viewport cosmo canvas --- */
     function drawCosmoScene(time, celebI) {
       cosmoCtx.clearRect(0, 0, cW, cH);
@@ -865,9 +989,11 @@
       /* maxR = half the viewport diagonal so effects reach every corner */
       const maxR = Math.sqrt(cW * cW + cH * cH) / 2;
 
+      drawNebulaGlows(cx, cy, maxR, celebI, time);
       drawNebulaBloom(cx, cy, maxR, celebI, time);
       drawGodRays(cx, cy, maxR, celebI, time);
       drawEmbers(cx, cy, maxR, celebI, time);
+      drawSparkleStars(celebI, time);
     }
 
     /* ===== MOON PATH ===== */
@@ -963,7 +1089,7 @@
       sunSvg.style.filter = `brightness(${svgBright.toFixed(3)}) drop-shadow(0 0 ${(15 + svgBright * 15 + celebI * 25).toFixed(0)}px rgba(255,200,70,${(0.40 * svgBright).toFixed(2)})) drop-shadow(0 0 ${(40 + svgBright * 30 + celebI * 50).toFixed(0)}px rgba(255,160,40,${(0.20 * svgBright).toFixed(2)})) drop-shadow(0 0 ${(80 + svgBright * 50 + celebI * 80).toFixed(0)}px rgba(255,120,20,${(0.08 * svgBright).toFixed(2)}))`;
       sunSvg.style.transform = `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`;
 
-      /* ===== SUNNOVA BURST — bold sun explodes in, then fades back ===== */
+      /* ===== SUNNOVA BURST — bold sun explodes in behind blinding flash ===== */
       if (celebI > 0.02) {
         /* Fast burst-in with overshoot, then settle */
         const burstT = Math.min(1, celebI / 0.5);
@@ -972,22 +1098,22 @@
           ? Math.pow(burstT / 0.6, 0.4) * 1.15
           : 1.15 - 0.15 * Math.pow((burstT - 0.6) / 0.4, 0.8);
         const novaScale = elastic;
-        /* Opacity: quick ramp in, then fade out as celebration ends */
-        const novaOpacity = burstT < 0.3
-          ? Math.pow(burstT / 0.3, 0.5)
-          : celebI > 0.7 ? celebI : 1;
-        /* Radiant glow — intense warm light that pulses */
-        const pulse = 1 + Math.sin(t * 4) * 0.08;
-        const glowR = (30 + celebI * 60 * pulse).toFixed(0);
-        const glowR2 = (80 + celebI * 120 * pulse).toFixed(0);
-        const glowR3 = (150 + celebI * 200 * pulse).toFixed(0);
+        /* Opacity: instant ramp in (swap hidden by god ray flash) */
+        const novaOpacity = burstT < 0.15
+          ? Math.pow(burstT / 0.15, 0.3)
+          : celebI > 0.6 ? celebI : 1;
+        /* Radiant glow — VERY intense warm light that pulses */
+        const pulse = 1 + Math.sin(t * 4) * 0.10;
+        const glowR = (50 + celebI * 100 * pulse).toFixed(0);
+        const glowR2 = (120 + celebI * 180 * pulse).toFixed(0);
+        const glowR3 = (220 + celebI * 280 * pulse).toFixed(0);
 
         sunnovaEl.style.opacity = novaOpacity.toFixed(3);
         sunnovaEl.style.transform = `translate(-50%, -50%) scale(${novaScale.toFixed(4)})`;
-        sunnovaEl.style.filter = `brightness(${(1.2 + celebI * 0.5).toFixed(2)}) drop-shadow(0 0 ${glowR}px rgba(255,220,80,${(0.70 * celebI).toFixed(2)})) drop-shadow(0 0 ${glowR2}px rgba(255,180,50,${(0.40 * celebI).toFixed(2)})) drop-shadow(0 0 ${glowR3}px rgba(255,140,20,${(0.18 * celebI).toFixed(2)}))`;
+        sunnovaEl.style.filter = `brightness(${(1.5 + celebI * 0.8).toFixed(2)}) drop-shadow(0 0 ${glowR}px rgba(255,230,100,${(0.85 * celebI).toFixed(2)})) drop-shadow(0 0 ${glowR2}px rgba(255,200,60,${(0.50 * celebI).toFixed(2)})) drop-shadow(0 0 ${glowR3}px rgba(255,160,30,${(0.25 * celebI).toFixed(2)}))`;
 
-        /* Dim the normal sun while sunnova is active */
-        sunSvg.style.opacity = (1 - celebI * 0.7).toFixed(3);
+        /* Kill the normal sun completely during sunnova — flash hides the swap */
+        sunSvg.style.opacity = Math.max(0, 1 - celebI * 4).toFixed(3);
       } else {
         sunnovaEl.style.opacity = '0';
         sunnovaEl.style.transform = 'translate(-50%, -50%) scale(0)';
@@ -1005,13 +1131,14 @@
       /* Vignette fades during celebration — let the nebula bloom BREATHE */
       vigEl.style.opacity = Math.max(0.08, 1 - celebI * 0.92).toFixed(3);
 
-      /* Moon */
+      /* Moon — fades fast when celebration starts (washed out by light) */
       const mp = moonPos(progress);
       const stW = stageEl.clientWidth, stH = stageEl.clientHeight;
       const mSize = MOON_FRAC * stW;
       moonEl.style.left = (mp.x * stW - mSize / 2) + 'px';
       moonEl.style.top = (mp.y * stH - mSize / 2) + 'px';
-      moonEl.style.opacity = mp.o;
+      const moonFade = Math.max(0, mp.o * (1 - celebI * 3));
+      moonEl.style.opacity = moonFade.toFixed(3);
 
       const moonGlow = eclI > 0.1
         ? `drop-shadow(0 0 ${(12 + eclI * 30).toFixed(0)}px rgba(160,100,255,${(0.35 + eclI * 0.45).toFixed(2)})) drop-shadow(0 0 ${(40 + eclI * 120).toFixed(0)}px rgba(130,60,240,${(0.15 + eclI * 0.50).toFixed(2)}))`
@@ -1040,18 +1167,20 @@
           `0 0 ${(sn * 130).toFixed(0)}px rgba(147,64,255,${(sn * 0.14).toFixed(2)})`
         ].join(', ');
 
-        /* Row 2: "Live Just In A Ray Of Light" — ELECTRIC purple, scales up, bold */
-        const r2scale = 1 + sn * 0.5;
-        row2El.style.transform = `scale(${r2scale.toFixed(3)})`;
-        row2El.style.fontWeight = sn > 0.3 ? '700' : '300';
-        row2El.style.letterSpacing = `${(0.22 + sn * 0.08).toFixed(2)}em`;
-        row2El.style.color = `rgba(${Math.round(180 + sn * 75)},${Math.round(100 + sn * 155)},255,1)`;
+        /* Row 2: "Live Just In A Ray Of Light" — HUGE, PURPLE, RADIANT, rises up then floats back */
+        const r2scale = 1 + sn * 2.2;
+        const r2lift = sn * -35;
+        row2El.style.transform = `translateY(${r2lift.toFixed(1)}px) scale(${r2scale.toFixed(3)})`;
+        row2El.style.fontWeight = sn > 0.2 ? '900' : '300';
+        row2El.style.letterSpacing = `${(0.22 - sn * 0.10).toFixed(2)}em`;
+        row2El.style.color = `rgba(${Math.round(147 + sn * 40)},${Math.round(64 + sn * 30)},255,1)`;
         row2El.style.textShadow = [
-          `0 0 ${(10 + sn * 20).toFixed(0)}px rgba(220,180,255,${(0.70 * sn).toFixed(2)})`,
-          `0 0 ${(30 + sn * 50).toFixed(0)}px rgba(180,100,255,${(0.50 + sn * 0.40).toFixed(2)})`,
-          `0 0 ${(60 + sn * 80).toFixed(0)}px rgba(147,64,255,${(0.30 + sn * 0.40).toFixed(2)})`,
-          `0 0 ${(sn * 150).toFixed(0)}px rgba(120,40,255,${(sn * 0.25).toFixed(2)})`,
-          `0 0 ${(sn * 60).toFixed(0)}px rgba(255,255,255,${(sn * 0.20).toFixed(2)})`
+          `0 0 ${(8 + sn * 25).toFixed(0)}px rgba(200,140,255,${(0.80 * sn).toFixed(2)})`,
+          `0 0 ${(25 + sn * 55).toFixed(0)}px rgba(168,85,255,${(0.65 + sn * 0.30).toFixed(2)})`,
+          `0 0 ${(55 + sn * 90).toFixed(0)}px rgba(147,64,255,${(0.40 + sn * 0.45).toFixed(2)})`,
+          `0 0 ${(90 + sn * 130).toFixed(0)}px rgba(120,40,255,${(sn * 0.35).toFixed(2)})`,
+          `0 0 ${(sn * 180).toFixed(0)}px rgba(100,20,220,${(sn * 0.20).toFixed(2)})`,
+          `0 0 ${(sn * 50).toFixed(0)}px rgba(255,255,255,${(sn * 0.25).toFixed(2)})`
         ].join(', ');
       } else {
         row1El.style.color = '';

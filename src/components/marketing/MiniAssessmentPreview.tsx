@@ -146,7 +146,7 @@ export default function MiniAssessmentPreview({
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
           {isLightCheck ? 'Gravitational Stability Check' : 'Try It Now'}
         </p>
-        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+        <h3 className="heading-sub" style={{ color: 'var(--text-on-dark)' }}>
           {isLightCheck
             ? '3 questions. See where your light is strongest.'
             : '3 questions. See how it feels.'}
@@ -161,15 +161,15 @@ export default function MiniAssessmentPreview({
       {/* Questions */}
       <div className="space-y-5">
         {PREVIEW_QUESTIONS.map((q) => (
-          <div key={q.id} className="glass-card p-5 space-y-3" style={{ borderColor: 'rgba(148, 80, 200, 0.2)' }}>
+          <div key={q.id} className="glass-card p-5 sm:p-6 space-y-3" style={{ borderColor: 'rgba(148, 80, 200, 0.2)' }}>
             <div className="flex items-center gap-2">
               <span
-                className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
+                className="text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full"
                 style={{ background: 'rgba(248, 208, 17, 0.12)', color: 'var(--brand-gold)' }}
               >
                 {q.phase}
               </span>
-              <span className="text-[10px] font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
+              <span className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 {q.ray}
               </span>
             </div>
@@ -188,13 +188,14 @@ export default function MiniAssessmentPreview({
       {/* Result panel */}
       {allAnswered && teaser && (
         <div
-          className="glass-card p-6 text-center space-y-4"
+          className="glass-card glass-card--lift p-6 sm:p-8 text-center space-y-4"
           style={{
             borderColor: 'rgba(248, 208, 17, 0.3)',
+            boxShadow: '0 0 24px rgba(248, 208, 17, 0.08)',
             animation: 'welcomeFadeIn 500ms ease-out',
           }}
         >
-          <p className="text-lg font-semibold" style={{ color: 'var(--brand-gold)' }}>
+          <p className="text-lg font-bold" style={{ color: 'var(--brand-gold)', textShadow: '0 0 16px rgba(248,208,17,0.2)' }}>
             {teaser.message}
           </p>
           <p className="text-sm leading-relaxed max-w-lg mx-auto" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -234,7 +235,7 @@ export default function MiniAssessmentPreview({
           </div>
 
           {!isLightCheck && (
-            <p className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
+            <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
               143 questions &middot; ~15 minutes &middot; 9 rays &middot; 36 subfacets
             </p>
           )}

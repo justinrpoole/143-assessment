@@ -118,10 +118,9 @@ export default function WeeklyReviewClient() {
         style={{ borderColor: 'rgba(248, 208, 17, 0.2)', boxShadow: '0 0 30px rgba(96, 5, 141, 0.1)' }}
       >
         <div className="flex items-center justify-between">
-          <p className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <span className="gold-tag text-xs font-bold">
             Week of {new Date(data.week_of + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-          </p>
+          </span>
           <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
             {consistencyPct}% consistency
           </p>
@@ -262,7 +261,7 @@ export default function WeeklyReviewClient() {
 
       {/* Practice summary row */}
       <div className="grid grid-cols-2 gap-3">
-        <div className="glass-card p-4 space-y-1">
+        <div className="glass-card glass-card--interactive p-4 space-y-1">
           <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>Daily Loops</p>
           <p className="text-xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
             {data.daily_loops.count}
@@ -283,11 +282,10 @@ export default function WeeklyReviewClient() {
       </div>
 
       {/* RAS coaching nudge */}
-      <div className="glass-card p-4 space-y-2" style={{ borderColor: 'rgba(96, 5, 141, 0.3)' }}>
-        <p className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}>
+      <div className="glass-card gold-accent-left p-4 space-y-2" style={{ borderColor: 'rgba(96, 5, 141, 0.3)' }}>
+        <span className="gold-tag inline-block text-xs font-bold">
           The pattern
-        </p>
+        </span>
         <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
           {RAS_WEEKLY_NUDGE[engagementKey]}
         </p>

@@ -15,6 +15,7 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -73,6 +74,7 @@ export default async function WatchMePage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="relative mx-auto max-w-[720px] space-y-5">
+          <FloatingOrbs variant="mixed" />
           <div
             className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl"
             aria-hidden="true"

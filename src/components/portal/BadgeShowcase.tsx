@@ -93,7 +93,7 @@ export default function BadgeShowcase({
   return (
     <section className="space-y-3">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+        <h3 className="gold-underline text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
           Badges
         </h3>
         <span className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -105,7 +105,7 @@ export default function BadgeShowcase({
         {badges.map((badge) => (
           <div
             key={badge.id}
-            className="flex items-center gap-2 rounded-lg px-3 py-2 transition-opacity"
+            className={`flex items-center gap-2 rounded-lg px-3 py-2 transition-opacity ${badge.earned ? 'glass-card--interactive' : ''}`}
             style={{
               background: badge.earned ? 'rgba(255, 207, 0, 0.08)' : 'rgba(96, 5, 141, 0.08)',
               border: `1px solid ${badge.earned ? 'rgba(255, 207, 0, 0.15)' : 'rgba(148, 80, 200, 0.12)'}`,

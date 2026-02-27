@@ -92,7 +92,7 @@ export default function DailyLoopVisual() {
                   className="w-px flex-1"
                   style={{
                     background: 'linear-gradient(to bottom, rgba(248,208,17,0.2), rgba(248,208,17,0.05))',
-                    minHeight: 12,
+                    minHeight: 'clamp(8px, 2vw, 24px)',
                   }}
                 />
               )}
@@ -109,7 +109,7 @@ export default function DailyLoopVisual() {
                 </p>
                 <div className="flex items-center gap-2">
                   <span
-                    className="rounded-full px-2 py-0.5 text-[10px] font-bold"
+                    className="rounded-full px-2.5 py-0.5 text-xs font-bold"
                     style={{
                       background: 'rgba(248,208,17,0.08)',
                       color: '#F8D011',
@@ -118,8 +118,8 @@ export default function DailyLoopVisual() {
                     {step.duration}
                   </span>
                   <span
-                    className="text-[10px]"
-                    style={{ color: 'rgba(255,255,255,0.3)' }}
+                    className="text-xs"
+                    style={{ color: 'rgba(255,255,255,0.5)' }}
                   >
                     {step.time}
                   </span>
@@ -138,9 +138,9 @@ export default function DailyLoopVisual() {
 
       {/* Competitor time comparison */}
       <div
-        className="glass-card rounded-xl p-5 sm:p-6"
+        className="glass-card glass-card--lift rounded-xl p-5 sm:p-6"
         style={{
-          border: '1px solid rgba(248,208,17,0.15)',
+          border: '1px solid rgba(248,208,17,0.2)',
         }}
       >
         <p
@@ -165,7 +165,7 @@ export default function DailyLoopVisual() {
                 style={{
                   color: c.name === 'The 143 Loop'
                     ? 'var(--text-on-dark-secondary)'
-                    : 'rgba(255,255,255,0.3)',
+                    : 'rgba(255,255,255,0.45)',
                 }}
               >
                 {c.name}: {c.note}

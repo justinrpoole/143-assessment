@@ -75,22 +75,21 @@ export default function CompetitorComparison() {
           How They See You
         </p>
         <h3
-          className="text-xl font-bold sm:text-2xl"
+          className="heading-sub"
           style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
         >
           Not a label. A live measurement.
         </h3>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {HOW_THEY_SEE_YOU.map((item) => (
             <div
               key={item.name}
-              className={`glass-card p-4 ${item.name === '143 Leadership' ? 'glass-card--executive' : ''}`}
-              style={item.name === '143 Leadership' ? { border: '1.5px solid #F8D011' } : undefined}
+              className={`glass-card p-4 sm:p-5 ${item.name === '143 Leadership' ? 'glass-card--featured' : ''}`}
             >
               <p
-                className="text-[10px] font-bold uppercase tracking-widest"
+                className="text-xs font-bold uppercase tracking-widest"
                 style={{
-                  color: item.name === '143 Leadership' ? '#F8D011' : 'rgba(255,255,255,0.4)',
+                  color: item.name === '143 Leadership' ? '#F8D011' : 'rgba(255,255,255,0.6)',
                 }}
               >
                 {item.name}
@@ -124,9 +123,9 @@ export default function CompetitorComparison() {
               {COMPETITORS.map((c) => (
                 <th
                   key={c.name}
-                  className="px-3 py-3 text-center text-[10px] font-bold uppercase tracking-widest"
+                  className="px-3 py-3 text-center text-xs font-bold uppercase tracking-widest"
                   style={{
-                    color: c.highlight ? '#F8D011' : 'rgba(255,255,255,0.4)',
+                    color: c.highlight ? '#F8D011' : 'rgba(255,255,255,0.5)',
                   }}
                 >
                   {c.name === '143 Leadership' ? '143' : c.name}
@@ -138,6 +137,7 @@ export default function CompetitorComparison() {
             {DIMENSIONS.map((dim, i) => (
               <tr
                 key={dim.label}
+                className="transition-colors duration-200 hover:bg-white/[0.04]"
                 style={{
                   borderBottom:
                     i < DIMENSIONS.length - 1
@@ -154,7 +154,7 @@ export default function CompetitorComparison() {
                 {dim.values.map((val, j) => (
                   <td key={j} className="px-3 py-3 text-center">
                     {val ? (
-                      <span style={{ color: '#F8D011' }}>&#x25C6;</span>
+                      <span style={{ color: '#F8D011', textShadow: '0 0 8px rgba(248,208,17,0.3)' }}>&#x25C6;</span>
                     ) : (
                       <span style={{ color: 'rgba(255,255,255,0.15)' }}>&#x2014;</span>
                     )}

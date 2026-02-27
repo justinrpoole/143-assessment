@@ -112,14 +112,15 @@ export default function EclipseCalendarHeatmap() {
   if (days.length < 7) return null; // Need at least a week of data
 
   return (
-    <div className="glass-card p-5 space-y-3">
+    <div className="glass-card p-5 space-y-3" style={{ borderTop: '2px solid var(--brand-gold, #F8D011)' }}>
       <div className="flex items-center justify-between">
         <div>
           <h3
             className="text-sm font-semibold"
             style={{ color: 'var(--text-on-dark)' }}
           >
-            Eclipse Calendar
+            <span className="gold-tag inline-block text-xs mr-2">Eclipse</span>
+            Calendar
           </h3>
           <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
             Last 4 weeks — {activeDays} active day{activeDays !== 1 ? 's' : ''}

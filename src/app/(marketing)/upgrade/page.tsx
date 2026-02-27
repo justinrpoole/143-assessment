@@ -13,6 +13,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
@@ -124,6 +125,7 @@ export default async function UpgradePage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="grid gap-8 md:grid-cols-[1fr,240px] items-center">
+          <FloatingOrbs variant="mixed" />
           <div className="space-y-5">
             <p
               className="text-xs font-bold uppercase tracking-widest"

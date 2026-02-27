@@ -36,8 +36,8 @@ export default function EmailCaptureBanner() {
   if (status === 'success') {
     return (
       <div
-        className="glass-card mx-auto mt-6 max-w-[480px] p-5 text-center"
-        style={{ borderColor: 'rgba(74, 222, 128, 0.3)' }}
+        className="glass-card mx-auto mt-6 max-w-[480px] p-5 sm:p-6 text-center"
+        style={{ borderColor: 'rgba(74, 222, 128, 0.3)', boxShadow: '0 0 20px rgba(74, 222, 128, 0.08)' }}
       >
         <p className="text-sm font-semibold" style={{ color: '#4ADE80' }}>
           &#x2713; You&rsquo;re in.
@@ -50,8 +50,8 @@ export default function EmailCaptureBanner() {
   }
 
   return (
-    <div className="glass-card mx-auto mt-6 max-w-[480px] p-5 text-center">
-      <p className="text-sm font-medium" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+    <div className="glass-card mx-auto mt-6 max-w-[480px] p-5 sm:p-6 text-center">
+      <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
         Not ready yet? Get your free assessment link by email.
       </p>
       <form onSubmit={handleSubmit} className="mt-3 flex gap-2">
@@ -61,7 +61,7 @@ export default function EmailCaptureBanner() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@email.com"
           required
-          className="flex-1 rounded-lg border bg-transparent px-3 py-2 text-sm outline-none transition-colors focus:border-[#F8D011]"
+          className="flex-1 rounded-lg border bg-transparent px-3 py-2.5 text-sm outline-none transition-all focus:border-[#F8D011] focus:ring-2 focus:ring-[rgba(248,208,17,0.15)]"
           style={{
             borderColor: 'rgba(148, 80, 200, 0.3)',
             color: 'var(--text-on-dark, #FFFEF5)',
@@ -80,7 +80,7 @@ export default function EmailCaptureBanner() {
           Something went wrong. Try again.
         </p>
       )}
-      <p className="mt-2 text-[11px]" style={{ color: 'rgba(255,255,255,0.35)' }}>
+      <p className="mt-2 text-[11px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
         No spam. One email. Unsubscribe anytime.
       </p>
     </div>

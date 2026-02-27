@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { MagicLinkFormClient } from "@/components/auth/MagicLinkFormClient";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import { rayHex } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
@@ -43,13 +44,14 @@ export default async function LoginPage({ searchParams }: PageProps) {
 
   return (
     <main className="cosmic-page-bg">
-      <div className="mx-auto flex min-h-[70vh] max-w-[440px] flex-col items-center justify-center px-5 py-16 sm:px-8 sm:py-24">
-        <div className="glass-card w-full p-6 sm:p-8">
-          <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R9') }}>
+      <div className="relative mx-auto flex min-h-[70vh] max-w-[440px] flex-col items-center justify-center px-5 py-16 sm:px-8 sm:py-24">
+        <FloatingOrbs variant="gold" />
+        <div className="relative gold-dot-grid glass-card w-full p-6 sm:p-8">
+          <div className="relative text-center">
+            <p className="gold-tag inline-block text-xs font-bold" style={{ color: rayHex('R9') }}>
               {isSaveMap ? "Save Your Map" : "Sign In"}
             </p>
-            <h1 className="mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+            <h1 className="text-shimmer mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
               {isSaveMap ? "Your Light Signature Map is ready." : "Welcome back."}
             </h1>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>

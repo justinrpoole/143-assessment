@@ -14,6 +14,7 @@ import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoldTooltip from "@/components/ui/GoldTooltip";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import DailyLoopVisual from "@/components/marketing/DailyLoopVisual";
 import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
@@ -112,6 +113,7 @@ export default async function HowItWorksPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> Four stages. One operating system upgrade.
           </p>
