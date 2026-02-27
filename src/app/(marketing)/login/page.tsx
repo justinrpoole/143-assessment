@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { MagicLinkFormClient } from "@/components/auth/MagicLinkFormClient";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import { rayHex } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -44,7 +46,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
       <div className="mx-auto flex min-h-[70vh] max-w-[440px] flex-col items-center justify-center px-5 py-16 sm:px-8 sm:py-24">
         <div className="glass-card w-full p-6 sm:p-8">
           <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R9') }}>
               {isSaveMap ? "Save Your Map" : "Sign In"}
             </p>
             <h1 className="mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
@@ -55,6 +57,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
                 ? "Enter your email to save your map and unlock your full results. We will send a secure link — no password needed."
                 : "Enter your email and we will send you a secure sign-in link. No password needed."}
             </p>
+            <RaySpectrumStrip className="mt-6" />
           </div>
 
           <div className="mt-6">

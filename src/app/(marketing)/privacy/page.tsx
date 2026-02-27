@@ -86,7 +86,7 @@ export default async function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
               4. Data Storage and Security
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -95,7 +95,7 @@ export default async function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R5') }}>
               5. Data Sharing
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -104,7 +104,7 @@ export default async function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R6') }}>
               6. Your Rights
             </h2>
             <ul className="mt-3 space-y-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -116,7 +116,7 @@ export default async function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R7') }}>
               7. Cookies
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -125,7 +125,7 @@ export default async function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R8') }}>
               8. Changes to This Policy
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -134,7 +134,7 @@ export default async function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R9') }}>
               9. Contact
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>

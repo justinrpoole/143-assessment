@@ -5,8 +5,10 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
@@ -176,9 +178,10 @@ export default async function CohortsPage() {
               Show Me How It Works
             </LiquidFillButton>
           </div>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         {/* ─── SECTION 2 · BENEFITS ──────────────────────────────── */}
         <FadeInSection>
@@ -187,7 +190,7 @@ export default async function CohortsPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R7') }}
               >
                 Why Cohorts Work
               </p>
@@ -200,29 +203,38 @@ export default async function CohortsPage() {
             </div>
 
             <StaggerContainer className="grid gap-5 sm:grid-cols-2">
-              {COHORT_BENEFITS.map((benefit) => (
-                <StaggerItem key={benefit.title}>
-                  <div className="glass-card glass-card--magnetic p-6 h-full space-y-2">
-                    <h3
-                      className="text-sm font-semibold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              {COHORT_BENEFITS.map((benefit, i) => {
+                const color = rayHex(cycleRay(i));
+                return (
+                  <StaggerItem key={benefit.title}>
+                    <div
+                      className="glass-card glass-card--magnetic p-6 h-full space-y-2"
+                      style={{
+                        borderLeft: `3px solid ${color}40`,
+                        background: `${color}04`,
+                      }}
                     >
-                      {benefit.title}
-                    </h3>
-                    <p
-                      className="text-sm leading-relaxed"
-                      style={{ color: "var(--text-on-dark-secondary)" }}
-                    >
-                      {benefit.description}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
+                      <h3
+                        className="text-sm font-semibold"
+                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      >
+                        {benefit.title}
+                      </h3>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{ color: "var(--text-on-dark-secondary)" }}
+                      >
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </StaggerItem>
+                );
+              })}
             </StaggerContainer>
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R4" />
 
         {/* ─── SECTION 3 · COHORT TIERS ──────────────────────────── */}
         <FadeInSection>
@@ -230,7 +242,7 @@ export default async function CohortsPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R4') }}
               >
                 Cohort Options
               </p>
@@ -243,72 +255,81 @@ export default async function CohortsPage() {
             </div>
 
             <StaggerContainer className="grid gap-5 sm:grid-cols-3">
-              {COHORT_TIERS.map((tier) => (
-                <StaggerItem key={tier.label}>
-                  <div className="glass-card glass-card--magnetic glass-card--lift p-6 h-full space-y-3">
-                    <p
-                      className="text-xs font-bold uppercase tracking-widest"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+              {COHORT_TIERS.map((tier, i) => {
+                const color = rayHex(cycleRay(i));
+                return (
+                  <StaggerItem key={tier.label}>
+                    <div
+                      className="glass-card glass-card--magnetic glass-card--lift p-6 h-full space-y-3"
+                      style={{
+                        borderLeft: `3px solid ${color}40`,
+                        background: `${color}04`,
+                      }}
                     >
-                      {tier.label}
-                    </p>
-                    <p
-                      className="text-lg font-bold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)", fontFamily: "var(--font-cosmic-display)" }}
-                    >
-                      {tier.size}
-                    </p>
-                    <p
-                      className="text-xs"
-                      style={{ color: "var(--text-on-dark-muted)" }}
-                    >
-                      {tier.duration}
-                    </p>
-                    <p
-                      className="text-sm leading-relaxed"
-                      style={{ color: "var(--text-on-dark-secondary)" }}
-                    >
-                      {tier.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {tier.includes.map((item, idx) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-2 text-xs leading-relaxed check-animated"
-                          style={{ color: "var(--text-on-dark-secondary)", animationDelay: `${idx * 0.1}s` }}
-                        >
-                          <svg
-                            className="mt-0.5 h-3 w-3 shrink-0"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            style={{ color: "var(--brand-gold, #F8D011)" }}
+                      <p
+                        className="text-xs font-bold uppercase tracking-widest"
+                        style={{ color }}
+                      >
+                        {tier.label}
+                      </p>
+                      <p
+                        className="text-lg font-bold"
+                        style={{ color: "var(--text-on-dark, #FFFEF5)", fontFamily: "var(--font-cosmic-display)" }}
+                      >
+                        {tier.size}
+                      </p>
+                      <p
+                        className="text-xs"
+                        style={{ color: "var(--text-on-dark-muted)" }}
+                      >
+                        {tier.duration}
+                      </p>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{ color: "var(--text-on-dark-secondary)" }}
+                      >
+                        {tier.description}
+                      </p>
+                      <ul className="space-y-2">
+                        {tier.includes.map((item, idx) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-2 text-xs leading-relaxed check-animated"
+                            style={{ color: "var(--text-on-dark-secondary)", animationDelay: `${idx * 0.1}s` }}
                           >
-                            <path
-                              d="M3 8l3.5 3.5L13 5"
-                              stroke="currentColor"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                    <p
-                      className="text-xs italic"
-                      style={{ color: "var(--text-on-dark-muted)" }}
-                    >
-                      Ideal for: {tier.ideal}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
+                            <svg
+                              className="mt-0.5 h-3 w-3 shrink-0"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              style={{ color }}
+                            >
+                              <path
+                                d="M3 8l3.5 3.5L13 5"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                      <p
+                        className="text-xs italic"
+                        style={{ color: "var(--text-on-dark-muted)" }}
+                      >
+                        Ideal for: {tier.ideal}
+                      </p>
+                    </div>
+                  </StaggerItem>
+                );
+              })}
             </StaggerContainer>
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         <GoldHeroBanner
           kicker="Shared Language. Individual Paths."
@@ -316,7 +337,7 @@ export default async function CohortsPage() {
           description="Every participant gets their own assessment, their own Rise Path, and the shared language to support each other after the programme ends."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── SECTION 4 · HOW IT WORKS ──────────────────────────── */}
         <FadeInSection>
@@ -324,7 +345,7 @@ export default async function CohortsPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R8') }}
               >
                 Process
               </p>
@@ -337,37 +358,46 @@ export default async function CohortsPage() {
             </div>
 
             <StaggerContainer className="space-y-4">
-              {HOW_IT_WORKS_STEPS.map((step) => (
-                <StaggerItem key={step.num}>
-                  <div className="glass-card flex gap-5 p-6">
-                    <span
-                      className="shrink-0 text-2xl font-bold"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+              {HOW_IT_WORKS_STEPS.map((step, i) => {
+                const color = rayHex(cycleRay(i));
+                return (
+                  <StaggerItem key={step.num}>
+                    <div
+                      className="glass-card glass-card--magnetic flex gap-5 p-6"
+                      style={{
+                        borderLeft: `3px solid ${color}40`,
+                        background: `${color}04`,
+                      }}
                     >
-                      {step.num}
-                    </span>
-                    <div>
-                      <h3
-                        className="text-sm font-semibold"
-                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      <span
+                        className="shrink-0 text-2xl font-bold"
+                        style={{ color }}
                       >
-                        {step.title}
-                      </h3>
-                      <p
-                        className="mt-1 text-sm leading-relaxed"
-                        style={{ color: "var(--text-on-dark-secondary)" }}
-                      >
-                        {step.description}
-                      </p>
+                        {step.num}
+                      </span>
+                      <div>
+                        <h3
+                          className="text-sm font-semibold"
+                          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                        >
+                          {step.title}
+                        </h3>
+                        <p
+                          className="mt-1 text-sm leading-relaxed"
+                          style={{ color: "var(--text-on-dark-secondary)" }}
+                        >
+                          {step.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </StaggerItem>
-              ))}
+                  </StaggerItem>
+                );
+              })}
             </StaggerContainer>
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R4" />
 
         {/* ─── SECTION 5 · CTA ────────────────────────────────── */}
         <FadeInSection>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { rayHex } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -26,7 +27,7 @@ export default async function TermsPage() {
       <article className="mx-auto max-w-[720px] px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
         {/* ── Header ── */}
         <header className="mb-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R6') }}>
             Legal
           </p>
           <h1 className="mt-4 text-3xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
@@ -40,7 +41,7 @@ export default async function TermsPage() {
         {/* ── Content ── */}
         <div className="glass-card space-y-8 p-6 sm:p-8">
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R1') }}>
               1. Agreement to Terms
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -49,7 +50,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R2') }}>
               2. Description of Service
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -58,7 +59,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
               3. Account Registration
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -67,7 +68,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
               4. Payments and Subscriptions
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -76,7 +77,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R5') }}>
               5. Cancellation and Refunds
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -85,7 +86,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R6') }}>
               6. Intellectual Property
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -94,7 +95,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R7') }}>
               7. Educational Purpose Disclaimer
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -103,7 +104,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R8') }}>
               8. Limitation of Liability
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -112,7 +113,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R9') }}>
               9. Acceptable Use
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -121,7 +122,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R1') }}>
               10. Termination
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -130,7 +131,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R2') }}>
               11. Governing Law
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
@@ -139,7 +140,7 @@ export default async function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
               12. Contact
             </h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>

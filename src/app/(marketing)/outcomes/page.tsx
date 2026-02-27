@@ -73,7 +73,7 @@ export default async function OutcomesPage() {
           </p>
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 2 · WHAT THE REPS PRODUCE ───────────────── */}
         <FadeInSection>
@@ -129,7 +129,7 @@ export default async function OutcomesPage() {
           </RadialSpotlight>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         <GoldHeroBanner
           kicker="Not Promises. Patterns."
@@ -137,7 +137,7 @@ export default async function OutcomesPage() {
           description="The RAS filter resets. The stress response shortens. Identity updates through evidence, not affirmation."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 3 · HOW IT HAPPENS ──────────────────────── */}
         <FadeInSection>
@@ -193,7 +193,7 @@ export default async function OutcomesPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 3b · TESTIMONIALS ────────────────────────── */}
         <FadeInSection>
@@ -237,7 +237,7 @@ export default async function OutcomesPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 4 · CTA ─────────────────────────────────── */}
         <FadeInSection>

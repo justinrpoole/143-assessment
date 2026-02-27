@@ -84,7 +84,7 @@ export default function JournalBrowser() {
   return (
     <section className="space-y-3">
       <div className="flex items-center justify-between px-1">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
           Reflection Journal
         </p>
         <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>

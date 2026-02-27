@@ -13,7 +13,9 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -125,7 +127,7 @@ export default async function UpgradePage() {
           <div className="space-y-5">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: rayHex('R9') }}
             >
               You Already Felt the Shift
             </p>
@@ -156,6 +158,7 @@ export default async function UpgradePage() {
                 Check My Stability Free
               </LiquidFillButton>
             </div>
+            <RaySpectrumStrip className="mt-6" />
           </div>
           <div className="hidden md:block" aria-hidden="true">
             <HeroEclipseVisual className="scale-75 origin-center" />
@@ -167,7 +170,7 @@ export default async function UpgradePage() {
           <DimmingCarryForwardCard />
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ─── SECTION 3 · WHAT YOU GET ────────────────────────── */}
         <FadeInSection>
@@ -175,7 +178,7 @@ export default async function UpgradePage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R8') }}
               >
                 What the Assessment Reveals
               </p>
@@ -188,12 +191,12 @@ export default async function UpgradePage() {
             </div>
 
             <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {DELIVERABLES.map((item) => (
+              {DELIVERABLES.map((item, i) => (
                 <StaggerItem key={item.title}>
-                  <div className="glass-card p-5 space-y-2 h-full">
+                  <div className="glass-card glass-card--magnetic p-5 space-y-2 h-full" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
                     <p
                       className="text-sm font-semibold"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                      style={{ color: rayHex(cycleRay(i)) }}
                     >
                       {item.title}
                     </p>
@@ -230,7 +233,7 @@ export default async function UpgradePage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R5" />
 
         {/* ─── SECTION 4 · HOW THIS IS DIFFERENT ───────────────── */}
         <FadeInSection>
@@ -238,7 +241,7 @@ export default async function UpgradePage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R6') }}
               >
                 How This Is Different
               </p>
@@ -251,12 +254,12 @@ export default async function UpgradePage() {
             </div>
 
             <StaggerContainer className="grid gap-5 sm:grid-cols-3">
-              {DIFFERENTIATORS.map((item) => (
+              {DIFFERENTIATORS.map((item, i) => (
                 <StaggerItem key={item.heading}>
-                  <div className="glass-card p-5 space-y-2 h-full">
+                  <div className="glass-card glass-card--magnetic p-5 space-y-2 h-full" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
                     <p
                       className="text-sm font-semibold"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                      style={{ color: rayHex(cycleRay(i)) }}
                     >
                       {item.heading}
                     </p>
@@ -282,7 +285,7 @@ export default async function UpgradePage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         {/* ─── SECTION 5 · TESTIMONIALS ────────────────────────── */}
         <FadeInSection>
@@ -290,19 +293,19 @@ export default async function UpgradePage() {
             <div className="text-center">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R7') }}
               >
                 What Leaders Discovered
               </p>
             </div>
 
             <StaggerContainer className="space-y-4 mx-auto max-w-[640px]">
-              {TESTIMONIALS.map((t) => (
+              {TESTIMONIALS.map((t, i) => (
                 <StaggerItem key={t.attribution}>
                   <blockquote
-                    className="glass-card p-5"
+                    className="glass-card glass-card--magnetic p-5"
                     style={{
-                      borderLeft: "3px solid var(--brand-gold, #F8D011)",
+                      borderLeft: `3px solid ${rayHex(cycleRay(i))}`,
                     }}
                   >
                     <p
@@ -330,7 +333,7 @@ export default async function UpgradePage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R2" />
 
         {/* ─── SECTION 6 · PLANS + CHECKOUT ────────────────────── */}
         <FadeInSection>
@@ -338,7 +341,7 @@ export default async function UpgradePage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R2') }}
               >
                 Pick Your Path
               </p>
@@ -380,7 +383,7 @@ export default async function UpgradePage() {
                 </span>
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex('R9') }}
                 >
                   Gravitational Stability Report
                 </p>
@@ -414,7 +417,7 @@ export default async function UpgradePage() {
               <div className="glass-card flex flex-col p-6">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex('R8') }}
                 >
                   Portal Membership
                 </p>
@@ -450,7 +453,7 @@ export default async function UpgradePage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── SECTION 7 · FEEDBACK + EXIT ─────────────────────── */}
         <section className="space-y-4">

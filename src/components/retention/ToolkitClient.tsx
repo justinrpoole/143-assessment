@@ -326,7 +326,7 @@ export default function ToolkitClient() {
                         {/* Why it works */}
                         <div className="space-y-1">
                           <p className="text-xs font-bold uppercase tracking-widest"
-                            style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                            style={{ color: rayHex('R5') }}>
                             Why it works
                           </p>
                           <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -350,7 +350,7 @@ export default function ToolkitClient() {
                         {/* Protocol */}
                         <div className="space-y-1">
                           <p className="text-xs font-bold uppercase tracking-widest"
-                            style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                            style={{ color: rayHex('R5') }}>
                             The protocol
                           </p>
                           <ol className="space-y-1">

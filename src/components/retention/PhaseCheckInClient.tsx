@@ -162,7 +162,7 @@ export default function PhaseCheckInClient() {
 
         <div className="glass-card p-3" style={{ borderColor: 'rgba(96, 5, 141, 0.2)' }}>
           <p className="text-xs font-bold uppercase tracking-widest mb-1"
-            style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            style={{ color: rayHex('R3') }}>
             Your rep focus
           </p>
           <p className="text-sm" style={{ color: 'var(--text-on-dark)' }}>

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { FadeInSection } from '@/components/ui/FadeInSection';
-import GoldDividerAnimated from '@/components/ui/GoldDividerAnimated';
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from '@/components/ui/GoldHeroBanner';
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
@@ -83,9 +85,10 @@ export default async function CoachingPage() {
         <div className="mx-auto max-w-[540px]">
           <ScrollTextReveal text="I see you reading the report, nodding, and then putting it in a drawer. Not because it was wrong. Because knowing is not the same as doing. This program closes that gap." />
         </div>
+        <RaySpectrumStrip className="mt-6" />
       </section>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R5" />
 
       {/* Leading the Witness */}
       <FadeInSection>
@@ -105,7 +108,7 @@ export default async function CoachingPage() {
       <FadeInSection>
         <section id="archetype-teaser" className="mx-auto max-w-[720px]">
           <div className="glass-card glass-card--lift p-6 sm:p-8">
-            <h2 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
               The program adapts to how you lead
             </h2>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -118,14 +121,14 @@ export default async function CoachingPage() {
         </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R3" />
 
       {/* Four Phases */}
       <FadeInSection>
         <section id="four-phases" className="relative mx-auto max-w-[720px] space-y-8">
           <FloatingOrbs />
           <div className="space-y-2 text-center">
-            <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>The Structure</p>
+            <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R5') }}>The Structure</p>
             <h2 className="text-3xl font-bold gold-underline" style={{ color: 'var(--text-on-dark)' }}>Four phases. One protocol.</h2>
             <p className="text-sm max-w-lg mx-auto leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
               Each phase builds on the one before it. Each week has a specific focus, a matched tool, and a daily practice — all personalised to your <span className="gold-highlight">assessment results</span>.
@@ -133,20 +136,30 @@ export default async function CoachingPage() {
           </div>
 
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {PHASES.map((phase) => (
-              <div key={phase.num} className="glass-card glass-card--magnetic glass-card--lift p-6 space-y-3">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-2xl font-bold" style={{ color: 'var(--brand-gold)' }}>{phase.num}</span>
-                  <div>
-                    <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>{phase.title}</p>
-                    <p className="text-[11px] mt-0.5" style={{ color: 'var(--text-on-dark-muted)' }}>{phase.weeks}</p>
+            {PHASES.map((phase, i) => {
+              const color = rayHex(cycleRay(i));
+              return (
+                <div
+                  key={phase.num}
+                  className="glass-card glass-card--magnetic glass-card--lift p-6 space-y-3"
+                  style={{
+                    borderLeft: `3px solid ${color}40`,
+                    background: `${color}04`,
+                  }}
+                >
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-2xl font-bold" style={{ color }}>{phase.num}</span>
+                    <div>
+                      <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>{phase.title}</p>
+                      <p className="text-[11px] mt-0.5" style={{ color: 'var(--text-on-dark-muted)' }}>{phase.weeks}</p>
+                    </div>
                   </div>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+                    {phase.description}
+                  </p>
                 </div>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                  {phase.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </StaggerChildren>
         </section>
       </FadeInSection>
@@ -157,14 +170,14 @@ export default async function CoachingPage() {
         description="You retake the assessment at the end and compare. No guessing whether it worked."
       />
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R7" />
 
       {/* What makes this different */}
       <FadeInSection>
         <section id="different" className="relative mx-auto max-w-[720px] watermark-143">
           <div className="glass-card p-6 sm:p-8 space-y-6">
             <div className="space-y-2">
-              <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>Not another course</p>
+              <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R7') }}>Not another course</p>
               <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>What makes this different</h2>
             </div>
             <div className="space-y-4">
@@ -185,14 +198,14 @@ export default async function CoachingPage() {
         </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R3" />
 
       {/* What you need */}
       <FadeInSection>
         <section id="what-you-need" className="mx-auto max-w-[720px]">
           <div className="glass-card p-8 space-y-6">
             <div className="space-y-2">
-              <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--brand-gold)' }}>Before you start</p>
+              <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R3') }}>Before you start</p>
               <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>What you need</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -219,14 +232,14 @@ export default async function CoachingPage() {
         </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R5" />
 
       {/* Testimonials */}
       <FadeInSection>
         <section id="testimonials" className="relative mx-auto max-w-[720px] space-y-6 text-center section-blend-bottom">
           <p
             className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--brand-gold, #F8D011)" }}
+            style={{ color: rayHex('R7') }}
           >
             From leaders who walked the program
           </p>
@@ -263,7 +276,7 @@ export default async function CoachingPage() {
         </section>
       </FadeInSection>
 
-      <GoldDividerAnimated />
+      <RayDivider ray="R7" />
 
       {/* Pricing + CTA */}
       <FadeInSection>
