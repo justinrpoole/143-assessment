@@ -85,12 +85,13 @@
       opacity: 0.85;
     }
 
-    /* Full-viewport canvas for celebration cosmic effects */
+    /* Full-viewport canvas for celebration cosmic effects — oversized to hide gradient edges */
     canvas.cosmo-canvas {
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
       z-index: 6;
       pointer-events: none;
       will-change: transform;
@@ -386,16 +387,16 @@
     'use strict';
 
     /* ============================================================
-       CONFIG — the five acts
+       CONFIG — the six acts (12-second cycle)
        ============================================================
-       Act 1  RADIANCE     0.00 → 0.34   Sun shines, warm and full
-       Act 2  APPROACH     0.34 → 0.44   Moon enters, tension
-       Act 3  ECLIPSE      0.44 → 0.56   Total darkness, corona
-       Act 4  EMERGENCE    0.56 → 0.66   Diamond ring, light returns
-       Act 5  CELEBRATION  0.66 → 0.88   Nebula bloom, you are MORE
-       Act 6  PEACE        0.88 → 1.00   Settle, ready again
+       Act 1  RADIANCE     0.00 → 0.28   Sun shines, warm and full
+       Act 2  APPROACH     0.28 → 0.40   Moon enters, tension builds
+       Act 3  ECLIPSE      0.40 → 0.54   Total darkness, corona
+       Act 4  EMERGENCE    0.54 → 0.64   Diamond ring, light returns
+       Act 5  CELEBRATION  0.64 → 0.86   Nebula bloom, you are MORE
+       Act 6  PEACE        0.86 → 1.00   Settle, ready again
        ============================================================ */
-    const ECLIPSE_DUR = 18;
+    const ECLIPSE_DUR = 12;
     const SUN_FRAC = 0.72;
     const MOON_FRAC = 0.38;
 
@@ -645,7 +646,7 @@
 
     /* ===== DIAMOND RING ===== */
     function drawDiamondRing(cx, cy, R, progress) {
-      const c1 = 0.44, c2 = 0.56, w = 0.025;
+      const c1 = 0.42, c2 = 0.56, w = 0.025;
       let I = 0;
       if (Math.abs(progress - c1) < w) I = 1 - Math.abs(progress - c1) / w;
       else if (Math.abs(progress - c2) < w) I = 1 - Math.abs(progress - c2) / w;
@@ -1010,17 +1011,17 @@
     }
 
     function eclipseIntensity(p) {
-      if (p < 0.36 || p > 0.64) return 0;
-      return p <= 0.5
-        ? Math.pow((p - 0.36) / 0.14, 1.8)
-        : Math.pow((0.64 - p) / 0.14, 1.8);
+      if (p < 0.38 || p > 0.60) return 0;
+      return p <= 0.49
+        ? Math.pow((p - 0.38) / 0.11, 1.6)
+        : Math.pow((0.60 - p) / 0.11, 1.6);
     }
 
     function celebrationIntensity(p) {
-      if (p < 0.66 || p > 0.88) return 0;
-      if (p <= 0.73) return Math.pow((p - 0.66) / 0.07, 1.6);
-      if (p <= 0.78) return 1;
-      return Math.pow((0.88 - p) / 0.10, 1.3);
+      if (p < 0.62 || p > 0.86) return 0;
+      if (p <= 0.68) return Math.pow((p - 0.62) / 0.06, 1.3);
+      if (p <= 0.76) return 1;
+      return Math.pow((0.86 - p) / 0.10, 1.2);
     }
 
     /* ===== MOUSE PARALLAX ===== */
