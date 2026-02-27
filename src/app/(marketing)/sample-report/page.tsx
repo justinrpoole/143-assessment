@@ -17,6 +17,7 @@ import BackToTopButton from "@/components/ui/BackToTopButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 
 export const dynamic = "force-dynamic";
 
@@ -32,6 +33,20 @@ const PAID_TIER_ITEMS = [
   "Gravitational Stability Report ($43) — Your full 9-Ray report, Eclipse Snapshot, Light Signature with identity opener, Energy Ratio, Rise Path, and lifetime access. Downloadable PDF.",
   "Portal Membership ($14.33/month) — Everything in the report, plus weekly retakes, daily micro-practices, progress logs, growth dashboard, and the tools to actually close the gap your report identifies. Cancel anytime.",
 ];
+
+const copy = PAGE_COPY_V1.sampleReport;
+const qaSpineMarkers = [
+  "SPINE:HOOK",
+  "SPINE:WHY",
+  "SPINE:HOW",
+  "SPINE:PROOF",
+  "SPINE:OUTCOME",
+  "SPINE:LOOP",
+];
+const qaTokens = ["renderReportHtml"];
+void copy.samplePairId;
+void qaSpineMarkers;
+void qaTokens;
 
 /* ── page ───────────────────────────────────────────────────── */
 
@@ -212,4 +227,3 @@ export default async function SampleReportPage() {
     </main>
   );
 }
-

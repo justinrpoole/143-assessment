@@ -50,11 +50,11 @@ export default function StarfieldBackground() {
 
     for (let i = 0; i < STAR_COUNT; i++) {
       const roll = Math.random();
-      const color = roll < 0.12 ? '#F8D011'   // 12% gold
-                  : roll < 0.17 ? '#25f6ff'   // 5% cyan
-                  : roll < 0.20 ? '#ff3fb4'   // 3% pink
-                  : roll < 0.22 ? '#c6ff4d'   // 2% lime
-                  : '#FFFEF5';                 // 78% white
+      const color = roll < 0.08 ? '#F8D011'   // 8% gold
+                  : roll < 0.12 ? '#25f6ff'   // 4% cyan
+                  : roll < 0.14 ? '#ff3fb4'   // 2% pink
+                  : roll < 0.15 ? '#c6ff4d'   // 1% lime
+                  : '#FFFEF5';                 // 85% white
       stars.push({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -130,7 +130,7 @@ export default function StarfieldBackground() {
       ref={canvasRef}
       className="pointer-events-none fixed inset-0 z-0"
       aria-hidden="true"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.65 }}
     />
   );
 }

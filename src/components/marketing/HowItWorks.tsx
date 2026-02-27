@@ -90,7 +90,7 @@ export default function HowItWorks() {
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(20px)',
-              transition: `opacity 0.5s ease ${i * 150}ms, transform 0.5s ease ${i * 150}ms`,
+              transition: `opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1) ${i * 120}ms, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 120}ms`,
             }}
           >
             {/* Step number watermark */}

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { rayHex, rayRamp } from '@/lib/ui/ray-colors';
 import SunWithGrowingRays from '@/components/cosmic/SunWithGrowingRays';
@@ -8,6 +9,7 @@ interface RayData {
   id: string;
   name: string;
   phase: string;
+  slug: string;
   description?: string;
 }
 
@@ -21,17 +23,17 @@ interface RayProgressionStackProps {
 }
 
 const RAYS_ABOVE: RayData[] = [
-  { id: 'R1', name: 'Intention', phase: 'Reconnect', description: 'You wake up and already know your one thing.' },
-  { id: 'R2', name: 'Joy', phase: 'Reconnect', description: 'Your energy comes from something deeper.' },
-  { id: 'R3', name: 'Presence', phase: 'Reconnect', description: 'The space between what happens and what you do is yours.' },
-  { id: 'R4', name: 'Power', phase: 'Expand', description: 'You move before you feel ready — and trust yourself after.' },
+  { id: 'R1', name: 'Intention', slug: 'intention', phase: 'Reconnect', description: 'You wake up and already know your one thing.' },
+  { id: 'R2', name: 'Joy', slug: 'joy', phase: 'Reconnect', description: 'Your energy comes from something deeper.' },
+  { id: 'R3', name: 'Presence', slug: 'presence', phase: 'Reconnect', description: 'The space between what happens and what you do is yours.' },
+  { id: 'R4', name: 'Power', slug: 'power', phase: 'Expand', description: 'You move before you feel ready — and trust yourself after.' },
 ];
 
 const RAYS_BELOW: RayData[] = [
-  { id: 'R5', name: 'Purpose', phase: 'Expand', description: 'Your calendar matches your values.' },
-  { id: 'R6', name: 'Authenticity', phase: 'Expand', description: 'You are the same person in every room.' },
-  { id: 'R7', name: 'Connection', phase: 'Become', description: 'People feel safe enough to be honest around you.' },
-  { id: 'R8', name: 'Possibility', phase: 'Become', description: 'You see options where others see walls.' },
+  { id: 'R5', name: 'Purpose', slug: 'purpose', phase: 'Expand', description: 'Your calendar matches your values.' },
+  { id: 'R6', name: 'Authenticity', slug: 'authenticity', phase: 'Expand', description: 'You are the same person in every room.' },
+  { id: 'R7', name: 'Connection', slug: 'connection', phase: 'Become', description: 'People feel safe enough to be honest around you.' },
+  { id: 'R8', name: 'Possibility', slug: 'possibility', phase: 'Become', description: 'You see options where others see walls.' },
 ];
 
 function RayCard({
@@ -83,6 +85,13 @@ function RayCard({
               {ray.description}
             </p>
           )}
+          <Link
+            href={`/rays/${ray.slug}`}
+            className="mt-2 inline-flex items-center gap-1 text-xs font-medium transition-all duration-200 hover:gap-1.5 hover:brightness-125"
+            style={{ color: hex, opacity: 0.6 }}
+          >
+            Learn more <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
 
         {/* Score indicator (when data is available) */}
@@ -194,6 +203,13 @@ export default function RayProgressionStack({
               Your presence lowers the noise in a room. You hold steady.
               And somehow that is enough.
             </p>
+            <Link
+              href="/rays/be-the-light"
+              className="mt-2 inline-flex items-center gap-1 text-xs font-medium transition-all duration-200 hover:gap-1.5 hover:brightness-125"
+              style={{ color: '#F8D011', opacity: 0.6 }}
+            >
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </Link>
 
             {scores?.R9 !== undefined && (
               <div className="mt-3">

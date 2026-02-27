@@ -62,7 +62,7 @@ export default function NeonGlowButton({
         onMouseLeave={handleMouseLeave}
         style={{
           transform,
-          transition: 'transform 0.2s ease-out, box-shadow 0.3s ease',
+          transition: 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease',
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',

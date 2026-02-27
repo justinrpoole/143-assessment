@@ -386,7 +386,7 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
               <div className="value">{lightSig?.archetype?.essence ?? '—'}</div>
             </div>
             <div className="kv">
-              <div className="label">Power Sources</div>
+              <div className="label">Primary Rays</div>
               <div className="value">{lightSig?.top_two?.map((t) => t.ray_name).join(' + ') ?? '—'}</div>
             </div>
             <div className="kv">

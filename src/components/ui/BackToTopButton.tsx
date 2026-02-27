@@ -23,7 +23,7 @@ export default function BackToTopButton() {
 
   return (
     <button
-      className="back-to-top"
+      className="back-to-top transition-all duration-200 hover:scale-110 focus-visible:ring-2 focus-visible:ring-[rgba(248,208,17,0.7)] focus-visible:ring-offset-2"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Back to top"
       style={{ opacity: visible ? 1 : 0 }}

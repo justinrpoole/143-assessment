@@ -85,7 +85,7 @@ export function AdminAuditClient() {
     <div className="space-y-6">
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4">
-        <div className="glass-card p-5 text-center">
+        <div className="glass-surface rounded-lg p-5 text-center">
           <p className="text-3xl font-bold text-brand-gold">
             {stats.total_runs}
           </p>
@@ -96,7 +96,7 @@ export function AdminAuditClient() {
             Total Runs
           </p>
         </div>
-        <div className="glass-card p-5 text-center">
+        <div className="glass-surface rounded-lg p-5 text-center">
           <p className="text-3xl font-bold text-brand-gold">
             {stats.completed_runs}
           </p>
@@ -107,7 +107,7 @@ export function AdminAuditClient() {
             Completed
           </p>
         </div>
-        <div className="glass-card p-5 text-center">
+        <div className="glass-surface rounded-lg p-5 text-center">
           <p className="text-3xl font-bold text-brand-gold">
             {stats.avg_completion_minutes != null
               ? `${stats.avg_completion_minutes}m`
@@ -123,13 +123,13 @@ export function AdminAuditClient() {
       </div>
 
       {/* Runs Table */}
-      <div className="glass-card overflow-hidden">
+      <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--brand-gold, #F8D011)' }}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr
                 className="border-b"
-                style={{ borderColor: "var(--surface-border)" }}
+                style={{ borderColor: "var(--surface-border)", background: 'rgba(248, 208, 17, 0.03)' }}
               >
                 <th
                   className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider"
@@ -219,12 +219,12 @@ export function AdminAuditClient() {
                   </td>
                   <td className="px-4 py-3 text-center">
                     {run.has_signature ? (
-                      <span className="text-emerald-400 text-xs font-semibold">
-                        Yes
+                      <span className="gold-tag inline-block text-[10px] font-semibold">
+                        Verified
                       </span>
                     ) : (
-                      <span className="text-amber-400 text-xs font-semibold">
-                        No
+                      <span className="text-amber-400 text-xs font-semibold" style={{ opacity: 0.7 }}>
+                        Pending
                       </span>
                     )}
                   </td>

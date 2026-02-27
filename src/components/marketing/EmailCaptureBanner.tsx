@@ -61,7 +61,7 @@ export default function EmailCaptureBanner() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@email.com"
           required
-          className="flex-1 rounded-lg border bg-transparent px-3 py-2.5 text-sm outline-none transition-all focus:border-[#F8D011] focus:ring-2 focus:ring-[rgba(248,208,17,0.15)]"
+          className="flex-1 rounded-lg border bg-transparent px-3 py-2.5 text-sm outline-none transition-all duration-200 focus:border-[#F8D011] focus:ring-2 focus:ring-[rgba(248,208,17,0.25)]"
           style={{
             borderColor: 'rgba(148, 80, 200, 0.3)',
             color: 'var(--text-on-dark, #FFFEF5)',
@@ -80,7 +80,7 @@ export default function EmailCaptureBanner() {
           Something went wrong. Try again.
         </p>
       )}
-      <p className="mt-2 text-[11px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+      <p className="mt-2 text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
         No spam. One email. Unsubscribe anytime.
       </p>
     </div>

@@ -47,6 +47,15 @@ if (!SUPABASE_URL || !SERVICE_KEY) {
   process.exit(1);
 }
 
+function ensureJwtKey(key: string, label: string) {
+  if (!key.startsWith("eyJ")) {
+    console.error(`${label} must be a JWT (starts with eyJ).`);
+    process.exit(1);
+  }
+}
+
+ensureJwtKey(SERVICE_KEY, "SUPABASE_SERVICE_ROLE_KEY");
+
 function headers(extra?: Record<string, string>) {
   return {
     apikey: SERVICE_KEY,

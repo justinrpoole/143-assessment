@@ -115,9 +115,9 @@ export const COMPOSITE_METRICS: MetricDefinition[] = [
   {
     id: "light_signature",
     label: "Light Signature",
-    shortDescription: "Your two Power Sources working together",
+    shortDescription: "Your two Primary Rays working together",
     longDescription:
-      "Your Light Signature is the unique combination of your two strongest Rays. There are 36 possible combinations, each with a distinct archetype name. This is not a personality type — it is your current operating pattern, and it can change as you train different capacities.",
+      "Your Light Signature is the unique combination of your two Primary Rays. There are 36 possible combinations, each with a distinct archetype name. This is not a personality type — it is your current operating pattern, and it can change as you train different capacities.",
     scale: "36 archetype combinations",
     interpretation:
       "Your Light Signature shows where your leadership naturally gravitates. It also reveals which capacity might be doing extra work to compensate for an eclipsed Ray.",

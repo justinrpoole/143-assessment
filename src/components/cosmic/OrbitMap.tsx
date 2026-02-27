@@ -9,7 +9,7 @@ import { rayHex } from '@/lib/ui/ray-colors';
 interface OrbitMapProps {
   /** All ray outputs — rays are sorted into orbits by net energy */
   rays: Record<string, RayOutput>;
-  /** Top two ray IDs (power sources — always inner orbit) */
+  /** Top two ray IDs (primary rays — always inner orbit) */
   topTwo: string[];
   /** Bottom ray ID (train next — outer orbit) */
   bottomRay: string;

@@ -15,7 +15,7 @@ import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Growth Tracking",
+  title: "Light Trajectory",
   description: "Track what changed across your assessment runs — capacity shifts, Eclipse recovery, and training progress over time.",
 };
 
@@ -66,9 +66,9 @@ export default async function GrowthPage() {
 
   return (
     <>
-      <PortalBreadcrumb current="Growth" />
+      <PortalBreadcrumb current="Light Trajectory" />
       <PageHeader
-        label="Growth"
+        label="Light Trajectory"
         title="Track what changed across your runs."
         description="Your trendline turns effort into proof: run history, deltas, and Day 7/21/66 checkpoints in one place."
         size="large"

@@ -68,9 +68,7 @@ export default function RadarMockup({ className }: { className?: string }) {
       <svg
         ref={ref}
         viewBox="0 0 280 280"
-        width="280"
-        height="280"
-        className="mx-auto"
+        className="mx-auto w-full max-w-[280px] sm:max-w-[320px]"
         role="img"
         aria-label="Sample radar chart showing 9 Ray scores"
       >
@@ -163,7 +161,7 @@ export default function RadarMockup({ className }: { className?: string }) {
 
       {/* Caption */}
       <p
-        className="mt-3 text-center text-[11px]"
+        className="mt-3 text-center text-xs"
         style={{ color: 'rgba(255,255,255,0.5)' }}
       >
         Sample Light Signature — your results will be unique to you

@@ -511,7 +511,7 @@ export default function DimmingDetector() {
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <BlurredPreview title="Light Signature" description="Your 9-ray profile" />
-                <BlurredPreview title="Power Sources" description="Your top capacities" />
+                <BlurredPreview title="Primary Rays" description="Your top capacities" />
                 <BlurredPreview title="Energy Leaks" description="Where load hides" />
                 <BlurredPreview title="Rise Path" description="Your growth map" />
               </div>

@@ -23,7 +23,7 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Light Cohorts — 143 Leadership",
+  title: "Light Circles — 143 Leadership",
   description:
     "10 weeks. 6–8 leaders. The full 143 framework, the systems to apply it, and the app to sustain it. Group coaching that produces measurable leadership change.",
 };
@@ -47,13 +47,13 @@ const COHORT_BENEFITS = [
   {
     title: "The App — Ongoing Regulation",
     description:
-      "After the 10 weeks, you self-regulate with the 143 app. Daily practices, weekly retakes, rep logging, and phase check-ins keep your development measurable. The cohort builds the skill. The app keeps it alive.",
+      "After the 10 weeks, you self-regulate with the 143 app. Daily practices, weekly retakes, rep logging, and phase check-ins keep your development measurable. The Light Circle builds the skill. The app keeps it alive.",
   },
 ];
 
 const COHORT_TIERS = [
   {
-    label: "Group Cohort",
+    label: "Group Light Circle",
     size: "6–8 leaders",
     duration: "10 weeks",
     description:
@@ -69,29 +69,29 @@ const COHORT_TIERS = [
     ideal: "Leaders ready to change patterns, not just discuss them",
   },
   {
-    label: "Executive Cohort",
+    label: "Executive Light Circle",
     size: "6–8 executives",
     duration: "10 weeks",
     description:
-      "Everything in the Group Cohort plus executive-level professional development. Strategic capacity mapping, team composition intelligence, leadership metadata, and the aggregate data your organisation needs to make real decisions.",
+      "Everything in the Group Light Circle plus executive-level professional development. Strategic capacity mapping, team composition intelligence, leadership metadata, and the aggregate data your organisation needs to make real decisions.",
     includes: [
-      "Everything in Group Cohort",
+      "Everything in Group Light Circle",
       "Executive professional development modules",
       "Strategic capacity + team composition analysis",
       "Leadership metadata + aggregate intelligence",
-      "Cohort pattern analysis for sponsor reporting",
+      "Light Circle pattern analysis for sponsor reporting",
       "Priority app features + ongoing support",
     ],
     ideal: "Senior leaders and executives who need both personal development and organisational intelligence",
   },
   {
-    label: "Private Cohort",
+    label: "Private Light Circle",
     size: "Custom",
     duration: "10 weeks",
     description:
       "Bring your own team. Same 10-week structure, customised to your organisation's context, language, and strategic priorities. Debrief sessions tailored to your team dynamics.",
     includes: [
-      "Everything in Executive Cohort",
+      "Everything in Executive Light Circle",
       "Custom deployment to your team",
       "Facilitated team debrief sessions",
       "Aggregate reporting for leadership sponsors",
@@ -107,11 +107,11 @@ const HOW_IT_WORKS_STEPS = [
     num: "01",
     title: "Take the Assessment",
     description:
-      "Every participant takes the full 143-question assessment before the cohort begins. Individual results, Light Signature, Eclipse Snapshot, and Rise Path — your private data, your starting point.",
+      "Every participant takes the full 143-question assessment before the Light Circle begins. Individual results, Light Signature, Eclipse Snapshot, and Rise Path — your private data, your starting point.",
   },
   {
     num: "02",
-    title: "10 Weeks of Light Cohort Coaching",
+    title: "10 Weeks of Light Circle Coaching",
     description:
       "Weekly sessions with 6–8 leaders. Learn the full framework, the science behind the tools, and the systems to apply them. Executives get additional professional development modules and strategic capacity intelligence.",
   },
@@ -149,8 +149,8 @@ export default async function CohortsPage() {
       <ScrollProgressBar />
       <SectionTOC items={[
         { id: "hero", label: "Hero" },
-        { id: "benefits", label: "Why Cohorts Work" },
-        { id: "tiers", label: "Cohort Options" },
+        { id: "benefits", label: "Why Light Circles Work" },
+        { id: "tiers", label: "Light Circle Options" },
         { id: "how-it-works", label: "How It Works" },
         { id: "cta", label: "Get Started" },
       ]} />
@@ -159,7 +159,7 @@ export default async function CohortsPage() {
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Cohorts · 6 min read
+            <span style={{ color: '#F8D011' }}>◆</span> Light Circles · 6 min read
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
@@ -168,11 +168,11 @@ export default async function CohortsPage() {
             10 weeks. 6–8 leaders. The framework, the systems, and the app.
           </h1>
           <div className="mx-auto max-w-[540px]">
-            <ScrollTextReveal text="Group coaching cohorts where you learn the full 143 Leadership OS together. Every participant gets their own assessment, individual development path, and the app to self-regulate after the programme ends. This is where lasting leadership change happens." />
+            <ScrollTextReveal text="Group coaching Light Circles where you learn the full 143 Leadership OS together. Every participant gets their own assessment, individual development path, and the app to self-regulate after the programme ends. This is where lasting leadership change happens." />
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <NeonGlowButton href="/organizations">
-              Request a Cohort
+              Request a Light Circle
             </NeonGlowButton>
             <LiquidFillButton href="#how-it-works">
               Show Me How It Works
@@ -192,7 +192,7 @@ export default async function CohortsPage() {
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: rayHex('R7') }}
               >
-                Why Cohorts Work
+                Why Light Circles Work
               </p>
               <h2
                 className="text-2xl font-semibold gold-underline"
@@ -244,13 +244,13 @@ export default async function CohortsPage() {
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: rayHex('R4') }}
               >
-                Cohort Options
+                Light Circle Options
               </p>
               <h2
                 className="text-2xl font-semibold"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
-                Choose your track. All cohorts run 10 weeks.
+                Choose your track. All Light Circles run 10 weeks.
               </h2>
             </div>
 
@@ -333,7 +333,7 @@ export default async function CohortsPage() {
 
         <GoldHeroBanner
           kicker="Shared Language. Individual Paths."
-          title="The cohort builds the skill. The app keeps it alive."
+          title="The Light Circle builds the skill. The app keeps it alive."
           description="Every participant gets their own assessment, their own Rise Path, and the shared language to support each other after the programme ends."
         />
 
@@ -408,7 +408,7 @@ export default async function CohortsPage() {
                 className="text-2xl font-bold"
                 style={{ color: "var(--text-on-dark, #FFFEF5)" }}
               >
-                Start with the assessment. Then join a cohort.
+                Start with the assessment. Then join a Light Circle.
               </h2>
               <p
                 className="mx-auto max-w-[480px] text-sm leading-relaxed"
@@ -416,7 +416,7 @@ export default async function CohortsPage() {
                   color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
                 }}
               >
-                Take the assessment to see where you stand. When the next cohort opens,
+                Take the assessment to see where you stand. When the next Light Circle opens,
                 you will have your data ready. 6–8 leaders, 10 weeks, and the app to keep
                 it going after.
               </p>

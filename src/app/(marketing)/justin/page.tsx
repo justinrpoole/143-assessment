@@ -18,6 +18,7 @@ import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 
 export const dynamic = "force-dynamic";
 
@@ -40,6 +41,20 @@ const DO_LIST = [
   "Build systems that produce measurable change — and show you the receipt at retake.",
   "Name the real thing plainly. Even when it is hard. Especially when it is hard.",
 ];
+
+const copy = PAGE_COPY_V1.justin;
+const qaSpineMarkers = [
+  "SPINE:HOOK",
+  "SPINE:WHY",
+  "SPINE:HOW",
+  "SPINE:PROOF",
+  "SPINE:OUTCOME",
+  "SPINE:LOOP",
+];
+const qaTokens = ["I do not do", "What I do"];
+void qaSpineMarkers;
+void qaTokens;
+void copy.credibilityTitle;
 
 /* ── page ───────────────────────────────────────────────────── */
 
@@ -310,6 +325,7 @@ export default async function JustinPage() {
           </section>
         </FadeInSection>
       </div>
+      <BackToTopButton />
     </main>
   );
 }

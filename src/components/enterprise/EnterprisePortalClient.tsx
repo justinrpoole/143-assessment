@@ -56,11 +56,11 @@ export function EnterprisePortalClient() {
         </header>
 
         <section className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Cohort Snapshot</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Light Circle Snapshot</p>
           {mockCohort ? (
             <div className="grid gap-3 md:grid-cols-5">
               <article className="glass-card p-4">
-                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Cohort Size</p>
+                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Light Circle Size</p>
                 <p className="mt-1 text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>{mockCohort.cohortSize}</p>
               </article>
               <article className="glass-card p-4">
@@ -102,7 +102,7 @@ export function EnterprisePortalClient() {
             <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Readiness Indicators</p>
             <h2 className="mb-2 text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Leadership readiness trendline</h2>
             <ul className="space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              <li>- Aggregate readiness by cohort, not by individual ranking.</li>
+              <li>- Aggregate readiness by Light Circle, not by individual ranking.</li>
               <li>- Combine capacity movement and tool adoption trend.</li>
               <li>- Use confidence intervals in all executive exports.</li>
             </ul>

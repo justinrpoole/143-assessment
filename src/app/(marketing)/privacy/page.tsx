@@ -1,6 +1,9 @@
 import Link from "next/link";
 
 import { rayHex } from "@/lib/ui/ray-colors";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -24,18 +27,20 @@ export default async function PrivacyPage() {
 
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
       <article className="mx-auto max-w-[720px] px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
         {/* ── Header ── */}
         <header className="mb-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R6') }}>
+          <span className="gold-tag inline-block text-xs font-bold">
             Legal
-          </p>
+          </span>
           <h1 className="mt-4 text-3xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
             Privacy Policy
           </h1>
           <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
             Last updated: {LAST_UPDATED}
           </p>
+          <RaySpectrumStrip className="mt-6" />
         </header>
 
         {/* ── Content ── */}
@@ -149,6 +154,7 @@ export default async function PrivacyPage() {
           </Link>
         </div>
       </article>
+      <BackToTopButton />
     </main>
   );
 }

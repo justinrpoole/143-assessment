@@ -31,7 +31,7 @@ export default function StickyCtaBar() {
             WebkitBackdropFilter: 'blur(20px)',
             backdropFilter: 'blur(20px)',
             borderColor: 'rgba(248, 208, 17, 0.12)',
-            animation: 'stickyBarSlideUp 0.3s ease-out',
+            animation: 'stickyBarSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
           }}
         >
           <div className="flex items-center justify-between gap-3 px-5 py-3.5">
@@ -52,8 +52,9 @@ export default function StickyCtaBar() {
           </div>
           <style>{`
             @keyframes stickyBarSlideUp {
-              from { transform: translateY(100%); opacity: 0; }
-              to { transform: translateY(0); opacity: 1; }
+              0% { transform: translateY(100%); opacity: 0; }
+              70% { transform: translateY(-4px); opacity: 1; }
+              100% { transform: translateY(0); opacity: 1; }
             }
           `}</style>
         </div>

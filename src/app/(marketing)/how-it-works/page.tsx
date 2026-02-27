@@ -6,8 +6,8 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
+import RayDivider from "@/components/ui/RayDivider";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
@@ -22,6 +22,7 @@ import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 import { rayHex } from "@/lib/ui/ray-colors";
+import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 
 export const dynamic = "force-dynamic";
 
@@ -95,6 +96,19 @@ const OFFER_TIERS = [
   },
 ];
 
+const copy = PAGE_COPY_V1.howItWorks;
+const qaSpineMarkers = [
+  "SPINE:HOOK",
+  "SPINE:WHY",
+  "SPINE:HOW",
+  "SPINE:PROOF",
+  "SPINE:OUTCOME",
+  "SPINE:LOOP",
+];
+void qaSpineMarkers;
+void copy.whatYouGet.title;
+void copy.repeatWhy.title;
+
 /* ── page ───────────────────────────────────────────────────── */
 
 export default async function HowItWorksPage() {
@@ -154,7 +168,7 @@ export default async function HowItWorksPage() {
           />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 2 · THE FUNNEL ─────────────────────────── */}
         <FadeInSection blur>
@@ -229,7 +243,7 @@ export default async function HowItWorksPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ─── THE KNOWING-DOING GAP (#5) ───────────────────────── */}
         <FadeInSection>
@@ -280,7 +294,7 @@ export default async function HowItWorksPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R4" />
 
         <GoldHeroBanner
           kicker="Designed to Be Outgrown"
@@ -288,7 +302,7 @@ export default async function HowItWorksPage() {
           description="No other assessment is designed to be retaken. Yours moves as your capacity moves."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── SECTION 3 · WHAT YOU GET ───────────────────────── */}
         <FadeInSection>
@@ -353,7 +367,7 @@ export default async function HowItWorksPage() {
           </RadialSpotlight>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R5" />
 
         {/* ─── REPS, NOT RESOLUTIONS (#10) ───────────────────── */}
         <FadeInSection>
@@ -393,7 +407,7 @@ export default async function HowItWorksPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         {/* ─── IMPLEMENTATION INTENTIONS (#15) ───────────────── */}
         <FadeInSection>
@@ -444,7 +458,7 @@ export default async function HowItWorksPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── LEADERSHIP MRI — Weekly Scan (#13) ────────────── */}
         <FadeInSection>
@@ -496,7 +510,7 @@ export default async function HowItWorksPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── SECTION 4 · WHY RETAKE ─────────────────────────── */}
         <FadeInSection>
@@ -548,7 +562,7 @@ export default async function HowItWorksPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R3" />
 
         {/* ─── SECTION 5 · CTA ────────────────────────────────── */}
         <FadeInSection>

@@ -25,7 +25,7 @@ export function ShareCardButton({
   rayPairId,
   topRays,
   shortLine,
-  buttonLabel = "Generate Share Card",
+  buttonLabel = "Generate Light Card",
 }: ShareCardButtonProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -85,7 +85,7 @@ export function ShareCardButton({
       {signedUrl ? (
         <p className="text-sm">
           <a href={signedUrl} target="_blank" rel="noreferrer" className="text-[var(--ray-purple)] underline">
-            Open share card
+            Open light card
           </a>
         </p>
       ) : null}

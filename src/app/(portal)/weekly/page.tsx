@@ -57,7 +57,7 @@ export default async function WeeklyPage() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <LiquidFillButton href="/growth">
-              Growth Tracking
+              Light Trajectory
             </LiquidFillButton>
             <LiquidFillButton href="/reps">
               Log a REP

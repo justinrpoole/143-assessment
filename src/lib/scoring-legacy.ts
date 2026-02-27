@@ -568,7 +568,7 @@ export function scoreAssessment(
       {
         ray_id: top2Id,
         ray_name: RAY_NAMES[top2Id],
-        why_resourced: `${RAY_NAMES[top2Id]} is your second power source — it fuels resilience and momentum.`,
+        why_resourced: `${RAY_NAMES[top2Id]} is your second primary ray — it fuels resilience and momentum.`,
         under_load_distortion: ECLIPSE_DISTORTIONS[top2Id] || '',
       },
     ],
@@ -646,7 +646,7 @@ export function scoreAssessment(
     executive_output: {
       structure_version: 'v1.0-exec-template',
       light_signature_summary: {
-        top_two_resourced: `${RAY_NAMES[top1Id]} (${RAY_VERBS[top1Id]}) and ${RAY_NAMES[top2Id]} (${RAY_VERBS[top2Id]}) are your primary power sources.`,
+        top_two_resourced: `${RAY_NAMES[top1Id]} (${RAY_VERBS[top1Id]}) and ${RAY_NAMES[top2Id]} (${RAY_VERBS[top2Id]}) are your primary rays.`,
         top_two_under_load: ECLIPSE_DISTORTIONS[top1Id] || `Under pressure, ${RAY_NAMES[top1Id]} may shift.`,
       },
       just_in_summary: {

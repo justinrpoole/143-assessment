@@ -8,7 +8,6 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
@@ -191,7 +190,7 @@ export default async function FrameworkPage() {
         </section>
 
         <RaySpectrumStrip className="my-4" />
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 2 · THE SPECTRUM ──────────────────────── */}
         <FadeInSection>
@@ -227,7 +226,7 @@ export default async function FrameworkPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R1" />
 
         {/* ─── SECTION 3 · THE PROBLEM ────────────────────────── */}
         <FadeInSection>
@@ -263,7 +262,7 @@ export default async function FrameworkPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R4" />
 
         {/* ─── SECTION 4 · THREE PHASES ───────────────────────── */}
         <FadeInSection>
@@ -354,7 +353,7 @@ export default async function FrameworkPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         <GoldHeroBanner
           kicker="Three Phases. One Path."
@@ -362,7 +361,7 @@ export default async function FrameworkPage() {
           description="Each phase builds on the one before it. The assessment shows you where to start."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 5 · ECLIPSE ────────────────────────────── */}
         <FadeInSection>
@@ -415,7 +414,7 @@ export default async function FrameworkPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── SECTION 6 · SCIENCE ────────────────────────────── */}
         <FadeInSection>
@@ -510,7 +509,7 @@ export default async function FrameworkPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R5" />
 
         {/* ─── IMPLEMENTATION INTENTIONS (#15) ────────────────── */}
         <FadeInSection>
@@ -560,7 +559,7 @@ export default async function FrameworkPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 7 · CTA ────────────────────────────────── */}
         <FadeInSection>

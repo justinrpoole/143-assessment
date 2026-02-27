@@ -18,7 +18,7 @@ export const MARKETING_COPY_BIBLE_V1 = {
   },
   organizations: {
     headline: "For Organizations",
-    promise: "Cohort and enterprise pathways that develop leaders under real pressure.",
+    promise: "Light Circle and enterprise pathways that develop leaders under real pressure.",
   },
   about: {
     headline: "About Justin Ray",

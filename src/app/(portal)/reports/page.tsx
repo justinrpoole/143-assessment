@@ -16,7 +16,7 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Your Report",
+  title: "Light Map Vault",
   description: "Your complete 143 Leadership report — Light Signature, Eclipse Snapshot, 9-Ray scores, and personalised Rise Path.",
 };
 
@@ -70,9 +70,9 @@ export default async function ReportsPage({ searchParams }: PageProps) {
 
   return (
     <>
-      <PortalBreadcrumb current="Full Report" />
+      <PortalBreadcrumb current="Light Map Vault" />
       <PageHeader
-        label="Full Report"
+        label="Light Map Vault"
         title="Your complete Gravitational Stability Report."
         description="Every cosmic visualization — Solar Core, Eclipse Meter, Black Hole Flags, Planetary Alignment, Solar Flare Journal, Constellation Progress, and more. Hover or tap any chart for detailed breakdowns. Generate PDF on demand for sharing."
         size="large"

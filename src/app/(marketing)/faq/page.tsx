@@ -62,7 +62,7 @@ const FAQS = [
     items: [
       {
         q: "What is a Light Signature?",
-        a: "Your Light Signature is a unique archetype based on your two Power Sources — your top two Rays. There are 36 possible combinations (the mathematical C(9,2) pairs). Examples include the Visionary Servant, the Bold Authentic, and the Driven Leader. Your Light Signature describes the combination of capacities that define your current leadership force.",
+        a: "Your Light Signature is a unique archetype based on your two Primary Rays — your top two Rays. There are 36 possible combinations (the mathematical C(9,2) pairs). Examples include the Visionary Servant, the Bold Authentic, and the Driven Leader. Your Light Signature describes the combination of capacities that define your current leadership force.",
       },
       {
         q: "What is the Eclipse Snapshot?",

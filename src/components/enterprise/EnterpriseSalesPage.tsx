@@ -1,5 +1,14 @@
 import Link from 'next/link';
 
+import FloatingOrbs from '@/components/marketing/FloatingOrbs';
+import ScrollProgressBar from '@/components/ui/ScrollProgressBar';
+import BackToTopButton from '@/components/ui/BackToTopButton';
+import RayDivider from '@/components/ui/RayDivider';
+import RaySpectrumStrip from '@/components/ui/RaySpectrumStrip';
+import GoldHeroBanner from '@/components/ui/GoldHeroBanner';
+import { FadeInSection, StaggerContainer, StaggerItem } from '@/components/ui/FadeInSection';
+import { rayHex } from '@/lib/ui/ray-colors';
+
 // IS / IS NOT governance table
 const IS_TABLE = [
   { is: 'A development tool that builds leadership capacity across teams', isNot: 'A performance management or ranking system' },
@@ -34,7 +43,7 @@ const WHAT_ENTERPRISE_GETS = [
 
 const PRICING = [
   {
-    name: 'Team Cohort',
+    name: 'Team Light Circle',
     price: 'Contact Us',
     seats: '50 seats',
     includes: ['Full 143 Assessment per participant', 'Aggregate capacity dashboard', 'One structured debrief session', 'Governance-compliant reporting', 'Implementation support'],
@@ -45,14 +54,14 @@ const PRICING = [
     price: 'Contact Us',
     seats: '200 seats',
     highlight: true,
-    includes: ['Everything in Team Cohort', 'Load Signal Count and depletion detection', 'Multi-cohort aggregate dashboard', 'Two live debrief sessions with retake cycle', 'Dedicated implementation and coaching support'],
+    includes: ['Everything in Team Light Circle', 'Load Signal Count and depletion detection', 'Multi Light Circle aggregate dashboard', 'Two live debrief sessions with retake cycle', 'Dedicated implementation and coaching support'],
     cta: 'Contact us',
   },
   {
     name: 'Annual License',
     price: 'Contact Us',
     seats: '1,000 seats',
-    includes: ['Everything in Enterprise Pilot', 'Unlimited cohort rollouts with retake cycles', 'Custom onboarding and change management', 'Structured coaching playbook for team leads', 'Quarterly strategy reviews with behavioral ROI', 'Priority access + API integration'],
+    includes: ['Everything in Enterprise Pilot', 'Unlimited Light Circle rollouts with retake cycles', 'Custom onboarding and change management', 'Structured coaching playbook for team leads', 'Quarterly strategy reviews with behavioral ROI', 'Priority access + API integration'],
     cta: 'Contact us',
   },
 ];
@@ -60,14 +69,16 @@ const PRICING = [
 export default function EnterpriseSalesPage() {
   return (
     <main className="cosmic-page-bg">
+      <ScrollProgressBar />
 
       {/* Hero */}
       <section className="px-6 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto space-y-6 text-center">
-          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">
+          <FloatingOrbs variant="mixed" />
+          <span className="gold-tag inline-block text-xs font-bold">
             Not a personality test. A capacity map.
-          </p>
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight" style={{ color: 'var(--text-on-dark)' }}>
+          </span>
+          <h1 className="text-shimmer text-4xl sm:text-5xl font-bold leading-tight" style={{ color: 'var(--text-on-dark)' }}>
             You measure performance. Do you measure the capacity to perform?
           </h1>
           <p className="text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -84,13 +95,17 @@ export default function EnterpriseSalesPage() {
               See plans
             </Link>
           </div>
+          <RaySpectrumStrip className="mt-4" />
         </div>
       </section>
 
+      <RayDivider />
+
       {/* Problem */}
+      <FadeInSection>
       <section className="px-6 py-16 max-w-4xl mx-auto space-y-6">
         <div className="space-y-4">
-          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">The gap no one is measuring</p>
+          <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R7') }}>The gap no one is measuring</p>
           <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
             How much did your last leadership initiative cost? How long did the results last?
           </h2>
@@ -116,31 +131,41 @@ export default function EnterpriseSalesPage() {
           ))}
         </div>
       </section>
+      </FadeInSection>
+
+      <RayDivider ray="R4" />
 
       {/* What Enterprise Gets */}
+      <FadeInSection>
       <section className="px-6 py-16">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="space-y-2">
-            <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">What you get</p>
+            <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R4') }}>What you get</p>
             <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Built for development. Not surveillance.</h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {WHAT_ENTERPRISE_GETS.map((item) => (
-              <div key={item.title} className="glass-card p-6 space-y-3">
+              <StaggerItem key={item.title}>
+              <div className="glass-card glass-card--interactive p-6 space-y-3 h-full">
                 <div className="text-3xl">{item.icon}</div>
                 <h3 className="font-semibold text-lg" style={{ color: 'var(--text-on-dark)' }}>{item.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{item.description}</p>
               </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
+      </FadeInSection>
+
+      <RayDivider ray="R1" />
 
       {/* Privacy commitment */}
+      <FadeInSection>
       <section className="px-6 py-16 max-w-4xl mx-auto">
-        <div className="glass-card p-8 space-y-4" style={{ borderColor: 'rgba(248, 208, 17, 0.3)' }}>
-          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Privacy commitment</p>
+        <div className="glass-card p-8 space-y-4" style={{ borderTop: '2px solid var(--brand-gold, #F8D011)', borderColor: 'rgba(248, 208, 17, 0.3)' }}>
+          <span className="gold-tag inline-block text-xs font-bold">Privacy commitment</span>
           <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
             Individual scores never surface to managers. That is not a policy. It is architecture.
           </h2>
@@ -151,16 +176,28 @@ export default function EnterpriseSalesPage() {
           </p>
         </div>
       </section>
+      </FadeInSection>
+
+      <RayDivider ray="R8" />
+
+      <GoldHeroBanner
+        kicker="Built for Real Deployment"
+        title="Train the operating system first. Then every initiative you already run works better."
+        description="Most programmes teach skills on top of a depleted operating system. That is why they do not stick."
+      />
+
+      <RayDivider ray="R5" />
 
       {/* IS / IS NOT Governance Table */}
+      <FadeInSection>
       <section className="px-6 py-16">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="space-y-2">
-            <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Governance</p>
+            <span className="gold-tag inline-block text-xs font-bold">Governance</span>
             <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>This is / This is not</h2>
           </div>
 
-          <div className="glass-card overflow-hidden">
+          <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--brand-gold, #F8D011)' }}>
             <div className="grid grid-cols-2 text-on-dark text-sm font-semibold" style={{ background: 'linear-gradient(to right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
               <div className="px-6 py-3">This IS</div>
               <div className="px-6 py-3 border-l border-white/20">This is NOT</div>
@@ -183,22 +220,26 @@ export default function EnterpriseSalesPage() {
           </div>
         </div>
       </section>
+      </FadeInSection>
+
+      <RayDivider ray="R9" />
 
       {/* Pricing */}
+      <FadeInSection>
       <section id="pricing" className="px-6 py-16 max-w-5xl mx-auto space-y-8">
         <div className="space-y-2 text-center">
-          <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">Get Started</p>
+          <span className="gold-tag inline-block text-xs font-bold">Get Started</span>
           <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>Built for serious deployment</h2>
           <p className="text-sm max-w-xl mx-auto" style={{ color: 'var(--text-on-dark-muted)' }}>
             All tiers include aggregate dashboards, governance-compliant reporting, and consent-gated privacy controls.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {PRICING.map((tier) => (
+            <StaggerItem key={tier.name}>
             <div
-              key={tier.name}
-              className={`glass-card p-6 space-y-4 ${
+              className={`glass-card glass-card--interactive p-6 space-y-4 h-full ${
                 tier.highlight
                   ? 'scale-[1.02]'
                   : ''
@@ -238,11 +279,16 @@ export default function EnterpriseSalesPage() {
                 {tier.cta}
               </a>
             </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </section>
+      </FadeInSection>
+
+      <RayDivider />
 
       {/* CTA footer */}
+      <FadeInSection>
       <section className="px-6 py-16 text-center space-y-6">
         <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>The question is not whether your team has potential. It is whether you can see where the potential is covered.</h2>
         <p className="max-w-xl mx-auto text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -261,6 +307,8 @@ export default function EnterpriseSalesPage() {
           </Link>
         </div>
       </section>
+      </FadeInSection>
+      <BackToTopButton />
     </main>
   );
 }

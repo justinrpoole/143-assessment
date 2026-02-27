@@ -90,7 +90,7 @@ export default function TrajectoryView({ currentRunId }: { currentRunId: string 
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
-            Growth Trajectory
+            Light Trajectory
           </p>
           <p className="mt-1 text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
             {sorted.length} assessments over time

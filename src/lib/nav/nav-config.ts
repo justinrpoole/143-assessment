@@ -18,7 +18,7 @@ export function isNavGroup(item: NavItem): item is NavGroup {
 /* ── All named links ────────────────────────────────────── */
 
 export const MARKETING_LINKS = {
-  upgradeOs: { href: "/upgrade-your-os", label: "Upgrade Your OS" },
+  upgradeOs: { href: "/upgrade-your-os", label: "Light OS Upgrade" },
   howItWorks: { href: "/how-it-works", label: "How It Works" },
   outcomes: { href: "/outcomes", label: "Outcomes" },
   pricing: { href: "/pricing", label: "Pricing" },
@@ -31,9 +31,9 @@ export const MARKETING_LINKS = {
   glossary: { href: "/glossary", label: "Glossary" },
   resources: { href: "/resources", label: "Resources" },
   coaches: { href: "/coaches", label: "Light Activation Program" },
-  osCoaching: { href: "/cohorts", label: "Group Coaching" },
+  osCoaching: { href: "/cohorts", label: "Light Circle Coaching" },
   enterprise: { href: "/enterprise", label: "Enterprise" },
-  cohorts: { href: "/cohorts", label: "Light Cohort" },
+  cohorts: { href: "/cohorts", label: "Light Circle" },
   podcast: { href: "/podcast", label: "Podcast" },
   about: { href: "/about", label: "About" },
   forTeams: { href: "/organizations", label: "For Organizations" },

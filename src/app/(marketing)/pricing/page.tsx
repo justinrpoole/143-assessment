@@ -143,7 +143,7 @@ const COMPARISON_FEATURES = [
   { name: "Weekly Retakes", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
   { name: "Watch Me & Go First Flows", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
   { name: "Daily Micro-Practices", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Growth Tracker", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
+  { name: "Light Trajectory", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
   { name: "Weekly Scan", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
   { name: "Weekly Coaching Sessions", lightCheck: false, report: false, portal: false, coaching10wk: true, enterprise: true },
   { name: "Team Aggregate Analysis", lightCheck: false, report: false, portal: false, coaching10wk: false, enterprise: true },

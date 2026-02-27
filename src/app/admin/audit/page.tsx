@@ -19,12 +19,12 @@ export default async function AdminAuditPage() {
   return (
     <main className="cosmic-page-bg">
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
-        <header className="glass-card mb-6 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">
+        <header className="glass-card mb-6 p-6 sm:p-8" style={{ borderTop: '2px solid var(--brand-gold, #F8D011)' }}>
+          <span className="gold-tag inline-block text-xs font-bold">
             Admin
-          </p>
+          </span>
           <h1
-            className="mt-2 text-2xl font-semibold"
+            className="mt-2 text-2xl font-semibold gold-underline"
             style={{ color: "var(--text-on-dark)" }}
           >
             Audit Dashboard

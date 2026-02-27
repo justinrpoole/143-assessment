@@ -40,6 +40,9 @@ import EclipseCalendarHeatmap from './EclipseCalendarHeatmap';
 import InviteColleagueCard from './InviteColleagueCard';
 import JournalBrowser from '@/components/retention/JournalBrowser';
 import ChallengeProgress from '@/components/retention/ChallengeProgress';
+import EntryLogOverTime from './EntryLogOverTime';
+import RetakeInsights from './RetakeInsights';
+import ActivityStream from './ActivityStream';
 import SocialProofBadge from './SocialProofBadge';
 
 const PatternInterruptHub = dynamic(() => import('@/components/PatternInterruptHub'), { ssr: false });
@@ -441,6 +444,13 @@ export default function PortalDashboard() {
         {/* Daily Loop — primary daily engagement */}
         <DailyLoopClient />
 
+        {/* Entry + Log Momentum */}
+        <EntryLogOverTime days={28} />
+
+        <RetakeInsights />
+
+        <ActivityStream />
+
         {/* Presence Pause hardcoded for high Eclipse */}
         <div className="glass-card p-6 space-y-4">
           <div className="flex items-start gap-3">
@@ -506,6 +516,12 @@ export default function PortalDashboard() {
 
         {/* Priority Actions — Today */}
         <PriorityActions bottomRayName={summary?.bottom_ray_name ?? null} />
+
+        <EntryLogOverTime days={28} />
+
+        <RetakeInsights />
+
+        <ActivityStream />
 
         {summary?.in_progress_run_id ? (
           <ResumeBanner
@@ -674,6 +690,19 @@ export default function PortalDashboard() {
             <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>{summary.total_reps} total</p>
           </div>
         </div>
+      </FadeInSection>
+
+      {/* Entry over Entry + Log over Log + Retake cadence */}
+      <FadeInSection delay={0.155}>
+        <EntryLogOverTime days={28} />
+      </FadeInSection>
+
+      <FadeInSection delay={0.158}>
+        <RetakeInsights />
+      </FadeInSection>
+
+      <FadeInSection delay={0.16}>
+        <ActivityStream />
       </FadeInSection>
 
       {/* Eclipse Calendar Heatmap */}

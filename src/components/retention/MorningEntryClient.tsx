@@ -241,7 +241,7 @@ export function MorningEntryClient() {
           <ShareCardButton
             type="morning"
             shortLine="One clear rep sets the tone for the day."
-            buttonLabel="Generate Morning Share Card"
+            buttonLabel="Generate Morning Light Card"
           />
         </motion.div>
       )}

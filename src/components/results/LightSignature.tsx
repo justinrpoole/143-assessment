@@ -73,9 +73,9 @@ export default function LightSignature({ lightSignature }: Props) {
         </div>
       )}
 
-      {/* Power Sources */}
+      {/* Primary Rays */}
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Your Power Sources</h3>
+        <h3 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Your Primary Rays</h3>
         {top_two.map((ray, i) => {
           const rc = rayHex(ray.ray_id);
           return (

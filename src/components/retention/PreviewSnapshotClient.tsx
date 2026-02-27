@@ -106,8 +106,8 @@ export function PreviewSnapshotClient() {
   return (
     <section className="glass-card p-6 sm:p-8 space-y-4">
       <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R6') }}>Gravitational Stability Check</p>
-      <h2 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Your OS Snapshot</h2>
-      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>Start your preview and get a focused signal before upgrading.</p>
+      <h2 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Light OS Snapshot</h2>
+      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>Start your Light OS Snapshot and get a focused signal before upgrading.</p>
 
       <div className="mt-4 flex flex-wrap gap-3">
         <button

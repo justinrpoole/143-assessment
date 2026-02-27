@@ -9,7 +9,7 @@ import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Calibration",
+  title: "Light Calibration",
   description: "Set your context before we measure. Your results are shaped by where you are right now.",
 };
 
@@ -28,8 +28,8 @@ export default async function AssessmentSetupPage() {
         <section className="relative">
           <FloatingOrbs variant="purple" />
           <header className="glass-card mb-6 p-6 sm:p-8">
-            <p className="gold-tag inline-block">Calibration</p>
-            <h1 className="text-shimmer mt-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Calibration</h1>
+            <p className="gold-tag inline-block">Light Calibration</p>
+            <h1 className="text-shimmer mt-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Light Calibration</h1>
             <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>Your results are shaped by where you are right now. Let&apos;s calibrate.</p>
             <RaySpectrumStrip className="mt-4" />
           </header>

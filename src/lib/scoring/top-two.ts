@@ -70,7 +70,7 @@ export interface TopTwoResult {
 }
 
 /**
- * Select the Power Sources (Light Signature top-two rays).
+ * Select the Primary Rays (Light Signature top-two rays).
  *
  * Primary metric: Net Energy descending.
  * Near-ties (within 2 points on 0-100 scale) are resolved by the

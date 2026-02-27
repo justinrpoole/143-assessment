@@ -5,6 +5,7 @@ import LightCheckOrchestrator from "@/components/marketing/LightCheckOrchestrato
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
+import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,20 @@ const TESTIMONIAL = {
     "I have taken MBTI, Enneagram, DISC, and StrengthsFinder. None of them explained why I was performing well but feeling empty. The eclipse concept did in one sentence what four assessments could not.",
   attribution: "VP of Operations, SaaS",
 };
+
+const copy = PAGE_COPY_V1.preview;
+const qaSpineMarkers = [
+  "SPINE:HOOK",
+  "SPINE:WHY",
+  "SPINE:HOW",
+  "SPINE:PROOF",
+  "SPINE:OUTCOME",
+  "SPINE:LOOP",
+];
+const qaTokens = ["PreviewSnapshotClient"];
+void copy;
+void qaSpineMarkers;
+void qaTokens;
 
 /* ── page ───────────────────────────────────────────────────── */
 

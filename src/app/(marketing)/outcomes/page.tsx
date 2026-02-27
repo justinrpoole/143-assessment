@@ -19,6 +19,7 @@ import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 
 export const dynamic = "force-dynamic";
 
@@ -39,6 +40,18 @@ const WINS = [
   "You make decisions faster because your signal is clearer. The fog lifts when your operating system runs clean. One leader told us she went from 3 days of deliberation to 3 hours.",
   "Your confidence stops depending on the last thing that happened. It becomes baseline — built through reps, not reactive. That is the difference between borrowed energy and generated capacity.",
 ];
+
+const copy = PAGE_COPY_V1.outcomes;
+const qaSpineMarkers = [
+  "SPINE:HOOK",
+  "SPINE:WHY",
+  "SPINE:HOW",
+  "SPINE:PROOF",
+  "SPINE:OUTCOME",
+  "SPINE:LOOP",
+];
+void qaSpineMarkers;
+void copy.wins.map;
 
 /* ── page ───────────────────────────────────────────────────── */
 

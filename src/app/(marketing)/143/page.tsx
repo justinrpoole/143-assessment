@@ -21,6 +21,7 @@ import RayDivider from "@/components/ui/RayDivider";
 import { rayHex } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
+import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 
 export const dynamic = "force-dynamic";
 
@@ -81,6 +82,10 @@ const KIT_INCLUDES = [
   "Science brief: why this works (with citations)",
   "Bridge to the Gravitational Stability Check",
 ];
+
+const copy = PAGE_COPY_V1.challenge143;
+void copy.startNowTitle;
+void copy.kitTitle;
 
 /* ── page ───────────────────────────────────────────────────── */
 

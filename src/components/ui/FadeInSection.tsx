@@ -50,9 +50,9 @@ export function FadeInSection({
 
   const offset = OFFSETS[direction];
 
-  /* When blur is enabled, start with filter: blur(4px) and animate to blur(0px) */
+  /* When blur is enabled, start with filter: blur(2px) and animate to blur(0px) */
   const initialState = blur
-    ? { opacity: 0, filter: 'blur(4px)', ...offset }
+    ? { opacity: 0, filter: 'blur(2px)', ...offset }
     : { opacity: 0, ...offset };
 
   const animateState = isInView

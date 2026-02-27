@@ -121,7 +121,7 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
           className="text-xs font-bold uppercase tracking-widest"
           style={{ color: "var(--brand-gold, #F8D011)" }}
         >
-          Growth Trajectory
+          Light Trajectory
         </p>
         <p
           className="text-sm leading-relaxed"
@@ -145,7 +145,7 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
           className="text-xs font-bold uppercase tracking-widest"
           style={{ color: "var(--brand-gold, #F8D011)" }}
         >
-          Growth Trajectory
+          Light Trajectory
         </p>
         <p
           className="text-sm leading-relaxed"

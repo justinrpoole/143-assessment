@@ -292,7 +292,7 @@ export default function SolarCoreScore({
           <title id="scs-title">Gravitational Stability — Nine-Ray Capacity Map</title>
           <desc id="scs-desc">
             Radial visualization of nine ray capacities. Each beam length represents energy level.
-            {topTwo.length === 2 && ` Power sources: ${RAY_NAMES[topTwo[0]]} and ${RAY_NAMES[topTwo[1]]}.`}
+            {topTwo.length === 2 && ` Primary rays: ${RAY_NAMES[topTwo[0]]} and ${RAY_NAMES[topTwo[1]]}.`}
             {bottomRay && ` Train next: ${RAY_NAMES[bottomRay]}.`}
           </desc>
 

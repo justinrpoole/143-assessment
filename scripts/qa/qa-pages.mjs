@@ -3,6 +3,7 @@ import path from "node:path";
 import process from "node:process";
 
 const ROOT = process.cwd();
+const ROUTE_GROUPS = ["(marketing)", "(portal)", "(flow)"];
 
 const REQUIRED_ROUTE_FILES = [
   "src/app/page.tsx",
@@ -134,6 +135,17 @@ function exists(relativePath) {
   return fs.existsSync(filePath(relativePath));
 }
 
+function resolveRoutePath(relativePath) {
+  if (exists(relativePath)) return relativePath;
+  if (!relativePath.startsWith("src/app/")) return relativePath;
+  const tail = relativePath.slice("src/app/".length);
+  for (const group of ROUTE_GROUPS) {
+    const candidate = `src/app/${group}/${tail}`;
+    if (exists(candidate)) return candidate;
+  }
+  return relativePath;
+}
+
 function read(relativePath) {
   return fs.readFileSync(filePath(relativePath), "utf8");
 }
@@ -151,7 +163,7 @@ function resultRow(name, pass, missingCount) {
 }
 
 function checkRoutes() {
-  const missing = REQUIRED_ROUTE_FILES.filter((entry) => !exists(entry));
+  const missing = REQUIRED_ROUTE_FILES.filter((entry) => !exists(resolveRoutePath(entry)));
   return { pass: missing.length === 0, missing };
 }
 
@@ -184,22 +196,24 @@ function checkPageCentralization() {
   const missing = [];
 
   for (const page of REQUIRED_PAGE_IMPORTS) {
-    if (!exists(page)) {
+    const resolved = resolveRoutePath(page);
+    if (!exists(resolved)) {
       missing.push(`${page}: file missing`);
       continue;
     }
-    const content = read(page);
+    const content = read(resolved);
     if (!content.includes('from "@/content/page_copy.v1"')) {
       missing.push(`${page}: missing centralized copy import`);
     }
   }
 
   for (const [page, requiredTokens] of Object.entries(REQUIRED_MARKERS_BY_PAGE)) {
-    if (!exists(page)) {
+    const resolved = resolveRoutePath(page);
+    if (!exists(resolved)) {
       missing.push(`${page}: file missing`);
       continue;
     }
-    const content = read(page);
+    const content = read(resolved);
     for (const token of requiredTokens) {
       if (!content.includes(token)) {
         missing.push(`${page}: missing token \"${token}\"`);
@@ -215,10 +229,11 @@ function checkBannedPhrases() {
   const failures = [];
 
   for (const relativePath of files) {
-    if (!exists(relativePath)) {
+    const resolved = resolveRoutePath(relativePath);
+    if (!exists(resolved)) {
       continue;
     }
-    const content = normalize(read(relativePath));
+    const content = normalize(read(resolved));
     for (const phrase of BANNED_PHRASES) {
       if (content.includes(phrase)) {
         failures.push(`${relativePath}: banned phrase \"${phrase}\"`);

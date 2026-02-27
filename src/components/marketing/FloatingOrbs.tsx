@@ -14,15 +14,15 @@ export default function FloatingOrbs({
 }) {
   const orbs = variant === 'neon'
     ? [
-        { color: 'rgba(37,246,255,0.05)', size: 260, x: '20%', y: '25%', dur: '20s', delay: '0s' },
-        { color: 'rgba(255,63,180,0.04)', size: 200, x: '70%', y: '50%', dur: '16s', delay: '-4s' },
-        { color: 'rgba(198,255,77,0.03)', size: 180, x: '45%', y: '75%', dur: '22s', delay: '-8s' },
+        { color: 'rgba(37,246,255,0.08)', size: 260, x: '20%', y: '25%', dur: '20s', delay: '0s' },
+        { color: 'rgba(255,63,180,0.06)', size: 200, x: '70%', y: '50%', dur: '16s', delay: '-4s' },
+        { color: 'rgba(198,255,77,0.05)', size: 180, x: '45%', y: '75%', dur: '22s', delay: '-8s' },
       ]
     : variant === 'mixed'
     ? [
         { color: 'rgba(248,208,17,0.06)', size: 280, x: '15%', y: '20%', dur: '18s', delay: '0s' },
         { color: 'rgba(96,5,141,0.08)', size: 220, x: '75%', y: '60%', dur: '22s', delay: '-5s' },
-        { color: 'rgba(37,246,255,0.03)', size: 160, x: '50%', y: '40%', dur: '17s', delay: '-9s' },
+        { color: 'rgba(37,246,255,0.05)', size: 160, x: '50%', y: '40%', dur: '17s', delay: '-9s' },
       ]
     : variant === 'purple'
     ? [
@@ -49,6 +49,7 @@ export default function FloatingOrbs({
             animation: `orbFloat ${orb.dur} ease-in-out infinite`,
             animationDelay: orb.delay,
             filter: 'blur(40px)',
+            willChange: 'transform',
           }}
         />
       ))}

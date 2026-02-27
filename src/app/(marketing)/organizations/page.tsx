@@ -14,6 +14,7 @@ import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
+import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
@@ -132,6 +133,7 @@ export default async function OrganizationsPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> For Organizations
           </p>

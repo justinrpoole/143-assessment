@@ -931,10 +931,10 @@ export function renderReportHtml({
         <p class="identity-opener-text">${escapeHtml(identityOpener)}</p>
       </section>
 
-      <!-- Top Two Power Sources -->
+      <!-- Top Two Primary Rays -->
       <section class="section" data-section="top-two">
-        <div class="section-eyebrow">Your Power Sources</div>
-        <h2>Power Sources</h2>
+        <div class="section-eyebrow">Your Primary Rays</div>
+        <h2>Primary Rays</h2>
         <p>These are the capacities your system runs strongest. They are not gifts you were lucky to get. They are behaviors you have practiced — and they power everything else in this report.</p>
         <div class="top-two-grid">
           <div class="ray-card ray-card-top">
@@ -971,7 +971,7 @@ ${rayBarsHtml}
       <!-- Micro-Wins -->
       <section class="section" data-section="micro-wins">
         <div class="section-eyebrow">Repeatable Reps</div>
-        <h2>Next Reps</h2>
+        <h2>Light Reps</h2>
         <p>${escapeHtml(microWinsLead)}</p>
         <p>These are reps — the smallest unit of behavior change. Do one today. Then log it as a receipt.</p>
         <ul class="rep-list">

@@ -168,7 +168,7 @@ export function GrowthSummaryClient() {
             rayPairId={latestRun?.ray_pair_id}
             topRays={latestRun?.top_rays}
             shortLine="Your growth shows up in your reps."
-            buttonLabel="Generate Growth Share Card"
+            buttonLabel="Generate Growth Light Card"
           />
         </>
       ) : null}

@@ -57,9 +57,9 @@ export default function NotALabelManifesto() {
               style={!panel.muted ? { border: '1px solid rgba(248,208,17,0.2)' } : undefined}
             >
               <p
-                className="text-[10px] font-bold uppercase tracking-widest"
+                className="text-xs font-bold uppercase tracking-widest"
                 style={{
-                  color: panel.muted ? 'rgba(255,255,255,0.45)' : '#F8D011',
+                  color: panel.muted ? 'rgba(255,255,255,0.5)' : '#F8D011',
                 }}
               >
                 {panel.kicker}
@@ -81,7 +81,7 @@ export default function NotALabelManifesto() {
                       className="text-sm font-bold"
                       style={{
                         color: panel.muted ? 'rgba(255,255,255,0.2)' : '#F8D011',
-                        textShadow: !panel.muted ? '0 0 6px rgba(248,208,17,0.2)' : undefined,
+                        textShadow: !panel.muted ? '0 0 12px rgba(248,208,17,0.35), 0 0 20px rgba(248,208,17,0.12)' : undefined,
                       }}
                     >
                       {i < panel.steps.length - 1 ? '↓' : '◆'}

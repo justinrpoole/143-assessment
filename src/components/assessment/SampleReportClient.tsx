@@ -477,7 +477,7 @@ export default function SampleReportClient() {
             Orbit Map — Your Solar System
           </h2>
           <p className="text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>
-            Inner orbit = power sources. Middle orbit = transitioning rays. Outer orbit = training focus.
+            Inner orbit = primary rays. Middle orbit = transitioning rays. Outer orbit = training focus.
             Hover each ray chip for score details.
           </p>
           <OrbitMap rays={SAMPLE_RAYS} topTwo={SAMPLE_TOP_TWO} bottomRay={SAMPLE_BOTTOM_RAY} />
@@ -505,7 +505,7 @@ export default function SampleReportClient() {
             Solar Flare Journal — Capacity Timeline
           </h2>
           <p className="text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>
-            Flare height represents capacity magnitude. Power source rays produce massive solar eruptions.
+            Flare height represents capacity magnitude. Primary rays produce massive solar eruptions.
             Growth-edge rays show early sparks. Each flare is positioned by date along the sun&apos;s surface.
           </p>
           <SolarFlareJournal flares={SAMPLE_FLARES} />
@@ -520,7 +520,7 @@ export default function SampleReportClient() {
           </h2>
           <p className="text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>
             Each star represents a subfacet skill. Gold lit stars are active capacities (score 60+).
-            Larger stars mark major breakthroughs in your Power Sources. Click any star for details.
+            Larger stars mark major breakthroughs in your Primary Rays. Click any star for details.
           </p>
           <ConstellationProgress
             stars={constellationStars}

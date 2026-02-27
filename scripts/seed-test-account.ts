@@ -66,6 +66,15 @@ if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
   process.exit(1);
 }
 
+function ensureJwtKey(key: string, label: string) {
+  if (!key.startsWith("eyJ")) {
+    console.error(`${label} must be a JWT (starts with eyJ).`);
+    process.exit(1);
+  }
+}
+
+ensureJwtKey(SERVICE_ROLE_KEY, "SUPABASE_SERVICE_ROLE_KEY");
+
 // ── Deterministic user ID (mirrors verify route) ──
 
 function generateDeterministicUserId(email: string): string {

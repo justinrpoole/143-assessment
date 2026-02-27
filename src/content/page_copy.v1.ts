@@ -150,7 +150,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     },
     nextStepSection: {
       title: "Which leader are you when the light is on?",
-      body: "Your two Power Sources combine into one of 36 Light Signatures. You might be a Strategic Optimist, a Decisive Director, or a Calm Center. The assessment reveals yours.",
+      body: "Your two Primary Rays combine into one of 36 Light Signatures. You might be a Strategic Optimist, a Decisive Director, or a Calm Center. The assessment reveals yours.",
     },
     whyThisWorks: {
       title:
@@ -169,7 +169,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
         links: [{ label: "Check My Stability", href: "/preview" }],
       },
       {
-        title: "The Ray Snapshot",
+        title: "Light OS Snapshot",
         body: "See your top 2 Rays and your Eclipse Snapshot. Enough to understand what is working and what is covered \u2014 and whether you might be a Bold Authentic, a Relational Light, or one of 34 other combinations.",
         links: [{ label: "Get Your Snapshot", href: "/preview" }],
       },
@@ -313,7 +313,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
       "Printable Tracker \u2014 A daily log that takes 90 seconds to complete. Three days. One page.",
       "Morning Prompts \u2014 One email each morning with that day\u2019s exact protocol. Short. Specific. No fluff.",
       "90-Second Reset Audio \u2014 A guided nervous system reset you can use when the inner critic gets loud. Play it in your car, at your desk, before a hard conversation.",
-      "Share Cards \u2014 Visual cue cards designed to trigger your 143 rep. Put one on your mirror. Send one to someone who needs it.",
+      "Light Cards \u2014 Visual cue cards designed to trigger your 143 rep. Put one on your mirror. Send one to someone who needs it.",
     ],
     close:
       "Self-compassion is not soft. It is the reason your nervous system can sustain high standards without burning through you. Mel Robbins taught you to count down and move. This teaches your brain what to look for when it lands. The 143 Challenge is the entry point. The 143 Assessment is the map. Start with the free one. See what moves.",

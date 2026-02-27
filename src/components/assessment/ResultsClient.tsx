@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 
 import dynamic from "next/dynamic";
@@ -12,6 +12,9 @@ import WeekOneChecklist from "@/components/results/WeekOneChecklist";
 import BottomRay from "@/components/results/BottomRay";
 import CosmicSkeleton from "@/components/ui/CosmicSkeleton";
 import CosmicEmptyState from "@/components/ui/CosmicEmptyState";
+import LightSignatureReveal from "@/components/results/LightSignatureReveal";
+import HeadlineCard from "@/components/results/HeadlineCard";
+import { PdfDownloadButton } from "@/components/results/PdfDownloadButton";
 
 const SolarCoreScore = dynamic(() => import("@/components/cosmic/SolarCoreScore"), { ssr: false });
 const EclipseMeter = dynamic(() => import("@/components/cosmic/EclipseMeter"), { ssr: false });
@@ -70,6 +73,8 @@ export function ResultsClient({ runId }: ResultsClientProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [raw, setRaw] = useState<RawResultsPayload | null>(null);
+  const [revealDone, setRevealDone] = useState(false);
+  const onRevealComplete = useCallback(() => setRevealDone(true), []);
 
   useEffect(() => {
     let canceled = false;
@@ -163,10 +168,26 @@ export function ResultsClient({ runId }: ResultsClientProps) {
   // ---------------------------------------------------------------------------
   return (
     <div className="space-y-8">
+      {/* Spotify Wrapped-style reveal — auto-shows on first view */}
+      {output && !revealDone && (
+        <LightSignatureReveal
+          output={output}
+          runId={runId}
+          onComplete={onRevealComplete}
+        />
+      )}
+
       <ResultsScrollProgress />
       <ResultsTableOfContents />
 
       {/* ═══ ABOVE THE FOLD: Your Story ═══ */}
+
+      {/* 0. Headline Card — Tier 1 Progressive Disclosure (scannable in 5 seconds) */}
+      {output && (
+        <FadeInSection>
+          <HeadlineCard output={output} />
+        </FadeInSection>
+      )}
 
       {/* 1. Welcome + Confidence */}
       <FadeInSection>
@@ -519,14 +540,34 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       )}
 
       <FadeInSection>
-        <ShareCardButton
-          type="results"
-          runId={runId}
-          rayPairId={raw.ray_pair_id}
-          topRays={raw.top_rays}
-          shortLine="I know you are the type of person who follows through."
-          buttonLabel="Generate Results Share Card"
-        />
+        <div className="space-y-4">
+          <ShareCardButton
+            type="results"
+            runId={runId}
+            rayPairId={raw.ray_pair_id}
+            topRays={raw.top_rays}
+            shortLine="I know you are the type of person who follows through."
+            buttonLabel="Generate Results Light Card"
+          />
+          <div className="flex flex-col sm:flex-row gap-3">
+            <PdfDownloadButton runId={runId} />
+            <button
+              type="button"
+              onClick={() => {
+                try { localStorage.removeItem('reveal-seen'); } catch {}
+                setRevealDone(false);
+              }}
+              className="text-xs font-medium px-4 py-2 rounded-full"
+              style={{
+                color: 'var(--text-on-dark-secondary)',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+              }}
+            >
+              Replay reveal
+            </button>
+          </div>
+        </div>
       </FadeInSection>
     </div>
   );
