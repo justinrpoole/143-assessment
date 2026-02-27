@@ -413,6 +413,47 @@ export default async function MethodologyPage() {
 
       <GoldDividerAnimated />
 
+      {/* ── Reps, Not Resolutions (#10) ── */}
+      <FadeInSection>
+        <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+          <div className="glass-card p-6 sm:p-8 space-y-4">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--brand-gold, #F8D011)" }}
+            >
+              Reps, Not Resolutions
+            </p>
+            <h2
+              className="text-xl font-bold sm:text-2xl"
+              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            >
+              The behavioral engine behind the system.
+            </h2>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+            >
+              Implementation intentions have a <span className="gold-highlight">d=0.781 effect size</span> across
+              10,466 participants (Gollwitzer, 2025 meta-analysis). Habit formation
+              takes a median of 59 to 66 days — not 21 (Lally et al., European
+              Journal of Social Psychology). The 143 rep system is built on these
+              mechanisms: if/then plans attached to specific moments in your day.
+              Not advice. Behavioral triggers.
+            </p>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+            >
+              A rep is not willpower. It is neurological rewiring. When you recognize
+              a leadership moment, name the capacity you used, and log it — you are
+              building a neural pathway. Do it daily and the pathway becomes automatic.
+            </p>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
       {/* ── Built for Real Brains (#3) ── */}
       <FadeInSection>
         <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8">

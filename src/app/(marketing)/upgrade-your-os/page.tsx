@@ -23,6 +23,7 @@ import CompetitorComparison from "@/components/marketing/CompetitorComparison";
 import NotALabelManifesto from "@/components/marketing/NotALabelManifesto";
 import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
 import OSExplainer from "@/components/marketing/OSExplainer";
+import DailyLoopVisual from "@/components/marketing/DailyLoopVisual";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -372,6 +373,66 @@ export default async function UpgradeYourOsPage() {
         </div>
       </section>
       </FadeInSection>
+
+      {/* ── ECLIPSE IS NOT FAILURE (#14) ── */}
+      <FadeInSection>
+      <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+        <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+            Eclipse Is Not Failure
+          </p>
+          <h2 className="text-xl font-bold sm:text-2xl text-gold-gradient">
+            Other assessments call it a &ldquo;derailment risk.&rdquo; We call it what it is.
+          </h2>
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            Hogan finds your weaknesses and calls them &ldquo;derailment risks.&rdquo; The Leadership Circle
+            calls them &ldquo;reactive tendencies.&rdquo; We find what is covering your light and call it
+            <span className="gold-highlight"> eclipse</span>. Not damage. Coverage. Not permanent. Temporary.
+            Not who you are. What is happening to you right now.
+          </p>
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+            A regulated nervous system sustains high standards. A shamed one collapses.
+            We built for regulation, not shame. That is why the number is 143.
+          </p>
+        </div>
+      </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
+      {/* ── THE 143 LOOP — Daily Practice (#9, #16) ── */}
+      <FadeInSection>
+      <section id="daily-loop" className="relative z-10 mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+        <DailyLoopVisual />
+      </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
+
+      {/* ── MICRO-JOY — Smallest Viable Practice (#12) ── */}
+      <FadeInSection>
+      <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8">
+        <div className="glass-card p-6 sm:p-8 space-y-4" style={{ border: '1px solid rgba(248,208,17,0.15)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+            Smallest Viable Practice
+          </p>
+          <h3 className="text-xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+            Micro-Joy: the atomic unit of leadership practice.
+          </h3>
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            One generation per day. Three swaps per day. That is it. You are retraining
+            your attention filter to notice joy — and <span className="gold-highlight">joy is a leadership capacity</span>.
+          </p>
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+            BJ Fogg&rsquo;s Tiny Habits research: the smaller the behavior, the more likely
+            it is to become automatic. Micro-Joy is 30 seconds. It trains Ray 2 (Joy) — the
+            capacity most leaders have abandoned under pressure.
+          </p>
+        </div>
+      </section>
+      </FadeInSection>
+
+      <GoldDividerAnimated />
 
       {/* ── COMPETITOR COMPARISON (#1) ── */}
       <FadeInSection>

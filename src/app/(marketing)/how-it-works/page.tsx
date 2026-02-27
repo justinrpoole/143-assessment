@@ -15,6 +15,8 @@ import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoldTooltip from "@/components/ui/GoldTooltip";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
+import DailyLoopVisual from "@/components/marketing/DailyLoopVisual";
+import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -337,6 +339,146 @@ export default async function HowItWorksPage() {
               </StaggerContainer>
             </section>
           </RadialSpotlight>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        {/* ─── REPS, NOT RESOLUTIONS (#10) ───────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-5">
+            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Reps, Not Resolutions
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl text-gold-gradient"
+              >
+                New Year&rsquo;s resolutions fail 92% of the time.
+                Implementation intentions succeed at d=0.781.
+              </h2>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                A rep is not willpower. It is neurological rewiring. When you
+                recognize a leadership moment, name the capacity you used, and
+                log it — you are building a neural pathway. Do it daily for 66
+                days (the real habit formation median, not the mythical 21) and
+                the pathway becomes automatic.
+              </p>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+              >
+                The 143 rep system uses Recognition, Encouragement, Performance,
+                and Sustainability as the behavioral engine — translating research
+                into a practice you can use Monday morning.
+              </p>
+            </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        {/* ─── IMPLEMENTATION INTENTIONS (#15) ───────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-5">
+            <div className="space-y-3 text-center">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                What a Rep Looks Like
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                Not advice. Specific if/then plans.
+              </h2>
+            </div>
+            <StaggerContainer className="space-y-3">
+              {[
+                { trigger: "I notice my energy dropping in a meeting", action: "I will take three breaths and name what I am feeling", ray: "Training Presence" },
+                { trigger: "Someone challenges my idea", action: "I will ask a follow-up question before responding", ray: "Training Connection" },
+                { trigger: "I catch myself doing busywork instead of the hard thing", action: "I will do two minutes of the hard thing first", ray: "Training Power" },
+                { trigger: "I feel the urge to perform steadiness I do not have", action: "I will name the real feeling to one trusted person", ray: "Training Authenticity" },
+              ].map((item) => (
+                <StaggerItem key={item.ray}>
+                  <div className="glass-card p-4" style={{ borderLeft: "2px solid rgba(248,208,17,0.25)" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+                      <span style={{ color: "rgba(255,255,255,0.4)" }}>IF</span>{" "}
+                      {item.trigger},{" "}
+                      <span style={{ color: "rgba(255,255,255,0.4)" }}>THEN</span>{" "}
+                      {item.action}.
+                    </p>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#F8D011", opacity: 0.6 }}>
+                      {item.ray}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+            <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+              These are real examples from the 143 daily practice system.
+              Your Rise Path generates if/then plans matched to your specific results.
+            </p>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
+        {/* ─── LEADERSHIP MRI — Weekly Scan (#13) ────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-5">
+            <div className="text-center space-y-3">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Your Weekly Leadership MRI
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                Every week, scan your operating system.
+              </h2>
+              <p
+                className="mx-auto max-w-[540px] text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                See which capacities gained energy. Which ones lost it. And what
+                to focus on next. No other assessment on the planet does this.
+              </p>
+            </div>
+            <div className="glass-card p-5 sm:p-6 space-y-3">
+              <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#F8D011" }}>
+                Week 4 vs Week 3 — Sample Delta View
+              </p>
+              <div className="grid gap-2 sm:grid-cols-3">
+                <div className="rounded-lg p-3 text-center" style={{ background: "rgba(248,208,17,0.06)" }}>
+                  <p className="text-lg font-bold tabular-nums" style={{ color: "#F8D011", fontFamily: "var(--font-cosmic-display)" }}>+6</p>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: "rgba(248,208,17,0.6)" }}>Presence</p>
+                </div>
+                <div className="rounded-lg p-3 text-center" style={{ background: "rgba(248,208,17,0.06)" }}>
+                  <p className="text-lg font-bold tabular-nums" style={{ color: "#F8D011", fontFamily: "var(--font-cosmic-display)" }}>+3</p>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: "rgba(248,208,17,0.6)" }}>Joy</p>
+                </div>
+                <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,100,100,0.06)", border: "1px solid rgba(255,100,100,0.15)" }}>
+                  <p className="text-lg font-bold tabular-nums" style={{ color: "rgba(255,150,150,0.8)", fontFamily: "var(--font-cosmic-display)" }}>-2</p>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: "rgba(255,150,150,0.5)" }}>Power (eclipse detected)</p>
+                </div>
+              </div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+                Not &ldquo;you will grow&rdquo; — &ldquo;you can see exactly WHERE you grew and where to focus next.&rdquo;
+              </p>
+            </div>
+            <ScoreMovementChart />
+          </section>
         </FadeInSection>
 
         <GoldDividerAnimated />

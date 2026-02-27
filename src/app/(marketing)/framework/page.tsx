@@ -506,6 +506,53 @@ export default async function FrameworkPage() {
 
         <GoldDividerAnimated />
 
+        {/* ─── IMPLEMENTATION INTENTIONS (#15) ────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-5">
+            <div className="text-center space-y-3">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                From Framework to Practice
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                Each ray has a specific practice. Here is what they look like.
+              </h2>
+            </div>
+            <StaggerContainer className="space-y-3">
+              {[
+                { trigger: "I notice my attention drifting in a conversation", action: "I will name one thing I see in the other person right now", ray: "Presence" },
+                { trigger: "I feel resistance to starting the hard task", action: "I will commit to two minutes of it before deciding to stop", ray: "Power" },
+                { trigger: "I catch myself performing a version of me that is not real", action: "I will name what I am actually feeling to one person", ray: "Authenticity" },
+                { trigger: "Someone shares something vulnerable", action: "I will pause before responding and ask what they need", ray: "Connection" },
+              ].map((item) => (
+                <StaggerItem key={item.ray}>
+                  <div className="glass-card p-4" style={{ borderLeft: "2px solid rgba(248,208,17,0.25)" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+                      <span style={{ color: "rgba(255,255,255,0.4)" }}>IF</span>{" "}
+                      {item.trigger},{" "}
+                      <span style={{ color: "rgba(255,255,255,0.4)" }}>THEN</span>{" "}
+                      {item.action}.
+                    </p>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#F8D011", opacity: 0.6 }}>
+                      {item.ray}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+            <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+              Implementation intentions (Gollwitzer, d=0.781) — the behavioral mechanism behind every rep in the system.
+            </p>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
         {/* ─── SECTION 7 · CTA ────────────────────────────────── */}
         <FadeInSection>
           <section id="cta" className="mx-auto max-w-[720px]">

@@ -496,6 +496,45 @@ export default async function PricingPage() {
 
         <GoldDividerAnimated />
 
+        {/* ─── LEADERSHIP MRI + STREAK (#11, #13) ────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px] space-y-5">
+            <div className="glass-card p-6 sm:p-8 space-y-4">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Your Weekly Leadership MRI
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl"
+                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              >
+                The Portal is not a subscription. It is a measurement system.
+              </h2>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                Every week, you scan your operating system in 5 minutes. You see which
+                capacities gained energy, which lost it, and what to focus on next.
+                <span className="gold-highlight"> No other assessment on the planet does this.</span>
+              </p>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+              >
+                Leaders using The 143 Loop for 30+ days build a data trail of visible
+                growth. We do not use streaks to guilt you — we use them to show you
+                evidence. Every day you practice is a data point. Every data point is
+                proof that you are building something.
+              </p>
+            </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
         {/* ─── SECTION 4 · NO LOCK-IN ──────────────────────────── */}
         <FadeInSection>
           <section id="no-lock-in" className="relative mx-auto max-w-[720px] watermark-143">

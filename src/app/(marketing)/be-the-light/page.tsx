@@ -282,6 +282,48 @@ export default async function BeTheLightPage() {
 
         <GoldDividerAnimated />
 
+        {/* ─── ECLIPSE IS NOT FAILURE (#14) ──────────────────── */}
+        <FadeInSection>
+          <section className="mx-auto max-w-[720px]">
+            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+              <p
+                className="text-xs font-bold uppercase tracking-widest"
+                style={{ color: "var(--brand-gold, #F8D011)" }}
+              >
+                Eclipse Is Not Failure
+              </p>
+              <h2
+                className="text-xl font-bold sm:text-2xl text-gold-gradient"
+              >
+                Not damage. Coverage. Not permanent. Temporary.
+                Not who you are. What is happening to you right now.
+              </h2>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+              >
+                Other assessments find your weaknesses and label them &ldquo;derailment risks&rdquo;
+                (Hogan) or &ldquo;reactive tendencies&rdquo; (Leadership Circle Profile).
+                We find what is covering your light and call it what it is: eclipse.
+                The language matters — because <span className="gold-highlight">a regulated nervous system sustains
+                high standards while a shamed one collapses</span>.
+              </p>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+              >
+                Kristin Neff&rsquo;s self-compassion research shows that fierce compassion
+                drives sustained motivation without the cost of self-criticism.
+                The 143 Eclipse framework is the only leadership assessment built
+                on self-compassion science. 143 = I love you. That is not decoration.
+                That is the design philosophy.
+              </p>
+            </div>
+          </section>
+        </FadeInSection>
+
+        <GoldDividerAnimated />
+
         <GoldHeroBanner
           kicker="Not Broken. Covered."
           title="Your light is not gone. It is running on reserves you have not replenished."
