@@ -4,17 +4,18 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useMemo } from 'react';
 import type { RayOutput } from '@/lib/types';
 import { RAY_SHORT_NAMES } from '@/lib/types';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 interface PlanetaryAlignmentProps {
   rays: Record<string, RayOutput>;
 }
 
 const RAY_COLORS: Record<string, string> = {
-  R2: '#F4C430', // Joy — gold
-  R4: '#C0392B', // Power — crimson
-  R3: '#8E44AD', // Presence — violet
-  R8: '#1ABC9C', // Possibility — teal
-  R5: '#D4770B', // Purpose — amber
+  R2: rayHex('R2'),
+  R4: rayHex('R4'),
+  R3: rayHex('R3'),
+  R8: rayHex('R8'),
+  R5: rayHex('R5'),
 };
 
 const PLANET_RAYS = ['R2', 'R4', 'R3', 'R8', 'R5'];

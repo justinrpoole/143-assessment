@@ -7,13 +7,15 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/FadeInSection";
-import GoldDividerAnimated from "@/components/ui/GoldDividerAnimated";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
+import { rayHex } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 
@@ -40,16 +42,19 @@ const SIGNATURE_PATTERNS = [
     signature: "A Relational Light",
     pattern:
       "leads by making every person in the room feel seen. The cost is invisible — they absorb so much that their own signal fades.",
+    rayKey: "R7",
   },
   {
     signature: "A Calm Center",
     pattern:
       "leads by staying steady when everyone else is spinning. The cost is that no one checks on them — because they never look like they need it.",
+    rayKey: "R3",
   },
   {
     signature: "A Servant Leader",
     pattern:
       "leads by building something that outlasts them. The cost is that the structure gets fed while the person building it does not.",
+    rayKey: "R5",
   },
 ];
 
@@ -58,16 +63,19 @@ const ECLIPSE_SIGNS = [
     label: "Energy Borrowing",
     description:
       "You are giving from reserves you have not replenished. The output looks the same. The internal cost is climbing.",
+    rayKey: "R3",
   },
   {
     label: "The \"I Miss Me\" Signal",
     description:
       "You catch yourself thinking: I used to be different. That is not nostalgia. That is your system telling you a capacity has gone offline.",
+    rayKey: "R8",
   },
   {
     label: "Performing Steadiness",
     description:
       "You are calm for the room, not for yourself. The role is running. The person inside is tired.",
+    rayKey: "R4",
   },
 ];
 
@@ -140,17 +148,18 @@ export default async function BeTheLightPage() {
             They notice. And the question is not whether your light is there. It
             is whether you are accessing it or borrowing against it.
           </p>
+          <RaySpectrumStrip className="mt-6" />
         </section>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R3" />
 
         {/* ─── SECTION 2 · SELF-RECOGNITION ───────────────────── */}
         <FadeInSection blur>
           <section className="mx-auto max-w-[720px]">
-            <div className="glass-card p-6 sm:p-8 space-y-5">
+            <div className="glass-card glass-card--magnetic p-6 sm:p-8 space-y-5" style={{ borderLeft: `3px solid ${rayHex('R3')}40`, background: `${rayHex('R3')}06` }}>
               <p
                 className="text-sm font-semibold leading-relaxed"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R3') }}
               >
                 Have you ever crushed the presentation and come home empty?
               </p>
@@ -180,7 +189,7 @@ export default async function BeTheLightPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         {/* ─── SECTION 3 · SOUND FAMILIAR ─────────────────────── */}
         <FadeInSection>
@@ -189,12 +198,15 @@ export default async function BeTheLightPage() {
               <div className="glass-card p-6 sm:p-8">
                 <p
                   className="mb-5 text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: rayHex('R7') }}
                 >
                   Sound Familiar?
                 </p>
                 <StaggerContainer className="space-y-3">
-                  {RECOGNITION_SIGNALS.map((signal) => (
+                  {RECOGNITION_SIGNALS.map((signal, i) => {
+                    const dotColors = [rayHex('R7'), rayHex('R3'), rayHex('R9'), rayHex('R4'), rayHex('R8')];
+                    const dotColor = dotColors[i % dotColors.length];
+                    return (
                     <StaggerItem key={signal}>
                       <div
                         className="flex items-start gap-3 text-sm leading-relaxed"
@@ -204,20 +216,21 @@ export default async function BeTheLightPage() {
                         }}
                       >
                         <span
-                          className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full"
-                          style={{ background: "var(--brand-gold)" }}
+                          className="mt-1.5 block h-2 w-2 shrink-0 rounded-full"
+                          style={{ background: dotColor }}
                         />
                         {signal}
                       </div>
                     </StaggerItem>
-                  ))}
+                    );
+                  })}
                 </StaggerContainer>
               </div>
             </section>
           </RadialSpotlight>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R3" />
 
         {/* ─── SECTION 4 · THE ECLIPSE COST ───────────────────── */}
         <FadeInSection>
@@ -225,7 +238,7 @@ export default async function BeTheLightPage() {
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R3') }}
               >
                 The Cost of Borrowed Energy
               </p>
@@ -239,17 +252,20 @@ export default async function BeTheLightPage() {
             </div>
 
             <StaggerContainer className="space-y-4">
-              {ECLIPSE_SIGNS.map((item) => (
+              {ECLIPSE_SIGNS.map((item) => {
+                const color = rayHex(item.rayKey);
+                return (
                 <StaggerItem key={item.label}>
                   <div
-                    className="glass-card p-5"
+                    className="glass-card glass-card--magnetic p-5"
                     style={{
-                      borderLeft: "3px solid var(--brand-gold, #F8D011)",
+                      borderLeft: `3px solid ${color}40`,
+                      background: `${color}06`,
                     }}
                   >
                     <p
                       className="text-sm font-semibold"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                      style={{ color }}
                     >
                       {item.label}
                     </p>
@@ -264,7 +280,8 @@ export default async function BeTheLightPage() {
                     </p>
                   </div>
                 </StaggerItem>
-              ))}
+                );
+              })}
             </StaggerContainer>
 
             <p
@@ -280,15 +297,15 @@ export default async function BeTheLightPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R8" />
 
         {/* ─── ECLIPSE IS NOT FAILURE (#14) ──────────────────── */}
-        <FadeInSection>
+        <FadeInSection blur>
           <section className="mx-auto max-w-[720px]">
-            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4" style={{ borderTop: `2px solid ${rayHex('R3')}30` }}>
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R3') }}
               >
                 Eclipse Is Not Failure
               </p>
@@ -322,7 +339,7 @@ export default async function BeTheLightPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         <GoldHeroBanner
           kicker="Not Broken. Covered."
@@ -330,7 +347,7 @@ export default async function BeTheLightPage() {
           description="The assessment names the exact pattern — which ray is carrying, which is covered, and what to restore first."
         />
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R7" />
 
         {/* ─── SECTION 5 · SIGNATURE PATTERNS ─────────────────── */}
         <FadeInSection>
@@ -338,7 +355,7 @@ export default async function BeTheLightPage() {
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R7') }}
               >
                 Your Light Shows Up in a Specific Pattern
               </p>
@@ -351,9 +368,11 @@ export default async function BeTheLightPage() {
             </div>
 
             <StaggerContainer className="space-y-4">
-              {SIGNATURE_PATTERNS.map((item) => (
+              {SIGNATURE_PATTERNS.map((item) => {
+                const color = rayHex(item.rayKey);
+                return (
                 <StaggerItem key={item.signature}>
-                  <div className="glass-card p-5 space-y-1">
+                  <div className="glass-card glass-card--lift p-5 space-y-1" style={{ borderLeft: `3px solid ${color}40`, background: `${color}06` }}>
                     <p
                       className="text-sm leading-relaxed"
                       style={{
@@ -362,7 +381,7 @@ export default async function BeTheLightPage() {
                       }}
                     >
                       <strong
-                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                        style={{ color }}
                       >
                         {item.signature}
                       </strong>{" "}
@@ -370,7 +389,8 @@ export default async function BeTheLightPage() {
                     </p>
                   </div>
                 </StaggerItem>
-              ))}
+                );
+              })}
             </StaggerContainer>
 
             <p
@@ -385,15 +405,15 @@ export default async function BeTheLightPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider ray="R9" />
 
         {/* ─── SECTION 6 · THE MEANING ────────────────────────── */}
-        <FadeInSection>
+        <FadeInSection blur>
           <section className="mx-auto max-w-[720px]">
-            <div className="glass-card p-6 sm:p-8 space-y-4">
+            <div className="glass-card glass-card--magnetic p-6 sm:p-8 space-y-4" style={{ borderTop: `2px solid ${rayHex('R9')}30` }}>
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R9') }}
               >
                 Why 143
               </p>
@@ -419,15 +439,15 @@ export default async function BeTheLightPage() {
           </section>
         </FadeInSection>
 
-        <GoldDividerAnimated />
+        <RayDivider />
 
         {/* ─── SECTION 7 · CTA ────────────────────────────────── */}
-        <FadeInSection>
+        <FadeInSection blur>
           <section className="mx-auto max-w-[720px]">
             <div className="glass-card p-8 text-center space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R9') }}
               >
                 The Practice
               </p>

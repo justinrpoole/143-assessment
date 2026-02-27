@@ -17,8 +17,10 @@ import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import DailyLoopVisual from "@/components/marketing/DailyLoopVisual";
 import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { rayHex } from "@/lib/ui/ray-colors";
 
 export const dynamic = "force-dynamic";
 
@@ -37,6 +39,7 @@ const FUNNEL_STEPS = [
     detail:
       "The 143 Challenge reprograms your Reticular Activating System in 3 days. Your brain starts scanning for possibility instead of threat. Free. No card required. This is the foundation.",
     badge: "Free",
+    rayKey: "R8",
   },
   {
     step: "Stage 2",
@@ -44,6 +47,7 @@ const FUNNEL_STEPS = [
     detail:
       (<>143 questions. 15 minutes. The assessment scores all 9 Rays across 36 subfacets and generates your <GoldTooltip tip="Your unique combination of top two Rays — the pattern your leadership defaults to.">Light Signature</GoldTooltip>, <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims.">Eclipse</GoldTooltip> Snapshot, Energy-to-Eclipse Ratio, and Rise Path. Not who you are. What you can build.</>),
     badge: "$43",
+    rayKey: "R1",
   },
   {
     step: "Stage 3",
@@ -51,6 +55,7 @@ const FUNNEL_STEPS = [
     detail:
       "Your Rise Path gives you specific reps matched to your results. 13 science-backed protocols. Daily micro-practices. 3 minutes a day. The reps target the capacity that is most eclipsed — not the one that is easiest.",
     badge: "Included",
+    rayKey: "R4",
   },
   {
     step: "Stage 4",
@@ -58,6 +63,7 @@ const FUNNEL_STEPS = [
     detail:
       "Retake in 90 days. Watch the numbers shift. That is not a feeling. That is evidence the reps are landing. No other assessment is designed to be outgrown. Your data stays even if you cancel.",
     badge: "Portal",
+    rayKey: "R9",
   },
 ];
 
@@ -133,6 +139,7 @@ export default async function HowItWorksPage() {
             </LiquidFillButton>
           </div>
           <TrustBadgeStrip badges={["4-Stage System", "Evidence-Based", "Designed to Be Outgrown"]} />
+          <RaySpectrumStrip className="mt-4" />
 
           <CosmicImage
             src="/images/cosmic/framework-phases.png"
@@ -175,21 +182,23 @@ export default async function HowItWorksPage() {
             />
 
             <StaggerContainer className="grid gap-5 sm:grid-cols-2">
-              {FUNNEL_STEPS.map((step) => (
+              {FUNNEL_STEPS.map((step) => {
+                const color = rayHex(step.rayKey);
+                return (
                 <StaggerItem key={step.step}>
-                  <div className="glass-card p-5 h-full space-y-3">
+                  <div className="glass-card glass-card--magnetic p-5 h-full space-y-3" style={{ borderTop: `2px solid ${color}40`, background: `${color}06` }}>
                     <div className="flex items-center justify-between">
                       <p
                         className="text-[10px] font-bold uppercase tracking-widest"
-                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                        style={{ color }}
                       >
                         {step.step}
                       </p>
                       <span
                         className="rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest"
                         style={{
-                          background: "rgba(248,208,17,0.12)",
-                          color: "var(--brand-gold, #F8D011)",
+                          background: `${color}15`,
+                          color,
                         }}
                       >
                         {step.badge}
@@ -212,7 +221,8 @@ export default async function HowItWorksPage() {
                     </p>
                   </div>
                 </StaggerItem>
-              ))}
+                );
+              })}
             </StaggerContainer>
           </section>
         </FadeInSection>
@@ -402,25 +412,28 @@ export default async function HowItWorksPage() {
             </div>
             <StaggerContainer className="space-y-3">
               {[
-                { trigger: "I notice my energy dropping in a meeting", action: "I will take three breaths and name what I am feeling", ray: "Training Presence" },
-                { trigger: "Someone challenges my idea", action: "I will ask a follow-up question before responding", ray: "Training Connection" },
-                { trigger: "I catch myself doing busywork instead of the hard thing", action: "I will do two minutes of the hard thing first", ray: "Training Power" },
-                { trigger: "I feel the urge to perform steadiness I do not have", action: "I will name the real feeling to one trusted person", ray: "Training Authenticity" },
-              ].map((item) => (
+                { trigger: "I notice my energy dropping in a meeting", action: "I will take three breaths and name what I am feeling", ray: "Training Presence", rayKey: "R3" },
+                { trigger: "Someone challenges my idea", action: "I will ask a follow-up question before responding", ray: "Training Connection", rayKey: "R7" },
+                { trigger: "I catch myself doing busywork instead of the hard thing", action: "I will do two minutes of the hard thing first", ray: "Training Power", rayKey: "R4" },
+                { trigger: "I feel the urge to perform steadiness I do not have", action: "I will name the real feeling to one trusted person", ray: "Training Authenticity", rayKey: "R6" },
+              ].map((item) => {
+                const color = rayHex(item.rayKey);
+                return (
                 <StaggerItem key={item.ray}>
-                  <div className="glass-card p-4" style={{ borderLeft: "2px solid rgba(248,208,17,0.25)" }}>
+                  <div className="glass-card glass-card--magnetic p-4" style={{ borderLeft: `3px solid ${color}40`, background: `${color}06` }}>
                     <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
-                      <span style={{ color: "rgba(255,255,255,0.4)" }}>IF</span>{" "}
+                      <span style={{ color: `${color}80` }}>IF</span>{" "}
                       {item.trigger},{" "}
-                      <span style={{ color: "rgba(255,255,255,0.4)" }}>THEN</span>{" "}
+                      <span style={{ color: `${color}80` }}>THEN</span>{" "}
                       {item.action}.
                     </p>
-                    <p className="mt-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#F8D011", opacity: 0.6 }}>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-widest" style={{ color, opacity: 0.7 }}>
                       {item.ray}
                     </p>
                   </div>
                 </StaggerItem>
-              ))}
+                );
+              })}
             </StaggerContainer>
             <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
               These are real examples from the 143 daily practice system.
@@ -437,7 +450,7 @@ export default async function HowItWorksPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R9') }}
               >
                 Your Weekly Leadership MRI
               </p>
@@ -456,21 +469,21 @@ export default async function HowItWorksPage() {
               </p>
             </div>
             <div className="glass-card p-5 sm:p-6 space-y-3">
-              <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#F8D011" }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: rayHex('R9') }}>
                 Week 4 vs Week 3 — Sample Delta View
               </p>
               <div className="grid gap-2 sm:grid-cols-3">
-                <div className="rounded-lg p-3 text-center" style={{ background: "rgba(248,208,17,0.06)" }}>
-                  <p className="text-lg font-bold tabular-nums" style={{ color: "#F8D011", fontFamily: "var(--font-cosmic-display)" }}>+6</p>
-                  <p className="text-[10px] uppercase tracking-widest" style={{ color: "rgba(248,208,17,0.6)" }}>Presence</p>
+                <div className="rounded-lg p-3 text-center" style={{ background: `${rayHex('R3')}08`, border: `1px solid ${rayHex('R3')}15` }}>
+                  <p className="text-lg font-bold tabular-nums" style={{ color: rayHex('R3'), fontFamily: "var(--font-cosmic-display)" }}>+6</p>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: `${rayHex('R3')}99` }}>Presence</p>
                 </div>
-                <div className="rounded-lg p-3 text-center" style={{ background: "rgba(248,208,17,0.06)" }}>
-                  <p className="text-lg font-bold tabular-nums" style={{ color: "#F8D011", fontFamily: "var(--font-cosmic-display)" }}>+3</p>
-                  <p className="text-[10px] uppercase tracking-widest" style={{ color: "rgba(248,208,17,0.6)" }}>Joy</p>
+                <div className="rounded-lg p-3 text-center" style={{ background: `${rayHex('R2')}08`, border: `1px solid ${rayHex('R2')}15` }}>
+                  <p className="text-lg font-bold tabular-nums" style={{ color: rayHex('R2'), fontFamily: "var(--font-cosmic-display)" }}>+3</p>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: `${rayHex('R2')}99` }}>Joy</p>
                 </div>
-                <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,100,100,0.06)", border: "1px solid rgba(255,100,100,0.15)" }}>
-                  <p className="text-lg font-bold tabular-nums" style={{ color: "rgba(255,150,150,0.8)", fontFamily: "var(--font-cosmic-display)" }}>-2</p>
-                  <p className="text-[10px] uppercase tracking-widest" style={{ color: "rgba(255,150,150,0.5)" }}>Power (eclipse detected)</p>
+                <div className="rounded-lg p-3 text-center" style={{ background: `${rayHex('R4')}08`, border: `1px solid ${rayHex('R4')}20` }}>
+                  <p className="text-lg font-bold tabular-nums" style={{ color: `${rayHex('R4')}cc`, fontFamily: "var(--font-cosmic-display)" }}>-2</p>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: `${rayHex('R4')}80` }}>Power (eclipse detected)</p>
                 </div>
               </div>
               <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -489,7 +502,7 @@ export default async function HowItWorksPage() {
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: rayHex('R8') }}
               >
                 Designed to Be Outgrown
               </p>

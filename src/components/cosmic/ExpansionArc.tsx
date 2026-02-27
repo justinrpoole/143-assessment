@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { useMemo } from 'react';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 interface Milestone {
   id: string;
@@ -21,7 +22,7 @@ function seededRandom(seed: number): number {
   return ((seed * 1597 + 51749) % 244944) / 244944;
 }
 
-const DEFAULT_RAY_COLORS = ['#1ABC9C', '#D4770B', '#F4C430', '#C0392B', '#8E44AD'];
+const DEFAULT_RAY_COLORS = [rayHex('R8'), rayHex('R5'), rayHex('R2'), rayHex('R4'), rayHex('R3')];
 
 /**
  * Expansion Arc Timeline (#12) — Personal Growth Journey

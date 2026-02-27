@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useMemo, useState, useCallback } from 'react';
 import type { RayOutput } from '@/lib/types';
 import { RAY_SHORT_NAMES } from '@/lib/types';
+import { rayHex } from '@/lib/ui/ray-colors';
 
 interface OrbitMapProps {
   /** All ray outputs — rays are sorted into orbits by net energy */
@@ -30,8 +31,9 @@ const RAY_ICONS: Record<string, string> = {
 };
 
 const RAY_COLORS: Record<string, string> = {
-  R1: '#A78BFA', R2: '#F4C430', R3: '#8E44AD', R4: '#C0392B', R5: '#D4770B',
-  R6: '#2ECC71', R7: '#3498DB', R8: '#1ABC9C', R9: '#F39C12',
+  R1: rayHex('R1'), R2: rayHex('R2'), R3: rayHex('R3'),
+  R4: rayHex('R4'), R5: rayHex('R5'), R6: rayHex('R6'),
+  R7: rayHex('R7'), R8: rayHex('R8'), R9: rayHex('R9'),
 };
 
 function seededRandom(seed: number): number {

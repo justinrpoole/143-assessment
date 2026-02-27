@@ -78,3 +78,11 @@ export function rayRamp(rayIdOrName: string) {
     full: hex,
   };
 }
+
+/** All 9 ray keys in order */
+export const RAY_KEYS = ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9'] as const;
+
+/** Cycle through the 9 ray keys for a given index (wraps around) */
+export function cycleRay(index: number): string {
+  return RAY_KEYS[((index % 9) + 9) % 9];
+}

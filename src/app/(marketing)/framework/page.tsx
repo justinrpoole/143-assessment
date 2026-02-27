@@ -17,8 +17,11 @@ import SectionTOC from "@/components/ui/SectionTOC";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import RaySpectrumBar from "@/components/marketing/RaySpectrumBar";
+import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
+import RayDivider from "@/components/ui/RayDivider";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 
 export const dynamic = "force-dynamic";
 
@@ -36,6 +39,7 @@ const THREE_PHASES = [
     title: "Reconnect",
     subtitle: "Emotional intelligence with yourself",
     rays: "Intention · Joy · Presence",
+    rayKey: "R1",
     body: "Before you lead others, you need access to yourself. These three rays train the internal operating system — where your attention goes, what fuels you when conditions don't, and the gap between stimulus and response that belongs to you.",
     hook: "Most people skip this phase. The data shows why that costs them.",
   },
@@ -44,6 +48,7 @@ const THREE_PHASES = [
     title: "Expand",
     subtitle: "Where self-regulation meets self-expression",
     rays: "Power · Purpose · Authenticity",
+    rayKey: "R4",
     body: "You stop waiting for permission and start moving. These rays measure whether you act before the feeling arrives, whether your calendar matches your values, and whether you are the same person in every room.",
     hook: "The pattern you can't see is the one running you.",
   },
@@ -52,6 +57,7 @@ const THREE_PHASES = [
     title: "Become",
     subtitle: "Emotional intelligence with others",
     rays: "Connection · Possibility · Be The Light",
+    rayKey: "R7",
     body: "Your capacity extends beyond yourself. These rays measure whether people feel safe enough to be honest around you, whether you see doors where others see walls, and whether your presence lowers the noise or adds to it.",
     hook: "When these are online, you don't just lead. You multiply.",
   },
@@ -182,6 +188,7 @@ export default async function FrameworkPage() {
           </p>
         </section>
 
+        <RaySpectrumStrip className="my-4" />
         <GoldDividerAnimated />
 
         {/* ─── SECTION 2 · THE SPECTRUM ──────────────────────── */}
@@ -275,22 +282,21 @@ export default async function FrameworkPage() {
             </div>
 
             <StaggerContainer className="space-y-4">
-              {THREE_PHASES.map((phase, i) => (
+              {THREE_PHASES.map((phase, i) => {
+                const color = rayHex(phase.rayKey);
+                return (
                 <StaggerItem key={phase.phase}>
-                  <div className="glass-card flex gap-5 p-5 sm:gap-6 sm:p-6">
+                  <div className="glass-card glass-card--magnetic flex gap-5 p-5 sm:gap-6 sm:p-6" style={{ borderLeft: `3px solid ${color}60`, background: `${color}08` }}>
                     <div className="shrink-0 text-center">
                       <p
                         className="text-[10px] font-bold uppercase tracking-widest"
-                        style={{
-                          color: "var(--brand-gold, #F8D011)",
-                          opacity: 0.7,
-                        }}
+                        style={{ color, opacity: 0.7 }}
                       >
                         {phase.phase}
                       </p>
                       <p
                         className="mt-1 text-3xl font-bold"
-                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                        style={{ color }}
                       >
                         {i + 1}
                       </p>
@@ -312,10 +318,7 @@ export default async function FrameworkPage() {
                       </p>
                       <p
                         className="text-xs font-semibold uppercase tracking-widest"
-                        style={{
-                          color: "var(--brand-gold, #F8D011)",
-                          opacity: 0.8,
-                        }}
+                        style={{ color, opacity: 0.8 }}
                       >
                         {phase.rays}
                       </p>
@@ -330,17 +333,15 @@ export default async function FrameworkPage() {
                       </p>
                       <p
                         className="text-xs font-medium italic"
-                        style={{
-                          color: "var(--brand-gold, #F8D011)",
-                          opacity: 0.7,
-                        }}
+                        style={{ color, opacity: 0.7 }}
                       >
                         {phase.hook}
                       </p>
                     </div>
                   </div>
                 </StaggerItem>
-              ))}
+                );
+              })}
             </StaggerContainer>
 
             <RadialSpotlight>
@@ -443,18 +444,20 @@ export default async function FrameworkPage() {
             </div>
 
             <StaggerContainer className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {SCIENCE_PILLARS.map((s) => (
+              {SCIENCE_PILLARS.map((s, i) => {
+                const color = rayHex(cycleRay(i));
+                return (
                 <StaggerItem key={s.label}>
-                  <div className="glass-card p-4 h-full">
+                  <div className="glass-card glass-card--magnetic p-4 h-full" style={{ borderTop: `2px solid ${color}40`, background: `${color}06` }}>
                     <p
                       className="text-sm font-bold"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                      style={{ color }}
                     >
                       {s.label}
                     </p>
                     <p
                       className="mt-1 text-xs italic"
-                      style={{ color: "rgba(248,208,17,0.5)" }}
+                      style={{ color: `${color}80` }}
                     >
                       {s.source}
                     </p>
@@ -469,7 +472,8 @@ export default async function FrameworkPage() {
                     </p>
                   </div>
                 </StaggerItem>
-              ))}
+                );
+              })}
             </StaggerContainer>
 
             {/* Validation status note */}
@@ -525,25 +529,28 @@ export default async function FrameworkPage() {
             </div>
             <StaggerContainer className="space-y-3">
               {[
-                { trigger: "I notice my attention drifting in a conversation", action: "I will name one thing I see in the other person right now", ray: "Presence" },
-                { trigger: "I feel resistance to starting the hard task", action: "I will commit to two minutes of it before deciding to stop", ray: "Power" },
-                { trigger: "I catch myself performing a version of me that is not real", action: "I will name what I am actually feeling to one person", ray: "Authenticity" },
-                { trigger: "Someone shares something vulnerable", action: "I will pause before responding and ask what they need", ray: "Connection" },
-              ].map((item) => (
+                { trigger: "I notice my attention drifting in a conversation", action: "I will name one thing I see in the other person right now", ray: "Presence", rayKey: "R3" },
+                { trigger: "I feel resistance to starting the hard task", action: "I will commit to two minutes of it before deciding to stop", ray: "Power", rayKey: "R4" },
+                { trigger: "I catch myself performing a version of me that is not real", action: "I will name what I am actually feeling to one person", ray: "Authenticity", rayKey: "R6" },
+                { trigger: "Someone shares something vulnerable", action: "I will pause before responding and ask what they need", ray: "Connection", rayKey: "R7" },
+              ].map((item) => {
+                const color = rayHex(item.rayKey);
+                return (
                 <StaggerItem key={item.ray}>
-                  <div className="glass-card p-4" style={{ borderLeft: "2px solid rgba(248,208,17,0.25)" }}>
+                  <div className="glass-card p-4" style={{ borderLeft: `2px solid ${color}40`, background: `${color}06` }}>
                     <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
                       <span style={{ color: "rgba(255,255,255,0.4)" }}>IF</span>{" "}
                       {item.trigger},{" "}
                       <span style={{ color: "rgba(255,255,255,0.4)" }}>THEN</span>{" "}
                       {item.action}.
                     </p>
-                    <p className="mt-1 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#F8D011", opacity: 0.6 }}>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-widest" style={{ color, opacity: 0.6 }}>
                       {item.ray}
                     </p>
                   </div>
                 </StaggerItem>
-              ))}
+                );
+              })}
             </StaggerContainer>
             <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
               Implementation intentions (Gollwitzer, d=0.781) — the behavioral mechanism behind every rep in the system.
