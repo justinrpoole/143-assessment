@@ -92,7 +92,7 @@ export default async function WatchMePage() {
             />
           </div>
           <CosmicImage
-            src="/images/logo-143-sun.svg"
+            src="/images/logo-143-sun.png"
             alt="Justin Ray"
             width={48}
             height={48}

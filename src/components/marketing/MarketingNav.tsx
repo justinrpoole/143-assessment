@@ -234,7 +234,7 @@ export function MarketingNav() {
           {/* Logo */}
           <Link href="/" className="flex shrink-0 items-center gap-2 no-underline" aria-label="143 Leadership — Home" onClick={closeMenu}>
             <Image
-              src="/images/logo-143-sun.svg"
+              src="/images/logo-143-sun.png"
               alt="143 Leadership"
               width={40}
               height={40}
