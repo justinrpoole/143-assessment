@@ -49,6 +49,15 @@ export default function CosmicHeroV2() {
       return v / m;
     }
 
+    /* ===== PRE-COMPUTED NOISE TABLE ===== */
+    /* Instead of computing FBM per-frame, build a 256-entry lookup.
+       Frame loops index into this with (i + frameCounter) to get variation. */
+    const NOISE_TABLE_SIZE = 256;
+    const noiseTable = new Float32Array(NOISE_TABLE_SIZE);
+    for (let i = 0; i < NOISE_TABLE_SIZE; i++) {
+      noiseTable[i] = fbm(i * 0.5, i * 0.3, 3) * 0.5 + 0.5;
+    }
+
     /* ===== DOM — all queries scoped to root ===== */
     const starCvs   = root.querySelector('.starfield') as HTMLCanvasElement;
     const starCtx   = starCvs.getContext('2d', { alpha: true })!;
@@ -73,9 +82,9 @@ export default function CosmicHeroV2() {
     /* ===== STARFIELD ===== */
     let sw = 0, sh = 0, sdpr = 1;
     const LAYERS = [
-      { count: 180, maxR: 0.9,  speed: 0.03, tw: 0.18 },
-      { count: 120, maxR: 1.4,  speed: 0.06, tw: 0.24 },
-      { count: 55,  maxR: 2.0,  speed: 0.10, tw: 0.30 },
+      { count: 140, maxR: 0.9,  speed: 0.03, tw: 0.18 },
+      { count: 90,  maxR: 1.4,  speed: 0.06, tw: 0.24 },
+      { count: 40,  maxR: 2.0,  speed: 0.10, tw: 0.30 },
     ];
     interface Star {
       li: number; x: number; y: number; r: number;
@@ -84,7 +93,7 @@ export default function CosmicHeroV2() {
     let stars: Star[] = [];
 
     function resizeStars() {
-      sdpr = Math.min(2, devicePixelRatio || 1);
+      sdpr = Math.min(1.5, devicePixelRatio || 1);
       sw = starCvs.clientWidth; sh = starCvs.clientHeight;
       starCvs.width = Math.floor(sw * sdpr);
       starCvs.height = Math.floor(sh * sdpr);
@@ -126,15 +135,14 @@ export default function CosmicHeroV2() {
       ['Algieba','Zosma'],['Zosma','Chertan'],['Chertan','Regulus'],
       ['Zosma','Denebola'],['Chertan','Denebola'],
     ];
-    function leoXY(n: string): [number, number] | null {
-      const s = LEO.find(s => s.n === n);
-      return s ? [s.x * sw, s.y * sh] : null;
-    }
+    /* Pre-compute Leo star pixel positions */
+    const leoMap = new Map<string, { x: number; y: number; m: number }>();
+    for (const s of LEO) leoMap.set(s.n, s);
 
     function drawStars(t: number, eclBright: number, celebI: number) {
       starCtx.clearRect(0, 0, sw, sh);
-      /* Stars visible during eclipse, dim during celebration (sun reclaims sky) */
       const vis = Math.max(0, 0.35 + eclBright * 0.65 - celebI * 0.50);
+      if (vis < 0.01) return; // Skip entirely when stars invisible
 
       for (const s of stars) {
         const L = LAYERS[s.li];
@@ -143,7 +151,7 @@ export default function CosmicHeroV2() {
         if (s.x > sw + 4) s.x = -4;
         const tw = s.a0 + Math.sin(t * (0.9 + L.tw) + s.ph) * 0.14;
         const a = Math.max(0, Math.min(1, tw)) * vis;
-        if (a < 0.01) continue;
+        if (a < 0.02) continue;
         const c = s.hue < 0.06 ? `rgba(180,210,255,${a})`
                 : s.hue > 0.96 ? `rgba(255,220,180,${a})`
                 : `rgba(255,255,255,${a})`;
@@ -156,10 +164,12 @@ export default function CosmicHeroV2() {
       starCtx.strokeStyle = `rgba(255,255,255,${0.04 * vis})`;
       starCtx.lineWidth = 0.5;
       for (const [a, b] of LEO_LINES) {
-        const pa = leoXY(a), pb = leoXY(b);
-        if (pa && pb) {
-          starCtx.beginPath(); starCtx.moveTo(pa[0], pa[1]);
-          starCtx.lineTo(pb[0], pb[1]); starCtx.stroke();
+        const sa = leoMap.get(a), sb = leoMap.get(b);
+        if (sa && sb) {
+          starCtx.beginPath();
+          starCtx.moveTo(sa.x * sw, sa.y * sh);
+          starCtx.lineTo(sb.x * sw, sb.y * sh);
+          starCtx.stroke();
         }
       }
       for (const s of LEO) {
@@ -173,21 +183,22 @@ export default function CosmicHeroV2() {
     }
 
     /* ===== COSMO CANVAS (full-viewport celebration) ===== */
-    let cW = 0, cH = 0, cDpr = 1;
+    let cW = 0, cH = 0;
 
     function resizeCosmo() {
-      cDpr = Math.min(2, devicePixelRatio || 1);
+      /* DPR capped at 1.0 — celebration effects are soft glows that don't need retina.
+         This alone saves 75% pixel fill on 2x displays. */
       cW = cosmoCvs.clientWidth; cH = cosmoCvs.clientHeight;
-      cosmoCvs.width = Math.floor(cW * cDpr);
-      cosmoCvs.height = Math.floor(cH * cDpr);
-      cosmoCtx.setTransform(cDpr, 0, 0, cDpr, 0, 0);
+      cosmoCvs.width = cW;
+      cosmoCvs.height = cH;
+      cosmoCtx.setTransform(1, 0, 0, 1, 0, 0);
     }
 
     /* ===== SUN CANVAS ===== */
     let scW = 0, scH = 0, scDpr = 1;
 
     function resizeSun() {
-      scDpr = Math.min(2, devicePixelRatio || 1);
+      scDpr = Math.min(1.5, devicePixelRatio || 1);
       scW = sunCvs.clientWidth; scH = sunCvs.clientHeight;
       sunCvs.width = Math.floor(scW * scDpr);
       sunCvs.height = Math.floor(scH * scDpr);
@@ -225,20 +236,18 @@ export default function CosmicHeroV2() {
 
       /* Diamond ring */
       drawDiamondRing(cx, cy, R, progress);
-
-      /* ACT 5 celebration effects now drawn on full-viewport cosmo canvas */
     }
 
     /* ===== CORONA STREAMERS (eclipse) ===== */
     function drawStreamers(cx: number, cy: number, R: number, intensity: number, time: number) {
-      const N = 48;
+      const N = 32; // Reduced from 48
       const base = R * 0.9;
       sunCtx.save();
       sunCtx.globalCompositeOperation = 'screen';
 
       for (let i = 0; i < N; i++) {
         const angle = (i / N) * Math.PI * 2 + Math.sin(time * 0.1) * 0.02;
-        const n1 = fbm(i * 0.6 + time * 0.15, time * 0.06 + i * 0.25, 3) * 0.5 + 0.5;
+        const n1 = noiseTable[(i * 7 + (~~(time * 4))) & 255];
         const len = base * (0.4 + n1 * 2.0);
         const w = R * 0.03 * (0.3 + n1 * 0.7);
         const startR = R * 0.85;
@@ -306,12 +315,8 @@ export default function CosmicHeroV2() {
 
     /* =============================================================
        ACT 5: CELEBRATION — FULL VIEWPORT COSMIC EXPLOSION
-       The eclipse is over. You don't just return — you ERUPT.
-       Nebula clouds, god rays, and embers fill the ENTIRE screen.
-       Cosmic colors: gold, magenta, teal, electric blue, deep purple.
        ============================================================= */
 
-    /* Cosmic color palette for nebula */
     const COSMIC_COLORS: [number, number, number][] = [
       [255, 200, 80],   // gold
       [255, 140, 60],   // amber
@@ -323,23 +328,19 @@ export default function CosmicHeroV2() {
       [255, 100, 180],  // hot pink
     ];
 
-    /* --- Full-viewport radiant waves — streaky solar flare rays, not blobs --- */
+    /* --- Radiant streaks — reduced from 64 to 28 --- */
     function drawNebulaBloom(cx: number, cy: number, maxR: number, intensity: number, time: number) {
       cosmoCtx.save();
       cosmoCtx.globalCompositeOperation = 'screen';
 
-      /* === RADIANT WAVE STREAKS — long tapered rays fanning out === */
-      const numStreaks = 64;
+      const numStreaks = 28;
+      const tIdx = ~~(time * 3);
       for (let i = 0; i < numStreaks; i++) {
         const baseAngle = (i / numStreaks) * Math.PI * 2;
-        /* Noise-driven undulation — rays wave gently */
-        const wave = fbm(i * 0.5 + time * 0.15, time * 0.08 + i * 0.3, 3) * 0.5 + 0.5;
+        const wave = noiseTable[(i * 9 + tIdx) & 255];
         const angle = baseAngle + Math.sin(time * 0.2 + i * 0.4) * 0.05;
-
-        /* Streak length varies by noise — some reach edges, some are shorter */
         const len = maxR * (0.3 + wave * 0.7) * intensity;
-        /* Streak width tapers: wide at base, thin at tip */
-        const baseWidth = maxR * (0.008 + wave * 0.025);
+        const baseWidth = maxR * (0.010 + wave * 0.030);
 
         const startR = maxR * 0.04;
         const x1 = cx + Math.cos(angle) * startR;
@@ -347,21 +348,18 @@ export default function CosmicHeroV2() {
         const x2 = cx + Math.cos(angle) * (startR + len);
         const y2 = cy + Math.sin(angle) * (startR + len);
 
-        /* Gentle S-curve via control points */
         const drift = Math.sin(angle * 5 + time * 0.3) * baseWidth * 6;
         const midX = (x1 + x2) / 2 - Math.sin(angle) * drift;
         const midY = (y1 + y2) / 2 + Math.cos(angle) * drift;
 
-        /* Color from palette based on angle position */
         const ci = i % COSMIC_COLORS.length;
         const [cr, cg, cb] = COSMIC_COLORS[ci];
 
-        /* Gradient along the streak: bright core → colored → fade */
         const sg = cosmoCtx.createLinearGradient(x1, y1, x2, y2);
-        sg.addColorStop(0, `rgba(255,250,220,${(0.30 * intensity).toFixed(2)})`);
-        sg.addColorStop(0.08, `rgba(255,230,160,${(0.22 * intensity).toFixed(2)})`);
-        sg.addColorStop(0.25, `rgba(${cr},${cg},${cb},${(0.16 * intensity).toFixed(2)})`);
-        sg.addColorStop(0.55, `rgba(${cr},${cg},${cb},${(0.08 * intensity).toFixed(2)})`);
+        sg.addColorStop(0, `rgba(255,250,220,${(0.35 * intensity).toFixed(2)})`);
+        sg.addColorStop(0.08, `rgba(255,230,160,${(0.25 * intensity).toFixed(2)})`);
+        sg.addColorStop(0.25, `rgba(${cr},${cg},${cb},${(0.18 * intensity).toFixed(2)})`);
+        sg.addColorStop(0.55, `rgba(${cr},${cg},${cb},${(0.09 * intensity).toFixed(2)})`);
         sg.addColorStop(1, 'transparent');
 
         cosmoCtx.strokeStyle = sg;
@@ -373,7 +371,7 @@ export default function CosmicHeroV2() {
         cosmoCtx.stroke();
       }
 
-      /* === WARM RADIAL WASH — smooth gradient, not a blob === */
+      /* Warm radial wash */
       const bloomR = maxR * (0.5 + intensity * 0.6);
       const bloom = cosmoCtx.createRadialGradient(cx, cy, 0, cx, cy, bloomR);
       bloom.addColorStop(0, `rgba(255,240,180,${0.35 * intensity})`);
@@ -388,13 +386,13 @@ export default function CosmicHeroV2() {
       cosmoCtx.restore();
     }
 
-    /* --- God rays: BLINDING radiant beams that wash everything white-gold --- */
+    /* --- God rays — reduced from 48 to 20 --- */
     function drawGodRays(cx: number, cy: number, maxR: number, intensity: number, time: number) {
       if (intensity < 0.05) return;
       cosmoCtx.save();
       cosmoCtx.globalCompositeOperation = 'screen';
 
-      /* === BLINDING CENTER FLASH — white-hot wash at burst moment === */
+      /* Blinding center flash */
       const flashI = Math.pow(intensity, 0.6);
       const flashR = maxR * (0.25 + flashI * 0.45);
       const flash = cosmoCtx.createRadialGradient(cx, cy, 0, cx, cy, flashR);
@@ -406,16 +404,15 @@ export default function CosmicHeroV2() {
       cosmoCtx.fillStyle = flash;
       cosmoCtx.fillRect(0, 0, cW, cH);
 
-      /* === RADIANT BEAMS — thick, bright, reaching viewport edges === */
-      const numRays = 48;
+      /* Radiant beams — reduced from 48 to 20, made wider to compensate */
+      const numRays = 20;
+      const tIdx = ~~(time * 2);
       for (let i = 0; i < numRays; i++) {
         const baseAngle = (i / numRays) * Math.PI * 2;
         const angle = baseAngle + Math.sin(time * 0.10 + i * 0.6) * 0.04;
-        const n = fbm(i * 0.3, time * 0.07, 2) * 0.5 + 0.5;
-        /* Long rays that extend to viewport edges */
+        const n = noiseTable[(i * 13 + tIdx) & 255];
         const len = maxR * (0.6 + n * 0.5) * intensity;
-        /* MUCH thicker beams — wide enough to overlap and wash together */
-        const beamWidth = maxR * (0.012 + n * 0.028);
+        const beamWidth = maxR * (0.018 + n * 0.038); // Wider to compensate fewer rays
 
         const startR = maxR * 0.03;
         const x1 = cx + Math.cos(angle) * startR;
@@ -427,7 +424,6 @@ export default function CosmicHeroV2() {
         const [cr, cg, cb] = COSMIC_COLORS[ci];
 
         const grad = cosmoCtx.createLinearGradient(x1, y1, x2, y2);
-        /* Much higher opacity — these should BLIND */
         grad.addColorStop(0, `rgba(255,255,230,${(0.60 * intensity).toFixed(2)})`);
         grad.addColorStop(0.06, `rgba(255,245,190,${(0.45 * intensity).toFixed(2)})`);
         grad.addColorStop(0.18, `rgba(255,220,130,${(0.30 * intensity).toFixed(2)})`);
@@ -447,13 +443,13 @@ export default function CosmicHeroV2() {
       cosmoCtx.restore();
     }
 
-    /* --- Cosmic ember particles — scatter across entire viewport --- */
+    /* --- Embers — reduced from 180 to 70 --- */
     interface Ember {
       angle: number; speed: number; delay: number; size: number;
       sparklePhase: number; sparkleSpeed: number; colorIdx: number; drift: number;
     }
     const EMBERS: Ember[] = [];
-    for (let i = 0; i < 180; i++) {
+    for (let i = 0; i < 70; i++) {
       EMBERS.push({
         angle: Math.random() * Math.PI * 2,
         speed: 0.3 + Math.random() * 1.6,
@@ -476,20 +472,17 @@ export default function CosmicHeroV2() {
         if (localI <= 0) continue;
 
         const expand = 1 - Math.pow(1 - localI, 2);
-        /* Embers fly out to viewport edges */
         const dist = maxR * (0.05 + expand * e.speed * 0.7);
         const driftAngle = e.angle + e.drift * localI * 2;
         const x = cx + Math.cos(driftAngle + time * 0.04) * dist;
         const y = cy + Math.sin(driftAngle + time * 0.04) * dist;
 
-        /* Skip if off-screen */
         if (x < -20 || x > cW + 20 || y < -20 || y > cH + 20) continue;
 
         const sparkle = 0.4 + 0.6 * Math.sin(time * e.sparkleSpeed + e.sparklePhase);
         const alpha = localI * sparkle * (1 - expand * 0.4);
-        if (alpha < 0.01) continue;
+        if (alpha < 0.02) continue;
 
-        /* Cosmic color from palette */
         const [cr, cg, cb] = COSMIC_COLORS[e.colorIdx];
 
         /* Glow halo */
@@ -508,21 +501,21 @@ export default function CosmicHeroV2() {
       cosmoCtx.restore();
     }
 
-    /* --- Sparkly twinkling stars — scattered across viewport during celebration --- */
+    /* --- Sparkle stars — reduced from 120 to 50 --- */
     interface SparkleStar {
       x: number; y: number; size: number; twinkleSpeed: number;
       twinklePhase: number; delay: number; hue: number;
     }
     const SPARKLE_STARS: SparkleStar[] = [];
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 50; i++) {
       SPARKLE_STARS.push({
-        x: Math.random(),             // viewport fraction 0-1
+        x: Math.random(),
         y: Math.random(),
         size: 0.4 + Math.random() * 1.8,
         twinkleSpeed: 3 + Math.random() * 8,
         twinklePhase: Math.random() * Math.PI * 2,
         delay: Math.random() * 0.4,
-        hue: Math.random()            // determines color tint
+        hue: Math.random()
       });
     }
 
@@ -538,24 +531,16 @@ export default function CosmicHeroV2() {
         const x = s.x * cW;
         const y = s.y * cH;
 
-        /* Twinkle: fast oscillation between dim and bright */
         const twinkle = 0.15 + 0.85 * Math.pow(Math.max(0, Math.sin(time * s.twinkleSpeed + s.twinklePhase)), 3);
         const alpha = localI * twinkle;
         if (alpha < 0.02) continue;
 
-        /* Color: mostly white, some blue-tinted, some purple-tinted */
         let r: number, g: number, b: number;
-        if (s.hue < 0.35) {
-          r = 200; g = 210; b = 255; // cool blue-white
-        } else if (s.hue < 0.55) {
-          r = 200; g = 170; b = 255; // purple-white
-        } else if (s.hue < 0.70) {
-          r = 180; g = 220; b = 255; // ice blue
-        } else {
-          r = 255; g = 250; b = 240; // warm white
-        }
+        if (s.hue < 0.35) { r = 200; g = 210; b = 255; }
+        else if (s.hue < 0.55) { r = 200; g = 170; b = 255; }
+        else if (s.hue < 0.70) { r = 180; g = 220; b = 255; }
+        else { r = 255; g = 250; b = 240; }
 
-        /* 4-point cross sparkle */
         const sz = s.size * (0.8 + twinkle * 0.6);
         const armLen = sz * 4;
 
@@ -566,13 +551,11 @@ export default function CosmicHeroV2() {
         cosmoCtx.moveTo(x, y - armLen); cosmoCtx.lineTo(x, y + armLen);
         cosmoCtx.stroke();
 
-        /* Bright core dot */
         cosmoCtx.beginPath();
         cosmoCtx.arc(x, y, sz * 0.6, 0, Math.PI * 2);
         cosmoCtx.fillStyle = `rgba(${r},${g},${b},${(alpha * 0.95).toFixed(3)})`;
         cosmoCtx.fill();
 
-        /* Soft glow halo */
         cosmoCtx.beginPath();
         cosmoCtx.arc(x, y, sz * 3.5, 0, Math.PI * 2);
         cosmoCtx.fillStyle = `rgba(${r},${g},${b},${(alpha * 0.08).toFixed(3)})`;
@@ -582,36 +565,30 @@ export default function CosmicHeroV2() {
       cosmoCtx.restore();
     }
 
-    /* --- Purple & blue nebula clouds — viewport-spanning cosmic atmosphere --- */
+    /* --- Nebula clouds — reduced cloud count, fewer fillRect calls --- */
     function drawNebulaGlows(cx: number, cy: number, maxR: number, intensity: number, time: number) {
       if (intensity < 0.05) return;
       cosmoCtx.save();
       cosmoCtx.globalCompositeOperation = 'screen';
 
-      /* Several large, soft nebula clouds drifting slowly */
       const clouds = [
-        { ox: -0.25, oy: -0.15, r: 147, g: 64,  b: 255, size: 0.55, drift: 0.08 },  // deep purple
-        { ox:  0.30, oy:  0.20, r: 60,  g: 120, b: 255, size: 0.50, drift: 0.06 },  // electric blue
-        { ox: -0.15, oy:  0.30, r: 100, g: 60,  b: 220, size: 0.45, drift: 0.10 },  // violet
-        { ox:  0.20, oy: -0.25, r: 80,  g: 150, b: 255, size: 0.40, drift: 0.07 },  // sky blue
-        { ox:  0.00, oy:  0.10, r: 180, g: 50,  b: 220, size: 0.60, drift: 0.05 },  // magenta-purple
+        { ox: -0.25, oy: -0.15, r: 147, g: 64,  b: 255, size: 0.55, drift: 0.08 },
+        { ox:  0.30, oy:  0.20, r: 60,  g: 120, b: 255, size: 0.50, drift: 0.06 },
+        { ox: -0.15, oy:  0.30, r: 100, g: 60,  b: 220, size: 0.45, drift: 0.10 },
+        { ox:  0.20, oy: -0.25, r: 80,  g: 150, b: 255, size: 0.40, drift: 0.07 },
       ];
 
       for (let i = 0; i < clouds.length; i++) {
         const c = clouds[i];
-        /* Clouds drift gently with time */
         const driftX = Math.sin(time * c.drift + i * 1.7) * maxR * 0.08;
         const driftY = Math.cos(time * c.drift * 0.7 + i * 2.3) * maxR * 0.06;
         const cloudCx = cx + c.ox * cW + driftX;
         const cloudCy = cy + c.oy * cH + driftY;
         const cloudR = maxR * c.size;
 
-        /* Soft nebula gradient — very wide, very subtle */
         const ng = cosmoCtx.createRadialGradient(cloudCx, cloudCy, 0, cloudCx, cloudCy, cloudR);
-        const coreAlpha = (0.12 * intensity).toFixed(3);
-        const midAlpha = (0.06 * intensity).toFixed(3);
-        ng.addColorStop(0,   `rgba(${c.r},${c.g},${c.b},${coreAlpha})`);
-        ng.addColorStop(0.3, `rgba(${c.r},${c.g},${c.b},${midAlpha})`);
+        ng.addColorStop(0,   `rgba(${c.r},${c.g},${c.b},${(0.12 * intensity).toFixed(3)})`);
+        ng.addColorStop(0.3, `rgba(${c.r},${c.g},${c.b},${(0.06 * intensity).toFixed(3)})`);
         ng.addColorStop(0.6, `rgba(${c.r},${c.g},${c.b},${(0.02 * intensity).toFixed(3)})`);
         ng.addColorStop(1,   'transparent');
         cosmoCtx.fillStyle = ng;
@@ -621,13 +598,12 @@ export default function CosmicHeroV2() {
       cosmoCtx.restore();
     }
 
-    /* --- Orchestrator: draws all celebration on full-viewport cosmo canvas --- */
+    /* --- Orchestrator: draws all celebration on cosmo canvas --- */
     function drawCosmoScene(time: number, celebI: number) {
       cosmoCtx.clearRect(0, 0, cW, cH);
       if (celebI < 0.01) return;
 
       const cx = cW / 2, cy = cH / 2;
-      /* maxR = half the viewport diagonal so effects reach every corner */
       const maxR = Math.sqrt(cW * cW + cH * cH) / 2;
 
       drawNebulaGlows(cx, cy, maxR, celebI, time);
@@ -671,20 +647,20 @@ export default function CosmicHeroV2() {
       mTx = (e.clientX / innerWidth - 0.5) * 2;
       mTy = (e.clientY / innerHeight - 0.5) * 2;
     };
-    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mousemove', onMouseMove, { passive: true });
 
     const onDeviceOrientation = (e: DeviceOrientationEvent) => {
       if (e.gamma != null) mTx = Math.max(-1, Math.min(1, e.gamma / 30));
       if (e.beta != null) mTy = Math.max(-1, Math.min(1, (e.beta - 45) / 30));
     };
     if (window.DeviceOrientationEvent) {
-      window.addEventListener('deviceorientation', onDeviceOrientation);
+      window.addEventListener('deviceorientation', onDeviceOrientation, { passive: true });
     }
 
     /* ===== FILM GRAIN ===== */
     (function () {
       const ctx = grainCvs.getContext('2d')!;
-      const S = 256;
+      const S = 128; // Reduced from 256 — grain doesn't need resolution
       grainCvs.width = grainCvs.height = S;
       const img = ctx.createImageData(S, S);
       for (let i = 0; i < img.data.length; i += 4) {
@@ -695,19 +671,31 @@ export default function CosmicHeroV2() {
       ctx.putImageData(img, 0, 0);
     })();
 
-    /* ===== RESIZE ===== */
-    function onResize() { resizeStars(); seedStars(); resizeSun(); resizeCosmo(); }
+    /* ===== RESIZE — single observer ===== */
+    function onResize() {
+      resizeStars();
+      seedStars();
+      resizeSun();
+      resizeCosmo();
+    }
 
-    const roStar  = new ResizeObserver(onResize);
-    const roSun   = new ResizeObserver(resizeSun);
-    const roCosmo = new ResizeObserver(resizeCosmo);
-    roStar.observe(starCvs);
-    roSun.observe(sunCvs);
-    roCosmo.observe(cosmoCvs);
+    const resizeObserver = new ResizeObserver(onResize);
+    resizeObserver.observe(root.querySelector('.hero')!);
     onResize();
+
+    /* ===== STYLE CACHE — avoid redundant DOM writes ===== */
+    const styleCache: Record<string, string> = {};
+    function setStyle(el: HTMLElement, prop: string, val: string) {
+      const key = prop;
+      if (styleCache[key] === val) return;
+      styleCache[key] = val;
+      (el.style as unknown as Record<string, string>)[prop] = val;
+    }
 
     /* ===== MAIN LOOP ===== */
     const t0 = performance.now();
+    /* Track previous phase to avoid redundant filter updates */
+    let prevPhase = '';
 
     function frame(now: number) {
       const t = (now - t0) / 1000;
@@ -716,96 +704,109 @@ export default function CosmicHeroV2() {
       const celebI = celebrationIntensity(progress);
       const sunBright = Math.min(1, (1 - eclI * 0.94) + celebI * 0.3);
 
-      /* Parallax */
+      /* Determine phase for throttling expensive updates */
+      const phase = celebI > 0.02 ? 'celeb' : eclI > 0.08 ? 'eclipse' : 'radiance';
+
+      /* Parallax — composite-only transforms */
       mX += (mTx - mX) * 0.03;
       mY += (mTy - mY) * 0.03;
-      starCvs.style.transform = `translate(${mX * -2}px, ${mY * -2}px)`;
-      nebEl.style.transform = `translate(${mX * -5}px, ${mY * -5}px)`;
-      stageEl.style.transform = `translate(${mX * -8}px, ${mY * -8}px)`;
+      setStyle(starCvs, 'transform', `translate(${mX * -2}px, ${mY * -2}px)`);
+      setStyle(nebEl, 'transform', `translate(${mX * -5}px, ${mY * -5}px)`);
+      setStyle(stageEl, 'transform', `translate(${mX * -8}px, ${mY * -8}px)`);
 
       /* Starfield */
       drawStars(t, eclI, celebI);
 
-      /* Sun canvas: glow + corona + diamond ring */
+      /* Sun canvas */
       drawSunScene(t, sunBright, eclI, celebI, progress);
 
-      /* Full-viewport cosmic celebration */
+      /* Cosmo celebration canvas */
       drawCosmoScene(t, celebI);
 
-      /* Sun SVG: brightness + celebration scale pulse */
+      /* Sun SVG — ONLY update filter when phase changes (expensive!) */
       const celebScale = 1 + celebI * 0.04;
-      const svgBright = sunBright + celebI * 0.15;
-      sunSvg.style.filter = `brightness(${svgBright.toFixed(3)}) drop-shadow(0 0 ${(15 + svgBright * 15 + celebI * 25).toFixed(0)}px rgba(255,200,70,${(0.40 * svgBright).toFixed(2)})) drop-shadow(0 0 ${(40 + svgBright * 30 + celebI * 50).toFixed(0)}px rgba(255,160,40,${(0.20 * svgBright).toFixed(2)})) drop-shadow(0 0 ${(80 + svgBright * 50 + celebI * 80).toFixed(0)}px rgba(255,120,20,${(0.08 * svgBright).toFixed(2)}))`;
-      sunSvg.style.transform = `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`;
+      if (phase !== prevPhase) {
+        if (phase === 'celeb') {
+          sunSvg.style.filter = `brightness(1.3) drop-shadow(0 0 40px rgba(255,200,70,0.50)) drop-shadow(0 0 80px rgba(255,160,40,0.25))`;
+        } else if (phase === 'eclipse') {
+          sunSvg.style.filter = `brightness(0.4) drop-shadow(0 0 15px rgba(255,200,70,0.20))`;
+        } else {
+          sunSvg.style.filter = '';
+        }
+      }
+      /* Transform + opacity are cheap (composite-only) — update every frame */
+      setStyle(sunSvg, 'transform', `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`);
+      setStyle(sunSvg, 'opacity', sunBright.toFixed(3));
 
-      /* ===== SUNNOVA BURST — bold sun explodes in behind blinding flash ===== */
+      /* Sunnova burst — transform/opacity only, filter on phase change */
       if (celebI > 0.02) {
-        /* Fast burst-in with overshoot, then settle */
         const burstT = Math.min(1, celebI / 0.5);
-        /* Elastic overshoot: goes to ~1.15 then settles to 1.0 */
         const elastic = burstT < 0.6
           ? Math.pow(burstT / 0.6, 0.4) * 1.15
           : 1.15 - 0.15 * Math.pow((burstT - 0.6) / 0.4, 0.8);
-        const novaScale = elastic;
-        /* Opacity: instant ramp in (swap hidden by god ray flash) */
+
         const novaOpacity = burstT < 0.15
           ? Math.pow(burstT / 0.15, 0.3)
           : celebI > 0.6 ? celebI : 1;
-        /* Radiant glow — VERY intense warm light that pulses */
-        const pulse = 1 + Math.sin(t * 4) * 0.10;
-        const glowR  = (50 + celebI * 100 * pulse).toFixed(0);
-        const glowR2 = (120 + celebI * 180 * pulse).toFixed(0);
-        const glowR3 = (220 + celebI * 280 * pulse).toFixed(0);
 
-        sunnovaEl.style.opacity = novaOpacity.toFixed(3);
-        sunnovaEl.style.transform = `translate(-50%, -50%) scale(${novaScale.toFixed(4)})`;
-        sunnovaEl.style.filter = `brightness(${(1.5 + celebI * 0.8).toFixed(2)}) drop-shadow(0 0 ${glowR}px rgba(255,230,100,${(0.85 * celebI).toFixed(2)})) drop-shadow(0 0 ${glowR2}px rgba(255,200,60,${(0.50 * celebI).toFixed(2)})) drop-shadow(0 0 ${glowR3}px rgba(255,160,30,${(0.25 * celebI).toFixed(2)}))`;
+        setStyle(sunnovaEl, 'opacity', novaOpacity.toFixed(3));
+        setStyle(sunnovaEl, 'transform', `translate(-50%, -50%) scale(${elastic.toFixed(4)})`);
 
-        /* Kill the normal sun completely during sunnova — flash hides the swap */
-        sunSvg.style.opacity = Math.max(0, 1 - celebI * 4).toFixed(3);
+        /* Only set sunnova filter once on phase enter */
+        if (phase !== prevPhase) {
+          sunnovaEl.style.filter = `brightness(2.0) drop-shadow(0 0 80px rgba(255,230,100,0.70)) drop-shadow(0 0 180px rgba(255,200,60,0.40))`;
+        }
+
+        setStyle(sunSvg, 'opacity', Math.max(0, 1 - celebI * 4).toFixed(3));
       } else {
-        sunnovaEl.style.opacity = '0';
-        sunnovaEl.style.transform = 'translate(-50%, -50%) scale(0)';
-        sunnovaEl.style.filter = '';
-        sunSvg.style.opacity = '1';
+        setStyle(sunnovaEl, 'opacity', '0');
+        setStyle(sunnovaEl, 'transform', 'translate(-50%, -50%) scale(0)');
+        if (phase !== prevPhase) {
+          sunnovaEl.style.filter = '';
+        }
+        setStyle(sunSvg, 'opacity', '1');
       }
 
-      /* Sun ambient + celebration wash */
-      ambEl.style.opacity = Math.min(1, sunBright + celebI * 0.5).toFixed(3);
-      washEl.style.opacity = (celebI * 1.0).toFixed(3);
+      prevPhase = phase;
 
-      /* Nebula CSS brightens during celebration */
-      nebEl.style.opacity = (0.85 + celebI * 0.15).toFixed(3);
+      /* Simple opacity/transform updates — cheap */
+      setStyle(ambEl, 'opacity', Math.min(1, sunBright + celebI * 0.5).toFixed(3));
+      setStyle(washEl, 'opacity', (celebI * 1.0).toFixed(3));
+      setStyle(nebEl, 'opacity', (0.85 + celebI * 0.15).toFixed(3));
+      setStyle(vigEl, 'opacity', Math.max(0.08, 1 - celebI * 0.92).toFixed(3));
 
-      /* Vignette fades during celebration — let the nebula bloom BREATHE */
-      vigEl.style.opacity = Math.max(0.08, 1 - celebI * 0.92).toFixed(3);
-
-      /* Moon — fades fast when celebration starts (washed out by light) */
+      /* Moon */
       const mp = moonPos(progress);
       const stW = stageEl.clientWidth, stH = stageEl.clientHeight;
       const mSize = MOON_FRAC * stW;
       moonEl.style.left = (mp.x * stW - mSize / 2) + 'px';
       moonEl.style.top  = (mp.y * stH - mSize / 2) + 'px';
       const moonFade = Math.max(0, mp.o * (1 - celebI * 3));
-      moonEl.style.opacity = moonFade.toFixed(3);
+      setStyle(moonEl, 'opacity', moonFade.toFixed(3));
 
-      const moonGlow = eclI > 0.1
-        ? `drop-shadow(0 0 ${(12 + eclI * 30).toFixed(0)}px rgba(160,100,255,${(0.35 + eclI * 0.45).toFixed(2)})) drop-shadow(0 0 ${(40 + eclI * 120).toFixed(0)}px rgba(130,60,240,${(0.15 + eclI * 0.50).toFixed(2)}))`
-        : 'drop-shadow(0 0 10px rgba(160,100,255,0.30)) drop-shadow(0 0 25px rgba(130,60,240,0.12))';
-      moonEl.style.filter = moonGlow;
+      /* Moon filter — only update on phase change */
+      if (phase !== prevPhase || phase === 'eclipse') {
+        if (eclI > 0.1) {
+          moonEl.style.filter = `drop-shadow(0 0 ${(12 + eclI * 30).toFixed(0)}px rgba(160,100,255,${(0.35 + eclI * 0.45).toFixed(2)})) drop-shadow(0 0 ${(40 + eclI * 120).toFixed(0)}px rgba(130,60,240,${(0.15 + eclI * 0.50).toFixed(2)}))`;
+        } else {
+          moonEl.style.filter = 'drop-shadow(0 0 10px rgba(160,100,255,0.30)) drop-shadow(0 0 25px rgba(130,60,240,0.12))';
+        }
+      }
 
-      /* Eclipse darkness — full black at peak */
-      darkEl.style.opacity = eclI.toFixed(3);
+      /* Eclipse darkness */
+      setStyle(darkEl, 'opacity', eclI.toFixed(3));
 
-      /* 143 text: dim during eclipse, bright during celebration */
-      brand.style.filter = `brightness(${(sunBright + celebI * 0.2).toFixed(3)})`;
-      brand.style.transform = `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`;
+      /* 143 brand text */
+      setStyle(brand, 'transform', `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`);
+      /* Only update filter on phase changes */
+      if (phase !== prevPhase) {
+        brand.style.filter = `brightness(${(sunBright + celebI * 0.2).toFixed(3)})`;
+      }
 
-      /* ===== SUPERNOVA TEXT — Be The Light ===== */
+      /* Supernova text treatment */
       if (celebI > 0.05) {
         const sn = Math.min(1, (celebI - 0.05) / 0.45);
 
-        /* Row 1: "Upgrade Your Internal OS" — blazing white outline + golden glow */
         row1El.style.color = `rgba(255,255,240,${(0.10 * sn).toFixed(2)})`;
         row1El.style.webkitTextStroke = `${(3.5 * sn).toFixed(1)}px rgba(255,255,255,${(0.98 * sn).toFixed(2)})`;
         row1El.style.textShadow = [
@@ -816,7 +817,6 @@ export default function CosmicHeroV2() {
           `0 0 ${(sn * 130).toFixed(0)}px rgba(147,64,255,${(sn * 0.14).toFixed(2)})`
         ].join(', ');
 
-        /* Row 2: "Live Just In A Ray Of Light" — HUGE, PURPLE, RADIANT, rises up then floats back */
         const r2scale = 1 + sn * 2.2;
         const r2lift  = sn * -35;
         row2El.style.transform     = `translateY(${r2lift.toFixed(1)}px) scale(${r2scale.toFixed(3)})`;
@@ -842,9 +842,9 @@ export default function CosmicHeroV2() {
         row2El.style.textShadow       = '';
       }
 
-      /* Film grain */
-      grainCvs.style.opacity   = (0.018 + eclI * 0.03 + celebI * 0.01).toFixed(3);
-      grainCvs.style.transform = `translate(${(Math.sin(t * 3.8) * 2).toFixed(1)}%, ${(Math.cos(t * 3.2) * 2).toFixed(1)}%)`;
+      /* Film grain — cheap transform */
+      setStyle(grainCvs, 'opacity', (0.018 + eclI * 0.03 + celebI * 0.01).toFixed(3));
+      setStyle(grainCvs, 'transform', `translate(${(Math.sin(t * 3.8) * 2).toFixed(1)}%, ${(Math.cos(t * 3.2) * 2).toFixed(1)}%)`);
 
       rafRef.current = requestAnimationFrame(frame);
     }
@@ -858,9 +858,7 @@ export default function CosmicHeroV2() {
       if (window.DeviceOrientationEvent) {
         window.removeEventListener('deviceorientation', onDeviceOrientation);
       }
-      roStar.disconnect();
-      roSun.disconnect();
-      roCosmo.disconnect();
+      resizeObserver.disconnect();
     };
   }, []);
 

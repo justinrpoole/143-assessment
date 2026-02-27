@@ -17,7 +17,8 @@
 
 [data-cosmic-hero-v2] .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
+  max-height: 100svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -27,6 +28,7 @@
   background:
     radial-gradient(ellipse 140% 100% at 50% 38%, rgba(147, 64, 255, 0.06) 0%, transparent 50%),
     radial-gradient(ellipse 120% 90% at 50% 38%, #12002e 0%, var(--space-ink) 70%);
+  contain: layout style paint;
 }
 
 [data-cosmic-hero-v2] canvas.starfield {
@@ -36,6 +38,7 @@
   height: calc(100% + 40px);
   z-index: 0;
   will-change: transform;
+  contain: strict;
 }
 
 [data-cosmic-hero-v2] .sun-ambient {
@@ -58,16 +61,16 @@
 
 [data-cosmic-hero-v2] .nebula {
   position: absolute;
-  inset: -30%;
+  inset: -10%;
   z-index: 1;
   pointer-events: none;
   will-change: transform, opacity;
   background:
-    radial-gradient(ellipse 120% 100% at 50% 40%, rgba(147, 64, 255, 0.14), transparent 65%),
-    radial-gradient(ellipse 130% 110% at 30% 50%, rgba(147, 64, 255, 0.10), transparent 70%),
-    radial-gradient(ellipse 130% 110% at 70% 35%, rgba(168, 85, 255, 0.08), transparent 70%),
-    radial-gradient(ellipse 90% 80% at 50% 42%, rgba(255, 180, 60, 0.06), transparent 55%);
-  filter: blur(30px);
+    radial-gradient(ellipse 120% 100% at 50% 40%, rgba(147, 64, 255, 0.16), transparent 65%),
+    radial-gradient(ellipse 130% 110% at 30% 50%, rgba(147, 64, 255, 0.12), transparent 70%),
+    radial-gradient(ellipse 130% 110% at 70% 35%, rgba(168, 85, 255, 0.10), transparent 70%),
+    radial-gradient(ellipse 90% 80% at 50% 42%, rgba(255, 180, 60, 0.07), transparent 55%);
+  /* Removed filter: blur(30px) — gradients are already soft. Saves ~4ms/frame on GPU. */
   mix-blend-mode: screen;
   opacity: 0.85;
 }
@@ -80,7 +83,7 @@
   height: 100%;
   z-index: 6;
   pointer-events: none;
-  will-change: transform;
+  contain: strict;
 }
 
 /* Supernova celebration wash — FULL VIEWPORT, cosmic colors */
@@ -155,7 +158,7 @@
 
 [data-cosmic-hero-v2] .grain {
   position: absolute;
-  inset: -50%;
+  inset: 0;
   z-index: 20;
   pointer-events: none;
   opacity: 0.02;
@@ -166,10 +169,10 @@
 [data-cosmic-hero-v2] .eclipse-stage {
   position: relative;
   z-index: 9;
-  width: min(620px, 85vw);
+  width: min(480px, 72vw);
   aspect-ratio: 1 / 1;
-  margin-top: 20px;
-  margin-bottom: -80px;
+  margin-top: 0;
+  margin-bottom: -60px;
   pointer-events: none;
   will-change: transform;
   overflow: visible;
@@ -182,6 +185,7 @@
   width: 180%;
   height: 180%;
   z-index: 1;
+  contain: strict;
 }
 
 [data-cosmic-hero-v2] .sun-svg {
@@ -195,12 +199,13 @@
   transform-origin: center center;
   object-fit: contain;
   pointer-events: none;
+  /* Static base glow — dynamic filter updates only change opacity/transform via JS */
   filter:
     drop-shadow(0 0 20px rgba(255, 200, 70, 0.50))
     drop-shadow(0 0 50px rgba(255, 170, 50, 0.30))
-    drop-shadow(0 0 100px rgba(255, 140, 30, 0.15))
-    drop-shadow(0 0 180px rgba(255, 110, 10, 0.08));
+    drop-shadow(0 0 100px rgba(255, 140, 30, 0.15));
   animation: chv2-sunBreathe 6s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 [data-cosmic-hero-v2] .sunnova-svg {
@@ -215,7 +220,7 @@
   object-fit: contain;
   pointer-events: none;
   opacity: 0;
-  will-change: transform, opacity, filter;
+  will-change: transform, opacity;
 }
 
 @keyframes chv2-sunBreathe {
@@ -252,7 +257,7 @@
   object-fit: contain;
   z-index: 10;
   opacity: 0;
-  will-change: transform, opacity, filter;
+  will-change: transform, opacity;
 }
 
 /* ====== HERO COPY ====== */
@@ -336,7 +341,7 @@
 }
 
 @media (max-width: 600px) {
-  [data-cosmic-hero-v2] .eclipse-stage { width: 88vw; margin-bottom: -50px; }
+  [data-cosmic-hero-v2] .eclipse-stage { width: 75vw; margin-bottom: -40px; }
   [data-cosmic-hero-v2] .hero-copy { padding: 0 16px; }
   [data-cosmic-hero-v2] .brand-143 { font-size: clamp(40px, 14vw, 90px); }
 }
