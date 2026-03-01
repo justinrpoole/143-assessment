@@ -35,6 +35,7 @@ export const MARKETING_LINKS = {
   enterprise: { href: "/enterprise", label: "Enterprise" },
   cohorts: { href: "/cohorts", label: "Light Circle" },
   podcast: { href: "/podcast", label: "Podcast" },
+  tools: { href: "/tools", label: "The Tools" },
   about: { href: "/about", label: "About" },
   forTeams: { href: "/organizations", label: "For Organizations" },
   privacy: { href: "/privacy", label: "Privacy" },
@@ -55,8 +56,7 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
     label: "Why 143",
     href: "/upgrade-your-os",
     children: [
-      MARKETING_LINKS.watchMe,
-      MARKETING_LINKS.goFirst,
+      MARKETING_LINKS.tools,
       MARKETING_LINKS.beTheLight,
       MARKETING_LINKS.howItWorks,
       MARKETING_LINKS.outcomes,
@@ -127,8 +127,7 @@ export const MARKETING_FOOTER_COLUMNS = [
     links: [
       MARKETING_LINKS.framework,
       MARKETING_LINKS.challenge,
-      MARKETING_LINKS.watchMe,
-      MARKETING_LINKS.goFirst,
+      MARKETING_LINKS.tools,
       MARKETING_LINKS.beTheLight,
       MARKETING_LINKS.podcast,
     ],

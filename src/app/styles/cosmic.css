@@ -1770,3 +1770,17 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(248, 208, 17, 0.25);
 }
+
+/* ── Neon 80s boost ─────────────────────────────────────────── */
+.glass-card { transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+.glass-card:hover {
+  box-shadow: 0 0 0 1px rgba(139,91,255,0.35), 0 8px 32px rgba(139,91,255,0.14), inset 0 1px 0 rgba(255,255,255,0.07);
+}
+.btn-primary, [class*='btn-primary'] {
+  box-shadow: 0 0 20px rgba(248,208,17,0.25), 0 4px 12px rgba(0,0,0,0.4);
+}
+.btn-primary:hover, [class*='btn-primary']:hover {
+  box-shadow: 0 0 32px rgba(248,208,17,0.5), 0 4px 16px rgba(0,0,0,0.5);
+}
+.neon-text-gold { text-shadow: 0 0 8px rgba(248,208,17,0.6), 0 0 20px rgba(248,208,17,0.3); }
+.neon-text-purple { text-shadow: 0 0 8px rgba(139,91,255,0.6), 0 0 20px rgba(139,91,255,0.3); }

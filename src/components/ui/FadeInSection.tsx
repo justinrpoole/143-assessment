@@ -37,7 +37,7 @@ export function FadeInSection({
   delay = 0,
   direction = 'up',
   className,
-  margin = '-60px' as MarginType,
+  margin = '0px' as MarginType,
   blur = false,
 }: FadeInSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
