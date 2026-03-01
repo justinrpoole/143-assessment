@@ -124,7 +124,7 @@ export default function RayDetailClient({
 
   // Eclipse modifier badge
   const eclipseModifier = rayData.eclipse_modifier;
-  const showEclipseWarning = eclipseModifier === "MUTED" || eclipseModifier === "HIGH_ECLIPSE";
+  const showEclipseWarning = eclipseModifier === "MUTED";
 
   return (
     <main className="cosmic-page-bg min-h-screen">

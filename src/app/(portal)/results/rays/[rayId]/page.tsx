@@ -102,7 +102,6 @@ export default async function RayDetailPage({ params, searchParams }: PageProps)
     eventName: "ray_detail_view",
     sourceRoute: `/results/rays/${rayId}`,
     userState,
-    extra: { rayId, run_id: resolvedRunId },
   });
 
   // ── Prev / Next navigation ─────────────────────────────────────────────────
