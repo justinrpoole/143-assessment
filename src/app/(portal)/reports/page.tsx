@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { ReportClient } from "@/components/assessment/ReportClient";
+import BlurredReportTeaser from "@/components/results/BlurredReportTeaser";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
@@ -48,6 +49,8 @@ async function resolveSearchParams(value: PageProps["searchParams"]): Promise<Se
   return value;
 }
 
+const PAID_STATES = new Set(["paid_43", "sub_active", "sub_canceled", "past_due"]);
+
 export default async function ReportsPage({ searchParams }: PageProps) {
   const userState = await getUserStateFromRequest();
   const resolvedSearchParams = await resolveSearchParams(searchParams);
@@ -63,9 +66,25 @@ export default async function ReportsPage({ searchParams }: PageProps) {
     redirect("/assessment/setup");
   }
 
-  const PAID_STATES = new Set(["paid_43", "sub_active", "sub_canceled", "past_due"]);
+  // Non-paid users see a blurred teaser instead of being redirected to /upgrade.
+  // This gives them a taste of the report and surfaces the upgrade CTA in context.
   if (!PAID_STATES.has(userState)) {
-    redirect("/upgrade");
+    return (
+      <>
+        <PortalBreadcrumb current="Light Map Vault" />
+        <PageHeader
+          label="Light Map Vault"
+          title="Your full map is ready."
+          description="You completed the assessment. Unlock your complete report — Light Signature, Eclipse Snapshot, 9-Ray scores, and your personalised Rise Path."
+          size="large"
+        />
+        <RaySpectrumStrip className="mt-4" />
+        <RayDivider ray="R9" />
+        <div className="mt-8">
+          <BlurredReportTeaser />
+        </div>
+      </>
+    );
   }
 
   return (

@@ -19,6 +19,8 @@ import RayDivider from "@/components/ui/RayDivider";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { isBetaFreeMode } from "@/lib/config/beta";
+import BetaAccessButton from "@/components/billing/BetaAccessButton";
 
 export const dynamic = "force-dynamic";
 
@@ -112,6 +114,7 @@ const PORTAL_FEATURES = [
 
 export default async function UpgradePage() {
   const userState = await getUserStateFromRequest();
+  const betaMode = isBetaFreeMode();
 
   emitPageView({
     eventName: "page_view_upgrade",
@@ -153,9 +156,13 @@ export default async function UpgradePage() {
               that changes as you do.
             </p>
             <div className="flex flex-wrap gap-3">
-              <NeonGlowButton href="#plans">
-                Show Me Both Plans
-              </NeonGlowButton>
+              {betaMode ? (
+                <BetaAccessButton />
+              ) : (
+                <NeonGlowButton href="#plans">
+                  Show Me Both Plans
+                </NeonGlowButton>
+              )}
               <LiquidFillButton href="/preview">
                 Check My Stability Free
               </LiquidFillButton>
