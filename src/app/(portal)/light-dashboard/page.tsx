@@ -9,6 +9,7 @@ import GoldHeroBanner from '@/components/ui/GoldHeroBanner';
 import RadialSpotlight from '@/components/ui/RadialSpotlight';
 import RaySpectrumStrip from '@/components/ui/RaySpectrumStrip';
 import RayDivider from '@/components/ui/RayDivider';
+import IlluminateDashboard from '@/components/cosmic/IlluminateDashboard';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,6 +37,14 @@ export default async function LightDashboardPage() {
           description="Nine rays. East to west. See where your light lands this week."
         />
         <RaySpectrumStrip className="mt-4" />
+        {/* ── Illuminate Dashboard ── */}
+        <div className="mt-8">
+          <IlluminateDashboard
+            scores={{ R1:72,R2:45,R3:68,R4:85,R5:91,R6:63,R7:78,R8:56,R9:82 }}
+            eclipseLevel={28}
+            phase="DAWN"
+          />
+        </div>
         <RayDivider ray="R1" />
         <RadialSpotlight>
           <CosmicErrorBoundary sectionLabel="LIGHT DASHBOARD">
