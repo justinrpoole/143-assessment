@@ -41,7 +41,7 @@ export function FadeInSection({
   blur = false,
 }: FadeInSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin });
+  const isInView = useInView(ref, { once: false, margin });
   const prefersReduced = useReducedMotion();
 
   if (prefersReduced) {
@@ -91,7 +91,7 @@ export function StaggerContainer({
   staggerDelay = 0.1,
 }: StaggerContainerProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-40px' });
+  const isInView = useInView(ref, { once: false, margin: '-40px' });
   const prefersReduced = useReducedMotion();
 
   if (prefersReduced) {

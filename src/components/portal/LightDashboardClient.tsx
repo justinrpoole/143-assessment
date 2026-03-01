@@ -1,5 +1,6 @@
 'use client';
 
+import IlluminateDashboard from '@/components/cosmic/IlluminateDashboard';
 import { useState, useEffect, useCallback, type FormEvent } from 'react';
 import Link from 'next/link';
 import RetroFrame from '@/components/ui/RetroFrame';
@@ -300,7 +301,7 @@ export default function LightDashboardClient() {
 
   if (!hasRun) {
     return (
-      <RetroFrame label="LIGHT DASHBOARD" accent="var(--brand-gold)">
+    <RetroFrame label="LIGHT DASHBOARD" accent="var(--brand-gold)">
         <div className="py-12 text-center space-y-4">
           <h2 className="ld-heading text-xl" style={{ color: 'var(--text-on-dark)' }}>
             No light data yet
@@ -318,8 +319,23 @@ export default function LightDashboardClient() {
 
   // ── Main Dashboard ──
 
+  // Map scores from portal data format to R1-R9
+  const illuminateScores: Partial<Record<string,number>> = {};
+  scores.forEach((s: { id: string; score: number }) => { illuminateScores[s.id] = s.score ?? 0; });
+
   return (
     <div className="space-y-6">
+      {/* ── Illuminate Dashboard v2 ── */}
+      <IlluminateDashboard
+        scores={illuminateScores}
+        eclipseLevel={eclipseLevel === 'high' ? 70 : eclipseLevel === 'medium' ? 40 : eclipseLevel === 'low' ? 20 : 0}
+        phase={
+          (illuminateScores['R9'] ?? 0) >= 70 ? 'RADIANT' :
+          (illuminateScores['R9'] ?? 0) >= 40 ? 'DAWN' : 'ECLIPSE'
+        }
+        repsToday={repsToday ?? 0}
+        className="mb-8"
+      />
       {/* Hero Header */}
       <FadeInSection>
         <div className="flex flex-wrap gap-6 items-end justify-between">
@@ -440,7 +456,7 @@ export default function LightDashboardClient() {
               return (
                 <div key={ray.id}>
                   {showDivider && (
-                    <div className="ld-phase-divider mt-3 mb-1">
+    <div className="ld-phase-divider mt-3 mb-1">
                       <span className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                         {ray.phase}
                       </span>
