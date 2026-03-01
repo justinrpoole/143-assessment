@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { rayVar } from "@/lib/ui/ray-colors";
 
 import dynamic from "next/dynamic";
 import LightSignature from "@/components/results/LightSignature";
@@ -288,6 +289,336 @@ const SAMPLE_INDICES: AssessmentIndices = {
   ppd_flag: true,
 };
 
+
+// ---------------------------------------------------------------------------
+// SampleDashboardPreview — mirrors IlluminateDashboard track style
+// ---------------------------------------------------------------------------
+
+/** Sample scores mapped to the 8 rays shown in the preview */
+const PREVIEW_RAYS = [
+  { id: "R1", name: "Intention", score: 72 },
+  { id: "R2", name: "Joy",       score: 45 },
+  { id: "R3", name: "Presence",  score: 68 },
+  { id: "R4", name: "Power",     score: 85 },
+  { id: "R5", name: "Purpose",   score: 91 },
+  { id: "R6", name: "Authenticity", score: 63 },
+  { id: "R7", name: "Connection",   score: 78 },
+  { id: "R8", name: "Possibility",  score: 56 },
+] as const;
+
+/** Orb size/glow levels — mirrors IlluminateDashboard orbState() */
+function previewOrbState(score: number) {
+  if (score >= 88) return { r: 16, bloom: 22 };
+  if (score >= 68) return { r: 11, bloom: 14 };
+  if (score >= 45) return { r:  7, bloom:  8 };
+  if (score >= 22) return { r:  5, bloom:  4 };
+  return               { r:  3, bloom:  2 };
+}
+
+/** A single animated ray track — horizontal rail + glowing orb */
+function PreviewRayTrack({
+  rayId,
+  name,
+  score,
+  isLast,
+}: {
+  rayId: string;
+  name: string;
+  score: number;
+  isLast: boolean;
+}) {
+  const [display, setDisplay] = useState(0);
+  const target = useRef(score);
+  const cur    = useRef(0);
+  const vel    = useRef(0);
+  const raf    = useRef<number>(0);
+
+  useEffect(() => { target.current = score; }, [score]);
+  useEffect(() => {
+    function tick() {
+      const d = target.current - cur.current;
+      vel.current = vel.current * 0.80 + d * 0.06;
+      cur.current += vel.current;
+      setDisplay(cur.current);
+      if (Math.abs(d) > 0.2) raf.current = requestAnimationFrame(tick);
+    }
+    raf.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf.current);
+  }, []);
+
+  const pct   = Math.max(0, Math.min(100, display)) / 100;
+  const orb   = previewOrbState(display);
+  const color = rayVar(rayId);  // returns "var(--ray-xxx)"
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        paddingBottom: isLast ? 0 : 10,
+        marginBottom: isLast ? 0 : 10,
+        borderBottom: isLast ? "none" : "1px solid rgba(255,255,255,0.04)",
+      }}
+    >
+      {/* Ray label */}
+      <div style={{ minWidth: 120, flexShrink: 0 }}>
+        <div
+          style={{
+            fontSize: 9,
+            fontWeight: 700,
+            letterSpacing: ".1em",
+            color,
+            textShadow: `0 0 8px ${color}`,
+            lineHeight: 1,
+            fontFamily: "'Orbitron', system-ui, sans-serif",
+          }}
+        >
+          {rayId}
+        </div>
+        <div
+          style={{
+            fontSize: 8,
+            color: "rgba(255,255,255,0.5)",
+            letterSpacing: ".05em",
+            marginTop: 2,
+            fontFamily: "'Space Grotesk', sans-serif",
+          }}
+        >
+          Ray of {name}
+        </div>
+      </div>
+
+      {/* Track */}
+      <div
+        style={{
+          flex: 1,
+          position: "relative",
+          height: 32,
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        {/* Rail background */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            height: 4,
+            borderRadius: 99,
+            background: `linear-gradient(90deg, rgba(124,44,255,0.4) 0%, ${color}33 100%)`,
+          }}
+        />
+
+        {/* Filled progress */}
+        {pct > 0 && (
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              height: 4,
+              borderRadius: 99,
+              width: `${pct * 100}%`,
+              background: `linear-gradient(90deg, rgba(124,44,255,0.6), ${color})`,
+              boxShadow: `0 0 8px ${color}`,
+              transition: "width 0.05s linear",
+            }}
+          />
+        )}
+
+        {/* Tick marks */}
+        {[20, 40, 60, 80].map((t) => (
+          <div
+            key={t}
+            style={{
+              position: "absolute",
+              left: `${t}%`,
+              top: "50%",
+              transform: "translate(-50%,-50%)",
+              width: 1,
+              height: 8,
+              background: "rgba(255,255,255,0.1)",
+            }}
+          />
+        ))}
+
+        {/* Glowing orb at score position */}
+        <div
+          style={{
+            position: "absolute",
+            left: `calc(${pct * 100}% - ${orb.r}px)`,
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: orb.r * 2,
+            height: orb.r * 2,
+            borderRadius: "50%",
+            background:
+              display >= 68
+                ? `radial-gradient(circle at 40% 35%, #fff, ${color})`
+                : `radial-gradient(circle at 40% 35%, ${color}, rgba(80,20,160,0.9))`,
+            boxShadow: `0 0 ${orb.bloom}px ${color}, 0 0 ${orb.bloom * 2}px ${color}`,
+            transition: "left 0.05s linear",
+            zIndex: 5,
+          }}
+        />
+
+        {/* Score label above orb */}
+        <div
+          style={{
+            position: "absolute",
+            left: `${pct * 100}%`,
+            top: -14,
+            transform: "translateX(-50%)",
+            fontSize: 8,
+            fontWeight: 700,
+            color,
+            textShadow: `0 0 6px ${color}`,
+            whiteSpace: "nowrap",
+            fontFamily: "'Orbitron', sans-serif",
+          }}
+        >
+          {Math.round(display)}
+        </div>
+      </div>
+
+      {/* Score badge */}
+      <div
+        style={{
+          minWidth: 36,
+          textAlign: "right",
+          fontSize: 11,
+          fontWeight: 700,
+          color,
+          textShadow: `0 0 8px ${color}`,
+          fontFamily: "'Orbitron', sans-serif",
+        }}
+      >
+        {Math.round(display)}
+      </div>
+    </div>
+  );
+}
+
+/** The full preview panel — dark header + 8 ray tracks + CTA banner */
+function SampleDashboardPreview() {
+  return (
+    <>
+      {/* Google Fonts — Orbitron + Space Grotesk */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@400;500;600&display=swap');
+      `}</style>
+
+      {/* Dark panel */}
+      <div
+        style={{
+          background: "rgba(8,2,22,0.92)",
+          borderRadius: 16,
+          border: "2px solid rgba(244,196,48,0.25)",
+          boxShadow:
+            "0 0 40px rgba(244,196,48,0.08), inset 0 1px 0 rgba(255,255,255,0.04)",
+          overflow: "hidden",
+          marginBottom: 32,
+        }}
+      >
+        {/* Header */}
+        <div
+          style={{
+            padding: "20px 24px 14px",
+            borderBottom: "1px solid rgba(244,196,48,0.12)",
+          }}
+        >
+          <div
+            style={{
+              fontSize: 13,
+              fontWeight: 900,
+              letterSpacing: ".22em",
+              color: "var(--ray-joy)",
+              textShadow: "0 0 16px var(--ray-joy)",
+              fontFamily: "'Orbitron', system-ui, sans-serif",
+              lineHeight: 1.2,
+            }}
+          >
+            SAMPLE · GRAVITATIONAL STABILITY REPORT
+          </div>
+          <div
+            style={{
+              fontSize: 13,
+              color: "rgba(255,255,255,0.55)",
+              marginTop: 6,
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontWeight: 400,
+              letterSpacing: ".02em",
+            }}
+          >
+            A preview of your Light Dashboard — with sample data
+          </div>
+        </div>
+
+        {/* Ray tracks */}
+        <div style={{ padding: "16px 24px 20px" }}>
+          {PREVIEW_RAYS.map((ray, i) => (
+            <PreviewRayTrack
+              key={ray.id}
+              rayId={ray.id}
+              name={ray.name}
+              score={ray.score}
+              isLast={i === PREVIEW_RAYS.length - 1}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Gold CTA banner */}
+      <div
+        style={{
+          background: "linear-gradient(135deg, rgba(244,196,48,0.12), rgba(244,196,48,0.06))",
+          border: "1px solid rgba(244,196,48,0.35)",
+          borderRadius: 12,
+          padding: "20px 24px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          marginBottom: 40,
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontSize: 15,
+            fontWeight: 600,
+            color: "var(--text-on-dark, #fff)",
+            fontFamily: "'Space Grotesk', sans-serif",
+            letterSpacing: ".01em",
+          }}
+        >
+          This is what your map looks like. Get the real thing.
+        </p>
+        <Link
+          href="/assessment"
+          style={{
+            display: "inline-block",
+            width: "fit-content",
+            padding: "10px 22px",
+            borderRadius: 8,
+            background: "var(--ray-joy)",
+            color: "#000",
+            fontFamily: "'Orbitron', sans-serif",
+            fontWeight: 700,
+            fontSize: 12,
+            letterSpacing: ".12em",
+            textDecoration: "none",
+            boxShadow: "0 0 18px var(--ray-joy), 0 0 36px rgba(244,196,48,0.25)",
+            transition: "opacity 0.2s",
+          }}
+        >
+          Take the Assessment →
+        </Link>
+      </div>
+    </>
+  );
+}
+
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
@@ -324,6 +655,9 @@ export default function SampleReportClient() {
 
   return (
     <div className="space-y-8">
+
+      {/* ── 0. Dashboard Preview ── */}
+      <SampleDashboardPreview />
 
       {/* ── 1. Welcome + Confidence Band ── */}
       <FadeInSection>
