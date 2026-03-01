@@ -61,6 +61,7 @@ export const PAGE_VIEW_EVENTS = [
   "page_view_ray_connection",
   "page_view_ray_possibility",
   "page_view_ray_be-the-light",
+  "page_view_podcast",
 ] as const;
 
 export type PageViewEvent = (typeof PAGE_VIEW_EVENTS)[number];
@@ -184,6 +185,7 @@ export const CANONICAL_EVENT_NAMES = [
   "page_view_ray_connection",
   "page_view_ray_possibility",
   "page_view_ray_be-the-light",
+  "page_view_podcast",
 ] as const;
 
 export type SetupContextScope = "work" | "home" | "mixed";
