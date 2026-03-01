@@ -30,6 +30,7 @@ import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
+import NeonFlicker from "@/components/ui/NeonFlicker";
 import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 import { NEON, neonText } from "@/lib/ui/neon";
 
@@ -583,9 +584,11 @@ export default async function UpgradeYourOsPage() {
               <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.5s' }}>◆</span> Rise Path + daily tools</li>
               <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.6s' }}>◆</span> 90-day retake to track growth</li>
             </ul>
-            <NeonGlowButton href="/upgrade">
-              Get the Full Map
-            </NeonGlowButton>
+            <NeonFlicker>
+              <NeonGlowButton href="/upgrade">
+                Get the Full Map
+              </NeonGlowButton>
+            </NeonFlicker>
           </div>
         </div>
         <p className="relative z-10 mt-4 text-center text-xs" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>

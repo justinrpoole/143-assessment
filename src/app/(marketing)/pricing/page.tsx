@@ -23,6 +23,7 @@ import LiveActivityBadge from "@/components/marketing/LiveActivityBadge";
 import CompetitorPricingContext from "@/components/marketing/CompetitorPricingContext";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
+import NeonFlicker from "@/components/ui/NeonFlicker";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 
 export const dynamic = "force-dynamic";
@@ -94,6 +95,27 @@ const PLANS = [
     highlight: false,
   },
   {
+    id: "full-light-protocol",
+    title: "Full Light Protocol",
+    price: "$143",
+    frequency: "one-time",
+    description:
+      "The complete activation system. Full assessment, 90 days of Portal Membership, every practice tool unlocked, and a priority coaching prep call — all in one pass.",
+    features: [
+      "Full Gravitational Stability Report included",
+      "90-day Portal Membership included",
+      "All 14 daily practice tools unlocked",
+      "Watch Me and Go First interactive flows",
+      "Weekly retakes for 90 days",
+      "Priority coaching prep call (30 min)",
+      "Light Activation Playbook",
+      "Behavioural progress export at 90 days",
+    ],
+    cta: { label: "Start Full Protocol", href: "/upgrade" },
+    highlight: true,
+    glowBadge: true,
+  },
+  {
     id: "coaching-10wk",
     title: "10-Week Coaching",
     price: "Contact Us",
@@ -134,20 +156,22 @@ const PLANS = [
 ] as const;
 
 const COMPARISON_FEATURES = [
-  { name: "Eclipse Screening", lightCheck: true, report: true, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Light Signature", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Full 9-Ray Behavioural Map", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Eclipse Snapshot", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Gravitational Stability Score", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
-  { name: "PDF Report Download", lightCheck: false, report: true, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Weekly Retakes", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Watch Me & Go First Flows", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Daily Micro-Practices", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Light Trajectory", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Weekly Scan", lightCheck: false, report: false, portal: true, coaching10wk: true, enterprise: true },
-  { name: "Weekly Coaching Sessions", lightCheck: false, report: false, portal: false, coaching10wk: true, enterprise: true },
-  { name: "Team Aggregate Analysis", lightCheck: false, report: false, portal: false, coaching10wk: false, enterprise: true },
-  { name: "Behavioural ROI Framework", lightCheck: false, report: false, portal: false, coaching10wk: false, enterprise: true },
+  { name: "Eclipse Screening",              lightCheck: true,  report: true,  portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Light Signature",                lightCheck: false, report: true,  portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Full 9-Ray Behavioural Map",     lightCheck: false, report: true,  portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Eclipse Snapshot",               lightCheck: false, report: true,  portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Gravitational Stability Score",  lightCheck: false, report: true,  portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "PDF Report Download",            lightCheck: false, report: true,  portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Weekly Retakes",                 lightCheck: false, report: false, portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Watch Me & Go First Flows",      lightCheck: false, report: false, portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Daily Micro-Practices",          lightCheck: false, report: false, portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Light Trajectory",               lightCheck: false, report: false, portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Weekly Scan",                    lightCheck: false, report: false, portal: true,  fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "90-Day Portal Access",           lightCheck: false, report: false, portal: false, fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Priority Coaching Prep Call",    lightCheck: false, report: false, portal: false, fullProtocol: true,  coaching10wk: true,  enterprise: true },
+  { name: "Weekly Coaching Sessions",       lightCheck: false, report: false, portal: false, fullProtocol: false, coaching10wk: true,  enterprise: true },
+  { name: "Team Aggregate Analysis",        lightCheck: false, report: false, portal: false, fullProtocol: false, coaching10wk: false, enterprise: true },
+  { name: "Behavioural ROI Framework",      lightCheck: false, report: false, portal: false, fullProtocol: false, coaching10wk: false, enterprise: true },
 ] as const;
 
 const FAQS = [
@@ -278,11 +302,16 @@ export default async function PricingPage() {
                       style={{
                         background: "var(--brand-gold, #F8D011)",
                         color: "#020202",
+                        ...('glowBadge' in plan && plan.glowBadge ? {
+                          boxShadow: '0 0 16px rgba(248,208,17,0.7), 0 0 32px rgba(248,208,17,0.35)',
+                          animation: 'badge-pulse 2s ease-in-out infinite',
+                        } : {}),
                       }}
                     >
                       Most Popular
                     </span>
                   )}
+                  <style>{`@keyframes badge-pulse{0%,100%{box-shadow:0 0 16px rgba(248,208,17,0.7),0 0 32px rgba(248,208,17,0.35)}50%{box-shadow:0 0 24px rgba(248,208,17,0.9),0 0 48px rgba(248,208,17,0.5)}}`}</style>
                   <p
                     className="text-xs font-bold uppercase tracking-widest"
                     style={{ color: "var(--brand-gold, #F8D011)" }}
@@ -330,9 +359,11 @@ export default async function PricingPage() {
                     ))}
                   </ul>
                   {plan.highlight ? (
-                    <NeonGlowButton href={plan.cta.href} className="mt-6 w-full justify-center">
-                      {plan.cta.label}
-                    </NeonGlowButton>
+                    <NeonFlicker className="mt-6 w-full">
+                      <NeonGlowButton href={plan.cta.href} className="w-full justify-center">
+                        {plan.cta.label}
+                      </NeonGlowButton>
+                    </NeonFlicker>
                   ) : (
                     <LiquidFillButton href={plan.cta.href} className="mt-6 block text-center">
                       {plan.cta.label}
@@ -428,6 +459,12 @@ export default async function PricingPage() {
                     </th>
                     <th
                       className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest"
+                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                    >
+                      Full Protocol
+                    </th>
+                    <th
+                      className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest"
                       style={{ color: "var(--text-on-dark-muted)" }}
                     >
                       Coaching
@@ -466,6 +503,9 @@ export default async function PricingPage() {
                       </td>
                       <td className="px-4 py-3 text-center">
                         {row.portal ? <CheckIcon /> : <DashIcon />}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {row.fullProtocol ? <CheckIcon color="var(--brand-gold, #F8D011)" /> : <DashIcon />}
                       </td>
                       <td className="px-4 py-3 text-center">
                         {row.coaching10wk ? <CheckIcon /> : <DashIcon />}

@@ -7,6 +7,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import IlluminateDashboard from '@/components/cosmic/IlluminateDashboard';
+import ConstellationProgress from '@/components/cosmic/ConstellationProgress';
 
 interface PortalSummary {
   has_completed_run: boolean;
@@ -15,6 +16,12 @@ interface PortalSummary {
   streak_days:       number;
   eclipse_level:     'low' | 'medium' | 'high' | null;
   bottom_ray_name:   string | null;
+}
+
+interface Rep {
+  logged_at:       string;
+  reflection_note: string | null;
+  tool_name:       string;
 }
 
 interface ResultsData {
@@ -32,6 +39,7 @@ export default function PortalDashboardShell() {
   const [scores,    setScores]    = useState<Partial<Record<string,number>>>(DEMO_SCORES);
   const [eclipse,   setEclipse]   = useState(0);
   const [repsToday, setRepsToday] = useState(0);
+  const [allReps,   setAllReps]   = useState<Rep[]>([]);
   const [phase,     setPhase]     = useState<'ECLIPSE'|'DAWN'|'RADIANT'>('ECLIPSE');
   const [hasRun,    setHasRun]    = useState(false);
   const [loading,   setLoading]   = useState(true);
@@ -56,11 +64,10 @@ export default function PortalDashboardShell() {
 
       const repsRes = await fetch('/api/reps?limit=50');
       if (repsRes.ok) {
-        const { reps } = await repsRes.json() as {
-          reps: Array<{ logged_at: string; reflection_note: string | null; tool_name: string }>;
-        };
+        const { reps } = await repsRes.json() as { reps: Rep[] };
         const today = new Date().toDateString();
         setRepsToday(reps.filter(r => new Date(r.logged_at).toDateString() === today).length);
+        setAllReps(reps);
       }
     } catch { /* degrade gracefully */ } finally { setLoading(false); }
   }, []);
@@ -96,6 +103,20 @@ export default function PortalDashboardShell() {
     );
   }
 
+  /* Convert reps → constellation stars (most recent 20, padded with 3 upcoming) */
+  const constellationStars = [
+    ...allReps.slice(0, 20).map((rep, i) => ({
+      id:        `rep-${i}`,
+      label:     rep.tool_name.replace(/_/g, ' '),
+      completed: true,
+      major:     i === 0, // most recent rep is a major star
+    })),
+    // Upcoming placeholders so the constellation has room to grow
+    { id: 'next-1', label: 'Next rep', completed: false },
+    { id: 'next-2', label: 'Coming up', completed: false },
+    { id: 'next-3', label: 'On the way', completed: false },
+  ];
+
   return (
     <>
       {!hasRun && (
@@ -120,6 +141,12 @@ export default function PortalDashboardShell() {
         onGoFirst={handleGoFirst}
         onLogRep={handleLogRep}
       />
+      <div className="mt-6">
+        <ConstellationProgress
+          stars={constellationStars}
+          constellationName="Your Light Trail"
+        />
+      </div>
     </>
   );
 }

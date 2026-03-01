@@ -10,6 +10,7 @@ import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import PortalBreadcrumb from "@/components/portal/PortalBreadcrumb";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import ShareSignatureSection from "@/components/results/ShareSignatureSection";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
 import { emitPageView } from "@/lib/analytics/emitter";
@@ -151,6 +152,8 @@ export default async function ResultsPage({ searchParams }: PageProps) {
         run_id={runId}
         title="Do you have your next REP?"
       />
+
+      <ShareSignatureSection runId={runId} />
 
       {/* Portal CTA — bridge from results to daily practice */}
       <section className="mx-auto max-w-2xl px-6 py-16 text-center">
