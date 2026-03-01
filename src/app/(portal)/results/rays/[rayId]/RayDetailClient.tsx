@@ -118,9 +118,9 @@ export default function RayDetailClient({
 
   // Pull tool recommendation from recommendations in pipeline output
   const recommendations = pipelineOutput?.recommendations;
-  const toolRec = recommendations?.tool_plan?.find(
-    (t) => t.ray_id === rayId || t.context?.toLowerCase().includes(rayName.toLowerCase())
-  ) ?? recommendations?.tool_plan?.[0];
+  const toolRec = recommendations?.tools?.[0]
+    ? { tool_name: recommendations.tools[0].label, why: recommendations.tools[0].why_now, install_step: recommendations.tools[0].steps?.[0] }
+    : null;
 
   // Eclipse modifier badge
   const eclipseModifier = rayData.eclipse_modifier;
