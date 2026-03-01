@@ -9,6 +9,7 @@ import CountUp from "@/components/marketing/CountUp";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
+import NeonStarField from "@/components/cosmic/NeonStarField";
 import StaggerChildren from "@/components/marketing/StaggerChildren";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import RadarMockup from "@/components/marketing/RadarMockup";
@@ -301,7 +302,7 @@ export default async function UpgradeYourOsPage() {
       <FadeInSection>
       <RadialSpotlight>
       <section id="eclipse-concept" className="relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
-        <FloatingOrbs variant="gold" />
+        <NeonStarField showConstellations />
         <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
           <div className="gold-accent-left">
             <span className="gold-tag">
@@ -543,7 +544,7 @@ export default async function UpgradeYourOsPage() {
       {/* ── PRICING — gold-bordered featured card ── */}
       <FadeInSection>
       <section id="pricing" className="section-alt-dark relative mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
-        <FloatingOrbs variant="mixed" />
+        <NeonStarField showConstellations />
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> Choose Your Path
