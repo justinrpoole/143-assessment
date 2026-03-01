@@ -12,6 +12,7 @@ import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
+import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
 
 const resources = [
   {
@@ -62,7 +63,7 @@ export default function ResourcesPage() {
           <p className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> Resources
           </p>
-          <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>
+          <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.cyan) }}>
             Understand the system before you take the test.
           </h1>
           <div className="mx-auto max-w-[540px]">
@@ -78,7 +79,7 @@ export default function ResourcesPage() {
           <StaggerChildren className="grid gap-4 sm:grid-cols-2">
             {resources.map((resource, i) => (
               <article key={resource.title} className="glass-card glass-card--magnetic glass-card--lift p-6 flex flex-col" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
-                <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>{resource.title}</h2>
+                <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.cyan) }}>{resource.title}</h2>
                 <p className="mt-2 flex-1 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{resource.description}</p>
                 <LiquidFillButton href={resource.href} className="mt-4 inline-block self-start text-sm">
                   {resource.cta}

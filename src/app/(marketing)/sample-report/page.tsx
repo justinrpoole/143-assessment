@@ -18,6 +18,7 @@ import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
+import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
 
 export const dynamic = "force-dynamic";
 
@@ -74,7 +75,7 @@ export default async function SampleReportPage() {
               </p>
               <h1
                 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
               >
                 This is what a full report reads like. Not a screenshot. The real
                 thing.

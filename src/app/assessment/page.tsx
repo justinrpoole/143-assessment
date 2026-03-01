@@ -4,6 +4,7 @@ import { AssessmentRunnerClient } from "@/components/assessment/AssessmentRunner
 import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
 
 export const dynamic = "force-dynamic";
 
@@ -58,7 +59,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
           {/* Hero — I See You */}
           <header className="glass-card mb-6 p-6 sm:p-8">
             <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">The Assessment</p>
-            <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>The 143 Be The Light Assessment</h1>
+            <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.violet) }}>The 143 Be The Light Assessment</h1>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               I see you performing leadership every day without a mirror that shows what is actually happening underneath.
             </p>
@@ -117,7 +118,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
 
           {/* Final CTA */}
           <section className="glass-card p-6 sm:p-8 text-center">
-            <h2 className="text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>The most honest mirror your leadership has seen.</h2>
+            <h2 className="text-2xl font-semibold" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.violet) }}>The most honest mirror your leadership has seen.</h2>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               Not a personality label. A behavioural map that changes as you do. Start free. Go deeper when you are ready.
             </p>

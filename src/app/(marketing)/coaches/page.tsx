@@ -16,6 +16,7 @@ import StaggerChildren from '@/components/marketing/StaggerChildren';
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from '@/lib/analytics/emitter';
 import { getUserStateFromRequest } from '@/lib/auth/user-state';
+import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
 
 export const dynamic = 'force-dynamic';
 
@@ -79,7 +80,7 @@ export default async function CoachingPage() {
         <p className="gold-tag mx-auto">
           <span style={{ color: '#F8D011' }}>◆</span> 10-Week Light Activation Program · 7 min read
         </p>
-        <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>
+        <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.violet) }}>
           Your assessment gave you a map. This program teaches you to walk it.
         </h1>
         <div className="mx-auto max-w-[540px]">
@@ -108,7 +109,7 @@ export default async function CoachingPage() {
       <FadeInSection>
         <section id="archetype-teaser" className="mx-auto max-w-[720px]">
           <div className="glass-card glass-card--lift p-6 sm:p-8">
-            <h2 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3'), textShadow: neonText(NEON.violet) }}>
               The program adapts to how you lead
             </h2>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>

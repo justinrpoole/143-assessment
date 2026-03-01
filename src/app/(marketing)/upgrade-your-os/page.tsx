@@ -30,6 +30,7 @@ import { getUserStateFromRequest } from "@/lib/auth/user-state";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
+import { NEON, neonText } from "@/lib/ui/neon";
 
 export const dynamic = "force-dynamic";
 

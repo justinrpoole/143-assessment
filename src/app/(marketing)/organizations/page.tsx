@@ -20,6 +20,7 @@ import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
 
 export const dynamic = "force-dynamic";
 
@@ -139,7 +140,7 @@ export default async function OrganizationsPage() {
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
           >
             Your team has the skills. Do they have the capacity to use them?
           </h1>
@@ -171,7 +172,7 @@ export default async function OrganizationsPage() {
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
               >
                 How much did your last leadership initiative cost? How long did
                 the results last?

@@ -17,6 +17,7 @@ import RayDivider from "@/components/ui/RayDivider";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
 
 export const dynamic = "force-dynamic";
 
@@ -148,7 +149,7 @@ export default async function StandardPage() {
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.violet) }}
           >
             The 143 Standard.
           </h1>
@@ -173,7 +174,7 @@ export default async function StandardPage() {
                 </p>
                 <h2
                   className="text-2xl font-semibold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                  style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.violet) }}
                 >
                   What a leadership assessment should be.
                 </h2>

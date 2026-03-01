@@ -12,6 +12,7 @@ import BackToTopButton from "@/components/ui/BackToTopButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
 
 export const dynamic = "force-dynamic";
 
@@ -43,7 +44,7 @@ export default async function GlossaryPage() {
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
           >
             Glossary
           </h1>
@@ -81,7 +82,7 @@ export default async function GlossaryPage() {
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
               >
                 Ready to see these concepts mapped to your own <span className="gold-highlight">leadership
                 pattern</span>?

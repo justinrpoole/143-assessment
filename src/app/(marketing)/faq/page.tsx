@@ -18,6 +18,7 @@ import BackToTopButton from "@/components/ui/BackToTopButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
+import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
 
 export const dynamic = "force-dynamic";
 
@@ -165,7 +166,7 @@ export default async function FaqPage() {
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
           >
             Every question you are thinking. Answered.
           </h1>
@@ -208,7 +209,7 @@ export default async function FaqPage() {
               >
                 <h2
                   className="mb-4 text-lg font-bold"
-                  style={{ color: rayHex(cycleRay(idx)) }}
+                  style={{ color: rayHex(cycleRay(idx)), textShadow: neonText(NEON.cyan) }}
                 >
                   {section.category}
                 </h2>
