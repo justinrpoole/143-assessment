@@ -184,8 +184,8 @@
   content: '';
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  z-index: 1;
+  pointer-events: none !important;
+  z-index: -1;
   background: repeating-linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.03),
@@ -203,8 +203,8 @@
   content: '';
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  z-index: 1;
+  pointer-events: none !important;
+  z-index: -1;
   background-image:
     /* Cyan perspective grid */
     linear-gradient(transparent 97%, var(--grid-color, rgba(37,246,255,0.10)) 98%),
@@ -1784,3 +1784,10 @@ html {
 }
 .neon-text-gold { text-shadow: 0 0 8px rgba(248,208,17,0.6), 0 0 20px rgba(248,208,17,0.3); }
 .neon-text-purple { text-shadow: 0 0 8px rgba(139,91,255,0.6), 0 0 20px rgba(139,91,255,0.3); }
+
+/* ── Scroll fix — ensure overlays never block interaction ── */
+html, body {
+  overflow-x: hidden;
+  overscroll-behavior: auto;
+  touch-action: pan-y;
+}

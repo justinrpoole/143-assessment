@@ -28,7 +28,7 @@
   background:
     radial-gradient(ellipse 140% 100% at 50% 38%, rgba(147, 64, 255, 0.06) 0%, transparent 50%),
     radial-gradient(ellipse 120% 90% at 50% 38%, #12002e 0%, var(--space-ink) 70%);
-  contain: layout style paint;
+  contain: style paint;
 }
 
 [data-cosmic-hero-v2] canvas.starfield {

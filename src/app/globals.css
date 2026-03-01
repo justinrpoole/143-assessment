@@ -16,3 +16,13 @@
   --color-neon-lime: var(--neon-lime);
   --color-neon-violet: var(--neon-violet);
 }
+
+/* ── Scroll guarantee — nothing should block scrolling ── */
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+body {
+  touch-action: pan-y;
+  overscroll-behavior: auto;
+}
