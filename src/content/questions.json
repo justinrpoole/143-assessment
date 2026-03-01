@@ -9,7 +9,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "You wake up and there are already 12 things competing for your attention. Before any of it \u2014 do you know what actually matters today?"
+    "prompt": "You wake up and the day is already moving. Before you opened anything this week \u2014 did you know what actually mattered?"
   },
   {
     "id": "RAY_R1a_002",
@@ -21,7 +21,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, how often did you decide what mattered before the day decided for you?"
+    "prompt": "The day does not care what you intended. This past week, how often did your intentions hold anyway?"
   },
   {
     "id": "RAY_R1a_003",
@@ -33,7 +33,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When your week got loud and urgent, were you choosing your direction \u2014 or just responding to whoever showed up?"
+    "prompt": "Urgency is loud. Purpose is quiet. This past week, which one drove most of your decisions?"
   },
   {
     "id": "RAY_R1a_004",
@@ -45,7 +45,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about the last 7 days. Were you leading your day, or was your day leading you?"
+    "prompt": "This week \u2014 were you choosing, or were you responding? Be honest."
   },
   {
     "id": "RAY_R1a_005",
@@ -57,7 +57,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When someone dropped something urgent in your lap, did you have a clear enough sense of your own priorities to sort it out \u2014 or did the urgency just win?"
+    "prompt": "Your inbox arrived before your intention did. How often this week did you let that be the plan?"
   },
   {
     "id": "RAY_R1a_006",
@@ -69,7 +69,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often in the last week did you start the day knowing your one most important thing?"
+    "prompt": "When the week got chaotic, did you have a direction to return to \u2014 or were you improvising all the way through?"
   },
   {
     "id": "RAY_R1a_007",
@@ -81,7 +81,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When the week got chaotic, did you have an anchor \u2014 a clear intention you could return to \u2014 or were you improvising all week?"
+    "prompt": "You knew what mattered. The question is whether you protected it. This past week \u2014 did you?"
   },
   {
     "id": "RAY_R1a_008",
@@ -93,7 +93,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last 7 days, how often did you set a direction before checking your messages in the morning?"
+    "prompt": "When someone dropped something urgent in your lap, did your own priorities survive the collision?"
   },
   {
     "id": "RAY_R1a_015",
@@ -105,7 +105,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When things got hard this week, did you still know what you were building toward?"
+    "prompt": "The first decision of the day shapes the rest. This week, how often did you make that decision consciously?"
   },
   {
     "id": "RAY_R1a_016",
@@ -117,7 +117,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about a moment this week when you felt pulled in multiple directions. Did you know which direction was actually yours?"
+    "prompt": "Intention without protection is just hope. This past week, how often did you actually defend your priorities?"
   },
   {
     "id": "RAY_R1a_017",
@@ -129,7 +129,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When you were exhausted, did you still make intentional choices \u2014 or did you just let the day happen?"
+    "prompt": "The people around you \u2014 do they seem like they know where they're going? Or does the day just happen to them?"
   },
   {
     "id": "RAY_R1a_018",
@@ -141,7 +141,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "The people around you \u2014 do they seem like they know where they're going? Or does the day just happen to them too?"
+    "prompt": "When you were depleted this week, did you still choose \u2014 or did you hand the wheel to whatever was loudest?"
   },
   {
     "id": "RAY_R1a_019",
@@ -153,7 +153,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, how often did you check in with yourself before making a big decision \u2014 not just react?"
+    "prompt": "This past month. More often intentional, or more often reactive?"
   },
   {
     "id": "RAY_R1b_015",
@@ -177,7 +177,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Under real pressure \u2014 deadline, conflict, depletion \u2014 did your intentions hold, or did you go into autopilot?"
+    "prompt": "Under pressure \u2014 deadline, conflict, exhaustion \u2014 did your direction hold? Or did it collapse into survival mode?"
   },
   {
     "id": "RAY_R1b_019",
@@ -189,7 +189,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "This past month, were you intentional more often than you were reactive?"
+    "prompt": "One month of days. How many of them felt like yours?"
   },
   {
     "id": "RAY_R2a_001",
@@ -201,7 +201,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week \u2014 when something genuinely good happened, did you let it actually land? Or did you move straight to the next thing?"
+    "prompt": "Something good happened this week. Did you let it land \u2014 or did you move to the next thing before it registered?"
   },
   {
     "id": "RAY_R2a_002",
@@ -213,7 +213,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about the last 7 days. Was there a moment where something made you smile, laugh, or feel something warm? Did you notice it?"
+    "prompt": "Your brain is scanning for threat right now. That is not a flaw. But this week \u2014 did you also let it scan for good?"
   },
   {
     "id": "RAY_R2a_003",
@@ -225,7 +225,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did something small \u2014 a conversation, a view, a small win \u2014 actually register as good?"
+    "prompt": "Not happiness. Not performance. Real, quiet noticing of something worth something. How often this week?"
   },
   {
     "id": "RAY_R2a_004",
@@ -237,7 +237,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When your week was hard, did you find anything in it worth a moment of appreciation \u2014 or were you just surviving?"
+    "prompt": "When your week was hard, did you find anything in it worth a breath of appreciation \u2014 or were you just surviving?"
   },
   {
     "id": "RAY_R2a_005",
@@ -249,7 +249,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, did you share something positive with someone around you \u2014 not to perform, just because it was real?"
+    "prompt": "You shared something positive with someone this week. Not to perform it. Just because it was real. Did that happen?"
   },
   {
     "id": "RAY_R2a_006",
@@ -261,7 +261,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When you're under pressure, do you still notice the good? Or does your filter only catch what's wrong?"
+    "prompt": "Under pressure, the filter narrows. This week \u2014 did yours only catch what was wrong?"
   },
   {
     "id": "RAY_R2a_007",
@@ -273,7 +273,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about someone close to you. When did you last genuinely celebrate something with them \u2014 not just acknowledge it, actually celebrate it?"
+    "prompt": "Someone close to you. When did you last genuinely celebrate something with them \u2014 not acknowledge it, celebrate it?"
   },
   {
     "id": "RAY_R2a_008",
@@ -285,7 +285,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last 7 days, how often did you allow yourself to fully feel something going well \u2014 not minimize it, not dismiss it?"
+    "prompt": "A win happened this week. Yours or someone else's. Did it register as meaningful \u2014 or did you move past it immediately?"
   },
   {
     "id": "RAY_R2a_015",
@@ -297,7 +297,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When a win happened this week \u2014 yours or someone else's \u2014 did it register as meaningful? Or did you move past it immediately?"
+    "prompt": "Not gratitude as a practice. Just noticing. This week \u2014 did anything good actually land?"
   },
   {
     "id": "RAY_R2a_016",
@@ -309,7 +309,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often in the last week did you laugh, or feel genuinely light, even for a few minutes?"
+    "prompt": "Laughter. Lightness. Even for a few minutes. How often this week?"
   },
   {
     "id": "RAY_R2a_017",
@@ -333,7 +333,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When things were difficult this week, did you look for one honest good thing \u2014 or did the weight of it all crowd everything else out?"
+    "prompt": "When things were difficult, did you look for one honest good thing \u2014 or did the weight crowd everything else out?"
   },
   {
     "id": "RAY_R2a_019",
@@ -345,7 +345,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, have you been the person who lifts the room \u2014 or the person who doesn't notice the room?"
+    "prompt": "This past month \u2014 were you the person who lifts the room? Or the person who doesn't notice the room?"
   },
   {
     "id": "RAY_R2b_015",
@@ -357,7 +357,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When something you worked on actually came together, did you take a breath and feel it? Or were you already thinking about what comes next?"
+    "prompt": "Something came together that you worked for. Did you take a breath and feel it? Or were you already on to what's next?"
   },
   {
     "id": "RAY_R2b_018",
@@ -369,7 +369,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Under real pressure this past month, did joy still show up anywhere \u2014 or did it feel like an impossible luxury?"
+    "prompt": "Real pressure. Last month. Did joy still show up anywhere \u2014 or did it feel like an impossible luxury?"
   },
   {
     "id": "RAY_R2b_019",
@@ -381,7 +381,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "This past month, did the people closest to you experience your joy \u2014 or mostly your stress?"
+    "prompt": "The people closest to you this past month \u2014 did they experience your joy, or mostly your stress?"
   },
   {
     "id": "RAY_R3a_001",
@@ -393,7 +393,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week \u2014 when someone was talking to you, were you actually there? Or were you half-listening while thinking about something else?"
+    "prompt": "Someone was talking to you this week. Were you actually there? Or were you managing the conversation from somewhere else?"
   },
   {
     "id": "RAY_R3a_002",
@@ -405,7 +405,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often in the last 7 days did you catch your mind racing ahead while someone else was still talking?"
+    "prompt": "Your mind races. That is normal. This week \u2014 how often did you catch it and come back?"
   },
   {
     "id": "RAY_R3a_003",
@@ -417,7 +417,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about your most important conversation this week. Were you fully in it \u2014 or managing it from a distance?"
+    "prompt": "Your most important conversation this week. Were you in it \u2014 or performing being in it?"
   },
   {
     "id": "RAY_R3a_004",
@@ -429,7 +429,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When the meeting was happening, were you in the meeting? Or were you in your head, planning your response, checking the time?"
+    "prompt": "The meeting was happening. Were you in the meeting \u2014 or in your head, already three moves ahead?"
   },
   {
     "id": "RAY_R3a_005",
@@ -441,7 +441,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, did you give anyone your full, undivided attention \u2014 no phone, no half-thoughts, just there?"
+    "prompt": "Full attention. No phone. No half-thoughts. Just there. Did you give that to anyone this week?"
   },
   {
     "id": "RAY_R3a_006",
@@ -453,7 +453,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When something stressful was happening around you, did you stay grounded \u2014 or did your nervous system leave the room before your body did?"
+    "prompt": "When things got tense around you, did you stay grounded \u2014 or did your nervous system leave the room before your body did?"
   },
   {
     "id": "RAY_R3a_007",
@@ -465,7 +465,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did you complete a conversation, a task, or a meal without your mind being somewhere else?"
+    "prompt": "You finished something this week without your mind being somewhere else. How often?"
   },
   {
     "id": "RAY_R3a_008",
@@ -477,7 +477,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When things got tense this week, did you stay present \u2014 or go somewhere safer inside your head?"
+    "prompt": "When things got uncomfortable, did you stay present \u2014 or find somewhere safer inside your head?"
   },
   {
     "id": "RAY_R3a_015",
@@ -489,7 +489,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about yesterday. How many moments do you actually remember being fully in \u2014 not just going through the motions?"
+    "prompt": "Yesterday. How many moments do you actually remember being fully in?"
   },
   {
     "id": "RAY_R3a_016",
@@ -501,7 +501,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "The people closest to you \u2014 do they feel like you're actually present with them? Or do they feel you're always somewhere else?"
+    "prompt": "The people closest to you \u2014 do they feel like you're actually with them? Or like you're always somewhere else?"
   },
   {
     "id": "RAY_R3a_017",
@@ -513,7 +513,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last 7 days, how often were you physically in a room but mentally somewhere else?"
+    "prompt": "Physically in the room. Mentally somewhere else. How often this week?"
   },
   {
     "id": "RAY_R3a_018",
@@ -525,7 +525,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When you were doing something important this week, did it have your full attention \u2014 or were you multitasking?"
+    "prompt": "Something important was happening. Did it have your full attention \u2014 or were you multitasking?"
   },
   {
     "id": "RAY_R3a_019",
@@ -537,7 +537,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Under pressure this past month, did you stay present \u2014 or did anxiety pull you into future-planning and worst-case scenarios?"
+    "prompt": "Under pressure last month, did you stay present \u2014 or did anxiety pull you into future-planning and worst-case scenarios?"
   },
   {
     "id": "RAY_R3b_015",
@@ -549,7 +549,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did you practice any kind of grounding or presence ritual \u2014 a breath, a pause, something that brought you back?"
+    "prompt": "Any kind of grounding ritual this past month. A breath. A pause. Something that brought you back. Did that happen?"
   },
   {
     "id": "RAY_R3b_018",
@@ -561,7 +561,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When someone needed you to just be there \u2014 not fix anything, not advise anything, just be there \u2014 were you able to do that?"
+    "prompt": "Someone needed you to just be there. Not fix it. Not advise. Just be there. Were you able to do that?"
   },
   {
     "id": "RAY_R3b_019",
@@ -573,7 +573,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "This past month, did you experience any moments of real stillness \u2014 where you weren't rushing toward or away from something?"
+    "prompt": "Any moments of real stillness last month. Not rushing toward or away from something. Just still."
   },
   {
     "id": "RAY_R4a_001",
@@ -585,7 +585,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, was there something you knew you needed to do \u2014 and didn't do it because fear, doubt, or discomfort got in the way?"
+    "prompt": "You knew you needed to do something this week. Fear, doubt, or discomfort got in the way. Did you do it anyway?"
   },
   {
     "id": "RAY_R4a_002",
@@ -597,7 +597,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When you felt uncertain this week, did you move anyway \u2014 or wait for the feeling to pass?"
+    "prompt": "Uncertainty showed up this week. Did you move through it \u2014 or wait for the feeling to pass first?"
   },
   {
     "id": "RAY_R4a_003",
@@ -609,7 +609,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about a moment in the last 7 days when something felt risky or uncomfortable. Did you step toward it or away from it?"
+    "prompt": "Something felt risky or uncomfortable this week. Did you step toward it or away from it?"
   },
   {
     "id": "RAY_R4a_004",
@@ -621,7 +621,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did you say what you actually thought \u2014 even when the room might push back?"
+    "prompt": "You said what you actually thought this week \u2014 even when the room might push back. How often?"
   },
   {
     "id": "RAY_R4a_005",
@@ -633,7 +633,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When doubt showed up this week, did you recognize it for what it was \u2014 a feeling, not a fact \u2014 and act anyway?"
+    "prompt": "Doubt is not a stop sign. This week \u2014 did you treat it like one?"
   },
   {
     "id": "RAY_R4a_006",
@@ -645,7 +645,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, did you advocate for yourself \u2014 your time, your ideas, your value \u2014 or did you shrink to keep the peace?"
+    "prompt": "You advocated for yourself this week. Your time. Your ideas. Your value. Or did you shrink to keep the peace?"
   },
   {
     "id": "RAY_R4a_007",
@@ -657,7 +657,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about a decision you delayed this week. What was the real reason you waited?"
+    "prompt": "A decision you delayed this week. What was the real reason you waited?"
   },
   {
     "id": "RAY_R4a_008",
@@ -669,7 +669,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When you were asked to do something that didn't align with what you believe is right, what did you do?"
+    "prompt": "Something didn't align with what you believe is right. What did you do?"
   },
   {
     "id": "RAY_R4a_015",
@@ -681,7 +681,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last 7 days, did you go first in any way \u2014 share first, try first, be vulnerable first \u2014 or did you wait for someone else to go?"
+    "prompt": "You went first this week. Shared first. Tried first. Showed up before anyone else did. Did that happen?"
   },
   {
     "id": "RAY_R4a_016",
@@ -693,7 +693,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did you act from your own conviction instead of from what you thought others expected?"
+    "prompt": "Your conviction, or their expectation. Which one drove more of your decisions this week?"
   },
   {
     "id": "RAY_R4a_017",
@@ -705,7 +705,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "The people around you \u2014 do they experience you as someone who moves decisively, or someone who needs all the information before moving?"
+    "prompt": "The people around you \u2014 decisive, or still waiting for more information before moving?"
   },
   {
     "id": "RAY_R4a_018",
@@ -717,7 +717,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When someone challenged or dismissed your idea this week, did you hold your ground \u2014 or did you back down?"
+    "prompt": "Someone challenged your idea this week. Did you hold your ground \u2014 or back down?"
   },
   {
     "id": "RAY_R4a_019",
@@ -729,7 +729,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did you take one risk you were genuinely uncertain about \u2014 and do it anyway?"
+    "prompt": "One real risk last month. Genuinely uncertain. Did you take it anyway?"
   },
   {
     "id": "RAY_R4b_015",
@@ -741,7 +741,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Under pressure this past month, did your courage hold \u2014 or did you play it safer than you believe you should have?"
+    "prompt": "Under pressure last month \u2014 did your courage hold? Or did you play it safer than you know you should have?"
   },
   {
     "id": "RAY_R4b_018",
@@ -753,7 +753,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, was there a conversation you knew you needed to have \u2014 and kept finding reasons not to?"
+    "prompt": "A conversation you knew you needed to have. Last month. Did you have it \u2014 or find reasons not to?"
   },
   {
     "id": "RAY_R4b_019",
@@ -765,7 +765,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "This past month, did you show up as someone who leads \u2014 or someone who waits to be led?"
+    "prompt": "This past month \u2014 leading, or waiting to be led?"
   },
   {
     "id": "RAY_R5a_001",
@@ -777,7 +777,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, when things got hard \u2014 did you have a reason that made the hard thing worth it? Or were you just pushing through?"
+    "prompt": "When things got hard this week, did you have a reason that made it worth it \u2014 or were you just pushing through?"
   },
   {
     "id": "RAY_R5a_002",
@@ -789,7 +789,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often in the last 7 days did your daily actions feel connected to something you actually care about?"
+    "prompt": "This week \u2014 did your daily actions feel connected to something you actually care about?"
   },
   {
     "id": "RAY_R5a_003",
@@ -801,7 +801,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about the work you did this week. Did any of it feel meaningful to you \u2014 genuinely, not just productive?"
+    "prompt": "The work you did this week. Did any of it feel meaningful \u2014 genuinely, not just productive?"
   },
   {
     "id": "RAY_R5a_004",
@@ -813,7 +813,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When someone asked why you do what you do this week \u2014 did you have a clear answer? An alive one? Not just a rehearsed one?"
+    "prompt": "Someone asked why you do what you do. Did you have a clear answer? An alive one \u2014 not just a rehearsed one?"
   },
   {
     "id": "RAY_R5a_005",
@@ -825,7 +825,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, did you make any choices based on what you value \u2014 or did urgency and obligation drive most of it?"
+    "prompt": "Your values, or urgency and obligation. Which one drove most of this week?"
   },
   {
     "id": "RAY_R5a_006",
@@ -837,7 +837,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When you were depleted this week, what kept you going? Was there something that pulled you forward?"
+    "prompt": "When you were depleted this week, what kept you going? Was there something pulling you forward?"
   },
   {
     "id": "RAY_R5a_007",
@@ -849,7 +849,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did your work and your sense of purpose feel aligned \u2014 like you were doing what you're actually here to do?"
+    "prompt": "Your work and your sense of purpose. This week \u2014 aligned, or running parallel?"
   },
   {
     "id": "RAY_R5a_008",
@@ -861,7 +861,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about the best moment in your work this week. What made it meaningful to you?"
+    "prompt": "The best moment in your work this week. What made it meaningful to you?"
   },
   {
     "id": "RAY_R5a_015",
@@ -873,7 +873,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When you hit a wall this week, did your sense of purpose give you a way through \u2014 or did the wall just win?"
+    "prompt": "You hit a wall this week. Did your sense of purpose give you a way through \u2014 or did the wall just win?"
   },
   {
     "id": "RAY_R5a_016",
@@ -885,7 +885,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "The people closest to you \u2014 do they know why you do what you do? Or do they mostly see the hustle without the meaning behind it?"
+    "prompt": "The people closest to you \u2014 do they know why you do what you do? Or do they mostly see the hustle without the meaning?"
   },
   {
     "id": "RAY_R5a_017",
@@ -897,7 +897,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last 7 days, did you make time for anything that feeds your sense of purpose \u2014 or just the things that were urgent?"
+    "prompt": "This week \u2014 did you make time for anything that feeds your sense of purpose? Or just the urgent things?"
   },
   {
     "id": "RAY_R5a_018",
@@ -909,7 +909,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When an opportunity came up this week, did you filter it through your values \u2014 or did you just say yes because it was available?"
+    "prompt": "An opportunity came up. Did you filter it through your values \u2014 or say yes because it was available?"
   },
   {
     "id": "RAY_R5a_019",
@@ -921,7 +921,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did your life feel pointed somewhere \u2014 somewhere you actually want to go?"
+    "prompt": "Last month \u2014 did your life feel pointed somewhere? Somewhere you actually want to go?"
   },
   {
     "id": "RAY_R5b_015",
@@ -933,7 +933,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Under pressure this past month, did you lose the thread of why this matters to you \u2014 or were you able to hold onto it?"
+    "prompt": "Under pressure last month, did you lose the thread of why this matters \u2014 or were you able to hold onto it?"
   },
   {
     "id": "RAY_R5b_018",
@@ -945,7 +945,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did you have any clear moments of 'this is why I do this' \u2014 or has it mostly felt like going through the motions?"
+    "prompt": "Any clear moments last month of 'this is why I do this' \u2014 or has it mostly felt like going through the motions?"
   },
   {
     "id": "RAY_R5b_019",
@@ -957,7 +957,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "This past month, were your biggest investments of time and energy aligned with what you say matters most to you?"
+    "prompt": "Your biggest investments of time and energy this past month \u2014 aligned with what you say matters most?"
   },
   {
     "id": "RAY_R6a_001",
@@ -969,7 +969,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week \u2014 were there moments where you showed up differently depending on who was in the room? Not adapted, but different \u2014 like a different person entirely?"
+    "prompt": "Different rooms, different versions of you. This week \u2014 were you adapting, or disappearing?"
   },
   {
     "id": "RAY_R6a_002",
@@ -981,7 +981,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often in the last 7 days did you say something you didn't actually mean \u2014 because it was easier or safer?"
+    "prompt": "You said something you didn't actually mean this week. Not a lie. Just easier. How often?"
   },
   {
     "id": "RAY_R6a_003",
@@ -993,7 +993,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about who you were at work this week versus at home. Were those the same person, or did you leave part of yourself at the door?"
+    "prompt": "Who you were at work versus at home this week. Same person \u2014 or did you leave part of yourself at the door?"
   },
   {
     "id": "RAY_R6a_004",
@@ -1005,7 +1005,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When someone you respect was in the room this week, did you change how you showed up \u2014 your voice, your opinions, how much space you took?"
+    "prompt": "Someone you respect was in the room. Did you change how you showed up \u2014 how much space you took, what you said?"
   },
   {
     "id": "RAY_R6a_005",
@@ -1017,7 +1017,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, did you express a real opinion \u2014 something you actually believe \u2014 in a situation where agreement would have been easier?"
+    "prompt": "You said what you actually believe \u2014 in a situation where agreement would have been easier. Did that happen this week?"
   },
   {
     "id": "RAY_R6a_006",
@@ -1029,7 +1029,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did you feel like you were performing \u2014 doing the version of yourself that the situation called for \u2014 rather than just being you?"
+    "prompt": "Performing yourself versus being yourself. How often this week did it feel like a performance?"
   },
   {
     "id": "RAY_R6a_007",
@@ -1041,7 +1041,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When something bothered you this week, did you say something \u2014 or swallow it and move on?"
+    "prompt": "Something bothered you this week. Did you say something \u2014 or swallow it and move on?"
   },
   {
     "id": "RAY_R6a_008",
@@ -1053,7 +1053,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about someone who knows you well. Would the way you showed up at work this week feel familiar to them?"
+    "prompt": "Someone who knows you well. Would the way you showed up at work this week feel familiar to them?"
   },
   {
     "id": "RAY_R6a_015",
@@ -1065,7 +1065,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last 7 days, did you make any decisions based on what you thought others wanted to see \u2014 rather than what you actually believe?"
+    "prompt": "Decisions this week \u2014 based on what you actually believe, or on what you thought others wanted to see?"
   },
   {
     "id": "RAY_R6a_016",
@@ -1077,7 +1077,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When things got emotional or difficult this week, did you let it show \u2014 or did you manage it perfectly so nobody would see anything was wrong?"
+    "prompt": "Something was difficult this week. Did you let it show \u2014 or manage it so nobody would see anything was wrong?"
   },
   {
     "id": "RAY_R6a_017",
@@ -1089,7 +1089,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "The people around you \u2014 do they know what you actually think? Or do they only know the version you decide to let them see?"
+    "prompt": "The people around you \u2014 do they know what you actually think? Or only the version you decide to let them see?"
   },
   {
     "id": "RAY_R6a_018",
@@ -1101,7 +1101,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, were there moments you felt proud of yourself \u2014 not for what you accomplished, but for who you were in a moment?"
+    "prompt": "A moment this week where you were proud of yourself \u2014 not for what you accomplished, but for who you were in it."
   },
   {
     "id": "RAY_R6a_019",
@@ -1113,7 +1113,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did you have a conversation where you were fully honest \u2014 even when honesty was uncomfortable?"
+    "prompt": "A conversation last month where you were fully honest \u2014 even when honesty was uncomfortable."
   },
   {
     "id": "RAY_R6b_015",
@@ -1125,7 +1125,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Under pressure this past month, did your character hold \u2014 or did stress bring out a version of you that you're not proud of?"
+    "prompt": "Under pressure last month \u2014 did your character hold? Or did stress surface a version of you that you're not proud of?"
   },
   {
     "id": "RAY_R6b_018",
@@ -1137,7 +1137,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did you let anyone see you struggle \u2014 really see it \u2014 or did you keep the hard parts to yourself?"
+    "prompt": "You let someone see you struggle last month. Really see it. Or did you keep the hard parts to yourself?"
   },
   {
     "id": "RAY_R6b_019",
@@ -1149,7 +1149,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "This past month, did you feel like yourself more often than you felt like a role you were playing?"
+    "prompt": "This past month \u2014 more often yourself, or more often a role you were playing?"
   },
   {
     "id": "RAY_R7a_001",
@@ -1161,7 +1161,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week \u2014 did any conversation leave you feeling genuinely connected to the other person? Not just caught up, actually connected?"
+    "prompt": "A conversation this week that left you feeling genuinely connected. Not caught up \u2014 connected. Did that happen?"
   },
   {
     "id": "RAY_R7a_002",
@@ -1173,7 +1173,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often in the last 7 days did you listen to someone with your full attention \u2014 not planning what you'd say next, just actually listening?"
+    "prompt": "You listened with your full attention this week. Not planning your response. Just listening. How often?"
   },
   {
     "id": "RAY_R7a_003",
@@ -1185,7 +1185,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about your most important relationship right now. When did you last do something just to invest in it \u2014 not fix it, invest in it?"
+    "prompt": "Your most important relationship right now. When did you last invest in it \u2014 not fix it, invest in it?"
   },
   {
     "id": "RAY_R7a_004",
@@ -1197,7 +1197,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, did you ask someone how they were doing and actually wait for a real answer?"
+    "prompt": "You asked someone how they were doing this week and actually waited for a real answer. Did that happen?"
   },
   {
     "id": "RAY_R7a_005",
@@ -1209,7 +1209,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When someone was struggling around you this week, did you notice? Did you say something?"
+    "prompt": "Someone was struggling around you this week. Did you notice \u2014 and did you say something?"
   },
   {
     "id": "RAY_R7a_006",
@@ -1221,7 +1221,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did you make someone feel like they mattered to you \u2014 not as a task on your list, but as a person?"
+    "prompt": "You made someone feel like they mattered to you this week. Not as a task. As a person. How often?"
   },
   {
     "id": "RAY_R7a_007",
@@ -1233,7 +1233,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last 7 days, did any relationship get better because of something you did? Or did they just stay where they were?"
+    "prompt": "A relationship got better this week because of something you did. Or did they just stay where they were?"
   },
   {
     "id": "RAY_R7a_008",
@@ -1245,7 +1245,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When someone trusted you with something vulnerable this week \u2014 a fear, a struggle, a mistake \u2014 what did you do with it?"
+    "prompt": "Someone trusted you with something vulnerable this week. A fear. A struggle. A mistake. What did you do with it?"
   },
   {
     "id": "RAY_R7a_015",
@@ -1257,7 +1257,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "The people closest to you \u2014 do they feel like you're genuinely interested in them? Or do they sometimes feel like they're an item on your agenda?"
+    "prompt": "The people closest to you \u2014 do they feel like you're genuinely interested in them? Or like they're on your agenda?"
   },
   {
     "id": "RAY_R7a_016",
@@ -1269,7 +1269,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, was there a moment where someone needed connection more than advice, and did you give them connection?"
+    "prompt": "Someone needed connection more than advice this week. Did you give them connection?"
   },
   {
     "id": "RAY_R7a_017",
@@ -1281,7 +1281,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often in the last 7 days did you show up for someone in a way that surprised them \u2014 more than they expected?"
+    "prompt": "You showed up for someone in a way that surprised them \u2014 more than they expected. This week?"
   },
   {
     "id": "RAY_R7a_018",
@@ -1293,7 +1293,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When a relationship in your life is struggling, do you tend to move toward it \u2014 or away from the discomfort?"
+    "prompt": "A relationship in your life that's struggling. Do you move toward it \u2014 or away from the discomfort?"
   },
   {
     "id": "RAY_R7a_019",
@@ -1305,7 +1305,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did you invest in any relationship that wasn't convenient or obligatory \u2014 just because it matters?"
+    "prompt": "Last month \u2014 did you invest in any relationship that wasn't convenient or obligatory?"
   },
   {
     "id": "RAY_R7b_015",
@@ -1317,7 +1317,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Under pressure this past month, did your relationships get your presence \u2014 or just your leftovers?"
+    "prompt": "Under pressure last month \u2014 your relationships got your presence, or your leftovers?"
   },
   {
     "id": "RAY_R7b_018",
@@ -1329,7 +1329,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did you have a conversation that changed something \u2014 in the relationship, in someone's day, in how they saw themselves?"
+    "prompt": "A conversation last month that changed something. In the relationship. In someone's day. In how they saw themselves."
   },
   {
     "id": "RAY_R7b_019",
@@ -1341,7 +1341,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "This past month, were you someone that people felt safe being honest with?"
+    "prompt": "This past month \u2014 were you someone that people felt safe being honest with?"
   },
   {
     "id": "RAY_R8a_001",
@@ -1353,7 +1353,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week \u2014 when something didn't go as planned, what was your first move? Did you look for what was still possible, or did you start writing the story about why it wouldn't work?"
+    "prompt": "The plan fell apart this week. Your first move \u2014 looking for what was still possible, or writing the story about why it won't work?"
   },
   {
     "id": "RAY_R8a_002",
@@ -1365,7 +1365,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often in the last 7 days did you catch yourself assuming something couldn't be done \u2014 and stop to ask if that was actually true?"
+    "prompt": "This week \u2014 how often did you catch yourself assuming something couldn't be done, and stop to ask if that was actually true?"
   },
   {
     "id": "RAY_R8a_003",
@@ -1377,7 +1377,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about a problem you encountered this week. Did you approach it like there was a way through \u2014 or did you approach it like a wall?"
+    "prompt": "A problem this week. Did you approach it like there was a way through \u2014 or like a wall?"
   },
   {
     "id": "RAY_R8a_004",
@@ -1389,7 +1389,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When you received feedback this week, did you stay open to it \u2014 or did your defenses go up first?"
+    "prompt": "Feedback came in this week. Did you stay open \u2014 or did your defenses go up first?"
   },
   {
     "id": "RAY_R8a_005",
@@ -1401,7 +1401,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, did you consider a perspective or approach that was genuinely different from your default? Not just hear it \u2014 actually consider it?"
+    "prompt": "A genuinely different perspective or approach this week. Not just heard it \u2014 actually considered it. Did that happen?"
   },
   {
     "id": "RAY_R8a_006",
@@ -1413,7 +1413,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did you say 'what if' or 'what else is possible here' \u2014 instead of defaulting to the first answer that showed up?"
+    "prompt": "How often this week did you ask 'what else is possible here' instead of defaulting to the first answer?"
   },
   {
     "id": "RAY_R8a_007",
@@ -1425,7 +1425,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When your plan fell apart this week, did you find another way \u2014 or did the disruption take you out of the game?"
+    "prompt": "The disruption arrived. Did you find another way \u2014 or did it take you out of the game?"
   },
   {
     "id": "RAY_R8a_008",
@@ -1437,7 +1437,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about a belief you've been carrying about your work or your life. Is it still true \u2014 or is it just familiar?"
+    "prompt": "A belief you've been carrying about your work or your life. Is it still true \u2014 or just familiar?"
   },
   {
     "id": "RAY_R8a_015",
@@ -1449,7 +1449,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last 7 days, did you explore any idea or opportunity just because it was interesting \u2014 without needing it to fit neatly into something you already know?"
+    "prompt": "An idea or opportunity this week \u2014 explored just because it was interesting, without needing it to fit neatly into something you already know."
   },
   {
     "id": "RAY_R8a_016",
@@ -1461,7 +1461,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "The people around you \u2014 do they experience you as someone who expands what's possible in conversations, or someone who narrows it?"
+    "prompt": "The people around you \u2014 do they experience you as someone who expands what's possible in conversations? Or narrows it?"
   },
   {
     "id": "RAY_R8a_017",
@@ -1473,7 +1473,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, when something felt stuck, did you get creative \u2014 try something different, ask a different question \u2014 or just push harder?"
+    "prompt": "Something felt stuck this week. Did you get creative \u2014 or just push harder?"
   },
   {
     "id": "RAY_R8a_018",
@@ -1485,7 +1485,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did you let someone's different perspective actually land \u2014 change your thinking, even a little?"
+    "prompt": "Someone's different perspective actually landed this week. Changed your thinking, even a little. Did that happen?"
   },
   {
     "id": "RAY_R8a_019",
@@ -1497,7 +1497,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did you do anything that surprised even you \u2014 that you wouldn't have predicted you'd do or think?"
+    "prompt": "Last month \u2014 did you do anything that surprised even you?"
   },
   {
     "id": "RAY_R8b_015",
@@ -1509,7 +1509,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Under pressure this past month, did you stay curious \u2014 or did pressure collapse your options down to just survival mode?"
+    "prompt": "Under pressure last month \u2014 did you stay curious? Or did pressure collapse your options down to survival mode?"
   },
   {
     "id": "RAY_R8b_018",
@@ -1521,7 +1521,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, did you actively look for what you might be missing \u2014 or did you mostly see what you already expected to see?"
+    "prompt": "Last month \u2014 were you actively looking for what you might be missing? Or mostly seeing what you expected to see?"
   },
   {
     "id": "RAY_R8b_019",
@@ -1533,7 +1533,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "This past month, were you growing \u2014 finding new edges, new capacity, new ways of seeing \u2014 or were you mostly repeating what already works?"
+    "prompt": "This past month \u2014 growing, or repeating what already works?"
   },
   {
     "id": "RAY_R9a_001",
@@ -1545,7 +1545,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week \u2014 when you walked into a room, did the room feel it? Did something shift in the quality of the space when you showed up?"
+    "prompt": "You walked into a room this week. Did something shift \u2014 did the quality of the space change when you arrived?"
   },
   {
     "id": "RAY_R9a_002",
@@ -1557,7 +1557,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often in the last 7 days did you consciously decide what kind of energy you were going to bring into a situation \u2014 before you arrived?"
+    "prompt": "Before you entered a situation this week, did you decide what you were going to bring \u2014 or did you just show up?"
   },
   {
     "id": "RAY_R9a_003",
@@ -1569,7 +1569,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about someone you know who lights up every room they enter. When you're at your best, are you that person?"
+    "prompt": "Someone you know lights up every room they enter. When you're at your best \u2014 is that you?"
   },
   {
     "id": "RAY_R9a_004",
@@ -1581,7 +1581,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, did you go first \u2014 offer warmth, encouragement, vulnerability, presence \u2014 before it was given to you?"
+    "prompt": "You went first this week. Warmth. Encouragement. Presence. Before it was given to you. Did that happen?"
   },
   {
     "id": "RAY_R9a_005",
@@ -1593,7 +1593,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When things were tense or heavy around you this week, did you bring any light to it \u2014 or did you absorb the heaviness and add to it?"
+    "prompt": "Things were heavy around you this week. Did you bring any light to it \u2014 or absorb the heaviness and add to it?"
   },
   {
     "id": "RAY_R9a_006",
@@ -1605,7 +1605,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did you do something to make someone else feel seen, acknowledged, or valued \u2014 not because you had to, but because you chose to?"
+    "prompt": "You made someone feel seen this week. Not because you had to \u2014 because you chose to. How often?"
   },
   {
     "id": "RAY_R9a_007",
@@ -1617,7 +1617,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last 7 days, did you inspire anyone \u2014 not with a speech, just by how you showed up?"
+    "prompt": "You inspired someone this week \u2014 not with a speech, just by how you showed up. Did that happen?"
   },
   {
     "id": "RAY_R9a_015",
@@ -1629,7 +1629,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "When the people around you were struggling, did they look toward you for something \u2014 energy, steadiness, hope? And if they did, did you have it to give?"
+    "prompt": "The people around you were struggling. Did they look toward you for something \u2014 steadiness, hope, energy? And if they did, did you have it to give?"
   },
   {
     "id": "RAY_R9a_016",
@@ -1641,7 +1641,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Think about the people who depend on you. In the last week, did they see the version of you that you want them to model?"
+    "prompt": "The people who depend on you. This week \u2014 did they see the version of you that you want them to model?"
   },
   {
     "id": "RAY_R9a_017",
@@ -1653,7 +1653,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "How often this week did you lead by example in a way that wasn't asked of you \u2014 you just did it because it was who you are?"
+    "prompt": "You led by example this week in a way that wasn't asked of you. You just did it because it's who you are."
   },
   {
     "id": "RAY_R9a_018",
@@ -1665,7 +1665,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "The people closest to you \u2014 do they consistently experience you as a light in their lives? Or is that something that only shows up some of the time?"
+    "prompt": "The people closest to you \u2014 do they consistently experience you as a light? Or does that only show up sometimes?"
   },
   {
     "id": "RAY_R9a_019",
@@ -1677,7 +1677,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last week, did you show up as the person you want to be \u2014 or the person your circumstances made you?"
+    "prompt": "This week \u2014 the person you want to be, or the person your circumstances made you?"
   },
   {
     "id": "RAY_R9b_015",
@@ -1689,7 +1689,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, can you name a moment where your presence genuinely made a difference for someone else?"
+    "prompt": "Last month \u2014 a moment where your presence genuinely made a difference for someone else."
   },
   {
     "id": "RAY_R9b_018",
@@ -1701,7 +1701,7 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "Under real pressure this past month, did you radiate \u2014 or eclipse? Did you bring light into the hard moment, or did the hard moment cover yours?"
+    "prompt": "Real pressure last month. Did you radiate \u2014 or eclipse? Did you bring light into the hard moment, or did the hard moment cover yours?"
   },
   {
     "id": "RAY_R9b_019",
@@ -1713,6 +1713,6 @@
     },
     "required": true,
     "source": "src/data/ray_items.json",
-    "prompt": "In the last month, were you being the change you want to see \u2014 in your home, your work, your community?"
+    "prompt": "Last month \u2014 were you being the change you want to see? In your home, your work, your world?"
   }
 ]
