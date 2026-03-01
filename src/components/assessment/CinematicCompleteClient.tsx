@@ -3,23 +3,24 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import LightSignatureReveal from '@/components/results/LightSignatureReveal';
-import CelebrationBurst from '@/components/ui/CelebrationBurst';
 import type { AssessmentOutputV1 } from '@/lib/types';
 
 /**
  * CinematicCompleteClient — fetches the run output and plays the
- * LightSignatureReveal cinematic. Fires CelebrationBurst at the
- * start of the reveal. Auto-redirects to /results after 4 s of
- * inactivity, or immediately when the user completes or skips.
+ * LightSignatureReveal cinematic (12-second spectacular sequence).
+ * CelebrationBurst is fired from inside LightSignatureReveal at
+ * the signature-reveal moment (~5 s in).
+ *
+ * The 13-second safety timeout is a fallback only; the reveal component
+ * calls onComplete itself when the finale ends.
  */
 export default function CinematicCompleteClient() {
   const searchParams  = useSearchParams();
   const router        = useRouter();
   const runId         = searchParams.get('run_id') ?? '';
 
-  const [output,   setOutput]   = useState<AssessmentOutputV1 | null>(null);
-  const [burst,    setBurst]    = useState(false);
-  const [loading,  setLoading]  = useState(true);
+  const [output,  setOutput]  = useState<AssessmentOutputV1 | null>(null);
+  const [loading, setLoading] = useState(true);
   const redirected = useRef(false);
 
   const doRedirect = useCallback(() => {
@@ -37,7 +38,6 @@ export default function CinematicCompleteClient() {
       .then((data: { results_payload?: AssessmentOutputV1 } | null) => {
         if (data?.results_payload) {
           setOutput(data.results_payload);
-          setBurst(true); // fire confetti when reveal appears
         } else {
           doRedirect();
         }
@@ -46,9 +46,9 @@ export default function CinematicCompleteClient() {
       .finally(() => setLoading(false));
   }, [runId, doRedirect]);
 
-  /* 4-second auto-redirect safety net */
+  /* 13-second safety net — the reveal calls onComplete itself at ~12.5 s */
   useEffect(() => {
-    const t = setTimeout(doRedirect, 4000);
+    const t = setTimeout(doRedirect, 13000);
     return () => clearTimeout(t);
   }, [doRedirect]);
 
@@ -76,13 +76,10 @@ export default function CinematicCompleteClient() {
   if (!output) return null;
 
   return (
-    <>
-      <CelebrationBurst trigger={burst} />
-      <LightSignatureReveal
-        output={output}
-        runId={runId}
-        onComplete={doRedirect}
-      />
-    </>
+    <LightSignatureReveal
+      output={output}
+      runId={runId}
+      onComplete={doRedirect}
+    />
   );
 }
