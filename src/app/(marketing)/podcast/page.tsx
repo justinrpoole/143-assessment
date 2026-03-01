@@ -110,7 +110,7 @@ export default async function PodcastPage() {
       {/* Email capture */}
       <section className="mx-auto max-w-3xl px-5 pb-24 sm:px-8">
         <FadeInSection>
-          <EmailCaptureBanner title="Be first when it drops." description="No spam. One email when the first episode launches." cta="Notify Me" source="podcast_coming_soon" />
+          <EmailCaptureBanner />
         </FadeInSection>
       </section>
     </main>
