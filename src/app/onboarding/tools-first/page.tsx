@@ -12,8 +12,9 @@ export default function ToolsFirstPage() {
   const router = useRouter();
 
   function handleContinue() {
-    if (typeof window !== "undefined") localStorage.setItem("onboarding_complete","true");
-    router.push("/results");
+    if (typeof window !== "undefined") localStorage.setItem("onboarding_complete", "true");
+    // Route through onboarding/complete — it checks for runs and routes correctly
+    router.push("/onboarding/complete");
   }
 
   return (
