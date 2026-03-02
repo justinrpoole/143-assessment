@@ -38,7 +38,9 @@ export async function POST(request: Request) {
       captured_at: capturedAt,
     };
 
-    const forceFallback = request.headers.get("x-force-capture-fallback") === "1";
+    const forceFallback =
+      process.env.NODE_ENV !== "production" &&
+      request.headers.get("x-force-capture-fallback") === "1";
 
     try {
       if (forceFallback) {
