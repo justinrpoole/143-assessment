@@ -220,7 +220,38 @@
   object-fit: contain;
   pointer-events: none;
   opacity: 0;
+  mix-blend-mode: multiply;
   will-change: transform, opacity;
+}
+
+[data-cosmic-hero-v2] .revelation-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 11;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  pointer-events: none;
+  font-family: var(--font-cosmic-display), 'Orbitron', sans-serif;
+  font-size: clamp(20px, 3vw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.1;
+  color: #F8D011;
+  text-shadow:
+    0 0 8px rgba(248, 208, 17, 0.75),
+    0 0 24px rgba(248, 208, 17, 0.50),
+    0 0 54px rgba(255, 190, 60, 0.35);
+}
+
+[data-cosmic-hero-v2] .revelation-text span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  will-change: opacity, transform;
 }
 
 @keyframes chv2-sunBreathe {
@@ -252,8 +283,8 @@
 
 [data-cosmic-hero-v2] .moon {
   position: absolute;
-  width: 38%;
-  height: 38%;
+  width: 72%;
+  height: 72%;
   object-fit: contain;
   z-index: 10;
   opacity: 0;
@@ -271,7 +302,7 @@
 
 [data-cosmic-hero-v2] .row-1 {
   margin: 0;
-  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  font-family: var(--font-cosmic-display), 'Orbitron', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
   font-size: clamp(28px, 4.5vw, 58px);

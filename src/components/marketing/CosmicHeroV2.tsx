@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import './cosmic-hero-v2.css';
 
+const REVELATION_TEXT = 'LIVE JUST IN A RAY OF LIGHT';
+
 export default function CosmicHeroV2() {
   const containerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
@@ -24,7 +26,7 @@ export default function CosmicHeroV2() {
        ============================================================ */
     const ECLIPSE_DUR = 18;
     const SUN_FRAC = 0.72;
-    const MOON_FRAC = 0.38;
+    const MOON_FRAC = 0.72;
 
     /* ===== PERLIN NOISE ===== */
     const _p = new Uint8Array(512);
@@ -79,6 +81,9 @@ export default function CosmicHeroV2() {
     const row1El    = root.querySelector('.row-1') as HTMLElement;
     const row2El    = root.querySelector('.row-2') as HTMLElement;
     const vigEl     = root.querySelector('.vignette') as HTMLElement;
+    const revelationChars = Array.from(
+      root.querySelectorAll('.revelation-text span')
+    ) as HTMLElement[];
 
     /* ===== STARFIELD ===== */
     let sw = 0, sh = 0, sdpr = 1;
@@ -627,11 +632,27 @@ export default function CosmicHeroV2() {
       return { x, y, o };
     }
 
+    function clamp01(v: number) {
+      return Math.max(0, Math.min(1, v));
+    }
+
+    function smoothStep(edge0: number, edge1: number, x: number) {
+      const t = clamp01((x - edge0) / (edge1 - edge0));
+      return t * t * (3 - 2 * t);
+    }
+
+    function easeOutBack(t: number) {
+      const c1 = 1.70158;
+      const c3 = c1 + 1;
+      const x = t - 1;
+      return 1 + c3 * x * x * x + c1 * x * x;
+    }
+
     function eclipseIntensity(p: number) {
-      if (p < 0.36 || p > 0.64) return 0;
-      return p <= 0.5
-        ? Math.pow((p - 0.36) / 0.14, 1.8)
-        : Math.pow((0.64 - p) / 0.14, 1.8);
+      if (p < 0.34 || p > 0.70) return 0;
+      if (p <= 0.50) return Math.pow(smoothStep(0.34, 0.50, p), 1.1);
+      const tail = 1 - smoothStep(0.50, 0.70, p);
+      return tail * tail;
     }
 
     function celebrationIntensity(p: number) {
@@ -704,7 +725,10 @@ export default function CosmicHeroV2() {
       const progress = (t % ECLIPSE_DUR) / ECLIPSE_DUR;
       const eclI = eclipseIntensity(progress);
       const celebI = celebrationIntensity(progress);
-      const sunBright = Math.min(1, (1 - eclI * 0.94) + celebI * 0.3);
+      const eclipseRecovery = smoothStep(0.64, 0.70, progress);
+      const sunBase = _lerp(1 - eclI * 0.94, 1, eclipseRecovery);
+      const sunBright = clamp01(sunBase + celebI * 0.24);
+      const celebrationElapsedMs = Math.max(0, (progress - 0.66) * ECLIPSE_DUR * 1000);
 
       /* Determine phase for throttling expensive updates */
       const phase = celebI > 0.02 ? 'celeb' : eclI > 0.08 ? 'eclipse' : 'radiance';
@@ -725,14 +749,7 @@ export default function CosmicHeroV2() {
       /* Cosmo celebration canvas */
       drawCosmoScene(t, celebI);
 
-      /* ── Sun ↔ Sunnova seamless transition ──
-         NOVA_MATCH = 72% / 110% = 0.6545 — the scale at which sunnova
-         visually matches the sun-svg disc size. By starting and ending
-         at this scale, the crossfade is invisible. */
-      const NOVA_MATCH = 0.6545;
-
-      /* Fast crossfade over the first/last 20% of celebI so the swap
-         happens during the bright god-ray flash and is imperceptible. */
+      /* Sun ↔ nova opacity swap follows celebration intensity. */
       const swapT = Math.min(1, celebI * 5);
 
       /* Sun SVG filter — expensive, only on phase change */
@@ -754,11 +771,16 @@ export default function CosmicHeroV2() {
       /* Sunnova: fade in during swap, smooth S-curve growth */
       setStyle(sunnovaEl, 'opacity', swapT.toFixed(3));
 
-      const growT = Math.min(1, celebI / 0.5);
-      const ease = growT < 0.5
-        ? 2 * growT * growT
-        : 1 - 2 * (1 - growT) * (1 - growT);
-      const novaScale = NOVA_MATCH + (1.12 - NOVA_MATCH) * ease;
+      const burstT = clamp01(celebrationElapsedMs / 800);
+      let novaScale = 0.3;
+      if (burstT < 0.65) {
+        const up = burstT / 0.65;
+        novaScale = 0.3 + (1.25 - 0.3) * easeOutBack(up);
+      } else {
+        const settleT = (burstT - 0.65) / 0.35;
+        const settle = 1 - Math.pow(1 - settleT, 3);
+        novaScale = 1.25 + (1.0 - 1.25) * settle;
+      }
       setStyle(sunnovaEl, 'transform', `translate(-50%, -50%) scale(${novaScale.toFixed(4)})`);
 
       /* Sunnova filter — expensive, only on phase change */
@@ -845,6 +867,24 @@ export default function CosmicHeroV2() {
         row2El.style.textShadow       = '';
       }
 
+      if (revelationChars.length) {
+        if (celebI > 0.1) {
+          for (let i = 0; i < revelationChars.length; i++) {
+            const el = revelationChars[i];
+            const charStart = i * 60;
+            const localT = clamp01((celebrationElapsedMs - charStart) / 280);
+            const alpha = smoothStep(0, 1, localT);
+            setStyle(el, 'opacity', alpha.toFixed(3));
+            setStyle(el, 'transform', `translateY(${((1 - alpha) * 14).toFixed(1)}px)`);
+          }
+        } else {
+          for (const el of revelationChars) {
+            setStyle(el, 'opacity', '0');
+            setStyle(el, 'transform', 'translateY(14px)');
+          }
+        }
+      }
+
       /* Film grain — cheap transform */
       setStyle(grainCvs, 'opacity', (0.018 + eclI * 0.03 + celebI * 0.01).toFixed(3));
       setStyle(grainCvs, 'transform', `translate(${(Math.sin(t * 3.8) * 2).toFixed(1)}%, ${(Math.cos(t * 3.2) * 2).toFixed(1)}%)`);
@@ -884,10 +924,15 @@ export default function CosmicHeroV2() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="sun-svg" src="/marketing/Sun-143.svg" alt="" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="sunnova-svg" src="/marketing/sunnova.svg" alt="" />
+          <img className="sunnova-svg" src="/marketing/143-sun-nova.png" alt="" />
           <span className="brand-143">143</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="moon" src="/marketing/Purple-Moon-143.svg" alt="" />
+          <div className="revelation-text">
+            {REVELATION_TEXT.split('').map((char, index) => (
+              <span key={`${char}-${index}`}>{char === ' ' ? '\u00A0' : char}</span>
+            ))}
+          </div>
         </div>
 
         <div className="hero-copy">
