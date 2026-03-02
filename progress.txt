@@ -13,3 +13,11 @@ Ralph Loop Iteration 2
 - Verified quality baselines remained intact: challenge and group-coaching gates are active, CosmicHeroV2 act-5/nova/moon/text sequence is intact, and Tron chart components still carry neon/scanline styling.
 
 Next loop priority (iteration 3): audit dynamic /rays/[slug] pages and long-form /about + /outcomes copy for hidden methodology leakage, then add teaser gating blocks where detailed mechanics still appear.
+
+Ralph Loop Iteration 3
+
+- Found + fixed deeper leakage in long-form pages: /about and /outcomes had multi-sentence mechanism-level framework explanations; trimmed to teaser language and routed users to free Stability Check first.
+- Found + fixed CTA alignment drift: /rays/[slug] and outcomes CTA now consistently use 'Discover your Rays — free Stability Check' instead of revealing deeper-framework framing.
+- Verified all critical quality rails still hold: challenge and group-coaching are gated, preview requires email unlock before results, CosmicHeroV2 animation criteria pass, and Tron-vibe dashboard components are intact.
+
+Next loop priority (iteration 4): audit non-marketing entry surfaces (e.g., /assessment/instructions, /results helper copy, shared components like RouteShellPage) for outdated 'no email/no account' claims that weaken gate clarity.
