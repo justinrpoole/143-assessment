@@ -1941,3 +1941,11 @@ Ralph Loop Iteration 1
 - Upgraded SparklineChart cards to match TRON spec with dark #060014 panels, scanline overlays, and stronger neon/orbitron styling consistency.
 
 Next loop priority (iteration 2): run a runtime browser pass to verify gate unlock flows and CosmicHero Act 5 visual transitions in-motion (not just static code checks).
+
+Ralph Loop Iteration 2
+
+- Found ungated deep methodology exposure on /rays/[slug] pages; added a name+email lead gate before full science/coaching content renders.
+- Found CosmicHeroV2 CSS regression: missing brace in `.row-2 .char` block risked breaking letter-by-letter reveal styles; fixed and added explicit sunnova spring animation for Act 5 reveal.
+- Tightened TRON consistency on chart surfaces by enforcing Orbitron + neon treatment on RayChart and ScoreMovementChart containers (dark #060014 base preserved).
+
+Next loop priority (iteration 3): run live browser verification with screenshots for /challenge, /group-coaching, /preview, and /rays/* gate unlock states plus Act 5 hero timing evidence.
