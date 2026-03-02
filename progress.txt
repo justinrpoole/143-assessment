@@ -1317,3 +1317,11 @@ Ralph Loop Iteration 173
 - Found and fixed headline behavior drift: restored explicit `REVELATION_TEXT = 'LIVE JUST IN A RAY OF LIGHT'` and implemented per-letter build animation (`.row-2 .char`) so copy reveals letter-by-letter again.
 
 Next loop priority (iteration 174): run browser-level visual proof captures for CosmicHeroV2 acts (especially 4→5 transition) and attach artifacts verifying moon-to-sun sizing parity plus letter-build timing cadence.
+
+Ralph Loop Iteration 174
+
+- Re-verified all mandatory lead-gate controls remain enforced with no regression: /challenge workbook remains capture-gated, /group-coaching full content remains gated on successful application submit, and /preview still enforces email unlock before result flow.
+- Re-verified marketing content boundaries remain stable this cycle: no newly introduced ungated detailed 9-Ray framework sections were detected, and Justin’s homepage identity block + headshot asset path remain intact.
+- Re-verified animation and Tron style contracts remain green post-loop-173 patch: eclipse curve still extends to `p=0.70`, Act 5 uses `143-sun-nova.png`, letter-build remains active, and moon sizing remains at 72%.
+
+Next loop priority (iteration 175): produce browser-run visual artifacts (screenshots/video snippets) to validate act transitions and gate persistence under refresh/back/multi-tab flows, then link artifact paths in progress.
