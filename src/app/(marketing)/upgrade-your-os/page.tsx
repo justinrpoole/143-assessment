@@ -3,7 +3,6 @@ import Image from "next/image";
 
 import CosmicHeroV2 from "@/components/marketing/CosmicHeroV2";
 import HeroProofStrip from "@/components/marketing/HeroProofStrip";
-import MiniAssessmentPreview from "@/components/marketing/MiniAssessmentPreview";
 import ScrollProgress from "@/components/marketing/ScrollProgress";
 import CountUp from "@/components/marketing/CountUp";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -320,7 +319,7 @@ export default async function UpgradeYourOsPage() {
             Discover your Rays with the free Stability Check.
           </h2>
           <p className="mx-auto mt-3 max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            We don't teach the full methodology on the page. We show it after your baseline.
+            We don&apos;t teach the full methodology on the page. We show it after your baseline.
             Start free, see your signal, then unlock the full map.
           </p>
         </div>
@@ -472,10 +471,23 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      {/* ── TRY 3 QUESTIONS ── */}
+      {/* ── DISCOVER YOUR RAYS CTA (NO UNGATED QUESTION FLOW) ── */}
       <FadeInSection>
       <section id="try-it" className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
-        <MiniAssessmentPreview />
+        <div className="glass-card p-8 text-center space-y-4">
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+            Discover your Rays
+          </p>
+          <h3 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+            Start with the free Stability Check.
+          </h3>
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            We keep the deeper question flow and full Ray methodology behind your baseline so your map starts from real signal.
+          </p>
+          <div className="pt-1">
+            <NeonGlowButton href="/preview">Discover your Rays — free Stability Check</NeonGlowButton>
+          </div>
+        </div>
         <EmailCaptureBanner />
       </section>
       </FadeInSection>
