@@ -1,8 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import CosmicHeroV2 from "@/components/marketing/CosmicHeroV2";
 import HeroProofStrip from "@/components/marketing/HeroProofStrip";
-import StickyCtaBar from "@/components/marketing/StickyCtaBar";
 import MiniAssessmentPreview from "@/components/marketing/MiniAssessmentPreview";
 import ScrollProgress from "@/components/marketing/ScrollProgress";
 import CountUp from "@/components/marketing/CountUp";
@@ -20,15 +20,12 @@ import SectionTOC from "@/components/ui/SectionTOC";
 import CompetitorComparison from "@/components/marketing/CompetitorComparison";
 import NotALabelManifesto from "@/components/marketing/NotALabelManifesto";
 import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
-import OSExplainer from "@/components/marketing/OSExplainer";
-import DailyLoopVisual from "@/components/marketing/DailyLoopVisual";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import RayDivider from "@/components/ui/RayDivider";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
 import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
-import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import NeonFlicker from "@/components/ui/NeonFlicker";
 import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 
@@ -84,11 +81,9 @@ export default async function UpgradeYourOsPage() {
         { id: "hero", label: "Hero" },
         { id: "eclipse-nova", label: "Eclipse & Nova" },
         { id: "why-different", label: "Why Different" },
-        { id: "nine-rays", label: "The 9 Rays" },
         { id: "how-it-works", label: "How It Works" },
         { id: "sample-report-teaser", label: "Your Map" },
-        { id: "not-a-label", label: "Not a Label" },
-        { id: "eclipse-concept", label: "Eclipse" },
+                { id: "eclipse-concept", label: "Eclipse" },
         { id: "score-movement", label: "Score Movement" },
         { id: "competitor-comparison", label: "Why 143" },
         { id: "testimonials", label: "Testimonials" },
@@ -109,8 +104,6 @@ export default async function UpgradeYourOsPage() {
       <div className="relative z-10 mx-auto max-w-[960px] px-5 sm:px-8">
         <TrustBadgeStrip badges={["9 Rays Measured", "143+ Data Points", "Evidence-Based"]} />
       </div>
-
-      <StickyCtaBar />
 
       {/* Gold rule separator */}
       <div className="mx-auto max-w-[960px] px-5 py-4 sm:px-8">
@@ -318,33 +311,27 @@ export default async function UpgradeYourOsPage() {
 
       <RayDivider ray="R9" />
 
-      {/* ── SECTION 4: THE 9 RAYS ── */}
+      {/* ── SECTION 4: DISCOVER YOUR RAYS (GATED) ── */}
       <FadeInSection>
-      <section id="nine-rays" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 watermark-143">
+      <section id="discover-rays" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 watermark-143">
         <div className="relative z-10 mb-10 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> The 9 Rays
-          </span>
-          <h2 className="text-shimmer heading-section mt-4">
-            9 Rays. One map. Your current capacity — measured.
+          <span className="gold-tag mx-auto">◆ Your Rays</span>
+          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
+            Discover your Rays with the free Stability Check.
           </h2>
-          <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            The first three train EQ with yourself. The last three train EQ with others. The
-            middle three are where they meet. Not personality types — <span className="gold-highlight">capacities built through reps</span>.
+          <p className="mx-auto mt-3 max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            We don't teach the full methodology on the page. We show it after your baseline.
+            Start free, see your signal, then unlock the full map.
           </p>
         </div>
-        <div className="relative z-10">
-          <RayProgressionStack />
-        </div>
-        <div className="relative z-10 mt-8 text-center">
-          <LiquidFillButton href="/preview">
-            Show Me All 9 Rays
-          </LiquidFillButton>
+        <div className="relative z-10 text-center">
+          <LiquidFillButton href="/preview">Take the free Stability Check → discover your Rays</LiquidFillButton>
         </div>
       </section>
       </FadeInSection>
 
       <RayDivider ray="R1" />
+
 
       {/* ── SECTION 5: HOW IT WORKS ── */}
       <FadeInSection>
@@ -575,14 +562,6 @@ export default async function UpgradeYourOsPage() {
 
       <RayDivider ray="R2" />
 
-      {/* ── YOUR OPERATING SYSTEM ── */}
-      <FadeInSection>
-      <section id="os-explainer" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
-        <OSExplainer />
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R6" />
 
       {/* ── ECLIPSE IS NOT FAILURE ── */}
       <FadeInSection>
@@ -610,39 +589,7 @@ export default async function UpgradeYourOsPage() {
 
       <RayDivider ray="R7" />
 
-      {/* ── THE 143 LOOP — Daily Practice ── */}
-      <FadeInSection>
-      <section id="daily-loop" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
-        <DailyLoopVisual />
-      </section>
-      </FadeInSection>
 
-      <RayDivider ray="R2" />
-
-      {/* ── MICRO-JOY — Smallest Viable Practice ── */}
-      <FadeInSection>
-      <section className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
-        <div className="glass-card p-6 sm:p-8 space-y-4" style={{ border: '1px solid rgba(248,208,17,0.15)' }}>
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R2') }}>
-            Smallest Viable Practice
-          </p>
-          <h3 className="text-xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            Micro-Joy: the atomic unit of leadership practice.
-          </h3>
-          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            One generation per day. Three swaps per day. That is it. You are retraining
-            your attention filter to notice joy — and <span className="gold-highlight">joy is a leadership capacity</span>.
-          </p>
-          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
-            BJ Fogg&rsquo;s Tiny Habits research: the smaller the behavior, the more likely
-            it is to become automatic. Micro-Joy is 30 seconds. It trains Ray 2 (Joy) — the
-            capacity most leaders have abandoned under pressure.
-          </p>
-        </div>
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R7" />
 
       {/* ── COMPETITOR COMPARISON ── */}
       <FadeInSection>
@@ -810,7 +757,16 @@ export default async function UpgradeYourOsPage() {
           <span className="gold-tag mx-auto">
             <span style={{ color: '#F8D011' }}>◆</span> Built By
           </span>
-          <h2 className="text-gold-gradient mt-4 text-xl font-bold">
+          <div className="mx-auto mt-4 mb-3 h-28 w-28 overflow-hidden rounded-full border" style={{ borderColor: 'rgba(248,208,17,0.35)' }}>
+            <Image
+              src="/images/justin-ray-headshot.png"
+              alt="Justin Ray"
+              width={224}
+              height={224}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <h2 className="text-gold-gradient mt-2 text-xl font-bold">
             Justin Ray
           </h2>
           <p className="mx-auto mt-1 text-xs font-medium uppercase tracking-widest" style={{ color: '#F8D011', opacity: 0.6 }}>

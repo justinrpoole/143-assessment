@@ -25,7 +25,7 @@ export default function StickyCtaBar() {
 
       {visible && (
         <div
-          className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t"
+          className="fixed bottom-0 left-0 right-0 z-50 border-t"
           style={{
             background: 'rgba(2, 2, 2, 0.94)',
             WebkitBackdropFilter: 'blur(20px)',
@@ -36,7 +36,7 @@ export default function StickyCtaBar() {
         >
           <div className="flex items-center justify-between gap-3 px-5 py-3.5">
             <p className="text-xs font-medium truncate" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-              See where your light is covered. 3 min. Free.
+              Discover your leadership signal — free, 5 minutes
             </p>
             <Link
               href="/preview"
