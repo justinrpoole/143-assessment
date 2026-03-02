@@ -56,7 +56,7 @@ function getTeaser(
       return {
         message: 'Interesting pattern.',
         detail:
-          'You are showing range — strong in some areas, with room to grow in others. That is where the real insight lives. The full assessment maps all 9 rays and 36 subfacets.',
+          'You are showing range — strong in some areas, with room to grow in others. Start with your free Stability Check baseline, then unlock your full report for deeper mapping.',
       };
     }
     return {
@@ -68,7 +68,7 @@ function getTeaser(
 
   /* light-check mode — coaching debrief voice */
   const bridge =
-    'That was 3 questions from 3 of your 9 rays. The Be The Light Assessment maps all 9 rays and 36 subfacets — your complete Light Signature, Eclipse Snapshot, and specific tools to restore what is covered.';
+    'That was 3 questions from 3 of your 9 rays. Start with your free Stability Check baseline, then unlock your full report for the deeper map and next reps.';
 
   if (avg >= 3) {
     return {

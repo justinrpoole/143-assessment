@@ -707,13 +707,12 @@ export default async function PricingPage() {
                     "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
                 }}
               >
-                The Gravitational Stability Check shows you where eclipse is
-                covering capacity in 3 minutes. The full assessment maps all 9
-                Rays in 15 minutes. Both prove the framework works before you
-                spend a dollar.
+                The Gravitational Stability Check shows your baseline in 3
+                minutes. Start there first, then unlock your full report for
+                deeper mapping and your next targeted rep.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <NeonGlowButton href="/assessment">
+                <NeonGlowButton href="/preview">
                   Discover your Rays — free Stability Check
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">

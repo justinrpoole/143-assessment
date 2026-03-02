@@ -153,9 +153,9 @@ export default function ArchetypesPage() {
                   color: "var(--text-on-dark-secondary)",
                 }}
               >
-                The full Be The Light Assessment maps all 9 signals to reveal
-                your Light Signature, Eclipse Snapshot, and Rise Path — the
-                map of what is strong, what is covered, and what to do first.
+                Start with the free Stability Check to see your baseline signal.
+                Then unlock your full report to get the deeper map and your next
+                training move.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/upgrade-your-os">
