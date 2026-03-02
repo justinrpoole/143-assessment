@@ -35,6 +35,7 @@ export const MARKETING_LINKS = {
   osCoaching: { href: "/cohorts", label: "Light Circle Coaching" },
   enterprise: { href: "/enterprise", label: "Enterprise" },
   cohorts: { href: "/cohorts", label: "Light Circle" },
+  groupCoaching: { href: "/group-coaching", label: "Group Coaching" },
   podcast: { href: "/podcast", label: "Podcast" },
   tools: { href: "/tools", label: "The Tools" },
   about: { href: "/about", label: "About" },
@@ -90,6 +91,7 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
     href: "/organizations",
     children: [
       MARKETING_LINKS.enterprise,
+      MARKETING_LINKS.groupCoaching,
       MARKETING_LINKS.coaches,
       MARKETING_LINKS.cohorts,
     ],
