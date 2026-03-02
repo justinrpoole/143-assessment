@@ -18,7 +18,7 @@ const resources = [
   {
     title: "The 143 Leadership OS: How It Works",
     description:
-      "A plain-language walkthrough of the 9 Rays, the Eclipse Snapshot, the 36 Light Signatures, and the tools-first approach that makes this different from every personality assessment you have taken.",
+      "A short teaser of the 143 framework. Get your baseline first, then unlock the full methodology.",
     href: "/framework",
     cta: "Read the Framework",
   },
