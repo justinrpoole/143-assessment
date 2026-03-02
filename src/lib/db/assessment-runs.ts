@@ -96,6 +96,28 @@ export async function getLatestDraftRun(
   return unwrapSingle(response.data);
 }
 
+export async function getLatestCompletedRun(
+  userId: string,
+): Promise<AssessmentRunRow | null> {
+  const response = await supabaseRestFetch<AssessmentRunRow[]>({
+    restPath: "assessment_runs",
+    query: {
+      select:
+        "id,user_id,status,run_number,created_at,started_at,completed_at,context_scope,focus_area,source_route,user_state_at_start,entitlement_snapshot,item_ids",
+      user_id: `eq.${userId}`,
+      status: "eq.completed",
+      order: "completed_at.desc",
+      limit: 1,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(response.error ?? "failed_to_load_latest_completed_run");
+  }
+
+  return unwrapSingle(response.data);
+}
+
 export async function getRunForUser(
   runId: string,
   userId: string,

@@ -14,7 +14,6 @@ import CosmicSkeleton from "@/components/ui/CosmicSkeleton";
 import CosmicEmptyState from "@/components/ui/CosmicEmptyState";
 import LightSignatureReveal from "@/components/results/LightSignatureReveal";
 import HeadlineCard from "@/components/results/HeadlineCard";
-import { PdfDownloadButton } from "@/components/results/PdfDownloadButton";
 
 const SolarCoreScore = dynamic(() => import("@/components/cosmic/SolarCoreScore"), { ssr: false });
 const EclipseMeter = dynamic(() => import("@/components/cosmic/EclipseMeter"), { ssr: false });
@@ -573,7 +572,6 @@ export function ResultsClient({ runId }: ResultsClientProps) {
             buttonLabel="Generate Results Light Card"
           />
           <div className="flex flex-col sm:flex-row gap-3">
-            <PdfDownloadButton runId={runId} />
             <button
               type="button"
               onClick={() => {

@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 
 import { ResultsClient } from "@/components/assessment/ResultsClient";
+import { ReportDownloadButton } from "./ReportDownloadButton";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import PatternInterruptHub from "@/components/PatternInterruptHub";
 import IntentionRecall from "@/components/results/IntentionRecall";
@@ -130,6 +131,11 @@ export default async function ResultsPage({ searchParams }: PageProps) {
       >
         <IntentionRecall />
       </PageHeader>
+      {(userState === "paid_43" || userState === "sub_active") && (
+        <div className="mb-8">
+          <ReportDownloadButton runId={runId} />
+        </div>
+      )}
       <ScrollTextReveal text="Below is your complete 9-Ray report — your Light Signature archetype, Eclipse Snapshot, Energy-to-Eclipse Ratio, and Rise Path. Start with your Light Signature to understand your natural leadership force, then explore each section for the full picture. Every metric is explained — hover or tap the information icons for details." />
       <RaySpectrumStrip className="mt-4" />
       <RayDivider ray="R9" />

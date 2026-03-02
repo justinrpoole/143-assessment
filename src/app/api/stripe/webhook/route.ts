@@ -11,6 +11,7 @@ import {
   markWebhookEventProcessing,
   upsertEntitlement,
 } from "@/lib/db/entitlements";
+import { getLatestCompletedRun } from "@/lib/db/assessment-runs";
 import { queueEmailJob } from "@/lib/email/scheduler";
 import { getStripeClient, getStripeEnv } from "@/lib/stripe/stripe";
 
@@ -119,6 +120,43 @@ function deriveSubscriptionState(subscription: Stripe.Subscription):
   return "sub_canceled";
 }
 
+function getInternalBaseUrl(): string {
+  return (
+    process.env.APP_BASE_URL ??
+    process.env.NEXT_PUBLIC_BASE_URL ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ??
+    "https://143leadership.com"
+  );
+}
+
+async function queuePdfGenerationForLatestCompletedRun(userId: string): Promise<void> {
+  try {
+    const latestRun = await getLatestCompletedRun(userId);
+    if (!latestRun?.id) {
+      return;
+    }
+
+    const endpoint = `${getInternalBaseUrl()}/api/runs/${encodeURIComponent(latestRun.id)}/report/pdf`;
+
+    void fetch(endpoint, {
+      method: "POST",
+      headers: {
+        cookie: `user_id=${userId}; user_state=paid_43`,
+      },
+    }).catch((error) => {
+      console.error(
+        "[pdf_webhook_trigger_failed]",
+        error instanceof Error ? error.message : String(error),
+      );
+    });
+  } catch (error) {
+    console.error(
+      "[pdf_webhook_prepare_failed]",
+      error instanceof Error ? error.message : String(error),
+    );
+  }
+}
+
 async function handleCheckoutCompleted(event: Stripe.Event): Promise<void> {
   const session = event.data.object as Stripe.Checkout.Session;
   const mode = session.mode;
@@ -145,6 +183,8 @@ async function handleCheckoutCompleted(event: Stripe.Event): Promise<void> {
       stripe_customer_id: customerId ?? existing?.stripe_customer_id ?? null,
       paid_43_at: new Date().toISOString(),
     });
+
+    await queuePdfGenerationForLatestCompletedRun(userId);
 
     emitEvent({
       eventName: "purchase_complete",
