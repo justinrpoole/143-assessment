@@ -53,3 +53,11 @@ Ralph Loop Iteration 7
 - Verified core quality contracts remain intact: challenge/group-coaching/preview gates are active, Justin homepage photo/name presence still valid, CosmicHeroV2 animation criteria still pass, and Tron dashboard component styling remains in place.
 
 Next loop priority (iteration 8): run browser-level route checks for gated flows (challenge/group-coaching/preview) with direct URL and refresh scenarios to catch client-state unlock leaks that static code scans miss.
+
+Ralph Loop Iteration 11
+
+- Found + fixed non-marketing copy leaks that bypassed gate intent: assessment setup and billing helper text still taught full-map mechanics too directly, so both were rewritten to baseline-first unlock language.
+- Re-verified all core lead gates remain enforced: challenge workbook reveals post-capture only, group-coaching content remains gated behind application success, and preview flow remains email-unlock before results.
+- Re-verified quality baselines stayed intact after edits: Justin homepage presence is still in place, CosmicHeroV2 passes all required animation checks, and Tron dashboard component styling remains compliant.
+
+Next loop priority (iteration 12): run route-level browser interaction tests for gate persistence across refresh/back/deep-link scenarios on challenge, group-coaching, and preview.
