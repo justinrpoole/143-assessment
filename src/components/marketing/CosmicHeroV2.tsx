@@ -3,6 +3,8 @@
 import { useEffect, useRef } from 'react';
 import './cosmic-hero-v2.css';
 
+const REVELATION_TEXT = 'LIVE JUST IN A RAY OF LIGHT';
+
 export default function CosmicHeroV2() {
   const containerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
@@ -23,7 +25,7 @@ export default function CosmicHeroV2() {
        ============================================================ */
     const ECLIPSE_DUR = 18;
     const SUN_FRAC = 0.72;
-    const MOON_FRAC = 0.28;
+    const MOON_FRAC = 0.72;
 
     /* ===== PERLIN NOISE ===== */
     const _p = new Uint8Array(512);
@@ -777,10 +779,10 @@ export default function CosmicHeroV2() {
     }
 
     function eclipseIntensity(p: number) {
-      if (p < 0.36 || p > 0.64) return 0;
-      return p <= 0.5
-        ? Math.pow((p - 0.36) / 0.14, 1.8)
-        : Math.pow((0.64 - p) / 0.14, 1.8);
+      if (p < 0.34 || p > 0.70) return 0;
+      const rise = smoothStep(0.34, 0.50, p);
+      const tail = 1 - smoothStep(0.50, 0.70, p);
+      return Math.max(0, Math.min(rise, tail));
     }
 
     function celebrationIntensity(p: number) {
@@ -1027,7 +1029,7 @@ export default function CosmicHeroV2() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="sun-svg" src="/marketing/Sun-143.svg" alt="" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="sunnova-svg" src="/marketing/sunnova.svg" alt="" />
+          <img className="sunnova-svg" src="/marketing/143-sun-nova.png" alt="" />
           <span className="brand-143">143</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="moon" src="/marketing/Purple-Moon-143.svg" alt="" />
@@ -1035,7 +1037,13 @@ export default function CosmicHeroV2() {
 
         <div className="hero-copy">
           <h1 className="row-1">Upgrade Your Internal OS</h1>
-          <p className="row-2">Live Just In A Ray Of Light</p>
+          <p className="row-2" aria-label={REVELATION_TEXT}>
+            {REVELATION_TEXT.split('').map((ch, i) => (
+              <span key={`${ch}-${i}`} className="char" style={{ animationDelay: `${900 + i * 28}ms` }}>
+                {ch === ' ' ? '\u00A0' : ch}
+              </span>
+            ))}
+          </p>
           <p className="row-3">
             <em>Watch Me Go First &amp; Be The Light</em> &mdash; Book Coming 2026
           </p>

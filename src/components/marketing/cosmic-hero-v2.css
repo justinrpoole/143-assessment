@@ -229,8 +229,8 @@
 
 [data-cosmic-hero-v2] .moon {
   position: absolute;
-  width: 28%;
-  height: 28%;
+  width: 72%;
+  height: 72%;
   object-fit: contain;
   z-index: 10;
   opacity: 0;
@@ -279,11 +279,14 @@
     0 0 18px rgba(255, 200, 66, 0.65),
     0 0 45px rgba(255, 180, 60, 0.35),
     0 6px 26px rgba(0, 0, 0, 0.46);
-  opacity: 0;
-  transform: translateY(0) scale(0);
-  transform-origin: center center;
-  animation: chv2-row2Bounce 200ms 900ms ease-out forwards;
 }
+
+[data-cosmic-hero-v2] .row-2 .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px) scale(0.92);
+  animation: chv2-charIn 220ms ease-out forwards;
+
 
 [data-cosmic-hero-v2] .row-3 {
   margin-top: 18px;
@@ -306,9 +309,9 @@
 }
 
 @keyframes chv2-textIn { to { opacity: 1; transform: translateY(0); } }
-@keyframes chv2-row2Bounce {
-  0% { opacity: 0; transform: translateY(0) scale(0); }
-  72% { opacity: 1; transform: translateY(0) scale(1.2); }
+@keyframes chv2-charIn {
+  0% { opacity: 0; transform: translateY(8px) scale(0.92); }
+  72% { opacity: 1; transform: translateY(0) scale(1.15); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
@@ -318,6 +321,7 @@
   [data-cosmic-hero-v2] .row-1,
   [data-cosmic-hero-v2] .row-2,
   [data-cosmic-hero-v2] .row-3 { animation: none !important; opacity: 1; transform: none; }
+  [data-cosmic-hero-v2] .row-2 .char { animation: none !important; opacity: 1; transform: none; }
 }
 
 @media (max-width: 600px) {

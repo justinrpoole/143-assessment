@@ -1309,3 +1309,11 @@ Ralph Loop Iteration 172
 - Re-verified animation and Tron style contracts remain green: CosmicHeroV2 still satisfies all specified thresholds, and target portal/chart components continue matching Orbitron/neon/scanline/deep-space requirements.
 
 Next loop priority (iteration 173): execute runnable browser automation with persisted artifacts (screenshots/logs) to prove gate persistence and bypass resistance under deep-link entry, hard refresh, history replay, and multi-tab divergence paths.
+
+Ralph Loop Iteration 173
+
+- Found and fixed a real CosmicHeroV2 regression: `eclipseIntensity()` had narrowed back to `0.36–0.64`; restored smooth envelope through `p=0.70` (`0.34–0.70`) to satisfy eclipse continuity requirements.
+- Found and fixed visual contract drift in hero assets/sizing: restored moon sizing to 72% (TS + CSS alignment) and switched celebration asset back to `/marketing/143-sun-nova.png` for Act 5.
+- Found and fixed headline behavior drift: restored explicit `REVELATION_TEXT = 'LIVE JUST IN A RAY OF LIGHT'` and implemented per-letter build animation (`.row-2 .char`) so copy reveals letter-by-letter again.
+
+Next loop priority (iteration 174): run browser-level visual proof captures for CosmicHeroV2 acts (especially 4→5 transition) and attach artifacts verifying moon-to-sun sizing parity plus letter-build timing cadence.
