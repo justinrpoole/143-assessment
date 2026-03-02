@@ -38,7 +38,13 @@ export async function POST(request: Request) {
       captured_at: capturedAt,
     };
 
+    const forceFallback = request.headers.get("x-force-capture-fallback") === "1";
+
     try {
+      if (forceFallback) {
+        throw new Error("forced_capture_fallback");
+      }
+
       await supabaseRestFetch({
         restPath: "/email_captures",
         method: "POST",
