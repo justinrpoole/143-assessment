@@ -61,3 +61,11 @@ Ralph Loop Iteration 11
 - Re-verified quality baselines stayed intact after edits: Justin homepage presence is still in place, CosmicHeroV2 passes all required animation checks, and Tron dashboard component styling remains compliant.
 
 Next loop priority (iteration 12): run route-level browser interaction tests for gate persistence across refresh/back/deep-link scenarios on challenge, group-coaching, and preview.
+
+Ralph Loop Iteration 12
+
+- Re-verified all required lead gates are still enforced in code paths: challenge workbook remains post-capture only, group-coaching remains gated behind form success, and preview remains email-unlock first before result visibility.
+- Re-audited marketing + animation + visual contracts and found no fresh regressions: Justin headshot/home presence remains intact, CosmicHeroV2 still matches all 0.70/Act5/letter-build/72% criteria, and Tron chart components retain Orbitron/neon/scanline/deep-space styling.
+- Confirmed no additional ungated framework-detail blocks were introduced in marketing routes this pass; residual deep-detail references are now outside marketing gate scope and queued for targeted runtime/access-path validation.
+
+Next loop priority (iteration 13): execute browser-level runtime tests for gate bypass resistance (direct URL, refresh, back-navigation, and cached state) on /challenge, /group-coaching, and /preview to catch state hydration loopholes.
