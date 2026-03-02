@@ -21,3 +21,11 @@ Ralph Loop Iteration 3
 - Verified all critical quality rails still hold: challenge and group-coaching are gated, preview requires email unlock before results, CosmicHeroV2 animation criteria pass, and Tron-vibe dashboard components are intact.
 
 Next loop priority (iteration 4): audit non-marketing entry surfaces (e.g., /assessment/instructions, /results helper copy, shared components like RouteShellPage) for outdated 'no email/no account' claims that weaken gate clarity.
+
+Ralph Loop Iteration 4
+
+- Found + fixed copy-level gate leaks across marketing surfaces: replaced residual 'Show Me All 9 Rays' style framing with teaser-first Stability Check CTA language on FAQ/about/standard/glossary/pricing/143.
+- Found + fixed gate-friction inconsistency outside marketing: RouteShell still said 'no email'; updated to 'email unlock' to match enforced lead-capture behavior.
+- Verified system integrity remains intact: challenge/group-coaching/preview gating flows still enforced, CosmicHeroV2 animation contract still valid, and Tron dashboard component styling still present after latest content edits.
+
+Next loop priority (iteration 5): audit pricing + assessment conversion surfaces for any remaining deep-feature list copy that reveals full methodology mechanics before the Stability Check gate.
