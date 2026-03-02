@@ -23,6 +23,7 @@ export const MARKETING_LINKS = {
   outcomes: { href: "/outcomes", label: "Outcomes" },
   pricing: { href: "/pricing", label: "Pricing" },
   challenge: { href: "/143", label: "143 Challenge" },
+  challengeLead: { href: "/challenge", label: "143 Challenge Workbook" },
   assessment: { href: "/assessment", label: "Assessment" },
   preview: { href: "/preview", label: "Stability Check" },
   sampleReport: { href: "/sample-report", label: "Sample Light Signature Map" },
@@ -77,6 +78,7 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
     href: "/watch-me",
     children: [
       MARKETING_LINKS.challenge,
+      MARKETING_LINKS.challengeLead,
       MARKETING_LINKS.framework,
       MARKETING_LINKS.archetypes,
       MARKETING_LINKS.glossary,

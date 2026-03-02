@@ -8,7 +8,7 @@ interface Props {
 
 type DownloadState = "idle" | "checking" | "pending" | "error";
 
-const POLL_INTERVAL_MS = 2000;
+const POLL_INTERVAL_MS = 3000;
 const MAX_POLLS = 20;
 
 function sleep(ms: number): Promise<void> {
@@ -76,7 +76,7 @@ export function ReportDownloadButton({ runId }: Props) {
           ? "PDF processing…"
           : state === "error"
             ? "PDF not ready — try again"
-            : "Download Full Report (PDF)"}
+            : "Download Gravitational Stability Report (PDF)"}
     </button>
   );
 }
