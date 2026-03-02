@@ -649,8 +649,8 @@ export default function CosmicHeroV2() {
     }
 
     function eclipseIntensity(p: number) {
-      if (p <= 0.36 || p >= 0.70) return 0;
-      if (p <= 0.50) return Math.pow(smoothStep(0.36, 0.50, p), 1.1);
+      if (p < 0.34 || p > 0.70) return 0;
+      if (p <= 0.50) return Math.pow(smoothStep(0.34, 0.50, p), 1.1);
       const tail = 1 - smoothStep(0.50, 0.70, p);
       return tail * tail;
     }
@@ -725,7 +725,7 @@ export default function CosmicHeroV2() {
       const progress = (t % ECLIPSE_DUR) / ECLIPSE_DUR;
       const eclI = eclipseIntensity(progress);
       const celebI = celebrationIntensity(progress);
-      const eclipseRecovery = smoothStep(0.60, 0.70, progress);
+      const eclipseRecovery = smoothStep(0.64, 0.70, progress);
       const sunBase = _lerp(1 - eclI * 0.94, 1, eclipseRecovery);
       const sunBright = clamp01(sunBase + celebI * 0.24);
       const celebrationElapsedMs = Math.max(0, (progress - 0.66) * ECLIPSE_DUR * 1000);

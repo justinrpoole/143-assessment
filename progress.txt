@@ -75,3 +75,38 @@ Changes:
   - FIX: /onboarding/complete now checks for completed runs and routes to /results or /assessment/setup
   - FIX: /onboarding/tools-first now routes through /onboarding/complete (not directly to /results)
   - TypeScript: 0 errors
+
+[2026-03-01] Feature list — CosmicHeroV2 Ralph Loop
+- [DONE] Feature 1: Smooth eclipse fade-out (no abrupt cutoff)
+- [DONE] Feature 2: 143-sun-nova.png as nova burst image
+- [DONE] Feature 3: "LIVE JUST IN A RAY OF LIGHT" letter-by-letter reveal
+- [DONE] Feature 4: Moon = Sun size at totality
+- [DONE] Feature 5: End-to-end smoke test
+
+[2026-03-01] Feature: Smooth eclipse fade-out (no abrupt cutoff)
+Status: DONE
+Notes: Updated eclipseIntensity bounds to p<0.34 and p>0.70, and moved eclipse recovery bridge to 0.64→0.70 to avoid end-of-eclipse brightness snap.
+
+[2026-03-01] Feature: 143-sun-nova.png as nova burst image
+Status: DONE
+Notes: Verified /marketing/143-sun-nova.png is wired in CosmicHeroV2; CSS uses mix-blend-mode:multiply; burst animation runs 0.3→1.25→1.0 over ~800ms.
+
+[2026-03-01] Feature: "LIVE JUST IN A RAY OF LIGHT" letter-by-letter reveal
+Status: DONE
+Notes: Verified span-per-character rendering with 60ms stagger in Act 5; updated text styling to Orbitron/cosmic display, clamp(20px, 3vw, 42px), gold glow, centered z-index 11.
+
+[2026-03-01] Feature: Moon = Sun size at totality
+Status: DONE
+Notes: Verified MOON_FRAC = 0.72 in TS and .moon width/height = 72% in CSS, matching sun size at totality.
+
+[2026-03-01] Feature: End-to-end smoke test
+Status: DOING
+Notes: Running npm run build and fixing any errors until clean.
+
+[2026-03-01] Feature: End-to-end smoke test
+Status: DONE
+Notes: npm run build completed successfully with zero TypeScript errors and successful Next.js production build.
+
+[2026-03-01] Ralph Loop Summary
+Status: DONE
+Notes: All 5 CosmicHeroV2 animation features verified and build is clean.
