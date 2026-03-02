@@ -1949,3 +1949,11 @@ Ralph Loop Iteration 2
 - Tightened TRON consistency on chart surfaces by enforcing Orbitron + neon treatment on RayChart and ScoreMovementChart containers (dark #060014 base preserved).
 
 Next loop priority (iteration 3): run live browser verification with screenshots for /challenge, /group-coaching, /preview, and /rays/* gate unlock states plus Act 5 hero timing evidence.
+
+Ralph Loop Iteration 3
+
+- Ran live browser verification across /challenge, /group-coaching, /preview, /rays/intention, and /upgrade-your-os; confirmed all targeted lead gates render before protected content.
+- Found one remaining ungated question-flow block on homepage (`#try-it`) that exposed methodology-style flow; replaced with a teaser + "Discover your Rays — free Stability Check" CTA.
+- Re-verified CosmicHeroV2 runtime signals in browser snapshot: letter-by-letter "LIVE JUST IN A RAY OF LIGHT" render present, and CSS path keeps 72% moon sizing + Act 5 sunnova spring setup.
+
+Next loop priority (iteration 4): perform an interactive unlock test (submit dummy lead forms) to confirm post-submit states still avoid premature methodology exposure and workbook/result leakage.
