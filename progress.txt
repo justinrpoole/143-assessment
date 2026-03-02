@@ -1973,3 +1973,11 @@ Ralph Loop Iteration 5
 - Validated fallback behavior end-to-end: forced capture returned 200 and wrote `.next/email-captures-fallback.jsonl` with expected JSONL shape (`email`, `source`, `captured_at`).
 
 Next loop priority (iteration 6): add a lightweight automated integration test for lead-capture API covering both normal Supabase path and forced fallback header path.
+
+Ralph Loop Iteration 6
+
+- Converted the loop-5 fallback idea into an executable QA check by adding `scripts/qa/qa-email-capture-fallback.mjs` and `npm run qa:capture-fallback` for repeatable validation of normal + forced-fallback capture flows.
+- Hardened safety of the forced fallback mechanism: `x-force-capture-fallback` now only works outside production, preventing accidental production bypass of primary datastore writes.
+- Re-verified gate posture and vibe baselines remain intact on key entry pages (/challenge, /group-coaching, /preview, /rays/intention) plus CosmicHero/TRON scan checks with no new regressions.
+
+Next loop priority (iteration 7): add CI wiring so `qa:capture-fallback` runs automatically in PR checks, and persist fallback-test artifacts/log snippets for audit trail.
