@@ -210,6 +210,29 @@ export function ResultsClient({ runId }: ResultsClientProps) {
         </FadeInSection>
       )}
 
+      {/* 2b. Share Your Light Signature CTA */}
+      {lightSignature?.archetype && (
+        <FadeInSection delay={0.18}>
+          <div className="text-center py-2">
+            <a
+              href="/results/share"
+              className="inline-flex items-center gap-2 rounded-2xl px-8 py-4 text-base font-bold transition-all duration-200"
+              style={{
+                background: 'linear-gradient(135deg, rgba(248,208,17,0.15) 0%, rgba(248,208,17,0.08) 100%)',
+                border: '1px solid rgba(248,208,17,0.4)',
+                color: 'var(--brand-gold, #F8D011)',
+                boxShadow: '0 0 24px rgba(248,208,17,0.10)',
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Share Your Light Signature
+            </a>
+          </div>
+        </FadeInSection>
+      )}
+
       {/* 3. Rise Path — What Comes Next */}
       {justInRay && (
         <FadeInSection delay={0.2}>

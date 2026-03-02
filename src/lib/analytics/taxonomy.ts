@@ -71,6 +71,8 @@ export const PAGE_VIEW_EVENTS = [
   "calibration_view",
   "page_view_assessment",
   "page_view_assessment_instructions",
+  "ray_detail_view",
+  "page_view_results_share",
 ] as const;
 
 export type PageViewEvent = (typeof PAGE_VIEW_EVENTS)[number];
