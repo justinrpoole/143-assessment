@@ -10,6 +10,7 @@ export interface RepRow {
   duration_seconds: number | null;
   quality: number | null;
   reflection_note: string | null;
+  ray_number: number | null;
   recognition: string | null;
   encouragement: string | null;
   performance: string | null;
@@ -18,7 +19,7 @@ export interface RepRow {
 }
 
 const REP_SELECT =
-  "id,user_id,run_id,tool_name,trigger_type,duration_seconds,quality,reflection_note,recognition,encouragement,performance,sustainability,logged_at";
+  "id,user_id,run_id,tool_name,trigger_type,duration_seconds,quality,reflection_note,ray_number,recognition,encouragement,performance,sustainability,logged_at";
 
 export async function insertRep(params: {
   userId: string;
@@ -27,6 +28,7 @@ export async function insertRep(params: {
   durationSeconds?: number | null;
   quality?: number | null;
   reflectionNote?: string | null;
+  rayNumber?: number | null;
   runId?: string | null;
   recognition?: string | null;
   encouragement?: string | null;
@@ -45,6 +47,7 @@ export async function insertRep(params: {
       duration_seconds: params.durationSeconds ?? null,
       quality: params.quality ?? null,
       reflection_note: params.reflectionNote ?? null,
+      ray_number: params.rayNumber ?? null,
       run_id: params.runId ?? null,
       recognition: params.recognition ?? null,
       encouragement: params.encouragement ?? null,

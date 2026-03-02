@@ -1,6 +1,7 @@
 'use client';
 
 import IlluminateDashboard from '@/components/cosmic/IlluminateDashboard';
+import StarChart from '@/components/portal/StarChart';
 import { useState, useEffect, useCallback, type FormEvent } from 'react';
 import Link from 'next/link';
 import RetroFrame from '@/components/ui/RetroFrame';
@@ -336,6 +337,10 @@ export default function LightDashboardClient() {
         repsToday={repsToday ?? 0}
         className="mb-8"
       />
+
+      <FadeInSection delay={0.02}>
+        <StarChart />
+      </FadeInSection>
       {/* Hero Header */}
       <FadeInSection>
         <div className="flex flex-wrap gap-6 items-end justify-between">

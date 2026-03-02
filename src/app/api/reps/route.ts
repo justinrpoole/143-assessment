@@ -76,6 +76,14 @@ export async function POST(request: Request) {
       ? body.reflection_note.trim().slice(0, 2000)
       : null;
 
+  const rayNumber =
+    typeof body.ray_number === "number" &&
+    Number.isInteger(body.ray_number) &&
+    body.ray_number >= 1 &&
+    body.ray_number <= 9
+      ? body.ray_number
+      : null;
+
   const runId =
     typeof body.run_id === "string" && body.run_id.length > 0
       ? body.run_id
@@ -111,6 +119,7 @@ export async function POST(request: Request) {
       durationSeconds,
       quality,
       reflectionNote,
+      rayNumber,
       runId,
       recognition,
       encouragement,
