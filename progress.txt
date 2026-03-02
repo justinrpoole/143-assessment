@@ -1965,3 +1965,11 @@ Ralph Loop Iteration 4
 - Re-verified homepage and marketing guardrails remain intact: Justin headshot/name/story section present, and detailed ray methodology remains gated/teased with Stability Check CTAs.
 
 Next loop priority (iteration 5): validate fallback-capture observability by asserting `.next/email-captures-fallback.jsonl` writes under induced Supabase failure and documenting sample record format for ops.
+
+Ralph Loop Iteration 5
+
+- Verified lead-gate coverage remains intact for /challenge, /group-coaching, /preview, and /rays/intention; gated entry points still block protected content until capture/submit.
+- Added a deterministic observability hook for capture resilience testing: `x-force-capture-fallback: 1` now forces local fallback path in `/api/email/capture`, enabling reliable validation of gate continuity under datastore failure.
+- Validated fallback behavior end-to-end: forced capture returned 200 and wrote `.next/email-captures-fallback.jsonl` with expected JSONL shape (`email`, `source`, `captured_at`).
+
+Next loop priority (iteration 6): add a lightweight automated integration test for lead-capture API covering both normal Supabase path and forced fallback header path.
