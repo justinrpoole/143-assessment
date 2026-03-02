@@ -213,7 +213,7 @@ export function AssessmentSetupClient() {
             <span style={{ color: 'var(--brand-gold, #F8D011)' }}>
               {dimmingResult.primaryRayName}
             </span>
-            . The full assessment unlocks after your baseline and then maps all 9 rays.
+            . The full assessment unlocks after your baseline and gives your complete map.
           </p>
         </section>
       )}
