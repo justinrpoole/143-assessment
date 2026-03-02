@@ -120,40 +120,23 @@ function deriveSubscriptionState(subscription: Stripe.Subscription):
   return "sub_canceled";
 }
 
-function getInternalBaseUrl(): string {
-  return (
-    process.env.APP_BASE_URL ??
-    process.env.NEXT_PUBLIC_BASE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ??
-    "https://143leadership.com"
-  );
-}
-
 async function queuePdfGenerationForLatestCompletedRun(userId: string): Promise<void> {
   try {
     const latestRun = await getLatestCompletedRun(userId);
-    if (!latestRun?.id) {
+    if (!latestRun?.id || !process.env.NEXT_PUBLIC_APP_URL) {
       return;
     }
 
-    const endpoint = `${getInternalBaseUrl()}/api/runs/${encodeURIComponent(latestRun.id)}/report/pdf`;
+    const endpoint = `${process.env.NEXT_PUBLIC_APP_URL}/api/runs/${encodeURIComponent(latestRun.id)}/report/pdf`;
 
     void fetch(endpoint, {
       method: "POST",
       headers: {
-        cookie: `user_id=${userId}; user_state=paid_43`,
+        "x-internal-trigger": "webhook",
       },
-    }).catch((error) => {
-      console.error(
-        "[pdf_webhook_trigger_failed]",
-        error instanceof Error ? error.message : String(error),
-      );
-    });
-  } catch (error) {
-    console.error(
-      "[pdf_webhook_prepare_failed]",
-      error instanceof Error ? error.message : String(error),
-    );
+    }).catch(() => {});
+  } catch {
+    // best effort background trigger
   }
 }
 
