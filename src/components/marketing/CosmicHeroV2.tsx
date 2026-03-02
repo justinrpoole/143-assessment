@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import './cosmic-hero-v2.css';
 
 export default function CosmicHeroV2() {
@@ -890,11 +891,17 @@ export default function CosmicHeroV2() {
         </div>
 
         <div className="hero-copy">
-          <h1 className="row-1">Upgrade Your Internal OS</h1>
-          <p className="row-2">Live Just In A Ray Of Light</p>
-          <p className="row-3">
-            <em>Watch Me Go First &amp; Be The Light</em> &mdash; Book Coming 2026
-          </p>
+          <h1 className="row-1">Your light was never gone.</h1>
+          <p className="row-2">It was eclipsed.</p>
+          <p className="row-3">143 questions to find it again.</p>
+          <div className="row-cta">
+            <Link href="/preview" className="hero-cta-primary">
+              Check My Stability
+            </Link>
+            <Link href="/sample-report" className="hero-cta-secondary">
+              See a sample map
+            </Link>
+          </div>
         </div>
       </section>
     </div>

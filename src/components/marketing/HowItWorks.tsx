@@ -6,7 +6,7 @@ const STEPS = [
   {
     number: '01',
     title: 'Take the Assessment',
-    description: '143 questions. 15 minutes. You answer honestly — the system maps 9 trainable leadership capacities and detects where stress is hiding your real performance.',
+    description: '143 questions. 15 minutes. Not who you are. What you can build.',
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <circle cx="20" cy="20" r="18" stroke="rgba(248,208,17,0.3)" strokeWidth="1.5" />
@@ -17,7 +17,7 @@ const STEPS = [
   {
     number: '02',
     title: 'Get Your Map',
-    description: 'Your Light Signature shows where you shine, where you are eclipsed, and what capacity is carrying the load. Not a label — a pattern you can change.',
+    description: 'Your Light Signature. Your 9 Ray scores. Your Eclipse. Your Nova.',
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <circle cx="20" cy="20" r="18" stroke="rgba(248,208,17,0.3)" strokeWidth="1.5" />
@@ -28,8 +28,8 @@ const STEPS = [
   },
   {
     number: '03',
-    title: 'Train + Track Growth',
-    description: 'Daily reps. Weekly check-ins. Retake in 90 days to see what moved. For the first time, leadership growth is not hoped for — it is measured.',
+    title: 'Train Your Reps',
+    description: 'Daily practices. Measurable change. Retake and see the delta.',
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <circle cx="20" cy="20" r="18" stroke="rgba(248,208,17,0.3)" strokeWidth="1.5" />

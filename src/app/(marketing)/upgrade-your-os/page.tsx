@@ -17,7 +17,6 @@ import EmailCaptureBanner from "@/components/marketing/EmailCaptureBanner";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import SectionTOC from "@/components/ui/SectionTOC";
-import GoldTooltip from "@/components/ui/GoldTooltip";
 import CompetitorComparison from "@/components/marketing/CompetitorComparison";
 import NotALabelManifesto from "@/components/marketing/NotALabelManifesto";
 import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
@@ -32,7 +31,6 @@ import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
 import RayProgressionStack from "@/components/cosmic/RayProgressionStack";
 import NeonFlicker from "@/components/ui/NeonFlicker";
 import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
-import { NEON, neonText } from "@/lib/ui/neon";
 
 export const dynamic = "force-dynamic";
 
@@ -84,23 +82,21 @@ export default async function UpgradeYourOsPage() {
       <ScrollProgress />
       <SectionTOC items={[
         { id: "hero", label: "Hero" },
-        { id: "not-a-label", label: "Not a Label" },
-        { id: "conversion-questions", label: "The Questions" },
-        { id: "try-it", label: "Try 3 Questions" },
-        { id: "os-explainer", label: "Your OS" },
-        { id: "how-it-works", label: "How It Works" },
-        { id: "product-preview", label: "Your Results" },
-        { id: "score-movement", label: "Score Movement" },
-        { id: "eclipse-concept", label: "Eclipse" },
+        { id: "eclipse-nova", label: "Eclipse & Nova" },
+        { id: "why-different", label: "Why Different" },
         { id: "nine-rays", label: "The 9 Rays" },
+        { id: "how-it-works", label: "How It Works" },
+        { id: "sample-report-teaser", label: "Your Map" },
+        { id: "not-a-label", label: "Not a Label" },
+        { id: "eclipse-concept", label: "Eclipse" },
+        { id: "score-movement", label: "Score Movement" },
         { id: "competitor-comparison", label: "Why 143" },
-        { id: "what-this-is-not", label: "What This Is Not" },
         { id: "testimonials", label: "Testimonials" },
         { id: "pricing", label: "Pricing" },
         { id: "final-cta", label: "Get Started" },
       ]} />
 
-      {/* ── COSMIC HERO V2 — Sun/Moon eclipse animation + Supernova celebration ── */}
+      {/* ── SECTION 1: COSMIC HERO V2 ── */}
       <div id="hero" className="relative z-10">
         <CosmicHeroV2 />
       </div>
@@ -121,7 +117,323 @@ export default async function UpgradeYourOsPage() {
         <hr className="gold-rule" />
       </div>
 
-      {/* ── NOT A LABEL MANIFESTO (#2) ── */}
+      {/* ── SECTION 2: ECLIPSE → NOVA STORY ── */}
+      <FadeInSection>
+      <section id="eclipse-nova" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 overflow-hidden">
+        <FloatingOrbs variant="purple" />
+        <NeonStarField />
+
+        {/* Section label */}
+        <div className="relative z-10 mb-12 text-center">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> The Story Behind 143
+          </span>
+        </div>
+
+        <div className="relative z-10 grid gap-8 md:grid-cols-2 items-start">
+
+          {/* Left — THE ECLIPSE */}
+          <div className="glass-card p-7" style={{ borderLeft: '3px solid rgba(147,64,255,0.5)', background: 'rgba(20,3,40,0.6)' }}>
+            <div className="mb-4 flex items-center gap-3">
+              {/* Moon / eclipse icon */}
+              <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+                <circle cx="21" cy="21" r="19" fill="#160230" stroke="rgba(147,64,255,0.5)" strokeWidth="1.5" />
+                <circle cx="27" cy="21" r="13" fill="#060014" />
+                <circle cx="21" cy="21" r="19" fill="none" stroke="rgba(160,100,255,0.25)" strokeWidth="3" />
+              </svg>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(180,120,255,0.9)' }}>
+                The Eclipse
+              </p>
+            </div>
+            <h3 className="text-xl font-bold mb-4 leading-snug" style={{ color: 'var(--text-on-dark)' }}>
+              You dimmed. Quietly.
+            </h3>
+            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              When you walk on eggshells. When you lower your excitement. When you shrink so someone else stays comfortable. That&rsquo;s an Eclipse. Your light didn&rsquo;t disappear &mdash; it was blocked.
+            </p>
+          </div>
+
+          {/* Right — THE NOVA */}
+          <div className="glass-card p-7" style={{ borderLeft: '3px solid rgba(248,208,17,0.5)', background: 'rgba(30,20,0,0.5)' }}>
+            <div className="mb-4 flex items-center gap-3">
+              {/* Starburst / nova icon */}
+              <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+                {Array.from({ length: 8 }, (_, i) => {
+                  const angle = (i / 8) * Math.PI * 2;
+                  return (
+                    <line
+                      key={i}
+                      x1={21 + Math.cos(angle) * 9}
+                      y1={21 + Math.sin(angle) * 9}
+                      x2={21 + Math.cos(angle) * 19}
+                      y2={21 + Math.sin(angle) * 19}
+                      stroke="#F8D011"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  );
+                })}
+                {Array.from({ length: 8 }, (_, i) => {
+                  const angle = ((i + 0.5) / 8) * Math.PI * 2;
+                  return (
+                    <line
+                      key={`d${i}`}
+                      x1={21 + Math.cos(angle) * 9}
+                      y1={21 + Math.sin(angle) * 9}
+                      x2={21 + Math.cos(angle) * 14}
+                      y2={21 + Math.sin(angle) * 14}
+                      stroke="rgba(248,208,17,0.5)"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                  );
+                })}
+                <circle cx="21" cy="21" r="7" fill="#F8D011" />
+                <circle cx="21" cy="21" r="3.5" fill="#FFFEF5" />
+              </svg>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+                The Nova
+              </p>
+            </div>
+            <h3 className="text-xl font-bold mb-4 leading-snug" style={{ color: 'var(--text-on-dark)' }}>
+              Your Nova is waiting.
+            </h3>
+            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              A Nova is a star remembering its power. Not becoming someone new. Becoming visible again. That&rsquo;s what 143 questions reveal.
+            </p>
+          </div>
+        </div>
+
+        <div className="relative z-10 mt-10 text-center">
+          <LiquidFillButton href="/preview">
+            Find where your Eclipse is
+          </LiquidFillButton>
+        </div>
+      </section>
+      </FadeInSection>
+
+      <RayDivider ray="R3" />
+
+      {/* ── SECTION 3: WHY THIS IS DIFFERENT ── */}
+      <FadeInSection>
+      <section id="why-different" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
+        <div className="mb-10 text-center">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> The Difference
+          </span>
+          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
+            Every other assessment tells you who you are.
+            <br />
+            <span className="gold-highlight">We tell you what you can build right now.</span>
+          </h2>
+        </div>
+        <StaggerChildren className="grid gap-6 md:grid-cols-3">
+          {[
+            {
+              icon: (
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                  <circle cx="18" cy="18" r="16" stroke="rgba(248,208,17,0.3)" strokeWidth="1.2" />
+                  {/* Two arrows cycling */}
+                  <path d="M11 14 A8 8 0 0 1 25 14" stroke="#F8D011" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+                  <path d="M25 22 A8 8 0 0 1 11 22" stroke="#F8D011" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+                  <path d="M23 11 L25 14 L22 15" stroke="#F8D011" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  <path d="M13 25 L11 22 L14 21" stroke="#F8D011" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              ),
+              label: 'State, Not Type',
+              body: 'MBTI tells you your personality. We tell you your current operating state. It changes. So does our map.',
+              ray: 'R1',
+            },
+            {
+              icon: (
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                  <circle cx="18" cy="18" r="16" stroke="rgba(248,208,17,0.3)" strokeWidth="1.2" />
+                  {/* Brain / network */}
+                  <circle cx="18" cy="18" r="5" fill="none" stroke="#F8D011" strokeWidth="1.5" />
+                  <path d="M18 13 L18 8" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M18 23 L18 28" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M13 18 L8 18" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M23 18 L28 18" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" />
+                  <circle cx="18" cy="8" r="1.8" fill="#F8D011" />
+                  <circle cx="18" cy="28" r="1.8" fill="#F8D011" />
+                  <circle cx="8" cy="18" r="1.8" fill="#F8D011" />
+                  <circle cx="28" cy="18" r="1.8" fill="#F8D011" />
+                </svg>
+              ),
+              label: 'Grounded in Science',
+              body: 'The RAS — your brain\'s filter for possibility — is reprogrammable. We show you exactly where to start.',
+              ray: 'R4',
+            },
+            {
+              icon: (
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                  <circle cx="18" cy="18" r="16" stroke="rgba(248,208,17,0.3)" strokeWidth="1.2" />
+                  {/* Sun / light symbol */}
+                  {Array.from({ length: 6 }, (_, i) => {
+                    const angle = (i / 6) * Math.PI * 2;
+                    return (
+                      <line
+                        key={i}
+                        x1={18 + Math.cos(angle) * 7}
+                        y1={18 + Math.sin(angle) * 7}
+                        x2={18 + Math.cos(angle) * 11}
+                        y2={18 + Math.sin(angle) * 11}
+                        stroke="#F8D011"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                    );
+                  })}
+                  <circle cx="18" cy="18" r="5" fill="#F8D011" />
+                </svg>
+              ),
+              label: 'A Language, Not a Label',
+              body: 'Sun. Eclipse. Nova. Ray. When 143 people say "I\'m in my Eclipse," that\'s culture. That\'s community. No other platform has this.',
+              ray: 'R9',
+            },
+          ].map((card) => {
+            const color = rayHex(card.ray as Parameters<typeof rayHex>[0]);
+            return (
+              <div
+                key={card.label}
+                className="glass-card glass-card--lift p-6"
+                style={{ borderTop: `2px solid ${color}50`, background: `${color}06` }}
+              >
+                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full"
+                  style={{ background: `${color}10`, border: `1px solid ${color}25` }}>
+                  {card.icon}
+                </div>
+                <h3 className="text-base font-bold mb-2" style={{ color: 'var(--text-on-dark)' }}>
+                  {card.label}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+                  {card.body}
+                </p>
+              </div>
+            );
+          })}
+        </StaggerChildren>
+      </section>
+      </FadeInSection>
+
+      <RayDivider ray="R9" />
+
+      {/* ── SECTION 4: THE 9 RAYS ── */}
+      <FadeInSection>
+      <section id="nine-rays" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 watermark-143">
+        <div className="relative z-10 mb-10 text-center">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> The 9 Rays
+          </span>
+          <h2 className="text-shimmer heading-section mt-4">
+            9 Rays. One map. Your current capacity — measured.
+          </h2>
+          <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            The first three train EQ with yourself. The last three train EQ with others. The
+            middle three are where they meet. Not personality types — <span className="gold-highlight">capacities built through reps</span>.
+          </p>
+        </div>
+        <div className="relative z-10">
+          <RayProgressionStack />
+        </div>
+        <div className="relative z-10 mt-8 text-center">
+          <LiquidFillButton href="/preview">
+            Show Me All 9 Rays
+          </LiquidFillButton>
+        </div>
+      </section>
+      </FadeInSection>
+
+      <RayDivider ray="R1" />
+
+      {/* ── SECTION 5: HOW IT WORKS ── */}
+      <FadeInSection>
+      <section id="how-it-works" className="relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
+        <HowItWorks />
+      </section>
+      </FadeInSection>
+
+      <RayDivider ray="R5" />
+
+      {/* ── SECTION 6: SAMPLE REPORT TEASER ── */}
+      <FadeInSection blur>
+      <section id="sample-report-teaser" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 overflow-hidden">
+        <NeonStarField showConstellations />
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+          <svg viewBox="0 0 600 600" width="600" height="600" className="opacity-[0.04]" style={{ maxWidth: '100%' }}>
+            <circle cx="300" cy="300" r="280" fill="none" stroke="#F8D011" strokeWidth="0.5" strokeDasharray="4 8" />
+            <circle cx="300" cy="300" r="200" fill="none" stroke="#F8D011" strokeWidth="0.5" strokeDasharray="3 6" />
+            <circle cx="300" cy="300" r="120" fill="none" stroke="rgba(248,208,17,0.8)" strokeWidth="0.5" strokeDasharray="2 5" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 mb-10 text-center">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: '#F8D011' }}>◆</span> Your Map Preview
+          </span>
+          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
+            This is what your map looks like.
+          </h2>
+          <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            9 Ray scores. Your Eclipse snapshot. Your Rise Path. Your Light Signature.
+          </p>
+        </div>
+
+        {/* Frosted/blurred report preview */}
+        <div className="relative z-10 mx-auto max-w-[680px]">
+          <div className="relative rounded-2xl overflow-hidden"
+            style={{ border: '1px solid rgba(248,208,17,0.18)', boxShadow: '0 0 60px rgba(248,208,17,0.06), 0 24px 80px rgba(0,0,0,0.5)' }}>
+
+            {/* Blurred report content — decorative only */}
+            <div className="p-6 sm:p-8 space-y-5" style={{ filter: 'blur(5px)', userSelect: 'none', pointerEvents: 'none' }} aria-hidden="true">
+              <RadarMockup className="flex flex-col items-center" />
+              {/* Simulated report rows */}
+              <div className="grid grid-cols-3 gap-3 mt-4">
+                {['R1 Choose', 'R2 Expand', 'R3 Anchor', 'R4 Act', 'R5 Align', 'R6 Reveal'].map((ray, i) => (
+                  <div key={ray} className="glass-card p-3 text-center">
+                    <div className="h-2 rounded-full mb-2" style={{ background: rayHex(cycleRay(i)), width: `${55 + i * 7}%` }} />
+                    <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>{ray}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Frosted glass CTA overlay */}
+            <div
+              className="absolute inset-0 flex flex-col items-center justify-center gap-5"
+              style={{ background: 'rgba(6,0,20,0.75)', backdropFilter: 'blur(12px)' }}
+            >
+              <div className="text-center space-y-1">
+                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+                  ◆ Unlock Your Full Map
+                </p>
+                <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
+                  See exactly where you shine — and where you&rsquo;re eclipsed.
+                </p>
+              </div>
+              <NeonGlowButton href="/preview">
+                See My Full Map
+              </NeonGlowButton>
+              <p className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                Free stability check &mdash; no credit card
+              </p>
+            </div>
+          </div>
+
+          {/* Or see the sample */}
+          <p className="mt-5 text-center text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
+            Not ready to take it?{' '}
+            <Link href="/sample-report" className="font-semibold transition-colors hover:brightness-110" style={{ color: '#F8D011' }}>
+              View a sample report &rarr;
+            </Link>
+          </p>
+        </div>
+      </section>
+      </FadeInSection>
+
+      <RayDivider ray="R8" />
+
+      {/* ── NOT A LABEL MANIFESTO ── */}
       <FadeInSection>
       <section id="not-a-label" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
         <NotALabelManifesto />
@@ -181,123 +493,7 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <RayDivider ray="R1" />
-
-      {/* ── YOUR OPERATING SYSTEM (#6) ── */}
-      <FadeInSection>
-      <section id="os-explainer" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
-        <OSExplainer />
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R8" />
-
-      {/* ── HOW IT WORKS — 3-step walkthrough ── */}
-      <FadeInSection>
-      <section id="how-it-works" className="relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
-        <HowItWorks />
-      </section>
-      </FadeInSection>
-
-      {/* ── PRODUCT PREVIEW — radar chart mockup ── */}
-      <FadeInSection>
-      <section id="product-preview" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 overflow-hidden">
-        {/* ── Astrology / Star Chart background decoration ── */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
-          <svg viewBox="0 0 600 600" width="600" height="600" className="opacity-[0.06]" style={{ maxWidth: '100%' }}>
-            <circle cx="300" cy="300" r="280" fill="none" stroke="#F8D011" strokeWidth="0.5" strokeDasharray="4 8" />
-            <circle cx="300" cy="300" r="220" fill="none" stroke="#F8D011" strokeWidth="0.5" strokeDasharray="3 6" />
-            <circle cx="300" cy="300" r="160" fill="none" stroke="rgba(248,208,17,0.8)" strokeWidth="0.5" strokeDasharray="2 5" />
-            <circle cx="300" cy="300" r="100" fill="none" stroke="rgba(248,208,17,0.6)" strokeWidth="0.5" strokeDasharray="2 4" />
-            <circle cx="300" cy="300" r="50" fill="none" stroke="rgba(248,208,17,0.4)" strokeWidth="0.5" />
-            {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
-              <line key={deg} x1="300" y1="300" x2={300 + 280 * Math.cos((deg - 90) * Math.PI / 180)} y2={300 + 280 * Math.sin((deg - 90) * Math.PI / 180)} stroke="#F8D011" strokeWidth="0.3" opacity="0.5" />
-            ))}
-            {Array.from({ length: 36 }, (_, i) => i * 10).map((deg) => {
-              const rad = (deg - 90) * Math.PI / 180;
-              return (<line key={`tick-${deg}`} x1={300 + 270 * Math.cos(rad)} y1={300 + 270 * Math.sin(rad)} x2={300 + 280 * Math.cos(rad)} y2={300 + 280 * Math.sin(rad)} stroke="#F8D011" strokeWidth="0.5" opacity="0.6" />);
-            })}
-            {[[300,20],[300,80],[300,140],[300,580],[300,520],[300,460],[20,300],[80,300],[140,300],[580,300],[520,300],[460,300],[85,85],[515,85],[85,515],[515,515],[160,160],[440,160],[160,440],[440,440],[200,100],[400,100],[100,200],[500,200],[200,500],[400,500],[100,400],[500,400]].map(([cx2,cy2], i) => (
-              <circle key={`star-${i}`} cx={cx2} cy={cy2} r={i % 3 === 0 ? 2.5 : 1.5} fill="#F8D011" opacity={0.5 + (i % 3) * 0.2} />
-            ))}
-            <polyline points="85,85 160,160 200,100 300,20 400,100 440,160 515,85" fill="none" stroke="#F8D011" strokeWidth="0.4" opacity="0.4" />
-            <polyline points="85,515 160,440 200,500 300,580 400,500 440,440 515,515" fill="none" stroke="#F8D011" strokeWidth="0.4" opacity="0.4" />
-            <polyline points="85,85 100,200 20,300 100,400 85,515" fill="none" stroke="#F8D011" strokeWidth="0.4" opacity="0.3" />
-            <polyline points="515,85 500,200 580,300 500,400 515,515" fill="none" stroke="#F8D011" strokeWidth="0.4" opacity="0.3" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 text-center space-y-6">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Your Results
-          </span>
-          <h2 className="gold-underline heading-section mx-auto mt-3" style={{ color: 'var(--text-on-dark)' }}>
-            A map, not a label
-          </h2>
-          <p className="mx-auto max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Your <span className="gold-highlight"><GoldTooltip tip="Your unique combination of top two Rays — the pattern your leadership defaults to.">Light Signature</GoldTooltip></span> is a radar chart of <span style={{ color: '#F8D011' }}>9 rays of light</span> — showing where you shine, where stress is blocking you, and exactly what to train this week.
-          </p>
-
-          <RadarMockup className="flex flex-col items-center" />
-
-          <ul className="mx-auto max-w-[480px] space-y-3 text-sm text-left">
-            <li className="flex items-start gap-2">
-              <span style={{ color: '#F8D011', textShadow: '0 0 8px rgba(248,208,17,0.4)' }}>◆</span>
-              <span style={{ color: 'var(--text-on-dark-secondary)' }}>
-                <span style={{ color: rayHex('R9') }}>9 Ray scores</span> with <span style={{ color: rayHex('R1') }}>Shine</span>/<span style={{ color: rayHex('R3') }}>Eclipse</span> breakdown
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span style={{ color: rayHex('R3'), textShadow: `0 0 8px ${rayHex('R3')}66` }}>◆</span>
-              <span style={{ color: 'var(--text-on-dark-secondary)' }}>
-                <GoldTooltip tip="When stress covers your strongest capacities and your leadership light dims."><span style={{ color: rayHex('R3') }}>Eclipse</span></GoldTooltip> detection — which <span style={{ color: rayHex('R4') }}>strength</span> is compensating
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span style={{ color: rayHex('R6'), textShadow: `0 0 8px ${rayHex('R6')}66` }}>◆</span>
-              <span style={{ color: 'var(--text-on-dark-secondary)' }}>
-                <GoldTooltip tip="Your personalized development sequence based on current capacity gaps."><span style={{ color: rayHex('R6') }}>Rise Path</span></GoldTooltip> with daily tools for your specific pattern
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span style={{ color: rayHex('R7'), textShadow: `0 0 8px ${rayHex('R7')}66` }}>◆</span>
-              <span style={{ color: 'var(--text-on-dark-secondary)' }}>
-                Your <span style={{ color: rayHex('R7') }}>Light Signature</span> — the pattern your leadership defaults to
-              </span>
-            </li>
-          </ul>
-
-          <div className="mt-6">
-            <NeonGlowButton href="/preview">
-              See My Light Signature
-            </NeonGlowButton>
-          </div>
-        </div>
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R5" />
-
-      {/* ── SCORE MOVEMENT CHART (#4) ── */}
-      <FadeInSection>
-      <section id="score-movement" className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
-        <div className="text-center space-y-3 mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
-            Scores That Move
-          </p>
-          <h2 className="heading-section" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-            Watch the growth happen — week by week.
-          </h2>
-          <p className="mx-auto max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            No other leadership assessment is designed to be retaken weekly.
-            Every data point is evidence that the practice is landing.
-          </p>
-        </div>
-        <ScoreMovementChart />
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R4" />
+      <RayDivider ray="R6" />
 
       {/* ── ECLIPSE CONCEPT ── */}
       <FadeInSection>
@@ -356,35 +552,39 @@ export default async function UpgradeYourOsPage() {
       </RadialSpotlight>
       </FadeInSection>
 
-      <RayDivider ray="R3" />
+      <RayDivider ray="R4" />
 
-      {/* ── 9 RAYS — vertical progression with sun ── */}
+      {/* ── SCORE MOVEMENT CHART ── */}
       <FadeInSection>
-      <section id="nine-rays" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 watermark-143">
-        <div className="relative z-10 mb-10 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> The 9 Rays
-          </span>
-          <h2 className="text-shimmer heading-section mt-4">
-            9 dimensions. Each one trainable.
+      <section id="score-movement" className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
+        <div className="text-center space-y-3 mb-8">
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
+            Scores That Move
+          </p>
+          <h2 className="heading-section" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+            Watch the growth happen — week by week.
           </h2>
-          <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            The first three train EQ with yourself. The last three train EQ with others. The
-            middle three are where they meet. Not personality types — <span className="gold-highlight">capacities built through reps</span>.
+          <p className="mx-auto max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            No other leadership assessment is designed to be retaken weekly.
+            Every data point is evidence that the practice is landing.
           </p>
         </div>
-        <div className="relative z-10">
-          <RayProgressionStack />
-        </div>
-        <div className="relative z-10 mt-8 text-center">
-          <LiquidFillButton href="/preview">
-            Show Me All 9 Rays
-          </LiquidFillButton>
-        </div>
+        <ScoreMovementChart />
       </section>
       </FadeInSection>
 
-      {/* ── ECLIPSE IS NOT FAILURE (#14) ── */}
+      <RayDivider ray="R2" />
+
+      {/* ── YOUR OPERATING SYSTEM ── */}
+      <FadeInSection>
+      <section id="os-explainer" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
+        <OSExplainer />
+      </section>
+      </FadeInSection>
+
+      <RayDivider ray="R6" />
+
+      {/* ── ECLIPSE IS NOT FAILURE ── */}
       <FadeInSection>
       <section className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
@@ -408,9 +608,9 @@ export default async function UpgradeYourOsPage() {
       </section>
       </FadeInSection>
 
-      <RayDivider ray="R6" />
+      <RayDivider ray="R7" />
 
-      {/* ── THE 143 LOOP — Daily Practice (#9, #16) ── */}
+      {/* ── THE 143 LOOP — Daily Practice ── */}
       <FadeInSection>
       <section id="daily-loop" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
         <DailyLoopVisual />
@@ -419,7 +619,7 @@ export default async function UpgradeYourOsPage() {
 
       <RayDivider ray="R2" />
 
-      {/* ── MICRO-JOY — Smallest Viable Practice (#12) ── */}
+      {/* ── MICRO-JOY — Smallest Viable Practice ── */}
       <FadeInSection>
       <section className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <div className="glass-card p-6 sm:p-8 space-y-4" style={{ border: '1px solid rgba(248,208,17,0.15)' }}>
@@ -444,7 +644,7 @@ export default async function UpgradeYourOsPage() {
 
       <RayDivider ray="R7" />
 
-      {/* ── COMPETITOR COMPARISON (#1) ── */}
+      {/* ── COMPETITOR COMPARISON ── */}
       <FadeInSection>
       <section id="competitor-comparison" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
         <FloatingOrbs variant="purple" />
@@ -487,7 +687,7 @@ export default async function UpgradeYourOsPage() {
 
       <RayDivider ray="R5" />
 
-      {/* ── TESTIMONIALS — gold stripe accent ── */}
+      {/* ── TESTIMONIALS ── */}
       <FadeInSection>
       <section id="testimonials" className="relative mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <div className="mb-8 text-center">
@@ -511,7 +711,7 @@ export default async function UpgradeYourOsPage() {
           })}
         </StaggerChildren>
 
-        {/* Metric badges with executive styling */}
+        {/* Metric badges */}
         <div className="mt-10 grid grid-cols-3 gap-4 text-center">
           <div className="metric-badge">
             <CountUp
@@ -542,7 +742,7 @@ export default async function UpgradeYourOsPage() {
 
       <RayDivider ray="R9" />
 
-      {/* ── PRICING — gold-bordered featured card ── */}
+      {/* ── PRICING ── */}
       <FadeInSection>
       <section id="pricing" className="section-alt-dark relative mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
         <NeonStarField showConstellations />
@@ -570,7 +770,7 @@ export default async function UpgradeYourOsPage() {
               Start Free
             </LiquidFillButton>
           </div>
-          {/* Paid option — gold border featured */}
+          {/* Paid option */}
           <div className="glass-card glass-card--featured pricing-featured flex flex-col p-6">
             <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
               ◆ Full Assessment
@@ -617,7 +817,6 @@ export default async function UpgradeYourOsPage() {
             Educator · Coach · System Builder
           </p>
 
-          {/* Gold decorative line */}
           <div className="mx-auto my-4 h-px w-24" style={{ background: 'linear-gradient(to right, transparent, #F8D011, transparent)' }} />
 
           <p className="mx-auto max-w-[520px] text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -635,7 +834,7 @@ export default async function UpgradeYourOsPage() {
           </Link>
         </div>
 
-        {/* Final CTA — gold accent card */}
+        {/* Final CTA card */}
         <div className="glass-card glass-card--hero relative z-10 mt-12 p-8 sm:p-10 text-center">
           <h2 className="text-shimmer heading-section">
             Your light is still there.
