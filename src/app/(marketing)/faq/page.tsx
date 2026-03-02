@@ -261,7 +261,7 @@ export default async function FaqPage() {
         <GoldHeroBanner
           kicker="Still Curious?"
           title="The best way to understand it is to feel it."
-          description="Start with the free Stability Check. Three minutes. No account required."
+          description="Start with the free Stability Check. Three minutes. Email unlock required."
           cta={{ label: "Check My Stability — Free", href: "/preview" }}
         />
 
