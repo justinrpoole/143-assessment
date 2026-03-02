@@ -137,7 +137,7 @@ export default async function PreviewPage() {
                   strong and where it is covered — with specific tools to restore access.
                 </p>
                 <Link href="/upgrade" className="btn-primary inline-block text-sm font-semibold">
-                  Show Me All 9 Rays — $43
+                  Discover your Rays — full report $43
                 </Link>
               </div>
 

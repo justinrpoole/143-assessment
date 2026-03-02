@@ -405,10 +405,9 @@ export default async function Challenge143Page() {
                   color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
                 }}
               >
-                The 143 Challenge works on one mechanism: your RAS filter. The
-                full assessment maps all 9 capacities — your Light Signature,
-                your Eclipse Snapshot, and the specific reps to restore access.
-                Start here for free. Go deeper when you are ready.
+                The 143 Challenge helps reset your filter. For the deeper map,
+                start with your free Stability Check first and unlock the full
+                report when you are ready. Start here for free, then go deeper.
               </p>
               <div className="flex flex-wrap gap-3">
                 <LiquidFillButton href="/preview">

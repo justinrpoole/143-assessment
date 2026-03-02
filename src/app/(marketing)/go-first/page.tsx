@@ -14,7 +14,7 @@ export default function GoFirstPage() {
         <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", fontFamily: "var(--font-body)" }}>
           Go First means you stop waiting for perfect conditions and take one clean action that aligns with who you are becoming. You lead with evidence, not hesitation.
         </p>
-        <div className="flex justify-center"><NeonGlowButton href="/assessment">Start the assessment</NeonGlowButton></div>
+        <div className="flex justify-center"><NeonGlowButton href="/preview">Start free Stability Check → discover your next Go First rep</NeonGlowButton></div>
       </section>
     </main>
   );

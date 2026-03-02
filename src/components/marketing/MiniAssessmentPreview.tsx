@@ -137,7 +137,7 @@ export default function MiniAssessmentPreview({
 
   /* CTA targets by mode */
   const primaryHref = isLightCheck ? '/upgrade' : '/preview';
-  const primaryLabel = isLightCheck ? 'Show Me All 9 Rays — $43' : 'Check My Stability';
+  const primaryLabel = isLightCheck ? 'Discover your Rays — full report $43' : 'Check My Stability';
 
   return (
     <div className="space-y-6">
