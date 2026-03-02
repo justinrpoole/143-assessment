@@ -44,6 +44,17 @@ import EntryLogOverTime from './EntryLogOverTime';
 import RetakeInsights from './RetakeInsights';
 import ActivityStream from './ActivityStream';
 import SocialProofBadge from './SocialProofBadge';
+import ActionLaunchPad from './ActionLaunchPad';
+import SignalStateToggle from './SignalStateToggle';
+import OneLineTruthCard from './OneLineTruthCard';
+import ProofReplayCarousel from './ProofReplayCarousel';
+import MicroJoyJarCard from './MicroJoyJarCard';
+import ProgressConstellationCard from './ProgressConstellationCard';
+import WeeklyReceiptsShelf from './WeeklyReceiptsShelf';
+import StarChartCard from './StarChartCard';
+import DidItWorkCard from './DidItWorkCard';
+import SupernovaEvent from './SupernovaEvent';
+import RetakeDeltaReportCard from './RetakeDeltaReportCard';
 
 const PatternInterruptHub = dynamic(() => import('@/components/PatternInterruptHub'), { ssr: false });
 
@@ -292,7 +303,7 @@ const TOOL_ACCENTS: Record<string, StreakFireAccent> = {
     glow: 'rgba(244, 114, 182, 0.55)',
   },
   ras_reset: {
-    base: '#2563EB',
+    base: '#9340ff',
     mid: '#60A5FA',
     tip: '#BFDBFE',
     core: '#EFF6FF',
@@ -413,6 +424,8 @@ export default function PortalDashboard() {
   if (summary?.has_completed_run && isHighEclipse) {
     return (
       <div className="space-y-6">
+        <SupernovaEvent totalReps={summary.total_reps} />
+
         <div className="text-on-dark rounded-2xl p-7 space-y-3" style={{ background: 'linear-gradient(to bottom right, var(--cosmic-deepest), var(--cosmic-purple-gradient))' }}>
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold">Welcome back.</h2>
@@ -499,6 +512,8 @@ export default function PortalDashboard() {
   if (!summary?.has_completed_run) {
     return (
       <div className="space-y-6">
+        <SupernovaEvent totalReps={summary?.total_reps ?? 0} />
+
         <div className="text-on-dark rounded-2xl p-7 space-y-3" style={{ background: 'linear-gradient(to bottom right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
           <div className="flex items-center justify-between">
             <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--text-on-dark-muted)' }}>Your OS</p>
@@ -580,6 +595,7 @@ export default function PortalDashboard() {
 
   return (
     <div className="space-y-6">
+      <SupernovaEvent totalReps={summary.total_reps} />
 
       <CelebrationToast
         message={celebration?.message ?? ''}
@@ -644,6 +660,18 @@ export default function PortalDashboard() {
         />
       </FadeInSection>
 
+      <FadeInSection delay={0.047}>
+        <ActionLaunchPad
+          bottomRayId={summary.bottom_ray_id}
+          onOpenWatchMe={openWatchMe}
+          onOpenGoFirst={openGoFirst}
+        />
+      </FadeInSection>
+
+      <FadeInSection delay={0.049}>
+        <SignalStateToggle />
+      </FadeInSection>
+
       {/* Daily Loop — primary daily engagement */}
       <FadeInSection delay={0.05}>
         <DailyLoopClient />
@@ -701,8 +729,16 @@ export default function PortalDashboard() {
         <RetakeInsights />
       </FadeInSection>
 
+      <FadeInSection delay={0.159}>
+        <RetakeDeltaReportCard />
+      </FadeInSection>
+
       <FadeInSection delay={0.16}>
         <ActivityStream />
+      </FadeInSection>
+
+      <FadeInSection delay={0.165}>
+        <StarChartCard bottomRayId={summary.bottom_ray_id} />
       </FadeInSection>
 
       {/* Eclipse Calendar Heatmap */}
@@ -800,6 +836,26 @@ export default function PortalDashboard() {
         <RepReceiptCard onLogged={onRepLogged} />
       </FadeInSection>
 
+      <FadeInSection delay={0.208}>
+        <DidItWorkCard onLogged={onRepLogged} />
+      </FadeInSection>
+
+      <FadeInSection delay={0.21}>
+        <WeeklyReceiptsShelf />
+      </FadeInSection>
+
+      <FadeInSection delay={0.215}>
+        <OneLineTruthCard />
+      </FadeInSection>
+
+      <FadeInSection delay={0.218}>
+        <ProofReplayCarousel />
+      </FadeInSection>
+
+      <FadeInSection delay={0.219}>
+        <MicroJoyJarCard />
+      </FadeInSection>
+
       <FadeInSection delay={0.22}>
         <DailyStackCard />
       </FadeInSection>
@@ -841,6 +897,11 @@ export default function PortalDashboard() {
       {/* Reflection Journal — past entries */}
       <FadeInSection delay={0.31}>
         <JournalBrowser />
+      </FadeInSection>
+
+      {/* Team Constellation — Invite a Colleague */}
+      <FadeInSection delay={0.315}>
+        <ProgressConstellationCard />
       </FadeInSection>
 
       {/* Team Constellation — Invite a Colleague */}

@@ -1,10 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Link from 'next/link';
 import './cosmic-hero-v2.css';
-
-const REVELATION_TEXT = 'LIVE JUST IN A RAY OF LIGHT';
 
 export default function CosmicHeroV2() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,7 +23,7 @@ export default function CosmicHeroV2() {
        ============================================================ */
     const ECLIPSE_DUR = 18;
     const SUN_FRAC = 0.72;
-    const MOON_FRAC = 0.72;
+    const MOON_FRAC = 0.28;
 
     /* ===== PERLIN NOISE ===== */
     const _p = new Uint8Array(512);
@@ -79,24 +76,45 @@ export default function CosmicHeroV2() {
     const ambEl     = root.querySelector('.sun-ambient') as HTMLElement;
     const washEl    = root.querySelector('.celebration-wash') as HTMLElement;
     const row1El    = root.querySelector('.row-1') as HTMLElement;
-    const row2El    = root.querySelector('.row-2') as HTMLElement;
     const vigEl     = root.querySelector('.vignette') as HTMLElement;
-    const revelationChars = Array.from(
-      root.querySelectorAll('.revelation-text span')
-    ) as HTMLElement[];
 
     /* ===== STARFIELD ===== */
     let sw = 0, sh = 0, sdpr = 1;
     const LAYERS = [
-      { count: 140, maxR: 0.9,  speed: 0.03, tw: 0.18 },
-      { count: 90,  maxR: 1.4,  speed: 0.06, tw: 0.24 },
-      { count: 40,  maxR: 2.0,  speed: 0.10, tw: 0.30 },
+      { count: 210, maxR: 0.9,  speed: 0.03 },
+      { count: 135, maxR: 1.4,  speed: 0.06 },
+      { count: 60,  maxR: 2.0,  speed: 0.10 },
     ];
     interface Star {
       li: number; x: number; y: number; r: number;
-      a0: number; ph: number; dr: number; hue: number;
+      ph: number; dr: number; hue: number;
+      twPh: number; twSp: number;
+    }
+    interface ShootingStar {
+      active: boolean;
+      nextFire: number;
+      startTime: number;
+      duration: number;
+      startX: number;
+      startY: number;
+      dirX: number;
+      dirY: number;
+      speed: number;
+      trail: number;
+      gold: boolean;
+    }
+    interface SparkleCross {
+      x: number;
+      y: number;
+      size: number;
+      phase: number;
+      rotSpeed: number;
+      rotOffset: number;
     }
     let stars: Star[] = [];
+    let shootingStars: ShootingStar[] = [];
+    let sparkleCrosses: SparkleCross[] = [];
+    const randRange = (min: number, max: number) => min + Math.random() * (max - min);
 
     function resizeStars() {
       sdpr = Math.min(1.5, devicePixelRatio || 1);
@@ -114,12 +132,137 @@ export default function CosmicHeroV2() {
           stars.push({
             li, x: Math.random() * sw, y: Math.random() * sh,
             r: Math.random() * L.maxR + 0.12,
-            a0: Math.random() * 0.45 + 0.06,
             ph: Math.random() * Math.PI * 2,
             dr: (Math.random() * 2 - 1) * L.speed,
-            hue: Math.random()
+            hue: Math.random(),
+            twPh: Math.random() * Math.PI * 2,
+            twSp: randRange(1.3, 3.8),
           });
         }
+      }
+      seedSparkleCrosses();
+      seedShootingStars();
+    }
+
+    function seedSparkleCrosses() {
+      sparkleCrosses = [];
+      const count = 5 + Math.floor(Math.random() * 4);
+      for (let i = 0; i < count; i++) {
+        sparkleCrosses.push({
+          x: randRange(sw * 0.08, sw * 0.92),
+          y: randRange(sh * 0.06, sh * 0.58),
+          size: randRange(6, 10),
+          phase: Math.random() * Math.PI * 2,
+          rotSpeed: randRange(0.08, 0.18),
+          rotOffset: Math.random() * Math.PI * 2,
+        });
+      }
+    }
+
+    function seedShootingStars(startAt = 0) {
+      shootingStars = Array.from({ length: 2 }, (_, idx) => ({
+        active: false,
+        nextFire: startAt + randRange(1 + idx * 1.5, 4 + idx * 2.5),
+        startTime: 0,
+        duration: 0,
+        startX: 0,
+        startY: 0,
+        dirX: 0,
+        dirY: 0,
+        speed: 0,
+        trail: 0,
+        gold: false,
+      }));
+    }
+
+    function launchShootingStar(star: ShootingStar, t: number) {
+      const angle = randRange(45, 60) * Math.PI / 180;
+      const fromLeft = Math.random() < 0.7;
+      star.active = true;
+      star.startTime = t;
+      star.duration = randRange(0.8, 1.25);
+      star.startX = fromLeft ? -50 : sw + 50;
+      star.startY = randRange(sh * 0.04, sh * 0.34);
+      star.dirX = fromLeft ? Math.cos(angle) : -Math.cos(angle);
+      star.dirY = Math.sin(angle);
+      star.speed = randRange(260, 360);
+      star.trail = randRange(80, 120);
+      star.gold = Math.random() < 0.6;
+    }
+
+    function drawSparkleCrosses(t: number, vis: number) {
+      for (const s of sparkleCrosses) {
+        const tw = 0.3 + 0.7 * ((Math.sin(t * 1.25 + s.phase) + 1) * 0.5);
+        const alpha = tw * vis * 0.9;
+        if (alpha < 0.03) continue;
+
+        const size = s.size * (0.9 + tw * 0.2);
+        const glow = alpha * 0.18;
+        starCtx.save();
+        starCtx.translate(s.x, s.y);
+        starCtx.rotate(s.rotOffset + t * s.rotSpeed);
+        starCtx.strokeStyle = `rgba(255,200,66,${alpha.toFixed(3)})`;
+        starCtx.lineWidth = 1.15;
+        starCtx.beginPath();
+        starCtx.moveTo(-size, 0); starCtx.lineTo(size, 0);
+        starCtx.moveTo(0, -size); starCtx.lineTo(0, size);
+        starCtx.stroke();
+        starCtx.beginPath();
+        starCtx.arc(0, 0, size * 0.7, 0, Math.PI * 2);
+        starCtx.fillStyle = `rgba(255,200,66,${glow.toFixed(3)})`;
+        starCtx.fill();
+        starCtx.restore();
+      }
+    }
+
+    function drawShootingStars(t: number, vis: number) {
+      for (const s of shootingStars) {
+        if (!s.active && t >= s.nextFire) launchShootingStar(s, t);
+        if (!s.active) continue;
+
+        const dt = t - s.startTime;
+        const life = dt / s.duration;
+        if (life >= 1) {
+          s.active = false;
+          s.nextFire = t + randRange(8, 12);
+          continue;
+        }
+
+        const x = s.startX + s.dirX * s.speed * dt;
+        const y = s.startY + s.dirY * s.speed * dt;
+        if (x < -220 || x > sw + 220 || y < -120 || y > sh + 220) {
+          s.active = false;
+          s.nextFire = t + randRange(8, 12);
+          continue;
+        }
+
+        const fade = Math.max(0, 1 - life);
+        const alpha = Math.min(1, (0.3 + 0.7 * fade) * vis);
+        const tx = x - s.dirX * s.trail;
+        const ty = y - s.dirY * s.trail;
+        const grad = starCtx.createLinearGradient(x, y, tx, ty);
+        if (s.gold) {
+          grad.addColorStop(0, `rgba(255,236,185,${alpha.toFixed(3)})`);
+          grad.addColorStop(0.35, `rgba(255,200,66,${(alpha * 0.72).toFixed(3)})`);
+        } else {
+          grad.addColorStop(0, `rgba(255,255,255,${alpha.toFixed(3)})`);
+          grad.addColorStop(0.35, `rgba(244,244,255,${(alpha * 0.72).toFixed(3)})`);
+        }
+        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        starCtx.strokeStyle = grad;
+        starCtx.lineWidth = 1.6;
+        starCtx.lineCap = 'round';
+        starCtx.beginPath();
+        starCtx.moveTo(x, y);
+        starCtx.lineTo(tx, ty);
+        starCtx.stroke();
+
+        starCtx.beginPath();
+        starCtx.arc(x, y, 1.8, 0, Math.PI * 2);
+        starCtx.fillStyle = s.gold
+          ? `rgba(255,218,120,${Math.min(1, alpha + 0.1).toFixed(3)})`
+          : `rgba(255,255,255,${Math.min(1, alpha + 0.1).toFixed(3)})`;
+        starCtx.fill();
       }
     }
 
@@ -151,12 +294,11 @@ export default function CosmicHeroV2() {
       if (vis < 0.01) return; // Skip entirely when stars invisible
 
       for (const s of stars) {
-        const L = LAYERS[s.li];
         s.x += s.dr;
         if (s.x < -4) s.x = sw + 4;
         if (s.x > sw + 4) s.x = -4;
-        const tw = s.a0 + Math.sin(t * (0.9 + L.tw) + s.ph) * 0.14;
-        const a = Math.max(0, Math.min(1, tw)) * vis;
+        const tw = 0.3 + 0.7 * ((Math.sin(t * s.twSp + s.twPh) + 1) * 0.5);
+        const a = tw * vis;
         if (a < 0.02) continue;
         const c = s.hue < 0.06 ? `rgba(180,210,255,${a})`
                 : s.hue > 0.96 ? `rgba(255,220,180,${a})`
@@ -166,6 +308,8 @@ export default function CosmicHeroV2() {
         starCtx.fillStyle = c;
         starCtx.fill();
       }
+      drawSparkleCrosses(t, vis);
+      drawShootingStars(t, vis);
 
       starCtx.strokeStyle = `rgba(255,255,255,${0.04 * vis})`;
       starCtx.lineWidth = 0.5;
@@ -632,27 +776,11 @@ export default function CosmicHeroV2() {
       return { x, y, o };
     }
 
-    function clamp01(v: number) {
-      return Math.max(0, Math.min(1, v));
-    }
-
-    function smoothStep(edge0: number, edge1: number, x: number) {
-      const t = clamp01((x - edge0) / (edge1 - edge0));
-      return t * t * (3 - 2 * t);
-    }
-
-    function easeOutBack(t: number) {
-      const c1 = 1.70158;
-      const c3 = c1 + 1;
-      const x = t - 1;
-      return 1 + c3 * x * x * x + c1 * x * x;
-    }
-
     function eclipseIntensity(p: number) {
-      if (p < 0.34 || p > 0.70) return 0;
-      if (p <= 0.50) return Math.pow(smoothStep(0.34, 0.50, p), 1.1);
-      const tail = 1 - smoothStep(0.50, 0.70, p);
-      return tail * tail;
+      if (p < 0.36 || p > 0.64) return 0;
+      return p <= 0.5
+        ? Math.pow((p - 0.36) / 0.14, 1.8)
+        : Math.pow((0.64 - p) / 0.14, 1.8);
     }
 
     function celebrationIntensity(p: number) {
@@ -719,19 +847,19 @@ export default function CosmicHeroV2() {
     const t0 = performance.now();
     /* Track previous phase to avoid redundant filter updates */
     let prevPhase = '';
+    let brandLocked = false;
+    let brandRevealAt = -1;
 
     function frame(now: number) {
       const t = (now - t0) / 1000;
       const progress = (t % ECLIPSE_DUR) / ECLIPSE_DUR;
       const eclI = eclipseIntensity(progress);
       const celebI = celebrationIntensity(progress);
-      const eclipseRecovery = smoothStep(0.58, 0.70, progress);
-      const sunBase = _lerp(1 - eclI * 0.94, 1, eclipseRecovery);
-      const sunBright = clamp01(sunBase + celebI * 0.24);
-      const celebrationElapsedMs = Math.max(0, (progress - 0.66) * ECLIPSE_DUR * 1000);
+      const sunBright = Math.min(1, (1 - eclI * 0.94) + celebI * 0.3);
 
       /* Determine phase for throttling expensive updates */
       const phase = celebI > 0.02 ? 'celeb' : eclI > 0.08 ? 'eclipse' : 'radiance';
+      const phaseChanged = phase !== prevPhase;
 
       /* Parallax — composite-only transforms */
       mX += (mTx - mX) * 0.03;
@@ -749,11 +877,18 @@ export default function CosmicHeroV2() {
       /* Cosmo celebration canvas */
       drawCosmoScene(t, celebI);
 
-      /* Sun ↔ nova opacity swap follows celebration intensity. */
+      /* ── Sun ↔ Sunnova seamless transition ──
+         NOVA_MATCH = 72% / 110% = 0.6545 — the scale at which sunnova
+         visually matches the sun-svg disc size. By starting and ending
+         at this scale, the crossfade is invisible. */
+      const NOVA_MATCH = 0.6545;
+
+      /* Fast crossfade over the first/last 20% of celebI so the swap
+         happens during the bright god-ray flash and is imperceptible. */
       const swapT = Math.min(1, celebI * 5);
 
       /* Sun SVG filter — expensive, only on phase change */
-      if (phase !== prevPhase) {
+      if (phaseChanged) {
         if (phase === 'celeb') {
           sunSvg.style.filter = `brightness(1.3) drop-shadow(0 0 40px rgba(255,200,70,0.50)) drop-shadow(0 0 80px rgba(255,160,40,0.25))`;
         } else if (phase === 'eclipse') {
@@ -771,28 +906,21 @@ export default function CosmicHeroV2() {
       /* Sunnova: fade in during swap, smooth S-curve growth */
       setStyle(sunnovaEl, 'opacity', swapT.toFixed(3));
 
-      const burstT = clamp01(celebrationElapsedMs / 800);
-      let novaScale = 0.3;
-      if (burstT < 0.65) {
-        const up = burstT / 0.65;
-        novaScale = 0.3 + (1.25 - 0.3) * easeOutBack(up);
-      } else {
-        const settleT = (burstT - 0.65) / 0.35;
-        const settle = 1 - Math.pow(1 - settleT, 3);
-        novaScale = 1.25 + (1.0 - 1.25) * settle;
-      }
+      const growT = Math.min(1, celebI / 0.5);
+      const ease = growT < 0.5
+        ? 2 * growT * growT
+        : 1 - 2 * (1 - growT) * (1 - growT);
+      const novaScale = NOVA_MATCH + (1.12 - NOVA_MATCH) * ease;
       setStyle(sunnovaEl, 'transform', `translate(-50%, -50%) scale(${novaScale.toFixed(4)})`);
 
       /* Sunnova filter — expensive, only on phase change */
-      if (phase !== prevPhase) {
+      if (phaseChanged) {
         if (celebI > 0.01) {
           sunnovaEl.style.filter = `brightness(2.0) drop-shadow(0 0 80px rgba(255,230,100,0.70)) drop-shadow(0 0 180px rgba(255,200,60,0.40))`;
         } else {
           sunnovaEl.style.filter = '';
         }
       }
-
-      prevPhase = phase;
 
       /* Simple opacity/transform updates — cheap */
       setStyle(ambEl, 'opacity', Math.min(1, sunBright + celebI * 0.5).toFixed(3));
@@ -804,13 +932,15 @@ export default function CosmicHeroV2() {
       const mp = moonPos(progress);
       const stW = stageEl.clientWidth, stH = stageEl.clientHeight;
       const mSize = MOON_FRAC * stW;
+      setStyle(moonEl, 'width', `${mSize.toFixed(1)}px`);
+      setStyle(moonEl, 'height', `${mSize.toFixed(1)}px`);
       moonEl.style.left = (mp.x * stW - mSize / 2) + 'px';
       moonEl.style.top  = (mp.y * stH - mSize / 2) + 'px';
       const moonFade = Math.max(0, mp.o * (1 - celebI * 3));
       setStyle(moonEl, 'opacity', moonFade.toFixed(3));
 
       /* Moon filter — only update on phase change */
-      if (phase !== prevPhase || phase === 'eclipse') {
+      if (phaseChanged || phase === 'eclipse') {
         if (eclI > 0.1) {
           moonEl.style.filter = `drop-shadow(0 0 ${(12 + eclI * 30).toFixed(0)}px rgba(160,100,255,${(0.35 + eclI * 0.45).toFixed(2)})) drop-shadow(0 0 ${(40 + eclI * 120).toFixed(0)}px rgba(130,60,240,${(0.15 + eclI * 0.50).toFixed(2)}))`;
         } else {
@@ -822,9 +952,21 @@ export default function CosmicHeroV2() {
       setStyle(darkEl, 'opacity', eclI.toFixed(3));
 
       /* 143 brand text */
-      setStyle(brand, 'transform', `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`);
+      if (!brandLocked && (celebI > 0.08 || progress >= 0.66)) {
+        brandLocked = true;
+        brandRevealAt = t;
+      }
+      let brandPop = 1;
+      if (brandLocked && brandRevealAt >= 0) {
+        const revealT = Math.min(1, (t - brandRevealAt) / 0.2);
+        if (revealT < 0.5) brandPop = (revealT / 0.5) * 1.2;
+        else brandPop = 1.2 - ((revealT - 0.5) / 0.5) * 0.2;
+      }
+      const brandScale = celebScale * brandPop;
+      setStyle(brand, 'opacity', brandLocked ? '1' : '0');
+      setStyle(brand, 'transform', `translate(-50%, -50%) scale(${brandScale.toFixed(4)})`);
       /* Only update filter on phase changes */
-      if (phase !== prevPhase) {
+      if (phaseChanged) {
         brand.style.filter = `brightness(${(sunBright + celebI * 0.2).toFixed(3)})`;
       }
 
@@ -841,53 +983,16 @@ export default function CosmicHeroV2() {
           `0 0 ${(70 + sn * 80).toFixed(0)}px rgba(255,180,60,${(0.18 * sn).toFixed(2)})`,
           `0 0 ${(sn * 130).toFixed(0)}px rgba(147,64,255,${(sn * 0.14).toFixed(2)})`
         ].join(', ');
-
-        const r2scale = 1 + sn * 2.2;
-        const r2lift  = sn * -35;
-        row2El.style.transform     = `translateY(${r2lift.toFixed(1)}px) scale(${r2scale.toFixed(3)})`;
-        row2El.style.fontWeight    = sn > 0.2 ? '900' : '300';
-        row2El.style.letterSpacing = `${(0.22 - sn * 0.10).toFixed(2)}em`;
-        row2El.style.color         = `rgba(${Math.round(147 + sn * 40)},${Math.round(64 + sn * 30)},255,1)`;
-        row2El.style.textShadow    = [
-          `0 0 ${(8 + sn * 25).toFixed(0)}px rgba(200,140,255,${(0.80 * sn).toFixed(2)})`,
-          `0 0 ${(25 + sn * 55).toFixed(0)}px rgba(168,85,255,${(0.65 + sn * 0.30).toFixed(2)})`,
-          `0 0 ${(55 + sn * 90).toFixed(0)}px rgba(147,64,255,${(0.40 + sn * 0.45).toFixed(2)})`,
-          `0 0 ${(90 + sn * 130).toFixed(0)}px rgba(120,40,255,${(sn * 0.35).toFixed(2)})`,
-          `0 0 ${(sn * 180).toFixed(0)}px rgba(100,20,220,${(sn * 0.20).toFixed(2)})`,
-          `0 0 ${(sn * 50).toFixed(0)}px rgba(255,255,255,${(sn * 0.25).toFixed(2)})`
-        ].join(', ');
       } else {
         row1El.style.color            = '';
         row1El.style.webkitTextStroke = '';
         row1El.style.textShadow       = '';
-        row2El.style.transform        = '';
-        row2El.style.fontWeight       = '';
-        row2El.style.letterSpacing    = '';
-        row2El.style.color            = '';
-        row2El.style.textShadow       = '';
-      }
-
-      if (revelationChars.length) {
-        if (celebI > 0.1) {
-          for (let i = 0; i < revelationChars.length; i++) {
-            const el = revelationChars[i];
-            const charStart = i * 60;
-            const localT = clamp01((celebrationElapsedMs - charStart) / 280);
-            const alpha = smoothStep(0, 1, localT);
-            setStyle(el, 'opacity', alpha.toFixed(3));
-            setStyle(el, 'transform', `translateY(${((1 - alpha) * 14).toFixed(1)}px)`);
-          }
-        } else {
-          for (const el of revelationChars) {
-            setStyle(el, 'opacity', '0');
-            setStyle(el, 'transform', 'translateY(14px)');
-          }
-        }
       }
 
       /* Film grain — cheap transform */
       setStyle(grainCvs, 'opacity', (0.018 + eclI * 0.03 + celebI * 0.01).toFixed(3));
       setStyle(grainCvs, 'transform', `translate(${(Math.sin(t * 3.8) * 2).toFixed(1)}%, ${(Math.cos(t * 3.2) * 2).toFixed(1)}%)`);
+      prevPhase = phase;
 
       rafRef.current = requestAnimationFrame(frame);
     }
@@ -911,8 +1016,6 @@ export default function CosmicHeroV2() {
         <canvas className="starfield" aria-hidden="true" />
         <div className="sun-ambient" aria-hidden="true" />
         <div className="nebula" aria-hidden="true" />
-        <div className="shooting-star shooting-star--1" aria-hidden="true" />
-        <div className="shooting-star shooting-star--2" aria-hidden="true" />
         <div className="vignette" aria-hidden="true" />
         <canvas className="cosmo-canvas" aria-hidden="true" />
         <div className="celebration-wash" aria-hidden="true" />
@@ -924,29 +1027,18 @@ export default function CosmicHeroV2() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="sun-svg" src="/marketing/Sun-143.svg" alt="" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="sunnova-svg" src="/marketing/143-sun-nova.png" alt="" />
+          <img className="sunnova-svg" src="/marketing/sunnova.svg" alt="" />
           <span className="brand-143">143</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="moon" src="/marketing/Purple-Moon-143.svg" alt="" />
-          <div className="revelation-text">
-            {REVELATION_TEXT.split('').map((char, index) => (
-              <span key={`${char}-${index}`}>{char === ' ' ? '\u00A0' : char}</span>
-            ))}
-          </div>
         </div>
 
         <div className="hero-copy">
-          <h1 className="row-1">Your light was never gone.</h1>
-          <p className="row-2">It was eclipsed.</p>
-          <p className="row-3">143 questions to find it again.</p>
-          <div className="row-cta">
-            <Link href="/preview" className="hero-cta-primary">
-              Check My Stability
-            </Link>
-            <Link href="/sample-report" className="hero-cta-secondary">
-              See a sample map
-            </Link>
-          </div>
+          <h1 className="row-1">Upgrade Your Internal OS</h1>
+          <p className="row-2">Live Just In A Ray Of Light</p>
+          <p className="row-3">
+            <em>Watch Me Go First &amp; Be The Light</em> &mdash; Book Coming 2026
+          </p>
         </div>
       </section>
     </div>
