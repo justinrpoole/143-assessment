@@ -67,10 +67,11 @@ export default function SparklineChart({ runs }: SparklineChartProps) {
 
   return (
     <div className="space-y-3">
-      <div className="rounded-xl p-4" style={{ background: '#060014', border: '1px solid rgba(37,246,255,0.2)' }}>
-        <div className="flex items-center justify-between">
-          <p className="text-[9px] uppercase tracking-[0.14em]" style={{ color: '#25F6FF', fontFamily: 'var(--font-cosmic-display)' }}>Overall Trend</p>
-          <span className="text-[9px]" style={{ color: 'rgba(37,246,255,0.75)', fontFamily: 'var(--font-cosmic-display)' }}>WEEKLY</span>
+      <div className="rounded-xl p-4 relative overflow-hidden" style={{ background: '#060014', border: '1px solid rgba(37,246,255,0.2)', boxShadow: '0 0 18px rgba(37,246,255,0.12)' }}>
+        <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'repeating-linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.22) 3px)' }} />
+        <div className="relative z-10 flex items-center justify-between" style={{ fontFamily: "'Orbitron', var(--font-cosmic-display)" }}>
+          <p className="text-[9px] uppercase tracking-[0.14em]" style={{ color: '#25F6FF', textShadow: '0 0 10px rgba(37,246,255,0.55)' }}>Overall Trend</p>
+          <span className="text-[9px]" style={{ color: 'rgba(37,246,255,0.85)', textShadow: '0 0 8px rgba(37,246,255,0.45)' }}>WEEKLY</span>
         </div>
       </div>
 
@@ -78,14 +79,15 @@ export default function SparklineChart({ runs }: SparklineChartProps) {
         {rayTrends.map((ray) => {
           const color = ray.delta >= 0 ? '#25F6FF' : '#FF3FB4';
           return (
-            <div key={ray.rayId} className="px-3 py-2.5 rounded-xl" style={{ background: '#0A0018', border: '1px solid rgba(37,246,255,0.2)' }}>
-              <div className="flex items-center justify-between gap-2">
+            <div key={ray.rayId} className="px-3 py-2.5 rounded-xl relative overflow-hidden" style={{ background: '#060014', border: '1px solid rgba(37,246,255,0.2)', boxShadow: '0 0 14px rgba(37,246,255,0.08)' }}>
+              <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'repeating-linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.22) 3px)' }} />
+              <div className="relative z-10 flex items-center justify-between gap-2" style={{ fontFamily: "'Orbitron', var(--font-cosmic-display)" }}>
                 <div>
-                  <p className="text-xs uppercase" style={{ color: '#25F6FF', fontFamily: 'var(--font-cosmic-display)' }}>{ray.name}</p>
-                  <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'var(--font-cosmic-display)' }}>{ray.first.toFixed(0)} → {ray.last.toFixed(0)}</p>
+                  <p className="text-xs uppercase" style={{ color: '#25F6FF', textShadow: '0 0 9px rgba(37,246,255,0.45)' }}>{ray.name}</p>
+                  <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.55)' }}>{ray.first.toFixed(0)} → {ray.last.toFixed(0)}</p>
                 </div>
                 <Sparkline values={ray.values} color={color} width={72} height={24} />
-                <span className="text-[11px] font-bold w-8 text-right" style={{ color, textShadow: `0 0 10px ${color}`, fontFamily: 'var(--font-cosmic-display)' }}>
+                <span className="text-[11px] font-bold w-8 text-right" style={{ color, textShadow: `0 0 10px ${color}` }}>
                   {ray.delta >= 0 ? '+' : ''}{ray.delta.toFixed(0)}
                 </span>
               </div>

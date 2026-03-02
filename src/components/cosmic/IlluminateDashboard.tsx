@@ -20,7 +20,7 @@ import Image from 'next/image';
 import { rayHex } from '@/lib/ui/ray-colors';
 
 /* ── Brand tokens ──────────────────────────────────────── */
-const BG      = '#4A0E78';
+const BG      = '#060014';
 const GOLD    = '#F4C430';
 const CYAN    = '#25F6FF';
 const AMBER   = '#FFD166';
