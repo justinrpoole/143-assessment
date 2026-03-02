@@ -714,7 +714,7 @@ export default async function PricingPage() {
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/assessment">
-                  Show Me All 9 Rays
+                  Discover your Rays — free Stability Check
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">
                   Check My Stability Free

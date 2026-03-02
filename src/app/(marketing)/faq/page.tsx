@@ -54,7 +54,7 @@ const FAQS = [
       },
       {
         q: "What happens after I submit?",
-        a: "Your results are scored immediately using a deterministic scoring engine. You will see your full report — Light Signature, Eclipse Snapshot, 9-Ray scores, Energy-to-Eclipse Ratio, Gravitational Stability, and Rise Path — within seconds of submitting.",
+        a: "Your results are scored immediately and you will see your baseline signal right away. For full 9-Ray mechanics and deeper interpretation, start with your free Stability Check and unlock the full map from there.",
       },
     ],
   },
@@ -63,11 +63,11 @@ const FAQS = [
     items: [
       {
         q: "What is a Light Signature?",
-        a: "Your Light Signature is a unique archetype based on your two Primary Rays — your top two Rays. There are 36 possible combinations (the mathematical C(9,2) pairs). Examples include the Visionary Servant, the Bold Authentic, and the Driven Leader. Your Light Signature describes the combination of capacities that define your current leadership force.",
+        a: "Your Light Signature names your current capacity pattern. I keep the deeper mechanics gated until you run your own Stability Check and unlock your personalized map.",
       },
       {
         q: "What is the Eclipse Snapshot?",
-        a: "The Eclipse Snapshot measures how much stress, depletion, or sustained pressure is covering your natural capacities. Think of it like a solar eclipse — your light is not gone, it is temporarily covered. The snapshot shows your eclipse level (Low, Moderate, Elevated, or High) and which specific dimensions are most affected.",
+        a: "The Eclipse Snapshot shows how much pressure is covering your light right now. Run the free Stability Check first, then unlock the full breakdown inside your report.",
       },
       {
         q: "What is a Rise Path?",
@@ -88,11 +88,11 @@ const FAQS = [
     items: [
       {
         q: "What does the free Gravitational Stability Check include?",
-        a: "The Gravitational Stability Check is a quick three-minute eclipse screening. It gives you a plain-language read on whether eclipse is currently affecting your capacities. No account or email required.",
+        a: "The Gravitational Stability Check is a quick three-minute eclipse screening. It gives you a plain-language read on whether eclipse is currently affecting your capacities. Email unlock required.",
       },
       {
         q: "What does the $43 Gravitational Stability Report include?",
-        a: "The full 143-question assessment, your Light Signature archetype, Eclipse Snapshot, complete 9-Ray behavioural map, Energy-to-Eclipse Ratio, Gravitational Stability Score, Performance-Presence Delta analysis, Rise Path, and a downloadable PDF report. Permanent access to your results.",
+        a: "The paid report gives your full map and personalized training direction. Start with the free Stability Check to unlock your baseline, then step into the complete report when you are ready.",
       },
       {
         q: "What does the $14.33/month Portal Membership include?",
@@ -289,7 +289,7 @@ export default async function FaqPage() {
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 <NeonGlowButton href="/assessment">
-                  Show Me All 9 Rays
+                  Discover your Rays — free Stability Check
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">
                   Check My Stability Free

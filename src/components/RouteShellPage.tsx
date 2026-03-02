@@ -31,7 +31,7 @@ export async function RouteShellPage({ spec }: RouteShellPageProps) {
         {isChallengeRoute ? (
           <section className="space-y-4" aria-label="143 challenge flow placeholder">
             <div className="glass-card p-6">
-              <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Start now (no email)</h2>
+              <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Start now (email unlock)</h2>
               <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>Public users can run the core challenge flow without email capture.</p>
             </div>
             <div className="glass-card p-6">

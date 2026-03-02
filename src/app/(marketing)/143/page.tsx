@@ -132,7 +132,7 @@ export default async function Challenge143Page() {
               Start My Challenge
             </NeonGlowButton>
             <LiquidFillButton href="/assessment">
-              Show Me All 9 Rays
+              Discover your Rays — free Stability Check
             </LiquidFillButton>
           </div>
           <div className="flex justify-start pt-2">
@@ -412,7 +412,7 @@ export default async function Challenge143Page() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <LiquidFillButton href="/preview">
-                  Check My Stability Free
+                  Discover your Rays — free Stability Check
                 </LiquidFillButton>
                 <Link
                   href="/assessment"
