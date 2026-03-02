@@ -213,7 +213,7 @@ export function AssessmentSetupClient() {
             <span style={{ color: 'var(--brand-gold, #F8D011)' }}>
               {dimmingResult.primaryRayName}
             </span>
-            . The full assessment maps all 9 rays — not just the three from the quick check.
+            . The full assessment unlocks after your baseline and then maps all 9 rays.
           </p>
         </section>
       )}
@@ -232,7 +232,7 @@ export function AssessmentSetupClient() {
           </div>
 
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
-            Your first run maps all 9 Rays across 36 subfacets. This produces a HIGH confidence result — the most complete picture of your current operating state.
+            Your first run gives the complete map after baseline unlock. This produces a HIGH confidence result — the clearest picture of your current operating state.
           </p>
 
           {/* Comparison with retake */}

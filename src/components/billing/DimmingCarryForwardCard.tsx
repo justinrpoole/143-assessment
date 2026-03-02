@@ -50,7 +50,7 @@ export default function DimmingCarryForwardCard() {
         on <strong>{result.primaryRayName}</strong> — {levelText}.
       </p>
       <p className="mt-2 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
-        The full assessment maps all 9 rays and shows you exactly what is underneath — and what to do first.
+        Start with your baseline, then unlock the full assessment for the deeper map and what to do first.
       </p>
     </div>
   );
