@@ -28,7 +28,7 @@ export default function ScoreMovementChart() {
 
   return (
     <div className="space-y-5">
-      <div className="rounded-2xl p-5 sm:p-7 relative overflow-hidden" style={{ background: '#060014', border: '1px solid rgba(37,246,255,0.2)' }}>
+      <div className="rounded-2xl p-5 sm:p-7 relative overflow-hidden" style={{ background: '#060014', border: '1px solid rgba(37,246,255,0.2)', boxShadow: '0 0 18px rgba(37,246,255,0.12)', fontFamily: "'Orbitron', var(--font-cosmic-display)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.22) 3px)' }} />
         <div className="mb-4 flex items-center justify-between relative z-10">
           <div>

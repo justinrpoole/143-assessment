@@ -31,6 +31,7 @@ export default function RayChart({ rays, topTwo, bottomRay }: RayChartProps) {
           background: '#060014',
           border: '1px solid rgba(37,246,255,0.2)',
           boxShadow: 'inset 0 0 30px rgba(37,246,255,0.06)',
+          fontFamily: "'Orbitron', var(--font-cosmic-display)",
         }}
       >
         <div className="pointer-events-none absolute inset-0" style={{ background: 'repeating-linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.25) 3px)' }} />
