@@ -101,3 +101,11 @@ Ralph Loop Iteration 16
 - Re-verified visual/animation contracts remain stable after recent edits: CosmicHeroV2 still matches all specified thresholds and portal chart components remain fully Tron-compliant (Orbitron + neon + scanline + deep-space palette).
 
 Next loop priority (iteration 17): execute automated browser interactions to validate runtime gate persistence across refresh, back-button navigation, and direct URL deep-link attempts on challenge/group-coaching/preview.
+
+Ralph Loop Iteration 17
+
+- Re-verified all primary lead gates remain enforced: challenge workbook stays post-capture only, group-coaching content remains gated by successful form submit, and preview continues to require email unlock before results flow.
+- Re-verified marketing content protections remained stable this cycle: no new ungated deep-framework blocks introduced in marketing pages, and Justin’s homepage presence + headshot asset are still intact.
+- Re-verified quality baselines still hold end-to-end: CosmicHeroV2 animation criteria remain satisfied and all target portal/chart components continue to match Tron style requirements.
+
+Next loop priority (iteration 18): implement automated browser scenario matrix for gate robustness (deep-link + refresh + back/forward + multi-tab) and document pass/fail outcomes in progress.txt.
