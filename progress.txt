@@ -1413,3 +1413,11 @@ Ralph Loop Iteration 185
 - Re-verified animation/TRON quality contracts remain green: eclipse smoothing remains through `p=0.70`, Act 5 still uses `143-sun-nova.png`, letter-by-letter reveal remains active, moon sizing remains 72%, and required portal neon/scanline/#060014 styling is still present.
 
 Next loop priority (iteration 186): execute browser-session runtime artifact capture and persist exact screenshot/video/log file paths + timestamps in progress for auditable gate and hero-transition proof.
+
+Ralph Loop Iteration 186
+
+- Re-verified all mandatory lead-gate controls remain enforced with no regression: /challenge workbook remains capture-gated, /group-coaching full content remains gated on successful application submit, and /preview still enforces email unlock before result flow.
+- Re-verified marketing constraints remain stable: no newly introduced ungated detailed 9-Ray explanatory leakage was detected, and Justin identity requirements (photo/name/story) remain correctly wired.
+- Re-verified animation/TRON fidelity remains intact: CosmicHeroV2 still preserves `p=0.70` eclipse smoothing, `143-sun-nova.png` Act 5 render, letter-by-letter headline reveal, and 72% moon sizing; required Orbitron/neon/scanline/#060014 styling remains present across target portal components.
+
+Next loop priority (iteration 187): complete runtime browser evidence capture and record exact artifact filenames/paths + timestamps in progress for auditable proof beyond static grep checks.
