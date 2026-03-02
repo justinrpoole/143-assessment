@@ -45,3 +45,11 @@ Ralph Loop Iteration 5
 - Verified core quality contracts still hold after integration: challenge/group-coaching/preview gates remain active, CosmicHeroV2 still satisfies animation criteria, portal Tron components remain compliant, and full app build passes cleanly.
 
 Next loop priority (iteration 6): perform route-level runtime verification in browser for redirect/gate behavior (manual navigation + deep links) to confirm no SSR/client hydration edge-case bypasses.
+
+Ralph Loop Iteration 7
+
+- Found + fixed CTA/gate drift still visible in active entry points: updated /preview and MiniAssessmentPreview paid-upgrade CTA language to keep Stability Check-first framing without ungated full-framework language.
+- Found + fixed one remaining methodology-overexposure sentence on /143 page: replaced detailed “maps all 9 capacities” phrasing with teaser-first copy that routes readers through free Stability Check before deep report access.
+- Verified core quality contracts remain intact: challenge/group-coaching/preview gates are active, Justin homepage photo/name presence still valid, CosmicHeroV2 animation criteria still pass, and Tron dashboard component styling remains in place.
+
+Next loop priority (iteration 8): run browser-level route checks for gated flows (challenge/group-coaching/preview) with direct URL and refresh scenarios to catch client-state unlock leaks that static code scans miss.
