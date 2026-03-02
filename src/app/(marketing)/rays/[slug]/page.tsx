@@ -22,6 +22,7 @@ import RayHeroVisual from '@/components/marketing/RayHeroVisual';
 import { emitPageView } from '@/lib/analytics/emitter';
 import type { PageViewEvent } from '@/lib/analytics/taxonomy';
 import { getUserStateFromRequest } from '@/lib/auth/user-state';
+import RayDetailGateClient from './RayDetailGateClient';
 
 export const dynamic = 'force-dynamic';
 
@@ -76,6 +77,7 @@ export default async function RayDeepDivePage({
 
   return (
     <main className="cosmic-page-bg relative">
+      <RayDetailGateClient rayName={ray.name}>
       <ScrollProgress />
 
       {/* ── HERO ── */}
@@ -552,6 +554,7 @@ export default async function RayDeepDivePage({
       </FadeInSection>
 
       <BackToTopButton />
+      </RayDetailGateClient>
     </main>
   );
 }
