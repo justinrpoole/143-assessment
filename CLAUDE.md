@@ -164,3 +164,38 @@ src/components/
 - **24 Executive Signals:** M001-M024, derived from ray + tool composites
 - **Eclipse System:** emotional_load, cognitive_load, relational_load (adapted from Maslach burnout model)
 - **Key Indices:** EER (energy efficiency), BRI (burnout risk 0-9), LSI (load snapshot), PPD (performance-presence delta)
+
+## Power Skills — Installed
+
+All 26 Power Skills are installed at `.claude/skills/`. Reference them by name when needed:
+
+| Skill | Purpose |
+|-------|---------|
+| assessment-engine | Core scoring science |
+| coaching-engine | Coaching framework logic |
+| app-developer | Product build + UX |
+| brand-voice | Justin Ray tone standard |
+| ralph-loop | Feature-by-feature PRD execution loop |
+| assessment-brain | Assessment intelligence |
+| brand-switch | Multi-brand guardrail |
+| content-atomizer | Content repurposing |
+| creative | Creative generation |
+| critic | Quality critique |
+| direct-response-copy | Conversion copy |
+| email-sequences | Email campaign engine |
+| keyword-research | SEO + content keywords |
+| knowledge-vault | Knowledge management |
+| lead-magnet | Lead gen assets |
+| newsletter | Newsletter engine |
+| obsidian | Vault integration |
+| orchestrator | Multi-agent coordination |
+| positioning-angles | GTM positioning |
+| preflight | Pre-launch QA |
+| ralph-loop | Execution loop |
+| seo-content | SEO content |
+| start-here | Orchestration entry |
+| strategic-analytics | Analytics + KPIs |
+| visual-integrator | Visual assets |
+| competitive-social-research | Competitive intelligence |
+| consultant-lead-agent | Lead consulting agent |
+

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ralph Loop"
+  short_description: "Feature-by-feature PRD execution loop"
+  default_prompt: "Use $ralph-loop to run the Ralph loop on prd.md and track progress in progress.txt."

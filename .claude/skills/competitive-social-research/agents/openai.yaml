@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitive Social Research"
+  short_description: "Scrape and analyze competitor social content for 413 Leadership"
+  default_prompt: "Analyze competitor social content using Firecrawl or Playwright. Extract topics, hooks, offers, CTAs, tools, and research references. Map findings to 06_Research_Library/Research_By_Person, write a Justin Ray teaching compositor, and save outputs under 06_Research_Library/Research_Dossiers/Competitor_Social."

@@ -1,0 +1,6 @@
+version: 1
+interfaces:
+  - id: openai
+    display_name: "Assessment Brain"
+    short_description: "State-aware, evidence-led assessment reports"
+    default_prompt: "Generate a 143 assessment brain report from scored data. Follow the canonical interpretation order, embed citations for research claims, and save outputs to ./assessments/."

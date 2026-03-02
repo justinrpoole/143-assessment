@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Assessment Brain Metadata",
+  "type": "object",
+  "required": [
+    "assessment_id",
+    "generated_at",
+    "confidence_band",
+    "eclipse_band",
+    "top_two",
+    "eclipsed_ray",
+    "pattern_summary",
+    "report_paths"
+  ],
+  "properties": {
+    "assessment_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "confidence_band": { "type": "string", "enum": ["A", "B", "C", "D"] },
+    "eclipse_band": { "type": "string", "enum": ["low", "medium", "high"] },
+    "top_two": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["ray_id", "ray_name"],
+        "properties": {
+          "ray_id": { "type": "string" },
+          "ray_name": { "type": "string" },
+          "usable_range": { "type": "number" }
+        }
+      }
+    },
+    "eclipsed_ray": {
+      "type": "object",
+      "required": ["ray_id", "ray_name"],
+      "properties": {
+        "ray_id": { "type": "string" },
+        "ray_name": { "type": "string" },
+        "reason": { "type": "string" }
+      }
+    },
+    "pattern_summary": { "type": "string" },
+    "signature_tension": { "type": "string" },
+    "top_two_drift_alert": { "type": "string" },
+    "work_life_insight": { "type": "string" },
+    "validity_flags": { "type": "array", "items": { "type": "string" } },
+    "work_life_gap": { "type": "string" },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tool_name"],
+        "properties": {
+          "tool_name": { "type": "string" },
+          "cue": { "type": "string" },
+          "micro_rep": { "type": "string" }
+        }
+      }
+    },
+    "watch_me_trigger": {
+      "type": "object",
+      "required": ["cue", "line", "rep", "expected_shift"],
+      "properties": {
+        "cue": { "type": "string" },
+        "line": { "type": "string" },
+        "rep": { "type": "string" },
+        "expected_shift": { "type": "string" }
+      }
+    },
+    "bridge_reps": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "reset_script": { "type": "string" },
+    "validation_plan": { "type": "string" },
+    "energy_ratio": { "type": "string" },
+    "pressure_signal_count": { "type": "string" },
+    "performance_presence_delta": { "type": "string" },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "url"],
+        "properties": {
+          "id": { "type": "string" },
+          "source": { "type": "string" },
+          "url": { "type": "string" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "report_paths": {
+      "type": "object",
+      "required": ["participant", "quickread", "executive"],
+      "properties": {
+        "participant": { "type": "string" },
+        "quickread": { "type": "string" },
+        "executive": { "type": "string" }
+      }
+    }
+  }
+}
