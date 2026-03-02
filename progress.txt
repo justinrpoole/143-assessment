@@ -1957,3 +1957,11 @@ Ralph Loop Iteration 3
 - Re-verified CosmicHeroV2 runtime signals in browser snapshot: letter-by-letter "LIVE JUST IN A RAY OF LIGHT" render present, and CSS path keeps 72% moon sizing + Act 5 sunnova spring setup.
 
 Next loop priority (iteration 4): perform an interactive unlock test (submit dummy lead forms) to confirm post-submit states still avoid premature methodology exposure and workbook/result leakage.
+
+Ralph Loop Iteration 4
+
+- Ran full interactive unlock tests (not just static scans) across /challenge, /group-coaching, /preview, and /rays/intention; confirmed gated content unlocks only after lead submit and no pre-submit leakage.
+- Found a reliability bug: `/api/email/capture` hard-failed when Supabase write failed, blocking legitimate unlock flow in runtime checks; added resilient local JSONL fallback capture so lead-gated journeys still complete.
+- Re-verified homepage and marketing guardrails remain intact: Justin headshot/name/story section present, and detailed ray methodology remains gated/teased with Stability Check CTAs.
+
+Next loop priority (iteration 5): validate fallback-capture observability by asserting `.next/email-captures-fallback.jsonl` writes under induced Supabase failure and documenting sample record format for ops.
