@@ -114,6 +114,7 @@ export default function IlluminateDashboard({
         borderRadius: 20,
         fontFamily: "'Orbitron', system-ui, sans-serif",
         border: '1px solid rgba(255,255,255,0.06)',
+        animation: 'crtFlicker 8s ease-in-out infinite',
       }}
     >
       {/* Google fonts */}
@@ -124,7 +125,12 @@ export default function IlluminateDashboard({
         @keyframes illum-pulse { 0%,100%{opacity:.6} 50%{opacity:1} }
         @keyframes illum-orbit { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
         @keyframes illum-star  { 0%,100%{opacity:.4;transform:scale(1)} 50%{opacity:1;transform:scale(1.4)} }
+        @keyframes crtFlicker { 0%,100%{filter:brightness(1)} 50%{filter:brightness(.98)} }
+        @keyframes gaugeSweep { 0%{stroke-dashoffset:0} 100%{stroke-dashoffset:-120} }
       `}</style>
+
+      {/* Tron grid overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1, backgroundImage: 'linear-gradient(rgba(37,246,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(37,246,255,0.08) 1px, transparent 1px)', backgroundSize: '36px 36px', opacity: 0.35 }} />
 
       {/* Star field */}
       <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
@@ -385,6 +391,8 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
         <div style={{
           position: 'absolute', left: 0, right: 0, height: 4, borderRadius: 99,
           background: `linear-gradient(90deg, rgba(124,44,255,0.5) 0%, ${color}22 50%, ${color}55 100%)`,
+          boxShadow: `inset 0 0 0 1px rgba(37,246,255,0.2)`,
+          backgroundImage: `repeating-linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 1px, rgba(0,0,0,0.25) 2px)`,
         }} />
         {/* Filled progress */}
         {pct > 0 && <div style={{
@@ -471,8 +479,8 @@ function ConicGauge({ value, phase }: { value: number; phase: string }) {
       <svg viewBox="0 0 120 120" style={{ width: '100%', height: '100%' }}>
         <defs>
           <linearGradient id="gArc" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%"   stopColor={CYAN} />
-            <stop offset="100%" stopColor={AMBER}/>
+            <stop offset="0%"   stopColor={MAGENTA} />
+            <stop offset="100%" stopColor={MAGENTA}/>
           </linearGradient>
         </defs>
         {/* Track */}
@@ -484,11 +492,11 @@ function ConicGauge({ value, phase }: { value: number; phase: string }) {
                 strokeDasharray={`${arc} ${circ}`}
                 strokeLinecap="round"
                 transform={`rotate(-90 ${cx} ${cy})`}
-                style={{ filter: `drop-shadow(0 0 8px ${CYAN})` }}/>
+                style={{ filter: `drop-shadow(0 0 10px ${MAGENTA}) drop-shadow(0 0 22px ${MAGENTA})`, animation: 'gaugeSweep 4s linear infinite' }}/>
         {/* Value */}
         <text x={cx} y={cy - 5} textAnchor="middle" fill={GOLD}
-              fontSize="19" fontWeight="900"
-              style={{ filter: `drop-shadow(0 0 10px ${GOLD})` }}>
+              fontSize="22" fontWeight="900"
+              style={{ filter: `drop-shadow(0 0 14px ${GOLD})` }}>
           {value}
         </text>
         <text x={cx} y={cy + 10} textAnchor="middle"

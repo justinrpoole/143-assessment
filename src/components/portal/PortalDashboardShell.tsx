@@ -97,7 +97,12 @@ export default function PortalDashboardShell() {
   }
 
   return (
-    <>
+    <div className="relative rounded-2xl p-4 sm:p-5 overflow-hidden" style={{ background: '#060014', border: '1px solid rgba(37,246,255,0.2)', boxShadow: 'inset 0 0 24px rgba(37,246,255,0.08)' }}>
+      <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(37,246,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(37,246,255,0.08) 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
+      <div className="relative z-10">
+      <p className="mb-3 text-xs uppercase tracking-[0.2em]" style={{ color: '#25F6FF', fontFamily: 'var(--font-cosmic-display)', textShadow: '0 0 10px rgba(37,246,255,0.6)' }}>
+        Portal Command Dashboard
+      </p>
       {!hasRun && (
         <div style={{
           marginBottom:16,padding:'12px 18px',borderRadius:12,
@@ -123,6 +128,7 @@ export default function PortalDashboardShell() {
       <div className="mt-6">
         <StarChart />
       </div>
-    </>
+      </div>
+    </div>
   );
 }
