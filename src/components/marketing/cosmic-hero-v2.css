@@ -196,11 +196,18 @@
   pointer-events: none;
   opacity: 0;
   will-change: transform, opacity;
+  animation: chv2-sunnovaSpring 1300ms cubic-bezier(.16,1,.3,1) both;
 }
 
 @keyframes chv2-sunBreathe {
   0%, 100% { transform: translate(-50%, -50%) scale(1); }
   50% { transform: translate(-50%, -50%) scale(1.012); }
+}
+
+@keyframes chv2-sunnovaSpring {
+  0% { transform: translate(-50%, -50%) scale(0.58); opacity: 0; }
+  70% { transform: translate(-50%, -50%) scale(0.69); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(0.6545); opacity: 1; }
 }
 
 [data-cosmic-hero-v2] .brand-143 {
@@ -286,7 +293,7 @@
   opacity: 0;
   transform: translateY(8px) scale(0.92);
   animation: chv2-charIn 220ms ease-out forwards;
-
+}
 
 [data-cosmic-hero-v2] .row-3 {
   margin-top: 18px;
