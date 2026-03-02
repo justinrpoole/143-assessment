@@ -176,11 +176,9 @@ export default async function OutcomesPage() {
                     "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
                 }}
               >
-                The RAS filter resets. The stress response shortens. Identity
-                updates through evidence, not affirmation. Eclipse lifts when
-                you stop borrowing energy and start building capacity. Every
-                tool in the system maps to published, peer-reviewed research.
-                The language is human. The science is real.
+                The mechanism is real, but I keep the deep framework gated
+                until you have your own baseline data. Start with the free
+                Stability Check first, then unlock the full training model.
               </p>
               <p
                 className="text-sm leading-relaxed"
@@ -275,8 +273,8 @@ export default async function OutcomesPage() {
                 where to begin.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <NeonGlowButton href="/assessment">
-                  Show Me All 9 Rays
+                <NeonGlowButton href="/preview">
+                  Discover your Rays — free Stability Check
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">
                   Check My Stability Free

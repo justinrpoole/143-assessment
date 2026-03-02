@@ -427,12 +427,10 @@ export default async function AboutPage() {
                 color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
               }}
             >
-              The 9 Rays are emotional intelligence made trainable and
-              measurable. Intention, Joy, and Presence train EQ with yourself.
-              Connection, Possibility, and Be The Light train EQ with others.
-              Power, Purpose, and Authenticity are where they meet. That is the map. 143 questions. 15 minutes. The most honest
-              mirror your leadership has seen. Not who you are. What you can
-              build.
+              The 9 Rays show you where your signal is online and where it is
+              eclipsed. I keep the full mechanics gated until you get your own
+              baseline first. Start with the free Stability Check, then unlock
+              the full map.
             </p>
           </section>
         </FadeInSection>

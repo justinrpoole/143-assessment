@@ -502,7 +502,7 @@ export default async function RayDeepDivePage({
             </p>
             <div className="mt-6">
               <NeonGlowButton href="/preview">
-                Check My Stability Free
+                Discover your Rays — free Stability Check
               </NeonGlowButton>
             </div>
             <p
