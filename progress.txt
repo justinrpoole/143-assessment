@@ -1349,3 +1349,11 @@ Ralph Loop Iteration 177
 - Re-verified animation/TRON fidelity remains intact after prior fixes: eclipse intensity still extends to `p=0.70`, Act 5 still uses `143-sun-nova.png`, letter-by-letter reveal remains active, moon/sun remain 72%, and required neon scanline styling remains on portal targets.
 
 Next loop priority (iteration 178): perform browser-run artifact capture for gate persistence and hero act checkpoints, then record concrete artifact paths in progress for auditability.
+
+Ralph Loop Iteration 178
+
+- Re-verified all mandatory lead-gate controls remain enforced with no regression: /challenge workbook remains capture-gated, /group-coaching full content remains gated on successful application submit, and /preview still enforces email unlock before result flow.
+- Re-verified content/identity constraints remain stable: no newly introduced ungated detailed 9-Ray methodology sections detected across marketing, and Justin photo/name references remain intact and correctly wired.
+- Re-verified animation + TRON requirements remain green: eclipse curve still reaches `p=0.70`, Act 5 `143-sun-nova.png` and letter-build behavior persist, moon/sun remain at 72%, and required neon scanline + #060014 styling remains across target portal components.
+
+Next loop priority (iteration 179): execute and persist browser evidence artifacts (screenshots/video/logs) for deep-link + refresh + history + multi-tab gate persistence, then add artifact paths to progress for hard proof.
