@@ -5,3 +5,11 @@ Ralph Loop Iteration 1
 - Found + fixed animation drift: CosmicHeroV2 eclipse recovery now eases continuously to p=0.70 (no abrupt feel near 0.64); verified nova asset, letter-by-letter reveal, and moon 72% match.
 
 Next loop priority (iteration 2): scan all remaining marketing long-form pages (especially /about, /cohorts, /rays/[slug], /methodology) and gate any section teaching detailed ray mechanics beyond teaser depth.
+
+Ralph Loop Iteration 2
+
+- Found + fixed ungated deep-framework pages: /methodology and /cohorts were still teaching too much in public, so both were converted to teaser-first pages with explicit "Discover your Rays — free Stability Check" CTAs.
+- Found + fixed lead-gate message drift: /faq and /preview copy still implied no account/email friction; updated language to match required email unlock flow.
+- Verified quality baselines remained intact: challenge and group-coaching gates are active, CosmicHeroV2 act-5/nova/moon/text sequence is intact, and Tron chart components still carry neon/scanline styling.
+
+Next loop priority (iteration 3): audit dynamic /rays/[slug] pages and long-form /about + /outcomes copy for hidden methodology leakage, then add teaser gating blocks where detailed mechanics still appear.
