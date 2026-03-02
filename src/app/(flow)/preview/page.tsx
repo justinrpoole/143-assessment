@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Gravitational Stability Check — See Where Your Light Is Strongest",
   description:
-    "3 questions. 3 minutes. No account. No email. A free gravitational stability screening that maps Joy, Purpose, and Possibility — the three rays most leaders lose first under load.",
+    "3 questions. 3 minutes. Free Stability Check with email unlock. Discover your signal before you go deeper.",
 };
 
 /* ── static data ───────────────────────────────────────────── */
@@ -73,7 +73,7 @@ export default async function PreviewPage() {
                 className="text-base leading-relaxed max-w-[540px]"
                 style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.70))" }}
               >
-                3 questions. 3 minutes. No account. No email. Just honest answers about the last 30 days.
+                3 questions. 3 minutes. Free Stability Check with email unlock. Just honest answers about the last 30 days.
               </p>
             </div>
             <div className="hidden md:block" aria-hidden="true">

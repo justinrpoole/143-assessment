@@ -4,7 +4,7 @@ import { type FormEvent, useState } from "react";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-export default function GroupCoachingWaitlistForm() {
+export default function GroupCoachingWaitlistForm({ onSuccess }: { onSuccess?: () => void }) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -37,6 +37,7 @@ export default function GroupCoachingWaitlistForm() {
 
       setStatus("success");
       event.currentTarget.reset();
+      onSuccess?.();
     } catch (submitError) {
       setStatus("error");
       setError(
