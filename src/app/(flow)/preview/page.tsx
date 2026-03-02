@@ -163,7 +163,7 @@ export default async function PreviewPage() {
                   style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.70))" }}
                 >
                   3 days. 3 minutes a day. Rewire the filter your brain is running.
-                  No account required. The entry point for everything else.
+                  Email unlock required. The entry point for everything else.
                 </p>
                 <Link
                   href="/143"
