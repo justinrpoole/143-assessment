@@ -1,5 +1,3 @@
 import { redirect } from 'next/navigation';
-
-export default function CorporatePage() {
-  redirect('/organizations');
-}
+export const dynamic = 'force-dynamic';
+export default function CorporatePage() { redirect('/enterprise'); }

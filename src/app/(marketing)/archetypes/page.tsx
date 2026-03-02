@@ -46,7 +46,7 @@ export default function ArchetypesPage() {
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark)" }}
           >
-            Your Light Signature is the pattern your leadership runs on.
+            Your Light Signature is one of 36. Which one are you?
           </h1>
           <p
             className="mx-auto max-w-[540px] text-base leading-relaxed"
@@ -55,10 +55,12 @@ export default function ArchetypesPage() {
             }}
           >
             Nine trainable capacities. Your top two <GoldTooltip tip="One of nine trainable leadership capacities measured by the assessment.">Rays</GoldTooltip> combine into a <GoldTooltip tip="Your unique combination of top two Rays — the pattern your leadership defaults to.">Light
-            Signature</GoldTooltip> — not a personality type, but the operating pattern your
-            system defaults to under real conditions. It changes as you do.
-            One of these 36 is going to feel uncomfortably accurate.
+            Signature</GoldTooltip> — not a personality type, but your current operating pattern under real pressure.
           </p>
+          <div className="flex items-center justify-center gap-3">
+            <NeonGlowButton href="/assessment">Run the full assessment</NeonGlowButton>
+            <LiquidFillButton href="/preview">Discover your Rays — free Stability Check</LiquidFillButton>
+          </div>
         </section>
 
         {/* ─── Social Proof ─── */}

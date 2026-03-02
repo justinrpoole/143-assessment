@@ -508,7 +508,7 @@ function ArchetypeCard({
                 border: `1px solid ${a.neon_color}25`,
               }}
             >
-              {a.identity_code}
+              SIGNAL: {a.identity_code}
             </span>
           </div>
           <ConstellationDot

@@ -1,3 +1,3 @@
 import { redirect } from 'next/navigation';
 export const dynamic = 'force-dynamic';
-export default function CoachPage() { redirect('/coaches'); }
+export default function CoachPage() { redirect('/group-coaching'); }

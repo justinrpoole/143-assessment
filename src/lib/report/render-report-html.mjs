@@ -288,8 +288,8 @@ export function renderReportHtml({
       /* ─── Brand tokens ─── */
       :root {
         --purple: #60058D;
-        --purple-deep: #0B0212;
-        --purple-mid: #3E1D63;
+        --purple-deep: #060014;
+        --purple-mid: #0A0018;
         --purple-glow: rgba(96, 5, 141, 0.35);
         --gold: #F8D011;
         --gold-dim: rgba(248, 208, 17, 0.15);
@@ -299,8 +299,8 @@ export function renderReportHtml({
         --text-primary: #FFFEF5;
         --text-secondary: rgba(255, 254, 245, 0.75);
         --text-muted: rgba(255, 254, 245, 0.45);
-        --card-bg: rgba(96, 5, 141, 0.12);
-        --card-border: rgba(148, 80, 200, 0.2);
+        --card-bg: rgba(0, 0, 0, 0.65);
+        --card-border: rgba(37, 246, 255, 0.18);
         --radius: 12px;
         --gradient: linear-gradient(135deg, #60058D 0%, #F8D011 100%);
       }
@@ -310,7 +310,7 @@ export function renderReportHtml({
       html { font-size: 16px; }
 
       body {
-        font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        font-family: "Space Grotesk", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
         background: var(--purple-deep);
         color: var(--text-primary);
         line-height: 1.6;
@@ -337,6 +337,11 @@ export function renderReportHtml({
         position: relative;
         overflow: hidden;
         page-break-after: always;
+      }
+      .cover-page::after {
+        content:""; position:absolute; inset:0; pointer-events:none;
+        background-image: linear-gradient(rgba(37,246,255,0.06) 1px, transparent 1px), repeating-linear-gradient(transparent 0px, rgba(0,0,0,0.03) 1px, transparent 2px);
+        background-size: 34px 34px, auto;
       }
       .cover-page::before {
         content: "";
@@ -367,7 +372,7 @@ export function renderReportHtml({
         margin-bottom: 24px;
       }
       .cover-title {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 18px;
         font-weight: 400;
         color: var(--text-secondary);
@@ -375,7 +380,7 @@ export function renderReportHtml({
         letter-spacing: 0.04em;
       }
       .cover-archetype {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 52px;
         font-weight: 700;
         color: var(--text-primary);
@@ -428,7 +433,7 @@ export function renderReportHtml({
 
       /* ─── Header ─── */
       .report-header {
-        background: linear-gradient(180deg, rgba(96, 5, 141, 0.3) 0%, var(--purple-deep) 100%);
+        background: linear-gradient(180deg, rgba(10, 0, 24, 0.95) 0%, var(--purple-deep) 100%);
         color: var(--text-primary);
         padding: 56px 40px 48px;
         text-align: center;
@@ -436,7 +441,7 @@ export function renderReportHtml({
         border-bottom: 1px solid var(--gold-border);
       }
       .report-header .brand-mark {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 13px;
         font-weight: 600;
         letter-spacing: 0.18em;
@@ -445,9 +450,11 @@ export function renderReportHtml({
         margin-bottom: 16px;
       }
       .report-header h1 {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
-        font-size: 36px;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
+        font-size: 40px;
         font-weight: 700;
+        color: var(--gold);
+        text-shadow: 0 0 14px rgba(248,208,17,0.4);
         line-height: 1.15;
         margin-bottom: 12px;
         color: var(--text-primary);
@@ -479,7 +486,7 @@ export function renderReportHtml({
         margin-bottom: 12px;
       }
       .light-signature .archetype-name {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 44px;
         font-weight: 700;
         color: var(--text-primary);
@@ -506,7 +513,7 @@ export function renderReportHtml({
         padding: 48px 0 0;
       }
       .section + .section {
-        border-top: 1px solid rgba(148, 80, 200, 0.15);
+        border-top: 1px solid rgba(37, 246, 255, 0.25);
         margin-top: 48px;
       }
       .section-eyebrow {
@@ -518,7 +525,7 @@ export function renderReportHtml({
         margin-bottom: 8px;
       }
       .section h2 {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 26px;
         font-weight: 700;
         color: var(--text-primary);
@@ -535,7 +542,7 @@ export function renderReportHtml({
       /* ─── Identity opener ─── */
       .identity-opener-text {
         font-size: 18px;
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         color: var(--text-primary);
         line-height: 1.6;
         border-left: 3px solid var(--gold);
@@ -567,7 +574,7 @@ export function renderReportHtml({
         margin-bottom: 4px;
       }
       .ray-card-name {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 20px;
         font-weight: 700;
         color: var(--text-primary);
@@ -638,7 +645,7 @@ export function renderReportHtml({
         margin-bottom: 6px;
       }
       .skill-name {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 22px;
         font-weight: 700;
         color: var(--text-primary);
@@ -723,7 +730,7 @@ export function renderReportHtml({
         position: absolute;
         left: 16px;
         top: 14px;
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 18px;
         font-weight: 700;
         color: var(--gold);
@@ -751,7 +758,7 @@ export function renderReportHtml({
         content: counter(path) ".";
         position: absolute;
         left: 0;
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 16px;
         font-weight: 700;
         color: var(--gold);
@@ -774,7 +781,7 @@ export function renderReportHtml({
         margin-bottom: 10px;
       }
       .rise-block .rise-declaration {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 22px;
         font-weight: 700;
         color: var(--black);
@@ -833,7 +840,7 @@ export function renderReportHtml({
       }
       .back-page .back-brand {
         margin-top: 48px;
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 13px;
         color: var(--text-muted);
         letter-spacing: 0.12em;
@@ -841,7 +848,7 @@ export function renderReportHtml({
 
       /* ─── Disclaimer ─── */
       .disclaimer {
-        border-top: 1px solid rgba(148, 80, 200, 0.15);
+        border-top: 1px solid rgba(37, 246, 255, 0.25);
         margin-top: 64px;
         padding-top: 24px;
       }
@@ -859,7 +866,7 @@ export function renderReportHtml({
         padding-bottom: 0;
       }
       .report-footer .footer-mark {
-        font-family: "Iowan Old Style", Palatino, Georgia, serif;
+        font-family: "Orbitron", "Iowan Old Style", Palatino, Georgia, serif;
         font-size: 13px;
         color: var(--text-muted);
         letter-spacing: 0.1em;
