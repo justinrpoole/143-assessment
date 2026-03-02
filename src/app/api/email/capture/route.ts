@@ -1,7 +1,15 @@
+import { appendFile, mkdir } from "node:fs/promises";
+import { dirname, join } from "node:path";
 import { NextResponse } from "next/server";
 
 import { supabaseRestFetch } from "@/lib/db/supabase-rest";
 import { trackEvent } from "@/lib/events";
+
+async function persistLocalCapture(payload: { email: string; source: string; captured_at: string }) {
+  const outPath = process.env.EMAIL_CAPTURE_FALLBACK_PATH ?? join(process.cwd(), ".next", "email-captures-fallback.jsonl");
+  await mkdir(dirname(outPath), { recursive: true });
+  await appendFile(outPath, `${JSON.stringify(payload)}\n`, "utf8");
+}
 
 export async function POST(request: Request) {
   try {
@@ -23,16 +31,23 @@ export async function POST(request: Request) {
 
     const source = name ? `${tag}:${name}` : tag;
 
-    await supabaseRestFetch({
-      restPath: "/email_captures",
-      method: "POST",
-      prefer: "resolution=merge-duplicates",
-      body: {
-        email,
-        source,
-        captured_at: new Date().toISOString(),
-      },
-    });
+    const capturedAt = new Date().toISOString();
+    const record = {
+      email,
+      source,
+      captured_at: capturedAt,
+    };
+
+    try {
+      await supabaseRestFetch({
+        restPath: "/email_captures",
+        method: "POST",
+        prefer: "resolution=merge-duplicates",
+        body: record,
+      });
+    } catch {
+      await persistLocalCapture(record);
+    }
 
     void trackEvent({
       userId: "anonymous",
