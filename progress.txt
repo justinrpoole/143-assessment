@@ -2437,3 +2437,11 @@ Ralph Loop Iteration 29 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
 
 Next loop priority (iteration 30): add explicit contract coverage for apostrophe in local-part (`o'connor@...`) and decide policy (allow vs reject) to finalize punctuation boundary clarity.
+
+Ralph Loop Iteration 29 (2026-03-03, rerun)
+
+- Codified local-part boundary intent with explicit paired contract checks: plus-addressing remains accepted while quoted-local remains rejected in `qa:email-capture-contract`.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after boundary pairing was made explicit.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 30): add one contract assertion for apostrophe local-part (`o'connor@...`) to finalize punctuation policy clarity alongside plus/underscore/quoted boundaries.
