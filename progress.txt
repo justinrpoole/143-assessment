@@ -2695,3 +2695,11 @@ Ralph Loop Iteration 55 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 56): add explicit negative contract coverage for leading mixed apostrophe-dot chain (`'.user@...`) to continue start-boundary parity across punctuation families.
+
+Ralph Loop Iteration 56 (2026-03-03)
+
+- Added explicit negative contract coverage for leading mixed apostrophe-dot chain (`'.user@example.com`) to extend start-boundary mixed-chain parity across punctuation families.
+- Confirmed API invalid semantics remain stable for this case (`400 {error:"invalid_email"}`) while preserving approved internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 57): add explicit negative contract coverage for leading mixed dot-plus chain (`.+user@...`) to complete start-boundary mixed-chain parity with existing plus-dot leading checks.
