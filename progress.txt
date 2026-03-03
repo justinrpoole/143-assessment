@@ -2037,3 +2037,11 @@ Ralph Loop Iteration 4 (2026-03-03)
 - Re-ran the gate E2E suite locally and rechecked content/animation/TRON guardrails; all critical gate routes passed and baseline visual/style constraints remain intact.
 
 Next loop priority (iteration 5): extend `qa:gates-e2e` with explicit negative assertions (e.g., workbook/result selectors absent before submit) so tests prove non-leakage, not just successful unlock.
+
+Ralph Loop Iteration 4 (2026-03-03, rerun)
+
+- Strengthened gate QA beyond happy-path unlocks: `qa:gates-e2e` now includes explicit pre-submit negative assertions that protected content markers are hidden before capture.
+- Verified the updated suite passes for /challenge, /group-coaching, /preview, and /rays/intention, proving both lock-state non-leakage and post-submit unlock behavior in one run.
+- Re-ran content, animation, and TRON guardrail checks; Justin headshot usage and all CosmicHero/TRON baseline constraints remain intact.
+
+Next loop priority (iteration 5): add workflow status badge + short QA docs snippet so contributors know `qa:gates-e2e` is mandatory and how to inspect failure artifacts quickly.
