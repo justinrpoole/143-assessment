@@ -2751,3 +2751,11 @@ Ralph Loop Iteration 59 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 60): add explicit negative contract coverage for trailing multi-symbol inverse chain (`user.+_@...`) to enforce order-independent invalid handling for 3-symbol edge clusters.
+
+Ralph Loop Iteration 59 (2026-03-03, rerun)
+
+- Added explicit negative contract coverage for trailing inverse multi-symbol chain (`user.+_@example.com`) to enforce order-independent invalid handling for 3-symbol edge clusters.
+- Confirmed API invalid semantics remain stable for this case (`400 {error:"invalid_email"}`) while preserving approved internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 60): add explicit negative contract coverage for leading 3-symbol mixed chain (`._+user@...`) to verify symmetric invalid handling across start/end multi-symbol clusters.
