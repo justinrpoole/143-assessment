@@ -218,6 +218,14 @@ async function run() {
   }
   console.log('ok:email-capture:no-tld-domain-invalid');
 
+  const noTldUpperRes = await post({ name: 'QA Contract', email: 'user@COM', tag: 'qa-contract' });
+  if (noTldUpperRes.status !== 400 || noTldUpperRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `no-tld uppercase domain contract failed: status=${noTldUpperRes.status} body=${JSON.stringify(noTldUpperRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:no-tld-uppercase-domain-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
