@@ -118,6 +118,12 @@ async function run() {
   }
   console.log('ok:email-capture:leading-apostrophe-underscore-dot-plus-cluster-invalid');
 
+  const apostropheDotUnderscorePlusLeadingRes = await post({ name: 'QA Contract', email: `'._+user@example.com`, tag: 'qa-contract' });
+  if (apostropheDotUnderscorePlusLeadingRes.status !== 400 || apostropheDotUnderscorePlusLeadingRes.json?.error !== 'invalid_email') {
+    throw new Error(`leading apostrophe-dot-underscore-plus cluster contract failed: status=${apostropheDotUnderscorePlusLeadingRes.status} body=${JSON.stringify(apostropheDotUnderscorePlusLeadingRes.json)}`);
+  }
+  console.log('ok:email-capture:leading-apostrophe-dot-underscore-plus-cluster-invalid');
+
   const apostropheUnderscorePlusDotLeadingRes = await post({ name: 'QA Contract', email: `'_+.user@example.com`, tag: 'qa-contract' });
   if (apostropheUnderscorePlusDotLeadingRes.status !== 400 || apostropheUnderscorePlusDotLeadingRes.json?.error !== 'invalid_email') {
     throw new Error(`leading apostrophe-underscore-plus-dot cluster contract failed: status=${apostropheUnderscorePlusDotLeadingRes.status} body=${JSON.stringify(apostropheUnderscorePlusDotLeadingRes.json)}`);
