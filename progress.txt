@@ -2599,3 +2599,11 @@ Ralph Loop Iteration 49 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 50): add explicit negative contract coverage for apostrophe-plus adjacency near boundary (`user'+@...`) to extend punctuation-order parity with existing apostrophe-hyphen checks.
+
+Ralph Loop Iteration 50 (2026-03-03)
+
+- Added explicit negative contract coverage for apostrophe-plus boundary adjacency (`user'+@example.com`) to extend punctuation-order invalid parity beyond apostrophe-hyphen.
+- Confirmed API invalid semantics remain stable for this case (`400 {error:"invalid_email"}`) while preserving previously approved valid internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 51): add explicit negative contract coverage for plus-apostrophe boundary ordering (`user+'@...`) to complete bidirectional punctuation-order parity for apostrophe/plus pairs.
