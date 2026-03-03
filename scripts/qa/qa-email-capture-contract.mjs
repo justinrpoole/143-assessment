@@ -178,6 +178,14 @@ async function run() {
   }
   console.log('ok:email-capture:consecutive-dot-domain-invalid');
 
+  const consecutiveDotLocalRes = await post({ name: 'QA Contract', email: 'us..er@example.com', tag: 'qa-contract' });
+  if (consecutiveDotLocalRes.status !== 400 || consecutiveDotLocalRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `consecutive-dot local contract failed: status=${consecutiveDotLocalRes.status} body=${JSON.stringify(consecutiveDotLocalRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:consecutive-dot-local-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 

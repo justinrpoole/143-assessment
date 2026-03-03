@@ -16,6 +16,7 @@ function isValidEmail(email: string) {
   const [local, domain, ...rest] = email.split("@");
   if (rest.length > 0 || !local || !domain) return false;
   if (local.length > 64) return false;
+  if (local.startsWith(".") || local.endsWith(".") || local.includes("..")) return false;
 
   const labels = domain.split(".");
   if (labels.length < 2) return false;
