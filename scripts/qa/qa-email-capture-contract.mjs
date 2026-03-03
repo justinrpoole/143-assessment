@@ -79,6 +79,13 @@ async function run() {
   }
   console.log('ok:email-capture:duplicate-idempotent');
 
+  const longName = 'Q'.repeat(1024);
+  const longNameRes = await post({ name: longName, email: `qa.longname.${Date.now()}@example.com`, tag: 'qa-contract' });
+  if (longNameRes.status !== 200 || longNameRes.json?.ok !== true) {
+    throw new Error(`long name contract failed: status=${longNameRes.status} body=${JSON.stringify(longNameRes.json)}`);
+  }
+  console.log('ok:email-capture:long-name');
+
   console.log('qa-email-capture-contract: ok');
 }
 
