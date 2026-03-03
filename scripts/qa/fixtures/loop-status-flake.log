@@ -1,0 +1,3 @@
+[2026-03-03 12:30:50 EST] Exec completed (fast-tid, code 1) :: scripts/qa/qa-gates-e2e.mjs
+Error: locator.click: Timeout 30000ms exceeded.
+Loop 194: unknown — completed

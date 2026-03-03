@@ -4,6 +4,7 @@ import path from 'node:path';
 
 const argPath = process.argv.find((a) => a.startsWith('--file='))?.slice('--file='.length);
 const strictUnclassified = process.argv.includes('--strict-unclassified');
+const expectClassification = process.argv.find((a) => a.startsWith('--expect='))?.slice('--expect='.length);
 let target = argPath
   ? path.resolve(process.cwd(), argPath)
   : path.resolve(process.cwd(), '.qa-artifacts/loop-status.current.log');
@@ -42,6 +43,13 @@ const summary = {
 
 console.log(`qa-loop-status-diagnostics: ${classification}`);
 console.log(JSON.stringify(summary, null, 2));
+
+if (expectClassification && classification !== expectClassification) {
+  console.error(
+    `qa-loop-status-diagnostics: expected ${expectClassification} but got ${classification}`
+  );
+  process.exit(1);
+}
 
 if (strictUnclassified && classification === 'UNKNOWN_UNCLASSIFIED') {
   console.error('qa-loop-status-diagnostics: strict mode failed on UNKNOWN_UNCLASSIFIED');
