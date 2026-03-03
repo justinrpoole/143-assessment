@@ -485,6 +485,14 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-dot-plus-chain-invalid');
 
+  const trailingDotPlusApostropheChainRes = await post({ name: 'QA Contract', email: "user.+'@example.com", tag: 'qa-contract' });
+  if (trailingDotPlusApostropheChainRes.status !== 400 || trailingDotPlusApostropheChainRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `trailing dot-plus-apostrophe chain contract failed: status=${trailingDotPlusApostropheChainRes.status} body=${JSON.stringify(trailingDotPlusApostropheChainRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:trailing-dot-plus-apostrophe-chain-invalid');
+
   const trailingDotLocalRes = await post({ name: 'QA Contract', email: 'user.@example.com', tag: 'qa-contract' });
   if (trailingDotLocalRes.status !== 400 || trailingDotLocalRes.json?.error !== 'invalid_email') {
     throw new Error(
