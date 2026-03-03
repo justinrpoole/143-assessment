@@ -2349,3 +2349,11 @@ Ralph Loop Iteration 23 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
 
 Next loop priority (iteration 24): add a negative contract assertion for zero-width/invisible Unicode separators inside email text to ensure hidden-character payloads are rejected consistently.
+
+Ralph Loop Iteration 24 (2026-03-03)
+
+- Added invisible Unicode separator contract coverage to `qa:email-capture-contract` (`user\uFEFF@example.com`) to ensure hidden-character payloads are consistently rejected (`400 {error:"invalid_email"}`).
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after invisible-separator coverage was added.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 25): add a contract assertion for mixed invalid punctuation in domain labels (e.g., underscore in domain) to tighten RFC-shape boundary handling.
