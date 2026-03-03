@@ -63,6 +63,12 @@ async function run() {
   }
   console.log('ok:email-capture:non-json-content-type');
 
+  const normalized = await post({ name: 'QA Contract', email: '  QA.Normalize+Loop@Example.COM  ', tag: 'qa-contract' });
+  if (normalized.status !== 200 || normalized.json?.ok !== true) {
+    throw new Error(`normalized email contract failed: status=${normalized.status} body=${JSON.stringify(normalized.json)}`);
+  }
+  console.log('ok:email-capture:normalized-email');
+
   console.log('qa-email-capture-contract: ok');
 }
 
