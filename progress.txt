@@ -3345,3 +3345,19 @@ Ralph Loop Iteration 196 (2026-03-03)
 - Revalidated all required lead gates, marketing/headshot checks, CosmicHeroV2 invariants, and TRON styling contracts; mandatory QA stack remained green.
 
 Next loop priority (iteration 197): capture and store a second artifact that includes flaky failure traces (when present) and assert the diagnostics classifier output is stable between clean and flaky logs.
+
+Ralph Loop Iteration 196 (2026-03-03, rerun)
+
+- Revalidated all required lead gates and confirmed no pre-capture leakage on `/challenge`, `/group-coaching`, `/preview`, or framework-detail gate paths.
+- Re-ran full mandatory QA suite and strict loop diagnostics; all required checks passed and diagnostics remained `UNKNOWN_ABSENT` on the artifact log.
+- Reconfirmed marketing/headshot requirements and CosmicHeroV2/TRON invariants remain stable (0.70 eclipse tail, Act-5 sun-nova spring, 72% moon, Orbitron + scanline neon stack).
+
+Next loop priority (iteration 197): add a fixture-based flaky sample log artifact and assert classifier outputs expected `UNKNOWN_LIKELY_FLAKE` vs `UNKNOWN_UNCLASSIFIED` labels for deterministic regression coverage.
+
+Ralph Loop Iteration 197 (2026-03-03)
+
+- Added deterministic fixture coverage for loop diagnostics classification with two sample artifacts: timeout-linked flake (`UNKNOWN_LIKELY_FLAKE`) and unknown-only trace (`UNKNOWN_UNCLASSIFIED`).
+- Extended diagnostics script with `--expect=<CLASS>` assertions and wired `qa:loop-status-diagnostics:fixtures` so classifier regressions fail immediately.
+- Revalidated required lead gates, marketing/headshot constraints, CosmicHeroV2 animation invariants, TRON styling contracts, and mandatory QA stack with strict artifact diagnostics enabled.
+
+Next loop priority (iteration 198): add a third fixture for `UNKNOWN_ABSENT` plus a tiny aggregate smoke script that validates all three classifier outcomes in one command for CI parity.
