@@ -3361,3 +3361,11 @@ Ralph Loop Iteration 197 (2026-03-03)
 - Revalidated required lead gates, marketing/headshot constraints, CosmicHeroV2 animation invariants, TRON styling contracts, and mandatory QA stack with strict artifact diagnostics enabled.
 
 Next loop priority (iteration 198): add a third fixture for `UNKNOWN_ABSENT` plus a tiny aggregate smoke script that validates all three classifier outcomes in one command for CI parity.
+
+Ralph Loop Iteration 198 (2026-03-03)
+
+- Added third diagnostics fixture (`scripts/qa/fixtures/loop-status-clean.log`) to lock expected `UNKNOWN_ABSENT` behavior for clean loop artifacts.
+- Added aggregate parity command `qa:loop-status-diagnostics:triage` to run strict artifact checks plus all three fixture assertions in one pass for consistent local/CI triage.
+- Revalidated lead-gate contracts, marketing/headshot constraints, CosmicHeroV2 invariants, TRON vibe requirements, and full mandatory QA suite with no regressions.
+
+Next loop priority (iteration 199): integrate `qa:loop-status-diagnostics:triage` into the default loop runbook command chain and snapshot classifier outputs into a small JSON artifact for trend diffing.
