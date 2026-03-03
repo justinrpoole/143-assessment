@@ -3071,3 +3071,11 @@ Ralph Loop Iteration 79 (2026-03-03)
 - Re-verified lead-gate coverage, marketing CTA/headshot constraints, CosmicHeroV2 animation invariants, and TRON visual contract markers remain stable.
 
 Next loop priority (iteration 80): add explicit negative contract coverage for leading apostrophe-led alternate shifted insertion (`'+_.${ts}user@...`) to compare stability between pre-chain and mid-chain insertion placement on start-boundary permutations.
+
+Ralph Loop Iteration 79 (2026-03-03, rerun)
+
+- Revalidated lead-gate behavior and marketing exposure controls across `/challenge`, `/group-coaching`, `/preview`, and gated rays detail flows; no leakage regressions detected.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks passing in this rerun.
+- Confirmed CosmicHeroV2 and TRON visual invariants remain intact; apostrophe-led variant invalid semantics stayed stable with API contract unchanged (`400 {error:"invalid_email"}`).
+
+Next loop priority (iteration 80): add explicit negative contract coverage for leading apostrophe-led shifted-token alternate insertion (`'${ts}+_.user@...`) to compare start-boundary insertion-pattern stability against existing apostrophe-led variants.
