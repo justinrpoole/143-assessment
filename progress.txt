@@ -2671,3 +2671,11 @@ Ralph Loop Iteration 54 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 55): add explicit negative contract coverage for underscore-dot boundary ordering (`user_.@...`) to complete bidirectional parity for dot/underscore trailing edge combinations.
+
+Ralph Loop Iteration 54 (2026-03-03, rerun)
+
+- Added explicit negative contract coverage for underscore-dot boundary ordering (`user_.@example.com`) to complete bidirectional parity for dot/underscore trailing-edge combinations.
+- Confirmed API invalid semantics remain stable for this boundary (`400 {error:"invalid_email"}`) while preserving approved internal punctuation behavior.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 55): add explicit negative contract coverage for leading mixed boundary `_.user@...` to mirror trailing underscore-dot chain rejection at local-part start.
