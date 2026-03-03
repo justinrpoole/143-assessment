@@ -49,6 +49,9 @@ jobs:
           QA_ARTIFACTS_DIR: .qa-artifacts/gates-e2e
         run: npm run qa:gates-e2e
 
+      - name: Validate README QA sync
+        run: npm run qa:readme-sync
+
       - name: Upload artifacts on failure
         if: failure()
         uses: actions/upload-artifact@v4
