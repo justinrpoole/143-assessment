@@ -86,6 +86,13 @@ async function run() {
   }
   console.log('ok:email-capture:long-name');
 
+  const longTag = 'tag-' + 'x'.repeat(2048);
+  const longTagRes = await post({ name: 'QA Contract', email: `qa.longtag.${Date.now()}@example.com`, tag: longTag });
+  if (longTagRes.status !== 200 || longTagRes.json?.ok !== true) {
+    throw new Error(`long tag contract failed: status=${longTagRes.status} body=${JSON.stringify(longTagRes.json)}`);
+  }
+  console.log('ok:email-capture:long-tag');
+
   console.log('qa-email-capture-contract: ok');
 }
 
