@@ -61,6 +61,9 @@ jobs:
       - name: Validate gate control presence
         run: npm run qa:gate-controls
 
+      - name: Validate email capture API contract
+        run: npm run qa:email-capture-contract
+
       - name: Publish gate-hero drift summary
         if: always()
         run: |

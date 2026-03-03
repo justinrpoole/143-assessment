@@ -39,6 +39,7 @@
     "qa:cta-copy": "node scripts/qa/qa-cta-copy.mjs",
     "qa:gate-hero-snapshot": "node scripts/qa/qa-gate-hero-snapshot.mjs",
     "qa:gate-controls": "node scripts/qa/qa-gate-controls.mjs",
+    "qa:email-capture-contract": "node scripts/qa/qa-email-capture-contract.mjs",
     "qa:all": "npm run qa:env && npm run qa:events && npm run qa:security && npm run qa:pages && npm run qa:drift-scan && npm run qa:tone && npm run qa:voice-lock && npm run audit:experience && npm run qa:narrative && npm run qa:content && npm run qa:scoring-canonical && npm run qa:score && npm run qa:report && npm run qa:smoke && npm run qa:parity",
     "qa:phase2d": "node scripts/qa/qa-phase2d.mjs",
     "qa:alpha": "node scripts/qa/qa-alpha-pack.mjs",
