@@ -3,11 +3,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const argPath = process.argv.find((a) => a.startsWith('--file='))?.slice('--file='.length);
-const target = argPath ? path.resolve(process.cwd(), argPath) : path.resolve(process.cwd(), 'progress.txt');
+const strictUnclassified = process.argv.includes('--strict-unclassified');
+let target = argPath
+  ? path.resolve(process.cwd(), argPath)
+  : path.resolve(process.cwd(), '.qa-artifacts/loop-status.current.log');
 
 if (!fs.existsSync(target)) {
-  console.log(`qa-loop-status-diagnostics: skip (missing file: ${target})`);
-  process.exit(0);
+  const fallback = path.resolve(process.cwd(), 'progress.txt');
+  if (argPath || !fs.existsSync(fallback)) {
+    console.log(`qa-loop-status-diagnostics: skip (missing file: ${target})`);
+    process.exit(0);
+  }
+  console.log(`qa-loop-status-diagnostics: fallback -> ${path.relative(process.cwd(), fallback)}`);
+  target = fallback;
 }
 
 const text = fs.readFileSync(target, 'utf8');
@@ -34,3 +42,8 @@ const summary = {
 
 console.log(`qa-loop-status-diagnostics: ${classification}`);
 console.log(JSON.stringify(summary, null, 2));
+
+if (strictUnclassified && classification === 'UNKNOWN_UNCLASSIFIED') {
+  console.error('qa-loop-status-diagnostics: strict mode failed on UNKNOWN_UNCLASSIFIED');
+  process.exit(1);
+}

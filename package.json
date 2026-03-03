@@ -37,6 +37,7 @@
     "qa:gates-e2e": "node scripts/qa/qa-gates-e2e.mjs",
     "qa:readme-sync": "node scripts/qa/qa-readme-sync.mjs",
     "qa:loop-status-diagnostics": "node scripts/qa/qa-loop-status-diagnostics.mjs",
+    "qa:loop-status-diagnostics:strict": "node scripts/qa/qa-loop-status-diagnostics.mjs --file=.qa-artifacts/loop-status.current.log --strict-unclassified",
     "qa:cta-copy": "node scripts/qa/qa-cta-copy.mjs",
     "qa:gate-hero-snapshot": "node scripts/qa/qa-gate-hero-snapshot.mjs",
     "qa:gate-controls": "node scripts/qa/qa-gate-controls.mjs",
