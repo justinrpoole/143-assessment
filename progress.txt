@@ -2101,3 +2101,11 @@ Ralph Loop Iteration 8 (2026-03-03)
 - Re-ran full QA stack (`qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified content/headshot, CosmicHero, and TRON baseline constraints with no regressions.
 
 Next loop priority (iteration 9): persist a committed baseline snapshot (golden) and add automated diff output in CI so copy changes are reviewable rather than only pass/fail.
+
+Ralph Loop Iteration 8 (2026-03-03, rerun)
+
+- Upgraded gate-hero snapshot QA from pass/fail-only to baseline drift detection by committing `qa/baselines/gate-hero-copy.baseline.json` and comparing current rendered copy against that golden in `qa:gate-hero-snapshot`.
+- Added actionable drift output and baseline-management flow (`QA_UPDATE_BASELINE=1`) so intentional copy changes can be reviewed and then promoted, while unintentional changes fail CI.
+- Re-ran full QA stack (`qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates, content/headshot, CosmicHero, and TRON constraints with no regressions.
+
+Next loop priority (iteration 9): include a compact line-by-line diff artifact for gate-hero drift failures so reviewers can see exact wording changes directly in CI logs.
