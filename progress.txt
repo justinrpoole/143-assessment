@@ -2125,3 +2125,11 @@ Ralph Loop Iteration 9 (2026-03-03, rerun)
 - Re-ran full verification stack (gate hero snapshot, CTA copy, gate E2E, README sync) and baseline lead-gate/content/animation/TRON checks with no regressions.
 
 Next loop priority (iteration 10): add a tiny PR-comment helper (or CI summary step) that surfaces gate-hero drift diff excerpts directly in workflow summary for faster reviewer visibility.
+
+Ralph Loop Iteration 10 (2026-03-03)
+
+- Implemented reviewer-visibility improvement from last loop: added a `Publish gate-hero drift summary` step in CI that writes the compact drift report excerpt directly to `$GITHUB_STEP_SUMMARY`.
+- Kept artifact coverage intact while improving fast triage: workflow still uploads gate-hero current snapshot + diff file on failure, and now surfaces the top diff lines inline in the run summary.
+- Re-ran full QA stack (`qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) plus lead-gate/content/headshot/CosmicHero/TRON checks; all passed with no regressions.
+
+Next loop priority (iteration 11): add a tiny guard that fails if gate routes return HTTP 200 but miss expected gate form controls (input/button presence) to catch partial-render regressions earlier.
