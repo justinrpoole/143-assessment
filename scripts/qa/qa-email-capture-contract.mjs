@@ -82,6 +82,12 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-plus-local-invalid');
 
+  const leadingPlusRes = await post({ name: 'QA Contract', email: '+user@example.com', tag: 'qa-contract' });
+  if (leadingPlusRes.status !== 400 || leadingPlusRes.json?.error !== 'invalid_email') {
+    throw new Error(`leading-plus local contract failed: status=${leadingPlusRes.status} body=${JSON.stringify(leadingPlusRes.json)}`);
+  }
+  console.log('ok:email-capture:leading-plus-local-invalid');
+
   const quotedLocalRes = await post({ name: 'QA Contract', email: '"quoted"@example.com', tag: 'qa-contract' });
   if (quotedLocalRes.status !== 400 || quotedLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`quoted-local contract failed: status=${quotedLocalRes.status} body=${JSON.stringify(quotedLocalRes.json)}`);
