@@ -3047,3 +3047,11 @@ Ralph Loop Iteration 77 (2026-03-03, rerun)
 - Confirmed apostrophe-led trailing mirror variant invalid semantics remain stable (`400 {error:"invalid_email"}`) alongside CosmicHeroV2/TRON invariant checks.
 
 Next loop priority (iteration 78): add explicit negative contract coverage for apostrophe-led trailing alternate mirror with shifted token (`user'_.+${ts}@...`) to compare ordering stability vs existing trailing mirror variants.
+
+Ralph Loop Iteration 77 (2026-03-03, rerun)
+
+- Added explicit negative contract coverage variant for apostrophe-first trailing shifted-token mirror ordering (`user${ts}'+._@example.com`) to validate insertion-pattern symmetry across apostrophe-led trailing variants.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks pass with no regressions.
+- Re-verified lead-gate flows, marketing CTA/headshot constraints, CosmicHeroV2 invariants, and TRON visual contract markers remained intact.
+
+Next loop priority (iteration 78): add explicit negative contract coverage variant for trailing apostrophe-first alternate mirror (`user'+._${ts}@...`) to compare token insertion placement invariance across the same edge ordering.
