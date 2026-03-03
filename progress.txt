@@ -2543,3 +2543,11 @@ Pre-existing issues: smoothStep tsc error (unrelated tsconfig path issue), Porta
 [2026-03-02] Feature: Three-moment text sequence (mobile + final cleanup)
 Status: DONE
 Notes: Added .row-never-gone to @media (max-width: 600px) with clamp(2.2rem, 10vw, 4rem). Fixed .row-revelation mobile override to clamp(0.6rem, 2.2vw, 0.88rem) — was incorrectly set to 1.9rem-3.2rem from old large version. Fixed stale comment "LIVE JUST IN A RAY OF LIGHT" → "JUST IN A RAY OF LIGHT". ESLint: clean.
+
+Ralph Loop Iteration 46 (2026-03-03)
+
+- Hardened local-part boundary validation by rejecting leading underscore (`_user@...`) in `/api/email/capture`, aligning underscore edge handling on both start and end boundaries.
+- Added explicit `qa:email-capture-contract` negative assertion for leading-underscore local-part input to lock API invalid semantics (`400 {error:"invalid_email"}`).
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON checks with no regressions.
+
+Next loop priority (iteration 47): add explicit contract coverage for local-part starting with a dot (`.user@...`) to confirm boundary parity with existing trailing-dot rejection.
