@@ -2317,3 +2317,11 @@ Ralph Loop Iteration 21 (2026-03-03, rerun)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 22): add an invalid contract assertion for emails containing spaces inside the local-part/domain (e.g., `us er@example.com`) to tighten whitespace-shape boundaries.
+
+Ralph Loop Iteration 22 (2026-03-03)
+
+- Tightened server-side email validation for whitespace-shape boundaries by rejecting internal spaces in local-part/domain (`local.includes(' ')` and `domain.includes(' ')`) inside `/api/email/capture`.
+- Added matching contract assertions to `qa:email-capture-contract` for `us er@example.com` and `user@exa mple.com`, locking stable invalid semantics (`400 {error:"invalid_email"}`).
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 23): add contract coverage for tab/newline whitespace around/inside email values to guarantee all non-space whitespace characters are normalized/rejected consistently.
