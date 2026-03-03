@@ -154,6 +154,12 @@ async function run() {
   }
   console.log('ok:email-capture:leading-hyphen-local-invalid');
 
+  const leadingChainRes = await post({ name: 'QA Contract', email: '-.user@example.com', tag: 'qa-contract' });
+  if (leadingChainRes.status !== 400 || leadingChainRes.json?.error !== 'invalid_email') {
+    throw new Error(`leading-chain boundary contract failed: status=${leadingChainRes.status} body=${JSON.stringify(leadingChainRes.json)}`);
+  }
+  console.log('ok:email-capture:leading-chain-boundary-invalid');
+
   const plusHyphenSeqRes = await post({ name: 'QA Contract', email: 'user+-tag@example.com', tag: 'qa-contract' });
   if (plusHyphenSeqRes.status !== 400 || plusHyphenSeqRes.json?.error !== 'invalid_email') {
     throw new Error(`plus-hyphen sequence contract failed: status=${plusHyphenSeqRes.status} body=${JSON.stringify(plusHyphenSeqRes.json)}`);
