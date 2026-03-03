@@ -83,10 +83,10 @@ async function run() {
   console.log('ok:email-capture:underscore-local-valid');
 
   const percentLocalRes = await post({ name: 'QA Contract', email: `qa%tag.${Date.now()}@example.com`, tag: 'qa-contract' });
-  if (percentLocalRes.status !== 200 || percentLocalRes.json?.ok !== true) {
+  if (percentLocalRes.status !== 400 || percentLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`percent local-part contract failed: status=${percentLocalRes.status} body=${JSON.stringify(percentLocalRes.json)}`);
   }
-  console.log('ok:email-capture:percent-local-valid');
+  console.log('ok:email-capture:percent-local-invalid');
 
   const trailingPlusRes = await post({ name: 'QA Contract', email: 'user+@example.com', tag: 'qa-contract' });
   if (trailingPlusRes.status !== 400 || trailingPlusRes.json?.error !== 'invalid_email') {
