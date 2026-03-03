@@ -2871,3 +2871,11 @@ Ralph Loop Iteration 66 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 67): add explicit negative contract coverage for trailing apostrophe-first plus-dot-underscore permutation (`user'+._@...`) to continue full permutation parity for apostrophe-led 4-symbol trailing boundary blocks.
+
+Ralph Loop Iteration 67 (2026-03-03)
+
+- Added explicit negative contract coverage for trailing apostrophe-first plus-dot-underscore permutation (`user'+._@example.com`) to continue full permutation parity for apostrophe-led 4-symbol trailing boundary blocks.
+- Confirmed API invalid semantics remain stable for this case (`400 {error:"invalid_email"}`) while preserving approved internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 68): add explicit negative contract coverage for trailing apostrophe-first inverse permutation (`user'_.+@...`) to complete order symmetry across apostrophe-led plus/dot/underscore trailing permutations.
