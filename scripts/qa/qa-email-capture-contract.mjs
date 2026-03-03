@@ -537,6 +537,14 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-dot-apostrophe-plus-underscore-chain-invalid');
 
+  const trailingDotApostropheUnderscorePlusChainRes = await post({ name: 'QA Contract', email: "user.'_+@example.com", tag: 'qa-contract' });
+  if (trailingDotApostropheUnderscorePlusChainRes.status !== 400 || trailingDotApostropheUnderscorePlusChainRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `trailing dot-apostrophe-underscore-plus chain contract failed: status=${trailingDotApostropheUnderscorePlusChainRes.status} body=${JSON.stringify(trailingDotApostropheUnderscorePlusChainRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:trailing-dot-apostrophe-underscore-plus-chain-invalid');
+
   const trailingDotLocalRes = await post({ name: 'QA Contract', email: 'user.@example.com', tag: 'qa-contract' });
   if (trailingDotLocalRes.status !== 400 || trailingDotLocalRes.json?.error !== 'invalid_email') {
     throw new Error(
