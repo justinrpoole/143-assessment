@@ -2783,3 +2783,11 @@ Ralph Loop Iteration 61 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 62): add explicit negative contract coverage for trailing 3-symbol mixed chain with apostrophe middle ordering (`user._'+@...`) to broaden order-independence checks beyond plus/underscore triads.
+
+Ralph Loop Iteration 61 (2026-03-03, rerun)
+
+- Added explicit negative contract coverage for trailing mixed dot-plus-apostrophe chain (`user.+'@example.com`) to broaden order-independent invalid handling across punctuation triads.
+- Confirmed API invalid semantics remain stable for this case (`400 {error:"invalid_email"}`) while preserving approved internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 62): add explicit negative contract coverage for leading triad apostrophe-middle ordering (`._'+user@...`) to continue order-independence checks across start-boundary mixed punctuation triads.
