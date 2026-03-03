@@ -13,6 +13,8 @@ async function persistLocalCapture(payload: { email: string; source: string; cap
 
 function isValidEmail(email: string) {
   if (!email || !email.includes("@") || email.length > 254) return false;
+  if (/[\u200B\u200C\u200D\u2060\uFEFF]/.test(email)) return false;
+
   const [local, domain, ...rest] = email.split("@");
   if (rest.length > 0 || !local || !domain) return false;
   if (local.length > 64) return false;

@@ -270,6 +270,14 @@ async function run() {
   }
   console.log('ok:email-capture:unicode-whitespace-trimmed-valid');
 
+  const zeroWidthSepRes = await post({ name: 'QA Contract', email: `user\u200B@example.com`, tag: 'qa-contract' });
+  if (zeroWidthSepRes.status !== 400 || zeroWidthSepRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `zero-width separator email contract failed: status=${zeroWidthSepRes.status} body=${JSON.stringify(zeroWidthSepRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:zero-width-separator-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
