@@ -2453,3 +2453,11 @@ Ralph Loop Iteration 29 (2026-03-03, rerun)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 30): add one negative contract assertion for apostrophe at local-part boundary (`'user@...` / `user'@...`) if product policy should allow apostrophes only internally.
+
+Ralph Loop Iteration 30 (2026-03-03)
+
+- Locked apostrophe-edge local-part boundaries by adding explicit invalid checks for leading/trailing apostrophe positions while preserving internal apostrophe acceptance coverage.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks pass after apostrophe-edge contract additions.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 31): add contract coverage for mixed punctuation sequence edges (e.g., "+-" or "-+" adjacent in local-part) if policy should forbid ambiguous punctuation runs.
