@@ -142,6 +142,12 @@ async function run() {
   }
   console.log('ok:email-capture:hyphen-plus-sequence-invalid');
 
+  const doubleHyphenRes = await post({ name: 'QA Contract', email: 'user--tag@example.com', tag: 'qa-contract' });
+  if (doubleHyphenRes.status !== 400 || doubleHyphenRes.json?.error !== 'invalid_email') {
+    throw new Error(`double-hyphen sequence contract failed: status=${doubleHyphenRes.status} body=${JSON.stringify(doubleHyphenRes.json)}`);
+  }
+  console.log('ok:email-capture:double-hyphen-sequence-invalid');
+
   const quotedLocalRes = await post({ name: 'QA Contract', email: '"quoted"@example.com', tag: 'qa-contract' });
   if (quotedLocalRes.status !== 400 || quotedLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`quoted-local contract failed: status=${quotedLocalRes.status} body=${JSON.stringify(quotedLocalRes.json)}`);
