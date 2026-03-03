@@ -2285,3 +2285,11 @@ Ralph Loop Iteration 19 (2026-03-03, rerun)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 20): add one invalid-email assertion for consecutive dots in the local-part with surrounding edge punctuation (e.g., `.user@` and `user.@`) to finish dot-placement boundary coverage.
+
+Ralph Loop Iteration 20 (2026-03-03)
+
+- Added local-part dot-placement invalid coverage to `qa:email-capture-contract` for `.user@example.com` and `user.@example.com`, locking stable invalid semantics (`400 {error:"invalid_email"}`).
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after dot-edge contract additions.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 21): add a negative contract assertion for whitespace-only email input after trimming to ensure empty-normalized emails always return stable invalid semantics.
