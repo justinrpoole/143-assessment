@@ -154,6 +154,22 @@ async function run() {
   }
   console.log('ok:email-capture:single-label-domain-invalid');
 
+  const leadingHyphenLabelRes = await post({ name: 'QA Contract', email: 'user@-bad.com', tag: 'qa-contract' });
+  if (leadingHyphenLabelRes.status !== 400 || leadingHyphenLabelRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `leading-hyphen label contract failed: status=${leadingHyphenLabelRes.status} body=${JSON.stringify(leadingHyphenLabelRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:leading-hyphen-label-invalid');
+
+  const trailingHyphenLabelRes = await post({ name: 'QA Contract', email: 'user@bad-.com', tag: 'qa-contract' });
+  if (trailingHyphenLabelRes.status !== 400 || trailingHyphenLabelRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `trailing-hyphen label contract failed: status=${trailingHyphenLabelRes.status} body=${JSON.stringify(trailingHyphenLabelRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:trailing-hyphen-label-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
