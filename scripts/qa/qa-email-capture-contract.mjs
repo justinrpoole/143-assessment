@@ -146,6 +146,14 @@ async function run() {
   }
   console.log('ok:email-capture:overlong-domain-label-invalid');
 
+  const singleLabelDomainRes = await post({ name: 'QA Contract', email: 'user@localhost', tag: 'qa-contract' });
+  if (singleLabelDomainRes.status !== 400 || singleLabelDomainRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `single-label domain contract failed: status=${singleLabelDomainRes.status} body=${JSON.stringify(singleLabelDomainRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:single-label-domain-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
