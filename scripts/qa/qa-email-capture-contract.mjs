@@ -278,6 +278,14 @@ async function run() {
   }
   console.log('ok:email-capture:zero-width-separator-invalid');
 
+  const bomCharRes = await post({ name: 'QA Contract', email: `user\uFEFF@example.com`, tag: 'qa-contract' });
+  if (bomCharRes.status !== 400 || bomCharRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `BOM-char email contract failed: status=${bomCharRes.status} body=${JSON.stringify(bomCharRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:bom-char-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
