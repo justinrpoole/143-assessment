@@ -88,6 +88,12 @@ async function run() {
   }
   console.log('ok:email-capture:apostrophe-local-valid');
 
+  const apostropheHyphenInternalRes = await post({ name: 'QA Contract', email: `oconnor-a.o'connor.${Date.now()}@example.com`, tag: 'qa-contract' });
+  if (apostropheHyphenInternalRes.status !== 200 || apostropheHyphenInternalRes.json?.ok !== true) {
+    throw new Error(`apostrophe-hyphen internal local contract failed: status=${apostropheHyphenInternalRes.status} body=${JSON.stringify(apostropheHyphenInternalRes.json)}`);
+  }
+  console.log('ok:email-capture:apostrophe-hyphen-internal-valid');
+
   const apostropheBoundaryRes = await post({ name: 'QA Contract', email: `'oconnor@example.com`, tag: 'qa-contract' });
   if (apostropheBoundaryRes.status !== 400 || apostropheBoundaryRes.json?.error !== 'invalid_email') {
     throw new Error(`leading-apostrophe local contract failed: status=${apostropheBoundaryRes.status} body=${JSON.stringify(apostropheBoundaryRes.json)}`);
