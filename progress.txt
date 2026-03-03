@@ -3183,3 +3183,11 @@ Ralph Loop Iteration 86 (2026-03-03)
 - Re-verified lead-gate behavior, marketing CTA/headshot constraints, CosmicHeroV2 animation invariants, and TRON visual contract markers remain stable.
 
 Next loop priority (iteration 87): add parity coverage for mirrored apostrophe-led shifted dot-underscore-plus double-tokenized insertion (`'${ts}._+user${Date.now()}${Date.now()}@...`) and assert against observed API semantics.
+
+Ralph Loop Iteration 86 (2026-03-03, rerun)
+
+- Revalidated all lead-gate requirements (`/challenge`, `/group-coaching`, `/preview`, and gated framework-detail routes) and confirmed no pre-capture content leakage.
+- Re-ran full regression suite (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing.
+- Reconfirmed marketing/headshot constraints plus CosmicHeroV2/TRON invariants remain intact (0.70 eclipse tail, 143-sun-nova spring, 72% moon, Orbitron+neon+scanlines on #060014).
+
+Next loop priority (iteration 87): add parity coverage for mirrored apostrophe-led shifted dot-underscore-plus double-tokenized insertion (`'${ts}._+user${Date.now()}${Date.now()}@...`) and assert against observed API semantics.
