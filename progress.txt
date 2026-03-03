@@ -2045,3 +2045,11 @@ Ralph Loop Iteration 4 (2026-03-03, rerun)
 - Re-ran content, animation, and TRON guardrail checks; Justin headshot usage and all CosmicHero/TRON baseline constraints remain intact.
 
 Next loop priority (iteration 5): add workflow status badge + short QA docs snippet so contributors know `qa:gates-e2e` is mandatory and how to inspect failure artifacts quickly.
+
+Ralph Loop Iteration 5 (2026-03-03)
+
+- Closed the documentation gap from the prior loop: README now includes a live `QA Gates E2E` workflow badge plus concise run/debug instructions for `qa:gates-e2e` and failure artifact locations.
+- Found and fixed a flaky challenge-route assertion path in gate automation; `qa:gates-e2e` now submits via Enter on email with button-click fallback, improving reliability while preserving lock/unlock + non-leakage assertions.
+- Re-ran the full gate suite and spot-checked content/animation/TRON baselines (headshot usage, CosmicHero timing constraints, and #060014 Orbitron scanline chart styling) with no regressions detected.
+
+Next loop priority (iteration 6): add a lightweight smoke check in CI that verifies the README badge workflow link target is valid and that gate QA docs stay synchronized with actual npm scripts.
