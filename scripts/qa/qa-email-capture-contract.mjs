@@ -45,11 +45,6 @@ async function run() {
   }
   console.log('ok:email-capture:invalid-email');
 
-  const quotedLocalRes = await post({ name: 'QA Contract', email: '"quoted"@example.com', tag: 'qa-contract' });
-  if (quotedLocalRes.status !== 400 || quotedLocalRes.json?.error !== 'invalid_email') {
-    throw new Error(`quoted-local contract failed: status=${quotedLocalRes.status} body=${JSON.stringify(quotedLocalRes.json)}`);
-  }
-  console.log('ok:email-capture:quoted-local-invalid');
 
   const malformed = await postRaw('{"email":');
   if (malformed.status !== 400 || malformed.json?.error !== 'invalid_email') {
@@ -80,6 +75,12 @@ async function run() {
     throw new Error(`plus-addressing contract failed: status=${plusAddressingRes.status} body=${JSON.stringify(plusAddressingRes.json)}`);
   }
   console.log('ok:email-capture:plus-addressing-valid');
+
+  const quotedLocalRes = await post({ name: 'QA Contract', email: '"quoted"@example.com', tag: 'qa-contract' });
+  if (quotedLocalRes.status !== 400 || quotedLocalRes.json?.error !== 'invalid_email') {
+    throw new Error(`quoted-local contract failed: status=${quotedLocalRes.status} body=${JSON.stringify(quotedLocalRes.json)}`);
+  }
+  console.log('ok:email-capture:quoted-local-invalid');
 
   const dupEmail = `qa.dup.${Date.now()}@example.com`;
   const firstDup = await post({ name: 'QA Contract', email: dupEmail, tag: 'qa-contract' });
