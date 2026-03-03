@@ -2157,3 +2157,11 @@ Ralph Loop Iteration 11 (2026-03-03, rerun)
 - Re-validated lead-gate behavior, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON component styling baselines with no regressions.
 
 Next loop priority (iteration 12): add explicit contract assertion for missing `email` field payload (`{}`) to keep validation semantics locked across malformed and incomplete request bodies.
+
+Ralph Loop Iteration 12 (2026-03-03)
+
+- Extended `/api/email/capture` contract QA to cover missing-email payload semantics (`{}`/no email) and verified stable `400 {error:"invalid_email"}` behavior for incomplete request bodies.
+- Re-ran the full QA pipeline (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing.
+- Re-validated lead gates, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions this iteration.
+
+Next loop priority (iteration 13): add one contract assertion for non-JSON content-type payloads to lock error behavior when clients send plain text or malformed headers.
