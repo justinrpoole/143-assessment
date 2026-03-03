@@ -142,6 +142,12 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-hyphen-local-invalid');
 
+  const dotHyphenBoundaryRes = await post({ name: 'QA Contract', email: 'user.-@example.com', tag: 'qa-contract' });
+  if (dotHyphenBoundaryRes.status !== 400 || dotHyphenBoundaryRes.json?.error !== 'invalid_email') {
+    throw new Error(`dot-hyphen boundary contract failed: status=${dotHyphenBoundaryRes.status} body=${JSON.stringify(dotHyphenBoundaryRes.json)}`);
+  }
+  console.log('ok:email-capture:dot-hyphen-boundary-invalid');
+
   const leadingHyphenLocalRes = await post({ name: 'QA Contract', email: '-user@example.com', tag: 'qa-contract' });
   if (leadingHyphenLocalRes.status !== 400 || leadingHyphenLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`leading-hyphen local contract failed: status=${leadingHyphenLocalRes.status} body=${JSON.stringify(leadingHyphenLocalRes.json)}`);
