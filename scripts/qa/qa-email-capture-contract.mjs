@@ -433,6 +433,14 @@ async function run() {
   }
   console.log('ok:email-capture:leading-dot-underscore-chain-invalid');
 
+  const leadingDotHyphenChainRes = await post({ name: 'QA Contract', email: '.-user@example.com', tag: 'qa-contract' });
+  if (leadingDotHyphenChainRes.status !== 400 || leadingDotHyphenChainRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `leading dot-hyphen chain contract failed: status=${leadingDotHyphenChainRes.status} body=${JSON.stringify(leadingDotHyphenChainRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:leading-dot-hyphen-chain-invalid');
+
   const leadingDotApostropheChainRes = await post({ name: 'QA Contract', email: ".'user@example.com", tag: 'qa-contract' });
   if (leadingDotApostropheChainRes.status !== 400 || leadingDotApostropheChainRes.json?.error !== 'invalid_email') {
     throw new Error(
