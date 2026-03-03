@@ -2253,3 +2253,11 @@ Ralph Loop Iteration 17 (2026-03-03, rerun)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 18): add an assertion for single-label domains (e.g., `user@localhost`) to guarantee consistent invalid-email semantics for no-TLD shapes.
+
+Ralph Loop Iteration 18 (2026-03-03)
+
+- Added explicit no-TLD / single-label domain coverage to `qa:email-capture-contract` (`user@localhost`) to lock consistent invalid-email semantics (`400 {error:"invalid_email"}`).
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after the new negative assertion.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 19): add contract coverage for domain labels with leading/trailing hyphens to enforce stricter email-shape validation boundaries.
