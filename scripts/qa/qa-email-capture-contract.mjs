@@ -210,6 +210,14 @@ async function run() {
   }
   console.log('ok:email-capture:whitespace-only-email-invalid');
 
+  const noTldComRes = await post({ name: 'QA Contract', email: 'user@com', tag: 'qa-contract' });
+  if (noTldComRes.status !== 400 || noTldComRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `no-tld domain contract failed: status=${noTldComRes.status} body=${JSON.stringify(noTldComRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:no-tld-domain-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
