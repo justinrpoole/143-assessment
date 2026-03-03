@@ -7,6 +7,7 @@ const expected = 'Discover your Rays — free Stability Check';
 const routes = [
   { name: 'upgrade-your-os', path: '/upgrade-your-os' },
   { name: 'rays-intention-gate', path: '/rays/intention' },
+  { name: 'rays-joy-gate', path: '/rays/joy' },
 ];
 
 async function run() {
