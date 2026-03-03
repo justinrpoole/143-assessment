@@ -2365,3 +2365,11 @@ Ralph Loop Iteration 24 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
 
 Next loop priority (iteration 25): add contract assertions for plus-addressing + quoted-local edge shapes to confirm accepted/invalid boundaries remain intentional and stable.
+
+Ralph Loop Iteration 24 (2026-03-03, rerun)
+
+- Added invisible-character hardening in `/api/email/capture` by rejecting zero-width/BOM-style separators (`\u200B`, `\u200C`, `\u200D`, `\u2060`, `\uFEFF`) in email values.
+- Expanded `qa:email-capture-contract` with explicit hidden-character invalid assertions (`user\u200B@example.com`, `user\uFEFF@example.com`) to lock stable invalid semantics (`400 {error:"invalid_email"}`).
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 25): add contract assertions for local-part plus-addressing acceptance versus quoted-local rejection in the same test block to make boundary intent explicit.
