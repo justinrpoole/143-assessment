@@ -2397,3 +2397,11 @@ Ralph Loop Iteration 26 (2026-03-03, rerun)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 27): add a negative contract assertion for trailing hyphen in local-part (`user-@example.com`) only if product policy intends to disallow terminal punctuation beyond plus/dot boundaries.
+
+Ralph Loop Iteration 27 (2026-03-03)
+
+- Completed plus-edge symmetry hardening in the capture API by rejecting leading-plus local parts server-side (`+user@...`) in addition to trailing-plus rejection.
+- Added explicit `qa:email-capture-contract` coverage for leading-plus invalid input while keeping internal plus-addressing acceptance intact, locking intended boundary behavior.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 28): add one negative contract assertion for repeated plus punctuation edge (`user++tag@example.com`) if product policy should disallow stacked plus tokens.
