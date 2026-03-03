@@ -5,6 +5,7 @@ import { chromium } from 'playwright';
 
 const baseUrl = process.env.QA_BASE_URL || 'http://127.0.0.1:3000';
 const outPath = path.join(process.cwd(), '.qa-artifacts', 'gate-hero-copy.current.json');
+const diffPath = path.join(process.cwd(), '.qa-artifacts', 'gate-hero-copy.diff.txt');
 const baselinePath = path.join(process.cwd(), 'qa', 'baselines', 'gate-hero-copy.baseline.json');
 const updateBaseline = process.env.QA_UPDATE_BASELINE === '1';
 
@@ -134,9 +135,12 @@ async function run() {
     }
 
     if (drifts.length > 0) {
-      throw new Error(`Gate hero copy drift detected (compact diff).\n${drifts.join('\n')}`);
+      const report = `Gate hero copy drift detected (compact diff).\n${drifts.join('\n')}`;
+      await fs.writeFile(diffPath, `${report}\n`, 'utf8');
+      throw new Error(report);
     }
 
+    await fs.writeFile(diffPath, 'No gate-hero copy drift detected.\n', 'utf8');
     console.log(`qa-gate-hero-snapshot: ok (${outPath})`);
   } finally {
     await browser.close();

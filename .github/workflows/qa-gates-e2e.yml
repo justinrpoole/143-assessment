@@ -66,5 +66,6 @@ jobs:
           path: |
             .qa-artifacts/gates-e2e
             .qa-artifacts/gate-hero-copy.current.json
+            .qa-artifacts/gate-hero-copy.diff.txt
             /tmp/qa-gates-start.log
           if-no-files-found: ignore
