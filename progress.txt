@@ -3111,3 +3111,11 @@ Ralph Loop Iteration 81 (2026-03-03, rerun)
 - Reconfirmed homepage/headshot usage and CosmicHeroV2/TRON style invariants (Orbitron, neon glow, scanlines, #060014) remain intact.
 
 Next loop priority (iteration 82): add explicit negative contract coverage for leading apostrophe-led shifted alternate ordering (`'${ts}+._user@...`) to complete start-boundary apostrophe-first permutation parity.
+
+Ralph Loop Iteration 82 (2026-03-03)
+
+- Added explicit negative contract coverage for leading apostrophe-led shifted alternate ordering (`'${ts}+._user@...`) to extend apostrophe-first start-boundary insertion parity.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks pass with no regressions.
+- Re-verified lead gates, marketing CTA/headshot constraints, CosmicHeroV2 animation invariants, and TRON visual contracts remain intact.
+
+Next loop priority (iteration 83): add explicit parity coverage for apostrophe-led shifted boundary with trailing tokenized insertion (`'${ts}+._user${Date.now()}@...`) and align assertion to observed API semantics.
