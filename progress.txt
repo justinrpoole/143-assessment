@@ -2591,3 +2591,11 @@ Ralph Loop Iteration 49 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 50): add negative contract coverage for mixed underscore-plus adjacency (`_+user@...` or `user+_@...`) to confirm punctuation adjacency policy remains consistent beyond hyphen/dot chains.
+
+Ralph Loop Iteration 49 (2026-03-03, rerun)
+
+- Added explicit negative contract coverage for underscore/plus adjacency edge cases (`user+_@...` and `_+user@...`) to ensure mixed punctuation boundaries remain invalid.
+- Confirmed API contract remains stable on both new cases (`400 {error:"invalid_email"}`) while preserving accepted internal punctuation patterns.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 50): add explicit negative contract coverage for apostrophe-plus adjacency near boundary (`user'+@...`) to extend punctuation-order parity with existing apostrophe-hyphen checks.
