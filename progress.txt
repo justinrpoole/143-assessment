@@ -2951,3 +2951,11 @@ Ralph Loop Iteration 71 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 72): add explicit negative contract coverage for apostrophe-first trailing mirror variant (`user'+._${ts}@...`) to validate start/end variant symmetry for apostrophe-led mixed 4-symbol boundary permutations.
+
+Ralph Loop Iteration 72 (2026-03-03)
+
+- Added explicit negative contract coverage variant for apostrophe-first alternate start ordering (`'+_.user${ts}@example.com`) to ensure variant-stable invalid handling across apostrophe-led start-boundary permutations.
+- Confirmed API invalid semantics remain stable for this variant (`400 {error:"invalid_email"}`) while preserving approved internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 73): add explicit negative contract coverage variant for apostrophe-first trailing mirror ordering (`user'+._${ts}@...`) to validate start/end variant symmetry across apostrophe-led mixed 4-symbol boundary permutations.
