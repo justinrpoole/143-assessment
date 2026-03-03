@@ -44,16 +44,16 @@ export default function LightCheckOrchestrator() {
 
   if (!gateOpen) {
     return (
-      <section className="glass-card p-6 sm:p-8 max-w-[720px] mx-auto space-y-4" style={{ borderColor: 'rgba(248,208,17,0.2)' }}>
-        <p className="text-xs uppercase tracking-widest font-bold" style={{ color: '#F8D011' }}>Start free stability check</p>
-        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+      <section className="glass-card p-6 sm:p-8 max-w-[720px] mx-auto space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+        <p className="text-xs uppercase tracking-widest font-bold" style={{ color: 'var(--gold-primary)' }}>Start free stability check</p>
+        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-body)' }}>
           Enter your name and email to unlock your 3-question check.
         </h3>
         <div className="grid gap-3 sm:grid-cols-2">
-          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="rounded-xl border px-4 py-3 text-sm" style={{ borderColor: 'rgba(248,208,17,0.25)', background: 'rgba(0,0,0,0.3)', color: '#FFFEF5' }} />
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="rounded-xl border px-4 py-3 text-sm" style={{ borderColor: 'rgba(248,208,17,0.25)', background: 'rgba(0,0,0,0.3)', color: '#FFFEF5' }} />
+          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="rounded-xl border px-4 py-3 text-sm" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)', background: 'color-mix(in srgb, var(--ink-950) 30%, transparent)', color: 'var(--text-body)' }} />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="rounded-xl border px-4 py-3 text-sm" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)', background: 'color-mix(in srgb, var(--ink-950) 30%, transparent)', color: 'var(--text-body)' }} />
         </div>
-        <button type="button" onClick={() => void unlockCheck()} disabled={submitting || !name.trim() || !email.trim()} className="rounded-xl px-5 py-3 text-sm font-bold" style={{ background: '#F8D011', color: '#020202', opacity: submitting ? 0.8 : 1 }}>
+        <button type="button" onClick={() => void unlockCheck()} disabled={submitting || !name.trim() || !email.trim()} className="rounded-xl px-5 py-3 text-sm font-bold" style={{ background: 'var(--gold-primary)', color: 'var(--ink-950)', opacity: submitting ? 0.8 : 1 }}>
           {submitting ? 'Unlocking…' : 'Unlock Free Stability Check'}
         </button>
       </section>

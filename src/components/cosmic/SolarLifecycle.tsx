@@ -45,11 +45,11 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label="Solar lifecycle phases">
         <defs>
           <linearGradient id="sl-bg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#3A0A5E" />
+            <stop offset="0%" stopColor="var(--text-body)" />
             <stop offset="50%" stopColor="var(--cosmic-svg-bg)" />
             <stop offset="100%" stopColor="var(--cosmic-purple-vivid)" />
           </linearGradient>
-          <filter id="sl-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="sl-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="6" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -63,7 +63,7 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
         <rect width={W} height={H} rx="12" fill="url(#sl-bg)" />
 
         {/* Warm haze on right side */}
-        <rect x={W * 0.65} y={0} width={W * 0.35} height={H} fill="#F4C430" opacity={0.03} rx="0" />
+        <rect x={W * 0.65} y={0} width={W * 0.35} height={H} fill="var(--gold-primary)" opacity={0.03} rx="0" />
 
         {/* Connecting threads */}
         {PHASES.map((_, i) => {
@@ -77,7 +77,7 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
               y1={H / 2}
               x2={x2}
               y2={H / 2}
-              stroke="#F4C430"
+              stroke="var(--gold-primary)"
               strokeWidth={0.8}
               strokeOpacity={0.12}
               strokeDasharray="4 6"
@@ -99,13 +99,13 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
                   cx={x + (seededRandom(i * 5) - 0.5) * 30}
                   cy={y + (seededRandom(i * 5 + 1) - 0.5) * 25}
                   r={12 + seededRandom(i * 5 + 2) * 15}
-                  fill="#3A0A5E"
+                  fill="var(--violet-650)"
                   opacity={0.6 + seededRandom(i * 5 + 3) * 0.3}
                 />
               ))}
               {/* Faint gold point within */}
-              <circle cx={x} cy={y} r={2} fill="#F4C430" opacity={isCurrent ? 0.5 : 0.15} />
-              {isCurrent && <circle cx={x} cy={y} r={30} fill="none" stroke="#F4C430" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
+              <circle cx={x} cy={y} r={2} fill="var(--gold-primary)" opacity={isCurrent ? 0.5 : 0.15} />
+              {isCurrent && <circle cx={x} cy={y} r={30} fill="none" stroke="var(--gold-primary)" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
             </g>
           );
         })()}
@@ -127,7 +127,7 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
                     cy={y + Math.sin(angle) * 14}
                     rx={10}
                     ry={8}
-                    fill="#3A0A5E"
+                    fill="var(--violet-650)"
                     opacity={0.5}
                     initial={false}
                     animate={
@@ -140,9 +140,9 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
                 );
               })}
               {/* Warm center */}
-              <circle cx={x} cy={y} r={10} fill="#E8A317" opacity={isCurrent ? 0.7 : 0.4} />
-              <circle cx={x} cy={y} r={4} fill="#F4C430" opacity={0.6} />
-              {isCurrent && <circle cx={x} cy={y} r={30} fill="none" stroke="#F4C430" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
+              <circle cx={x} cy={y} r={10} fill="var(--neon-amber)" opacity={isCurrent ? 0.7 : 0.4} />
+              <circle cx={x} cy={y} r={4} fill="var(--gold-primary)" opacity={0.6} />
+              {isCurrent && <circle cx={x} cy={y} r={30} fill="none" stroke="var(--gold-primary)" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
             </g>
           );
         })()}
@@ -154,8 +154,8 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
           const isCurrent = currentPhase === 3;
           return (
             <g>
-              <circle cx={x} cy={y} r={16} fill="#F4C430" opacity={isCurrent ? 0.85 : 0.6} filter="url(#sl-glow)" />
-              <circle cx={x} cy={y} r={8} fill="#FFFFFF" opacity={0.5} />
+              <circle cx={x} cy={y} r={16} fill="var(--gold-primary)" opacity={isCurrent ? 0.85 : 0.6} filter="url(#sl-glow)" />
+              <circle cx={x} cy={y} r={8} fill="var(--text-body)" opacity={0.5} />
               {/* Solar flares */}
               {[45, 135, 270].map((deg, i) => {
                 const rad = (deg * Math.PI) / 180;
@@ -164,7 +164,7 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
                     key={i}
                     d={`M ${x + Math.cos(rad) * 16} ${y + Math.sin(rad) * 16} Q ${x + Math.cos(rad) * 35} ${y + Math.sin(rad) * 35 - 10} ${x + Math.cos(rad) * 28} ${y + Math.sin(rad) * 28 + 8}`}
                     fill="none"
-                    stroke="#F4C430"
+                    stroke="var(--gold-primary)"
                     strokeWidth={2}
                     strokeOpacity={0.5}
                     initial={false}
@@ -177,9 +177,9 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
               {Array.from({ length: 6 }).map((_, i) => {
                 const angle = seededRandom(i * 9) * Math.PI * 2;
                 const dist = 22 + seededRandom(i * 9 + 1) * 20;
-                return <circle key={i} cx={x + Math.cos(angle) * dist} cy={y + Math.sin(angle) * dist} r={1} fill="#F4C430" opacity={0.4} />;
+                return <circle key={i} cx={x + Math.cos(angle) * dist} cy={y + Math.sin(angle) * dist} r={1} fill="var(--gold-primary)" opacity={0.4} />;
               })}
-              {isCurrent && <circle cx={x} cy={y} r={35} fill="none" stroke="#F4C430" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
+              {isCurrent && <circle cx={x} cy={y} r={35} fill="none" stroke="var(--gold-primary)" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
             </g>
           );
         })()}
@@ -191,8 +191,8 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
           const isCurrent = currentPhase === 4;
           return (
             <g>
-              <circle cx={x} cy={y} r={20} fill="#F4C430" opacity={isCurrent ? 0.9 : 0.65} filter="url(#sl-glow)" />
-              <circle cx={x} cy={y} r={10} fill="#FFFFFF" opacity={0.6} />
+              <circle cx={x} cy={y} r={20} fill="var(--gold-primary)" opacity={isCurrent ? 0.9 : 0.65} filter="url(#sl-glow)" />
+              <circle cx={x} cy={y} r={10} fill="var(--text-body)" opacity={0.6} />
               {/* 12 sharp beam points */}
               {Array.from({ length: 12 }).map((_, i) => {
                 const angle = (i / 12) * Math.PI * 2;
@@ -203,14 +203,14 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
                     y1={y + Math.sin(angle) * 22}
                     x2={x + Math.cos(angle) * 34}
                     y2={y + Math.sin(angle) * 34}
-                    stroke="#F4C430"
+                    stroke="var(--gold-primary)"
                     strokeWidth={2}
                     strokeOpacity={isCurrent ? 0.7 : 0.4}
                   />
                 );
               })}
               {/* Five ray-colored beams */}
-              {['#F4C430', '#C0392B', '#8E44AD', '#1ABC9C', '#D4770B'].map((color, i) => {
+              {['var(--gold-primary)', 'var(--text-body)', 'var(--neon-violet)', 'var(--text-body)', 'var(--neon-amber)'].map((color, i) => {
                 const angle = (i / 5) * Math.PI * 2 - Math.PI / 2;
                 return (
                   <line
@@ -225,7 +225,7 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
                   />
                 );
               })}
-              {isCurrent && <circle cx={x} cy={y} r={40} fill="none" stroke="#F4C430" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
+              {isCurrent && <circle cx={x} cy={y} r={40} fill="none" stroke="var(--gold-primary)" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
             </g>
           );
         })()}
@@ -238,17 +238,17 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
           return (
             <g>
               {/* Vast warm glow */}
-              <circle cx={x} cy={y} r={60} fill="#D4770B" opacity={0.08} />
-              <circle cx={x} cy={y} r={40} fill="#E8A317" opacity={0.12} />
-              <circle cx={x} cy={y} r={28} fill="#D4770B" opacity={isCurrent ? 0.7 : 0.5} filter="url(#sl-glow)" />
-              <circle cx={x} cy={y} r={14} fill="#E8A317" opacity={0.6} />
-              <circle cx={x} cy={y} r={7} fill="#FFFFFF" opacity={0.4} />
+              <circle cx={x} cy={y} r={60} fill="var(--neon-amber)" opacity={0.08} />
+              <circle cx={x} cy={y} r={40} fill="var(--neon-amber)" opacity={0.12} />
+              <circle cx={x} cy={y} r={28} fill="var(--neon-amber)" opacity={isCurrent ? 0.7 : 0.5} filter="url(#sl-glow)" />
+              <circle cx={x} cy={y} r={14} fill="var(--neon-amber)" opacity={0.6} />
+              <circle cx={x} cy={y} r={7} fill="var(--text-body)" opacity={0.4} />
               {/* Orbiting smaller objects */}
               {[40, 52].map((r, i) => {
                 const angle = seededRandom(i * 23) * Math.PI * 2;
-                return <circle key={i} cx={x + Math.cos(angle) * r} cy={y + Math.sin(angle) * r} r={3} fill="#F4C430" opacity={0.5} />;
+                return <circle key={i} cx={x + Math.cos(angle) * r} cy={y + Math.sin(angle) * r} r={3} fill="var(--gold-primary)" opacity={0.5} />;
               })}
-              {isCurrent && <circle cx={x} cy={y} r={50} fill="none" stroke="#F4C430" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
+              {isCurrent && <circle cx={x} cy={y} r={50} fill="none" stroke="var(--gold-primary)" strokeWidth={1.5} strokeOpacity={0.3} strokeDasharray="3 3" />}
             </g>
           );
         })()}
@@ -258,10 +258,10 @@ export default function SolarLifecycle({ currentPhase = 4 }: SolarLifecycleProps
           const x = phaseSpacing * (i + 1);
           return (
             <g key={phase.label}>
-              <text x={x} y={H - 30} textAnchor="middle" fill="#FFFFFF" fontSize="12" fontWeight="700" opacity={currentPhase === i + 1 ? 0.9 : 0.3}>
+              <text x={x} y={H - 30} textAnchor="middle" fill="var(--text-body)" fontSize="12" fontWeight="700" opacity={currentPhase === i + 1 ? 0.9 : 0.3}>
                 {phase.label}
               </text>
-              <text x={x} y={H - 15} textAnchor="middle" fill="#FFFFFF" fontSize="8" fontWeight="400" opacity={currentPhase === i + 1 ? 0.6 : 0.2}>
+              <text x={x} y={H - 15} textAnchor="middle" fill="var(--text-body)" fontSize="8" fontWeight="400" opacity={currentPhase === i + 1 ? 0.6 : 0.2}>
                 {phase.name}
               </text>
             </g>

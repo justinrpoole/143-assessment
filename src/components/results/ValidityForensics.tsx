@@ -123,9 +123,9 @@ export default function ValidityForensics({ dataQuality }: Props) {
   const passPercent = Math.round((passCount / checks.length) * 100);
 
   const STATUS_CONFIG = {
-    pass: { color: '#34D399', bg: 'rgba(52, 211, 153, 0.12)', icon: '\u2713', label: 'Pass' },
-    watch: { color: '#F8D011', bg: 'rgba(248, 208, 17, 0.10)', icon: '\u25CB', label: 'Watch' },
-    flag: { color: '#FB923C', bg: 'rgba(251, 146, 60, 0.10)', icon: '\u2717', label: 'Flag' },
+    pass: { color: 'var(--neon-teal)', bg: 'var(--surface-border)', icon: '\u2713', label: 'Pass' },
+    watch: { color: 'var(--gold-primary)', bg: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)', icon: '\u25CB', label: 'Watch' },
+    flag: { color: 'var(--neon-amber)', bg: 'var(--surface-border)', icon: '\u2717', label: 'Flag' },
   };
 
   return (
@@ -149,10 +149,10 @@ export default function ValidityForensics({ dataQuality }: Props) {
           <div className="flex items-center gap-3">
             {/* Mini progress ring */}
             <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
-              <circle cx="18" cy="18" r="15" fill="none" stroke="rgba(148, 80, 200, 0.2)" strokeWidth="3" />
+              <circle cx="18" cy="18" r="15" fill="none" stroke="color-mix(in srgb, var(--stroke-400) 20%, transparent)" strokeWidth="3" />
               <circle
                 cx="18" cy="18" r="15" fill="none"
-                stroke={passPercent >= 80 ? '#34D399' : passPercent >= 50 ? '#F8D011' : '#FB923C'}
+                stroke={passPercent >= 80 ? 'var(--neon-teal)' : passPercent >= 50 ? 'var(--gold-primary)' : 'var(--neon-amber)'}
                 strokeWidth="3"
                 strokeDasharray={`${passPercent * 0.942} 100`}
                 strokeLinecap="round"
@@ -171,7 +171,7 @@ export default function ValidityForensics({ dataQuality }: Props) {
               }}
               aria-hidden="true"
             >
-              &#9660;
+              &var(--text-body);
             </span>
           </div>
         </div>

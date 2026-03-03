@@ -115,7 +115,7 @@ export default function ThirtyDayCalendar({
           </div>
           {streak > 0 && (
             <div className="text-right">
-              <p className="text-lg font-bold" style={{ color: '#34D399' }}>{streak}</p>
+              <p className="text-lg font-bold" style={{ color: 'var(--neon-teal)' }}>{streak}</p>
               <p className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>day streak</p>
             </div>
           )}
@@ -125,11 +125,11 @@ export default function ThirtyDayCalendar({
       {/* Phase indicators */}
       <div className="flex gap-2">
         <div className="flex items-center gap-1.5">
-          <div className="h-2.5 w-2.5 rounded" style={{ background: 'rgba(248, 208, 17, 0.4)' }} />
+          <div className="h-2.5 w-2.5 rounded" style={{ background: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)' }} />
           <span className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>Week 1 — Install</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="h-2.5 w-2.5 rounded" style={{ background: 'rgba(148, 80, 200, 0.4)' }} />
+          <div className="h-2.5 w-2.5 rounded" style={{ background: 'color-mix(in srgb, var(--stroke-400) 40%, transparent)' }} />
           <span className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>Weeks 2-4 — Build</span>
         </div>
       </div>
@@ -152,13 +152,13 @@ export default function ThirtyDayCalendar({
           {days.map((day) => {
             if (day.isFuture) {
               return (
-                <div key={day.index} className="aspect-square rounded-lg" style={{ background: 'rgba(96, 5, 141, 0.05)' }} />
+                <div key={day.index} className="aspect-square rounded-lg" style={{ background: 'color-mix(in srgb, var(--violet-650) 5%, transparent)' }} />
               );
             }
 
             const phaseColor = day.isWeek1
-              ? 'rgba(248, 208, 17, 0.08)'
-              : 'rgba(148, 80, 200, 0.08)';
+              ? 'color-mix(in srgb, var(--gold-primary) 8%, transparent)'
+              : 'color-mix(in srgb, var(--stroke-400) 8%, transparent)';
 
             return (
               <button
@@ -167,13 +167,13 @@ export default function ThirtyDayCalendar({
                 className="aspect-square rounded-lg flex flex-col items-center justify-center transition-all text-center"
                 style={{
                   background: day.checked
-                    ? 'rgba(248, 208, 17, 0.2)'
+                    ? 'color-mix(in srgb, var(--gold-primary) 20%, transparent)'
                     : phaseColor,
                   border: day.isToday
                     ? '2px solid var(--brand-gold)'
                     : day.checked
-                      ? '1px solid rgba(248, 208, 17, 0.3)'
-                      : '1px solid rgba(148, 80, 200, 0.1)',
+                      ? '1px solid color-mix(in srgb, var(--gold-primary) 30%, transparent)'
+                      : '1px solid color-mix(in srgb, var(--stroke-400) 10%, transparent)',
                   opacity: day.dayNum < 1 ? 0.3 : 1,
                 }}
                 aria-label={`Day ${day.dayNum}${day.checked ? ' — completed' : ''}`}
@@ -187,7 +187,7 @@ export default function ThirtyDayCalendar({
                 </span>
                 {day.checked && (
                   <span className="text-[10px] leading-none mt-0.5" style={{ color: 'var(--brand-gold)' }}>
-                    &#10003;
+                    &var(--text-body);
                   </span>
                 )}
               </button>
@@ -198,14 +198,14 @@ export default function ThirtyDayCalendar({
 
       {/* Plan text below calendar */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div className="glass-card p-3" style={{ borderLeft: '3px solid rgba(248, 208, 17, 0.4)' }}>
+        <div className="glass-card p-3" style={{ borderLeft: '3px solid color-mix(in srgb, var(--gold-primary) 40%, transparent)' }}>
           <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
             Week 1 — Install
           </p>
           <p className="text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{week1}</p>
         </div>
-        <div className="glass-card p-3" style={{ borderLeft: '3px solid rgba(148, 80, 200, 0.4)' }}>
-          <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'rgba(148, 80, 200, 0.8)' }}>
+        <div className="glass-card p-3" style={{ borderLeft: '3px solid color-mix(in srgb, var(--stroke-400) 40%, transparent)' }}>
+          <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'color-mix(in srgb, var(--stroke-400) 80%, transparent)' }}>
             Weeks 2-4 — Build
           </p>
           <p className="text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{weeks24}</p>

@@ -33,7 +33,7 @@ export function PageHeader({
       {label && (
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: "var(--brand-gold, #F8D011)" }}
+          style={{ color: "var(--gold-primary)" }}
         >
           {label}
         </p>

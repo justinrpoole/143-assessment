@@ -179,7 +179,7 @@ export default function EveningReflectionClient() {
             Go deeper (optional)
           </p>
           {POST_SAVE_PROMPTS.map((ps) => (
-            <div key={ps.id} className="rounded-xl p-3" style={{ background: 'rgba(248, 208, 17, 0.04)', border: '1px solid rgba(248, 208, 17, 0.08)' }}>
+            <div key={ps.id} className="rounded-xl p-3" style={{ background: 'color-mix(in srgb, var(--gold-primary) 4%, transparent)', border: '1px solid color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}>
               <p className="text-xs font-semibold" style={{ color: 'var(--brand-gold)' }}>{ps.label}</p>
               <p className="mt-1 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{ps.prompt}</p>
             </div>
@@ -204,7 +204,7 @@ export default function EveningReflectionClient() {
               <div
                 key={i}
                 className="h-1.5 w-6 rounded-full transition-colors duration-300"
-                style={{ backgroundColor: i <= step ? 'var(--brand-gold)' : 'rgba(255,255,255,0.12)' }}
+                style={{ backgroundColor: i <= step ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--text-body) 12%, transparent)' }}
               />
             ))}
           </div>
@@ -221,7 +221,7 @@ export default function EveningReflectionClient() {
           aria-label={rs.prompt}
           className="w-full rounded-xl px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
           style={{
-            background: 'rgba(255,255,255,0.06)',
+            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
             border: '1px solid var(--surface-border)',
             color: 'var(--text-on-dark)',
           }}
@@ -256,8 +256,8 @@ export default function EveningReflectionClient() {
 
         {error && (
           <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
-            style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}>
-            <p className="text-xs" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+            <p className="text-xs" style={{ color: 'var(--ray-power)' }}>{humanizeError(error)}</p>
             <button
               type="button"
               onClick={() => void saveReflection(texts)}

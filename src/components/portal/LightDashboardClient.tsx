@@ -414,7 +414,7 @@ export default function LightDashboardClient() {
           <button type="button" className="ld-action-btn ghost" onClick={() => openPanel('reps')}>
             Log Reps
           </button>
-          <div className="ml-auto flex flex-col items-end gap-0.5 px-3 py-2 rounded-lg" style={{ background: 'rgba(10, 5, 28, 0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
+          <div className="ml-auto flex flex-col items-end gap-0.5 px-3 py-2 rounded-lg" style={{ background: 'var(--surface-border)', border: '1px solid color-mix(in srgb, var(--text-body) 6%, transparent)' }}>
             <div className="ld-reps-count">{repsToday}</div>
             <div className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
               Reps today
@@ -425,7 +425,7 @@ export default function LightDashboardClient() {
 
       {/* Insight Card */}
       <FadeInSection delay={0.2}>
-        <div className="glass-card p-5" style={{ borderColor: 'rgba(96, 5, 141, 0.35)' }}>
+        <div className="glass-card p-5" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 35%, transparent)' }}>
           <div className="ld-insight-label">This week</div>
           <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark)' }}>
             {insightText}
@@ -476,7 +476,7 @@ export default function LightDashboardClient() {
                         {ray.label}
                       </span>
                       {isTop && (
-                        <span className="text-[9px] px-1.5 py-0.5 rounded-full uppercase tracking-wide" style={{ background: 'rgba(248,208,17,0.15)', color: 'var(--brand-gold)' }}>
+                        <span className="text-[9px] px-1.5 py-0.5 rounded-full uppercase tracking-wide" style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}>
                           top
                         </span>
                       )}
@@ -529,9 +529,9 @@ export default function LightDashboardClient() {
           <div
             className="w-full max-w-lg rounded-2xl p-6 relative overflow-hidden"
             style={{
-              background: 'linear-gradient(180deg, rgba(10, 5, 28, 0.96), rgba(15, 8, 35, 0.94))',
-              border: '1px solid rgba(248, 208, 17, 0.25)',
-              boxShadow: '0 0 40px rgba(248, 208, 17, 0.12)',
+              background: 'linear-gradient(180deg, var(--surface-border), var(--surface-border))',
+              border: '1px solid color-mix(in srgb, var(--gold-primary) 25%, transparent)',
+              boxShadow: '0 0 40px color-mix(in srgb, var(--gold-primary) 12%, transparent)',
             }}
           >
             {/* Panel Header */}
@@ -567,8 +567,8 @@ export default function LightDashboardClient() {
                     placeholder="One line. Name the rep."
                     className="w-full rounded-lg px-3 py-2.5 text-sm resize-none"
                     style={{
-                      background: 'rgba(10, 5, 28, 0.8)',
-                      border: '1px solid rgba(248, 208, 17, 0.2)',
+                      background: 'var(--surface-border)',
+                      border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
                       color: 'var(--text-on-dark)',
                     }}
                   />
@@ -591,7 +591,7 @@ export default function LightDashboardClient() {
                         <li
                           key={i}
                           className="text-xs px-3 py-2 rounded-lg"
-                          style={{ background: 'rgba(255,255,255,0.04)', color: 'var(--text-on-dark-muted)' }}
+                          style={{ background: 'color-mix(in srgb, var(--text-body) 4%, transparent)', color: 'var(--text-on-dark-muted)' }}
                         >
                           {new Date(rep.ts).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })} — {rep.note}
                         </li>
@@ -669,7 +669,7 @@ export default function LightDashboardClient() {
                 <ul className="space-y-3">
                   {prompt.steps.map((step, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm" style={{ color: 'var(--text-on-dark)' }}>
-                      <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full grid place-items-center text-[10px] font-bold" style={{ background: 'rgba(248,208,17,0.15)', color: 'var(--brand-gold)' }}>
+                      <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full grid place-items-center text-[10px] font-bold" style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}>
                         {i + 1}
                       </span>
                       {step}

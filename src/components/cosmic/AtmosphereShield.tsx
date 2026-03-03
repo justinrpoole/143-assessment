@@ -93,14 +93,14 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
             <stop offset="100%" stopColor="var(--cosmic-svg-bg)" />
           </radialGradient>
           <radialGradient id="as-dome" cx="50%" cy="40%">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity={shieldOpacity * 0.3} />
-            <stop offset="70%" stopColor="#F4C430" stopOpacity={shieldOpacity} />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity={shieldOpacity * 0.1} />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity={shieldOpacity * 0.3} />
+            <stop offset="70%" stopColor="var(--gold-primary)" stopOpacity={shieldOpacity} />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity={shieldOpacity * 0.1} />
           </radialGradient>
           <radialGradient id="as-figure">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.5" />
-            <stop offset="50%" stopColor="#F4C430" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.5" />
+            <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
           <clipPath id="as-dome-clip">
             <ellipse cx={cx} cy={cy} rx={domeR} ry={domeR * 0.7} />
@@ -117,14 +117,14 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
             cx={seededRandom(i * 9) * W}
             cy={seededRandom(i * 9 + 1) * H}
             r={0.5 + seededRandom(i * 9 + 2) * 1}
-            fill="#FFFFFF"
+            fill="var(--text-body)"
             opacity={0.1 + seededRandom(i * 9 + 3) * 0.2}
           />
         ))}
 
         {/* Abstract human figure (golden light column) */}
         <ellipse cx={cx} cy={cy + 15} rx={12} ry={35} fill="url(#as-figure)" />
-        <circle cx={cx} cy={cy - 30} r={8} fill="#F4C430" opacity={isActive ? 0.4 : 0.25} />
+        <circle cx={cx} cy={cy - 30} r={8} fill="var(--gold-primary)" opacity={isActive ? 0.4 : 0.25} />
 
         {/* Shield dome — active state */}
         <AnimatedDome
@@ -142,7 +142,7 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
             key={i}
             points={hexagonPoints(pt.x, pt.y, 8)}
             fill="none"
-            stroke="#FFFFFF"
+            stroke="var(--text-body)"
             strokeWidth={0.5}
             initial={false}
             animate={{ strokeOpacity: reducedMotion ? 0.08 : [0.04, 0.1, 0.04] }}
@@ -162,7 +162,7 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
             rx={domeR}
             ry={domeR * 0.7}
             fill="none"
-            stroke="#F4C430"
+            stroke="var(--gold-primary)"
             strokeWidth={1.5}
             initial={false}
             animate={
@@ -183,9 +183,9 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
           <motion.polygon
             key={`frag-${i}`}
             points={hexagonPoints(pt.x, pt.y, 6)}
-            fill="#F4C430"
+            fill="var(--gold-primary)"
             fillOpacity={0.08}
-            stroke="#F4C430"
+            stroke="var(--gold-primary)"
             strokeWidth={0.3}
             strokeOpacity={0.15}
             initial={false}
@@ -216,7 +216,7 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
               cx={p.x}
               cy={p.y}
               r={p.size}
-              fill="#FFFFFF"
+              fill="var(--text-body)"
               initial={false}
               animate={
                 !reducedMotion
@@ -246,11 +246,11 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
           tabIndex={0}
           className="cosmic-focus-target"
         >
-          <rect x={cx - 20} y={H - 40} width={40} height={18} rx={9} fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" strokeWidth={1} />
+          <rect x={cx - 20} y={H - 40} width={40} height={18} rx={9} fill="color-mix(in srgb, var(--text-body) 10%, transparent)" stroke="color-mix(in srgb, var(--text-body) 20%, transparent)" strokeWidth={1} />
           <motion.circle
             cy={H - 31}
             r={6}
-            fill={isActive ? '#F4C430' : '#888888'}
+            fill={isActive ? 'var(--gold-primary)' : 'var(--text-body)'}
             initial={false}
             animate={{ cx: isActive ? cx + 10 : cx - 10 }}
             transition={{ duration: 0.2 }}
@@ -258,7 +258,7 @@ export default function AtmosphereShield({ active, strength = 75, onToggle }: At
         </g>
 
         {/* State label */}
-        <text x={cx} y={H - 12} textAnchor="middle" fill={isActive ? '#F4C430' : '#888888'} fontSize="9" fontWeight="600" opacity={0.6}>
+        <text x={cx} y={H - 12} textAnchor="middle" fill={isActive ? 'var(--gold-primary)' : 'var(--text-body)'} fontSize="9" fontWeight="600" opacity={0.6}>
           {isActive ? 'Shield Active' : 'Shield Off'}
         </text>
       </svg>

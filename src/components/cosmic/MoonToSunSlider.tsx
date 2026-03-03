@@ -93,7 +93,7 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
         <defs>
           {/* Background gradient — deep purple left to warm purple right */}
           <linearGradient id="mts-bg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#3A0A5E" />
+            <stop offset="0%" stopColor="var(--text-body)" />
             <stop offset="40%" stopColor="var(--cosmic-svg-bg)" />
             <stop offset="70%" stopColor="var(--cosmic-purple-vivid)" />
             <stop offset="100%" stopColor="var(--cosmic-purple-vivid)" />
@@ -101,58 +101,58 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
 
           {/* Warm atmospheric haze on the right */}
           <linearGradient id="mts-atmo" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0" />
-            <stop offset="60%" stopColor="#F4C430" stopOpacity="0" />
-            <stop offset="100%" stopColor="#E8A317" stopOpacity="0.08" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0" />
+            <stop offset="60%" stopColor="var(--gold-primary)" stopOpacity="0" />
+            <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0.08" />
           </linearGradient>
 
           {/* Bar gradient — moon silver through lavender → rose → amber → gold */}
           <linearGradient id="mts-bar" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#BDC3C7" />
-            <stop offset="12%" stopColor="#C39BD3" />
-            <stop offset="28%" stopColor="#D4A0B9" />
-            <stop offset="45%" stopColor="#E8A317" />
-            <stop offset="70%" stopColor="#F4C430" />
-            <stop offset="100%" stopColor="#FFF8E7" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="12%" stopColor="var(--text-secondary)" />
+            <stop offset="28%" stopColor="var(--text-body)" />
+            <stop offset="45%" stopColor="var(--neon-amber)" />
+            <stop offset="70%" stopColor="var(--gold-primary)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </linearGradient>
 
           {/* Dimmed bar gradient */}
           <linearGradient id="mts-bar-dim" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#BDC3C7" stopOpacity="0.2" />
-            <stop offset="50%" stopColor="#E8A317" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0.12" />
+            <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.2" />
+            <stop offset="50%" stopColor="var(--neon-amber)" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0.12" />
           </linearGradient>
 
           {/* Moon glow */}
           <radialGradient id="mts-moon-glow">
-            <stop offset="0%" stopColor="#BDC3C7" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="#BDC3C7" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="var(--text-body)" stopOpacity="0" />
           </radialGradient>
 
           {/* Sun glow */}
           <radialGradient id="mts-sun-glow">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.35" />
-            <stop offset="50%" stopColor="#E8A317" stopOpacity="0.1" />
-            <stop offset="100%" stopColor="#E8A317" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.35" />
+            <stop offset="50%" stopColor="var(--neon-amber)" stopOpacity="0.1" />
+            <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
           </radialGradient>
 
           {/* Sun core gradient */}
           <radialGradient id="mts-sun-core" cx="42%" cy="38%" r="56%">
-            <stop offset="0%" stopColor="#FFF8E7" />
-            <stop offset="30%" stopColor="#F4C430" />
-            <stop offset="70%" stopColor="#E8A317" />
-            <stop offset="100%" stopColor="#A8820A" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="30%" stopColor="var(--gold-primary)" />
+            <stop offset="70%" stopColor="var(--neon-amber)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           {/* Indicator glow */}
           <radialGradient id="mts-dot-glow">
-            <stop offset="0%" stopColor="#FFF8E7" stopOpacity="0.8" />
-            <stop offset="40%" stopColor="#F4C430" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.8" />
+            <stop offset="40%" stopColor="var(--gold-primary)" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
 
           {/* Soft glow filter */}
-          <filter id="mts-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="mts-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="2.5" result="b" />
             <feMerge>
               <feMergeNode in="b" />
@@ -189,7 +189,7 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
 
         {/* Stars */}
         {stars.map((s, i) => (
-          <circle key={i} cx={s.x} cy={s.y} r={s.r} fill="#F0F0FF" opacity={s.o}>
+          <circle key={i} cx={s.x} cy={s.y} r={s.r} fill="var(--text-body)" opacity={s.o}>
             {!reducedMotion && (
               <animate
                 attributeName="opacity"
@@ -204,9 +204,9 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
         {/* ── Moon (left) ── */}
         <circle cx={MOON_CX} cy={MOON_CY} r={MOON_R * 2} fill="url(#mts-moon-glow)" />
         {/* Moon body */}
-        <circle cx={MOON_CX} cy={MOON_CY} r={MOON_R} fill="#BDC3C7" />
+        <circle cx={MOON_CX} cy={MOON_CY} r={MOON_R} fill="var(--text-secondary)" />
         {/* Moon crescent — dark circle offset to create crescent shape */}
-        <circle cx={MOON_CX + 9} cy={MOON_CY - 1} r={MOON_R - 2} fill="#3A0A5E" />
+        <circle cx={MOON_CX + 9} cy={MOON_CY - 1} r={MOON_R - 2} fill="var(--violet-650)" />
 
         {/* ── Bar — lit portion (left of indicator) ── */}
         <rect
@@ -239,7 +239,7 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
           <motion.polygon
             key={i}
             points={pts}
-            fill="#F4C430"
+            fill="var(--gold-primary)"
             initial={false}
             animate={
               !reducedMotion
@@ -280,11 +280,11 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
           cx={indicatorX}
           cy={BAR_Y}
           r={6}
-          fill="#FFF8E7"
+          fill="var(--text-body)"
           filter="url(#mts-glow)"
         />
         {/* Core */}
-        <circle cx={indicatorX} cy={BAR_Y} r={3.5} fill="#F4C430" opacity={0.9} />
+        <circle cx={indicatorX} cy={BAR_Y} r={3.5} fill="var(--gold-primary)" opacity={0.9} />
 
         {/* Trailing wake — faint line from left showing journey */}
         <line
@@ -292,7 +292,7 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
           y1={BAR_Y}
           x2={indicatorX - 16}
           y2={BAR_Y}
-          stroke="#F4C430"
+          stroke="var(--gold-primary)"
           strokeWidth={0.5}
           strokeOpacity={0.15}
         />
@@ -302,7 +302,7 @@ export default function MoonToSunSlider({ score, label }: MoonToSunSliderProps) 
           x={indicatorX}
           y={BAR_Y + BAR_H / 2 + 22}
           textAnchor="middle"
-          fill="#F0F0FF"
+          fill="var(--text-body)"
           fontSize="13"
           fontWeight="700"
           fontFamily="var(--font-body)"

@@ -35,7 +35,7 @@ export default function PortalWelcome() {
       {show && (
         <motion.div
           className="fixed inset-0 z-50 flex flex-col items-center justify-center pointer-events-none"
-          style={{ background: 'var(--bg-deep, #1A0A2E)' }}
+          style={{ background: 'var(--bg-deep, var(--text-body))' }}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
@@ -46,7 +46,7 @@ export default function PortalWelcome() {
             style={{
               width: 120,
               height: 120,
-              background: 'radial-gradient(circle, rgba(248,208,17,0.25) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 25%, transparent) 0%, transparent 70%)',
             }}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: [0, 2.5, 2], opacity: [0, 0.8, 0.4] }}
@@ -56,7 +56,7 @@ export default function PortalWelcome() {
           {/* Welcome text */}
           <motion.p
             className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: 'var(--brand-gold, #F8D011)' }}
+            style={{ color: 'var(--gold-primary)' }}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
@@ -68,7 +68,7 @@ export default function PortalWelcome() {
             className="mt-3 text-2xl font-semibold sm:text-3xl"
             style={{
               fontFamily: 'var(--font-cosmic-display)',
-              color: 'var(--text-on-dark, #FFFEF5)',
+              color: 'var(--text-body)',
             }}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export default function PortalWelcome() {
             className="mt-4 h-px"
             style={{
               width: 80,
-              background: 'linear-gradient(90deg, transparent, var(--brand-gold, #F8D011), transparent)',
+              background: 'linear-gradient(90deg, transparent, var(--gold-primary), transparent)',
             }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}

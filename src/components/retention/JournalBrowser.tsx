@@ -102,7 +102,7 @@ export default function JournalBrowser() {
               type="button"
               onClick={() => setExpandedId(isExpanded ? null : entry.id)}
               className="w-full text-left glass-card glass-card--interactive p-4 transition-all"
-              style={{ borderColor: isExpanded ? 'rgba(248, 208, 17, 0.2)' : undefined }}
+              style={{ borderColor: isExpanded ? 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' : undefined }}
             >
               {/* Header row */}
               <div className="flex items-center justify-between">
@@ -120,9 +120,9 @@ export default function JournalBrowser() {
                       className="text-[10px] px-1.5 py-0.5 rounded-full font-medium"
                       style={{
                         background: entry.quality_score >= 3
-                          ? 'rgba(52, 211, 153, 0.15)'
-                          : 'rgba(248, 208, 17, 0.15)',
-                        color: entry.quality_score >= 3 ? '#34D399' : 'var(--brand-gold)',
+                          ? 'var(--surface-border)'
+                          : 'color-mix(in srgb, var(--gold-primary) 15%, transparent)',
+                        color: entry.quality_score >= 3 ? 'var(--neon-teal)' : 'var(--brand-gold)',
                       }}
                     >
                       {QUALITY_LABELS[entry.quality_score]}

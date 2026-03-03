@@ -18,23 +18,23 @@ export default function RayChart({ rays, topTwo, bottomRay }: RayChartProps) {
 
   return (
     <section className="space-y-4">
-      <h3 className="text-lg uppercase tracking-[0.16em]" style={{ color: '#25F6FF', fontFamily: 'var(--font-cosmic-display)', textShadow: '0 0 14px rgba(37,246,255,0.5)' }}>
+      <h3 className="text-lg uppercase tracking-[0.16em] text-neon-cyan" style={{ fontFamily: 'var(--font-cosmic-display)', textShadow: 'var(--text-glow-cyan)' }}>
         Nine-Ray Capacity Map
       </h3>
-      <p className="text-sm" style={{ color: 'rgba(255,255,255,0.72)', fontFamily: 'var(--font-space-grotesk)' }}>
+      <p className="text-sm text-secondary" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
         Current-access profile across all nine Rays of Light.
       </p>
 
       <div
         className="rounded-2xl p-5 space-y-3 relative overflow-hidden"
         style={{
-          background: '#060014',
-          border: '1px solid rgba(37,246,255,0.2)',
-          boxShadow: 'inset 0 0 30px rgba(37,246,255,0.06)',
+          background: 'var(--bg-deep)',
+          border: '1px solid var(--surface-border)',
+          boxShadow: 'inset 0 0 30px color-mix(in srgb, var(--neon-cyan) 12%, transparent)',
           fontFamily: "'Orbitron', var(--font-cosmic-display)",
         }}
       >
-        <div className="pointer-events-none absolute inset-0" style={{ background: 'repeating-linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.25) 3px)' }} />
+        <div className="pointer-events-none absolute inset-0" style={{ background: 'repeating-linear-gradient(180deg, transparent 0px, transparent 2px, color-mix(in srgb, var(--ink-950) 25%, transparent) 3px)' }} />
 
         {rayOrder.map(([id, ray], idx) => {
           const isTop = topTwo.includes(id);
@@ -45,16 +45,16 @@ export default function RayChart({ rays, topTwo, bottomRay }: RayChartProps) {
           return (
             <div key={id} className="flex items-center gap-3 relative" style={{ animation: `rayIn 800ms ease ${idx * 40}ms both` }}>
               <div className="w-28 text-right shrink-0">
-                <div className="text-sm uppercase tracking-[0.08em]" style={{ color: '#25F6FF', fontFamily: 'var(--font-cosmic-display)' }}>
+                <div className="text-sm uppercase tracking-[0.08em] text-neon-cyan" style={{ fontFamily: 'var(--font-cosmic-display)' }}>
                   {RAY_NAMES[id]}
                 </div>
-                <div className="text-xs" style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'var(--font-space-grotesk)' }}>
+                <div className="text-xs text-muted" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                   {RAY_VERBS[id]}
                 </div>
               </div>
 
               <div className="flex-1 relative">
-                <div className="w-full h-7 rounded-full overflow-hidden" style={{ background: 'rgba(0,0,0,0.6)', border: '1px solid rgba(37,246,255,0.2)' }}>
+                <div className="w-full h-7 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--ink-950) 60%, transparent)', border: '1px solid var(--surface-border)' }}>
                   <div
                     className={`h-full rounded-full transition-all duration-700 ${isTop ? 'animate-pulse' : ''}`}
                     style={{
@@ -81,7 +81,14 @@ export default function RayChart({ rays, topTwo, bottomRay }: RayChartProps) {
 
               <div className="w-28 text-xs shrink-0 text-right" style={{ fontFamily: 'var(--font-cosmic-display)' }}>
                 {isTop && <span className="inline-block px-2 py-0.5 rounded-full" style={{ border: `1px solid ${color}`, color, boxShadow: `0 0 12px ${color}` }}>POWER SOURCE</span>}
-                {isBottom && <span className="inline-block px-2 py-0.5 rounded-full" style={{ border: '1px solid rgba(255,63,180,0.5)', color: '#FF3FB4' }}>◑ ECLIPSE</span>}
+                {isBottom && (
+                  <span
+                    className="inline-block px-2 py-0.5 rounded-full"
+                    style={{ border: "1px solid color-mix(in srgb, var(--neon-pink) 50%, transparent)", color: "var(--neon-pink)" }}
+                  >
+                    ◑ ECLIPSE
+                  </span>
+                )}
               </div>
             </div>
           );

@@ -9,8 +9,8 @@ const STEPS = [
     description: '143 questions. 15 minutes. Not who you are. What you can build.',
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="rgba(248,208,17,0.3)" strokeWidth="1.5" />
-        <path d="M14 20l4 4 8-8" stroke="#F8D011" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="20" cy="20" r="18" stroke="color-mix(in srgb, var(--gold-primary) 30%, transparent)" strokeWidth="1.5" />
+        <path d="M14 20l4 4 8-8" stroke="var(--gold-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -20,9 +20,9 @@ const STEPS = [
     description: 'Your Light Signature. Your 9 Ray scores. Your Eclipse. Your Nova.',
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="rgba(248,208,17,0.3)" strokeWidth="1.5" />
-        <path d="M20 12v6l4 4" stroke="#F8D011" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="20" cy="20" r="8" stroke="#F8D011" strokeWidth="1.5" strokeDasharray="3 3" />
+        <circle cx="20" cy="20" r="18" stroke="color-mix(in srgb, var(--gold-primary) 30%, transparent)" strokeWidth="1.5" />
+        <path d="M20 12v6l4 4" stroke="var(--gold-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="20" cy="20" r="8" stroke="var(--gold-primary)" strokeWidth="1.5" strokeDasharray="3 3" />
       </svg>
     ),
   },
@@ -32,8 +32,8 @@ const STEPS = [
     description: 'Daily practices. Measurable change. Retake and see the delta.',
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="rgba(248,208,17,0.3)" strokeWidth="1.5" />
-        <path d="M12 28l5-8 5 4 6-10" stroke="#F8D011" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="20" cy="20" r="18" stroke="color-mix(in srgb, var(--gold-primary) 30%, transparent)" strokeWidth="1.5" />
+        <path d="M12 28l5-8 5 4 6-10" stroke="var(--gold-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -74,10 +74,10 @@ export default function HowItWorks() {
   return (
     <div ref={ref}>
       <div className="mb-10 text-center">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           How It Works
         </p>
-        <h2 className="heading-section mt-3" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+        <h2 className="heading-section mt-3" style={{ color: 'var(--text-body)' }}>
           Three steps. One system. Proof it is working.
         </h2>
       </div>
@@ -99,7 +99,7 @@ export default function HowItWorks() {
               style={{
                 fontFamily: 'var(--font-cosmic-display)',
                 fontSize: '72px',
-                color: 'rgba(248, 208, 17, 0.05)',
+                color: 'color-mix(in srgb, var(--gold-primary) 5%, transparent)',
                 lineHeight: 1,
               }}
               aria-hidden="true"
@@ -109,18 +109,18 @@ export default function HowItWorks() {
 
             <div className="relative z-10">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full"
-                style={{ background: 'rgba(248, 208, 17, 0.06)', border: '1px solid rgba(248, 208, 17, 0.2)', boxShadow: '0 0 16px rgba(248, 208, 17, 0.06)' }}
+                style={{ background: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)', boxShadow: '0 0 16px color-mix(in srgb, var(--gold-primary) 6%, transparent)' }}
               >
                 {step.icon}
               </div>
 
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
                 Step {step.number}
               </p>
-              <h3 className="mt-2 text-lg font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+              <h3 className="mt-2 text-lg font-bold" style={{ color: 'var(--text-body)' }}>
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+              <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 {step.description}
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function HowItWorks() {
             {i < STEPS.length - 1 && (
               <div
                 className="absolute -right-3 top-1/2 hidden h-px w-6 md:block"
-                style={{ background: 'linear-gradient(to right, rgba(248,208,17,0.3), rgba(248,208,17,0.05))' }}
+                style={{ background: 'linear-gradient(to right, color-mix(in srgb, var(--gold-primary) 30%, transparent), color-mix(in srgb, var(--gold-primary) 5%, transparent))' }}
                 aria-hidden="true"
               />
             )}

@@ -73,7 +73,7 @@ export default async function UpgradeYourOsPage() {
   });
 
   return (
-    <main className="cosmic-page-bg relative">
+    <main className="cosmic-page-bg page-shell relative">
       {/* ── Global visual layers ── */}
       <ScrollProgress />
       <SectionTOC items={[
@@ -100,40 +100,47 @@ export default async function UpgradeYourOsPage() {
         <HeroProofStrip />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[960px] px-5 sm:px-8">
+      <div className="relative z-10 content-wrap">
         <TrustBadgeStrip badges={["9 Rays Measured", "143+ Data Points", "Evidence-Based"]} />
       </div>
 
       {/* Gold rule separator */}
-      <div className="mx-auto max-w-[960px] px-5 py-4 sm:px-8">
+      <div className="content-wrap py-4">
         <hr className="gold-rule" />
       </div>
 
       {/* ── SECTION 2: ECLIPSE → NOVA STORY ── */}
       <FadeInSection>
-      <section id="eclipse-nova" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 overflow-hidden">
+      <section id="eclipse-nova" className="section-alt-dark relative content-wrap py-20 sm:py-24 overflow-hidden">
         <FloatingOrbs variant="purple" />
         <NeonStarField />
 
         {/* Section label */}
         <div className="relative z-10 mb-12 text-center">
           <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> The Story Behind 143
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Story Behind 143
           </span>
         </div>
 
         <div className="relative z-10 grid gap-8 md:grid-cols-2 items-start">
 
           {/* Left — THE ECLIPSE */}
-          <div className="glass-card p-7" style={{ borderLeft: '3px solid rgba(147,64,255,0.5)', background: 'rgba(28,5,65,0.65)' }}>
+          <div className="glass-card p-7" style={{ borderLeft: '3px solid var(--surface-border)', background: 'var(--surface-border)' }}>
             <div className="mb-4 flex items-center gap-3">
               {/* Moon / eclipse icon */}
               <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
-                <circle cx="21" cy="21" r="19" fill="#160230" stroke="rgba(147,64,255,0.5)" strokeWidth="1.5" />
-                <circle cx="27" cy="21" r="13" fill="#060014" />
-                <circle cx="21" cy="21" r="19" fill="none" stroke="rgba(160,100,255,0.25)" strokeWidth="3" />
+                <circle
+                  cx="21"
+                  cy="21"
+                  r="19"
+                  fill="var(--violet-800)"
+                  stroke="color-mix(in srgb, var(--neon-violet) 50%, transparent)"
+                  strokeWidth="1.5"
+                />
+                <circle cx="27" cy="21" r="13" fill="var(--bg-deep)" />
+                <circle cx="21" cy="21" r="19" fill="none" stroke="var(--surface-border)" strokeWidth="3" />
               </svg>
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(180,120,255,0.9)' }}>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--surface-border)' }}>
                 The Eclipse
               </p>
             </div>
@@ -146,7 +153,7 @@ export default async function UpgradeYourOsPage() {
           </div>
 
           {/* Right — THE NOVA */}
-          <div className="glass-card p-7" style={{ borderLeft: '3px solid rgba(248,208,17,0.5)', background: 'rgba(30,20,0,0.5)' }}>
+          <div className="glass-card p-7" style={{ borderLeft: '3px solid color-mix(in srgb, var(--gold-primary) 50%, transparent)', background: 'var(--surface-border)' }}>
             <div className="mb-4 flex items-center gap-3">
               {/* Starburst / nova icon */}
               <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
@@ -159,7 +166,7 @@ export default async function UpgradeYourOsPage() {
                       y1={21 + Math.sin(angle) * 9}
                       x2={21 + Math.cos(angle) * 19}
                       y2={21 + Math.sin(angle) * 19}
-                      stroke="#F8D011"
+                      stroke="var(--gold-primary)"
                       strokeWidth="2"
                       strokeLinecap="round"
                     />
@@ -174,16 +181,16 @@ export default async function UpgradeYourOsPage() {
                       y1={21 + Math.sin(angle) * 9}
                       x2={21 + Math.cos(angle) * 14}
                       y2={21 + Math.sin(angle) * 14}
-                      stroke="rgba(248,208,17,0.5)"
+                      stroke="color-mix(in srgb, var(--gold-primary) 50%, transparent)"
                       strokeWidth="1.5"
                       strokeLinecap="round"
                     />
                   );
                 })}
-                <circle cx="21" cy="21" r="7" fill="#F8D011" />
-                <circle cx="21" cy="21" r="3.5" fill="#FFFEF5" />
+                <circle cx="21" cy="21" r="7" fill="var(--gold-primary)" />
+                <circle cx="21" cy="21" r="3.5" fill="var(--text-body)" />
               </svg>
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
                 The Nova
               </p>
             </div>
@@ -208,10 +215,10 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 3: WHY THIS IS DIFFERENT ── */}
       <FadeInSection>
-      <section id="why-different" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="why-different" className="relative z-10 content-wrap py-20 sm:py-24">
         <div className="mb-10 text-center">
           <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> The Difference
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Difference
           </span>
           <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
             Every other assessment tells you who you are.
@@ -224,12 +231,12 @@ export default async function UpgradeYourOsPage() {
             {
               icon: (
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                  <circle cx="18" cy="18" r="16" stroke="rgba(248,208,17,0.3)" strokeWidth="1.2" />
+                  <circle cx="18" cy="18" r="16" stroke="color-mix(in srgb, var(--gold-primary) 30%, transparent)" strokeWidth="1.2" />
                   {/* Two arrows cycling */}
-                  <path d="M11 14 A8 8 0 0 1 25 14" stroke="#F8D011" strokeWidth="1.8" strokeLinecap="round" fill="none" />
-                  <path d="M25 22 A8 8 0 0 1 11 22" stroke="#F8D011" strokeWidth="1.8" strokeLinecap="round" fill="none" />
-                  <path d="M23 11 L25 14 L22 15" stroke="#F8D011" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  <path d="M13 25 L11 22 L14 21" stroke="#F8D011" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  <path d="M11 14 A8 8 0 0 1 25 14" stroke="var(--gold-primary)" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+                  <path d="M25 22 A8 8 0 0 1 11 22" stroke="var(--gold-primary)" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+                  <path d="M23 11 L25 14 L22 15" stroke="var(--gold-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  <path d="M13 25 L11 22 L14 21" stroke="var(--gold-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                 </svg>
               ),
               label: 'State, Not Type',
@@ -239,17 +246,17 @@ export default async function UpgradeYourOsPage() {
             {
               icon: (
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                  <circle cx="18" cy="18" r="16" stroke="rgba(248,208,17,0.3)" strokeWidth="1.2" />
+                  <circle cx="18" cy="18" r="16" stroke="color-mix(in srgb, var(--gold-primary) 30%, transparent)" strokeWidth="1.2" />
                   {/* Brain / network */}
-                  <circle cx="18" cy="18" r="5" fill="none" stroke="#F8D011" strokeWidth="1.5" />
-                  <path d="M18 13 L18 8" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M18 23 L18 28" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M13 18 L8 18" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M23 18 L28 18" stroke="#F8D011" strokeWidth="1.5" strokeLinecap="round" />
-                  <circle cx="18" cy="8" r="1.8" fill="#F8D011" />
-                  <circle cx="18" cy="28" r="1.8" fill="#F8D011" />
-                  <circle cx="8" cy="18" r="1.8" fill="#F8D011" />
-                  <circle cx="28" cy="18" r="1.8" fill="#F8D011" />
+                  <circle cx="18" cy="18" r="5" fill="none" stroke="var(--gold-primary)" strokeWidth="1.5" />
+                  <path d="M18 13 L18 8" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M18 23 L18 28" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M13 18 L8 18" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M23 18 L28 18" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" />
+                  <circle cx="18" cy="8" r="1.8" fill="var(--gold-primary)" />
+                  <circle cx="18" cy="28" r="1.8" fill="var(--gold-primary)" />
+                  <circle cx="8" cy="18" r="1.8" fill="var(--gold-primary)" />
+                  <circle cx="28" cy="18" r="1.8" fill="var(--gold-primary)" />
                 </svg>
               ),
               label: 'Grounded in Science',
@@ -259,7 +266,7 @@ export default async function UpgradeYourOsPage() {
             {
               icon: (
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                  <circle cx="18" cy="18" r="16" stroke="rgba(248,208,17,0.3)" strokeWidth="1.2" />
+                  <circle cx="18" cy="18" r="16" stroke="color-mix(in srgb, var(--gold-primary) 30%, transparent)" strokeWidth="1.2" />
                   {/* Sun / light symbol */}
                   {Array.from({ length: 6 }, (_, i) => {
                     const angle = (i / 6) * Math.PI * 2;
@@ -270,13 +277,13 @@ export default async function UpgradeYourOsPage() {
                         y1={18 + Math.sin(angle) * 7}
                         x2={18 + Math.cos(angle) * 11}
                         y2={18 + Math.sin(angle) * 11}
-                        stroke="#F8D011"
+                        stroke="var(--gold-primary)"
                         strokeWidth="1.8"
                         strokeLinecap="round"
                       />
                     );
                   })}
-                  <circle cx="18" cy="18" r="5" fill="#F8D011" />
+                  <circle cx="18" cy="18" r="5" fill="var(--gold-primary)" />
                 </svg>
               ),
               label: 'A Language, Not a Label',
@@ -312,7 +319,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 4: DISCOVER YOUR RAYS (GATED) ── */}
       <FadeInSection>
-      <section id="discover-rays" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 watermark-143">
+      <section id="discover-rays" className="section-alt-dark gold-dot-grid relative content-wrap py-20 sm:py-24 watermark-143">
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">◆ Your Rays</span>
           <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
@@ -334,7 +341,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 5: HOW IT WORKS ── */}
       <FadeInSection>
-      <section id="how-it-works" className="relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="how-it-works" className="relative content-wrap py-20 sm:py-24">
         <HowItWorks />
       </section>
       </FadeInSection>
@@ -343,19 +350,19 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 6: SAMPLE REPORT TEASER ── */}
       <FadeInSection blur>
-      <section id="sample-report-teaser" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 overflow-hidden">
+      <section id="sample-report-teaser" className="section-alt-dark relative content-wrap py-20 sm:py-24 overflow-hidden">
         <NeonStarField showConstellations />
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
-          <svg viewBox="0 0 600 600" width="600" height="600" className="opacity-[0.04]" style={{ maxWidth: '100%' }}>
-            <circle cx="300" cy="300" r="280" fill="none" stroke="#F8D011" strokeWidth="0.5" strokeDasharray="4 8" />
-            <circle cx="300" cy="300" r="200" fill="none" stroke="#F8D011" strokeWidth="0.5" strokeDasharray="3 6" />
-            <circle cx="300" cy="300" r="120" fill="none" stroke="rgba(248,208,17,0.8)" strokeWidth="0.5" strokeDasharray="2 5" />
+          <svg viewBox="0 0 600 600" width={"600"} height={"600"} className="opacity-[0.04]" style={{ maxWidth: '100%' }}>
+            <circle cx="300" cy="300" r="280" fill="none" stroke="var(--gold-primary)" strokeWidth="0.5" strokeDasharray="4 8" />
+            <circle cx="300" cy="300" r="200" fill="none" stroke="var(--gold-primary)" strokeWidth="0.5" strokeDasharray="3 6" />
+            <circle cx="300" cy="300" r="120" fill="none" stroke="color-mix(in srgb, var(--gold-primary) 80%, transparent)" strokeWidth="0.5" strokeDasharray="2 5" />
           </svg>
         </div>
 
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Your Map Preview
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Your Map Preview
           </span>
           <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
             This is what your map looks like.
@@ -366,9 +373,9 @@ export default async function UpgradeYourOsPage() {
         </div>
 
         {/* Frosted/blurred report preview */}
-        <div className="relative z-10 mx-auto max-w-[680px]">
+        <div className="relative z-10 content-wrap--narrow max-w-[680px]">
           <div className="relative rounded-2xl overflow-hidden"
-            style={{ border: '1px solid rgba(248,208,17,0.18)', boxShadow: '0 0 60px rgba(248,208,17,0.06), 0 24px 80px rgba(0,0,0,0.5)' }}>
+            style={{ border: '1px solid color-mix(in srgb, var(--gold-primary) 18%, transparent)', boxShadow: '0 0 60px color-mix(in srgb, var(--gold-primary) 6%, transparent), 0 24px 80px color-mix(in srgb, var(--ink-950) 50%, transparent)' }}>
 
             {/* Blurred report content — decorative only */}
             <div className="p-6 sm:p-8 space-y-5" style={{ filter: 'blur(5px)', userSelect: 'none', pointerEvents: 'none' }} aria-hidden="true">
@@ -387,10 +394,10 @@ export default async function UpgradeYourOsPage() {
             {/* Frosted glass CTA overlay */}
             <div
               className="absolute inset-0 flex flex-col items-center justify-center gap-5"
-              style={{ background: 'rgba(18,5,50,0.80)', backdropFilter: 'blur(12px)' }}
+              style={{ background: 'var(--surface-border)', backdropFilter: 'blur(12px)' }}
             >
               <div className="text-center space-y-1">
-                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
                   ◆ Unlock Your Full Map
                 </p>
                 <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -400,7 +407,7 @@ export default async function UpgradeYourOsPage() {
               <NeonGlowButton href="/preview">
                 See My Full Map
               </NeonGlowButton>
-              <p className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>
+              <p className="text-xs" style={{ color: 'color-mix(in srgb, var(--text-body) 35%, transparent)' }}>
                 Free stability check &mdash; no credit card
               </p>
             </div>
@@ -409,7 +416,7 @@ export default async function UpgradeYourOsPage() {
           {/* Or see the sample */}
           <p className="mt-5 text-center text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
             Not ready to take it?{' '}
-            <Link href="/sample-report" className="font-semibold transition-colors hover:brightness-110" style={{ color: '#F8D011' }}>
+            <Link href="/sample-report" className="font-semibold transition-colors hover:brightness-110" style={{ color: 'var(--gold-primary)' }}>
               View a sample report &rarr;
             </Link>
           </p>
@@ -421,7 +428,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── NOT A LABEL MANIFESTO ── */}
       <FadeInSection>
-      <section id="not-a-label" className="relative z-10 mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="not-a-label" className="relative z-10 content-wrap py-20 sm:py-24">
         <NotALabelManifesto />
       </section>
       </FadeInSection>
@@ -430,7 +437,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── CONVERSION QUESTIONS ── */}
       <FadeInSection blur>
-      <section id="conversion-questions" className="section-alt-dark gold-dot-grid relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24 watermark-143">
+      <section id="conversion-questions" className="section-alt-dark gold-dot-grid relative content-wrap py-20 sm:py-24 watermark-143">
         <FloatingOrbs variant="purple" />
         <StaggerChildren className="relative z-10 grid gap-5 md:grid-cols-3">
           {[
@@ -464,7 +471,7 @@ export default async function UpgradeYourOsPage() {
           <LiquidFillButton href="/preview">
             Show Me Where This Shows Up
           </LiquidFillButton>
-          <p className="mt-4 text-sm italic" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>
+          <p className="mt-4 text-sm italic" style={{ color: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)' }}>
             Running on survival fuel and calling it discipline.
           </p>
         </div>
@@ -473,12 +480,12 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── DISCOVER YOUR RAYS CTA (NO UNGATED QUESTION FLOW) ── */}
       <FadeInSection>
-      <section id="try-it" className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="try-it" className="relative z-10 content-wrap--narrow py-20 sm:py-24">
         <div className="glass-card p-8 text-center space-y-4">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
             Discover your Rays
           </p>
-          <h3 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+          <h3 className="text-2xl font-bold" style={{ color: 'var(--text-body)' }}>
             Start with the free Stability Check.
           </h3>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -497,12 +504,12 @@ export default async function UpgradeYourOsPage() {
       {/* ── ECLIPSE CONCEPT ── */}
       <FadeInSection>
       <RadialSpotlight>
-      <section id="eclipse-concept" className="relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="eclipse-concept" className="relative content-wrap py-20 sm:py-24">
         <NeonStarField showConstellations />
         <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
           <div className="gold-accent-left">
             <span className="gold-tag">
-              <span style={{ color: '#F8D011' }}>◆</span> The Eclipse Concept
+              <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Eclipse Concept
             </span>
             <h2 className="text-gold-gradient gold-underline heading-section mt-3">
               Your light is not gone. It is covered.
@@ -515,8 +522,8 @@ export default async function UpgradeYourOsPage() {
           </div>
           <StaggerChildren className="grid gap-4" staggerMs={200}>
             {/* Eclipsed day */}
-            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid rgba(248,208,17,0.25)' }}>
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011', opacity: 0.5 }}>
+            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}>
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.5 }}>
                 ◇ Eclipsed Monday
               </p>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -526,8 +533,8 @@ export default async function UpgradeYourOsPage() {
               </p>
             </div>
             {/* Light-online day */}
-            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid #F8D011' }}>
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid var(--text-body)' }}>
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
                 ◆ Light-Online Monday
               </p>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -555,15 +562,15 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SCORE MOVEMENT CHART ── */}
       <FadeInSection>
-      <section id="score-movement" className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="score-movement" className="relative z-10 content-wrap--narrow py-20 sm:py-24">
         <div className="text-center space-y-3 mb-8">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
             Scores That Move
           </p>
-          <h2 className="heading-section" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+          <h2 className="heading-section" style={{ color: 'var(--text-body)' }}>
             Watch the growth happen — week by week.
           </h2>
-          <p className="mx-auto max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+          <p className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
             No other leadership assessment is designed to be retaken weekly.
             Every data point is evidence that the practice is landing.
           </p>
@@ -577,7 +584,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── ECLIPSE IS NOT FAILURE ── */}
       <FadeInSection>
-      <section className="relative z-10 mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
+      <section className="relative z-10 content-wrap--narrow py-20 sm:py-24">
         <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
             Eclipse Is Not Failure
@@ -605,7 +612,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── COMPETITOR COMPARISON ── */}
       <FadeInSection>
-      <section id="competitor-comparison" className="section-alt-dark relative mx-auto max-w-[960px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="competitor-comparison" className="section-alt-dark relative content-wrap py-20 sm:py-24">
         <FloatingOrbs variant="purple" />
         <div className="relative z-10">
           <CompetitorComparison />
@@ -617,10 +624,10 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── WHAT THIS IS NOT ── */}
       <FadeInSection>
-      <section id="what-this-is-not" className="mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="what-this-is-not" className="content-wrap--narrow py-20 sm:py-24">
         <div className="mb-8 text-center">
           <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> No Hype. No Shortcuts.
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> No Hype. No Shortcuts.
           </span>
           <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
             What This Is Not
@@ -648,10 +655,10 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── TESTIMONIALS ── */}
       <FadeInSection>
-      <section id="testimonials" className="relative mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="testimonials" className="relative content-wrap--narrow py-20 sm:py-24">
         <div className="mb-8 text-center">
           <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> What Leaders Say
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> What Leaders Say
           </span>
         </div>
         <StaggerChildren className="space-y-4">
@@ -677,23 +684,23 @@ export default async function UpgradeYourOsPage() {
               end={2400}
               suffix="+"
               className="tabular-nums text-2xl font-bold sm:text-3xl"
-              style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)' }}
+              style={{ color: 'var(--gold-primary)', fontFamily: 'var(--font-cosmic-display)' }}
             />
-            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'rgba(248, 208, 17, 0.6)' }}>leaders assessed</p>
+            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--gold-primary) 60%, transparent)' }}>leaders assessed</p>
           </div>
           <div className="metric-badge">
-            <span className="tabular-nums text-2xl font-bold sm:text-3xl" style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)' }}>
+            <span className="tabular-nums text-2xl font-bold sm:text-3xl" style={{ color: 'var(--gold-primary)', fontFamily: 'var(--font-cosmic-display)' }}>
               90<span className="text-lg">-day</span>
             </span>
-            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'rgba(248, 208, 17, 0.6)' }}>measurable growth</p>
+            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--gold-primary) 60%, transparent)' }}>measurable growth</p>
           </div>
           <div className="metric-badge">
             <CountUp
               end={9}
               className="tabular-nums text-2xl font-bold sm:text-3xl"
-              style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)' }}
+              style={{ color: 'var(--gold-primary)', fontFamily: 'var(--font-cosmic-display)' }}
             />
-            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'rgba(248, 208, 17, 0.6)' }}>trainable capacities</p>
+            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--gold-primary) 60%, transparent)' }}>trainable capacities</p>
           </div>
         </div>
       </section>
@@ -703,11 +710,11 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── PRICING ── */}
       <FadeInSection>
-      <section id="pricing" className="section-alt-dark relative mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="pricing" className="section-alt-dark relative content-wrap--narrow py-20 sm:py-24">
         <NeonStarField showConstellations />
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Choose Your Path
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Choose Your Path
           </span>
           <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
             Start free. Go deeper when you&rsquo;re ready.
@@ -716,14 +723,14 @@ export default async function UpgradeYourOsPage() {
         <div className="relative z-10 grid gap-4 sm:grid-cols-2">
           {/* Free option */}
           <div className="glass-card glass-card--lift flex flex-col p-6">
-            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#F8D011', opacity: 0.7 }}>Free Preview</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.7 }}>Free Preview</p>
             <p className="mt-2 text-3xl font-bold tabular-nums" style={{ color: 'var(--text-on-dark)', fontFamily: 'var(--font-cosmic-display)' }}>$0</p>
             <ul className="mt-4 flex-1 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.1s' }}>◆</span> 3-minute stability check</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.2s' }}>◆</span> Top 2 Ray preview</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.3s' }}>◆</span> Eclipse indicator</li>
-              <li className="flex items-start gap-2"><span style={{ color: 'rgba(255,255,255,0.2)' }}>◇</span> <span style={{ opacity: 0.4 }}>Full 9-Ray report</span></li>
-              <li className="flex items-start gap-2"><span style={{ color: 'rgba(255,255,255,0.2)' }}>◇</span> <span style={{ opacity: 0.4 }}>Rise Path + daily tools</span></li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.1s' }}>◆</span> 3-minute stability check</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.2s' }}>◆</span> Top 2 Ray preview</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.3s' }}>◆</span> Eclipse indicator</li>
+              <li className="flex items-start gap-2"><span style={{ color: 'color-mix(in srgb, var(--text-body) 20%, transparent)' }}>◇</span> <span style={{ opacity: 0.4 }}>Full 9-Ray report</span></li>
+              <li className="flex items-start gap-2"><span style={{ color: 'color-mix(in srgb, var(--text-body) 20%, transparent)' }}>◇</span> <span style={{ opacity: 0.4 }}>Rise Path + daily tools</span></li>
             </ul>
             <LiquidFillButton href="/preview" className="mt-6 block text-center">
               Start Free
@@ -731,17 +738,17 @@ export default async function UpgradeYourOsPage() {
           </div>
           {/* Paid option */}
           <div className="glass-card glass-card--featured pricing-featured flex flex-col p-6">
-            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
+            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
               ◆ Full Assessment
             </p>
             <p className="text-gold-gradient mt-2 text-3xl font-bold tabular-nums" style={{ fontFamily: 'var(--font-cosmic-display)' }}>$43</p>
             <ul className="mt-4 flex-1 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.1s' }}>◆</span> 143 questions, 15 minutes</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.2s' }}>◆</span> All 9 Ray scores</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.3s' }}>◆</span> Your Light Signature</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.4s' }}>◆</span> Eclipse Snapshot</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.5s' }}>◆</span> Rise Path + daily tools</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: '#F8D011', animationDelay: '0.6s' }}>◆</span> 90-day retake to track growth</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.1s' }}>◆</span> 143 questions, 15 minutes</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.2s' }}>◆</span> All 9 Ray scores</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.3s' }}>◆</span> Your Light Signature</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.4s' }}>◆</span> Eclipse Snapshot</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.5s' }}>◆</span> Rise Path + daily tools</li>
+              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.6s' }}>◆</span> 90-day retake to track growth</li>
             </ul>
             <NeonFlicker>
               <NeonGlowButton href="/upgrade">
@@ -750,26 +757,26 @@ export default async function UpgradeYourOsPage() {
             </NeonFlicker>
           </div>
         </div>
-        <p className="relative z-10 mt-4 text-center text-xs" style={{ color: 'rgba(248, 208, 17, 0.4)' }}>
+        <p className="relative z-10 mt-4 text-center text-xs" style={{ color: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)' }}>
           Free during beta · Assessment price increases after launch
         </p>
       </section>
       </FadeInSection>
 
       {/* Gold rule separator */}
-      <div className="mx-auto max-w-[960px] px-5 py-4 sm:px-8">
+      <div className="content-wrap py-4">
         <hr className="gold-rule" />
       </div>
 
       {/* ── ABOUT JUSTIN + FINAL CTA ── */}
       <FadeInSection>
-      <section id="final-cta" className="relative mx-auto max-w-[720px] px-5 py-20 sm:px-8 sm:py-24">
+      <section id="final-cta" className="relative content-wrap--narrow py-20 sm:py-24">
         <FloatingOrbs variant="gold" />
         <div className="relative z-10 text-center">
           <span className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Built By
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Built By
           </span>
-          <div className="mx-auto mt-4 mb-3 h-28 w-28 overflow-hidden rounded-full border" style={{ borderColor: 'rgba(248,208,17,0.35)' }}>
+          <div className="mx-auto mt-4 mb-3 h-28 w-28 overflow-hidden rounded-full border" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 35%, transparent)' }}>
             <Image
               src="/images/justin-ray-headshot.png"
               alt="Justin Ray"
@@ -781,23 +788,23 @@ export default async function UpgradeYourOsPage() {
           <h2 className="text-gold-gradient mt-2 text-xl font-bold">
             Justin Ray
           </h2>
-          <p className="mx-auto mt-1 text-xs font-medium uppercase tracking-widest" style={{ color: '#F8D011', opacity: 0.6 }}>
+          <p className="mx-auto mt-1 text-xs font-medium uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.6 }}>
             Educator · Coach · System Builder
           </p>
 
-          <div className="mx-auto my-4 h-px w-24" style={{ background: 'linear-gradient(to right, transparent, #F8D011, transparent)' }} />
+          <div className="mx-auto my-4 h-px w-24" style={{ background: 'linear-gradient(to right, transparent, var(--text-body), transparent)' }} />
 
-          <p className="mx-auto max-w-[520px] text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+          <p className="content-wrap--narrow max-w-[520px] text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
             &ldquo;I spent years watching leadership programs teach information that never
             landed — smart people learning powerful ideas that disappeared by Monday.
             So I built a different system. One that <span className="gold-highlight">measures capacity</span> instead of labeling
             personality. One that trains through <span className="gold-highlight">daily reps</span> instead of one-time workshops.
             One that <span className="gold-highlight">proves growth</span> is happening instead of hoping it is.&rdquo;
           </p>
-          <p className="mx-auto mt-3 max-w-[520px] text-xs" style={{ color: 'rgba(248, 208, 17, 0.5)' }}>
-            <CountUp end={2400} suffix="+" className="tabular-nums" style={{ color: 'rgba(248, 208, 17, 0.5)' }} /> leaders assessed · Grounded in behavioural science
+          <p className="mx-auto mt-3 max-w-[520px] text-xs" style={{ color: 'color-mix(in srgb, var(--gold-primary) 50%, transparent)' }}>
+            <CountUp end={2400} suffix="+" className="tabular-nums" style={{ color: 'color-mix(in srgb, var(--gold-primary) 50%, transparent)' }} /> leaders assessed · Grounded in behavioural science
           </p>
-          <Link href="/about" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold transition-all hover:brightness-110 hover:gap-2" style={{ color: '#F8D011' }}>
+          <Link href="/about" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold transition-all hover:brightness-110 hover:gap-2" style={{ color: 'var(--gold-primary)' }}>
             Read the full story <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
@@ -815,7 +822,7 @@ export default async function UpgradeYourOsPage() {
               Check My Stability Free
             </NeonGlowButton>
           </div>
-          <p className="mt-4 text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>
+          <p className="mt-4 text-xs" style={{ color: 'color-mix(in srgb, var(--text-body) 35%, transparent)' }}>
             Free during beta · No credit card required
           </p>
           <p className="mt-3 text-sm text-gold-glow" style={{ fontFamily: 'var(--font-cosmic-display)', opacity: 0.7 }}>

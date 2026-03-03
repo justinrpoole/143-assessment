@@ -64,7 +64,7 @@ export default function NotificationToggle() {
   return (
     <div
       className="glass-card p-4 flex items-center justify-between gap-3"
-      style={{ borderColor: state === 'on' ? 'rgba(248, 208, 17, 0.25)' : undefined }}
+      style={{ borderColor: state === 'on' ? 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' : undefined }}
     >
       <div className="min-w-0">
         <p className="text-sm font-medium" style={{ color: 'var(--text-on-dark)' }}>
@@ -87,10 +87,10 @@ export default function NotificationToggle() {
           width: 44,
           height: 24,
           background: state === 'on'
-            ? 'rgba(248, 208, 17, 0.5)'
+            ? 'color-mix(in srgb, var(--gold-primary) 50%, transparent)'
             : state === 'denied'
-              ? 'rgba(255, 255, 255, 0.08)'
-              : 'rgba(255, 255, 255, 0.15)',
+              ? 'color-mix(in srgb, var(--text-body) 8%, transparent)'
+              : 'color-mix(in srgb, var(--text-body) 15%, transparent)',
           opacity: busy ? 0.6 : 1,
           cursor: state === 'denied' ? 'not-allowed' : 'pointer',
         }}
@@ -103,9 +103,9 @@ export default function NotificationToggle() {
           style={{
             width: 20,
             height: 20,
-            background: state === 'on' ? '#F8D011' : 'rgba(255, 255, 255, 0.5)',
+            background: state === 'on' ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 50%, transparent)',
             transform: state === 'on' ? 'translateX(22px)' : 'translateX(2px)',
-            boxShadow: state === 'on' ? '0 0 8px rgba(248, 208, 17, 0.4)' : 'none',
+            boxShadow: state === 'on' ? '0 0 8px color-mix(in srgb, var(--gold-primary) 40%, transparent)' : 'none',
           }}
         />
       </button>

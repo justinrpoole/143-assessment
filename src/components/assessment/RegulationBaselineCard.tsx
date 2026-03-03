@@ -38,7 +38,7 @@ export function RegulationBaselineCard() {
   return (
     <section className="glass-card p-6 space-y-4">
       <div className="space-y-1">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           State Check
         </p>
         <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -59,7 +59,7 @@ export function RegulationBaselineCard() {
               onClick={() => setSelected(option.value)}
               className="glass-card p-4 text-left transition-all"
               style={{
-                borderColor: active ? '#F8D011' : 'var(--surface-border)',
+                borderColor: active ? 'var(--gold-primary)' : 'var(--surface-border)',
               }}
             >
               <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -73,8 +73,8 @@ export function RegulationBaselineCard() {
         })}
       </div>
 
-      <div className="glass-card p-4" style={{ borderColor: 'rgba(248, 208, 17, 0.3)' }}>
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+      <div className="glass-card p-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           What to do next
         </p>
         <p className="mt-1 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>

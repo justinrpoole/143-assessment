@@ -9,17 +9,17 @@ interface Props {
 const PROFILE_FLAG_CONFIG: Record<ProfileFlag, { label: string; color: string; note: string }> = {
   STANDARD: {
     label: 'Standard',
-    color: '#34D399',
+    color: 'var(--neon-teal)',
     note: 'Clear differentiation across rays. Full coaching recommendations available.',
   },
   UNDIFFERENTIATED: {
     label: 'Undifferentiated',
-    color: '#FB923C',
+    color: 'var(--neon-amber)',
     note: 'Scores cluster tightly. Bottom ray selection has lower confidence. Consider retaking with a specific context in mind.',
   },
   PARTIAL: {
     label: 'Partial',
-    color: '#F8D011',
+    color: 'var(--gold-primary)',
     note: 'Some rays have incomplete data. Report accuracy improves with a full completion.',
   },
 };
@@ -67,8 +67,8 @@ export default function AssessmentSummaryCard({ output }: Props) {
           label="Confidence"
           value={dq.confidence_band}
           valueColor={
-            dq.confidence_band === 'HIGH' ? '#34D399'
-            : dq.confidence_band === 'LOW' ? '#FB923C'
+            dq.confidence_band === 'HIGH' ? 'var(--neon-teal)'
+            : dq.confidence_band === 'LOW' ? 'var(--neon-amber)'
             : 'var(--brand-gold)'
           }
           sublabel={flagCount > 0 ? `${flagCount} validity flag${flagCount > 1 ? 's' : ''}` : 'No flags'}

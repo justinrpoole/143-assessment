@@ -18,12 +18,12 @@ export default function ProgressBar({ current, total }: ProgressBarProps) {
           {pct}%
         </span>
       </div>
-      <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: 'rgba(96, 5, 141, 0.25)', border: '1px solid var(--surface-border)' }}>
+      <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--violet-650) 25%, transparent)', border: '1px solid var(--surface-border)' }}>
         <div
           className="h-full rounded-full transition-all duration-500 ease-out"
           style={{
             width: `${pct}%`,
-            background: 'linear-gradient(90deg, #60058D 0%, #F8D011 100%)',
+            background: 'linear-gradient(90deg, var(--text-body) 0%, var(--text-body) 100%)',
           }}
         />
       </div>

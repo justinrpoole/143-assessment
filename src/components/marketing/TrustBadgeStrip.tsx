@@ -12,7 +12,7 @@ export default function TrustBadgeStrip({ badges }: TrustBadgeStripProps) {
       {badges.map((badge) => (
         <span key={badge} className="trust-badge">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
-            <path d="M7 1L8.5 4.5L12.5 5L9.75 7.5L10.5 11.5L7 9.5L3.5 11.5L4.25 7.5L1.5 5L5.5 4.5L7 1Z" stroke="currentColor" strokeWidth="1" fill="rgba(248,208,17,0.15)" />
+            <path d="M7 1L8.5 4.5L12.5 5L9.75 7.5L10.5 11.5L7 9.5L3.5 11.5L4.25 7.5L1.5 5L5.5 4.5L7 1Z" stroke="currentColor" strokeWidth="1" fill="color-mix(in srgb, var(--gold-primary) 15%, transparent)" />
           </svg>
           {badge}
         </span>

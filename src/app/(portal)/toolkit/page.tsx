@@ -57,7 +57,7 @@ export default async function ToolkitPage() {
             title="Finding what you need?"
           />
           <RayDivider ray="R5" />
-          <section className="mx-auto max-w-lg">
+          <section className="content-wrap--narrow">
             <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: rayHex('R5') }}>
               Continue Your Practice
             </p>

@@ -55,7 +55,7 @@ export default function WelcomeFlowClient() {
               className="h-2 rounded-full transition-all"
               style={{
                 width: i <= stepIdx ? '24px' : '8px',
-                background: i <= stepIdx ? 'var(--brand-gold)' : 'rgba(255,255,255,0.15)',
+                background: i <= stepIdx ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--text-body) 15%, transparent)',
                 transitionDuration: motionDuration,
               }}
             />
@@ -76,7 +76,7 @@ export default function WelcomeFlowClient() {
             <div
               className="mx-auto h-32 w-32 rounded-full"
               style={{
-                background: 'radial-gradient(circle, var(--brand-gold) 0%, rgba(248, 208, 17, 0.3) 40%, transparent 70%)',
+                background: 'radial-gradient(circle, var(--brand-gold) 0%, color-mix(in srgb, var(--gold-primary) 30%, transparent) 40%, transparent 70%)',
                 animation: prefersReduced ? 'none' : 'sunrisePulse 3s ease-in-out infinite',
               }}
             />
@@ -132,11 +132,11 @@ export default function WelcomeFlowClient() {
                 <div
                   key={item.step}
                   className="glass-card p-4 flex items-start gap-4"
-                  style={{ borderColor: 'rgba(248, 208, 17, 0.15)' }}
+                  style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}
                 >
                   <span
                     className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold"
-                    style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)' }}
+                    style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}
                   >
                     {item.step}
                   </span>
@@ -183,13 +183,13 @@ export default function WelcomeFlowClient() {
               maxLength={500}
               className="w-full rounded-xl border p-4 text-sm leading-relaxed resize-none transition-colors"
               style={{
-                background: 'rgba(96, 5, 141, 0.25)',
-                borderColor: intention ? 'rgba(248, 208, 17, 0.3)' : 'rgba(148, 80, 200, 0.25)',
+                background: 'color-mix(in srgb, var(--violet-650) 25%, transparent)',
+                borderColor: intention ? 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' : 'color-mix(in srgb, var(--stroke-400) 25%, transparent)',
                 color: 'var(--text-on-dark)',
                 outline: 'none',
               }}
-              onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(248, 208, 17, 0.5)'; }}
-              onBlur={(e) => { e.currentTarget.style.borderColor = intention ? 'rgba(248, 208, 17, 0.3)' : 'rgba(148, 80, 200, 0.25)'; }}
+              onFocus={(e) => { e.currentTarget.style.borderColor = 'color-mix(in srgb, var(--gold-primary) 50%, transparent)'; }}
+              onBlur={(e) => { e.currentTarget.style.borderColor = intention ? 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' : 'color-mix(in srgb, var(--stroke-400) 25%, transparent)'; }}
             />
 
             <div className="flex flex-col gap-3 items-center">

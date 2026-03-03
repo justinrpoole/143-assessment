@@ -15,19 +15,19 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 const RAY_HEX: Record<string, string> = {
-  intention: "#60A5FA",
-  joy: "#F4C430",
-  presence: "#8E44AD",
-  power: "#C0392B",
-  purpose: "#D4770B",
-  authenticity: "#2ECC71",
-  connection: "#E74C8B",
-  possibility: "#1ABC9C",
-  "be the light": "#F8D011",
+  intention: "var(--text-body)",
+  joy: "var(--gold-primary)",
+  presence: "var(--neon-violet)",
+  power: "var(--text-body)",
+  purpose: "var(--neon-amber)",
+  authenticity: "var(--text-body)",
+  connection: "var(--text-body)",
+  possibility: "var(--text-body)",
+  "be the light": "var(--gold-primary)",
 };
 
 function getRayColor(rayName: string): string {
-  return RAY_HEX[rayName.toLowerCase()] ?? "#F8D011";
+  return RAY_HEX[rayName.toLowerCase()] ?? "var(--gold-primary)";
 }
 
 export async function GET(request: Request) {
@@ -37,7 +37,7 @@ export async function GET(request: Request) {
   const tagline = searchParams.get("tagline") ?? "";
   const ray1 = searchParams.get("ray1") ?? "Intention";
   const ray2 = searchParams.get("ray2") ?? "Purpose";
-  const neonColor = searchParams.get("neonColor") ?? "#F8D011";
+  const neonColor = searchParams.get("neonColor") ?? "var(--gold-primary)";
   const identityCode = searchParams.get("identityCode") ?? "";
   const format = searchParams.get("format") ?? "story";
 
@@ -59,7 +59,7 @@ export async function GET(request: Request) {
           alignItems: "center",
           justifyContent: "center",
           background:
-            "linear-gradient(135deg, #1E0E35 0%, #120825 50%, #1E0E35 100%)",
+            "linear-gradient(135deg, var(--text-body) 0%, var(--text-body) 50%, var(--text-body) 100%)",
           fontFamily: "system-ui, -apple-system, sans-serif",
           position: "relative",
           overflow: "hidden",
@@ -144,7 +144,7 @@ export async function GET(request: Request) {
               fontWeight: 700,
               letterSpacing: "0.3em",
               textTransform: "uppercase" as const,
-              color: "rgba(255,255,255,0.35)",
+              color: "color-mix(in srgb, var(--text-body) 35%, transparent)",
               marginBottom: isStory ? "60px" : "20px",
             }}
           >
@@ -174,7 +174,7 @@ export async function GET(request: Request) {
             <span
               style={{
                 fontSize: isStory ? "16px" : "13px",
-                color: "rgba(255,255,255,0.25)",
+                color: "color-mix(in srgb, var(--text-body) 25%, transparent)",
               }}
             >
               +
@@ -207,7 +207,7 @@ export async function GET(request: Request) {
             style={{
               fontSize: isStory ? "64px" : "48px",
               fontWeight: 700,
-              color: "#F8D011",
+              color: "var(--gold-primary)",
               textAlign: "center" as const,
               lineHeight: 1.1,
               marginBottom: isStory ? "32px" : "12px",
@@ -222,7 +222,7 @@ export async function GET(request: Request) {
             <p
               style={{
                 fontSize: isStory ? "22px" : "16px",
-                color: "rgba(255,255,255,0.75)",
+                color: "color-mix(in srgb, var(--text-body) 75%, transparent)",
                 textAlign: "center" as const,
                 lineHeight: 1.6,
                 maxWidth: isStory ? "700px" : "500px",
@@ -269,7 +269,7 @@ export async function GET(request: Request) {
             style={{
               fontSize: isStory ? "13px" : "10px",
               letterSpacing: "0.15em",
-              color: "rgba(255,255,255,0.2)",
+              color: "color-mix(in srgb, var(--text-body) 20%, transparent)",
             }}
           >
             143leadership.com/archetypes

@@ -41,13 +41,13 @@ export default function IdentityStory({ lightSignature, eclipse, rays }: Props) 
           className="px-6 py-10 text-center"
           style={{
             background:
-              'linear-gradient(135deg, var(--bg-deep-mid) 0%, rgba(114, 21, 184, 0.30) 50%, var(--bg-deep) 100%)',
+              'linear-gradient(135deg, var(--bg-deep-mid) 0%, var(--surface-border) 50%, var(--bg-deep) 100%)',
             borderBottom: '1px solid var(--surface-border)',
           }}
         >
           <p
             className="text-xs tracking-widest uppercase mb-3"
-            style={{ color: 'var(--brand-gold, #F8D011)' }}
+            style={{ color: 'var(--gold-primary)' }}
           >
             Your Light Signature
           </p>

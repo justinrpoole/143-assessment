@@ -35,7 +35,7 @@ export default function GoldHeroBanner({
       <section
         className={`gold-hero-banner relative overflow-hidden rounded-2xl px-6 py-10 sm:px-8 sm:py-14 ${className}`}
         style={{
-          background: 'linear-gradient(135deg, #F8D011 0%, #E89D0C 50%, #F8D011 100%)',
+          background: 'linear-gradient(135deg, var(--text-body) 0%, var(--text-body) 50%, var(--text-body) 100%)',
         }}
       >
         {/* Inner radial highlight */}
@@ -44,7 +44,7 @@ export default function GoldHeroBanner({
           aria-hidden="true"
           style={{
             background:
-              'radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.15) 0%, transparent 60%)',
+              'radial-gradient(ellipse at 30% 50%, color-mix(in srgb, var(--text-body) 15%, transparent) 0%, transparent 60%)',
           }}
         />
 
@@ -53,7 +53,7 @@ export default function GoldHeroBanner({
           className="pointer-events-none absolute bottom-0 left-0 right-0 h-[2px]"
           aria-hidden="true"
           style={{
-            background: 'linear-gradient(90deg, transparent 5%, var(--neon-cyan, #25f6ff) 30%, var(--neon-pink, #ff3fb4) 70%, transparent 95%)',
+            background: 'linear-gradient(90deg, transparent 5%, var(--neon-cyan, var(--text-body)) 30%, var(--neon-pink, var(--text-body)) 70%, transparent 95%)',
             opacity: 0.4,
           }}
         />
@@ -65,7 +65,7 @@ export default function GoldHeroBanner({
           style={{
             fontFamily: 'var(--font-cosmic-display)',
             fontSize: '140px',
-            color: 'rgba(0,0,0,0.04)',
+            color: 'color-mix(in srgb, var(--ink-950) 4%, transparent)',
             lineHeight: 1,
           }}
         >
@@ -77,21 +77,21 @@ export default function GoldHeroBanner({
           {kicker && (
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: 'rgba(2,2,2,0.6)' }}
+              style={{ color: 'color-mix(in srgb, var(--ink-950) 60%, transparent)' }}
             >
               {kicker}
             </p>
           )}
           <h2
             className={`${kicker ? 'mt-2' : ''} text-2xl font-bold leading-tight sm:text-3xl`}
-            style={{ color: '#020202' }}
+            style={{ color: 'var(--ink-950)' }}
           >
             {title}
           </h2>
           {description && (
             <p
               className="mx-auto mt-3 max-w-[560px] text-sm leading-relaxed sm:text-base"
-              style={{ color: 'rgba(2,2,2,0.7)' }}
+              style={{ color: 'color-mix(in srgb, var(--ink-950) 70%, transparent)' }}
             >
               {description}
             </p>
@@ -102,9 +102,9 @@ export default function GoldHeroBanner({
                 href={cta.href}
                 className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-sm font-semibold transition-all hover:brightness-110"
                 style={{
-                  background: '#020202',
-                  color: '#F8D011',
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.25)',
+                  background: 'var(--ink-950)',
+                  color: 'var(--gold-primary)',
+                  boxShadow: '0 2px 12px color-mix(in srgb, var(--ink-950) 25%, transparent)',
                 }}
               >
                 {cta.label}

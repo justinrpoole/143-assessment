@@ -21,22 +21,22 @@ export async function RouteShellPage({ spec }: RouteShellPageProps) {
   const isChallengeRoute = spec.route === "/143";
 
   return (
-    <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16">
+    <main className="cosmic-page-bg page-shell">
+      <div className="content-wrap py-12 sm:py-16">
         <header className="glass-card mb-6 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">{spec.route}</p>
-          <h1 className="mt-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>{spec.heading}</h1>
+          <h1 className="mt-2 text-2xl font-semibold text-header">{spec.heading}</h1>
         </header>
 
         {isChallengeRoute ? (
           <section className="space-y-4" aria-label="143 challenge flow placeholder">
             <div className="glass-card p-6">
-              <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Start now (email unlock)</h2>
-              <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>Public users can run the core challenge flow without email capture.</p>
+              <h2 className="text-lg font-semibold text-header">Start now (email unlock)</h2>
+              <p className="mt-2 text-sm text-secondary">Public users can run the core challenge flow without email capture.</p>
             </div>
             <div className="glass-card p-6">
-              <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Challenge Kit (email-gated)</h2>
-              <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>Only tracker/prompts/reminders/share cards/logging are inside the Email Gate.</p>
+              <h2 className="text-lg font-semibold text-header">Challenge Kit (email-gated)</h2>
+              <p className="mt-2 text-sm text-secondary">Only tracker/prompts/reminders/share cards/logging are inside the Email Gate.</p>
             </div>
             {!hasFreeEmailAccess(userState) ? (
               <EmailGateModulePlaceholder
@@ -52,8 +52,8 @@ export async function RouteShellPage({ spec }: RouteShellPageProps) {
         <section className="space-y-4" aria-label="Required module placeholders">
           {spec.modules.length === 0 ? (
             <div className="glass-card p-6" aria-label="No required modules">
-              <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>No required modules</h2>
-              <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>This route is a shell with no module placeholders yet.</p>
+              <h2 className="text-lg font-semibold text-header">No required modules</h2>
+              <p className="mt-2 text-sm text-secondary">This route is a shell with no module placeholders yet.</p>
             </div>
           ) : (
             spec.modules.map((moduleName) => <ModulePlaceholder key={moduleName} name={moduleName} />)

@@ -131,36 +131,36 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
         <defs>
           {/* Deep space background */}
           <radialGradient id="om-bg">
-            <stop offset="0%" stopColor="#1a0a35" />
-            <stop offset="40%" stopColor="#0f0520" />
-            <stop offset="100%" stopColor="#050210" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="40%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           {/* Warm atmospheric glow near sun */}
           <radialGradient id="om-warmth">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.06" />
-            <stop offset="30%" stopColor="#E8A317" stopOpacity="0.03" />
-            <stop offset="100%" stopColor="#E8A317" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.06" />
+            <stop offset="30%" stopColor="var(--neon-amber)" stopOpacity="0.03" />
+            <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
           </radialGradient>
 
           {/* Sun core */}
           <radialGradient id="om-sun" cx="38%" cy="38%" r="56%">
-            <stop offset="0%" stopColor="#FFFDF5" />
-            <stop offset="25%" stopColor="#FFF8E7" />
-            <stop offset="55%" stopColor="#F4C430" />
-            <stop offset="80%" stopColor="#E8A317" />
-            <stop offset="100%" stopColor="#A8820A" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="25%" stopColor="var(--text-body)" />
+            <stop offset="55%" stopColor="var(--gold-primary)" />
+            <stop offset="80%" stopColor="var(--neon-amber)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           {/* Sun glow */}
           <radialGradient id="om-sun-glow">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.3" />
-            <stop offset="50%" stopColor="#F4C430" stopOpacity="0.06" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.06" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
 
           {/* Sun bloom */}
-          <filter id="om-sun-bloom" x="-100%" y="-100%" width="300%" height="300%">
+          <filter id="om-sun-bloom" x="-100%" y="-100%" width={"300%"} height={"300%"}>
             <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b2" />
             <feMerge>
@@ -171,7 +171,7 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
           </filter>
 
           {/* Chip glow filter */}
-          <filter id="om-chip-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <filter id="om-chip-glow" x="-60%" y="-60%" width={"220%"} height={"220%"}>
             <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b" />
             <feMerge>
               <feMergeNode in="b" />
@@ -181,17 +181,17 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
 
           {/* Nebula patches */}
           <radialGradient id="om-nebula1" cx="25%" cy="30%">
-            <stop offset="0%" stopColor="#6B21A8" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#6B21A8" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--violet-650)" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="var(--violet-650)" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="om-nebula2" cx="75%" cy="70%">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.03" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.03" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
 
           {/* Scanline pattern */}
           <pattern id="om-scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-            <rect width="4" height="2" fill="rgba(0,0,0,0.05)" />
+            <rect width="4" height="2" fill="color-mix(in srgb, var(--ink-950) 5%, transparent)" />
           </pattern>
         </defs>
 
@@ -209,7 +209,7 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
             cx={seededRandom(i * 17) * SIZE}
             cy={seededRandom(i * 17 + 1) * SIZE}
             r={0.3 + seededRandom(i * 17 + 2) * 0.6}
-            fill="#FFFFFF"
+            fill="var(--text-body)"
             initial={false}
             animate={
               !reducedMotion && i % 7 === 0
@@ -228,9 +228,9 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
 
         {/* ── Orbit rings — neon glow effect ── */}
         {[
-          { r: INNER_R, color: '#F4C430', label: 'ALIGNED', opacity: 0.25 },
-          { r: MIDDLE_R, color: '#8B5CF6', label: 'TRANSITIONING', opacity: 0.18 },
-          { r: OUTER_R, color: '#64748B', label: 'RELEASING', opacity: 0.12 },
+          { r: INNER_R, color: 'var(--gold-primary)', label: 'ALIGNED', opacity: 0.25 },
+          { r: MIDDLE_R, color: 'var(--text-body)', label: 'TRANSITIONING', opacity: 0.18 },
+          { r: OUTER_R, color: 'var(--text-body)', label: 'RELEASING', opacity: 0.12 },
         ].map((ring, i) => (
           <g key={`ring-${i}`}>
             {/* Outer glow layer */}
@@ -281,7 +281,7 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
               y1={CY + Math.sin(angle) * (SUN_R + 1)}
               x2={CX + Math.cos(angle) * len}
               y2={CY + Math.sin(angle) * len}
-              stroke="#F4C430" strokeWidth={i % 3 === 0 ? 1.8 : 1}
+              stroke="var(--gold-primary)" strokeWidth={i % 3 === 0 ? 1.8 : 1}
               strokeOpacity={0.5} strokeLinecap="round"
             />
           );
@@ -301,9 +301,9 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
           const isSelected = selectedRay === chip.rayId;
           const isInner = chip.orbit === 'inner';
           const isOuter = chip.orbit === 'outer';
-          const chipColor = RAY_COLORS[chip.rayId] ?? (isInner ? '#F4C430' : '#8B5CF6');
+          const chipColor = RAY_COLORS[chip.rayId] ?? (isInner ? 'var(--gold-primary)' : 'var(--text-body)');
 
-          const borderColor = isInner ? '#F4C430' : isOuter ? '#64748B' : 'rgba(139,92,246,0.3)';
+          const borderColor = isInner ? 'var(--gold-primary)' : isOuter ? 'var(--text-body)' : 'var(--surface-border)';
           const bgOpacity = isInner ? 0.1 : isOuter ? 0.04 : 0.06;
           const textOpacity = isOuter ? 0.5 : 0.85;
           const CHIP_W = 52;
@@ -328,7 +328,7 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
                 y={chipY - CHIP_H / 2}
                 width={CHIP_W} height={CHIP_H}
                 rx={8}
-                fill={`rgba(10, 5, 28, ${0.6 + bgOpacity})`}
+                fill={`var(--surface-border)`}
                 stroke={borderColor}
                 strokeWidth={isSelected ? 1.5 : 0.8}
                 className="cosmic-focus-target"
@@ -358,7 +358,7 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
                 x={chipX} y={chipY + 10}
                 textAnchor="middle"
                 fontSize="7" fontFamily="monospace" fontWeight="600"
-                fill="#F0F0FF"
+                fill="var(--text-body)"
                 opacity={textOpacity * 0.7}
               >
                 {Math.round(chip.netEnergy)}
@@ -370,12 +370,12 @@ export default function OrbitMap({ rays, topTwo, bottomRay }: OrbitMapProps) {
                   <circle
                     cx={chipX + CHIP_W / 2 - 4}
                     cy={chipY - CHIP_H / 2 + 4}
-                    r={5} fill="#F4C430" opacity={0.15}
+                    r={5} fill="var(--gold-primary)" opacity={0.15}
                   />
                   <circle
                     cx={chipX + CHIP_W / 2 - 4}
                     cy={chipY - CHIP_H / 2 + 4}
-                    r={3} fill="#F4C430"
+                    r={3} fill="var(--gold-primary)"
                   />
                 </g>
               )}

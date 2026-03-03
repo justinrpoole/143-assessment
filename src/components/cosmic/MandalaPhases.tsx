@@ -64,7 +64,7 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
         <rect width={W} height={H} rx="12" fill="var(--cosmic-svg-bg)" />
 
         <defs>
-          <filter id="mp-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="mp-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="4" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -80,7 +80,7 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
               y1={pos.y}
               x2={next.x}
               y2={next.y}
-              stroke="#F4C430"
+              stroke="var(--gold-primary)"
               strokeWidth={0.6}
               strokeOpacity={0.12}
             />
@@ -92,7 +92,7 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
           cx={cx}
           cy={cy}
           r={4}
-          fill="#F4C430"
+          fill="var(--gold-primary)"
           initial={false}
           animate={
             !reducedMotion
@@ -117,7 +117,7 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
                   cy={pos.y}
                   r={sunR + 8}
                   fill="none"
-                  stroke="#F4C430"
+                  stroke="var(--gold-primary)"
                   strokeWidth={1.5}
                   strokeDasharray="3 3"
                   initial={false}
@@ -130,7 +130,7 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
               {phase.fill < 1 && (
                 <>
                   {/* Dark disc */}
-                  <circle cx={pos.x} cy={pos.y} r={sunR} fill="#2C2C2C" opacity={0.8} />
+                  <circle cx={pos.x} cy={pos.y} r={sunR} fill="var(--ink-900)" opacity={0.8} />
                   {/* Partial gold fill */}
                   <clipPath id={`mp-clip-${i}`}>
                     <rect
@@ -140,10 +140,10 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
                       height={sunR * 2}
                     />
                   </clipPath>
-                  <circle cx={pos.x} cy={pos.y} r={sunR - 1} fill="#F4C430" opacity={isActive ? 0.8 : 0.5} clipPath={`url(#mp-clip-${i})`} />
+                  <circle cx={pos.x} cy={pos.y} r={sunR - 1} fill="var(--gold-primary)" opacity={isActive ? 0.8 : 0.5} clipPath={`url(#mp-clip-${i})`} />
                   {/* Corona ring for eclipsed */}
                   {phase.fill === 0 && (
-                    <circle cx={pos.x} cy={pos.y} r={sunR + 1} fill="none" stroke="#8E44AD" strokeWidth={1} strokeOpacity={0.3} />
+                    <circle cx={pos.x} cy={pos.y} r={sunR + 1} fill="none" stroke="var(--neon-violet)" strokeWidth={1} strokeOpacity={0.3} />
                   )}
                 </>
               )}
@@ -151,8 +151,8 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
               {/* Full sun for positions 6-9 */}
               {phase.fill === 1 && i < 8 && (
                 <>
-                  <circle cx={pos.x} cy={pos.y} r={sunR} fill="#F4C430" opacity={isActive ? 0.9 : 0.6} filter={isActive ? 'url(#mp-glow)' : undefined} />
-                  <circle cx={pos.x} cy={pos.y} r={sunR * 0.45} fill="#FFFFFF" opacity={0.5} />
+                  <circle cx={pos.x} cy={pos.y} r={sunR} fill="var(--gold-primary)" opacity={isActive ? 0.9 : 0.6} filter={isActive ? 'url(#mp-glow)' : undefined} />
+                  <circle cx={pos.x} cy={pos.y} r={sunR * 0.45} fill="var(--text-body)" opacity={0.5} />
                   {/* Beams */}
                   {Array.from({ length: phase.beams }).map((_, bi) => {
                     const bAngle = (bi / phase.beams) * Math.PI * 2;
@@ -165,7 +165,7 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
                         y1={pos.y + Math.sin(bAngle) * innerR}
                         x2={pos.x + Math.cos(bAngle) * outerR}
                         y2={pos.y + Math.sin(bAngle) * outerR}
-                        stroke={i === 7 ? '#FFFFFF' : '#F4C430'}
+                        stroke={i === 7 ? 'var(--text-body)' : 'var(--gold-primary)'}
                         strokeWidth={i === 7 ? 1.5 : 1}
                         strokeOpacity={isActive ? 0.6 : 0.3}
                       />
@@ -173,7 +173,7 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
                   })}
                   {/* Corona expansion for position 7 */}
                   {i === 6 && (
-                    <circle cx={pos.x} cy={pos.y} r={sunR + 10} fill="#E8A317" opacity={0.08} />
+                    <circle cx={pos.x} cy={pos.y} r={sunR + 10} fill="var(--neon-amber)" opacity={0.08} />
                   )}
                 </>
               )}
@@ -181,10 +181,10 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
               {/* Nebula for position 9 */}
               {i === 8 && (
                 <>
-                  <circle cx={pos.x} cy={pos.y} r={sunR + 5} fill="#F5E6CC" opacity={0.06} />
-                  <circle cx={pos.x} cy={pos.y} r={sunR} fill="#C39BD3" opacity={0.12} />
-                  <circle cx={pos.x} cy={pos.y} r={sunR * 0.6} fill="#F4C430" opacity={isActive ? 0.5 : 0.3} />
-                  <circle cx={pos.x} cy={pos.y} r={3} fill="#F4C430" opacity={0.7} />
+                  <circle cx={pos.x} cy={pos.y} r={sunR + 5} fill="var(--text-body)" opacity={0.06} />
+                  <circle cx={pos.x} cy={pos.y} r={sunR} fill="var(--text-secondary)" opacity={0.12} />
+                  <circle cx={pos.x} cy={pos.y} r={sunR * 0.6} fill="var(--gold-primary)" opacity={isActive ? 0.5 : 0.3} />
+                  <circle cx={pos.x} cy={pos.y} r={3} fill="var(--gold-primary)" opacity={0.7} />
                 </>
               )}
 
@@ -193,7 +193,7 @@ export default function MandalaPhases({ currentPosition, score }: MandalaPhasesP
                 x={pos.x}
                 y={pos.y + sunR + 14}
                 textAnchor="middle"
-                fill="#FFFFFF"
+                fill="var(--text-body)"
                 fontSize="7"
                 fontWeight={isActive ? '600' : '400'}
                 opacity={isActive ? 0.7 : 0.3}

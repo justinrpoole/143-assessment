@@ -10,19 +10,19 @@ interface Props {
 const CONFIDENCE_BADGE: Record<ConfidenceBand, { label: string; bg: string; color: string; description: string }> = {
   HIGH: {
     label: 'Strong',
-    bg: 'rgba(167, 139, 250, 0.12)',
+    bg: 'var(--surface-border)',
     color: 'var(--status-low)',
     description: 'Your responses were consistent, engaged, and thorough. These results reflect you well.',
   },
   MODERATE: {
     label: 'Moderate',
-    bg: 'rgba(255, 207, 0, 0.10)',
+    bg: 'var(--surface-border)',
     color: 'var(--brand-gold)',
     description: 'These results are directional — they point in the right direction, but some areas may need a second look.',
   },
   LOW: {
     label: 'Preliminary',
-    bg: 'rgba(245, 158, 11, 0.12)',
+    bg: 'var(--surface-border)',
     color: 'var(--status-elevated)',
     description: 'Some response patterns suggest these results should be treated as a starting point, not a final answer.',
   },
@@ -60,7 +60,7 @@ export default function WelcomeDisclaimer({ confidence, qualityNotes }: Props) {
       {/* Research disclaimer */}
       <p className="text-[11px] leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
         This assessment measures trained capacities, not fixed personality traits. It is not a clinical instrument and does not assess or treat mental health conditions. Scores reflect self-reported behavior and are designed to change with practice.{' '}
-        <a href="/methodology" className="underline underline-offset-2 hover:opacity-80" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <a href="/methodology" className="underline underline-offset-2 hover:opacity-80" style={{ color: 'var(--gold-primary)' }}>
           View methodology
         </a>
       </p>

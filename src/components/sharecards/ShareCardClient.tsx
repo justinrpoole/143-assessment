@@ -96,19 +96,19 @@ export function ShareCardClient({
       <div className="text-center space-y-2">
         <p
           className="text-sm uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           Share Your Light
         </p>
         <h1
           className="text-2xl sm:text-3xl font-bold"
-          style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+          style={{ color: 'var(--text-body)' }}
         >
           Your Light Signature card is ready.
         </h1>
         <p
           className="text-sm"
-          style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.7))' }}
+          style={{ color: 'var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 70%, transparent))' }}
         >
           Download it. Post it. Let people ask what it means.
         </p>
@@ -130,9 +130,9 @@ export function ShareCardClient({
         <p
           className="text-sm text-center rounded-lg px-4 py-3"
           style={{
-            color: '#FCA5A5',
-            background: 'rgba(220,38,38,0.12)',
-            border: '1px solid rgba(220,38,38,0.25)',
+            color: 'var(--ray-power)',
+            background: 'var(--surface-border)',
+            border: '1px solid var(--surface-border)',
           }}
         >
           {downloadError}
@@ -148,9 +148,9 @@ export function ShareCardClient({
           disabled={downloading}
           className="inline-flex items-center justify-center gap-2 rounded-2xl px-8 py-4 text-base font-bold transition-all duration-200"
           style={{
-            background: 'var(--brand-gold, #F8D011)',
-            color: '#020202',
-            boxShadow: '0 0 24px rgba(248,208,17,0.25), 0 0 60px rgba(248,208,17,0.10)',
+            background: 'var(--gold-primary)',
+            color: 'var(--ink-950)',
+            boxShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 25%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 10%, transparent)',
             opacity: downloading ? 0.7 : 1,
           }}
         >
@@ -184,17 +184,17 @@ export function ShareCardClient({
           onClick={handleCopyLink}
           className="inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-4 text-sm font-semibold transition-all duration-200"
           style={{
-            color: 'var(--text-on-dark, #FFFEF5)',
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.15)',
+            color: 'var(--text-body)',
+            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--text-body) 15%, transparent)',
           }}
         >
           {copied ? (
             <>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 13l4 4L19 7" stroke="#F8D011" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M5 13l4 4L19 7" stroke="var(--gold-primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span style={{ color: 'var(--brand-gold, #F8D011)' }}>Copied!</span>
+              <span style={{ color: 'var(--gold-primary)' }}>Copied!</span>
             </>
           ) : (
             <>
@@ -212,7 +212,7 @@ export function ShareCardClient({
       <div className="space-y-3">
         <p
           className="text-xs uppercase tracking-widest text-center"
-          style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.4))' }}
+          style={{ color: 'var(--text-muted)' }}
         >
           Share on
         </p>
@@ -224,9 +224,9 @@ export function ShareCardClient({
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-150"
             style={{
-              background: 'rgba(0,0,0,0.5)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              color: 'var(--text-on-dark, #FFFEF5)',
+              background: 'color-mix(in srgb, var(--ink-950) 50%, transparent)',
+              border: '1px solid color-mix(in srgb, var(--text-body) 12%, transparent)',
+              color: 'var(--text-body)',
             }}
           >
             {/* X logo */}
@@ -242,21 +242,21 @@ export function ShareCardClient({
             onClick={handleDownload}
             className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-150"
             style={{
-              background: 'rgba(0,0,0,0.5)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              color: 'var(--text-on-dark, #FFFEF5)',
+              background: 'color-mix(in srgb, var(--ink-950) 50%, transparent)',
+              border: '1px solid color-mix(in srgb, var(--text-body) 12%, transparent)',
+              color: 'var(--text-body)',
             }}
           >
             {/* Instagram gradient icon */}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig-grad)" strokeWidth="2" />
               <circle cx="12" cy="12" r="4" stroke="url(#ig-grad)" strokeWidth="2" />
-              <circle cx="17.5" cy="6.5" r="1" fill="#E1306C" />
+              <circle cx="17.5" cy="6.5" r="1" fill="var(--neon-pink)" />
               <defs>
                 <linearGradient id="ig-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#F58529" />
-                  <stop offset="0.5" stopColor="#DD2A7B" />
-                  <stop offset="1" stopColor="#515BD4" />
+                  <stop stopColor="var(--text-body)" />
+                  <stop offset="0.5" stopColor="var(--text-body)" />
+                  <stop offset="1" stopColor="var(--text-body)" />
                 </linearGradient>
               </defs>
             </svg>
@@ -266,7 +266,7 @@ export function ShareCardClient({
 
         <p
           className="text-xs text-center"
-          style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.35))' }}
+          style={{ color: 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 35%, transparent))' }}
         >
           Instagram tip: download the card, then share from your camera roll.
         </p>
@@ -277,7 +277,7 @@ export function ShareCardClient({
         <a
           href="/results"
           className="text-sm transition-opacity duration-150 hover:opacity-100"
-          style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.6))' }}
+          style={{ color: 'var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 60%, transparent))' }}
         >
           ← Back to my full report
         </a>

@@ -20,19 +20,19 @@ const FLAG_LABELS: Record<string, string> = {
 
 const BAND_CONFIG = {
   HIGH: {
-    color: '#34D399',
+    color: 'var(--neon-teal)',
     label: 'High Confidence',
     description: 'Strong data quality. Trust the patterns — they reflect your actual capacities with high precision.',
     pct: 90,
   },
   MODERATE: {
-    color: 'var(--brand-gold, #F8D011)',
+    color: 'var(--gold-primary)',
     label: 'Moderate Confidence',
     description: 'Good data quality with some caveats. Broad patterns are reliable — specific scores may shift slightly on retake.',
     pct: 60,
   },
   LOW: {
-    color: '#FB923C',
+    color: 'var(--neon-amber)',
     label: 'Lower Confidence',
     description: 'Some data quality concerns detected. Use directional patterns rather than exact scores. A retake would sharpen precision.',
     pct: 30,
@@ -52,7 +52,7 @@ export default function ConfidenceBandSection({ dataQuality }: Props) {
         <div className="flex items-center gap-4">
           <div className="relative" style={{ width: 56, height: 56 }}>
             <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
-              <circle cx="28" cy="28" r="24" fill="none" stroke="rgba(148, 80, 200, 0.15)" strokeWidth="4" />
+              <circle cx="28" cy="28" r="24" fill="none" stroke="color-mix(in srgb, var(--stroke-400) 15%, transparent)" strokeWidth="4" />
               <circle
                 cx="28" cy="28" r="24" fill="none"
                 stroke={config.color}
@@ -84,10 +84,10 @@ export default function ConfidenceBandSection({ dataQuality }: Props) {
         {/* Validity flags */}
         {dataQuality.validity_flags.length > 0 && (
           <div className="space-y-2 border-t pt-4" style={{ borderColor: 'var(--surface-border)' }}>
-            <p className="text-xs uppercase tracking-wide font-medium" style={{ color: 'var(--brand-gold, #F8D011)' }}>What We Noticed</p>
+            <p className="text-xs uppercase tracking-wide font-medium" style={{ color: 'var(--gold-primary)' }}>What We Noticed</p>
             {dataQuality.validity_flags.map((flag) => (
               <p key={flag} className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                &#8226; {FLAG_LABELS[flag] || flag}
+                &var(--text-body); {FLAG_LABELS[flag] || flag}
               </p>
             ))}
           </div>
@@ -96,7 +96,7 @@ export default function ConfidenceBandSection({ dataQuality }: Props) {
         {/* Validation plan */}
         {dataQuality.validation_plan && (
           <div className="border-t pt-4" style={{ borderColor: 'var(--surface-border)' }}>
-            <p className="text-xs uppercase tracking-wide font-medium mb-2" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <p className="text-xs uppercase tracking-wide font-medium mb-2" style={{ color: 'var(--gold-primary)' }}>
               Recommended Next Step
             </p>
             <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{dataQuality.validation_plan.why}</p>

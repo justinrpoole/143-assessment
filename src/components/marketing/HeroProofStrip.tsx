@@ -30,10 +30,10 @@ export default function HeroProofStrip() {
           <span
             key={`${line}-${i}`}
             className="text-xs sm:text-sm font-medium tracking-wide"
-            style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.50))' }}
+            style={{ color: 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 50%, transparent))' }}
           >
             {line}
-            <span className="mx-6 inline-block" style={{ color: 'var(--brand-gold, #F8D011)', opacity: 0.8, textShadow: '0 0 12px rgba(248,208,17,0.4), 0 0 24px rgba(248,208,17,0.1)' }} aria-hidden="true">
+            <span className="mx-6 inline-block" style={{ color: 'var(--gold-primary)', opacity: 0.8, textShadow: '0 0 12px color-mix(in srgb, var(--gold-primary) 40%, transparent), 0 0 24px color-mix(in srgb, var(--gold-primary) 10%, transparent)' }} aria-hidden="true">
               &#x2726;
             </span>
           </span>
@@ -43,11 +43,11 @@ export default function HeroProofStrip() {
       {/* Edge fades */}
       <div
         className="pointer-events-none absolute inset-y-0 left-0 w-12"
-        style={{ background: 'linear-gradient(to right, var(--bg-deep, #1A0A2E), transparent)' }}
+        style={{ background: 'linear-gradient(to right, var(--bg-deep, var(--text-body)), transparent)' }}
       />
       <div
         className="pointer-events-none absolute inset-y-0 right-0 w-12"
-        style={{ background: 'linear-gradient(to left, var(--bg-deep, #1A0A2E), transparent)' }}
+        style={{ background: 'linear-gradient(to left, var(--bg-deep, var(--text-body)), transparent)' }}
       />
 
       <style>{`

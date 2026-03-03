@@ -14,24 +14,24 @@ export default function FloatingOrbs({
 }) {
   const orbs = variant === 'neon'
     ? [
-        { color: 'rgba(37,246,255,0.08)', size: 260, x: '20%', y: '25%', dur: '20s', delay: '0s' },
-        { color: 'rgba(255,63,180,0.06)', size: 200, x: '70%', y: '50%', dur: '16s', delay: '-4s' },
-        { color: 'rgba(198,255,77,0.05)', size: 180, x: '45%', y: '75%', dur: '22s', delay: '-8s' },
+        { color: 'color-mix(in srgb, var(--neon-cyan) 8%, transparent)', size: 260, x: '20%', y: '25%', dur: '20s', delay: '0s' },
+        { color: 'var(--surface-border)', size: 200, x: '70%', y: '50%', dur: '16s', delay: '-4s' },
+        { color: 'var(--surface-border)', size: 180, x: '45%', y: '75%', dur: '22s', delay: '-8s' },
       ]
     : variant === 'mixed'
     ? [
-        { color: 'rgba(248,208,17,0.06)', size: 280, x: '15%', y: '20%', dur: '18s', delay: '0s' },
-        { color: 'rgba(96,5,141,0.08)', size: 220, x: '75%', y: '60%', dur: '22s', delay: '-5s' },
-        { color: 'rgba(37,246,255,0.05)', size: 160, x: '50%', y: '40%', dur: '17s', delay: '-9s' },
+        { color: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)', size: 280, x: '15%', y: '20%', dur: '18s', delay: '0s' },
+        { color: 'color-mix(in srgb, var(--violet-650) 8%, transparent)', size: 220, x: '75%', y: '60%', dur: '22s', delay: '-5s' },
+        { color: 'color-mix(in srgb, var(--neon-cyan) 5%, transparent)', size: 160, x: '50%', y: '40%', dur: '17s', delay: '-9s' },
       ]
     : variant === 'purple'
     ? [
-        { color: 'rgba(96,5,141,0.1)', size: 260, x: '20%', y: '30%', dur: '20s', delay: '0s' },
-        { color: 'rgba(148,80,200,0.06)', size: 200, x: '70%', y: '50%', dur: '16s', delay: '-4s' },
+        { color: 'color-mix(in srgb, var(--violet-650) 10%, transparent)', size: 260, x: '20%', y: '30%', dur: '20s', delay: '0s' },
+        { color: 'color-mix(in srgb, var(--stroke-400) 6%, transparent)', size: 200, x: '70%', y: '50%', dur: '16s', delay: '-4s' },
       ]
     : [
-        { color: 'rgba(248,208,17,0.06)', size: 240, x: '25%', y: '25%', dur: '19s', delay: '0s' },
-        { color: 'rgba(248,208,17,0.04)', size: 190, x: '65%', y: '55%', dur: '23s', delay: '-6s' },
+        { color: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)', size: 240, x: '25%', y: '25%', dur: '19s', delay: '0s' },
+        { color: 'color-mix(in srgb, var(--gold-primary) 4%, transparent)', size: 190, x: '65%', y: '55%', dur: '23s', delay: '-6s' },
       ];
 
   return (

@@ -70,13 +70,13 @@ export default function CompetitorComparison() {
       <div className="space-y-4">
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           How They See You
         </p>
         <h3
           className="heading-sub"
-          style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+          style={{ color: 'var(--text-body)' }}
         >
           Not a label. A live measurement.
         </h3>
@@ -89,7 +89,7 @@ export default function CompetitorComparison() {
               <p
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{
-                  color: item.name === '143 Leadership' ? '#F8D011' : 'rgba(255,255,255,0.6)',
+                  color: item.name === '143 Leadership' ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 60%, transparent)',
                 }}
               >
                 {item.name}
@@ -98,8 +98,8 @@ export default function CompetitorComparison() {
                 className="mt-2 text-sm leading-relaxed italic"
                 style={{
                   color: item.name === '143 Leadership'
-                    ? 'var(--text-on-dark, #FFFEF5)'
-                    : 'var(--text-on-dark-muted, rgba(255,255,255,0.5))',
+                    ? 'var(--text-body)'
+                    : 'var(--text-muted)',
                 }}
               >
                 {item.quote}
@@ -110,13 +110,13 @@ export default function CompetitorComparison() {
       </div>
 
       {/* ── Comparison Table ── */}
-      <div className="glass-card overflow-x-auto p-0">
-        <table className="w-full min-w-[700px] text-sm">
+      <div className="glass-card overflow-auto p-0">
+        <table className="w-full w-full text-sm">
           <thead>
-            <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+            <tr style={{ borderBottom: '1px solid color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
               <th
                 className="px-4 py-3 text-left text-xs font-bold uppercase tracking-widest"
-                style={{ color: 'var(--brand-gold, #F8D011)' }}
+                style={{ color: 'var(--gold-primary)' }}
               >
                 Dimension
               </th>
@@ -125,7 +125,7 @@ export default function CompetitorComparison() {
                   key={c.name}
                   className="px-3 py-3 text-center text-xs font-bold uppercase tracking-widest"
                   style={{
-                    color: c.highlight ? '#F8D011' : 'rgba(255,255,255,0.5)',
+                    color: c.highlight ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 50%, transparent)',
                   }}
                 >
                   {c.name === '143 Leadership' ? '143' : c.name}
@@ -141,22 +141,22 @@ export default function CompetitorComparison() {
                 style={{
                   borderBottom:
                     i < DIMENSIONS.length - 1
-                      ? '1px solid rgba(255,255,255,0.06)'
+                      ? '1px solid color-mix(in srgb, var(--text-body) 6%, transparent)'
                       : 'none',
                 }}
               >
                 <td
                   className="px-4 py-3 text-sm"
-                  style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+                  style={{ color: 'var(--text-body)' }}
                 >
                   {dim.label}
                 </td>
                 {dim.values.map((val, j) => (
                   <td key={j} className="px-3 py-3 text-center">
                     {val ? (
-                      <span style={{ color: '#F8D011', textShadow: '0 0 8px rgba(248,208,17,0.3)' }}>&#x25C6;</span>
+                      <span style={{ color: 'var(--gold-primary)', textShadow: '0 0 8px color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>&#x25C6;</span>
                     ) : (
-                      <span style={{ color: 'rgba(255,255,255,0.15)' }}>&#x2014;</span>
+                      <span style={{ color: 'color-mix(in srgb, var(--text-body) 15%, transparent)' }}>&#x2014;</span>
                     )}
                   </td>
                 ))}
@@ -168,7 +168,7 @@ export default function CompetitorComparison() {
 
       <p
         className="text-center text-xs leading-relaxed"
-        style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}
+        style={{ color: 'var(--text-muted)' }}
       >
         Source: Published pricing and feature documentation for each platform as of 2025.
         CliftonStrengths measures strengths (partially trainable). Hogan measures light/dark side.

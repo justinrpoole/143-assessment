@@ -64,9 +64,9 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
   };
 
   const predictionColors = {
-    'on-track': '#34D399',
-    'achievable': '#F8D011',
-    'stretch': '#FB923C',
+    'on-track': 'var(--neon-teal)',
+    'achievable': 'var(--gold-primary)',
+    'stretch': 'var(--neon-amber)',
   };
 
   // Top tools sorted by count
@@ -85,7 +85,7 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
         aria-expanded={expanded}
       >
         <span style={{ transform: expanded ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 150ms', display: 'inline-block' }}>
-          &#9654;
+          &var(--text-body);
         </span>
         Week breakdown
       </button>
@@ -118,10 +118,10 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
                           height: `${heightPct}%`,
                           minHeight: '2px',
                           background: count > 0
-                            ? (isToday ? 'var(--brand-gold)' : '#9450C8')
+                            ? (isToday ? 'var(--brand-gold)' : 'var(--text-body)')
                             : isFuture
-                              ? 'rgba(148, 80, 200, 0.15)'
-                              : 'rgba(248, 113, 113, 0.2)',
+                              ? 'color-mix(in srgb, var(--stroke-400) 15%, transparent)'
+                              : 'var(--surface-border)',
                         }}
                       />
                       <span

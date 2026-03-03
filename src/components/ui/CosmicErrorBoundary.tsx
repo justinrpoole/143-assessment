@@ -41,18 +41,18 @@ export default class CosmicErrorBoundary extends Component<Props, State> {
       return (
         <RetroFrame
           label={this.props.sectionLabel ?? 'SYSTEM'}
-          accent="rgb(244, 63, 94)"
+          accent="var(--surface-border)"
         >
           <div className="text-center py-8 space-y-4">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: 'rgb(244, 63, 94)' }}
+              style={{ color: 'var(--surface-border)' }}
             >
               System Interference Detected
             </p>
             <p
               className="text-sm leading-relaxed max-w-md mx-auto"
-              style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.7))' }}
+              style={{ color: 'var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 70%, transparent))' }}
             >
               Something unexpected happened. Your progress is safe — nothing was lost.
               Hit recover to try again.
@@ -61,8 +61,8 @@ export default class CosmicErrorBoundary extends Component<Props, State> {
               <pre
                 className="text-xs text-left mx-auto max-w-lg overflow-auto p-3 rounded"
                 style={{
-                  color: 'rgba(244, 63, 94, 0.8)',
-                  background: 'rgba(244, 63, 94, 0.08)',
+                  color: 'var(--surface-border)',
+                  background: 'var(--surface-border)',
                   maxHeight: '8rem',
                 }}
               >

@@ -33,10 +33,10 @@ const SIGNAL_DEFS: Record<string, { name: string; definition: string; category: 
 };
 
 const LEVEL_CONFIG: Record<string, { color: string; bg: string; dot: string; label: string }> = {
-  HIGH: { color: '#34D399', bg: 'rgba(52, 211, 153, 0.12)', dot: 'rgba(52, 211, 153, 0.9)', label: 'Strong' },
-  ELEVATED: { color: '#F8D011', bg: 'rgba(248, 208, 17, 0.10)', dot: 'rgba(248, 208, 17, 0.9)', label: 'Building' },
-  MODERATE: { color: '#FB923C', bg: 'rgba(251, 146, 60, 0.10)', dot: 'rgba(251, 146, 60, 0.9)', label: 'Emerging' },
-  LOW: { color: '#F87171', bg: 'rgba(248, 113, 113, 0.10)', dot: 'rgba(248, 113, 113, 0.9)', label: 'Training Edge' },
+  HIGH: { color: 'var(--neon-teal)', bg: 'var(--surface-border)', dot: 'var(--surface-border)', label: 'Strong' },
+  ELEVATED: { color: 'var(--gold-primary)', bg: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)', dot: 'color-mix(in srgb, var(--gold-primary) 90%, transparent)', label: 'Building' },
+  MODERATE: { color: 'var(--neon-amber)', bg: 'var(--surface-border)', dot: 'var(--surface-border)', label: 'Emerging' },
+  LOW: { color: 'var(--ray-power)', bg: 'var(--surface-border)', dot: 'var(--surface-border)', label: 'Training Edge' },
 };
 
 function SignalCard({ signal }: { signal: ExecutiveSignal }) {
@@ -110,7 +110,7 @@ function SignalCard({ signal }: { signal: ExecutiveSignal }) {
 
       {/* Expanded details */}
       {expanded && (
-        <div className="mt-3 space-y-3 pt-3" style={{ borderTop: '1px solid rgba(148, 80, 200, 0.15)' }}>
+        <div className="mt-3 space-y-3 pt-3" style={{ borderTop: '1px solid color-mix(in srgb, var(--stroke-400) 15%, transparent)' }}>
           {/* Drivers */}
           {signal.drivers.length > 0 && (
             <div>
@@ -122,7 +122,7 @@ function SignalCard({ signal }: { signal: ExecutiveSignal }) {
                   <span
                     key={d}
                     className="text-xs px-2 py-0.5 rounded-full"
-                    style={{ background: 'rgba(148, 80, 200, 0.2)', color: 'var(--text-on-dark-secondary)' }}
+                    style={{ background: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)', color: 'var(--text-on-dark-secondary)' }}
                   >
                     {d}
                   </span>
@@ -161,7 +161,7 @@ function SignalCard({ signal }: { signal: ExecutiveSignal }) {
               <ul className="space-y-0.5">
                 {signal.tools_first.map((t) => (
                   <li key={t} className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                    <span style={{ color: 'var(--brand-gold)' }}>&#9656;</span> {t}
+                    <span style={{ color: 'var(--brand-gold)' }}>&var(--text-body);</span> {t}
                   </li>
                 ))}
               </ul>
@@ -177,7 +177,7 @@ function SignalCard({ signal }: { signal: ExecutiveSignal }) {
               <ul className="space-y-0.5">
                 {signal.reps.map((r) => (
                   <li key={r} className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                    <span style={{ color: 'rgba(148, 80, 200, 0.7)' }}>&#9656;</span> {r}
+                    <span style={{ color: 'color-mix(in srgb, var(--stroke-400) 70%, transparent)' }}>&var(--text-body);</span> {r}
                   </li>
                 ))}
               </ul>
@@ -232,9 +232,9 @@ export default function ExecutiveSignals({ signals }: ExecutiveSignalsProps) {
           onClick={() => setActiveTab('exec')}
           className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-colors"
           style={{
-            background: activeTab === 'exec' ? 'rgba(248, 208, 17, 0.15)' : 'rgba(96, 5, 141, 0.15)',
+            background: activeTab === 'exec' ? 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' : 'color-mix(in srgb, var(--violet-650) 15%, transparent)',
             color: activeTab === 'exec' ? 'var(--brand-gold)' : 'var(--text-on-dark-muted)',
-            border: `1px solid ${activeTab === 'exec' ? 'rgba(248, 208, 17, 0.3)' : 'rgba(148, 80, 200, 0.2)'}`,
+            border: `1px solid ${activeTab === 'exec' ? 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' : 'color-mix(in srgb, var(--stroke-400) 20%, transparent)'}`,
           }}
         >
           Executive ({execSignals.length})
@@ -243,9 +243,9 @@ export default function ExecutiveSignals({ signals }: ExecutiveSignalsProps) {
           onClick={() => setActiveTab('core')}
           className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-colors"
           style={{
-            background: activeTab === 'core' ? 'rgba(248, 208, 17, 0.15)' : 'rgba(96, 5, 141, 0.15)',
+            background: activeTab === 'core' ? 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' : 'color-mix(in srgb, var(--violet-650) 15%, transparent)',
             color: activeTab === 'core' ? 'var(--brand-gold)' : 'var(--text-on-dark-muted)',
-            border: `1px solid ${activeTab === 'core' ? 'rgba(248, 208, 17, 0.3)' : 'rgba(148, 80, 200, 0.2)'}`,
+            border: `1px solid ${activeTab === 'core' ? 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' : 'color-mix(in srgb, var(--stroke-400) 20%, transparent)'}`,
           }}
         >
           Core ({coreSignals.length})

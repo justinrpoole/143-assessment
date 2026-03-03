@@ -141,7 +141,7 @@ export default function RayProgressionStack({
           aria-hidden="true"
           style={{
             background:
-              'linear-gradient(to bottom, transparent, rgba(248,208,17,0.3) 15%, rgba(248,208,17,0.3) 85%, transparent)',
+              'linear-gradient(to bottom, transparent, color-mix(in srgb, var(--gold-primary) 30%, transparent) 15%, color-mix(in srgb, var(--gold-primary) 30%, transparent) 85%, transparent)',
           }}
         />
 
@@ -168,8 +168,8 @@ export default function RayProgressionStack({
           <div
             className="glass-card relative overflow-hidden p-6 text-center sm:p-8"
             style={{
-              border: '1.5px solid rgba(248,208,17,0.4)',
-              background: 'rgba(248,208,17,0.06)',
+              border: '1.5px solid color-mix(in srgb, var(--gold-primary) 40%, transparent)',
+              background: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)',
             }}
           >
             {/* Sun visualization */}
@@ -182,16 +182,16 @@ export default function RayProgressionStack({
 
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: '#F8D011' }}
+              style={{ color: 'var(--gold-primary)' }}
             >
               The Center
             </p>
             <p
               className="mt-1 text-xl font-bold sm:text-2xl"
               style={{
-                color: '#F8D011',
+                color: 'var(--gold-primary)',
                 fontFamily: 'var(--font-cosmic-display)',
-                textShadow: '0 0 24px rgba(248,208,17,0.3)',
+                textShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 30%, transparent)',
               }}
             >
               Be The Light
@@ -206,7 +206,7 @@ export default function RayProgressionStack({
             <Link
               href="/rays/be-the-light"
               className="mt-2 inline-flex items-center gap-1 text-xs font-medium transition-all duration-200 hover:gap-1.5 hover:brightness-125"
-              style={{ color: '#F8D011', opacity: 0.6 }}
+              style={{ color: 'var(--gold-primary)', opacity: 0.6 }}
             >
               Learn more <span aria-hidden="true">&rarr;</span>
             </Link>
@@ -216,8 +216,8 @@ export default function RayProgressionStack({
                 <span
                   className="text-2xl font-bold tabular-nums"
                   style={{
-                    color: '#F8D011',
-                    textShadow: '0 0 20px rgba(248,208,17,0.4)',
+                    color: 'var(--gold-primary)',
+                    textShadow: '0 0 20px color-mix(in srgb, var(--gold-primary) 40%, transparent)',
                   }}
                 >
                   {scores.R9}

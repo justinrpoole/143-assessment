@@ -112,17 +112,17 @@ function StageEclipse() {
                 x2={(Math.cos(rad) * r.len).toFixed(2)}
                 y2={(Math.sin(rad) * r.len).toFixed(2)}
               >
-                <stop offset="0%"   stopColor="#F8D011" stopOpacity="0.95" />
-                <stop offset="55%"  stopColor="#F8D011" stopOpacity="0.30" />
-                <stop offset="100%" stopColor="#F8D011" stopOpacity="0"   />
+                <stop offset="0%"   stopColor="var(--gold-primary)" stopOpacity="0.95" />
+                <stop offset="55%"  stopColor="var(--gold-primary)" stopOpacity="0.30" />
+                <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0"   />
               </linearGradient>
             );
           })}
           <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="#FFFFFF"  stopOpacity="1"   />
-            <stop offset="25%"  stopColor="#FFF4A0"  stopOpacity="0.9" />
-            <stop offset="60%"  stopColor="#F8D011"  stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#F8D011"  stopOpacity="0"   />
+            <stop offset="0%"   stopColor="var(--text-body)"  stopOpacity="1"   />
+            <stop offset="25%"  stopColor="var(--text-body)"  stopOpacity="0.9" />
+            <stop offset="60%"  stopColor="var(--gold-primary)"  stopOpacity="0.5" />
+            <stop offset="100%" stopColor="var(--gold-primary)"  stopOpacity="0"   />
           </radialGradient>
         </defs>
 
@@ -130,7 +130,7 @@ function StageEclipse() {
         <motion.circle
           cx="0" cy="0" r="140"
           fill="none"
-          stroke="rgba(248,208,17,0.06)"
+          stroke="color-mix(in srgb, var(--gold-primary) 6%, transparent)"
           strokeWidth="280"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -169,7 +169,7 @@ function StageEclipse() {
             key={`ring${i}`}
             cx="0" cy="0" r="20"
             fill="none"
-            stroke="#F8D011"
+            stroke="var(--gold-primary)"
             strokeWidth={1.2 - i * 0.3}
             initial={{ scale: 0.4, opacity: 0.7 }}
             animate={{ scale: 6, opacity: 0 }}
@@ -202,7 +202,7 @@ function StageEclipse() {
         {/* Bright core point */}
         <motion.circle
           cx="0" cy="0" r="5"
-          fill="#FFFFFF"
+          fill="var(--text-body)"
           initial={{ scale: 0 }}
           animate={{ scale: [0, 1.8, 1] }}
           transition={{ delay: 0.3, duration: 0.9, times: [0, 0.5, 1] }}
@@ -222,7 +222,7 @@ function StageEclipse() {
           fontSize: 11,
           letterSpacing: '0.35em',
           textTransform: 'uppercase',
-          color: 'rgba(248,208,17,0.65)',
+          color: 'color-mix(in srgb, var(--gold-primary) 65%, transparent)',
           fontFamily: 'var(--font-body)',
         }}
       >
@@ -252,8 +252,8 @@ function StageRayCascade({ rays }: { rays: RevealRay[] }) {
           transform: 'translate(-50%, -50%)',
           width: 8, height: 8,
           borderRadius: '50%',
-          background: '#F8D011',
-          boxShadow: '0 0 30px rgba(248,208,17,0.6), 0 0 80px rgba(248,208,17,0.3)',
+          background: 'var(--gold-primary)',
+          boxShadow: '0 0 30px color-mix(in srgb, var(--gold-primary) 60%, transparent), 0 0 80px color-mix(in srgb, var(--gold-primary) 30%, transparent)',
         }}
       />
 
@@ -384,7 +384,7 @@ function StageSignatureReveal({
           fontSize: 10,
           letterSpacing: '0.45em',
           textTransform: 'uppercase',
-          color: 'rgba(248,208,17,0.72)',
+          color: 'color-mix(in srgb, var(--gold-primary) 72%, transparent)',
           marginBottom: 18,
           fontFamily: 'var(--font-body)',
         }}
@@ -412,9 +412,9 @@ function StageSignatureReveal({
           fontSize: 'clamp(38px, 9vw, 76px)',
           fontWeight: 900,
           fontFamily: 'var(--font-display)',
-          color: 'var(--brand-gold, #F8D011)',
+          color: 'var(--gold-primary)',
           textShadow:
-            '0 0 30px rgba(248,208,17,0.95), 0 0 70px rgba(248,208,17,0.55), 0 0 140px rgba(248,208,17,0.28), 0 0 240px rgba(96,5,141,0.35)',
+            '0 0 30px color-mix(in srgb, var(--gold-primary) 95%, transparent), 0 0 70px color-mix(in srgb, var(--gold-primary) 55%, transparent), 0 0 140px color-mix(in srgb, var(--gold-primary) 28%, transparent), 0 0 240px color-mix(in srgb, var(--violet-650) 35%, transparent)',
           lineHeight: 1.1,
           maxWidth: '92vw',
         }}
@@ -430,7 +430,7 @@ function StageSignatureReveal({
         style={{
           height: 1,
           width: 130,
-          background: 'linear-gradient(90deg, transparent, var(--brand-gold, #F8D011), transparent)',
+          background: 'linear-gradient(90deg, transparent, var(--gold-primary), transparent)',
           margin: '22px auto',
           transformOrigin: 'center',
         }}
@@ -443,7 +443,7 @@ function StageSignatureReveal({
         transition={{ delay: 2.1, duration: 0.7, ease: 'easeOut' }}
         style={{
           fontSize: 'clamp(14px, 2.6vw, 18px)',
-          color: 'rgba(255,255,255,0.75)',
+          color: 'color-mix(in srgb, var(--text-body) 75%, transparent)',
           maxWidth: 400,
           lineHeight: 1.65,
           fontFamily: 'var(--font-body)',
@@ -489,7 +489,7 @@ function StageBeamConnections({ beamRays }: { beamRays: RevealRay[] }) {
               x2={b.pos.x} y2={b.pos.y}
             >
               <stop offset="0%"   stopColor={a.hex} stopOpacity="0.85" />
-              <stop offset="50%"  stopColor="#F8D011" stopOpacity="0.4" />
+              <stop offset="50%"  stopColor="var(--gold-primary)" stopOpacity="0.4" />
               <stop offset="100%" stopColor={b.hex} stopOpacity="0.85" />
             </linearGradient>
           ))}
@@ -600,7 +600,7 @@ function StageBeamConnections({ beamRays }: { beamRays: RevealRay[] }) {
           fontSize: 10,
           letterSpacing: '0.3em',
           textTransform: 'uppercase',
-          color: 'rgba(248,208,17,0.5)',
+          color: 'color-mix(in srgb, var(--gold-primary) 50%, transparent)',
           fontFamily: 'var(--font-body)',
         }}
       >
@@ -626,7 +626,7 @@ function StageFinale() {
         <p
           style={{
             fontSize: 'clamp(18px, 3.5vw, 26px)',
-            color: 'rgba(255,255,255,0.92)',
+            color: 'color-mix(in srgb, var(--text-body) 92%, transparent)',
             fontFamily: 'var(--font-display)',
             lineHeight: 1.4,
             marginBottom: 14,
@@ -641,9 +641,9 @@ function StageFinale() {
           transition={{ delay: 0.85, duration: 0.7, ease: 'easeOut' }}
           style={{
             fontSize: 'clamp(15px, 2.8vw, 22px)',
-            color: 'var(--brand-gold, #F8D011)',
+            color: 'var(--gold-primary)',
             fontFamily: 'var(--font-display)',
-            textShadow: '0 0 24px rgba(248,208,17,0.5)',
+            textShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 50%, transparent)',
           }}
         >
           Watch what happens next.
@@ -660,7 +660,7 @@ function StageFinale() {
           width: 32,
           height: 32,
           borderRadius: '50%',
-          border: '1.5px solid rgba(248,208,17,0.5)',
+          border: '1.5px solid color-mix(in srgb, var(--gold-primary) 50%, transparent)',
         }}
       />
     </div>
@@ -719,7 +719,7 @@ export default function LightSignatureReveal({ output, runId, onComplete }: Prop
       id: ray.ray_id,
       name: ray.ray_name,
       score: ray.score,
-      hex: RAY_COLORS[ray.ray_id]?.hex ?? '#F8D011',
+      hex: RAY_COLORS[ray.ray_id]?.hex ?? 'var(--gold-primary)',
       pos: CIRCLE_POS[i % 9],
     }));
 
@@ -759,7 +759,7 @@ export default function LightSignatureReveal({ output, runId, onComplete }: Prop
         className="fixed inset-0 z-50"
         style={{
           background:
-            'radial-gradient(ellipse at 50% 50%, rgba(26,10,46,0.95) 0%, #020010 70%, #000000 100%)',
+            'radial-gradient(ellipse at 50% 50%, var(--surface-border) 0%, var(--text-body) 70%, var(--text-body) 100%)',
         }}
       >
         {/* Stage content */}
@@ -804,9 +804,9 @@ export default function LightSignatureReveal({ output, runId, onComplete }: Prop
                 height: 7,
                 borderRadius: 4,
                 background: i === stage
-                  ? 'var(--brand-gold, #F8D011)'
-                  : 'rgba(255,255,255,0.18)',
-                boxShadow: i === stage ? '0 0 10px rgba(248,208,17,0.45)' : 'none',
+                  ? 'var(--gold-primary)'
+                  : 'color-mix(in srgb, var(--text-body) 18%, transparent)',
+                boxShadow: i === stage ? '0 0 10px color-mix(in srgb, var(--gold-primary) 45%, transparent)' : 'none',
                 transition: 'all 0.4s ease',
               }}
             />
@@ -823,9 +823,9 @@ export default function LightSignatureReveal({ output, runId, onComplete }: Prop
             padding: '7px 16px',
             borderRadius: 20,
             fontSize: 11,
-            color: 'rgba(255,255,255,0.42)',
-            background: 'rgba(255,255,255,0.05)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            color: 'color-mix(in srgb, var(--text-body) 42%, transparent)',
+            background: 'color-mix(in srgb, var(--text-body) 5%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--text-body) 8%, transparent)',
             cursor: 'pointer',
             letterSpacing: '0.06em',
           }}

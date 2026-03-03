@@ -70,10 +70,10 @@ export default async function JustinPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5">
+        <section className="content-wrap--narrow space-y-5">
           <FloatingOrbs variant="mixed" />
           <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-full overflow-hidden border-2" style={{ borderColor: "var(--brand-gold)" }}>
             <Image
@@ -86,11 +86,11 @@ export default async function JustinPage() {
             />
           </div>
           <p className="gold-tag">
-            <span style={{ color: '#F8D011' }}>&#x25C6;</span> The person who built the system — because he needed it first. · 5 min read
+            <span style={{ color: 'var(--gold-primary)' }}>&#x25C6;</span> The person who built the system — because he needed it first. · 5 min read
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            style={{ color: "var(--text-body)" }}
           >
             I do not motivate. I build maps for people who are tired of
             wandering.
@@ -98,7 +98,7 @@ export default async function JustinPage() {
           <p
             className="max-w-[560px] text-base leading-relaxed"
             style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+              color: "var(--text-secondary)",
             }}
           >
             Executive development background. Real organisations. Real pressure.
@@ -112,7 +112,7 @@ export default async function JustinPage() {
 
         {/* ─── SECTION 2 · THE STORY ───────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -122,7 +122,7 @@ export default async function JustinPage() {
               </p>
               <h2
                 className="text-xl font-bold sm:text-2xl"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 The short version.
               </h2>
@@ -130,7 +130,7 @@ export default async function JustinPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 I spent years inside executive development watching the same
@@ -143,7 +143,7 @@ export default async function JustinPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 I built it because I needed it first. The leadership tools
@@ -166,10 +166,10 @@ export default async function JustinPage() {
 
         {/* ─── SECTION 3 · TRUST ───────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
+          <section className="content-wrap--narrow space-y-8">
             <h2
               className="text-center text-xl font-bold sm:text-2xl gold-underline"
-              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              style={{ color: "var(--text-body)" }}
             >
               No hype. Structure and receipts.
             </h2>
@@ -194,7 +194,7 @@ export default async function JustinPage() {
                         </span>
                         <p
                           className="text-sm leading-relaxed"
-                          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                          style={{ color: "var(--text-body)" }}
                         >
                           {item}
                         </p>
@@ -216,7 +216,7 @@ export default async function JustinPage() {
                       <div className="glass-card flex items-start gap-3 p-4">
                         <span
                           className="shrink-0 font-bold"
-                          style={{ color: "rgba(248,208,17,0.5)" }}
+                          style={{ color: "color-mix(in srgb, var(--gold-primary) 50%, transparent)" }}
                         >
                           &#x2715;
                         </span>
@@ -224,7 +224,7 @@ export default async function JustinPage() {
                           className="text-sm leading-relaxed"
                           style={{
                             color:
-                              "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                              "var(--text-muted)",
                           }}
                         >
                           {item}
@@ -250,7 +250,7 @@ export default async function JustinPage() {
 
         {/* ─── SECTION 4 · THE METHOD ──────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-5 text-center">
+          <section className="content-wrap--narrow space-y-5 text-center">
             <p
               className="text-xs font-bold uppercase tracking-widest"
               style={{ color: rayHex('R5') }}
@@ -259,16 +259,16 @@ export default async function JustinPage() {
             </p>
             <h2
               className="text-xl font-bold sm:text-2xl text-gold-gradient"
-              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              style={{ color: "var(--text-body)" }}
             >
               Reset the filter. Map the capacities. Train the gaps. Measure the
               proof.
             </h2>
             <p
-              className="mx-auto max-w-[540px] text-sm leading-relaxed"
+              className="content-wrap--narrow text-sm leading-relaxed"
               style={{
                 color:
-                  "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                  "var(--text-secondary)",
               }}
             >
               The first three Rays train emotional intelligence with yourself.
@@ -278,9 +278,9 @@ export default async function JustinPage() {
               can build.
             </p>
             <p
-              className="mx-auto max-w-[540px] text-sm leading-relaxed"
+              className="content-wrap--narrow text-sm leading-relaxed"
               style={{
-                color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                color: "var(--text-muted)",
               }}
             >
               Take it. Train. Retake. Watch your Light Signature evolve. That is
@@ -294,20 +294,20 @@ export default async function JustinPage() {
 
         {/* ─── SECTION 5 · CTA ─────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 143 questions. 15 minutes. One map of where your light is
                 strong and where it is covered.
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 You move from scattered effort to aligned execution — with proof

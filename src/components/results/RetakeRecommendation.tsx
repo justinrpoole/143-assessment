@@ -49,10 +49,10 @@ export default function RetakeRecommendation({ confidenceBand, dataQuality, edge
   return (
     <div
       className="glass-card p-6 space-y-4"
-      style={{ borderColor: 'rgba(251, 146, 60, 0.3)' }}
+      style={{ borderColor: 'var(--surface-border)' }}
     >
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgb(251, 146, 60)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--surface-border)' }}>
           {isRetake ? 'Retake Recommended' : 'Consider Retaking'}
         </p>
         <p className="mt-2 text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -79,8 +79,8 @@ export default function RetakeRecommendation({ confidenceBand, dataQuality, edge
       )}
 
       {dataQuality?.validation_plan && (
-        <div className="rounded-xl p-3" style={{ background: 'rgba(251, 146, 60, 0.06)', border: '1px solid rgba(251, 146, 60, 0.12)' }}>
-          <p className="text-xs font-medium" style={{ color: 'rgb(251, 146, 60)' }}>
+        <div className="rounded-xl p-3" style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+          <p className="text-xs font-medium" style={{ color: 'var(--surface-border)' }}>
             {dataQuality.validation_plan.recommended_next_step === 'RETAKE' && 'Recommended: Retake assessment'}
             {dataQuality.validation_plan.recommended_next_step === 'MINI_INTERVIEW' && 'Recommended: Brief follow-up conversation'}
             {dataQuality.validation_plan.recommended_next_step === 'COACH_DEBRIEF' && 'Recommended: 45-minute coach debrief'}

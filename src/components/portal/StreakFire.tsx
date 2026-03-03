@@ -35,11 +35,11 @@ export default function StreakFire({ days, dimensions, accent: accentProp }: Str
   if (days <= 0 && !dimensions?.some((d) => d.days > 0)) return null;
 
   const accent: StreakFireAccent = {
-    base: '#E89D0C',
-    mid: '#F8D011',
-    tip: '#FFEC80',
-    core: '#FFFEF5',
-    glow: 'rgba(248, 208, 17, 0.55)',
+    base: 'var(--neon-amber)',
+    mid: 'var(--gold-primary)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'color-mix(in srgb, var(--gold-primary) 55%, transparent)',
     ...(accentProp ?? {}),
   };
 
@@ -55,7 +55,7 @@ export default function StreakFire({ days, dimensions, accent: accentProp }: Str
         <div
           className="absolute inset-[-8px] rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(248,208,17,0.2) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 20%, transparent) 0%, transparent 70%)',
             animation: 'streakPulse 2s ease-in-out infinite',
           }}
         />
@@ -69,7 +69,7 @@ export default function StreakFire({ days, dimensions, accent: accentProp }: Str
           height: tier === 'cosmic' ? 36 : tier === 'full' ? 30 : tier === 'medium' ? 24 : tier === 'small' ? 18 : 12,
           background: tier === 'ember'
             ? `radial-gradient(circle, ${accent.glow} 0%, transparent 70%)`
-            : `radial-gradient(circle, ${accent.glow} 0%, rgba(245,158,11,0.2) 50%, transparent 80%)`,
+            : `radial-gradient(circle, ${accent.glow} 0%, var(--surface-border) 50%, transparent 80%)`,
           filter: `blur(${tier === 'cosmic' ? 6 : tier === 'full' ? 5 : 3}px)`,
           animation: tier !== 'ember' ? 'streakFlicker 1.5s ease-in-out infinite' : undefined,
         }}
@@ -96,7 +96,7 @@ export default function StreakFire({ days, dimensions, accent: accentProp }: Str
           <linearGradient id={innerGradId} x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stopColor={accent.mid} />
             <stop offset="60%" stopColor={accent.core} />
-            <stop offset="100%" stopColor="#FFFFFF" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </linearGradient>
         </defs>
         {/* Outer flame */}
@@ -116,9 +116,9 @@ export default function StreakFire({ days, dimensions, accent: accentProp }: Str
       {/* Spark particles (medium+) */}
       {(tier === 'medium' || tier === 'full' || tier === 'cosmic') && (
         <>
-          <div className="absolute" style={{ top: 2, left: '50%', width: 3, height: 3, borderRadius: '50%', background: '#FFEC80', animation: 'streakSpark 1.2s ease-out infinite', opacity: 0.8 }} />
+          <div className="absolute" style={{ top: 2, left: '50%', width: 3, height: 3, borderRadius: '50%', background: 'var(--text-body)', animation: 'streakSpark 1.2s ease-out infinite', opacity: 0.8 }} />
           <div className="absolute" style={{ top: 6, left: '30%', width: 2, height: 2, borderRadius: '50%', background: 'var(--brand-gold)', animation: 'streakSpark 1.5s ease-out infinite 0.4s', opacity: 0.6 }} />
-          <div className="absolute" style={{ top: 4, left: '65%', width: 2, height: 2, borderRadius: '50%', background: '#FFFEF5', animation: 'streakSpark 1.8s ease-out infinite 0.8s', opacity: 0.7 }} />
+          <div className="absolute" style={{ top: 4, left: '65%', width: 2, height: 2, borderRadius: '50%', background: 'var(--text-body)', animation: 'streakSpark 1.8s ease-out infinite 0.8s', opacity: 0.7 }} />
         </>
       )}
 
@@ -156,9 +156,9 @@ export function StreakDimensions({ dimensions }: { dimensions: StreakDimension[]
           key={d.label}
           className="text-[10px] px-1.5 py-0.5 rounded-full font-medium"
           style={{
-            background: 'rgba(248, 208, 17, 0.1)',
+            background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)',
             color: 'var(--brand-gold)',
-            border: '1px solid rgba(248, 208, 17, 0.2)',
+            border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
           }}
         >
           {d.label} {d.days}d

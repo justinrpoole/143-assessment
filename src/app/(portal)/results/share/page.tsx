@@ -98,7 +98,7 @@ export default async function SharePage() {
   }
 
   const tweetText = encodeURIComponent(
-    `Just discovered my Light Signature: ${signatureName}. 143 questions. 15 minutes. Your turn. 143leadership.com/preview #BeTheLight #143Leadership`
+    `Just discovered my Light Signature: ${signatureName}. 143 questions. 15 minutes. Your turn. 143leadership.com/preview #BeTheLight var(--text-body)Leadership`
   );
 
   return (

@@ -128,7 +128,7 @@ export function MorningEntryClient() {
         onDone={() => setCelebration(null)}
       />
       {/* Header */}
-      <div className="glass-card p-5 space-y-2" style={{ borderColor: "rgba(248, 208, 17, 0.2)" }}>
+      <div className="glass-card p-5 space-y-2" style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)" }}>
         <div className="flex items-center gap-2">
           <span className="neon-tag text-xs font-bold">MORNING</span>
           <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
@@ -152,7 +152,7 @@ export function MorningEntryClient() {
         >
           {/* Date indicator */}
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full" style={{ background: "var(--brand-gold, #F8D011)" }} />
+            <div className="w-2 h-2 rounded-full" style={{ background: "var(--gold-primary)" }} />
             <p className="text-xs" style={{ color: "var(--text-on-dark-muted)" }}>
               {new Date(entryDate + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" })}
             </p>
@@ -169,7 +169,7 @@ export function MorningEntryClient() {
               id="morning_affirmation"
               className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40 resize-none"
               style={{
-                background: "rgba(255,255,255,0.06)",
+                background: "color-mix(in srgb, var(--text-body) 6%, transparent)",
                 border: "1px solid var(--surface-border)",
                 color: "var(--text-on-dark)",
               }}
@@ -197,7 +197,7 @@ export function MorningEntryClient() {
                 min={0}
                 className="w-20 rounded-lg px-3 py-2 text-sm text-center focus:outline-none"
                 style={{
-                  background: "rgba(255,255,255,0.06)",
+                  background: "color-mix(in srgb, var(--text-body) 6%, transparent)",
                   border: "1px solid var(--surface-border)",
                   color: "var(--text-on-dark)",
                 }}
@@ -227,9 +227,9 @@ export function MorningEntryClient() {
               animate={{ opacity: 1 }}
               transition={{ duration: shouldAnimate ? undefined : 0 }}
               className="glass-card gold-accent-left p-4 text-center"
-              style={{ borderColor: "rgba(34, 197, 94, 0.3)" }}
+              style={{ borderColor: "var(--surface-border)" }}
             >
-              <p className="text-sm font-medium score-reveal" style={{ color: "#22C55E" }}>
+              <p className="text-sm font-medium score-reveal" style={{ color: "var(--ray-authenticity)" }}>
                 ✓ Morning intention set. Your RAS is primed.
               </p>
               <p className="text-xs mt-1" style={{ color: "var(--text-on-dark-muted)" }}>
@@ -249,8 +249,8 @@ export function MorningEntryClient() {
       {/* Error */}
       {error && (
         <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
-          style={{ background: "rgba(220, 38, 38, 0.15)", border: "1px solid rgba(220, 38, 38, 0.3)" }}>
-          <p className="text-sm" style={{ color: "#FCA5A5" }}>{humanizeError(error)}</p>
+          style={{ background: "var(--surface-border)", border: "1px solid var(--surface-border)" }}>
+          <p className="text-sm" style={{ color: "var(--ray-power)" }}>{humanizeError(error)}</p>
           <button
             type="button"
             onClick={() => void onSave()}

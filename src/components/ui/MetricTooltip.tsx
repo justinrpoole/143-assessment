@@ -66,7 +66,7 @@ export function MetricTooltip({ metricId, children }: MetricTooltipProps) {
           className="absolute bottom-full left-1/2 z-50 mb-2 w-72 -translate-x-1/2 rounded-xl p-4 text-left shadow-xl"
           style={{ background: 'var(--bg-deep)', border: '1px solid var(--surface-border)' }}
         >
-          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--gold-primary)' }}>
             {metric.label}
           </p>
           <p className="mt-1.5 text-xs leading-relaxed text-on-dark">
@@ -80,7 +80,7 @@ export function MetricTooltip({ metricId, children }: MetricTooltipProps) {
             <a
               href={`/glossary#metric-${metricId}`}
               className="underline underline-offset-2 transition-colors"
-              style={{ color: 'var(--brand-gold, #F8D011)', opacity: 0.7 }}
+              style={{ color: 'var(--gold-primary)', opacity: 0.7 }}
               onClick={(e) => e.stopPropagation()}
             >
               Glossary

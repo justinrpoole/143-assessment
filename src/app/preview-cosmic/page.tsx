@@ -103,7 +103,7 @@ export default function CosmicPreview() {
       <section className="relative flex flex-col items-center justify-center text-center px-6 overflow-hidden" style={{ minHeight: '50vh' }}>
         <div
           className="absolute inset-0 pointer-events-none" aria-hidden="true"
-          style={{ background: 'radial-gradient(ellipse at 30% 20%, rgba(96, 5, 141, 0.30) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(248, 208, 17, 0.05) 0%, transparent 40%), radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,0.30) 1px, transparent 0), radial-gradient(1px 1px at 72% 32%, rgba(255,255,255,0.18) 1px, transparent 0), radial-gradient(1px 1px at 88% 60%, rgba(255,255,255,0.25) 1px, transparent 0)' }}
+          style={{ background: 'radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--violet-650) 30%, transparent) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, color-mix(in srgb, var(--gold-primary) 5%, transparent) 0%, transparent 40%), radial-gradient(1px 1px at 12% 22%, color-mix(in srgb, var(--text-body) 30%, transparent) 1px, transparent 0), radial-gradient(1px 1px at 72% 32%, color-mix(in srgb, var(--text-body) 18%, transparent) 1px, transparent 0), radial-gradient(1px 1px at 88% 60%, color-mix(in srgb, var(--text-body) 25%, transparent) 1px, transparent 0)' }}
         />
         <div className="relative z-10 max-w-2xl">
           <p className="text-xs uppercase tracking-[0.2em] mb-4" style={{ color: 'var(--text-on-dark)', fontWeight: 500 }}>All 28 Cosmic Visualizations</p>
@@ -191,11 +191,11 @@ export default function CosmicPreview() {
 
         <Sec id="s-expansion" n="12" title="Expansion Arc Timeline" desc="Your growth arc — from tight past orbits to spacious present system.">
           <ExpansionArc milestones={[
-            { id: 'm1', label: 'Collaborator arrived', rayColor: '#1ABC9C' },
-            { id: 'm2', label: 'New opportunity', rayColor: '#D4770B' },
-            { id: 'm3', label: 'Realization', rayColor: '#F4C430' },
-            { id: 'm4', label: 'Breakthrough', rayColor: '#C0392B' },
-            { id: 'm5', label: 'Integration', rayColor: '#8E44AD' },
+            { id: 'm1', label: 'Collaborator arrived', rayColor: 'var(--text-body)' },
+            { id: 'm2', label: 'New opportunity', rayColor: 'var(--neon-amber)' },
+            { id: 'm3', label: 'Realization', rayColor: 'var(--gold-primary)' },
+            { id: 'm4', label: 'Breakthrough', rayColor: 'var(--text-body)' },
+            { id: 'm5', label: 'Integration', rayColor: 'var(--neon-violet)' },
           ]} />
         </Sec>
 
@@ -317,11 +317,11 @@ export default function CosmicPreview() {
                 <div
                   key={item.step}
                   className="glass-card p-6 text-left"
-                  style={{ border: '1.5px solid #60058D' }}
+                  style={{ border: '1.5px solid var(--text-body)' }}
                 >
                   <span
                     className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold uppercase tracking-wider mb-3"
-                    style={{ background: 'var(--brand-gold)', color: '#020202' }}
+                    style={{ background: 'var(--brand-gold)', color: 'var(--ink-950)' }}
                   >
                     Step {item.step}
                   </span>

@@ -4,8 +4,8 @@
  * IlluminateDashboard v3 — The Complete Merged Dashboard
  *
  * Design spec (Justin Ray, 2026-03-01):
- * - Background: Royal Purple #4A0E78
- * - Primary accent: Solar Gold #F4C430
+ * - Background: Royal Purple var(--text-body)
+ * - Primary accent: Solar Gold var(--text-body)
  * - East end: Purple Moon (dim)
  * - West end: SUN — glows in THAT RAY'S COLOR (the ray's neon color radiates out)
  * - Full ray names: "Ray of Intention", "Ray of Joy", etc.
@@ -20,26 +20,26 @@ import Image from 'next/image';
 import { rayHex } from '@/lib/ui/ray-colors';
 
 /* ── Brand tokens ──────────────────────────────────────── */
-const BG      = '#060014';
-const GOLD    = '#F4C430';
-const CYAN    = '#25F6FF';
-const AMBER   = '#FFD166';
-const MAGENTA = '#FF3FB4';
-const PANEL   = 'rgba(8,2,22,0.88)';
+const BG      = 'var(--bg-deep)';
+const GOLD    = 'var(--gold-primary)';
+const CYAN    = 'var(--neon-cyan)';
+const AMBER   = 'var(--text-body)';
+const MAGENTA = 'var(--neon-pink)';
+const PANEL   = 'var(--surface-border)';
 
 /* ── Ray definitions ────────────────────────────────────── */
 const RAYS = [
-  { id:'R1', name:'Ray of Intention',     verb:'CHOOSE',  color:'#60A5FA' },
-  { id:'R2', name:'Ray of Joy',           verb:'EXPAND',  color:'#F4C430' },
-  { id:'R3', name:'Ray of Presence',      verb:'ANCHOR',  color:'#8E44AD' },
-  { id:'R4', name:'Ray of Power',         verb:'ACT',     color:'#C0392B' },
-  { id:'R5', name:'Ray of Purpose',       verb:'ALIGN',   color:'#D4770B' },
-  { id:'R6', name:'Ray of Authenticity',  verb:'REVEAL',  color:'#2ECC71' },
-  { id:'R7', name:'Ray of Connection',    verb:'ATTUNE',  color:'#E74C8B' },
-  { id:'R8', name:'Ray of Possibility',   verb:'EXPLORE', color:'#1ABC9C' },
+  { id:'R1', name:'Ray of Intention',     verb:'CHOOSE',  color:'var(--text-body)' },
+  { id:'R2', name:'Ray of Joy',           verb:'EXPAND',  color:'var(--gold-primary)' },
+  { id:'R3', name:'Ray of Presence',      verb:'ANCHOR',  color:'var(--neon-violet)' },
+  { id:'R4', name:'Ray of Power',         verb:'ACT',     color:'var(--text-body)' },
+  { id:'R5', name:'Ray of Purpose',       verb:'ALIGN',   color:'var(--neon-amber)' },
+  { id:'R6', name:'Ray of Authenticity',  verb:'REVEAL',  color:'var(--text-body)' },
+  { id:'R7', name:'Ray of Connection',    verb:'ATTUNE',  color:'var(--text-body)' },
+  { id:'R8', name:'Ray of Possibility',   verb:'EXPLORE', color:'var(--text-body)' },
 ] as const;
 
-const CORE_RAY = { id:'R9', name:'Be The Light', verb:'INSPIRE', color:'#F8D011' };
+const CORE_RAY = { id:'R9', name:'Be The Light', verb:'INSPIRE', color:'var(--gold-primary)' };
 
 /* ── Orb states (5 levels per spec) ────────────────────── */
 function orbState(score: number) {
@@ -89,7 +89,7 @@ export default function IlluminateDashboard({
 
   /* Scattered star dots */
   const dots = useMemo(() => {
-    const C = [CYAN, GOLD, MAGENTA, AMBER, '#8E44AD','#2ECC71','#E74C8B','#1ABC9C'];
+    const C = [CYAN, GOLD, MAGENTA, AMBER, 'var(--neon-violet)','var(--text-body)','var(--text-body)','var(--text-body)'];
     return Array.from({ length: 70 }, (_, i) => {
       const a = ((i * 1597 + 143) * 6364136223) % 4294967296;
       const b = ((a * 1597 + 3) * 2654435761) % 4294967296;
@@ -99,7 +99,7 @@ export default function IlluminateDashboard({
       return {
         x: (a % 10000) / 100, y: (b % 10000) / 100,
         size: n ? 1.5 + (c % 25) / 10 : 0.7,
-        color: n ? C[d % C.length] : 'rgba(255,255,255,0.2)',
+        color: n ? C[d % C.length] : 'color-mix(in srgb, var(--text-body) 20%, transparent)',
         glow: n ? 3 + (d % 6) : 0,
         opacity: n ? 0.7 : 0.12 + (c % 25) / 100,
       };
@@ -113,7 +113,7 @@ export default function IlluminateDashboard({
         background: BG,
         borderRadius: 20,
         fontFamily: "'Orbitron', system-ui, sans-serif",
-        border: '1px solid rgba(255,255,255,0.06)',
+        border: '1px solid color-mix(in srgb, var(--text-body) 6%, transparent)',
         animation: 'crtFlicker 8s ease-in-out infinite',
       }}
     >
@@ -130,7 +130,7 @@ export default function IlluminateDashboard({
       `}</style>
 
       {/* Tron grid overlay */}
-      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1, backgroundImage: 'linear-gradient(rgba(37,246,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(37,246,255,0.08) 1px, transparent 1px)', backgroundSize: '36px 36px', opacity: 0.35 }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1, backgroundImage: 'linear-gradient(color-mix(in srgb, var(--neon-cyan) 8%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--neon-cyan) 8%, transparent) 1px, transparent 1px)', backgroundSize: '36px 36px', opacity: 0.35 }} />
 
       {/* Star field */}
       <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
@@ -148,7 +148,7 @@ export default function IlluminateDashboard({
       {/* Scanlines */}
       <div className="absolute inset-0 pointer-events-none" style={{
         zIndex: 2, opacity: 0.035,
-        backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 2px,#000 2px,#000 4px)',
+        backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 2px,var(--text-body) 2px,var(--text-body) 4px)',
       }} />
 
       {/* ══ TOP BAR ══════════════════════════════════════════ */}
@@ -156,15 +156,15 @@ export default function IlluminateDashboard({
         position: 'relative', zIndex: 10,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '18px 28px 14px',
-        borderBottom: `1px solid rgba(244,196,48,0.14)`,
-        background: 'rgba(0,0,0,0.25)',
+        borderBottom: `1px solid var(--surface-border)`,
+        background: 'color-mix(in srgb, var(--ink-950) 25%, transparent)',
       }}>
         {/* Brand */}
         <div>
           <div style={{ fontSize: 13, fontWeight: 900, letterSpacing: '.28em', color: GOLD, textShadow: `0 0 16px ${GOLD}` }}>
             143 LEADERSHIP
           </div>
-          <div style={{ fontSize: 9, letterSpacing: '.18em', color: 'rgba(255,255,255,0.4)', marginTop: 3, fontFamily: "'Space Grotesk',sans-serif" }}>
+          <div style={{ fontSize: 9, letterSpacing: '.18em', color: 'color-mix(in srgb, var(--text-body) 40%, transparent)', marginTop: 3, fontFamily: "'Space Grotesk',sans-serif" }}>
             LIGHT DASHBOARD · COMMAND CENTER
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function IlluminateDashboard({
 
         {/* Eclipse */}
         <div style={{ textAlign: 'right' }}>
-          <div style={{ fontSize: 9, letterSpacing: '.14em', color: 'rgba(255,255,255,0.35)', fontFamily: "'Space Grotesk',sans-serif" }}>
+          <div style={{ fontSize: 9, letterSpacing: '.14em', color: 'color-mix(in srgb, var(--text-body) 35%, transparent)', fontFamily: "'Space Grotesk',sans-serif" }}>
             ECLIPSE LOAD
           </div>
           <div style={{ fontSize: 26, fontWeight: 900, color: MAGENTA, lineHeight: 1, textShadow: `0 0 18px ${MAGENTA}, 0 0 40px ${MAGENTA}55` }}>
@@ -190,7 +190,7 @@ export default function IlluminateDashboard({
       <div style={{ position: 'relative', zIndex: 10, padding: '16px 0 8px' }}>
         {/* East / West labels */}
         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 28px', marginBottom: 8 }}>
-          <span style={{ fontSize: 8, letterSpacing: '.14em', color: 'rgba(255,255,255,0.28)' }}>
+          <span style={{ fontSize: 8, letterSpacing: '.14em', color: 'color-mix(in srgb, var(--text-body) 28%, transparent)' }}>
             ← EAST · WHERE LIGHT ORIGINATES
           </span>
           <span style={{ fontSize: 8, letterSpacing: '.14em', color: `${GOLD}99` }}>
@@ -205,7 +205,7 @@ export default function IlluminateDashboard({
           borderRadius: 16,
           border: '2px solid transparent',
           backgroundClip: 'padding-box',
-          boxShadow: `0 0 0 2px ${MAGENTA}55, 0 0 40px ${MAGENTA}22, inset 0 1px 0 rgba(255,255,255,0.05)`,
+          boxShadow: `0 0 0 2px ${MAGENTA}55, 0 0 40px ${MAGENTA}22, inset 0 1px 0 color-mix(in srgb, var(--text-body) 5%, transparent)`,
           padding: '12px 16px',
           position: 'relative',
         }}>
@@ -214,7 +214,7 @@ export default function IlluminateDashboard({
             position: 'absolute', inset: -2, borderRadius: 18, pointerEvents: 'none',
             background: `linear-gradient(160deg, ${MAGENTA}66, ${GOLD}44, ${CYAN}22)`,
             zIndex: 0, opacity: 0.6,
-            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+            WebkitMask: 'linear-gradient(var(--text-body) 0 0) content-box, linear-gradient(var(--text-body) 0 0)',
             WebkitMaskComposite: 'xor',
             maskComposite: 'exclude',
             padding: 2,
@@ -232,7 +232,7 @@ export default function IlluminateDashboard({
 
         {/* R9 — Be The Light (special core) */}
         <div style={{ margin: '10px 20px 0', padding: '10px 16px', borderRadius: 12,
-          background: `linear-gradient(90deg, rgba(248,208,17,0.08), rgba(248,208,17,0.03))`,
+          background: `linear-gradient(90deg, color-mix(in srgb, var(--gold-primary) 8%, transparent), color-mix(in srgb, var(--gold-primary) 3%, transparent))`,
           border: `1px solid ${GOLD}33`,
         }}>
           <RayTrack ray={CORE_RAY} score={scores['R9'] ?? 0} isCore />
@@ -243,11 +243,11 @@ export default function IlluminateDashboard({
       <div style={{
         position: 'relative', zIndex: 10,
         padding: '14px 20px 14px',
-        borderTop: `1px solid rgba(244,196,48,0.1)`,
-        borderBottom: `1px solid rgba(244,196,48,0.1)`,
-        background: 'rgba(0,0,0,0.3)',
+        borderTop: `1px solid var(--surface-border)`,
+        borderBottom: `1px solid var(--surface-border)`,
+        background: 'color-mix(in srgb, var(--ink-950) 30%, transparent)',
       }}>
-        <div style={{ fontSize: 8, letterSpacing: '.2em', color: 'rgba(255,255,255,0.25)', marginBottom: 10, fontFamily: "'Space Grotesk',sans-serif" }}>
+        <div style={{ fontSize: 8, letterSpacing: '.2em', color: 'color-mix(in srgb, var(--text-body) 25%, transparent)', marginBottom: 10, fontFamily: "'Space Grotesk',sans-serif" }}>
           ACTION CENTER
         </div>
         <div style={{ display: 'flex', gap: 14 }}>
@@ -286,7 +286,7 @@ export default function IlluminateDashboard({
       }}>
         {/* Weekly insight */}
         <div style={{
-          flex: 1, background: 'rgba(0,0,0,0.45)', borderRadius: 14,
+          flex: 1, background: 'color-mix(in srgb, var(--ink-950) 45%, transparent)', borderRadius: 14,
           padding: '14px 18px', border: `1px solid ${MAGENTA}22`,
           fontFamily: "'Space Grotesk',sans-serif",
         }}>
@@ -294,23 +294,23 @@ export default function IlluminateDashboard({
             textShadow: `0 0 10px ${MAGENTA}`, fontFamily: "'Orbitron',sans-serif" }}>
             THIS WEEK
           </div>
-          <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.88)', lineHeight: 1.6, fontStyle: 'italic' }}>
+          <div style={{ fontSize: 13, color: 'color-mix(in srgb, var(--text-body) 88%, transparent)', lineHeight: 1.6, fontStyle: 'italic' }}>
             &ldquo;{insight ?? defaultInsight}&rdquo;
           </div>
-          <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.25)', marginTop: 10 }}>
+          <div style={{ fontSize: 8, color: 'color-mix(in srgb, var(--text-body) 25%, transparent)', marginTop: 10 }}>
             The light responds to clean reps, not hype.
           </div>
         </div>
 
         {/* Reps counter */}
         <div style={{
-          minWidth: 130, background: 'rgba(0,0,0,0.55)', borderRadius: 14,
+          minWidth: 130, background: 'color-mix(in srgb, var(--ink-950) 55%, transparent)', borderRadius: 14,
           padding: '14px 18px', display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
           border: `1px solid ${GOLD}44`,
           boxShadow: `0 0 20px ${GOLD}11`,
         }}>
-          <div style={{ fontSize: 9, letterSpacing: '.18em', color: 'rgba(255,255,255,0.35)',
+          <div style={{ fontSize: 9, letterSpacing: '.18em', color: 'color-mix(in srgb, var(--text-body) 35%, transparent)',
             fontFamily: "'Orbitron',sans-serif", marginBottom: 6 }}>
             REPS TODAY
           </div>
@@ -365,7 +365,7 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
       display: 'flex', alignItems: 'center', gap: 12,
       paddingBottom: isLast || isCore ? 0 : 10,
       marginBottom: isLast || isCore ? 0 : 10,
-      borderBottom: isLast || isCore ? 'none' : '1px solid rgba(255,255,255,0.04)',
+      borderBottom: isLast || isCore ? 'none' : '1px solid color-mix(in srgb, var(--text-body) 4%, transparent)',
     }}>
       {/* Ray label */}
       <div style={{ minWidth: isCore ? 120 : 156, flexShrink: 0 }}>
@@ -373,7 +373,7 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
           color, textShadow: `0 0 8px ${color}88`, lineHeight: 1 }}>
           {ray.verb}
         </div>
-        <div style={{ fontSize: isCore ? 9 : 8, color: 'rgba(255,255,255,0.5)',
+        <div style={{ fontSize: isCore ? 9 : 8, color: 'color-mix(in srgb, var(--text-body) 50%, transparent)',
           letterSpacing: '.05em', marginTop: 2, fontFamily: "'Space Grotesk',sans-serif" }}>
           {ray.name}
         </div>
@@ -382,7 +382,7 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
       {/* Moon (east) */}
       <div style={{ flexShrink: 0, width: 28, height: 28, position: 'relative' }}>
         <Image src="/images/purple-moon-143.svg" alt="moon" fill
-               style={{ opacity: 0.7, filter: 'drop-shadow(0 0 4px #7c2cff)' }}/>
+               style={{ opacity: 0.7, filter: 'drop-shadow(0 0 4px var(--text-body))' }}/>
       </div>
 
       {/* Track */}
@@ -390,15 +390,15 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
         {/* Rail bg */}
         <div style={{
           position: 'absolute', left: 0, right: 0, height: 4, borderRadius: 99,
-          background: `linear-gradient(90deg, rgba(124,44,255,0.5) 0%, ${color}22 50%, ${color}55 100%)`,
-          boxShadow: `inset 0 0 0 1px rgba(37,246,255,0.2)`,
-          backgroundImage: `repeating-linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 1px, rgba(0,0,0,0.25) 2px)`,
+          background: `linear-gradient(90deg, var(--surface-border) 0%, ${color}22 50%, ${color}55 100%)`,
+          boxShadow: `inset 0 0 0 1px color-mix(in srgb, var(--neon-cyan) 20%, transparent)`,
+          backgroundImage: `repeating-linear-gradient(180deg, color-mix(in srgb, var(--ink-950) 0%, transparent) 0px, color-mix(in srgb, var(--ink-950) 0%, transparent) 1px, color-mix(in srgb, var(--ink-950) 25%, transparent) 2px)`,
         }} />
         {/* Filled progress */}
         {pct > 0 && <div style={{
           position: 'absolute', left: 0, height: 4, borderRadius: 99,
           width: `${pct * 100}%`,
-          background: `linear-gradient(90deg, rgba(124,44,255,0.7), ${color})`,
+          background: `linear-gradient(90deg, var(--surface-border), ${color})`,
           boxShadow: `0 0 8px ${color}88`,
           transition: 'width 0.05s linear',
         }} />}
@@ -407,7 +407,7 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
         {[20,40,60,80].map(t => (
           <div key={t} style={{
             position: 'absolute', left: `${t}%`, top: '50%', transform: 'translate(-50%,-50%)',
-            width: 1, height: 8, background: 'rgba(255,255,255,0.1)',
+            width: 1, height: 8, background: 'color-mix(in srgb, var(--text-body) 10%, transparent)',
           }} />
         ))}
 
@@ -418,8 +418,8 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
           top: '50%', transform: 'translateY(-50%)',
           width: orb.r * 2, height: orb.r * 2, borderRadius: '50%',
           background: display >= 68
-            ? `radial-gradient(circle at 40% 35%, #fff, ${color})`
-            : `radial-gradient(circle at 40% 35%, ${color}, rgba(80,20,160,0.9))`,
+            ? `radial-gradient(circle at 40% 35%, var(--text-body), ${color})`
+            : `radial-gradient(circle at 40% 35%, ${color}, var(--surface-border))`,
           boxShadow: `0 0 ${orb.bloom}px ${color}, 0 0 ${orb.bloom*2}px ${color}44`,
           transition: 'left 0.05s linear',
           zIndex: 5,
@@ -485,7 +485,7 @@ function ConicGauge({ value, phase }: { value: number; phase: string }) {
         </defs>
         {/* Track */}
         <circle cx={cx} cy={cy} r={r} fill="none"
-                stroke="rgba(255,255,255,0.07)" strokeWidth="10"/>
+                stroke="color-mix(in srgb, var(--text-body) 7%, transparent)" strokeWidth="10"/>
         {/* Arc */}
         <circle cx={cx} cy={cy} r={r} fill="none"
                 stroke="url(#gArc)" strokeWidth="10"
@@ -500,7 +500,7 @@ function ConicGauge({ value, phase }: { value: number; phase: string }) {
           {value}
         </text>
         <text x={cx} y={cy + 10} textAnchor="middle"
-              fill="rgba(255,255,255,0.35)" fontSize="7" letterSpacing=".1em">
+              fill="color-mix(in srgb, var(--text-body) 35%, transparent)" fontSize="7" letterSpacing=".1em">
           WEEKLY AVG
         </text>
         <text x={cx} y={cy + 24} textAnchor="middle"
@@ -549,12 +549,12 @@ function MechButton({
         borderRadius: 12,
         padding: '12px 10px 8px',
         background: ghost
-          ? 'rgba(0,0,0,0.1)'
-          : `radial-gradient(ellipse at 50% 20%, ${color}33 0%, rgba(8,2,22,0.9) 70%)`,
+          ? 'color-mix(in srgb, var(--ink-950) 10%, transparent)'
+          : `radial-gradient(ellipse at 50% 20%, ${color}33 0%, var(--surface-border) 70%)`,
         border: `2px solid ${color}`,
         boxShadow: pressed
-          ? `inset 0 6px 16px rgba(0,0,0,0.9), 0 0 8px ${glowColor}`
-          : `0 6px 0 rgba(0,0,0,0.7), 0 0 24px ${glowColor}, inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.5)`,
+          ? `inset 0 6px 16px color-mix(in srgb, var(--ink-950) 90%, transparent), 0 0 8px ${glowColor}`
+          : `0 6px 0 color-mix(in srgb, var(--ink-950) 70%, transparent), 0 0 24px ${glowColor}, inset 0 1px 0 color-mix(in srgb, var(--text-body) 15%, transparent), inset 0 -1px 0 color-mix(in srgb, var(--ink-950) 50%, transparent)`,
         transform: pressed ? 'translateY(5px)' : 'translateY(0)',
         transition: 'transform 0.07s ease, box-shadow 0.07s ease',
         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
@@ -578,7 +578,7 @@ function MechButton({
         {/* Sub */}
         <div style={{
           fontSize: 7.5, letterSpacing: '.1em',
-          color: 'rgba(255,255,255,0.38)',
+          color: 'color-mix(in srgb, var(--text-body) 38%, transparent)',
           fontFamily: "'Space Grotesk',sans-serif",
         }}>
           {sub}

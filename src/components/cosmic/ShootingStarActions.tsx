@@ -17,9 +17,9 @@ interface ShootingStarActionsProps {
 }
 
 const RAY_COLORS: Record<string, string> = {
-  R1: '#F4C430', R2: '#F4C430', R3: '#8E44AD',
-  R4: '#C0392B', R5: '#D4770B', R6: '#E8A317',
-  R7: '#1ABC9C', R8: '#1ABC9C', R9: '#F4C430',
+  R1: 'var(--gold-primary)', R2: 'var(--gold-primary)', R3: 'var(--neon-violet)',
+  R4: 'var(--text-body)', R5: 'var(--neon-amber)', R6: 'var(--neon-amber)',
+  R7: 'var(--text-body)', R8: 'var(--text-body)', R9: 'var(--gold-primary)',
 };
 
 function seededRandom(seed: number): number {
@@ -84,7 +84,7 @@ export default function ShootingStarActions({ actions, onComplete }: ShootingSta
             <stop offset="0%" stopColor="var(--cosmic-purple-vivid)" />
             <stop offset="100%" stopColor="var(--cosmic-svg-bg)" />
           </radialGradient>
-          <filter id="ssa-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="ssa-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="3" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -93,13 +93,13 @@ export default function ShootingStarActions({ actions, onComplete }: ShootingSta
         <rect width={W} height={H} rx="12" fill="url(#ssa-bg)" />
 
         {/* Distant 143 sun reference */}
-        <circle cx={60} cy={H - 60} r={15} fill="#F4C430" opacity={0.15} />
-        <circle cx={60} cy={H - 60} r={6} fill="#F4C430" opacity={0.25} />
+        <circle cx={60} cy={H - 60} r={15} fill="var(--gold-primary)" opacity={0.15} />
+        <circle cx={60} cy={H - 60} r={6} fill="var(--gold-primary)" opacity={0.25} />
 
         {actions.map((action, idx) => {
           const completed = completedIds.has(action.id);
           const isActive = activeAction === action.id;
-          const rayColor = RAY_COLORS[action.rayId] ?? '#F4C430';
+          const rayColor = RAY_COLORS[action.rayId] ?? 'var(--gold-primary)';
 
           // Shooting star path: upper-right to lower-left
           const sx = W * 0.88;
@@ -129,7 +129,7 @@ export default function ShootingStarActions({ actions, onComplete }: ShootingSta
                 y1={sy}
                 x2={completed ? ex : ex + 80}
                 y2={completed ? ey : ey - 20}
-                stroke={completed ? rayColor : '#F4C430'}
+                stroke={completed ? rayColor : 'var(--gold-primary)'}
                 strokeWidth={completed ? 1.5 : 2}
                 strokeOpacity={completed ? 0.5 : 0.7}
                 filter={completed ? undefined : 'url(#ssa-glow)'}
@@ -152,7 +152,7 @@ export default function ShootingStarActions({ actions, onComplete }: ShootingSta
                     cx={sp.x}
                     cy={sp.y}
                     r={sp.size}
-                    fill="#F4C430"
+                    fill="var(--gold-primary)"
                     initial={false}
                     animate={
                       !reducedMotion
@@ -173,7 +173,7 @@ export default function ShootingStarActions({ actions, onComplete }: ShootingSta
                   cx={completed ? ex : ex + 80}
                   cy={completed ? ey : ey - 20}
                   r={5}
-                  fill="#FFFFFF"
+                  fill="var(--text-body)"
                   filter="url(#ssa-glow)"
                   initial={false}
                   animate={
@@ -231,7 +231,7 @@ export default function ShootingStarActions({ actions, onComplete }: ShootingSta
         {activeAction && (() => {
           const action = actions.find((a) => a.id === activeAction);
           if (!action) return null;
-          const rayColor = RAY_COLORS[action.rayId] ?? '#F4C430';
+          const rayColor = RAY_COLORS[action.rayId] ?? 'var(--gold-primary)';
           return (
             <motion.div
               key={action.id}
@@ -241,7 +241,7 @@ export default function ShootingStarActions({ actions, onComplete }: ShootingSta
               transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
               className="mt-4 p-4"
               style={{
-                background: 'rgba(17, 3, 32, 0.85)',
+                background: 'var(--surface-border)',
                 border: `1.5px solid ${rayColor}`,
                 borderRadius: 'var(--radius-xl)',
                 backdropFilter: 'blur(20px)',

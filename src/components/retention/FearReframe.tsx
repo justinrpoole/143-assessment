@@ -9,28 +9,28 @@ const REFRAME_STEPS = [
     label: 'Name It',
     prompt: 'What is the thought or signal pulling at you right now?',
     hint: 'Write it exactly as it sounds in your head. No editing.',
-    color: '#A78BFA',
+    color: 'var(--neon-violet)',
   },
   {
     id: 'eclipse_check',
     label: 'Eclipse Check',
     prompt: 'Is this a real signal — or is eclipse talking?',
     hint: 'Eclipse narrows your attention. When you are under load, your brain scans for threat, not truth. Does this thought reflect what is actually happening, or what exhaustion is predicting?',
-    color: 'var(--brand-gold, #F8D011)',
+    color: 'var(--gold-primary)',
   },
   {
     id: 'capacity',
     label: 'Find the Capacity',
     prompt: 'What capacity would you use if you were not under load?',
     hint: 'If your light were fully online right now — Presence, Power, Authenticity, any Ray — which one would handle this? Name it.',
-    color: '#4ade80',
+    color: 'var(--text-body)',
   },
   {
     id: 'one_rep',
     label: 'One Rep',
     prompt: 'What is the smallest action that would prove that capacity is still available?',
     hint: 'Not the big move. The smallest one. A pause, a boundary, a question, a choice. That is the rep.',
-    color: '#F8D011',
+    color: 'var(--gold-primary)',
   },
 ] as const;
 
@@ -119,7 +119,7 @@ export default function FearReframe() {
               <div
                 key={s.id}
                 className="h-1.5 w-6 rounded-full transition-colors duration-300"
-                style={{ backgroundColor: i <= step ? rs.color : 'rgba(255,255,255,0.12)' }}
+                style={{ backgroundColor: i <= step ? rs.color : 'color-mix(in srgb, var(--text-body) 12%, transparent)' }}
               />
             ))}
           </div>
@@ -139,7 +139,7 @@ export default function FearReframe() {
           aria-label={rs.prompt}
           className="w-full rounded-xl px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
           style={{
-            background: 'rgba(255,255,255,0.06)',
+            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
             border: '1px solid var(--surface-border)',
             color: 'var(--text-on-dark)',
           }}

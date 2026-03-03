@@ -24,7 +24,7 @@ export default async function AssessmentSetupPage() {
 
   return (
     <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-8">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-8">
         <section className="relative">
           <FloatingOrbs variant="purple" />
           <header className="glass-card mb-6 p-6 sm:p-8">

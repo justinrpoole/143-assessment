@@ -49,7 +49,7 @@ export default function CompletionReveal({ topRayNames, onComplete }: Completion
   return (
     <div
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-      style={{ background: 'var(--bg-deep, #1A0A2E)' }}
+      style={{ background: 'var(--bg-deep, var(--text-body))' }}
       role="status"
       aria-live="assertive"
       aria-label={`Assessment complete. Your Light Signature is ${archetypeName}`}
@@ -62,7 +62,7 @@ export default function CompletionReveal({ topRayNames, onComplete }: Completion
                 key={i}
                 className="absolute left-1/2 top-1/2 block h-1.5 w-1.5 rounded-full"
                 style={{
-                  background: i % 3 === 0 ? '#F8D011' : i % 3 === 1 ? '#F4C430' : 'rgba(255,255,255,0.7)',
+                  background: i % 3 === 0 ? 'var(--gold-primary)' : i % 3 === 1 ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 70%, transparent)',
                   animation: `completionParticle 1.5s ${p.delay}s ease-out forwards`,
                   '--angle': `${p.angle}deg`,
                   '--distance': `${p.distance}px`,
@@ -78,7 +78,7 @@ export default function CompletionReveal({ topRayNames, onComplete }: Completion
         <div
           className="absolute h-40 w-40 rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(248,208,17,0.6) 0%, rgba(248,208,17,0) 70%)',
+            background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 60%, transparent) 0%, color-mix(in srgb, var(--gold-primary) 0%, transparent) 70%)',
             animation: 'completionGlow 1.2s ease-out forwards',
           }}
         />
@@ -95,19 +95,19 @@ export default function CompletionReveal({ topRayNames, onComplete }: Completion
       >
         <p
           className="text-neon-bloom text-xs font-bold uppercase tracking-[0.2em]"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           Your Light Signature
         </p>
         <h1
           className="text-shimmer mt-4 text-4xl font-bold sm:text-5xl"
-          style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+          style={{ color: 'var(--text-body)' }}
         >
           {archetypeName}
         </h1>
         <p
           className="mt-4 text-sm"
-          style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}
+          style={{ color: 'var(--text-muted)' }}
         >
           Your full report is loading&hellip;
         </p>

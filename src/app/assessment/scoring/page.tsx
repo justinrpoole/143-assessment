@@ -19,15 +19,15 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const RAYS = [
-  { name: "Intention",    color: "#F8D011" },
-  { name: "Joy",          color: "#FF6B35" },
-  { name: "Presence",     color: "#7C3AED" },
-  { name: "Power",        color: "#EC4899" },
-  { name: "Purpose",      color: "#06B6D4" },
-  { name: "Authenticity", color: "#10B981" },
-  { name: "Connection",   color: "#F59E0B" },
-  { name: "Possibility",  color: "#8B5CF6" },
-  { name: "Be The Light", color: "#FFFFFF" },
+  { name: "Intention",    color: "var(--gold-primary)" },
+  { name: "Joy",          color: "var(--text-body)" },
+  { name: "Presence",     color: "var(--text-body)" },
+  { name: "Power",        color: "var(--text-body)" },
+  { name: "Purpose",      color: "var(--text-body)" },
+  { name: "Authenticity", color: "var(--text-body)" },
+  { name: "Connection",   color: "var(--neon-amber)" },
+  { name: "Possibility",  color: "var(--text-body)" },
+  { name: "Be The Light", color: "var(--text-body)" },
 ];
 
 // How long each Ray "lights up" during the animation (ms)
@@ -205,7 +205,7 @@ function ScoringInner() {
         </div>
 
         {isReady && (
-          <p className="mt-8 text-sm font-semibold" style={{ color: "#FFD35A" }}>
+          <p className="mt-8 text-sm font-semibold" style={{ color: "var(--text-body)" }}>
             Opening your results...
           </p>
         )}

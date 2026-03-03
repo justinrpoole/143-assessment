@@ -156,34 +156,34 @@ export default async function FaqPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section className="content-wrap--narrow space-y-5 text-center">
           <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Before you decide
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Before you decide
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
+            style={{ color: "var(--text-body)", textShadow: neonText(NEON.cyan) }}
           >
             Every question you are thinking. Answered.
           </h1>
-          <div className="mx-auto max-w-[480px]">
+          <div className="content-wrap--narrow">
             <ScrollTextReveal text="How the assessment works, what your results actually show, what the science is, and why your scores are designed to change." />
           </div>
           <RaySpectrumStrip className="mt-6" />
         </section>
 
         {/* ─── SECTION 2 · QUICK JUMP ────────────────────────────── */}
-        <section className="mx-auto max-w-[720px]">
+        <section className="content-wrap--narrow">
           <div className="flex flex-wrap items-center justify-center gap-2">
             {FAQS.map((section, i) => (
               <a
                 key={section.category}
                 href={`#faq-${section.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                className="rounded-full px-4 py-2.5 text-xs font-semibold transition-colors hover:bg-[rgba(248,208,17,0.15)] min-h-[44px] inline-flex items-center"
+                className="rounded-full px-4 py-2.5 text-xs font-semibold transition-colors hover:bg-[color-mix(in srgb, var(--gold-primary) 15%, transparent)] min-h-[44px] inline-flex items-center"
                 style={{
                   color: rayHex(cycleRay(i)),
                   border: `1px solid ${rayHex(cycleRay(i))}33`,
@@ -198,7 +198,7 @@ export default async function FaqPage() {
         <RayDivider ray="R6" />
 
         {/* ─── SECTION 3 · FAQ CATEGORIES ────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-12">
+        <section className="content-wrap--narrow space-y-12">
           {FAQS.map((section, idx) => (
             <FadeInSection
               key={section.category}
@@ -219,14 +219,14 @@ export default async function FaqPage() {
                       <details className="glass-card glass-card--magnetic glass-card--lift group p-5">
                         <summary
                           className="flex cursor-pointer items-center justify-between text-sm font-semibold"
-                          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                          style={{ color: "var(--text-body)" }}
                         >
                           {faq.q}
                           <svg
                             className="ml-3 h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180"
                             viewBox="0 0 16 16"
                             fill="none"
-                            style={{ color: "var(--brand-gold, #F8D011)" }}
+                            style={{ color: "var(--gold-primary)" }}
                             aria-hidden="true"
                           >
                             <path
@@ -242,7 +242,7 @@ export default async function FaqPage() {
                           className="mt-3 text-sm leading-relaxed"
                           style={{
                             color:
-                              "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                              "var(--text-secondary)",
                           }}
                         >
                           {faq.a}
@@ -269,19 +269,19 @@ export default async function FaqPage() {
 
         {/* ─── SECTION 4 · CTA ────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 The best way to understand it is to <span className="gold-highlight">feel it</span>.
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                  color: "var(--text-secondary)",
                 }}
               >
                 Start with the free Stability Check and <span className="gold-highlight">see your pattern right now</span>.

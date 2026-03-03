@@ -124,14 +124,14 @@ export default function AsyncStateWrapper({
         className="rounded-2xl px-6 py-8 text-center"
         style={{
           background: 'var(--surface-glass)',
-          border: '1px solid rgba(244, 63, 94, 0.25)',
+          border: '1px solid var(--surface-border)',
         }}
         role="alert"
         aria-live="polite"
       >
         <p
           className="text-xs font-bold uppercase tracking-widest mb-2"
-          style={{ color: 'rgba(244, 63, 94, 0.8)' }}
+          style={{ color: 'var(--surface-border)' }}
         >
           Something went sideways
         </p>

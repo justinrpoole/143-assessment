@@ -72,26 +72,26 @@ export default function ConstellationProgress({
         <defs>
           {/* Deep space background gradient */}
           <radialGradient id="cp-deep-space" cx="50%" cy="45%">
-            <stop offset="0%" stopColor="#1a0a35" />
-            <stop offset="35%" stopColor="#0f0520" />
-            <stop offset="70%" stopColor="#0a0318" />
-            <stop offset="100%" stopColor="#050210" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="35%" stopColor="var(--text-body)" />
+            <stop offset="70%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           {/* Nebula cloud patches */}
           <radialGradient id="cp-nebula1" cx="30%" cy="25%">
-            <stop offset="0%" stopColor="#6B21A8" stopOpacity="0.12" />
+            <stop offset="0%" stopColor="var(--violet-650)" stopOpacity="0.12" />
             <stop offset="50%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0.06" />
             <stop offset="100%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="cp-nebula2" cx="70%" cy="65%">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.04" />
-            <stop offset="40%" stopColor="#E8A317" stopOpacity="0.02" />
-            <stop offset="100%" stopColor="#E8A317" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.04" />
+            <stop offset="40%" stopColor="var(--neon-amber)" stopOpacity="0.02" />
+            <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
           </radialGradient>
 
           {/* Star glow filter — neon bloom */}
-          <filter id="cp-star-glow" x="-100%" y="-100%" width="300%" height="300%">
+          <filter id="cp-star-glow" x="-100%" y="-100%" width={"300%"} height={"300%"}>
             <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2" />
             <feMerge>
@@ -102,7 +102,7 @@ export default function ConstellationProgress({
           </filter>
 
           {/* Major star burst filter — intense bloom */}
-          <filter id="cp-burst-glow" x="-150%" y="-150%" width="400%" height="400%">
+          <filter id="cp-burst-glow" x="-150%" y="-150%" width={"400%"} height={"400%"}>
             <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur2" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur3" />
@@ -116,28 +116,28 @@ export default function ConstellationProgress({
 
           {/* Connection line gradient */}
           <linearGradient id="cp-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.7" />
-            <stop offset="50%" stopColor="#FFF8E7" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0.7" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.7" />
+            <stop offset="50%" stopColor="var(--text-body)" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0.7" />
           </linearGradient>
 
           {/* Star core gradient */}
           <radialGradient id="cp-star-core" cx="35%" cy="35%">
-            <stop offset="0%" stopColor="#FFFDF5" />
-            <stop offset="40%" stopColor="#F4C430" />
-            <stop offset="80%" stopColor="#E8A317" />
-            <stop offset="100%" stopColor="#D4920A" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="40%" stopColor="var(--gold-primary)" />
+            <stop offset="80%" stopColor="var(--neon-amber)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           {/* Unlit star gradient */}
           <radialGradient id="cp-unlit" cx="40%" cy="40%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.15)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0.03)" />
+            <stop offset="0%" stopColor="color-mix(in srgb, var(--text-body) 15%, transparent)" />
+            <stop offset="100%" stopColor="color-mix(in srgb, var(--text-body) 3%, transparent)" />
           </radialGradient>
 
           {/* Scanline pattern */}
           <pattern id="cp-scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-            <rect width="4" height="2" fill="rgba(0,0,0,0.06)" />
+            <rect width="4" height="2" fill="color-mix(in srgb, var(--ink-950) 6%, transparent)" />
           </pattern>
         </defs>
 
@@ -153,18 +153,18 @@ export default function ConstellationProgress({
           <g key={`grid-${i}`}>
             <line
               x1={i * 50} y1={0} x2={i * 50} y2={H}
-              stroke="#6B21A8" strokeWidth={0.4} strokeOpacity={0.15}
+              stroke="var(--violet-650)" strokeWidth={0.4} strokeOpacity={0.15}
             />
             <line
               x1={0} y1={i * 50} x2={W} y2={i * 50}
-              stroke="#6B21A8" strokeWidth={0.4} strokeOpacity={0.15}
+              stroke="var(--violet-650)" strokeWidth={0.4} strokeOpacity={0.15}
             />
             {/* Grid intersection dots */}
             {Array.from({ length: 10 }).map((__, j) => (
               <circle
                 key={`dot-${i}-${j}`}
                 cx={i * 50} cy={j * 50} r={0.6}
-                fill="#8B5CF6" opacity={0.12}
+                fill="var(--neon-violet)" opacity={0.12}
               />
             ))}
           </g>
@@ -180,7 +180,7 @@ export default function ConstellationProgress({
             <motion.circle
               key={`bg-${i}`}
               cx={cx} cy={cy} r={size}
-              fill="#FFFFFF"
+              fill="var(--text-body)"
               initial={false}
               animate={
                 !reducedMotion && i % 5 === 0
@@ -207,7 +207,7 @@ export default function ConstellationProgress({
               {/* Outer glow layer */}
               <line
                 x1={prev.x} y1={prev.y} x2={star.x} y2={star.y}
-                stroke="#F4C430" strokeWidth={3} strokeOpacity={0.1}
+                stroke="var(--gold-primary)" strokeWidth={3} strokeOpacity={0.1}
                 strokeLinecap="round"
               />
               {/* Core line */}
@@ -231,7 +231,7 @@ export default function ConstellationProgress({
             <line
               key={`future-${i}`}
               x1={prev.x} y1={prev.y} x2={star.x} y2={star.y}
-              stroke="#8B5CF6" strokeWidth={0.6}
+              stroke="var(--neon-violet)" strokeWidth={0.6}
               strokeOpacity={0.15} strokeDasharray="2 6"
               strokeLinecap="round"
             />
@@ -252,7 +252,7 @@ export default function ConstellationProgress({
                   <circle
                     cx={star.x} cy={star.y}
                     r={r * 3.5}
-                    fill="#F4C430" opacity={0.03}
+                    fill="var(--gold-primary)" opacity={0.03}
                   />
 
                   {/* Major breakthrough — 8-point diffraction spikes */}
@@ -268,7 +268,7 @@ export default function ConstellationProgress({
                             y1={star.y + Math.sin(angle) * (r + 1)}
                             x2={star.x + Math.cos(angle) * len}
                             y2={star.y + Math.sin(angle) * len}
-                            stroke="#F4C430"
+                            stroke="var(--gold-primary)"
                             strokeWidth={bi % 2 === 0 ? 1.5 : 0.8}
                             strokeOpacity={0.7}
                             strokeLinecap="round"
@@ -303,7 +303,7 @@ export default function ConstellationProgress({
                     cx={star.x - r * 0.2}
                     cy={star.y - r * 0.2}
                     r={r * 0.25}
-                    fill="#FFFFFF" opacity={0.5}
+                    fill="var(--text-body)" opacity={0.5}
                   />
                 </>
               ) : (
@@ -313,14 +313,14 @@ export default function ConstellationProgress({
                     cx={star.x} cy={star.y}
                     r={r - 0.5}
                     fill="url(#cp-unlit)"
-                    stroke="rgba(255,255,255,0.2)"
+                    stroke="color-mix(in srgb, var(--text-body) 20%, transparent)"
                     strokeWidth={0.6}
                   />
                   {/* Tiny center dot */}
                   <circle
                     cx={star.x} cy={star.y}
                     r={0.8}
-                    fill="#FFFFFF" opacity={0.15}
+                    fill="var(--text-body)" opacity={0.15}
                   />
                 </>
               )}
@@ -348,14 +348,14 @@ export default function ConstellationProgress({
                   <rect
                     x={star.x - 40} y={star.y - 22}
                     width={80} height={14} rx={3}
-                    fill="rgba(10,5,28,0.85)"
-                    stroke={star.completed ? '#F4C430' : 'rgba(255,255,255,0.15)'}
+                    fill="var(--surface-border)"
+                    stroke={star.completed ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 15%, transparent)'}
                     strokeWidth={0.5}
                   />
                   <text
                     x={star.x} y={star.y - 12.5}
                     textAnchor="middle"
-                    fill={star.completed ? '#F4C430' : '#FFFFFF'}
+                    fill={star.completed ? 'var(--gold-primary)' : 'var(--text-body)'}
                     fontSize="7" fontFamily="monospace"
                     fontWeight="600" letterSpacing="0.05em"
                     opacity={0.9}
@@ -374,12 +374,12 @@ export default function ConstellationProgress({
         {/* Constellation name — vintage readout style */}
         <rect
           x={W - 160} y={H - 48} width={145} height={32} rx={4}
-          fill="rgba(10,5,28,0.8)"
-          stroke="rgba(244,196,48,0.15)" strokeWidth={0.5}
+          fill="var(--surface-border)"
+          stroke="var(--surface-border)" strokeWidth={0.5}
         />
         <text
           x={W - 88} y={H - 30}
-          textAnchor="middle" fill="#F4C430"
+          textAnchor="middle" fill="var(--gold-primary)"
           fontSize="10" fontFamily="monospace" fontWeight="700"
           letterSpacing="0.08em" opacity={0.7}
         >
@@ -388,7 +388,7 @@ export default function ConstellationProgress({
         {dateRange && (
           <text
             x={W - 88} y={H - 20}
-            textAnchor="middle" fill="#8B5CF6"
+            textAnchor="middle" fill="var(--neon-violet)"
             fontSize="7" fontFamily="monospace" fontWeight="400"
             opacity={0.5}
           >
@@ -399,12 +399,12 @@ export default function ConstellationProgress({
         {/* Progress counter — top right */}
         <rect
           x={W - 80} y={12} width={65} height={20} rx={3}
-          fill="rgba(10,5,28,0.8)"
-          stroke="rgba(244,196,48,0.2)" strokeWidth={0.5}
+          fill="var(--surface-border)"
+          stroke="var(--surface-border)" strokeWidth={0.5}
         />
         <text
           x={W - 48} y={25}
-          textAnchor="middle" fill="#F4C430"
+          textAnchor="middle" fill="var(--gold-primary)"
           fontSize="8" fontFamily="monospace" fontWeight="600"
           opacity={0.7}
         >

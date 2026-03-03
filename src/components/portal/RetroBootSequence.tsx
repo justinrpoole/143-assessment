@@ -69,7 +69,7 @@ export default function RetroBootSequence({ trainingRayName }: RetroBootSequence
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-6"
-      style={{ background: 'radial-gradient(circle at top, rgba(96, 5, 141, 0.9), rgba(2, 2, 2, 0.95))' }}
+      style={{ background: 'radial-gradient(circle at top, color-mix(in srgb, var(--violet-650) 90%, transparent), color-mix(in srgb, var(--ink-950) 95%, transparent))' }}
       role="dialog"
       aria-modal="true"
       aria-label="Portal boot sequence"
@@ -77,13 +77,13 @@ export default function RetroBootSequence({ trainingRayName }: RetroBootSequence
     >
       <div
         className="relative w-full max-w-md rounded-2xl border p-5"
-        style={{ background: 'rgba(2, 2, 2, 0.75)', borderColor: 'rgba(248, 208, 17, 0.3)' }}
+        style={{ background: 'color-mix(in srgb, var(--ink-950) 75%, transparent)', borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}
         onClick={(event) => event.stopPropagation()}
       >
         <div
           className="pointer-events-none absolute inset-0 rounded-2xl"
           style={{
-            background: 'repeating-linear-gradient(180deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.02) 2px, transparent 4px, transparent 8px)',
+            background: 'repeating-linear-gradient(180deg, color-mix(in srgb, var(--text-body) 8%, transparent) 0px, color-mix(in srgb, var(--text-body) 2%, transparent) 2px, transparent 4px, transparent 8px)',
             mixBlendMode: 'screen',
             opacity: 0.25,
             animation: 'bootScan 1.6s linear infinite',
@@ -111,7 +111,7 @@ export default function RetroBootSequence({ trainingRayName }: RetroBootSequence
             type="button"
             onClick={handleClose}
             className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full"
-            style={{ background: 'rgba(248, 208, 17, 0.16)', color: 'var(--brand-gold)' }}
+            style={{ background: 'color-mix(in srgb, var(--gold-primary) 16%, transparent)', color: 'var(--brand-gold)' }}
           >
             Enter
           </button>

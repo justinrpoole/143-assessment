@@ -107,8 +107,8 @@ export default function BadgeShowcase({
             key={badge.id}
             className={`flex items-center gap-2 rounded-lg px-3 py-2 transition-opacity ${badge.earned ? 'glass-card--interactive' : ''}`}
             style={{
-              background: badge.earned ? 'rgba(255, 207, 0, 0.08)' : 'rgba(96, 5, 141, 0.08)',
-              border: `1px solid ${badge.earned ? 'rgba(255, 207, 0, 0.15)' : 'rgba(148, 80, 200, 0.12)'}`,
+              background: badge.earned ? 'var(--surface-border)' : 'color-mix(in srgb, var(--violet-650) 8%, transparent)',
+              border: `1px solid ${badge.earned ? 'var(--surface-border)' : 'color-mix(in srgb, var(--stroke-400) 12%, transparent)'}`,
               opacity: badge.earned ? 1 : 0.4,
             }}
             title={badge.earned ? `${badge.name}: ${badge.description}` : `Locked: ${badge.description}`}

@@ -90,7 +90,7 @@ export default function WeekOneChecklist({ lightSignature }: Props) {
       <div>
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           Week 1 Installation Plan
         </p>
@@ -118,7 +118,7 @@ export default function WeekOneChecklist({ lightSignature }: Props) {
             className="h-full rounded-full transition-all duration-500"
             style={{
               width: `${(progress / total) * 100}%`,
-              background: 'var(--brand-gold, #F8D011)',
+              background: 'var(--gold-primary)',
             }}
           />
         </div>
@@ -143,9 +143,9 @@ export default function WeekOneChecklist({ lightSignature }: Props) {
             <span
               className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border text-xs"
               style={{
-                borderColor: checked.has(i) ? 'var(--brand-gold, #F8D011)' : 'var(--surface-border)',
-                background: checked.has(i) ? 'rgba(248, 208, 17, 0.15)' : 'transparent',
-                color: checked.has(i) ? 'var(--brand-gold, #F8D011)' : 'transparent',
+                borderColor: checked.has(i) ? 'var(--gold-primary)' : 'var(--surface-border)',
+                background: checked.has(i) ? 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' : 'transparent',
+                color: checked.has(i) ? 'var(--gold-primary)' : 'transparent',
               }}
             >
               {checked.has(i) ? '✓' : ''}
@@ -154,7 +154,7 @@ export default function WeekOneChecklist({ lightSignature }: Props) {
               <div className="flex items-center gap-2">
                 <span
                   className="text-[10px] font-bold uppercase tracking-wider"
-                  style={{ color: 'var(--brand-gold, #F8D011)' }}
+                  style={{ color: 'var(--gold-primary)' }}
                 >
                   {item.day}
                 </span>

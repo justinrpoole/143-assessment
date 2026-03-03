@@ -100,10 +100,10 @@ function correlationLabel(value: number | null): { label: string; color: string 
   if (value == null) {
     return { label: "Not enough data", color: "var(--text-on-dark-muted)" };
   }
-  if (value > 0.45) return { label: "Strong positive", color: "#34D399" };
-  if (value > 0.2) return { label: "Positive", color: "#86EFAC" };
-  if (value < -0.45) return { label: "Strong negative", color: "#F87171" };
-  if (value < -0.2) return { label: "Negative", color: "#FCA5A5" };
+  if (value > 0.45) return { label: "Strong positive", color: "var(--neon-teal)" };
+  if (value > 0.2) return { label: "Positive", color: "var(--text-body)" };
+  if (value < -0.45) return { label: "Strong negative", color: "var(--ray-power)" };
+  if (value < -0.2) return { label: "Negative", color: "var(--ray-power)" };
   return { label: "No clear signal", color: "var(--text-on-dark-muted)" };
 }
 
@@ -287,10 +287,10 @@ export default function RetakeInsights() {
   if (loading) {
     return (
       <div className="glass-card p-5 space-y-3 animate-pulse">
-        <div className="h-3 w-36 rounded" style={{ background: "rgba(255,255,255,0.12)" }} />
-        <div className="h-2 w-52 rounded" style={{ background: "rgba(255,255,255,0.08)" }} />
-        <div className="h-16 rounded" style={{ background: "rgba(255,255,255,0.06)" }} />
-        <div className="h-24 rounded" style={{ background: "rgba(255,255,255,0.06)" }} />
+        <div className="h-3 w-36 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 12%, transparent)" }} />
+        <div className="h-2 w-52 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 8%, transparent)" }} />
+        <div className="h-16 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 6%, transparent)" }} />
+        <div className="h-24 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 6%, transparent)" }} />
       </div>
     );
   }
@@ -299,9 +299,9 @@ export default function RetakeInsights() {
     return (
       <div
         className="glass-card p-5 space-y-3"
-        style={{ borderColor: "rgba(248, 113, 113, 0.3)" }}
+        style={{ borderColor: "var(--surface-border)" }}
       >
-        <p className="text-sm" style={{ color: "#FCA5A5" }}>
+        <p className="text-sm" style={{ color: "var(--ray-power)" }}>
           {humanizeError(error)}
         </p>
         <button
@@ -438,7 +438,7 @@ export default function RetakeInsights() {
             <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
               Retake outcome
             </p>
-            <p className="text-lg font-semibold" style={{ color: outcome.overallDelta >= 0 ? "#34D399" : "#F87171" }}>
+            <p className="text-lg font-semibold" style={{ color: outcome.overallDelta >= 0 ? "var(--neon-teal)" : "var(--ray-power)" }}>
               {outcome.overallDelta >= 0 ? "+" : ""}{outcome.overallDelta.toFixed(2)} overall
             </p>
             <div className="text-xs" style={{ color: "var(--text-on-dark-secondary)" }}>
@@ -453,7 +453,7 @@ export default function RetakeInsights() {
             <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
               Bottom ray lift
             </p>
-            <p className="text-lg font-semibold" style={{ color: outcome.bottomRay.delta >= 0 ? "#34D399" : "#F87171" }}>
+            <p className="text-lg font-semibold" style={{ color: outcome.bottomRay.delta >= 0 ? "var(--neon-teal)" : "var(--ray-power)" }}>
               {outcome.bottomRay.name}
             </p>
             <p className="text-xs" style={{ color: "var(--text-on-dark-secondary)" }}>
@@ -475,8 +475,8 @@ export default function RetakeInsights() {
                 key={`${delta.from}-${delta.to}`}
                 className="px-2 py-1 rounded-full"
                 style={{
-                  background: delta.delta >= 0 ? "rgba(52, 211, 153, 0.15)" : "rgba(248, 113, 113, 0.15)",
-                  color: delta.delta >= 0 ? "#34D399" : "#F87171",
+                  background: delta.delta >= 0 ? "var(--surface-border)" : "var(--surface-border)",
+                  color: delta.delta >= 0 ? "var(--neon-teal)" : "var(--ray-power)",
                 }}
               >
                 Run {delta.from} to {delta.to}: {delta.delta >= 0 ? "+" : ""}{delta.delta.toFixed(2)} ({delta.gap}d)

@@ -19,7 +19,7 @@ type PositionedStar = {
   delay: number;
 };
 
-const BG_DEEP = '#1A0A2E';
+const BG_DEEP = "var(--bg-deep)";
 
 const TOOL_TO_RAY: Record<string, number> = {
   watch_me: 1,
@@ -100,9 +100,12 @@ export default function StarChart() {
   return (
     <section
       className="glass-card p-5 sm:p-6"
-      style={{ background: `linear-gradient(180deg, ${BG_DEEP}, rgba(26,10,46,0.92))`, borderColor: 'rgba(248,208,17,0.2)' }}
+      style={{
+        background: "linear-gradient(180deg, var(--bg-deep), color-mix(in srgb, var(--bg-deep) 92%, transparent))",
+        borderColor: "var(--surface-border)",
+      }}
     >
-      <h3 className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: '#F8D011' }}>
+      <h3 className="text-sm font-semibold uppercase tracking-wider mb-3 text-header">
         Star Chart
       </h3>
 
@@ -118,11 +121,11 @@ export default function StarChart() {
 
         <div className="absolute inset-0 flex items-center justify-center text-center px-4 pointer-events-none">
           {stars.length > 0 ? (
-            <p className="text-base sm:text-lg font-semibold" style={{ color: '#F8D011' }}>
+            <p className="text-base sm:text-lg font-semibold text-header">
               {stars.length} reps logged
             </p>
           ) : (
-            <p className="text-sm" style={{ color: 'rgba(255,255,255,0.72)' }}>
+            <p className="text-sm text-secondary">
               Log your first rep to light your first star
             </p>
           )}

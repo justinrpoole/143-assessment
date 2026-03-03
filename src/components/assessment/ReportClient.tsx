@@ -111,7 +111,7 @@ function ReportLoadingSequence() {
             key={label}
             className="text-sm transition-all duration-500"
             style={{
-              color: i <= step ? '#F8D011' : 'var(--text-on-dark-muted, rgba(255,255,255,0.3))',
+              color: i <= step ? 'var(--gold-primary)' : 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 30%, transparent))',
               opacity: i <= step ? 1 : 0.4,
             }}
           >
@@ -143,7 +143,7 @@ function CollapsibleSection({
           <div>
             <p
               className="text-[10px] uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: "var(--gold-primary)" }}
             >
               Optional Dashboards
             </p>
@@ -473,7 +473,7 @@ export function ReportClient({ runId }: ReportClientProps) {
 
   if (error && !raw) {
     return (
-      <div className="glass-card p-6" style={{ borderColor: "rgba(244, 63, 94, 0.3)" }}>
+      <div className="glass-card p-6" style={{ borderColor: "var(--surface-border)" }}>
         <p className="text-sm text-rose-400" role="alert">{error}</p>
         <Link href="/assessment/setup" className="btn-watch mt-4 inline-block">
           Start a new run

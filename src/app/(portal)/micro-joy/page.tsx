@@ -80,7 +80,7 @@ export default async function MicroJoyPage() {
       />
       <RayDivider ray="R2" />
       <FadeInSection>
-        <section className="mx-auto max-w-lg">
+        <section className="content-wrap--narrow">
           <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: rayHex('R2') }}>
             Continue Your Practice
           </p>

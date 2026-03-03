@@ -18,7 +18,7 @@ interface RadialSpotlightProps {
  */
 export default function RadialSpotlight({
   children,
-  color = 'rgba(248,208,17,0.06)',
+  color = 'color-mix(in srgb, var(--gold-primary) 6%, transparent)',
   radius = 300,
   className = '',
 }: RadialSpotlightProps) {

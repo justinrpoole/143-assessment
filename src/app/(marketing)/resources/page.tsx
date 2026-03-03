@@ -54,19 +54,19 @@ export const metadata = {
 
 export default function ResourcesPage() {
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap space-y-16 py-12 sm:py-16">
         {/* ── Hero ── */}
-        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section className="content-wrap--narrow space-y-5 text-center">
           <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Resources
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Resources
           </p>
           <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.cyan) }}>
             Understand the system before you take the test.
           </h1>
-          <div className="mx-auto max-w-[540px]">
+          <div className="content-wrap--narrow max-w-[540px]">
             <ScrollTextReveal text="The framework. The science. A sample report. And a free 3-day challenge that proves the filter can shift before you spend a dollar." />
           </div>
           <RaySpectrumStrip className="mt-6" />
@@ -103,13 +103,13 @@ export default function ResourcesPage() {
 
         {/* ── CTA ── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <h2 className="text-2xl font-bold gold-underline" style={{ color: 'var(--text-on-dark)' }}>
                 See your first two Rays — free.
               </h2>
-              <p className="mx-auto max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              <p className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 The Gravitational Stability Check takes 3 minutes and shows you which capacities are <span className="gold-highlight">carrying your system</span> right now.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">

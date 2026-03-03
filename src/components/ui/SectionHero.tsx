@@ -43,14 +43,14 @@ export default function SectionHero({
     >
       <p
         className="text-xs font-bold uppercase tracking-widest"
-        style={{ color: 'var(--brand-gold, #F8D011)' }}
+        style={{ color: 'var(--gold-primary)' }}
       >
         {kicker}
       </p>
 
       <HeadingTag
         className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl"
-        style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+        style={{ color: 'var(--text-body)' }}
       >
         {heading}
       </HeadingTag>
@@ -58,7 +58,7 @@ export default function SectionHero({
       <p
         className="text-base leading-relaxed"
         style={{
-          color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))',
+          color: 'var(--text-secondary)',
           maxWidth: center ? 560 : undefined,
           marginInline: center ? 'auto' : undefined,
         }}
@@ -70,7 +70,7 @@ export default function SectionHero({
         <p
           className="text-sm leading-relaxed"
           style={{
-            color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))',
+            color: 'var(--text-muted)',
             maxWidth: center ? 560 : undefined,
             marginInline: center ? 'auto' : undefined,
           }}

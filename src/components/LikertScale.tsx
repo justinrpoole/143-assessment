@@ -33,7 +33,7 @@ export default function LikertScale({ itemId, value, onChange, labels }: LikertS
                 : 'hover:scale-105'
               }
             `}
-            style={value !== n ? { background: 'rgba(96, 5, 141, 0.35)', color: 'var(--text-on-dark-secondary)', border: '1px solid var(--surface-border)' } : undefined}
+            style={value !== n ? { background: 'color-mix(in srgb, var(--violet-650) 35%, transparent)', color: 'var(--text-on-dark-secondary)', border: '1px solid var(--surface-border)' } : undefined}
             aria-label={`${n} out of 7`}
           >
             {n}

@@ -2,10 +2,10 @@
 import { useRouter } from "next/navigation";
 
 const TOOLS = [
-  { id:"T001", name:"Watch Me", icon:"👁", color:"#7C3AED", tagline:"Turn fear into action.", what:"A nervous system override. When hesitation shows up, Watch Me turns it into a chosen move. Not motivation — ignition.", time:"2 min" },
-  { id:"T002", name:"Go First", icon:"🚀", color:"#FF9D2E", tagline:"Break the freeze.", what:"The external momentum move. Be the first one to act — before you feel ready. Confidence builds on the other side.", time:"2 min" },
-  { id:"T003", name:"I Rise", icon:"🌅", color:"#EC4899", tagline:"Return to yourself.", what:"The quiet identity reset. When you've drifted, I Rise brings you back. Not hype — authorship.", time:"60 sec" },
-  { id:"T004", name:"Presence Pause", icon:"🌬", color:"#06B6D4", tagline:"Choose your next move.", what:"The smallest interruption. Takes 10 seconds. Returns you to command before urgency drives the car.", time:"10 sec" },
+  { id:"T001", name:"Watch Me", icon:"👁", color:"var(--text-body)", tagline:"Turn fear into action.", what:"A nervous system override. When hesitation shows up, Watch Me turns it into a chosen move. Not motivation — ignition.", time:"2 min" },
+  { id:"T002", name:"Go First", icon:"🚀", color:"var(--text-body)", tagline:"Break the freeze.", what:"The external momentum move. Be the first one to act — before you feel ready. Confidence builds on the other side.", time:"2 min" },
+  { id:"T003", name:"I Rise", icon:"🌅", color:"var(--text-body)", tagline:"Return to yourself.", what:"The quiet identity reset. When you've drifted, I Rise brings you back. Not hype — authorship.", time:"60 sec" },
+  { id:"T004", name:"Presence Pause", icon:"🌬", color:"var(--text-body)", tagline:"Choose your next move.", what:"The smallest interruption. Takes 10 seconds. Returns you to command before urgency drives the car.", time:"10 sec" },
 ];
 
 export default function ToolsFirstPage() {
@@ -33,7 +33,7 @@ export default function ToolsFirstPage() {
               <div className="flex items-center gap-2">
                 <span className="text-xl">{t.icon}</span>
                 <span className="font-bold text-white text-sm">{t.name}</span>
-                <span className="ml-auto text-xs px-2 py-0.5 rounded-full" style={{background:"rgba(255,211,90,0.15)",color:"#FFD35A"}}>{t.time}</span>
+                <span className="ml-auto text-xs px-2 py-0.5 rounded-full" style={{background:"var(--surface-border)",color:"var(--text-body)"}}>{t.time}</span>
               </div>
               <p className="text-xs font-semibold" style={{color:t.color}}>{t.tagline}</p>
               <p className="text-xs leading-relaxed" style={{color:"var(--text-on-dark-secondary)"}}>{t.what}</p>
@@ -46,7 +46,7 @@ export default function ToolsFirstPage() {
           </p>
           <button onClick={handleContinue}
             className="px-10 py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all"
-            style={{background:"linear-gradient(180deg,#FFD35A 0%,#E07800 100%)",color:"#060014",boxShadow:"0 4px 20px rgba(255,211,90,0.4)"}}>
+            style={{background:"linear-gradient(180deg,var(--text-body) 0%,var(--text-body) 100%)",color:"var(--bg-deep)",boxShadow:"0 4px 20px var(--surface-border)"}}>
             I&apos;m Ready — Show My Map →
           </button>
         </div>

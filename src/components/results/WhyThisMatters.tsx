@@ -77,7 +77,7 @@ export default function WhyThisMatters({ rays, eclipse }: Props) {
       <div>
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           Why This Matters Today
         </p>
@@ -110,13 +110,13 @@ export default function WhyThisMatters({ rays, eclipse }: Props) {
           // Visual indicator color — ray-specific when online, status colors under load
           const rc = rayHex(ray.ray_id);
           const indicatorColor = isEclipsed
-            ? '#fb923c'
+            ? 'var(--text-body)'
             : isHigh
             ? rc
-            : 'var(--brand-gold, #F8D011)';
+            : 'var(--gold-primary)';
 
           return (
-            <div key={ray.ray_id} className="glass-card p-4" style={{ borderLeft: `3px solid ${isEclipsed ? '#fb923c60' : `${rc}40`}` }}>
+            <div key={ray.ray_id} className="glass-card p-4" style={{ borderLeft: `3px solid ${isEclipsed ? 'var(--text-body)' : `${rc}40`}` }}>
               <div className="flex items-center gap-2 mb-1.5">
                 <span
                   className="inline-block h-2 w-2 rounded-full"

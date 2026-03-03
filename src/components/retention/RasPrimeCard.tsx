@@ -125,9 +125,9 @@ export function RasPrimeCard({ variant = 'full' }: RasPrimeCardProps) {
               placeholder="What you want to notice"
               className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
-                background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-                border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-                color: 'var(--text-on-dark, #FFFEF5)',
+                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+                color: 'var(--text-body)',
               }}
             />
           </label>
@@ -169,9 +169,9 @@ export function RasPrimeCard({ variant = 'full' }: RasPrimeCardProps) {
               placeholder="I noticed..."
               className="w-full flex-1 rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
-                background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-                border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-                color: 'var(--text-on-dark, #FFFEF5)',
+                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+                color: 'var(--text-body)',
               }}
             />
             <button type="button" className="btn-watch" onClick={handleNoticeSave}>

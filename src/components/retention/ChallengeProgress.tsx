@@ -104,20 +104,20 @@ export default function ChallengeProgress() {
           </p>
         </div>
         <div className="text-center">
-          <p className="text-2xl font-bold" style={{ color: progress.pct >= 100 ? '#34D399' : 'var(--brand-gold)' }}>
+          <p className="text-2xl font-bold" style={{ color: progress.pct >= 100 ? 'var(--neon-teal)' : 'var(--brand-gold)' }}>
             {progress.pct}%
           </p>
         </div>
       </div>
 
       {/* Progress bar */}
-      <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+      <div className="h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
         <div
           className="h-full rounded-full transition-all duration-500"
           style={{
             width: `${progress.pct}%`,
             background: progress.pct >= 100
-              ? 'linear-gradient(90deg, #34D399, var(--brand-gold))'
+              ? 'linear-gradient(90deg, var(--text-body), var(--brand-gold))'
               : 'var(--brand-gold)',
           }}
         />
@@ -131,11 +131,11 @@ export default function ChallengeProgress() {
               className="w-3 h-3 rounded-full mx-auto"
               style={{
                 background: progress.dayCount >= m.day
-                  ? '#34D399'
-                  : 'rgba(255,255,255,0.12)',
+                  ? 'var(--neon-teal)'
+                  : 'color-mix(in srgb, var(--text-body) 12%, transparent)',
                 border: progress.dayCount >= m.day
                   ? 'none'
-                  : '1px solid rgba(255,255,255,0.2)',
+                  : '1px solid color-mix(in srgb, var(--text-body) 20%, transparent)',
               }}
             />
             <p className="text-[10px] mt-1" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -153,15 +153,15 @@ export default function ChallengeProgress() {
             className="aspect-square rounded-sm flex items-center justify-center text-[9px] font-medium"
             style={{
               background: gd.completed
-                ? 'rgba(52, 211, 153, 0.3)'
+                ? 'var(--surface-border)'
                 : gd.isMilestone
-                  ? 'rgba(248, 208, 17, 0.08)'
-                  : 'rgba(255,255,255,0.04)',
+                  ? 'color-mix(in srgb, var(--gold-primary) 8%, transparent)'
+                  : 'color-mix(in srgb, var(--text-body) 4%, transparent)',
               color: gd.completed
-                ? '#34D399'
+                ? 'var(--neon-teal)'
                 : 'var(--text-on-dark-muted)',
               border: gd.isMilestone && !gd.completed
-                ? '1px solid rgba(248, 208, 17, 0.2)'
+                ? '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)'
                 : '1px solid transparent',
             }}
           >
@@ -179,7 +179,7 @@ export default function ChallengeProgress() {
 
       {progress.pct >= 100 && (
         <div className="glass-card gold-accent-left rounded-xl p-3 text-center">
-          <p className="text-sm font-semibold" style={{ color: '#34D399' }}>
+          <p className="text-sm font-semibold" style={{ color: 'var(--neon-teal)' }}>
             Challenge Complete
           </p>
           <p className="text-xs mt-1" style={{ color: 'var(--text-on-dark-secondary)' }}>

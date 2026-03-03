@@ -137,7 +137,7 @@ export default function SolarCoreScore({
   const stars = useMemo(() =>
     Array.from({ length: STAR_COUNT }, (_, i) => {
       const roll = seededRandom(i + 500);
-      const fill = roll < 0.06 ? '#C39BD3' : roll < 0.22 ? '#F8D011' : '#FDFCFD';
+      const fill = roll < 0.06 ? 'var(--text-secondary)' : roll < 0.22 ? 'var(--gold-primary)' : 'var(--text-body)';
       const maxOpacity = roll < 0.06 ? 0.4 : roll < 0.22 ? 0.6 : 0.85;
       return {
         x: seededRandom(i) * CENTER * 2,
@@ -299,53 +299,53 @@ export default function SolarCoreScore({
           <defs>
             {/* Deep space background — matches vintage 80s instrument aesthetic */}
             <radialGradient id="scs-bg" cx="50%" cy="48%" r="65%">
-              <stop offset="0%" stopColor="#1a0a35" />
-              <stop offset="30%" stopColor="#0f0520" />
-              <stop offset="60%" stopColor="#0a0318" />
-              <stop offset="85%" stopColor="#060212" />
-              <stop offset="100%" stopColor="#030108" />
+              <stop offset="0%" stopColor="var(--text-body)" />
+              <stop offset="30%" stopColor="var(--text-body)" />
+              <stop offset="60%" stopColor="var(--text-body)" />
+              <stop offset="85%" stopColor="var(--text-body)" />
+              <stop offset="100%" stopColor="var(--text-body)" />
             </radialGradient>
             <radialGradient id="scs-golden-haze" cx="50%" cy="50%" r="45%">
-              <stop offset="0%" stopColor="#F8D011" stopOpacity="0.08" />
-              <stop offset="50%" stopColor="#F8D011" stopOpacity="0.03" />
+              <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.08" />
+              <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.03" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
             <radialGradient id="scs-rose-warmth" cx="50%" cy="50%" r="32%">
               <stop offset="40%" stopColor="transparent" />
-              <stop offset="65%" stopColor="#C39BD3" stopOpacity="0.1" />
-              <stop offset="85%" stopColor="#C39BD3" stopOpacity="0.04" />
+              <stop offset="65%" stopColor="var(--text-secondary)" stopOpacity="0.1" />
+              <stop offset="85%" stopColor="var(--text-secondary)" stopOpacity="0.04" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
             <radialGradient id="scs-nebula" cx="30%" cy="35%" r="55%">
-              <stop offset="0%" stopColor="#7B4FA2" stopOpacity="0.25" />
+              <stop offset="0%" stopColor="var(--violet-650)" stopOpacity="0.25" />
               <stop offset="50%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0.1" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
             <radialGradient id="scs-nebula2" cx="75%" cy="70%" r="40%">
-              <stop offset="0%" stopColor="#F8D011" stopOpacity="0.05" />
-              <stop offset="40%" stopColor="#C39BD3" stopOpacity="0.04" />
+              <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.05" />
+              <stop offset="40%" stopColor="var(--text-secondary)" stopOpacity="0.04" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
             <radialGradient id="scs-stardust" cx="55%" cy="25%" r="40%">
-              <stop offset="0%" stopColor="#F8D011" stopOpacity="0.06" />
+              <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.06" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
 
-            <filter id="scs-beam-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <filter id="scs-beam-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
               <feGaussianBlur stdDeviation="5" result="blur" />
               <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
-            <filter id="scs-top-glow" x="-80%" y="-80%" width="260%" height="260%">
+            <filter id="scs-top-glow" x="-80%" y="-80%" width={"260%"} height={"260%"}>
               <feGaussianBlur stdDeviation="8" result="blur1" />
               <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur2" />
               <feMerge><feMergeNode in="blur1" /><feMergeNode in="blur2" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
-            <filter id="scs-hover-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <filter id="scs-hover-glow" x="-100%" y="-100%" width={"300%"} height={"300%"}>
               <feGaussianBlur stdDeviation="10" result="blur1" />
               <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur2" />
               <feMerge><feMergeNode in="blur1" /><feMergeNode in="blur2" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
-            <filter id="scs-amp-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <filter id="scs-amp-glow" x="-100%" y="-100%" width={"300%"} height={"300%"}>
               <feGaussianBlur stdDeviation="6" result="blur" />
               <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
@@ -361,21 +361,21 @@ export default function SolarCoreScore({
                   x1={CENTER + BEAM_START * Math.cos(rad)} y1={CENTER + BEAM_START * Math.sin(rad)}
                   x2={CENTER + BEAM_END_MAX * Math.cos(rad)} y2={CENTER + BEAM_END_MAX * Math.sin(rad)}
                   gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor={isTop ? rc : '#F8D011'} />
+                  <stop offset="0%" stopColor={isTop ? rc : 'var(--gold-primary)'} />
                   <stop offset="60%" stopColor={isTop ? rc : rc} stopOpacity={isTop ? 0.8 : 0.5} />
-                  <stop offset="100%" stopColor="#FFFEF5" stopOpacity={0.6} />
+                  <stop offset="100%" stopColor="var(--text-body)" stopOpacity={0.6} />
                 </linearGradient>
               );
             })}
 
             {/* CRT scanline pattern */}
             <pattern id="scs-scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-              <rect width="4" height="2" fill="rgba(0,0,0,0.04)" />
+              <rect width="4" height="2" fill="color-mix(in srgb, var(--ink-950) 4%, transparent)" />
             </pattern>
 
-            <filter id="scs-text-outline" x="-10%" y="-10%" width="120%" height="120%">
+            <filter id="scs-text-outline" x="-10%" y="-10%" width={"120%"} height={"120%"}>
               <feMorphology in="SourceAlpha" operator="dilate" radius="1.2" result="expanded" />
-              <feFlood floodColor="#1A1A1A" result="color" />
+              <feFlood floodColor="var(--text-body)" result="color" />
               <feComposite in="color" in2="expanded" operator="in" result="outline" />
               <feMerge><feMergeNode in="outline" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
@@ -420,10 +420,10 @@ export default function SolarCoreScore({
           {/* ── Star chart elements ── */}
 
           {/* Concentric orbit rings — evokes celestial chart */}
-          <circle cx={CENTER} cy={CENTER} r={BEAM_END_MIN} fill="none" stroke="rgba(253, 252, 253, 0.06)" strokeWidth={0.5} />
-          <circle cx={CENTER} cy={CENTER} r={(BEAM_END_MIN + BEAM_END_MAX) / 2} fill="none" stroke="rgba(253, 252, 253, 0.04)" strokeWidth={0.5} />
-          <CosmicRing cx={CENTER} cy={CENTER} radius={BEAM_END_MAX + 18} smoothness={0.7} opacity={0.12} color="#FDFCFD" />
-          <circle cx={CENTER} cy={CENTER} r={BEAM_END_MAX + 18} fill="none" stroke="rgba(253, 252, 253, 0.1)" strokeWidth={0.8} />
+          <circle cx={CENTER} cy={CENTER} r={BEAM_END_MIN} fill="none" stroke="var(--surface-border)" strokeWidth={0.5} />
+          <circle cx={CENTER} cy={CENTER} r={(BEAM_END_MIN + BEAM_END_MAX) / 2} fill="none" stroke="var(--surface-border)" strokeWidth={0.5} />
+          <CosmicRing cx={CENTER} cy={CENTER} radius={BEAM_END_MAX + 18} smoothness={0.7} opacity={0.12} color="var(--text-body)" />
+          <circle cx={CENTER} cy={CENTER} r={BEAM_END_MAX + 18} fill="none" stroke="var(--surface-border)" strokeWidth={0.8} />
 
           {/* 9 sector dividing lines — like house cusps */}
           {Array.from({ length: 9 }, (_, i) => {
@@ -435,7 +435,7 @@ export default function SolarCoreScore({
               <line key={`sector-${i}`}
                 x1={CENTER + innerR * Math.cos(rad)} y1={CENTER + innerR * Math.sin(rad)}
                 x2={CENTER + outerR * Math.cos(rad)} y2={CENTER + outerR * Math.sin(rad)}
-                stroke="rgba(253, 252, 253, 0.06)" strokeWidth={0.5}
+                stroke="var(--surface-border)" strokeWidth={0.5}
                 strokeDasharray="2 4" aria-hidden="true" />
             );
           })}
@@ -451,7 +451,7 @@ export default function SolarCoreScore({
               <line key={`tick-${i}`}
                 x1={CENTER + innerR * Math.cos(rad)} y1={CENTER + innerR * Math.sin(rad)}
                 x2={CENTER + outerR * Math.cos(rad)} y2={CENTER + outerR * Math.sin(rad)}
-                stroke={isMajor ? 'rgba(248, 208, 17, 0.25)' : 'rgba(253, 252, 253, 0.1)'}
+                stroke={isMajor ? 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' : 'var(--surface-border)'}
                 strokeWidth={isMajor ? 1 : 0.5} aria-hidden="true" />
             );
           })}
@@ -463,12 +463,12 @@ export default function SolarCoreScore({
               <line key={`axis-${angle}`}
                 x1={CENTER + 55 * Math.cos(rad)} y1={CENTER + 55 * Math.sin(rad)}
                 x2={CENTER + (BEAM_END_MAX + 25) * Math.cos(rad)} y2={CENTER + (BEAM_END_MAX + 25) * Math.sin(rad)}
-                stroke="rgba(248, 208, 17, 0.08)" strokeWidth={0.5} aria-hidden="true" />
+                stroke="color-mix(in srgb, var(--gold-primary) 8%, transparent)" strokeWidth={0.5} aria-hidden="true" />
             );
           })}
 
           {/* Inner golden ring — chart border */}
-          <CosmicRing cx={CENTER} cy={CENTER} radius={BEAM_END_MIN} smoothness={1} opacity={0.1} color="#F8D011" />
+          <CosmicRing cx={CENTER} cy={CENTER} radius={BEAM_END_MIN} smoothness={1} opacity={0.1} color="var(--gold-primary)" />
 
           {/* ── BEAMS ── */}
           {rayOrder.map(([id, ray], index) => {
@@ -522,7 +522,7 @@ export default function SolarCoreScore({
               >
                 {/* Amplified outer pulse */}
                 {isAmplified && anim && (
-                  <motion.polygon points={poly} fill="rgba(74, 14, 120, 0.35)" filter="url(#scs-amp-glow)"
+                  <motion.polygon points={poly} fill="var(--surface-border)" filter="url(#scs-amp-glow)"
                     initial={false} animate={{ opacity: [0.2, 0.5, 0.2] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }} />
                 )}
@@ -540,7 +540,7 @@ export default function SolarCoreScore({
 
                 {/* Main beam */}
                 <motion.polygon points={poly} fill={fill} filter={beamFilter}
-                  stroke={isActive ? '#F8D011' : 'none'} strokeWidth={isActive ? 1.5 : 0}
+                  stroke={isActive ? 'var(--gold-primary)' : 'none'} strokeWidth={isActive ? 1.5 : 0}
                   initial={anim ? { opacity: 0 } : { opacity: targetOpacity }}
                   animate={{ opacity: targetOpacity }}
                   transition={{ duration: anim ? 0.2 : 0 }} />
@@ -548,7 +548,7 @@ export default function SolarCoreScore({
                 {/* Beam tip */}
                 <motion.circle cx={end.x} cy={end.y}
                   r={isActive ? 5 : isTop ? 3.5 : 2}
-                  fill={isAmplified ? '#7B4FA2' : '#FFFEF5'}
+                  fill={isAmplified ? 'var(--violet-650)' : 'var(--text-body)'}
                   opacity={isActive ? 1 : 0.8}
                   filter={isActive ? 'url(#scs-hover-glow)' : 'url(#scs-beam-glow)'}
                   initial={anim ? { r: 0 } : false}
@@ -559,7 +559,7 @@ export default function SolarCoreScore({
                 {selectedRay === id && (
                   <motion.circle
                     r={3}
-                    fill="#F8D011"
+                    fill="var(--gold-primary)"
                     filter="url(#scs-beam-glow)"
                     initial={false}
                     animate={anim ? {
@@ -573,7 +573,7 @@ export default function SolarCoreScore({
                 {/* Keyboard focus indicator — dashed ring at beam tip */}
                 {isFocused && (
                   <circle cx={end.x} cy={end.y} r={10} fill="none"
-                    stroke="#F8D011" strokeWidth={2} strokeDasharray="4 3" opacity={0.9} />
+                    stroke="var(--gold-primary)" strokeWidth={2} strokeDasharray="4 3" opacity={0.9} />
                 )}
 
                 {/* Label — counter-rotated so text stays upright */}
@@ -583,7 +583,7 @@ export default function SolarCoreScore({
                       ? 'middle' : isLeftSide ? 'end' : 'start'
                   }
                   dominantBaseline="central"
-                  fill={isActive ? '#F8D011' : isTop ? '#F8D011' : isAmplified ? '#7B4FA2' : 'rgba(253, 252, 253, 0.75)'}
+                  fill={isActive ? 'var(--gold-primary)' : isTop ? 'var(--gold-primary)' : isAmplified ? 'var(--violet-650)' : 'var(--surface-border)'}
                   filter={isActive || isTop ? 'url(#scs-text-outline)' : undefined}
                   transform={`rotate(${-wheelRotation}, ${labelPos.x}, ${labelPos.y})`}
                   style={{
@@ -608,7 +608,7 @@ export default function SolarCoreScore({
                         fontSize: '7px', fontWeight: 400,
                         fontFamily: 'var(--font-cosmic-display), serif',
                         textTransform: 'uppercase' as const, letterSpacing: '0.1em',
-                        fill: isTop ? '#F8D011' : 'rgba(253, 252, 253, 0.6)',
+                        fill: isTop ? 'var(--gold-primary)' : 'var(--surface-border)',
                       }}>
                       {isTop ? 'POWER SOURCE' : 'TRAIN NEXT'}
                     </text>
@@ -625,7 +625,7 @@ export default function SolarCoreScore({
           {loadPercent > 0 && (
             <motion.path
               d={eclipseArcPath(CENTER, CENTER, BEAM_END_MAX + 25, loadPercent)}
-              fill="rgba(26, 26, 26, 0.45)"
+              fill="var(--surface-border)"
               initial={anim ? { opacity: 0 } : false}
               animate={{ opacity: 1 }}
               transition={{ duration: anim ? 0.8 : 0 }}
@@ -657,7 +657,7 @@ export default function SolarCoreScore({
                 {Math.round(rays[hoveredRay].net_energy ?? rays[hoveredRay].score)}
               </p>
               {rays[hoveredRay].eclipse_modifier === 'AMPLIFIED' && (
-                <p className="text-[10px] mt-0.5" style={{ color: '#A78BFA' }}>Load Amplified</p>
+                <p className="text-[10px] mt-0.5" style={{ color: 'var(--neon-violet)' }}>Load Amplified</p>
               )}
             </motion.div>
           )}
@@ -667,15 +667,15 @@ export default function SolarCoreScore({
       {/* ── Chart Legend ── */}
       <div
         className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 rounded-xl px-4 py-3 text-[11px]"
-        style={{ background: 'var(--surface-glass, rgba(255,255,255,0.06))', border: '1px solid var(--surface-border, rgba(255,255,255,0.10))' }}
+        style={{ background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))', border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))' }}
         aria-label="Chart legend"
       >
         <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'linear-gradient(90deg, #F8D011, #FFFEF5)' }} />
+          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'linear-gradient(90deg, var(--text-body), var(--text-body))' }} />
           <span style={{ color: 'var(--text-on-dark-secondary)' }}>Power Source</span>
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'rgba(244, 196, 48, 0.55)' }} />
+          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'var(--surface-border)' }} />
           <span style={{ color: 'var(--text-on-dark-secondary)' }}>Standard Ray</span>
         </span>
         <span className="flex items-center gap-1.5">
@@ -683,7 +683,7 @@ export default function SolarCoreScore({
           <span style={{ color: 'var(--text-on-dark-secondary)' }}>Load Amplified</span>
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'rgba(244, 196, 48, 0.35)' }} />
+          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'var(--surface-border)' }} />
           <span style={{ color: 'var(--text-on-dark-secondary)' }}>Train Next</span>
         </span>
       </div>
@@ -755,7 +755,7 @@ export default function SolarCoreScore({
                 </span>
                 {topTwo.includes(selectedRay) && (
                   <span className="status-pill"
-                    style={{ background: 'rgba(244, 196, 48, 0.15)', color: 'var(--brand-gold)' }}>
+                    style={{ background: 'var(--surface-border)', color: 'var(--brand-gold)' }}>
                     Power Source
                   </span>
                 )}
@@ -767,7 +767,7 @@ export default function SolarCoreScore({
                 )}
                 {rays[selectedRay].eclipse_modifier === 'AMPLIFIED' && (
                   <span className="status-pill"
-                    style={{ background: 'rgba(96, 5, 141, 0.20)', color: '#A78BFA' }}>
+                    style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)', color: 'var(--neon-violet)' }}>
                     Load Amplified
                   </span>
                 )}
@@ -827,7 +827,7 @@ export default function SolarCoreScore({
                         style={{ transform: showRayInsight ? 'rotate(90deg)' : 'rotate(0deg)' }}
                         aria-hidden="true"
                       >
-                        &#9654;
+                        &var(--text-body);
                       </span>
                       Science, real life, and coaching reps
                     </button>
@@ -865,7 +865,7 @@ export default function SolarCoreScore({
                               <ul className="space-y-1.5">
                                 {(isEclipsed ? rayInsight.whenEclipsed : rayInsight.whenStrong).map((ex, i) => (
                                   <li key={i} className="flex gap-2 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                                    <span className="mt-0.5 shrink-0" style={{ color: 'var(--text-on-dark-muted)' }}>&#9679;</span>
+                                    <span className="mt-0.5 shrink-0" style={{ color: 'var(--text-on-dark-muted)' }}>&var(--text-body);</span>
                                     {ex}
                                   </li>
                                 ))}

@@ -67,21 +67,21 @@ export default async function OutcomesPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5">
+        <section className="content-wrap--narrow space-y-5">
           <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> This is what changes when the operating system upgrades.
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> This is what changes when the operating system upgrades.
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            style={{ color: "var(--text-body)" }}
           >
             The room changes when you do. So does Tuesday.
           </h1>
-          <div className="mx-auto max-w-[540px]">
+          <div className="content-wrap--narrow">
             <ScrollTextReveal text="Not promises. Patterns we see in people who do the reps. Every outcome maps to a specific Ray and a specific mechanism." />
           </div>
           <RaySpectrumStrip className="mt-6" />
@@ -92,17 +92,17 @@ export default async function OutcomesPage() {
         {/* ─── SECTION 2 · WHAT THE REPS PRODUCE ───────────────── */}
         <FadeInSection>
           <RadialSpotlight>
-            <section className="relative mx-auto max-w-[720px] space-y-8 gold-dot-grid">
+            <section className="relative content-wrap--narrow space-y-8 gold-dot-grid">
               <div className="space-y-3">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: "var(--gold-primary)" }}
                 >
                   What the reps actually produce
                 </p>
                 <h2
                   className="text-2xl font-bold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                  style={{ color: "var(--text-body)" }}
                 >
                   Seven shifts people report after 90 days.
                 </h2>
@@ -123,14 +123,14 @@ export default async function OutcomesPage() {
                     <div
                       className="glass-card p-5"
                       style={{
-                        borderLeft: "3px solid var(--brand-gold, #F8D011)",
+                        borderLeft: "3px solid var(--gold-primary)",
                       }}
                     >
                       <p
                         className="text-sm leading-relaxed"
                         style={{
                           color:
-                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                            "var(--text-secondary)",
                         }}
                       >
                         {win}
@@ -155,17 +155,17 @@ export default async function OutcomesPage() {
 
         {/* ─── SECTION 3 · HOW IT HAPPENS ──────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: "var(--gold-primary)" }}
               >
                 How these outcomes happen
               </p>
               <h2
                 className="text-xl font-bold sm:text-2xl"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 None of this is magic. All of it is mechanism.
               </h2>
@@ -173,7 +173,7 @@ export default async function OutcomesPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 The mechanism is real, but I keep the deep framework gated
@@ -184,7 +184,7 @@ export default async function OutcomesPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 Take the assessment and see where you stand. Your results are
@@ -194,7 +194,7 @@ export default async function OutcomesPage() {
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  color: "var(--text-muted)",
                 }}
               >
                 Retake in 90 days and watch your scores move. Growth becomes
@@ -209,16 +209,16 @@ export default async function OutcomesPage() {
 
         {/* ─── SECTION 3b · TESTIMONIALS ────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-6 text-center">
+          <section className="content-wrap--narrow space-y-6 text-center">
             <p
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: "var(--gold-primary)" }}
             >
               In their own words
             </p>
             <h2
               className="text-xl font-bold sm:text-2xl"
-              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              style={{ color: "var(--text-body)" }}
             >
               The shifts are real. The data backs it up.
             </h2>
@@ -253,20 +253,20 @@ export default async function OutcomesPage() {
 
         {/* ─── SECTION 4 · CTA ─────────────────────────────────── */}
         <FadeInSection blur>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 These outcomes start with one map.
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 143 questions. 15 minutes. Your Light Signature shows exactly

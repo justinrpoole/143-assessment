@@ -66,11 +66,11 @@ export default function ExpansionArc({ milestones }: ExpansionArcProps) {
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label="Personal expansion arc timeline">
         <defs>
           <linearGradient id="ea-bg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#3A0A5E" />
+            <stop offset="0%" stopColor="var(--text-body)" />
             <stop offset="50%" stopColor="var(--cosmic-svg-bg)" />
             <stop offset="100%" stopColor="var(--cosmic-purple-vivid)" />
           </linearGradient>
-          <filter id="ea-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="ea-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="3" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -79,14 +79,14 @@ export default function ExpansionArc({ milestones }: ExpansionArcProps) {
         <rect width={W} height={H} rx="12" fill="url(#ea-bg)" />
 
         {/* Warm golden haze on the right (present) */}
-        <rect x={W * 0.6} y={0} width={W * 0.4} height={H} rx="0" fill="#F4C430" opacity={0.04} />
+        <rect x={W * 0.6} y={0} width={W * 0.4} height={H} rx="0" fill="var(--gold-primary)" opacity={0.04} />
 
         {/* Timeline axis */}
-        <line x1={60} y1={H - 30} x2={W - 60} y2={H - 30} stroke="#FFFFFF" strokeWidth={0.5} strokeOpacity={0.1} />
+        <line x1={60} y1={H - 30} x2={W - 60} y2={H - 30} stroke="var(--text-body)" strokeWidth={0.5} strokeOpacity={0.1} />
         {/* Tick marks */}
         {Array.from({ length: 10 }).map((_, i) => {
           const x = 60 + (i / 9) * (W - 120);
-          return <line key={i} x1={x} y1={H - 33} x2={x} y2={H - 27} stroke="#FFFFFF" strokeWidth={0.5} strokeOpacity={0.08} />;
+          return <line key={i} x1={x} y1={H - 33} x2={x} y2={H - 27} stroke="var(--text-body)" strokeWidth={0.5} strokeOpacity={0.08} />;
         })}
 
         {/* Three orbit systems at past / middle / present */}
@@ -108,7 +108,7 @@ export default function ExpansionArc({ milestones }: ExpansionArcProps) {
                     rx={r}
                     ry={r * 0.5}
                     fill="none"
-                    stroke={goldOpacity > 0.5 ? '#F4C430' : '#FFFFFF'}
+                    stroke={goldOpacity > 0.5 ? 'var(--gold-primary)' : 'var(--text-body)'}
                     strokeWidth={0.6}
                     strokeOpacity={0.1 + goldOpacity * 0.15}
                     strokeDasharray="3 5"
@@ -121,7 +121,7 @@ export default function ExpansionArc({ milestones }: ExpansionArcProps) {
                 cx={stage.x}
                 cy={stage.y}
                 r={stage.sunR}
-                fill="#F4C430"
+                fill="var(--gold-primary)"
                 opacity={0.3 + goldOpacity * 0.5}
                 filter={si === 2 ? 'url(#ea-glow)' : undefined}
                 initial={false}
@@ -147,7 +147,7 @@ export default function ExpansionArc({ milestones }: ExpansionArcProps) {
                     y1={stage.y + Math.sin(angle) * innerR}
                     x2={stage.x + Math.cos(angle) * outerR}
                     y2={stage.y + Math.sin(angle) * outerR}
-                    stroke="#F4C430"
+                    stroke="var(--gold-primary)"
                     strokeWidth={1.5}
                     strokeOpacity={0.5}
                   />
@@ -159,7 +159,7 @@ export default function ExpansionArc({ milestones }: ExpansionArcProps) {
                 x={stage.x}
                 y={H - 12}
                 textAnchor="middle"
-                fill="#FFFFFF"
+                fill="var(--text-body)"
                 fontSize="9"
                 fontWeight="500"
                 opacity={0.3}
@@ -181,7 +181,7 @@ export default function ExpansionArc({ milestones }: ExpansionArcProps) {
               y1={prev.y}
               x2={stage.x}
               y2={stage.y}
-              stroke="#F4C430"
+              stroke="var(--gold-primary)"
               strokeWidth={0.8}
               strokeOpacity={0.15}
               strokeDasharray="6 8"

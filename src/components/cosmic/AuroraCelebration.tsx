@@ -110,29 +110,29 @@ export default function AuroraCelebration({
             <defs>
               {/* Teal ribbon gradient */}
               <linearGradient id="aurora-teal" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#1ABC9C" stopOpacity="0" />
-                <stop offset="20%" stopColor="#1ABC9C" stopOpacity="0.5" />
-                <stop offset="50%" stopColor="#1ABC9C" stopOpacity="0.6" />
-                <stop offset="80%" stopColor="#1ABC9C" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="#1ABC9C" stopOpacity="0" />
+                <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0" />
+                <stop offset="20%" stopColor="var(--text-body)" stopOpacity="0.5" />
+                <stop offset="50%" stopColor="var(--text-body)" stopOpacity="0.6" />
+                <stop offset="80%" stopColor="var(--text-body)" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="var(--text-body)" stopOpacity="0" />
               </linearGradient>
 
               {/* Emerald ribbon gradient */}
               <linearGradient id="aurora-emerald" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#2ECC71" stopOpacity="0" />
-                <stop offset="25%" stopColor="#2ECC71" stopOpacity="0.35" />
-                <stop offset="50%" stopColor="#2ECC71" stopOpacity="0.4" />
-                <stop offset="75%" stopColor="#2ECC71" stopOpacity="0.35" />
-                <stop offset="100%" stopColor="#2ECC71" stopOpacity="0" />
+                <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0" />
+                <stop offset="25%" stopColor="var(--text-body)" stopOpacity="0.35" />
+                <stop offset="50%" stopColor="var(--text-body)" stopOpacity="0.4" />
+                <stop offset="75%" stopColor="var(--text-body)" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="var(--text-body)" stopOpacity="0" />
               </linearGradient>
 
               {/* Rose-violet ribbon gradient */}
               <linearGradient id="aurora-rose" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#C39BD3" stopOpacity="0" />
-                <stop offset="30%" stopColor="#C39BD3" stopOpacity="0.25" />
-                <stop offset="50%" stopColor="#C39BD3" stopOpacity="0.3" />
-                <stop offset="70%" stopColor="#C39BD3" stopOpacity="0.25" />
-                <stop offset="100%" stopColor="#C39BD3" stopOpacity="0" />
+                <stop offset="0%" stopColor="var(--text-secondary)" stopOpacity="0" />
+                <stop offset="30%" stopColor="var(--text-secondary)" stopOpacity="0.25" />
+                <stop offset="50%" stopColor="var(--text-secondary)" stopOpacity="0.3" />
+                <stop offset="70%" stopColor="var(--text-secondary)" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="var(--text-secondary)" stopOpacity="0" />
               </linearGradient>
             </defs>
 
@@ -209,7 +209,7 @@ export default function AuroraCelebration({
                   width: s.size,
                   height: s.size,
                   borderRadius: '50%',
-                  background: '#F4C430',
+                  background: 'var(--gold-primary)',
                 }}
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: [0, 0.6, 0], y: 200 }}
@@ -238,13 +238,13 @@ export default function AuroraCelebration({
                 alignItems: 'center',
                 gap: 6,
                 padding: '6px 14px',
-                background: 'rgba(17, 3, 32, 0.7)',
+                background: 'var(--surface-border)',
                 borderRadius: 999,
                 backdropFilter: 'blur(12px)',
               }}
             >
-              <span style={{ color: '#2ECC71', fontSize: 12 }}>▲</span>
-              <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 12, fontWeight: 500 }}>
+              <span style={{ color: 'var(--text-body)', fontSize: 12 }}>▲</span>
+              <span style={{ color: 'color-mix(in srgb, var(--text-body) 80%, transparent)', fontSize: 12, fontWeight: 500 }}>
                 {rayName} grew this week
               </span>
             </motion.div>

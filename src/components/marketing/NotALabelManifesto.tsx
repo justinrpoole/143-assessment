@@ -29,20 +29,20 @@ export default function NotALabelManifesto() {
       <div className="text-center space-y-3">
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           The Paradigm Shift
         </p>
         <h2
           className="heading-section mx-auto max-w-[640px]"
-          style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+          style={{ color: 'var(--text-body)' }}
         >
           Every other assessment tells you who you are.{' '}
           <span className="text-gold-gradient">We show you who you are right now.</span>
         </h2>
         <p
           className="mx-auto max-w-[540px] text-sm leading-relaxed"
-          style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+          style={{ color: 'var(--text-secondary)' }}
         >
           50% of people who retake MBTI get a different type. That is not growth — that is a broken instrument.
           143 expects scores to change because it measures energy states, not personality traits.
@@ -54,12 +54,12 @@ export default function NotALabelManifesto() {
           <StaggerItem key={panel.kicker}>
             <div
               className={`glass-card p-5 md:p-6 h-full space-y-4 ${!panel.muted ? 'glass-card--lift' : ''}`}
-              style={!panel.muted ? { border: '1px solid rgba(248,208,17,0.2)' } : undefined}
+              style={!panel.muted ? { border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)' } : undefined}
             >
               <p
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{
-                  color: panel.muted ? 'rgba(255,255,255,0.5)' : '#F8D011',
+                  color: panel.muted ? 'color-mix(in srgb, var(--text-body) 50%, transparent)' : 'var(--gold-primary)',
                 }}
               >
                 {panel.kicker}
@@ -68,8 +68,8 @@ export default function NotALabelManifesto() {
                 className="text-lg font-semibold"
                 style={{
                   color: panel.muted
-                    ? 'var(--text-on-dark-muted, rgba(255,255,255,0.5))'
-                    : 'var(--text-on-dark, #FFFEF5)',
+                    ? 'var(--text-muted)'
+                    : 'var(--text-body)',
                 }}
               >
                 {panel.title}
@@ -80,8 +80,8 @@ export default function NotALabelManifesto() {
                     <span
                       className="text-sm font-bold"
                       style={{
-                        color: panel.muted ? 'rgba(255,255,255,0.2)' : '#F8D011',
-                        textShadow: !panel.muted ? '0 0 12px rgba(248,208,17,0.35), 0 0 20px rgba(248,208,17,0.12)' : undefined,
+                        color: panel.muted ? 'color-mix(in srgb, var(--text-body) 20%, transparent)' : 'var(--gold-primary)',
+                        textShadow: !panel.muted ? '0 0 12px color-mix(in srgb, var(--gold-primary) 35%, transparent), 0 0 20px color-mix(in srgb, var(--gold-primary) 12%, transparent)' : undefined,
                       }}
                     >
                       {i < panel.steps.length - 1 ? '↓' : '◆'}
@@ -90,8 +90,8 @@ export default function NotALabelManifesto() {
                       className="text-sm"
                       style={{
                         color: panel.muted
-                          ? 'var(--text-on-dark-muted, rgba(255,255,255,0.5))'
-                          : 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))',
+                          ? 'var(--text-muted)'
+                          : 'var(--text-secondary)',
                       }}
                     >
                       {step}
@@ -106,7 +106,7 @@ export default function NotALabelManifesto() {
 
       <p
         className="text-center text-sm leading-relaxed"
-        style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+        style={{ color: 'var(--text-secondary)' }}
       >
         When your Presence score moves from 52 to 68, that is not noise.{' '}
         <span className="gold-highlight">That is evidence of practice landing.</span>

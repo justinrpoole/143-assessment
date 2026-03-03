@@ -181,9 +181,9 @@ export function AssessmentSetupClient() {
     <>
       {lockMessage ? (
         <section className="glass-card p-6">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Access Restricted</p>
-          <h2 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>Run Access Locked</h2>
-          <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>{lockMessage}</p>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>Access Restricted</p>
+          <h2 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-body)' }}>Run Access Locked</h2>
+          <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{lockMessage}</p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/upgrade" className="btn-primary">
               Go to Upgrade
@@ -199,18 +199,18 @@ export function AssessmentSetupClient() {
       {dimmingResult && !lockMessage && (
         <section
           className="glass-card p-5 mb-4"
-          style={{ borderColor: 'rgba(248, 208, 17, 0.25)' }}
+          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
         >
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
             Your Dimming Check
           </p>
-          <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+          <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-body)' }}>
             Your check found{' '}
-            <span style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <span style={{ color: 'var(--gold-primary)' }}>
               {dimmingResult.level.toLowerCase()} coverage
             </span>
             {' '}on{' '}
-            <span style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <span style={{ color: 'var(--gold-primary)' }}>
               {dimmingResult.primaryRayName}
             </span>
             . The full assessment unlocks after your baseline and gives your complete map.
@@ -231,14 +231,14 @@ export function AssessmentSetupClient() {
             </span>
           </div>
 
-          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             Your first run gives the complete map after baseline unlock. This produces a HIGH confidence result — the clearest picture of your current operating state.
           </p>
 
           {/* Comparison with retake */}
           <div className="grid grid-cols-2 gap-3 text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
             <div className="space-y-1.5">
-              <p className="font-bold" style={{ color: 'var(--brand-gold, #F8D011)' }}>Full Assessment</p>
+              <p className="font-bold" style={{ color: 'var(--gold-primary)' }}>Full Assessment</p>
               <p>143 questions, ~15 min</p>
               <p>All 9 Rays, 36 subfacets</p>
               <p>HIGH confidence baseline</p>
@@ -261,8 +261,8 @@ export function AssessmentSetupClient() {
               { num: '1', label: 'personalized Rise Path' },
             ].map((item) => (
               <div key={item.label} className="glass-surface flex items-baseline gap-2 rounded-lg px-3 py-2">
-                <span className="text-lg font-bold tabular-nums" style={{ color: 'var(--brand-gold, #F8D011)' }}>{item.num}</span>
-                <span className="text-xs" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>{item.label}</span>
+                <span className="text-lg font-bold tabular-nums" style={{ color: 'var(--gold-primary)' }}>{item.num}</span>
+                <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{item.label}</span>
               </div>
             ))}
           </div>
@@ -270,9 +270,9 @@ export function AssessmentSetupClient() {
       )}
 
       <form onSubmit={onSubmit} className="glass-card glass-card--interactive p-6">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Configure</p>
-        <h2 className="gold-underline mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>Set Your Context</h2>
-        <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>Configure</p>
+        <h2 className="gold-underline mt-2 text-lg font-semibold" style={{ color: 'var(--text-body)' }}>Set Your Context</h2>
+        <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           Choose the lens for your assessment. Your first run maps all 143 behavioural
           capacities across the 9 Rays. Monthly retakes use the focused 43-question
           tracking set to measure real change over time.
@@ -286,12 +286,12 @@ export function AssessmentSetupClient() {
 
         <label
           className="mt-5 block text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
           htmlFor="context_scope"
         >
           Context
         </label>
-        <p className="mt-1 text-xs" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
+        <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
           Are you reflecting on work behaviours, life behaviours, or both?
         </p>
         <select
@@ -299,9 +299,9 @@ export function AssessmentSetupClient() {
           name="context_scope"
           className="mt-2 w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
           style={{
-            background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-            border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-            color: 'var(--text-on-dark, #FFFEF5)',
+            background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+            color: 'var(--text-body)',
           }}
           value={contextScope}
           onChange={(event) => setContextScope(event.target.value)}
@@ -316,12 +316,12 @@ export function AssessmentSetupClient() {
 
         <label
           className="mt-5 block text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
           htmlFor="focus_area"
         >
           Focus Area
         </label>
-        <p className="mt-1 text-xs" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
+        <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
           What matters most to you right now? This shapes your Rise Path recommendations.
         </p>
         <select
@@ -329,9 +329,9 @@ export function AssessmentSetupClient() {
           name="focus_area"
           className="mt-2 w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
           style={{
-            background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-            border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-            color: 'var(--text-on-dark, #FFFEF5)',
+            background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+            color: 'var(--text-body)',
           }}
           value={focusArea}
           onChange={(event) => setFocusArea(event.target.value)}

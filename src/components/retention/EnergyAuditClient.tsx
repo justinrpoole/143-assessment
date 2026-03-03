@@ -36,10 +36,10 @@ interface ApiResponse {
 
 // Band-specific cosmic styling — uses status token colors
 const BAND_STYLES: Record<string, { glow: string; border: string; accent: string }> = {
-  green: { glow: '0 0 20px rgba(46, 204, 113, 0.15)', border: 'rgba(46, 204, 113, 0.3)', accent: '#2ECC71' },
-  yellow: { glow: '0 0 20px rgba(248, 208, 17, 0.15)', border: 'rgba(248, 208, 17, 0.3)', accent: '#F8D011' },
-  orange: { glow: '0 0 20px rgba(245, 158, 11, 0.15)', border: 'rgba(245, 158, 11, 0.3)', accent: '#F59E0B' },
-  red: { glow: '0 0 20px rgba(251, 146, 60, 0.20)', border: 'rgba(251, 146, 60, 0.35)', accent: '#FB923C' },
+  green: { glow: '0 0 20px var(--surface-border)', border: 'var(--surface-border)', accent: 'var(--text-body)' },
+  yellow: { glow: '0 0 20px color-mix(in srgb, var(--gold-primary) 15%, transparent)', border: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)', accent: 'var(--gold-primary)' },
+  orange: { glow: '0 0 20px var(--surface-border)', border: 'var(--surface-border)', accent: 'var(--neon-amber)' },
+  red: { glow: '0 0 20px var(--surface-border)', border: 'var(--surface-border)', accent: 'var(--neon-amber)' },
 };
 
 const RAS_INSIGHTS: Record<string, string> = {
@@ -184,7 +184,7 @@ export default function EnergyAuditClient() {
           </div>
 
           {/* Load bar */}
-          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
             <motion.div
               initial={shouldAnimate ? { width: 0 } : false}
               animate={{ width: `${pct}%` }}
@@ -199,9 +199,9 @@ export default function EnergyAuditClient() {
           </p>
 
           {/* Action card */}
-          <div className="glass-card p-3" style={{ borderColor: 'rgba(96, 5, 141, 0.2)' }}>
+          <div className="glass-card p-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
             <p className="text-xs font-medium uppercase tracking-widest mb-1"
-              style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              style={{ color: 'var(--gold-primary)' }}>
               This week&apos;s protocol
             </p>
             <p className="text-sm" style={{ color: 'var(--text-on-dark)' }}>
@@ -224,7 +224,7 @@ export default function EnergyAuditClient() {
         <div className="glass-card p-4 space-y-3">
           <div className="flex items-center justify-between">
             <p className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              style={{ color: 'var(--gold-primary)' }}>
               Dimension Breakdown
             </p>
             <button
@@ -240,7 +240,7 @@ export default function EnergyAuditClient() {
             const score = result.scores[dim.id] ?? 0;
             const width = score === 0 ? 2 : Math.round((score / 3) * 100);
             const barColor =
-              score <= 1 ? '#22C55E' : score === 2 ? '#EAB308' : '#EF4444';
+              score <= 1 ? 'var(--ray-authenticity)' : score === 2 ? 'var(--text-body)' : 'var(--text-body)';
             return (
               <motion.div
                 key={dim.id}
@@ -252,7 +252,7 @@ export default function EnergyAuditClient() {
                 <p className="text-xs w-24 flex-shrink-0" style={{ color: 'var(--text-on-dark-secondary)' }}>
                   {dim.label}
                 </p>
-                <div className="flex-1 h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+                <div className="flex-1 h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
                   <motion.div
                     initial={shouldAnimate ? { width: 0 } : false}
                     animate={{ width: `${width}%` }}
@@ -304,7 +304,7 @@ export default function EnergyAuditClient() {
                   key={i}
                   className="h-1 w-3 rounded-full transition-colors duration-200"
                   style={{
-                    backgroundColor: i <= step ? '#60058D' : 'rgba(255,255,255,0.1)',
+                    backgroundColor: i <= step ? 'var(--text-body)' : 'color-mix(in srgb, var(--text-body) 10%, transparent)',
                   }}
                 />
               ))}
@@ -313,7 +313,7 @@ export default function EnergyAuditClient() {
 
           <div>
             <p className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              style={{ color: 'var(--gold-primary)' }}>
               {dim.label}
             </p>
             <p className="text-base font-semibold mt-1" style={{ color: 'var(--text-on-dark)' }}>
@@ -331,11 +331,11 @@ export default function EnergyAuditClient() {
                   onClick={() => handleSelect(dim.id, levelIndex)}
                   disabled={saving}
                   className={`w-full text-left px-4 py-3 rounded-xl border text-sm transition-all duration-150 ${
-                    isSelected ? 'shadow-[0_0_12px_rgba(96,5,141,0.3)]' : ''
+                    isSelected ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]' : ''
                   }`}
                   style={{
-                    background: isSelected ? 'rgba(96, 5, 141, 0.2)' : 'rgba(255,255,255,0.03)',
-                    borderColor: isSelected ? '#60058D' : 'var(--surface-border)',
+                    background: isSelected ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+                    borderColor: isSelected ? 'var(--text-body)' : 'var(--surface-border)',
                     color: isSelected ? 'var(--text-on-dark)' : 'var(--text-on-dark-secondary)',
                   }}
                 >
@@ -358,8 +358,8 @@ export default function EnergyAuditClient() {
 
           {error && (
             <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
-              style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}>
-              <p className="text-xs" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+              style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+              <p className="text-xs" style={{ color: 'var(--ray-power)' }}>{humanizeError(error)}</p>
               <button
                 type="button"
                 onClick={() => handleSelect(ENERGY_DIMENSIONS[step].id, scores[ENERGY_DIMENSIONS[step].id] ?? 0)}

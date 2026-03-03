@@ -16,7 +16,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: 'linear-gradient(135deg, #1a0533 0%, #0C0118 50%, #0a0a1f 100%)',
+          background: 'linear-gradient(135deg, var(--text-body) 0%, var(--text-body) 50%, var(--text-body) 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -36,7 +36,7 @@ export default async function Image() {
         <div
           style={{
             fontSize: 20,
-            color: 'rgba(255,254,245,0.5)',
+            color: 'var(--surface-border)',
             marginTop: 24,
             letterSpacing: 6,
             textTransform: 'uppercase' as const,

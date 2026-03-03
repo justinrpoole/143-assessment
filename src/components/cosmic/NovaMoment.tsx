@@ -66,19 +66,19 @@ export default function NovaMoment({
           <svg viewBox="0 0 500 500" style={{ width: '100%', maxWidth: 500, maxHeight: '80vh' }}>
             <defs>
               <radialGradient id="nova-bloom">
-                <stop offset="0%" stopColor="#F4C430" stopOpacity="0.5" />
-                <stop offset="50%" stopColor="#F4C430" stopOpacity="0.15" />
-                <stop offset="80%" stopColor="#C39BD3" stopOpacity="0.08" />
+                <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.5" />
+                <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.15" />
+                <stop offset="80%" stopColor="var(--text-secondary)" stopOpacity="0.08" />
                 <stop offset="100%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0" />
               </radialGradient>
-              <filter id="nova-glow" x="-100%" y="-100%" width="300%" height="300%">
+              <filter id="nova-glow" x="-100%" y="-100%" width={"300%"} height={"300%"}>
                 <feGaussianBlur stdDeviation="8" result="b" />
                 <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
               </filter>
             </defs>
 
             {/* Purple background */}
-            <rect width="500" height="500" fill="var(--cosmic-svg-bg)" />
+            <rect width={"500"} height={"500"} fill="var(--cosmic-svg-bg)" />
 
             {/* Layer 4: Diffuse warm bloom */}
             <motion.circle
@@ -95,7 +95,7 @@ export default function NovaMoment({
               cx={250}
               cy={230}
               fill="none"
-              stroke="#E8A317"
+              stroke="var(--neon-amber)"
               strokeWidth={2}
               initial={{ r: 10, opacity: 0 }}
               animate={{ r: 160, opacity: [0, 0.7, 0] }}
@@ -113,7 +113,7 @@ export default function NovaMoment({
                   y1={230}
                   x2={250 + Math.cos(rad) * len}
                   y2={230 + Math.sin(rad) * len}
-                  stroke="#F4C430"
+                  stroke="var(--gold-primary)"
                   strokeWidth={i % 3 === 0 ? 2.5 : 1.5}
                   initial={{ opacity: 0, pathLength: 0 }}
                   animate={{ opacity: [0, 0.9, 0.6], pathLength: 1 }}
@@ -131,7 +131,7 @@ export default function NovaMoment({
             <motion.circle
               cx={250}
               cy={230}
-              fill="#FFFFFF"
+              fill="var(--text-body)"
               initial={{ r: 0, opacity: 0 }}
               animate={{ r: 25, opacity: [0, 1, 0.85] }}
               transition={{ duration: reducedMotion ? 0.01 : 0.6, ease: 'easeOut' }}
@@ -140,7 +140,7 @@ export default function NovaMoment({
             <motion.circle
               cx={250}
               cy={230}
-              fill="#F4C430"
+              fill="var(--gold-primary)"
               initial={{ r: 0 }}
               animate={{ r: 35 }}
               transition={{ duration: reducedMotion ? 0.01 : 0.8, ease: 'easeOut' }}
@@ -152,7 +152,7 @@ export default function NovaMoment({
               x={250}
               y={380}
               textAnchor="middle"
-              fill="#FFFFFF"
+              fill="var(--text-body)"
               fontSize="18"
               fontWeight="600"
               letterSpacing="0.04em"

@@ -232,7 +232,7 @@ export function ReportPreviewTool({
       {html ? (
         <iframe
           title="Report preview HTML"
-          className="mt-3 h-[620px] w-full rounded-lg border bg-[#0d0d1a]"
+          className="mt-3 h-[620px] w-full rounded-lg border bg-[var(--text-body)]"
           style={{ borderColor: 'var(--surface-border)' }}
           srcDoc={html}
         />

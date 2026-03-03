@@ -27,7 +27,7 @@ export default function DailyStackCard() {
   return (
     <div className="glass-card p-5 space-y-4">
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           Daily Stack
         </p>
         <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>

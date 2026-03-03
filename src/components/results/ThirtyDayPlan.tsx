@@ -56,7 +56,7 @@ export default function ThirtyDayPlan({ recommendations, whatNotToDo, rayName, r
             <ul className="space-y-1.5">
               {whatNotToDo.map((item, i) => (
                 <li key={i} className="text-sm flex gap-2" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                  <span className="text-red-400">&#10005;</span>
+                  <span className="text-red-400">&var(--text-body);</span>
                   {item}
                 </li>
               ))}

@@ -120,8 +120,8 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
         ref={trackRef}
         className="relative h-16 rounded-xl cursor-pointer select-none touch-none overflow-hidden"
         style={{
-          background: 'linear-gradient(90deg, #1a0533 0%, #2d1052 50%, #3a1a6e 100%)',
-          border: '1px solid rgba(248, 208, 17, 0.15)',
+          background: 'linear-gradient(90deg, var(--text-body) 0%, var(--text-body) 50%, var(--text-body) 100%)',
+          border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)',
         }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
@@ -138,8 +138,8 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
           className="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full"
           style={{
             right: 12,
-            background: 'radial-gradient(circle at 40% 38%, #FFF8E7 0%, #F4C430 40%, #E8A317 70%, #A8820A 100%)',
-            boxShadow: '0 0 20px rgba(244, 196, 48, 0.4)',
+            background: 'radial-gradient(circle at 40% 38%, var(--text-body) 0%, var(--text-body) 40%, var(--text-body) 70%, var(--text-body) 100%)',
+            boxShadow: '0 0 20px var(--surface-border)',
           }}
         />
 
@@ -148,8 +148,8 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
           className="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full"
           style={{
             right: 12 + (1 - moonCoverage) * 16,
-            background: '#1a0533',
-            boxShadow: moonCoverage > 0.3 ? '0 0 12px rgba(189, 195, 199, 0.2)' : 'none',
+            background: 'var(--violet-800)',
+            boxShadow: moonCoverage > 0.3 ? '0 0 12px var(--surface-border)' : 'none',
           }}
           animate={{ right: 12 + (1 - moonCoverage) * 16 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
@@ -158,8 +158,8 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
         {/* Crescent moon (left side) */}
         <div className="absolute top-1/2 -translate-y-1/2 left-3">
           <svg width="28" height="28" viewBox="0 0 28 28">
-            <circle cx="14" cy="14" r="11" fill="#BDC3C7" opacity={0.6} />
-            <circle cx="20" cy="13" r="10" fill="#1a0533" />
+            <circle cx="14" cy="14" r="11" fill="var(--text-secondary)" opacity={0.6} />
+            <circle cx="20" cy="13" r="10" fill="var(--violet-800)" />
           </svg>
         </div>
 
@@ -171,9 +171,9 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
             width: 20,
             height: 20,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, #FFF8E7 0%, #F4C430 60%)',
-            boxShadow: '0 0 16px rgba(244, 196, 48, 0.6), 0 0 4px rgba(255,255,255,0.8)',
-            border: '2px solid rgba(255, 248, 231, 0.9)',
+            background: 'radial-gradient(circle, var(--text-body) 0%, var(--text-body) 60%)',
+            boxShadow: '0 0 16px var(--surface-border), 0 0 4px color-mix(in srgb, var(--text-body) 80%, transparent)',
+            border: '2px solid var(--surface-border)',
           }}
           animate={{ left: `calc(${value}% - 10px)` }}
           transition={{ type: 'spring', stiffness: 400, damping: 30 }}
@@ -185,7 +185,7 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
           style={{
             left: 40,
             width: `calc(${value}% - 40px)`,
-            background: 'linear-gradient(90deg, rgba(244,196,48,0.3), rgba(244,196,48,0.6))',
+            background: 'linear-gradient(90deg, var(--surface-border), var(--surface-border))',
           }}
         />
       </div>
@@ -205,8 +205,8 @@ function BlurredPreview({ title, description }: { title: string; description: st
     <div
       className="relative rounded-xl p-4 overflow-hidden"
       style={{
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(248, 208, 17, 0.08)',
+        background: 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+        border: '1px solid color-mix(in srgb, var(--gold-primary) 8%, transparent)',
       }}
     >
       <div className="filter blur-[2px] opacity-40 pointer-events-none">
@@ -339,7 +339,7 @@ export default function DimmingDetector() {
           >
             <p
               className="chip mb-3 inline-block"
-              style={{ background: 'rgba(248, 208, 17, 0.12)', color: 'var(--brand-gold)' }}
+              style={{ background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)', color: 'var(--brand-gold)' }}
             >
               60-Second Stability Check
             </p>
@@ -376,8 +376,8 @@ export default function DimmingDetector() {
                   key={i}
                   className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                   style={{
-                    background: i === qIdx ? 'var(--brand-gold)' : i < qIdx ? 'rgba(244,196,48,0.5)' : 'rgba(255,255,255,0.12)',
-                    boxShadow: i === qIdx ? '0 0 8px rgba(244,196,48,0.5)' : 'none',
+                    background: i === qIdx ? 'var(--brand-gold)' : i < qIdx ? 'var(--surface-border)' : 'color-mix(in srgb, var(--text-body) 12%, transparent)',
+                    boxShadow: i === qIdx ? '0 0 8px var(--surface-border)' : 'none',
                   }}
                 />
               ))}
@@ -418,7 +418,7 @@ export default function DimmingDetector() {
             <motion.div
               className="w-16 h-16 rounded-full mb-6"
               style={{
-                background: 'radial-gradient(circle, #F4C430 0%, #3A0A5E 72%)',
+                background: 'radial-gradient(circle, var(--text-body) 0%, var(--text-body) 72%)',
               }}
               animate={{ scale: [1, 1.15, 1] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -471,8 +471,8 @@ export default function DimmingDetector() {
               <div
                 className="rounded-xl p-5"
                 style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(248, 208, 17, 0.12)',
+                  background: 'color-mix(in srgb, var(--text-body) 4%, transparent)',
+                  border: '1px solid color-mix(in srgb, var(--gold-primary) 12%, transparent)',
                 }}
               >
                 <p className="text-xs uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--brand-gold)' }}>

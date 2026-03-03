@@ -51,7 +51,7 @@ export default async function WeeklyPage() {
 
       <RayDivider ray="R9" />
       <FadeInSection>
-        <section className="mx-auto max-w-lg">
+        <section className="content-wrap--narrow">
           <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: rayHex('R9') }}>
             Continue Your Practice
           </p>

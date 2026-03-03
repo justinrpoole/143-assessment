@@ -70,8 +70,8 @@ export default function NeonGlowButton({
           padding: '16px 36px',
           minHeight: '48px',
           borderRadius: 'var(--radius-xl, 20px)',
-          background: 'var(--brand-gold, #F8D011)',
-          color: 'var(--brand-black, #020202)',
+          background: 'var(--gold-primary)',
+          color: 'var(--ink-950)',
           fontWeight: 700,
           fontSize: '15px',
           letterSpacing: '0.03em',
@@ -80,7 +80,7 @@ export default function NeonGlowButton({
           cursor: 'pointer',
           overflow: 'visible',
           boxShadow:
-            '0 0 10px rgba(248,208,17,0.35), 0 0 24px rgba(248,208,17,0.18), 0 0 48px rgba(248,208,17,0.10), 0 0 14px rgba(37,246,255,0.10), 0 0 35px rgba(255,63,180,0.06), inset 0 1px 0 rgba(255,255,255,0.2)',
+            '0 0 10px color-mix(in srgb, var(--gold-primary) 35%, transparent), 0 0 24px color-mix(in srgb, var(--gold-primary) 18%, transparent), 0 0 48px color-mix(in srgb, var(--gold-primary) 10%, transparent), 0 0 14px color-mix(in srgb, var(--neon-cyan) 10%, transparent), 0 0 35px var(--surface-border), inset 0 1px 0 color-mix(in srgb, var(--text-body) 20%, transparent)',
           animation: 'btn-glow-pulse 3s ease-in-out infinite',
         }}
       >

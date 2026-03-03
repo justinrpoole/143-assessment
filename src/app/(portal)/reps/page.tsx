@@ -78,7 +78,7 @@ export default async function RepsPage({ searchParams }: PageProps) {
 
       <RayDivider ray="R4" />
       <FadeInSection>
-        <section className="mx-auto max-w-lg">
+        <section className="content-wrap--narrow">
           <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: rayHex('R4') }}>
             Continue Your Practice
           </p>

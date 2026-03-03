@@ -45,7 +45,7 @@ export default function CosmicStarfield({ className }: CosmicStarfieldProps) {
             top: `${star.y}%`,
             width: star.size,
             height: star.size,
-            background: star.size > 1 ? '#F8D011' : 'rgba(255, 255, 255, 0.8)',
+            background: star.size > 1 ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 80%, transparent)',
             animation: `star-twinkle ${star.duration}s ease-in-out ${star.delay}s infinite`,
           }}
         />

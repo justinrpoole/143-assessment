@@ -74,16 +74,16 @@ export default async function CoachingPage() {
         { id: "testimonials", label: "Testimonials" },
         { id: "cta", label: "Get Started" },
       ]} />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
       {/* Hero */}
-      <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
+      <section id="hero" className="content-wrap--narrow space-y-5 text-center">
         <p className="gold-tag mx-auto">
-          <span style={{ color: '#F8D011' }}>◆</span> 10-Week Light Activation Program · 7 min read
+          <span style={{ color: 'var(--gold-primary)' }}>◆</span> 10-Week Light Activation Program · 7 min read
         </p>
         <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.violet) }}>
           Your assessment gave you a map. This program teaches you to walk it.
         </h1>
-        <div className="mx-auto max-w-[540px]">
+        <div className="content-wrap--narrow">
           <ScrollTextReveal text="I see you reading the report, nodding, and then putting it in a drawer. Not because it was wrong. Because knowing is not the same as doing. This program closes that gap." />
         </div>
         <RaySpectrumStrip className="mt-6" />
@@ -93,7 +93,7 @@ export default async function CoachingPage() {
 
       {/* Leading the Witness */}
       <FadeInSection>
-        <section id="leading-the-witness" className="relative mx-auto max-w-[720px] px-5 pb-12 sm:px-8 section-blend-top">
+        <section id="leading-the-witness" className="relative content-wrap--narrow px-5 pb-12 sm:px-8 section-blend-top">
           <div className="glass-card p-6 sm:p-8 space-y-5">
             <p className="text-sm font-semibold leading-relaxed" style={{ color: 'var(--brand-gold)' }}>
               Have you ever learned something powerful at a workshop and lost it by Monday?
@@ -107,7 +107,7 @@ export default async function CoachingPage() {
 
       {/* Archetype Teaser */}
       <FadeInSection>
-        <section id="archetype-teaser" className="mx-auto max-w-[720px]">
+        <section id="archetype-teaser" className="content-wrap--narrow">
           <div className="glass-card glass-card--lift p-6 sm:p-8">
             <h2 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3'), textShadow: neonText(NEON.violet) }}>
               The program adapts to how you lead
@@ -126,7 +126,7 @@ export default async function CoachingPage() {
 
       {/* Four Phases */}
       <FadeInSection>
-        <section id="four-phases" className="relative mx-auto max-w-[720px] space-y-8">
+        <section id="four-phases" className="relative content-wrap--narrow space-y-8">
           <FloatingOrbs />
           <div className="space-y-2 text-center">
             <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R5') }}>The Structure</p>
@@ -175,7 +175,7 @@ export default async function CoachingPage() {
 
       {/* What makes this different */}
       <FadeInSection>
-        <section id="different" className="relative mx-auto max-w-[720px] watermark-143">
+        <section id="different" className="relative content-wrap--narrow watermark-143">
           <div className="glass-card p-6 sm:p-8 space-y-6">
             <div className="space-y-2">
               <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R7') }}>Not another course</p>
@@ -203,7 +203,7 @@ export default async function CoachingPage() {
 
       {/* What you need */}
       <FadeInSection>
-        <section id="what-you-need" className="mx-auto max-w-[720px]">
+        <section id="what-you-need" className="content-wrap--narrow">
           <div className="glass-card p-8 space-y-6">
             <div className="space-y-2">
               <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R3') }}>Before you start</p>
@@ -237,7 +237,7 @@ export default async function CoachingPage() {
 
       {/* Testimonials */}
       <FadeInSection>
-        <section id="testimonials" className="relative mx-auto max-w-[720px] space-y-6 text-center section-blend-bottom">
+        <section id="testimonials" className="relative content-wrap--narrow space-y-6 text-center section-blend-bottom">
           <p
             className="text-xs font-bold uppercase tracking-widest"
             style={{ color: rayHex('R7') }}
@@ -246,7 +246,7 @@ export default async function CoachingPage() {
           </p>
           <h2
             className="text-xl font-bold sm:text-2xl text-gold-gradient"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            style={{ color: "var(--text-body)" }}
           >
             The reps changed how I lead. The retake proved it.
           </h2>
@@ -281,7 +281,7 @@ export default async function CoachingPage() {
 
       {/* Pricing + CTA */}
       <FadeInSection blur>
-        <section id="cta" className="mx-auto max-w-[720px]">
+        <section id="cta" className="content-wrap--narrow">
           <ConicBorderCard>
           <div className="glass-card glass-card--executive p-8 text-center space-y-5">
             <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>

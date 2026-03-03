@@ -128,61 +128,61 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
         <defs>
           {/* Sky gradient — deep purple top to warmer purple at horizon */}
           <linearGradient id="msa-sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#3A0A5E" />
+            <stop offset="0%" stopColor="var(--text-body)" />
             <stop offset="40%" stopColor="var(--cosmic-svg-bg)" />
             <stop offset="70%" stopColor="var(--cosmic-purple-vivid)" />
-            <stop offset="90%" stopColor="#7B4FA2" />
-            <stop offset="100%" stopColor="#C39BD3" stopOpacity="0.3" />
+            <stop offset="90%" stopColor="var(--violet-650)" />
+            <stop offset="100%" stopColor="var(--text-secondary)" stopOpacity="0.3" />
           </linearGradient>
 
           {/* Dawn glow at horizon */}
           <radialGradient id="msa-dawn" cx="50%" cy="100%" rx="60%" ry="30%">
-            <stop offset="0%" stopColor="#E8A317" stopOpacity="0.15" />
-            <stop offset="50%" stopColor="#F4C430" stopOpacity="0.06" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--neon-amber)" stopOpacity="0.15" />
+            <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.06" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
 
           {/* Landscape gradient — dark silhouette */}
           <linearGradient id="msa-land" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1A1A1A" />
-            <stop offset="100%" stopColor="#0A0A0A" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </linearGradient>
 
           {/* Sun at apex */}
           <radialGradient id="msa-sun" cx="42%" cy="38%" r="56%">
-            <stop offset="0%" stopColor="#FFF8E7" />
-            <stop offset="30%" stopColor="#F4C430" />
-            <stop offset="70%" stopColor="#E8A317" />
-            <stop offset="100%" stopColor="#A8820A" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="30%" stopColor="var(--gold-primary)" />
+            <stop offset="70%" stopColor="var(--neon-amber)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           <radialGradient id="msa-sun-glow">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
 
           {/* Moon glow */}
           <radialGradient id="msa-moon-glow">
-            <stop offset="0%" stopColor="#BDC3C7" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#BDC3C7" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="var(--text-body)" stopOpacity="0" />
           </radialGradient>
 
           {/* Indicator glow */}
           <radialGradient id="msa-dot-glow">
-            <stop offset="0%" stopColor="#FFF8E7" stopOpacity="0.8" />
-            <stop offset="40%" stopColor="#F4C430" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.8" />
+            <stop offset="40%" stopColor="var(--gold-primary)" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
 
           {/* Lit arc gradient */}
           <linearGradient id="msa-arc-lit" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stopColor="#C39BD3" />
-            <stop offset="30%" stopColor="#E8A317" />
-            <stop offset="60%" stopColor="#F4C430" />
-            <stop offset="100%" stopColor="#FFF8E7" />
+            <stop offset="0%" stopColor="var(--text-secondary)" />
+            <stop offset="30%" stopColor="var(--neon-amber)" />
+            <stop offset="60%" stopColor="var(--gold-primary)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </linearGradient>
 
-          <filter id="msa-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="msa-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="3" result="b" />
             <feMerge>
               <feMergeNode in="b" />
@@ -199,7 +199,7 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
 
         {/* Stars */}
         {stars.map((s, i) => (
-          <circle key={i} cx={s.x} cy={s.y} r={s.r} fill="#F0F0FF" opacity={s.o}>
+          <circle key={i} cx={s.x} cy={s.y} r={s.r} fill="var(--text-body)" opacity={s.o}>
             {!reducedMotion && (
               <animate
                 attributeName="opacity"
@@ -218,7 +218,7 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
         />
 
         {/* Dawn cloud wisps at horizon */}
-        <path d={cloudPoints} fill="#C39BD3" opacity={0.1} />
+        <path d={cloudPoints} fill="var(--text-secondary)" opacity={0.1} />
 
         {/* Thin gold horizon line */}
         <line
@@ -226,21 +226,21 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
           y1={HORIZON_Y}
           x2={W}
           y2={HORIZON_Y}
-          stroke="#F4C430"
+          stroke="var(--gold-primary)"
           strokeWidth={0.5}
           strokeOpacity={0.15}
         />
 
         {/* ── Moon below horizon ── */}
         <circle cx={MOON_CX} cy={MOON_CY} r={MOON_R * 2} fill="url(#msa-moon-glow)" />
-        <circle cx={MOON_CX} cy={MOON_CY} r={MOON_R} fill="#BDC3C7" opacity={0.5} />
-        <circle cx={MOON_CX + 5} cy={MOON_CY - 1} r={MOON_R - 2} fill="#1A1A1A" />
+        <circle cx={MOON_CX} cy={MOON_CY} r={MOON_R} fill="var(--text-secondary)" opacity={0.5} />
+        <circle cx={MOON_CX + 5} cy={MOON_CY - 1} r={MOON_R - 2} fill="var(--ink-900)" />
 
         {/* ── Full arc path (dim) ── */}
         <path
           d={fullArcPath}
           fill="none"
-          stroke="#F0F0FF"
+          stroke="var(--text-body)"
           strokeWidth={1}
           strokeOpacity={0.08}
           strokeDasharray="4 6"
@@ -268,7 +268,7 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
             <polygon
               key={`beam-${i}`}
               points={`${sun.x + inner * Math.cos(angle - hw)},${sun.y + inner * Math.sin(angle - hw)} ${sun.x + outer * Math.cos(angle)},${sun.y + outer * Math.sin(angle)} ${sun.x + inner * Math.cos(angle + hw)},${sun.y + inner * Math.sin(angle + hw)}`}
-              fill="#F4C430"
+              fill="var(--gold-primary)"
               opacity={clamped > 80 ? 0.7 : 0.25}
             />
           );
@@ -285,14 +285,14 @@ export default function MoonToSunArc({ score, label }: MoonToSunArcProps) {
           animate={!reducedMotion ? { r: [11, 13, 11] } : undefined}
           transition={!reducedMotion ? { duration: 2, repeat: Infinity, ease: 'easeInOut' } : undefined}
         />
-        <circle cx={indicator.x} cy={indicator.y} r={5} fill="#FFF8E7" filter="url(#msa-glow)" />
-        <circle cx={indicator.x} cy={indicator.y} r={3} fill="#F4C430" />
+        <circle cx={indicator.x} cy={indicator.y} r={5} fill="var(--text-body)" filter="url(#msa-glow)" />
+        <circle cx={indicator.x} cy={indicator.y} r={3} fill="var(--gold-primary)" />
 
         {/* Score text near indicator */}
         <text
           x={indicator.x + 14}
           y={indicator.y + 4}
-          fill="#F0F0FF"
+          fill="var(--text-body)"
           fontSize="12"
           fontWeight="700"
           fontFamily="var(--font-body)"

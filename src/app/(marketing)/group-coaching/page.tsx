@@ -18,15 +18,15 @@ export default function GroupCoachingPage() {
       <GroupCoachingGateClient>
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <div className="space-y-6">
-          <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "#F8D011" }}>
+          <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "var(--gold-primary)" }}>
             Group coaching with Justin Ray
           </p>
 
-          <h1 className="text-3xl font-bold leading-tight sm:text-5xl" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+          <h1 className="text-3xl font-bold leading-tight sm:text-5xl" style={{ color: "var(--text-body)" }}>
             The Light Cohort
           </h1>
 
-          <p className="max-w-2xl text-lg leading-relaxed" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.78))" }}>
+          <p className="max-w-2xl text-lg leading-relaxed" style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 78%, transparent))" }}>
             I built this for people who are done performing and ready to actually change. This is not a giant
             webinar. It&apos;s me, in the room with 6–8 people, every week, for 8 weeks.
           </p>
@@ -34,21 +34,21 @@ export default function GroupCoachingPage() {
           <div
             className="rounded-2xl border p-6"
             style={{
-              background: "rgba(12, 4, 22, 0.72)",
-              borderColor: "rgba(248,208,17,0.2)",
+              background: "var(--surface-border)",
+              borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)",
             }}
           >
-            <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.8))" }}>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 80%, transparent))" }}>
               I&apos;ll be direct, warm, and honest with you. I&apos;ll challenge patterns when they show up, and I&apos;ll stay with
               you long enough to help you build a new one.
             </p>
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-semibold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+            <h2 className="text-xl font-semibold" style={{ color: "var(--text-body)" }}>
               What you get
             </h2>
-            <ul className="space-y-2 text-base" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.78))" }}>
+            <ul className="space-y-2 text-base" style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 78%, transparent))" }}>
               <li>• Weekly group coaching calls with me (8 weeks)</li>
               <li>• Full 143 Assessment + your Gravitational Stability Report</li>
               <li>• Weekly Ray accountability so you actually follow through</li>
@@ -62,8 +62,8 @@ export default function GroupCoachingPage() {
           <div
             className="overflow-hidden rounded-2xl border"
             style={{
-              borderColor: "rgba(248, 208, 17, 0.25)",
-              background: "rgba(255,255,255,0.03)",
+              borderColor: "color-mix(in srgb, var(--gold-primary) 25%, transparent)",
+              background: "color-mix(in srgb, var(--text-body) 3%, transparent)",
             }}
           >
             <Image
@@ -77,10 +77,10 @@ export default function GroupCoachingPage() {
           </div>
 
           <div className="space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em]" style={{ color: "#F8D011" }}>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em]" style={{ color: "var(--gold-primary)" }}>
               8 weeks · max 8 people · deep transformation
             </p>
-            <p style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.78))" }}>
+            <p style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 78%, transparent))" }}>
               Pricing is shared after application. I care more about fit than volume.
             </p>
           </div>

@@ -75,42 +75,42 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
           <defs>
             {/* Photosphere — white-hot core through gold to amber */}
             <radialGradient id={`${uid}-photo`} cx="46%" cy="44%" r="52%">
-              <stop offset="0%" stopColor="#FFFEF5" />
-              <stop offset="15%" stopColor="#FFF8D6" />
-              <stop offset="30%" stopColor="#FFEC80" />
-              <stop offset="50%" stopColor="#F8D011" />
-              <stop offset="68%" stopColor="#F0B800" />
-              <stop offset="82%" stopColor="#E89D0C" />
-              <stop offset="100%" stopColor="#D4770B" stopOpacity="0" />
+              <stop offset="0%" stopColor="var(--text-body)" />
+              <stop offset="15%" stopColor="var(--text-body)" />
+              <stop offset="30%" stopColor="var(--text-body)" />
+              <stop offset="50%" stopColor="var(--gold-primary)" />
+              <stop offset="68%" stopColor="var(--neon-amber)" />
+              <stop offset="82%" stopColor="var(--neon-amber)" />
+              <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
             </radialGradient>
 
             {/* Corona — warm wide haze */}
             <radialGradient id={`${uid}-corona`} cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#FFF8D6" stopOpacity="0.5" />
-              <stop offset="15%" stopColor="#F8D011" stopOpacity="0.3" />
-              <stop offset="30%" stopColor="#F8D011" stopOpacity="0.15" />
-              <stop offset="50%" stopColor="#F0B800" stopOpacity="0.06" />
-              <stop offset="75%" stopColor="#E89D0C" stopOpacity="0.02" />
+              <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.5" />
+              <stop offset="15%" stopColor="var(--gold-primary)" stopOpacity="0.3" />
+              <stop offset="30%" stopColor="var(--gold-primary)" stopOpacity="0.15" />
+              <stop offset="50%" stopColor="var(--neon-amber)" stopOpacity="0.06" />
+              <stop offset="75%" stopColor="var(--neon-amber)" stopOpacity="0.02" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
 
             {/* Outer bloom gradient */}
             <radialGradient id={`${uid}-outer`} cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#F8D011" stopOpacity="0.18" />
-              <stop offset="25%" stopColor="#F0B800" stopOpacity="0.07" />
-              <stop offset="55%" stopColor="#E89D0C" stopOpacity="0.02" />
+              <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.18" />
+              <stop offset="25%" stopColor="var(--neon-amber)" stopOpacity="0.07" />
+              <stop offset="55%" stopColor="var(--neon-amber)" stopOpacity="0.02" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
 
             {/* Wisp gradient */}
             <radialGradient id={`${uid}-wisp`} cx="50%" cy="0%" r="80%">
-              <stop offset="0%" stopColor="#FFF8D6" stopOpacity="0.4" />
-              <stop offset="40%" stopColor="#F8D011" stopOpacity="0.15" />
+              <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.4" />
+              <stop offset="40%" stopColor="var(--gold-primary)" stopOpacity="0.15" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
 
             {/* Bloom filter — multi-pass gaussian for soft glow */}
-            <filter id={`${uid}-bloom`} x="-80%" y="-80%" width="260%" height="260%">
+            <filter id={`${uid}-bloom`} x="-80%" y="-80%" width={"260%"} height={"260%"}>
               <feGaussianBlur stdDeviation="12" result="b1" />
               <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b2" />
               <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b3" />
@@ -124,7 +124,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             </filter>
 
             {/* Wisp blur */}
-            <filter id={`${uid}-wisp-blur`} x="-80%" y="-80%" width="260%" height="260%">
+            <filter id={`${uid}-wisp-blur`} x="-80%" y="-80%" width={"260%"} height={"260%"}>
               <feGaussianBlur stdDeviation="7" result="s1" />
               <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="s2" />
               <feMerge>
@@ -134,7 +134,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             </filter>
 
             {/* Diamond flash filter */}
-            <filter id={`${uid}-diamond-bloom`} x="-100%" y="-100%" width="300%" height="300%">
+            <filter id={`${uid}-diamond-bloom`} x="-100%" y="-100%" width={"300%"} height={"300%"}>
               <feGaussianBlur stdDeviation="4" result="glow" />
               <feMerge>
                 <feMergeNode in="glow" />
@@ -257,12 +257,12 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             transition={{ duration: 1.2, delay: 1.5, ease: EASE }}
           >
             {/* Moon body — deep brand purple */}
-            <circle cx={moonCx} cy={moonCy} r={moonR} fill="#2A0440" />
+            <circle cx={moonCx} cy={moonCy} r={moonR} fill="var(--violet-700)" />
             <circle
               cx={moonCx}
               cy={moonCy}
               r={moonR}
-              fill="#60058D"
+              fill="var(--brand-purple)"
               opacity={0.4}
             />
 
@@ -272,7 +272,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
               cy={moonCy}
               r={moonR + 1.5}
               fill="none"
-              stroke="#F8D011"
+              stroke="var(--gold-primary)"
               strokeWidth="1.5"
               initial={false}
               animate={
@@ -293,7 +293,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             cx={diamondX}
             cy={diamondY}
             r={5}
-            fill="#FFFEF5"
+            fill="var(--text-body)"
             filter={`url(#${uid}-diamond-bloom)`}
             initial={animate ? { opacity: 0 } : { opacity: 0.3 }}
             animate={
@@ -352,9 +352,9 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
               style={{
                 fontFamily: 'var(--font-cosmic-display)',
                 color: 'transparent',
-                WebkitTextStroke: '2px #8b5bff',
+                WebkitTextStroke: '2px var(--text-body)',
                 textShadow:
-                  '0 0 20px rgba(139,91,255,0.8), 0 0 50px rgba(139,91,255,0.4), 0 0 80px rgba(139,91,255,0.2)',
+                  '0 0 20px var(--surface-border), 0 0 50px var(--surface-border), 0 0 80px var(--surface-border)',
               }}
               initial={animate ? { opacity: 0, scale: 0.4 } : { opacity: 0 }}
               animate={
@@ -378,8 +378,8 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
               style={{
                 fontFamily: 'var(--font-cosmic-display)',
-                color: '#F8D011',
-                textShadow: '0 0 40px rgba(248, 208, 17, 0.3)',
+                color: 'var(--gold-primary)',
+                textShadow: '0 0 40px color-mix(in srgb, var(--gold-primary) 30%, transparent)',
               }}
               initial={animate ? { opacity: 0, y: 20 } : false}
               animate={{ opacity: 1, y: 0 }}
@@ -394,7 +394,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             className="mt-1 font-black text-xl sm:text-2xl md:text-3xl uppercase"
             style={{
               fontFamily: 'var(--font-body)',
-              color: '#FFFEF5',
+              color: 'var(--text-body)',
               letterSpacing: '0.15em',
               transformOrigin: 'center top',
             }}
@@ -414,7 +414,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
             className={`mt-3 text-sm sm:text-base md:text-lg font-extrabold uppercase${animate ? ' neon-shimmer-text' : ''}`}
             style={{
               letterSpacing: '0.08em',
-              color: animate ? undefined : 'var(--cosmic-purple-light, #7B4FA2)',
+              color: animate ? undefined : 'var(--cosmic-purple-light, var(--text-body))',
             }}
             initial={animate ? { opacity: 0, scale: 0.9 } : false}
             animate={
@@ -435,7 +435,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
           {/* ── Phase 3: Settle — remaining text fades in ── */}
           <motion.p
             className="mt-3 text-base sm:text-lg md:text-xl font-medium"
-            style={{ color: 'var(--text-on-dark, rgba(255,255,255,0.92))' }}
+            style={{ color: 'var(--text-on-dark, color-mix(in srgb, var(--text-body) 92%, transparent))' }}
             initial={animate ? { opacity: 0, y: 16 } : false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 4.5, ease: EASE }}
@@ -446,7 +446,7 @@ function HeroVariant({ className, animate }: { className?: string; animate: bool
           <motion.p
             className="mt-1 text-xs sm:text-sm md:text-base tracking-wide uppercase"
             style={{
-              color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.70))',
+              color: 'var(--text-secondary)',
               letterSpacing: '0.12em',
             }}
             initial={animate ? { opacity: 0, y: 12 } : false}
@@ -482,22 +482,22 @@ function CompactEclipse({ className }: { className?: string }) {
       >
         <defs>
           <radialGradient id={`${uid}-photo`} cx="46%" cy="44%" r="52%">
-            <stop offset="0%" stopColor="#FFFEF5" />
-            <stop offset="30%" stopColor="#FFEC80" />
-            <stop offset="60%" stopColor="#F8D011" />
-            <stop offset="100%" stopColor="#D4770B" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="30%" stopColor="var(--text-body)" />
+            <stop offset="60%" stopColor="var(--gold-primary)" />
+            <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
           </radialGradient>
         </defs>
 
         {/* Faint glow */}
-        <circle cx={cx} cy={cy} r={r * 1.5} fill="#F8D011" opacity={0.08} />
+        <circle cx={cx} cy={cy} r={r * 1.5} fill="var(--gold-primary)" opacity={0.08} />
 
         {/* Sun disc */}
         <circle cx={cx} cy={cy} r={r} fill={`url(#${uid}-photo)`} />
 
         {/* Moon body */}
-        <circle cx={moonCx} cy={moonCy} r={moonR} fill="#2A0440" />
-        <circle cx={moonCx} cy={moonCy} r={moonR} fill="#60058D" opacity={0.4} />
+        <circle cx={moonCx} cy={moonCy} r={moonR} fill="var(--violet-700)" />
+        <circle cx={moonCx} cy={moonCy} r={moonR} fill="var(--brand-purple)" opacity={0.4} />
 
         {/* Rim glow */}
         <circle
@@ -505,7 +505,7 @@ function CompactEclipse({ className }: { className?: string }) {
           cy={moonCy}
           r={moonR + 0.5}
           fill="none"
-          stroke="#F8D011"
+          stroke="var(--gold-primary)"
           strokeWidth="0.5"
           opacity={0.12}
         />
@@ -516,7 +516,7 @@ function CompactEclipse({ className }: { className?: string }) {
           className="text-sm font-bold"
           style={{
             fontFamily: 'var(--font-cosmic-display)',
-            color: '#F8D011',
+            color: 'var(--gold-primary)',
           }}
         >
           143

@@ -63,7 +63,7 @@ export default function PatternInterruptHub({
 
             {/* I Rise — softest, shown first */}
             <div className="flex items-center gap-2">
-              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'rgba(2, 2, 2, 0.7)' }}>
+              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'color-mix(in srgb, var(--ink-950) 70%, transparent)' }}>
                 I need to return to myself
               </span>
               <button
@@ -78,7 +78,7 @@ export default function PatternInterruptHub({
 
             {/* Go First */}
             <div className="flex items-center gap-2">
-              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'rgba(2, 2, 2, 0.7)' }}>
+              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'color-mix(in srgb, var(--ink-950) 70%, transparent)' }}>
                 I need to start
               </span>
               <button
@@ -93,7 +93,7 @@ export default function PatternInterruptHub({
 
             {/* Watch Me */}
             <div className="flex items-center gap-2">
-              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'rgba(2, 2, 2, 0.7)' }}>
+              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'color-mix(in srgb, var(--ink-950) 70%, transparent)' }}>
                 I need to refocus
               </span>
               <button

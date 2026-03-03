@@ -134,7 +134,7 @@ export default function CueBasedNudge() {
         <Link
           href="/toolkit"
           className="text-xs underline"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           All tools →
         </Link>
@@ -154,7 +154,7 @@ export default function CueBasedNudge() {
             <Link
               href="/reps"
               className="glass-card flex items-start gap-3 p-3 transition-all group"
-              style={{ borderColor: 'rgba(96, 5, 141, 0.15)' }}
+              style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 15%, transparent)' }}
             >
               <span className="text-xl">{nudge.emoji}</span>
               <div className="flex-1 min-w-0">

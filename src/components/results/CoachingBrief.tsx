@@ -15,10 +15,10 @@ interface CoachingBriefProps {
 
 /** Level → display label and color */
 const LEVEL_CONFIG = {
-  HIGH: { label: 'Strong', color: '#34D399' },
-  ELEVATED: { label: 'Building', color: '#F8D011' },
-  MODERATE: { label: 'Emerging', color: '#FB923C' },
-  LOW: { label: 'Training Edge', color: '#F87171' },
+  HIGH: { label: 'Strong', color: 'var(--neon-teal)' },
+  ELEVATED: { label: 'Building', color: 'var(--gold-primary)' },
+  MODERATE: { label: 'Emerging', color: 'var(--neon-amber)' },
+  LOW: { label: 'Training Edge', color: 'var(--ray-power)' },
 } as const;
 
 /** Sort rays by score descending, return [rayId, RayOutput][] */
@@ -58,26 +58,26 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
         <title>Coaching Brief — ${output.light_signature?.archetype?.name ?? 'Assessment'}</title>
         <style>
           * { margin: 0; padding: 0; box-sizing: border-box; }
-          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; padding: 24px; max-width: 800px; margin: 0 auto; }
-          .brief-header { border-bottom: 2px solid #60058D; padding-bottom: 12px; margin-bottom: 16px; }
-          .brief-header h1 { font-size: 20px; color: #60058D; }
-          .brief-header p { font-size: 11px; color: #666; margin-top: 4px; }
+          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text-body); padding: 24px; max-width: 800px; margin: 0 auto; }
+          .brief-header { border-bottom: 2px solid var(--text-body); padding-bottom: 12px; margin-bottom: 16px; }
+          .brief-header h1 { font-size: 20px; color: var(--text-body); }
+          .brief-header p { font-size: 11px; color: var(--text-body); margin-top: 4px; }
           .section { margin-bottom: 16px; }
-          .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #60058D; margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+          .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-body); margin-bottom: 8px; border-bottom: 1px solid var(--text-body); padding-bottom: 4px; }
           .kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
           .kv { font-size: 12px; }
-          .kv .label { color: #888; font-size: 10px; }
+          .kv .label { color: var(--text-body); font-size: 10px; }
           .kv .value { font-weight: 600; }
           .ray-bar { display: flex; align-items: center; gap: 8px; font-size: 11px; margin-bottom: 3px; }
           .ray-bar .name { width: 80px; text-align: right; }
           .ray-bar .bar { height: 8px; border-radius: 4px; }
           .ray-bar .score { width: 30px; font-weight: 600; }
-          .signal-row { display: flex; justify-content: space-between; align-items: center; font-size: 11px; padding: 3px 0; border-bottom: 1px solid #f5f5f5; }
+          .signal-row { display: flex; justify-content: space-between; align-items: center; font-size: 11px; padding: 3px 0; border-bottom: 1px solid var(--text-body); }
           .signal-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
           .tool-item { font-size: 11px; margin-bottom: 4px; }
-          .tool-item .why { color: #666; font-size: 10px; }
-          .q-item { font-size: 11px; margin-bottom: 6px; padding-left: 12px; border-left: 2px solid #F8D011; }
-          .footer { margin-top: 20px; border-top: 1px solid #eee; padding-top: 8px; font-size: 9px; color: #aaa; text-align: center; }
+          .tool-item .why { color: var(--text-body); font-size: 10px; }
+          .q-item { font-size: 11px; margin-bottom: 6px; padding-left: 12px; border-left: 2px solid var(--text-body); }
+          .footer { margin-top: 20px; border-top: 1px solid var(--text-body); padding-top: 8px; font-size: 9px; color: var(--text-body); text-align: center; }
           @media print { body { padding: 16px; } }
         </style>
       </head>
@@ -117,7 +117,7 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
           <div>
             <p
               className="text-[10px] font-bold uppercase tracking-widest"
-              style={{ color: 'var(--brand-gold, #F8D011)' }}
+              style={{ color: 'var(--gold-primary)' }}
             >
               For Coaches
             </p>
@@ -151,7 +151,7 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
       >
         <p
           className="text-[10px] font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           Brief Preview
         </p>
@@ -160,8 +160,8 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
         <div
           className="rounded-lg p-4"
           style={{
-            background: 'rgba(96, 5, 141, 0.15)',
-            border: '1px solid rgba(148, 80, 200, 0.2)',
+            background: 'color-mix(in srgb, var(--violet-650) 15%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)',
           }}
         >
           <p
@@ -227,17 +227,17 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
                   </span>
                   <div
                     className="flex-1 h-2 rounded-full overflow-hidden"
-                    style={{ background: 'rgba(148, 80, 200, 0.15)' }}
+                    style={{ background: 'color-mix(in srgb, var(--stroke-400) 15%, transparent)' }}
                   >
                     <div
                       className="h-full rounded-full"
                       style={{
                         width: `${ray.score}%`,
                         background: isTop
-                          ? 'linear-gradient(90deg, #F8D011, #FFE066)'
+                          ? 'linear-gradient(90deg, var(--text-body), var(--text-body))'
                           : isBottom
-                            ? 'linear-gradient(90deg, #A78BFA, #C4B5FD)'
-                            : 'linear-gradient(90deg, #60058D, #9450C8)',
+                            ? 'linear-gradient(90deg, var(--text-body), var(--text-body))'
+                            : 'linear-gradient(90deg, var(--text-body), var(--text-body))',
                       }}
                     />
                   </div>
@@ -275,7 +275,7 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
                   <div
                     key={sig.signal_id}
                     className="flex items-center justify-between gap-2 py-1 border-b"
-                    style={{ borderColor: 'rgba(148, 80, 200, 0.1)' }}
+                    style={{ borderColor: 'color-mix(in srgb, var(--stroke-400) 10%, transparent)' }}
                   >
                     <span className="flex items-center gap-1.5">
                       <span
@@ -315,7 +315,7 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
               <div
                 key={tool.tool_id}
                 className="mb-2 pb-2 border-b"
-                style={{ borderColor: 'rgba(148, 80, 200, 0.08)' }}
+                style={{ borderColor: 'color-mix(in srgb, var(--stroke-400) 8%, transparent)' }}
               >
                 <p
                   className="text-xs font-medium"
@@ -349,7 +349,7 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
                 className="text-xs mb-2 pl-3 leading-relaxed"
                 style={{
                   color: 'var(--text-on-dark-secondary)',
-                  borderLeft: '2px solid var(--brand-gold, #F8D011)',
+                  borderLeft: '2px solid var(--gold-primary)',
                 }}
               >
                 {q}
@@ -410,7 +410,7 @@ export default function CoachingBrief({ output, runId }: CoachingBriefProps) {
           {sorted.map(([rayId, ray]) => {
             const isTop = lightSig?.top_two?.some((t) => t.ray_id === rayId);
             const isBottom = justIn?.ray_id === rayId;
-            const barColor = isTop ? '#F8D011' : isBottom ? '#A78BFA' : '#60058D';
+            const barColor = isTop ? 'var(--gold-primary)' : isBottom ? 'var(--neon-violet)' : 'var(--text-body)';
             return (
               <div key={rayId} className="ray-bar">
                 <span className="name">

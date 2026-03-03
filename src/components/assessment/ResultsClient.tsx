@@ -122,7 +122,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
 
   if (error) {
     return (
-      <div className="glass-card p-6" style={{ borderColor: 'rgba(244, 63, 94, 0.3)' }}>
+      <div className="glass-card p-6" style={{ borderColor: 'var(--surface-border)' }}>
         <p className="text-sm text-rose-400" role="alert">
           {error}
         </p>
@@ -217,10 +217,10 @@ export function ResultsClient({ runId }: ResultsClientProps) {
               href="/results/share"
               className="inline-flex items-center gap-2 rounded-2xl px-8 py-4 text-base font-bold transition-all duration-200"
               style={{
-                background: 'linear-gradient(135deg, rgba(248,208,17,0.15) 0%, rgba(248,208,17,0.08) 100%)',
-                border: '1px solid rgba(248,208,17,0.4)',
-                color: 'var(--brand-gold, #F8D011)',
-                boxShadow: '0 0 24px rgba(248,208,17,0.10)',
+                background: 'linear-gradient(135deg, color-mix(in srgb, var(--gold-primary) 15%, transparent) 0%, color-mix(in srgb, var(--gold-primary) 8%, transparent) 100%)',
+                border: '1px solid color-mix(in srgb, var(--gold-primary) 40%, transparent)',
+                color: 'var(--gold-primary)',
+                boxShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 10%, transparent)',
               }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -335,9 +335,9 @@ export function ResultsClient({ runId }: ResultsClientProps) {
 
       {/* Primary Action — Your Next Move */}
       <FadeInSection>
-        <div id="section-actions" className="glass-card p-6 space-y-4" style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}>
+        <div id="section-actions" className="glass-card p-6 space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
               Your Next Move
             </p>
             <h3 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -374,7 +374,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       <div className="py-2">
         <div
           className="h-px w-full"
-          style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold, #F8D011), transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, var(--gold-primary), transparent)' }}
         />
         <p
           className="mt-3 text-center text-xs font-medium uppercase tracking-widest"
@@ -400,7 +400,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       {eclipse && (
         <FadeInSection>
           <div className="glass-card p-5" style={{ borderColor: 'var(--surface-border)' }}>
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
               Coaching Note
             </p>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
@@ -581,8 +581,8 @@ export function ResultsClient({ runId }: ResultsClientProps) {
               className="text-xs font-medium px-4 py-2 rounded-full"
               style={{
                 color: 'var(--text-on-dark-secondary)',
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
+                background: 'color-mix(in srgb, var(--text-body) 4%, transparent)',
+                border: '1px solid color-mix(in srgb, var(--text-body) 8%, transparent)',
               }}
             >
               Replay reveal

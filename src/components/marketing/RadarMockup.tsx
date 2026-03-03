@@ -80,7 +80,7 @@ export default function RadarMockup({ className }: { className?: string }) {
             cy={CY}
             r={R_MAX * pct}
             fill="none"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="var(--constellation-line)"
             strokeWidth="1"
           />
         ))}
@@ -96,7 +96,7 @@ export default function RadarMockup({ className }: { className?: string }) {
                 y1={CY}
                 x2={end.x}
                 y2={end.y}
-                stroke="rgba(255,255,255,0.10)"
+                stroke="var(--constellation-line)"
                 strokeWidth="1"
               />
               <text
@@ -104,9 +104,9 @@ export default function RadarMockup({ className }: { className?: string }) {
                 y={labelPos.y}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fill="rgba(255,255,255,0.45)"
+                fill="var(--text-muted)"
                 fontSize="8"
-                fontFamily="var(--font-body, Inter, sans-serif)"
+                fontFamily="var(--font-body)"
               >
                 {r.label}
               </text>
@@ -117,7 +117,7 @@ export default function RadarMockup({ className }: { className?: string }) {
         {/* Data area fill */}
         <path
           d={dataPath}
-          fill="rgba(248, 208, 17, 0.08)"
+          fill="color-mix(in srgb, var(--gold-primary) 10%, transparent)"
           stroke="none"
           style={{
             opacity: visible ? 1 : 0,
@@ -129,14 +129,14 @@ export default function RadarMockup({ className }: { className?: string }) {
         <path
           d={dataPath}
           fill="none"
-          stroke="#F8D011"
+          stroke="var(--text-header)"
           strokeWidth="1.5"
           strokeLinejoin="round"
           style={{
             strokeDasharray: 800,
             strokeDashoffset: visible ? 0 : 800,
             transition: 'stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)',
-            filter: visible ? 'drop-shadow(0 0 6px rgba(248,208,17,0.3))' : 'none',
+            filter: visible ? 'drop-shadow(0 0 6px var(--gold-primary))' : 'none',
           }}
         />
 
@@ -147,7 +147,7 @@ export default function RadarMockup({ className }: { className?: string }) {
             cx={p.x}
             cy={p.y}
             r={3.5}
-            fill="#F8D011"
+            fill="var(--text-header)"
             style={{
               opacity: visible ? 1 : 0,
               transition: `opacity 0.3s ease ${0.8 + i * 0.1}s`,
@@ -156,13 +156,13 @@ export default function RadarMockup({ className }: { className?: string }) {
         ))}
 
         {/* Center dot */}
-        <circle cx={CX} cy={CY} r="2" fill="rgba(248,208,17,0.3)" />
+        <circle cx={CX} cy={CY} r="2" fill="var(--text-header)" opacity="0.3" />
       </svg>
 
       {/* Caption */}
       <p
         className="mt-3 text-center text-xs"
-        style={{ color: 'rgba(255,255,255,0.5)' }}
+        style={{ color: 'var(--text-muted)' }}
       >
         Sample Light Signature — your results will be unique to you
       </p>

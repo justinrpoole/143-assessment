@@ -36,13 +36,13 @@ export function PdfDownloadButton({ runId }: Props) {
       style={{
         color:
           status === 'error'
-            ? '#fb7185'
+            ? 'var(--text-body)'
             : 'var(--text-on-dark-secondary)',
         background:
           status === 'loading'
-            ? 'rgba(248, 208, 17, 0.08)'
-            : 'rgba(255,255,255,0.04)',
-        border: '1px solid rgba(255,255,255,0.08)',
+            ? 'color-mix(in srgb, var(--gold-primary) 8%, transparent)'
+            : 'color-mix(in srgb, var(--text-body) 4%, transparent)',
+        border: '1px solid color-mix(in srgb, var(--text-body) 8%, transparent)',
         opacity: status === 'loading' ? 0.7 : 1,
         cursor: status === 'loading' ? 'wait' : 'pointer',
       }}

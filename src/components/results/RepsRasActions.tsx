@@ -6,7 +6,7 @@ export function RepsRasActions() {
   return (
     <div className="space-y-4">
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           Light Reps
         </p>
         <h3 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>

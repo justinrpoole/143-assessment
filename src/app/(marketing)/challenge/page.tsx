@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 export default function ChallengePage() {
   return (
     <main className="cosmic-page-bg min-h-screen">
-      <section className="mx-auto max-w-3xl px-6 py-20 sm:py-24">
-        <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "#F8D011" }}>
+      <section className="content-wrap--wide px-6 py-20 sm:py-24">
+        <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "var(--gold-primary)" }}>
           The 143 Challenge
         </p>
-        <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-5xl" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+        <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-5xl" style={{ color: "var(--text-body)" }}>
           143 means I love you. Here is the challenge.
         </h1>
-        <p className="mt-5 max-w-2xl text-base leading-relaxed" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.78))" }}>
+        <p className="mt-5 max-w-2xl text-base leading-relaxed" style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 78%, transparent))" }}>
           Enter your name and email to unlock the workbook instantly. No workbook preview,
           no download link, and no giveaway without capture.
         </p>

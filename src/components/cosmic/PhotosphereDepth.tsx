@@ -8,10 +8,10 @@ interface PhotosphereDepthProps {
 }
 
 const LAYERS = [
-  { name: 'Photosphere', desc: 'Surface habits — the self others see', color: '#F5E6CC', innerColor: '#F4C430', thickness: 0.12 },
-  { name: 'Chromosphere', desc: 'Emotional awareness', color: '#E8A317', innerColor: '#D4770B', thickness: 0.18 },
-  { name: 'Convection Zone', desc: 'Pattern recognition, behavioral understanding', color: '#D4770B', innerColor: '#C0392B', thickness: 0.28 },
-  { name: 'Core', desc: 'Authentic self — the source of all energy', color: '#F4C430', innerColor: '#FFFFFF', thickness: 0.15 },
+  { name: 'Photosphere', desc: 'Surface habits — the self others see', color: 'var(--text-body)', innerColor: 'var(--gold-primary)', thickness: 0.12 },
+  { name: 'Chromosphere', desc: 'Emotional awareness', color: 'var(--neon-amber)', innerColor: 'var(--neon-amber)', thickness: 0.18 },
+  { name: 'Convection Zone', desc: 'Pattern recognition, behavioral understanding', color: 'var(--neon-amber)', innerColor: 'var(--text-body)', thickness: 0.28 },
+  { name: 'Core', desc: 'Authentic self — the source of all energy', color: 'var(--gold-primary)', innerColor: 'var(--text-body)', thickness: 0.15 },
 ];
 
 /**
@@ -67,7 +67,7 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
               Z
             `} />
           </clipPath>
-          <filter id="pd-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="pd-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="6" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -88,7 +88,7 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
                 cx={cx + Math.cos(angle) * dist}
                 cy={cy + Math.sin(angle) * dist}
                 r={8 + (i % 4) * 3}
-                fill="#F4C430"
+                fill="var(--gold-primary)"
                 opacity={0.12}
               />
             );
@@ -115,7 +115,7 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
                 cx={cx + Math.cos(angle) * dist}
                 cy={cy + Math.sin(angle) * dist}
                 r={sunR * 0.08}
-                fill="#C0392B"
+                fill="var(--ray-power)"
                 opacity={0.15}
               />
             );
@@ -126,7 +126,7 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
             cx={cx}
             cy={cy}
             r={sunR * 0.25}
-            fill="#F4C430"
+            fill="var(--gold-primary)"
             opacity={0.9}
             filter="url(#pd-glow)"
             initial={false}
@@ -137,7 +137,7 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
             }
             transition={!reducedMotion ? { duration: 3, repeat: Infinity, ease: 'easeInOut' } : undefined}
           />
-          <circle cx={cx} cy={cy} r={sunR * 0.12} fill="#FFFFFF" opacity={0.6} />
+          <circle cx={cx} cy={cy} r={sunR * 0.12} fill="var(--text-body)" opacity={0.6} />
 
           {/* Layer divider lines */}
           {[sunR, sunR * 0.82, sunR * 0.62, sunR * 0.25].map((r, i) => (
@@ -147,7 +147,7 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
               cy={cy}
               r={r}
               fill="none"
-              stroke="#FFFFFF"
+              stroke="var(--text-body)"
               strokeWidth={0.5}
               strokeOpacity={0.15}
             />
@@ -166,10 +166,10 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
 
           return (
             <g>
-              <line x1={bx1} y1={by1} x2={bx2} y2={by2} stroke="#FFFFFF" strokeWidth={2} strokeOpacity={0.6} />
+              <line x1={bx1} y1={by1} x2={bx2} y2={by2} stroke="var(--text-body)" strokeWidth={2} strokeOpacity={0.6} />
               {/* Bracket caps */}
-              <line x1={bx1 - 4} y1={by1} x2={bx1 + 4} y2={by1} stroke="#FFFFFF" strokeWidth={2} strokeOpacity={0.6} />
-              <line x1={bx2 - 4} y1={by2} x2={bx2 + 4} y2={by2} stroke="#FFFFFF" strokeWidth={2} strokeOpacity={0.6} />
+              <line x1={bx1 - 4} y1={by1} x2={bx1 + 4} y2={by1} stroke="var(--text-body)" strokeWidth={2} strokeOpacity={0.6} />
+              <line x1={bx2 - 4} y1={by2} x2={bx2 + 4} y2={by2} stroke="var(--text-body)" strokeWidth={2} strokeOpacity={0.6} />
             </g>
           );
         })()}
@@ -187,11 +187,11 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
                 y1={ly}
                 x2={lx}
                 y2={ly}
-                stroke="#FFFFFF"
+                stroke="var(--text-body)"
                 strokeWidth={0.5}
                 strokeOpacity={0.2}
               />
-              <text x={lx + 4} y={ly + 3} fill="#FFFFFF" fontSize="8" fontWeight="500" opacity={depthLayer >= i ? 0.7 : 0.25}>
+              <text x={lx + 4} y={ly + 3} fill="var(--text-body)" fontSize="8" fontWeight="500" opacity={depthLayer >= i ? 0.7 : 0.25}>
                 {layer.name}
               </text>
             </g>
@@ -204,7 +204,7 @@ export default function PhotosphereDepth({ depth }: PhotosphereDepthProps) {
         <span style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11 }}>
           {LAYERS[Math.min(depthLayer, 3)]?.desc}
         </span>
-        <span style={{ color: '#F4C430', fontSize: 13, fontWeight: 700 }}>{depth}%</span>
+        <span style={{ color: 'var(--gold-primary)', fontSize: 13, fontWeight: 700 }}>{depth}%</span>
       </div>
     </div>
   );

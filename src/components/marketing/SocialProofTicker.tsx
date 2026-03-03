@@ -40,8 +40,8 @@ export default function SocialProofTicker() {
         style={{
           opacity: fading ? 0 : 1,
           color: item.type === 'quote'
-            ? 'var(--brand-gold, #F8D011)'
-            : 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))',
+            ? 'var(--gold-primary)'
+            : 'var(--text-secondary)',
           fontStyle: item.type === 'quote' ? 'italic' : 'normal',
         }}
       >

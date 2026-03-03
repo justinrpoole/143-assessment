@@ -99,7 +99,7 @@ export default function InviteColleagueCard() {
     <div className="conic-border-card glass-card p-5 space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold" style={{ color: 'var(--brand-gold, #F8D011)', textShadow: '0 0 12px rgba(248, 208, 17, 0.3)' }}>
+          <h3 className="text-sm font-semibold" style={{ color: 'var(--gold-primary)', textShadow: '0 0 12px color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
             Team Constellation
           </h3>
           <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -209,8 +209,8 @@ export default function InviteColleagueCard() {
                 className="text-[10px] px-2 py-0.5 rounded-full font-medium"
                 style={{
                   background: inv.status === 'completed'
-                    ? 'rgba(248, 208, 17, 0.12)'
-                    : 'rgba(255, 255, 255, 0.06)',
+                    ? 'color-mix(in srgb, var(--gold-primary) 12%, transparent)'
+                    : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                   color: inv.status === 'completed'
                     ? 'var(--brand-gold)'
                     : 'var(--text-on-dark-muted)',
@@ -239,7 +239,7 @@ export default function InviteColleagueCard() {
                 <div
                   key={inv.id}
                   className="rounded-lg px-3 py-2 text-center"
-                  style={{ background: 'rgba(248, 208, 17, 0.06)', border: '1px solid rgba(248, 208, 17, 0.15)' }}
+                  style={{ background: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}
                 >
                   <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark)' }}>
                     {name ?? 'Unknown'}

@@ -17,9 +17,9 @@ interface SolarFlareJournalProps {
 }
 
 const RAY_COLORS: Record<string, string> = {
-  R1: '#F4C430', R2: '#F4C430', R3: '#8E44AD',
-  R4: '#C0392B', R5: '#D4770B', R6: '#E8A317',
-  R7: '#1ABC9C', R8: '#1ABC9C', R9: '#F4C430',
+  R1: 'var(--gold-primary)', R2: 'var(--gold-primary)', R3: 'var(--neon-violet)',
+  R4: 'var(--text-body)', R5: 'var(--neon-amber)', R6: 'var(--neon-amber)',
+  R7: 'var(--text-body)', R8: 'var(--text-body)', R9: 'var(--gold-primary)',
 };
 
 function seededRandom(seed: number): number {
@@ -59,7 +59,7 @@ export default function SolarFlareJournal({ flares }: SolarFlareJournalProps) {
       ...flare,
       x: spacing * (i + 1),
       height: 30 + flare.magnitude * 120,
-      color: RAY_COLORS[flare.rayId] ?? '#F4C430',
+      color: RAY_COLORS[flare.rayId] ?? 'var(--gold-primary)',
     }));
   }, [flares]);
 
@@ -76,17 +76,17 @@ export default function SolarFlareJournal({ flares }: SolarFlareJournalProps) {
         <defs>
           {/* Deep space sky */}
           <linearGradient id="sfj-sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#050210" />
-            <stop offset="30%" stopColor="#0a0318" />
-            <stop offset="60%" stopColor="#1a0a35" />
-            <stop offset="100%" stopColor="#E8A317" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="30%" stopColor="var(--text-body)" />
+            <stop offset="60%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0.2" />
           </linearGradient>
           <linearGradient id="sfj-surface" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F4C430" />
-            <stop offset="50%" stopColor="#E8A317" />
-            <stop offset="100%" stopColor="#D4770B" />
+            <stop offset="0%" stopColor="var(--gold-primary)" />
+            <stop offset="50%" stopColor="var(--neon-amber)" />
+            <stop offset="100%" stopColor="var(--neon-amber)" />
           </linearGradient>
-          <filter id="sfj-glow" x="-80%" y="-80%" width="260%" height="260%">
+          <filter id="sfj-glow" x="-80%" y="-80%" width={"260%"} height={"260%"}>
             <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b2" />
             <feMerge>
@@ -97,7 +97,7 @@ export default function SolarFlareJournal({ flares }: SolarFlareJournalProps) {
           </filter>
           {/* Scanline pattern */}
           <pattern id="sfj-scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-            <rect width="4" height="2" fill="rgba(0,0,0,0.04)" />
+            <rect width="4" height="2" fill="color-mix(in srgb, var(--ink-950) 4%, transparent)" />
           </pattern>
         </defs>
 
@@ -111,7 +111,7 @@ export default function SolarFlareJournal({ flares }: SolarFlareJournalProps) {
             cx={seededRandom(i * 41) * W}
             cy={seededRandom(i * 41 + 1) * surfaceY * 0.8}
             r={0.3 + seededRandom(i * 41 + 2) * 0.5}
-            fill="#FFFFFF"
+            fill="var(--text-body)"
             opacity={0.05 + seededRandom(i * 41 + 3) * 0.1}
           />
         ))}
@@ -126,16 +126,16 @@ export default function SolarFlareJournal({ flares }: SolarFlareJournalProps) {
             cx={g.x}
             cy={g.y}
             r={g.r}
-            fill="#F4C430"
+            fill="var(--gold-primary)"
             opacity={0.15 + seededRandom(i * 13) * 0.2}
-            stroke="#D4770B"
+            stroke="var(--neon-amber)"
             strokeWidth={0.5}
             strokeOpacity={0.15}
           />
         ))}
 
         {/* Timeline axis along surface */}
-        <line x1={20} y1={surfaceY + 2} x2={W - 20} y2={surfaceY + 2} stroke="#FFFFFF" strokeWidth={0.5} strokeOpacity={0.2} />
+        <line x1={20} y1={surfaceY + 2} x2={W - 20} y2={surfaceY + 2} stroke="var(--text-body)" strokeWidth={0.5} strokeOpacity={0.2} />
 
         {/* CRT scanline overlay — bottom layer behind flares for subtle effect */}
         <rect width={W} height={H} rx="12" fill="url(#sfj-scanlines)" opacity={0.35} />
@@ -196,10 +196,10 @@ export default function SolarFlareJournal({ flares }: SolarFlareJournalProps) {
               })}
 
               {/* Date tick */}
-              <line x1={flare.x} y1={surfaceY + 2} x2={flare.x} y2={surfaceY + 8} stroke="#FFFFFF" strokeWidth={0.5} strokeOpacity={0.3} />
+              <line x1={flare.x} y1={surfaceY + 2} x2={flare.x} y2={surfaceY + 8} stroke="var(--text-body)" strokeWidth={0.5} strokeOpacity={0.3} />
 
               {/* Labels */}
-              <text x={flare.x} y={surfaceY + 18} textAnchor="middle" fill="#FFFFFF" fontSize="7" fontWeight="500" opacity={0.4}>
+              <text x={flare.x} y={surfaceY + 18} textAnchor="middle" fill="var(--text-body)" fontSize="7" fontWeight="500" opacity={0.4}>
                 {flare.date ?? ''}
               </text>
               <text x={flare.x} y={surfaceY + 28} textAnchor="middle" fill={flare.color} fontSize="7" fontWeight="500" opacity={0.5}>

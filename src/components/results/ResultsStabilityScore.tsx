@@ -90,7 +90,7 @@ export default function ResultsStabilityScore({ currentRunId }: { currentRunId: 
     <section className="glass-card p-5 space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
             Results Stability
           </p>
           <p className="mt-1 text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -98,7 +98,7 @@ export default function ResultsStabilityScore({ currentRunId }: { currentRunId: 
           </p>
         </div>
         <div className="text-center">
-          <p className="text-2xl font-bold" style={{ color: stabilityPct >= 85 ? '#34D399' : stabilityPct >= 65 ? 'var(--brand-gold)' : '#FB923C' }}>
+          <p className="text-2xl font-bold" style={{ color: stabilityPct >= 85 ? 'var(--neon-teal)' : stabilityPct >= 65 ? 'var(--brand-gold)' : 'var(--neon-amber)' }}>
             {stabilityPct}%
           </p>
           <p className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>{stabilityLabel}</p>
@@ -124,16 +124,16 @@ export default function ResultsStabilityScore({ currentRunId }: { currentRunId: 
             >
               {ray.name}
             </span>
-            <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+            <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
               <div
                 className="h-full rounded-full transition-all"
                 style={{
                   width: `${Math.min(100, Math.max(5, (ray.current / 4) * 100))}%`,
                   background: ray.stable
-                    ? 'rgba(52, 211, 153, 0.5)'
+                    ? 'var(--surface-border)'
                     : ray.delta > 0
-                      ? 'rgba(248, 208, 17, 0.5)'
-                      : 'rgba(251, 146, 60, 0.5)',
+                      ? 'color-mix(in srgb, var(--gold-primary) 50%, transparent)'
+                      : 'var(--surface-border)',
                 }}
               />
             </div>
@@ -143,8 +143,8 @@ export default function ResultsStabilityScore({ currentRunId }: { currentRunId: 
                 color: ray.stable
                   ? 'var(--text-on-dark-muted)'
                   : ray.delta > 0
-                    ? '#34D399'
-                    : '#FB923C',
+                    ? 'var(--neon-teal)'
+                    : 'var(--neon-amber)',
               }}
             >
               {ray.delta > 0 ? '+' : ''}{ray.delta.toFixed(1)}

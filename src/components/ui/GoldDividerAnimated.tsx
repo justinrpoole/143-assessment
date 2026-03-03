@@ -35,8 +35,8 @@ export default function GoldDividerAnimated({
         className="h-px"
         style={{
           background: neon
-            ? 'linear-gradient(90deg, var(--neon-cyan, #25f6ff), var(--brand-gold, #F8D011), var(--neon-pink, #ff3fb4))'
-            : 'linear-gradient(90deg, transparent, var(--brand-gold, #F8D011), transparent)',
+            ? 'linear-gradient(90deg, var(--neon-cyan, var(--text-body)), var(--gold-primary), var(--neon-pink, var(--text-body)))'
+            : 'linear-gradient(90deg, transparent, var(--gold-primary), transparent)',
           transformOrigin: 'center',
         }}
         initial={prefersReduced ? false : { scaleX: 0 }}

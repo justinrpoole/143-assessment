@@ -55,7 +55,7 @@ function ScoreRing({ score, color, rayId }: { score: number; color: string; rayI
           <circle
             cx="60" cy="60" r={r}
             fill="none"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="color-mix(in srgb, var(--text-body) 8%, transparent)"
             strokeWidth="8"
           />
           {/* Progress arc */}
@@ -159,7 +159,7 @@ export default function RayDetailClient({
           {showEclipseWarning && (
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
-              style={{ background: "rgba(255,100,50,0.15)", color: "#FF8060", border: "1px solid rgba(255,100,50,0.3)" }}
+              style={{ background: "var(--surface-border)", color: "var(--text-body)", border: "1px solid var(--surface-border)" }}
             >
               <span>⚠️</span>
               <span>
@@ -194,7 +194,7 @@ export default function RayDetailClient({
                       <span style={{ color: "var(--text-on-dark)" }}>{sf.label}</span>
                       <span style={{ color: rayColor }}>{Math.round(sf.score)}</span>
                     </div>
-                    <div className="h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.08)" }}>
+                    <div className="h-1.5 rounded-full" style={{ background: "color-mix(in srgb, var(--text-body) 8%, transparent)" }}>
                       <motion.div
                         className="h-full rounded-full"
                         style={{ background: rayColor, boxShadow: `0 0 8px ${rayColor}66` }}
@@ -234,10 +234,10 @@ export default function RayDetailClient({
                       <span style={{ color: "var(--text-on-dark)" }}>{sf.label}</span>
                       <span style={{ color: "var(--text-on-dark-muted)" }}>{Math.round(sf.score)}</span>
                     </div>
-                    <div className="h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.08)" }}>
+                    <div className="h-1.5 rounded-full" style={{ background: "color-mix(in srgb, var(--text-body) 8%, transparent)" }}>
                       <motion.div
                         className="h-full rounded-full"
-                        style={{ background: "rgba(150,100,200,0.6)" }}
+                        style={{ background: "var(--surface-border)" }}
                         initial={{ width: 0 }}
                         animate={{ width: `${sf.score}%` }}
                         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}

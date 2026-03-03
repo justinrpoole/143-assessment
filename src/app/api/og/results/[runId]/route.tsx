@@ -71,7 +71,7 @@ export async function GET(
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #020202 0%, #1a0a2e 40%, #060212 100%)",
+          background: "linear-gradient(135deg, var(--text-body) 0%, var(--text-body) 40%, var(--text-body) 100%)",
           fontFamily: "system-ui, -apple-system, sans-serif",
           position: "relative",
           overflow: "hidden",
@@ -87,7 +87,7 @@ export async function GET(
             width: "500px",
             height: "500px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(96, 5, 141, 0.15) 0%, transparent 70%)",
+            background: "radial-gradient(circle, color-mix(in srgb, var(--violet-650) 15%, transparent) 0%, transparent 70%)",
           }}
         />
 
@@ -96,7 +96,7 @@ export async function GET(
           style={{
             width: "80px",
             height: "3px",
-            background: "#F8D011",
+            background: "var(--gold-primary)",
             borderRadius: "2px",
             marginBottom: "24px",
           }}
@@ -108,7 +108,7 @@ export async function GET(
             fontSize: "16px",
             letterSpacing: "0.25em",
             textTransform: "uppercase" as const,
-            color: "#F8D011",
+            color: "var(--gold-primary)",
             marginBottom: "12px",
           }}
         >
@@ -120,7 +120,7 @@ export async function GET(
           style={{
             fontSize: "56px",
             fontWeight: 700,
-            color: "#FDFCFD",
+            color: "var(--text-body)",
             marginBottom: "16px",
             textAlign: "center" as const,
             lineHeight: 1.1,
@@ -143,9 +143,9 @@ export async function GET(
               borderRadius: "20px",
               fontSize: "18px",
               fontWeight: 600,
-              background: "rgba(248, 208, 17, 0.12)",
-              color: "#F8D011",
-              border: "1px solid rgba(248, 208, 17, 0.25)",
+              background: "color-mix(in srgb, var(--gold-primary) 12%, transparent)",
+              color: "var(--gold-primary)",
+              border: "1px solid color-mix(in srgb, var(--gold-primary) 25%, transparent)",
             }}
           >
             {ray1Name}
@@ -156,9 +156,9 @@ export async function GET(
               borderRadius: "20px",
               fontSize: "18px",
               fontWeight: 600,
-              background: "rgba(148, 80, 200, 0.15)",
-              color: "#C39BD3",
-              border: "1px solid rgba(148, 80, 200, 0.25)",
+              background: "color-mix(in srgb, var(--stroke-400) 15%, transparent)",
+              color: "var(--text-secondary)",
+              border: "1px solid color-mix(in srgb, var(--stroke-400) 25%, transparent)",
             }}
           >
             {ray2Name}
@@ -170,7 +170,7 @@ export async function GET(
           <p
             style={{
               fontSize: "14px",
-              color: "rgba(253, 252, 253, 0.5)",
+              color: "var(--surface-border)",
               marginBottom: "8px",
             }}
           >
@@ -193,7 +193,7 @@ export async function GET(
               fontSize: "14px",
               letterSpacing: "0.15em",
               textTransform: "uppercase" as const,
-              color: "rgba(253, 252, 253, 0.4)",
+              color: "var(--surface-border)",
             }}
           >
             143 Leadership Assessment

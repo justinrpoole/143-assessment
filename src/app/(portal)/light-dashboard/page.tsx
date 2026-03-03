@@ -18,7 +18,7 @@ export default async function LightDashboardPage() {
 
   return (
     <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-[1040px] px-4 py-8 sm:px-6 sm:py-10">
+      <div className="content-wrap--wide px-4 py-8 sm:px-6 sm:py-10">
         {/* Spectrum strip — thin neon rainbow above dashboard */}
         <RaySpectrumStrip className="mb-6" />
 

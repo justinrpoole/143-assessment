@@ -124,24 +124,58 @@
   --cosmic-moon: #2A0440;
   --cosmic-warm-white: #FFFEF5;
 
-  /* ── Dark Cosmic Theme Tokens (v4 Gravitational Stability) ── */
+  /* ── Locked Cosmic Theme Tokens (canonical semantic layer) ── */
+  --ink-950: #020202;
+  --ink-900: #1A0B2F;
+  --violet-800: #200E36;
+  --violet-700: #2C0E46;
+  --violet-650: #3F1161;
+
+  --surface-700: #320F4B;
+  --surface-650: #39134E;
+  --surface-600: #3F1652;
+
+  --stroke-500: #603D6D;
+  --stroke-400: #795E85;
+
+  --text-header: #F2D249;
+  --text-body: #FFFFFF;
+  --text-secondary: #CBB9D6;
+  --text-muted: #A792B2;
+
+  --gold-primary: #F2D249;
+  --gold-hover: #F5D658;
+  --on-gold: #191710;
+
+  --constellation-core: rgba(255,255,255,0.72);
+  --constellation-core-dim: rgba(255,255,255,0.45);
+  --constellation-line: rgba(255,255,255,0.06);
+  --neon-cyan: #19D7FF;
+  --neon-teal: #00F5D4;
+  --neon-violet: #A855FF;
+  --neon-pink: #FF4FD8;
+  --neon-blue: #3B82FF;
+  --neon-lime: #7CFF00;
+  --neon-amber: #FF8C00;
+
+  /* ── Brand aliases for existing components ── */
   --brand-purple: #60058D;
-  --brand-gold: #F8D011;
-  --brand-black: #020202;
+  --brand-gold: var(--gold-primary);
+  --brand-black: var(--ink-950);
 
-  --bg-deep: #1E0840;
-  --bg-deep-alt: #260A50;
-  --bg-deep-mid: #2D1060;
-  --bg-nav: rgba(48, 10, 95, 0.96);
-  --surface-glass: rgba(96, 5, 141, 0.35);
-  --surface-glass-hover: rgba(96, 5, 141, 0.45);
-  --surface-glass-active: rgba(96, 5, 141, 0.55);
-  --surface-border: rgba(148, 80, 200, 0.30);
-  --surface-border-hover: rgba(148, 80, 200, 0.45);
+  --bg-deep: var(--violet-700);
+  --bg-deep-alt: var(--surface-700);
+  --bg-deep-mid: var(--surface-600);
+  --bg-nav: rgba(18, 5, 40, 0.97);
+  --surface-glass: color-mix(in srgb, var(--surface-700) 84%, transparent);
+  --surface-glass-hover: color-mix(in srgb, var(--surface-650) 88%, transparent);
+  --surface-glass-active: color-mix(in srgb, var(--surface-600) 92%, transparent);
+  --surface-border: color-mix(in srgb, var(--stroke-500) 72%, transparent);
+  --surface-border-hover: color-mix(in srgb, var(--stroke-400) 80%, transparent);
 
-  --text-on-dark: rgba(255, 255, 255, 0.94);
-  --text-on-dark-secondary: rgba(255, 255, 255, 0.80);
-  --text-on-dark-muted: rgba(255, 255, 255, 0.55);
+  --text-on-dark: var(--text-body);
+  --text-on-dark-secondary: var(--text-secondary);
+  --text-on-dark-muted: var(--text-muted);
 
   --focus-ring-gold: 0 0 0 3px rgba(248, 208, 17, 0.45);
 
@@ -153,23 +187,17 @@
   --shadow-glow-gold: 0 0 20px rgba(248, 208, 17, 0.18);
   --shadow-depth: 0 8px 32px rgba(0, 0, 0, 0.50);
 
-  /* ── Neon Spark Palette (80s accents) ── */
-  --neon-cyan:    #25f6ff;
-  --neon-pink:    #FF2DE0;
-  --neon-lime:    #c6ff4d;
-  --neon-violet:  #8b5bff;
-  --neon-amber:   #FF8C00;
-
   /* Neon opacity variants */
-  --neon-cyan-10:   rgba(37, 246, 255, 0.10);
-  --neon-cyan-20:   rgba(37, 246, 255, 0.20);
-  --neon-cyan-40:   rgba(37, 246, 255, 0.40);
-  --neon-pink-10:   rgba(255, 45, 224, 0.10);
-  --neon-pink-20:   rgba(255, 45, 224, 0.20);
-  --neon-pink-40:   rgba(255, 45, 224, 0.40);
-  --neon-violet-10: rgba(139, 91, 255, 0.10);
-  --neon-violet-20: rgba(139, 91, 255, 0.20);
-  --neon-violet-40: rgba(139, 91, 255, 0.40);
+  --neon-cyan-10:   color-mix(in srgb, var(--neon-cyan) 10%, transparent);
+  --neon-cyan-20:   color-mix(in srgb, var(--neon-cyan) 20%, transparent);
+  --neon-cyan-40:   color-mix(in srgb, var(--neon-cyan) 40%, transparent);
+  --neon-pink-10:   color-mix(in srgb, var(--neon-pink) 10%, transparent);
+  --neon-pink-20:   color-mix(in srgb, var(--neon-pink) 20%, transparent);
+  --neon-pink-40:   color-mix(in srgb, var(--neon-pink) 40%, transparent);
+  --neon-violet-10: color-mix(in srgb, var(--neon-violet) 10%, transparent);
+  --neon-violet-20: color-mix(in srgb, var(--neon-violet) 20%, transparent);
+  --neon-violet-40: color-mix(in srgb, var(--neon-violet) 40%, transparent);
+  --constellation-line-strong: color-mix(in srgb, var(--constellation-line) 185%, transparent);
 
   /* Neon glow shadows */
   --shadow-glow-cyan: 0 0 20px rgba(37, 246, 255, 0.15);
@@ -183,16 +211,24 @@
   /* Atmosphere texture control */
   --scanline-opacity: 0.18;
   --grid-opacity: 0.09;
-  --grid-color: rgba(37, 246, 255, 0.10);
+  --grid-color: var(--neon-cyan-20);
   --grid-size: 48px;
 
   --overlay-heavy: rgba(18, 5, 48, 0.93);
   --overlay-medium: rgba(18, 5, 48, 0.81);
   --overlay-light: rgba(18, 5, 48, 0.62);
 
-  --gradient-cosmic: linear-gradient(180deg, #2D1450 0%, #1A0A2E 100%);
-  --gradient-cosmic-radial: radial-gradient(ellipse at 50% 15%, rgba(96, 5, 141, 0.45) 0%, transparent 65%);
-  --gradient-gold-radial: radial-gradient(ellipse at 50% 85%, rgba(248, 208, 17, 0.10) 0%, transparent 55%);
+  --gradient-cosmic: linear-gradient(180deg, var(--surface-600) 0%, var(--violet-800) 100%);
+  --gradient-cosmic-radial: radial-gradient(
+    ellipse at 50% 15%,
+    color-mix(in srgb, var(--violet-650) 68%, transparent) 0%,
+    transparent 65%
+  );
+  --gradient-gold-radial: radial-gradient(
+    ellipse at 50% 85%,
+    color-mix(in srgb, var(--gold-primary) 10%, transparent) 0%,
+    transparent 55%
+  );
 
   /* Status colors — brand-aligned, no bright green/red */
   --status-low: #A78BFA;

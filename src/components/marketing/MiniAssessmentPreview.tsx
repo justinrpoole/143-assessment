@@ -161,11 +161,11 @@ export default function MiniAssessmentPreview({
       {/* Questions */}
       <div className="space-y-5">
         {PREVIEW_QUESTIONS.map((q) => (
-          <div key={q.id} className="glass-card p-5 sm:p-6 space-y-3" style={{ borderColor: 'rgba(148, 80, 200, 0.2)' }}>
+          <div key={q.id} className="glass-card p-5 sm:p-6 space-y-3" style={{ borderColor: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)' }}>
             <div className="flex items-center gap-2">
               <span
                 className="text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full"
-                style={{ background: 'rgba(248, 208, 17, 0.12)', color: 'var(--brand-gold)' }}
+                style={{ background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)', color: 'var(--brand-gold)' }}
               >
                 {q.phase}
               </span>
@@ -190,12 +190,12 @@ export default function MiniAssessmentPreview({
         <div
           className="glass-card glass-card--lift p-6 sm:p-8 text-center space-y-4"
           style={{
-            borderColor: 'rgba(248, 208, 17, 0.3)',
-            boxShadow: '0 0 24px rgba(248, 208, 17, 0.08)',
+            borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)',
+            boxShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 8%, transparent)',
             animation: 'welcomeFadeIn 500ms ease-out',
           }}
         >
-          <p className="text-lg font-bold" style={{ color: 'var(--brand-gold)', textShadow: '0 0 16px rgba(248,208,17,0.2)' }}>
+          <p className="text-lg font-bold" style={{ color: 'var(--brand-gold)', textShadow: '0 0 16px color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
             {teaser.message}
           </p>
           <p className="text-sm leading-relaxed max-w-lg mx-auto" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -225,8 +225,8 @@ export default function MiniAssessmentPreview({
                 href="/143"
                 className="inline-block px-8 py-3 text-sm font-semibold rounded-lg"
                 style={{
-                  border: '1px solid var(--brand-gold, #F8D011)',
-                  color: 'var(--brand-gold, #F8D011)',
+                  border: '1px solid var(--gold-primary)',
+                  color: 'var(--gold-primary)',
                 }}
               >
                 Start the 143 Challenge — Free

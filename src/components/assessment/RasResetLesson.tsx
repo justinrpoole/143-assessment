@@ -54,8 +54,8 @@ export function RasResetLesson({ onComplete }: Props) {
             className="h-1.5 rounded-full transition-all duration-300"
             style={{
               width: i === step ? 24 : 8,
-              background: i <= step ? 'var(--neon-cyan, #25f6ff)' : 'var(--surface-border)',
-              boxShadow: i <= step ? '0 0 8px rgba(37, 246, 255, 0.3)' : 'none',
+              background: i <= step ? 'var(--neon-cyan, var(--text-body))' : 'var(--surface-border)',
+              boxShadow: i <= step ? '0 0 8px color-mix(in srgb, var(--neon-cyan) 30%, transparent)' : 'none',
             }}
           />
         ))}
@@ -69,7 +69,7 @@ export function RasResetLesson({ onComplete }: Props) {
 
       <h2
         className="relative text-neon-bloom text-xl font-bold leading-tight"
-        style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+        style={{ color: 'var(--text-body)' }}
       >
         {current.headline}
       </h2>
@@ -77,7 +77,7 @@ export function RasResetLesson({ onComplete }: Props) {
       <div className="relative gold-accent-left">
         <p
           className="text-sm leading-relaxed"
-          style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+          style={{ color: 'var(--text-secondary)' }}
         >
           {current.body}
         </p>

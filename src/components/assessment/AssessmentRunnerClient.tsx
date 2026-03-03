@@ -19,15 +19,15 @@ import { haptic } from "@/lib/haptics";
 
 // ── Ray metadata for section dividers ────────────────────────
 const RAY_META: Record<string, { name: string; phase: string; color: string }> = {
-  R1: { name: 'Intention', phase: 'Reconnect', color: '#F4C430' },
-  R2: { name: 'Joy', phase: 'Reconnect', color: '#F4C430' },
-  R3: { name: 'Presence', phase: 'Reconnect', color: '#8E44AD' },
-  R4: { name: 'Power', phase: 'Radiate', color: '#C0392B' },
-  R5: { name: 'Purpose', phase: 'Radiate', color: '#D4770B' },
-  R6: { name: 'Authenticity', phase: 'Radiate', color: '#8E44AD' },
-  R7: { name: 'Connection', phase: 'Become', color: '#1ABC9C' },
-  R8: { name: 'Possibility', phase: 'Become', color: '#1ABC9C' },
-  R9: { name: 'Be The Light', phase: 'Become', color: '#F4C430' },
+  R1: { name: 'Intention', phase: 'Reconnect', color: 'var(--gold-primary)' },
+  R2: { name: 'Joy', phase: 'Reconnect', color: 'var(--gold-primary)' },
+  R3: { name: 'Presence', phase: 'Reconnect', color: 'var(--neon-violet)' },
+  R4: { name: 'Power', phase: 'Radiate', color: 'var(--text-body)' },
+  R5: { name: 'Purpose', phase: 'Radiate', color: 'var(--neon-amber)' },
+  R6: { name: 'Authenticity', phase: 'Radiate', color: 'var(--neon-violet)' },
+  R7: { name: 'Connection', phase: 'Become', color: 'var(--text-body)' },
+  R8: { name: 'Possibility', phase: 'Become', color: 'var(--text-body)' },
+  R9: { name: 'Be The Light', phase: 'Become', color: 'var(--gold-primary)' },
 };
 
 const PHASE_TRANSITIONS: Record<string, { phaseName: string; message: string }> = {
@@ -538,9 +538,9 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
                 }}
                 className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full transition-colors"
                 style={{
-                  background: paginated ? 'rgba(248, 208, 17, 0.15)' : 'rgba(148, 80, 200, 0.2)',
+                  background: paginated ? 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' : 'color-mix(in srgb, var(--stroke-400) 20%, transparent)',
                   color: paginated ? 'var(--brand-gold)' : 'var(--text-on-dark-muted)',
-                  border: `1px solid ${paginated ? 'rgba(248, 208, 17, 0.3)' : 'rgba(148, 80, 200, 0.15)'}`,
+                  border: `1px solid ${paginated ? 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' : 'color-mix(in srgb, var(--stroke-400) 15%, transparent)'}`,
                 }}
                 aria-label={paginated ? 'Switch to scroll mode' : 'Switch to one-at-a-time mode'}
               >
@@ -549,7 +549,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
             </div>
             <span>{progressPct}%</span>
           </div>
-          <div className="mt-1.5 h-2 overflow-hidden rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }}>
+          <div className="mt-1.5 h-2 overflow-hidden rounded-full" style={{ background: 'color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
             <div
               className="h-full rounded-full bg-gradient-to-r from-brand-purple to-brand-gold transition-all duration-300"
               style={{ width: `${progressPct}%` }}
@@ -560,10 +560,10 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
               <span
                 className={`inline-block h-2 w-2 rounded-full${saveStatus === 'saving' || !isOnline ? ' animate-pulse' : ''}`}
                 style={{
-                  background: !isOnline ? '#FB923C' :
-                    saveStatus === 'saved' ? '#22C55E' :
+                  background: !isOnline ? 'var(--neon-amber)' :
+                    saveStatus === 'saved' ? 'var(--ray-authenticity)' :
                     saveStatus === 'saving' ? 'var(--brand-gold)' :
-                    '#F43F5E',
+                    'var(--text-body)',
                 }}
               />
               <span className="text-[11px]" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -579,9 +579,9 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
         <div
           className="mb-4 rounded-xl px-5 py-4 text-center transition-opacity duration-500"
           style={{
-            background: 'linear-gradient(135deg, rgba(248, 208, 17, 0.12) 0%, rgba(96, 5, 141, 0.15) 100%)',
-            border: '1px solid rgba(248, 208, 17, 0.3)',
-            boxShadow: '0 0 24px rgba(248, 208, 17, 0.1)',
+            background: 'linear-gradient(135deg, color-mix(in srgb, var(--gold-primary) 12%, transparent) 0%, color-mix(in srgb, var(--violet-650) 15%, transparent) 100%)',
+            border: '1px solid color-mix(in srgb, var(--gold-primary) 30%, transparent)',
+            boxShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 10%, transparent)',
             animation: 'milestonePopIn 400ms ease-out',
           }}
         >
@@ -659,7 +659,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
                 <div
                   className="mb-3 flex items-center gap-3 rounded-xl px-4 py-3"
                   style={{
-                    background: 'rgba(96, 5, 141, 0.2)',
+                    background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
                     borderLeft: `3px solid ${meta.color}`,
                   }}
                 >
@@ -738,9 +738,9 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
                     disabled={pageIdx === 0}
                     className="text-xs font-medium px-3 py-1.5 rounded-lg transition-colors"
                     style={{
-                      background: 'rgba(96, 5, 141, 0.2)',
+                      background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
                       color: pageIdx === 0 ? 'var(--text-on-dark-muted)' : 'var(--text-on-dark-secondary)',
-                      border: '1px solid rgba(148, 80, 200, 0.15)',
+                      border: '1px solid color-mix(in srgb, var(--stroke-400) 15%, transparent)',
                       opacity: pageIdx === 0 ? 0.4 : 1,
                     }}
                   >
@@ -755,9 +755,9 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
                     disabled={pageIdx >= runQuestions.length - 1}
                     className="text-xs font-medium px-3 py-1.5 rounded-lg transition-colors"
                     style={{
-                      background: 'rgba(96, 5, 141, 0.2)',
+                      background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
                       color: pageIdx >= runQuestions.length - 1 ? 'var(--text-on-dark-muted)' : 'var(--text-on-dark-secondary)',
-                      border: '1px solid rgba(148, 80, 200, 0.15)',
+                      border: '1px solid color-mix(in srgb, var(--stroke-400) 15%, transparent)',
                       opacity: pageIdx >= runQuestions.length - 1 ? 0.4 : 1,
                     }}
                   >

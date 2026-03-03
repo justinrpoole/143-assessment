@@ -156,7 +156,7 @@ const CATEGORY_LABELS: Record<string, { label: string; color: string }> = {
   protect: { label: 'Protect', color: rayHex('R8') },    // possibility — boundaries
   connect: { label: 'Connect', color: rayHex('R7') },    // connection — relationship
   practice: { label: 'Practice', color: rayHex('R5') },  // purpose — meaning
-  release: { label: 'Release', color: '#C39BD3' },       // aurora-pink — letting go
+  release: { label: 'Release', color: 'var(--text-secondary)' },       // aurora-pink — letting go
 };
 
 const QUALITY_OPTIONS = [
@@ -247,8 +247,8 @@ function toolByKey(key: string) {
 }
 
 function qualityGlow(q: number | null) {
-  if (q === 3) return 'shadow-[0_0_8px_rgba(248,208,17,0.4)]';
-  if (q === 2) return 'shadow-[0_0_8px_rgba(96,5,141,0.4)]';
+  if (q === 3) return 'shadow-[0_0_8px_color-mix(in srgb, var(--gold-primary) 40%, transparent)]';
+  if (q === 2) return 'shadow-[0_0_8px_color-mix(in srgb, var(--violet-650) 40%, transparent)]';
   return '';
 }
 
@@ -507,7 +507,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         className="space-y-6 max-w-lg mx-auto"
       >
         <div className="glass-card p-8 text-center space-y-4"
-          style={{ borderColor: 'rgba(248, 208, 17, 0.3)', boxShadow: '0 0 40px rgba(248, 208, 17, 0.08)' }}
+          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)', boxShadow: '0 0 40px color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}
         >
           <motion.div
             initial={shouldAnimate ? { scale: 0 } : false}
@@ -542,7 +542,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
           {/* Full REPS responses */}
           {receipt.recognition && (
-            <div className="glass-card p-4 space-y-3 text-left" style={{ borderColor: 'rgba(96, 5, 141, 0.3)' }}>
+            <div className="glass-card p-4 space-y-3 text-left" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
               {REPS_STEPS.map((step, i) => {
                 const text = [receipt.recognition, receipt.encouragement, receipt.performance, receipt.sustainability][i];
                 if (!text) return null;
@@ -557,7 +557,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                   </div>
                 );
               })}
-              <p className="text-xs mt-2 font-medium" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              <p className="text-xs mt-2 font-medium" style={{ color: 'var(--gold-primary)' }}>
                 Your brain expected one thing. You did another. That&apos;s how the model updates.
               </p>
             </div>
@@ -565,7 +565,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
           {/* RAS feedback based on quality */}
           {qualityOpt && !receipt.recognition && (
-            <div className="glass-card p-4 mt-4" style={{ borderColor: 'rgba(96, 5, 141, 0.3)' }}>
+            <div className="glass-card p-4 mt-4" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
               <p className="text-xs italic" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 {qualityOpt.rasNote}
               </p>
@@ -573,7 +573,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
           )}
 
           {receipt.reflection_note && (
-            <div className="glass-card p-4" style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}>
+            <div className="glass-card p-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
               <p className="text-xs uppercase tracking-widest mb-2"
                 style={{ color: rayHex('R4') }}>
                 Your reflection
@@ -605,9 +605,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
             animate={{ opacity: 1 }}
             transition={{ delay: shouldAnimate ? 0.6 : 0, duration: shouldAnimate ? undefined : 0 }}
             className="glass-card p-4 text-center"
-            style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}
+            style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}
           >
-            <p className="text-lg font-bold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <p className="text-lg font-bold" style={{ color: 'var(--gold-primary)' }}>
               🔥 {summary.streak_days} day{summary.streak_days !== 1 ? 's' : ''} in a row
             </p>
             <p className="text-xs mt-1" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -625,7 +625,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
           <div className="text-center">
             <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
               🎯 {summary.total_count} total reps.{' '}
-              <a href="/weekly" className="underline" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+              <a href="/weekly" className="underline" style={{ color: 'var(--gold-primary)' }}>
                 Time for a weekly review?
               </a>
             </p>
@@ -651,7 +651,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
             exit={shouldAnimate ? { opacity: 0, x: -20 } : undefined}
             transition={{ duration: shouldAnimate ? 0.2 : 0 }}
             className="glass-card p-6 space-y-5"
-            style={{ borderColor: 'rgba(96, 5, 141, 0.3)' }}
+            style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}
           >
             {/* Progress */}
             <div className="flex items-center justify-between">
@@ -664,7 +664,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                     key={i}
                     className="h-1.5 w-6 rounded-full transition-colors duration-200"
                     style={{
-                      backgroundColor: i <= repsStep ? 'var(--brand-gold)' : 'rgba(255,255,255,0.1)',
+                      backgroundColor: i <= repsStep ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--text-body) 10%, transparent)',
                     }}
                   />
                 ))}
@@ -706,7 +706,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
               maxLength={2000}
               className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40 resize-none"
               style={{
-                background: 'rgba(255,255,255,0.06)',
+                background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                 border: '1px solid var(--surface-border)',
                 color: 'var(--text-on-dark)',
               }}
@@ -759,9 +759,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
         {error && (
           <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
-            style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
+            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
           >
-            <p className="text-sm" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+            <p className="text-sm" style={{ color: 'var(--ray-power)' }}>{humanizeError(error)}</p>
             <button type="button" onClick={() => setError(null)} className="btn-primary text-xs py-1.5 px-4 flex-shrink-0">
               Dismiss
             </button>
@@ -782,7 +782,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         transition={{ duration: shouldAnimate ? undefined : 0 }}
         className="space-y-6 max-w-lg mx-auto"
       >
-        <div className="glass-card p-6 space-y-5" style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}>
+        <div className="glass-card p-6 space-y-5" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
           {/* Summary of R-E-P-S */}
           <div className="space-y-3">
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
@@ -790,7 +790,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
             </p>
             {REPS_STEPS.map((step, i) => (
               <div key={step.id}>
-                <p className="text-xs font-semibold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                <p className="text-xs font-semibold" style={{ color: 'var(--gold-primary)' }}>
                   {step.letter} &mdash; {step.label}
                 </p>
                 <p className="text-sm italic" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -812,9 +812,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                 onClick={() => setRepsToolKey(null)}
                 className="px-3 py-1.5 rounded-full text-xs font-medium transition-all"
                 style={{
-                  background: !repsToolKey ? 'var(--brand-gold, #F8D011)' : 'rgba(255,255,255,0.06)',
-                  color: !repsToolKey ? '#020202' : 'var(--text-on-dark-muted)',
-                  border: `1px solid ${!repsToolKey ? 'var(--brand-gold, #F8D011)' : 'var(--surface-border)'}`,
+                  background: !repsToolKey ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+                  color: !repsToolKey ? 'var(--ink-950)' : 'var(--text-on-dark-muted)',
+                  border: `1px solid ${!repsToolKey ? 'var(--gold-primary)' : 'var(--surface-border)'}`,
                 }}
               >
                 None / General
@@ -828,9 +828,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                     onClick={() => setRepsToolKey(active ? null : tool.key)}
                     className="px-3 py-1.5 rounded-full text-xs font-medium transition-all"
                     style={{
-                      background: active ? 'rgba(96, 5, 141, 0.3)' : 'rgba(255,255,255,0.06)',
+                      background: active ? 'color-mix(in srgb, var(--violet-650) 30%, transparent)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                       color: active ? 'var(--text-on-dark)' : 'var(--text-on-dark-muted)',
-                      border: `1px solid ${active ? '#60058D' : 'var(--surface-border)'}`,
+                      border: `1px solid ${active ? 'var(--text-body)' : 'var(--surface-border)'}`,
                     }}
                   >
                     {tool.emoji} {tool.name}
@@ -854,11 +854,11 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                     type="button"
                     onClick={() => setRepsQuality(opt.value)}
                     className={`w-full text-left rounded-xl border px-4 py-3 transition-all ${
-                      active ? 'shadow-[0_0_12px_rgba(96,5,141,0.2)]' : ''
+                      active ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 20%, transparent)]' : ''
                     }`}
                     style={{
-                      background: active ? 'rgba(96, 5, 141, 0.2)' : 'rgba(255,255,255,0.03)',
-                      borderColor: active ? '#60058D' : 'var(--surface-border)',
+                      background: active ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+                      borderColor: active ? 'var(--text-body)' : 'var(--surface-border)',
                     }}
                   >
                     <div className="flex items-center gap-2">
@@ -897,9 +897,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
         {error && (
           <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
-            style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
+            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
           >
-            <p className="text-sm" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+            <p className="text-sm" style={{ color: 'var(--ray-power)' }}>{humanizeError(error)}</p>
             <button type="button" onClick={() => setError(null)} className="btn-primary text-xs py-1.5 px-4 flex-shrink-0">
               Dismiss
             </button>
@@ -922,9 +922,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
           onClick={() => handleModeChange('full')}
           className="px-4 py-2 rounded-full text-sm font-medium transition-all"
           style={{
-            background: mode === 'full' ? 'var(--brand-gold, #F8D011)' : 'rgba(255,255,255,0.06)',
-            color: mode === 'full' ? '#020202' : 'var(--text-on-dark-muted)',
-            border: `1px solid ${mode === 'full' ? 'var(--brand-gold, #F8D011)' : 'var(--surface-border)'}`,
+            background: mode === 'full' ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+            color: mode === 'full' ? 'var(--ink-950)' : 'var(--text-on-dark-muted)',
+            border: `1px solid ${mode === 'full' ? 'var(--gold-primary)' : 'var(--surface-border)'}`,
           }}
         >
           Full REPS
@@ -934,9 +934,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
           onClick={() => handleModeChange('quick')}
           className="px-4 py-2 rounded-full text-sm font-medium transition-all"
           style={{
-            background: mode === 'quick' ? 'var(--brand-gold, #F8D011)' : 'rgba(255,255,255,0.06)',
-            color: mode === 'quick' ? '#020202' : 'var(--text-on-dark-muted)',
-            border: `1px solid ${mode === 'quick' ? 'var(--brand-gold, #F8D011)' : 'var(--surface-border)'}`,
+            background: mode === 'quick' ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+            color: mode === 'quick' ? 'var(--ink-950)' : 'var(--text-on-dark-muted)',
+            border: `1px solid ${mode === 'quick' ? 'var(--gold-primary)' : 'var(--surface-border)'}`,
           }}
         >
           Quick Log
@@ -948,7 +948,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
       {/* Full REPS start card (when mode is full and step is -1) */}
       {mode === 'full' && (
-        <div className="glass-card p-6 space-y-4" style={{ borderColor: 'rgba(248, 208, 17, 0.2)', boxShadow: '0 0 20px rgba(248, 208, 17, 0.06)' }}>
+        <div className="glass-card p-6 space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)', boxShadow: '0 0 20px color-mix(in srgb, var(--gold-primary) 6%, transparent)' }}>
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
             Recognition &bull; Encouragement &bull; Performance &bull; Sustainability
           </p>
@@ -968,7 +968,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
       {/* RAS science framing — collapsible for repeat users (Quick Log only) */}
       {mode === 'quick' && (
-      <div className="glass-card p-5 space-y-3" style={{ borderColor: 'rgba(96, 5, 141, 0.3)' }}>
+      <div className="glass-card p-5 space-y-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
         <button
           type="button"
           onClick={() => setShowScience((v) => !v)}
@@ -999,7 +999,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                 Your brain runs on prediction. It constantly asks: &ldquo;Based on who I think I am&hellip; what usually happens next?&rdquo;
               </p>
               <p className="text-sm mt-2 leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                When you perform a new behavior — speak up, set a boundary, show up scared, finish the workout, say the thing — you create a <span style={{ color: 'var(--brand-gold, #F8D011)' }} className="font-semibold">prediction error</span>. Your brain expected &ldquo;I can&apos;t.&rdquo; Reality shows &ldquo;You did.&rdquo; That gap rewires your model.
+                When you perform a new behavior — speak up, set a boundary, show up scared, finish the workout, say the thing — you create a <span style={{ color: 'var(--gold-primary)' }} className="font-semibold">prediction error</span>. Your brain expected &ldquo;I can&apos;t.&rdquo; Reality shows &ldquo;You did.&rdquo; That gap rewires your model.
               </p>
               <p className="text-sm mt-2 leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 Over time: repetition + success = identity upgrade. Your brain believes what you repeatedly prove.
@@ -1023,9 +1023,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
             <p className="text-xs mt-1" style={{ color: 'var(--text-on-dark-muted)' }}>reps this week</p>
           </div>
           <div className="glass-card p-4 text-center"
-            style={summary.streak_days >= 3 ? { borderColor: 'rgba(248, 208, 17, 0.3)' } : {}}
+            style={summary.streak_days >= 3 ? { borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' } : {}}
           >
-            <p className="text-2xl font-bold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <p className="text-2xl font-bold" style={{ color: 'var(--gold-primary)' }}>
               {summary.streak_days > 0 ? `🔥 ${summary.streak_days}` : '—'}
             </p>
             <p className="text-xs mt-1" style={{ color: 'var(--text-on-dark-muted)' }}>day streak</p>
@@ -1041,7 +1041,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
       {/* Most practiced insight (Quick Log only) */}
       {mode === 'quick' && !loading && summary?.most_practiced_tool && summary.total_count >= 5 && (
-        <div className="glass-card p-3 flex items-center gap-3" style={{ borderColor: 'rgba(96, 5, 141, 0.2)' }}>
+        <div className="glass-card p-3 flex items-center gap-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
           <span className="text-lg">{toolByKey(summary.most_practiced_tool)?.emoji ?? '🔧'}</span>
           <div className="flex-1 min-w-0">
             <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -1062,15 +1062,15 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
       <form
         onSubmit={handleSubmit}
         className="glass-card p-6 space-y-6"
-        style={{ borderColor: 'rgba(96, 5, 141, 0.2)' }}
+        style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}
       >
         <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Log a rep</h2>
 
         {error && (
           <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
-            style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
+            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
           >
-            <p className="text-sm" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+            <p className="text-sm" style={{ color: 'var(--ray-power)' }}>{humanizeError(error)}</p>
             <button type="button" onClick={() => setError(null)} className="btn-primary text-xs py-1.5 px-4 flex-shrink-0">
               Dismiss
             </button>
@@ -1088,9 +1088,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
               onClick={() => setCategoryFilter(null)}
               className="px-3 py-1.5 rounded-full text-xs font-medium transition-all"
               style={{
-                background: !categoryFilter ? 'var(--brand-gold, #F8D011)' : 'rgba(255,255,255,0.06)',
-                color: !categoryFilter ? '#020202' : 'var(--text-on-dark-muted)',
-                border: `1px solid ${!categoryFilter ? 'var(--brand-gold, #F8D011)' : 'var(--surface-border)'}`,
+                background: !categoryFilter ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+                color: !categoryFilter ? 'var(--ink-950)' : 'var(--text-on-dark-muted)',
+                border: `1px solid ${!categoryFilter ? 'var(--gold-primary)' : 'var(--surface-border)'}`,
               }}
             >
               All
@@ -1105,9 +1105,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                   onClick={() => setCategoryFilter(active ? null : cat)}
                   className="px-3 py-1.5 rounded-full text-xs font-medium transition-all"
                   style={{
-                    background: active ? `${meta?.color ?? '#60058D'}22` : 'rgba(255,255,255,0.06)',
+                    background: active ? `${meta?.color ?? 'var(--text-body)'}22` : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                     color: active ? meta?.color ?? 'var(--text-on-dark)' : 'var(--text-on-dark-muted)',
-                    border: `1px solid ${active ? `${meta?.color ?? '#60058D'}66` : 'var(--surface-border)'}`,
+                    border: `1px solid ${active ? `${meta?.color ?? 'var(--text-body)'}66` : 'var(--surface-border)'}`,
                   }}
                 >
                   {meta?.label ?? cat}
@@ -1127,11 +1127,11 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                   type="button"
                   onClick={() => setToolKey(tool.key)}
                   className={`text-left rounded-xl border px-4 py-3 transition-all ${
-                    isSelected ? 'shadow-[0_0_12px_rgba(96,5,141,0.3)]' : ''
+                    isSelected ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]' : ''
                   }`}
                   style={{
-                    background: isSelected ? 'rgba(96, 5, 141, 0.2)' : 'rgba(255,255,255,0.03)',
-                    borderColor: isSelected ? '#60058D' : 'var(--surface-border)',
+                    background: isSelected ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+                    borderColor: isSelected ? 'var(--text-body)' : 'var(--surface-border)',
                   }}
                 >
                   <div className="flex items-center justify-between">
@@ -1141,7 +1141,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                     <span className="flex items-center gap-2">
                       <span className="text-[10px] px-2 py-0.5 rounded-full"
                         style={{
-                          background: `${catMeta?.color ?? '#60058D'}22`,
+                          background: `${catMeta?.color ?? 'var(--text-body)'}22`,
                           color: catMeta?.color ?? 'var(--text-on-dark-muted)',
                         }}
                       >
@@ -1170,12 +1170,12 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                 exit={shouldAnimate ? { opacity: 0, y: -4 } : undefined}
                 transition={{ duration: shouldAnimate ? 0.15 : 0 }}
                 className="glass-card p-3 mt-2 space-y-1"
-                style={{ borderColor: 'rgba(96, 5, 141, 0.2)' }}
+                style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}
               >
                 <p className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
                   💡 {selectedTool.science}
                 </p>
-                <p className="text-xs font-medium" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                <p className="text-xs font-medium" style={{ color: 'var(--gold-primary)' }}>
                   🧠 {selectedTool.rasHook}
                 </p>
               </motion.div>
@@ -1207,9 +1207,9 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                   }}
                   className="px-4 py-2 rounded-full text-sm border transition-all"
                   style={{
-                    background: active ? '#60058D' : 'transparent',
-                    color: active ? '#FFFEF5' : 'var(--text-on-dark-secondary)',
-                    borderColor: active ? '#60058D' : 'var(--surface-border)',
+                    background: active ? 'var(--text-body)' : 'transparent',
+                    color: active ? 'var(--text-body)' : 'var(--text-on-dark-secondary)',
+                    borderColor: active ? 'var(--text-body)' : 'var(--surface-border)',
                   }}
                 >
                   {opt.label}
@@ -1225,7 +1225,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
               onChange={(e) => setCustomMinutes(e.target.value)}
               className="mt-2 w-32 rounded-md px-3 py-2 text-sm focus:outline-none"
               style={{
-                background: 'rgba(255,255,255,0.06)',
+                background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                 border: '1px solid var(--surface-border)',
                 color: 'var(--text-on-dark)',
               }}
@@ -1249,11 +1249,11 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                   type="button"
                   onClick={() => setQuality(opt.value)}
                   className={`w-full text-left rounded-xl border px-4 py-3 transition-all ${
-                    active ? 'shadow-[0_0_12px_rgba(96,5,141,0.2)]' : ''
+                    active ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 20%, transparent)]' : ''
                   }`}
                   style={{
-                    background: active ? 'rgba(96, 5, 141, 0.2)' : 'rgba(255,255,255,0.03)',
-                    borderColor: active ? '#60058D' : 'var(--surface-border)',
+                    background: active ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+                    borderColor: active ? 'var(--text-body)' : 'var(--surface-border)',
                   }}
                 >
                   <div className="flex items-center gap-2">
@@ -1293,7 +1293,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
             maxLength={2000}
             className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40 resize-none transition-colors"
             style={{
-              background: 'rgba(255,255,255,0.06)',
+              background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
               border: '1px solid var(--surface-border)',
               color: 'var(--text-on-dark)',
             }}
@@ -1329,7 +1329,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         {loading ? (
           <div className="glass-card p-6 text-center">
             <div className="inline-block w-5 h-5 border-2 rounded-full animate-spin"
-              style={{ borderColor: 'var(--surface-border)', borderTopColor: 'var(--brand-gold, #F8D011)' }}
+              style={{ borderColor: 'var(--surface-border)', borderTopColor: 'var(--gold-primary)' }}
             />
           </div>
         ) : history.length === 0 ? (
@@ -1357,7 +1357,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                   <div
                     className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                     style={{
-                      background: rep.quality === 3 ? 'var(--brand-gold)' : rep.quality === 2 ? '#60058D' : 'var(--surface-border)',
+                      background: rep.quality === 3 ? 'var(--brand-gold)' : rep.quality === 2 ? 'var(--text-body)' : 'var(--surface-border)',
                     }}
                   />
                   <div className="flex-1 min-w-0">

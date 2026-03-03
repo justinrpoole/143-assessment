@@ -23,11 +23,11 @@ interface RayDelta {
 const RAY_ORDER = ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9'];
 
 function deltaColor(delta: number): string {
-  if (delta >= 5) return '#34D399';     // Strong improvement
-  if (delta > 0) return '#86EFAC';      // Mild improvement
+  if (delta >= 5) return 'var(--neon-teal)';     // Strong improvement
+  if (delta > 0) return 'var(--text-body)';      // Mild improvement
   if (delta === 0) return 'var(--text-on-dark-muted)';
-  if (delta > -5) return '#FCA5A5';     // Mild decline
-  return '#F87171';                      // Notable decline
+  if (delta > -5) return 'var(--ray-power)';     // Mild decline
+  return 'var(--ray-power)';                      // Notable decline
 }
 
 function deltaArrow(delta: number): string {
@@ -106,9 +106,9 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
               onChange={(e) => setBeforeIdx(Number(e.target.value))}
               className="text-xs rounded-lg px-2 py-1"
               style={{
-                background: 'rgba(96, 5, 141, 0.3)',
+                background: 'color-mix(in srgb, var(--violet-650) 30%, transparent)',
                 color: 'var(--text-on-dark-secondary)',
-                border: '1px solid rgba(148, 80, 200, 0.2)',
+                border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)',
               }}
             >
               {runs.map((run, i) => (
@@ -128,9 +128,9 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
               onChange={(e) => setAfterIdx(Number(e.target.value))}
               className="text-xs rounded-lg px-2 py-1"
               style={{
-                background: 'rgba(96, 5, 141, 0.3)',
+                background: 'color-mix(in srgb, var(--violet-650) 30%, transparent)',
                 color: 'var(--text-on-dark-secondary)',
-                border: '1px solid rgba(148, 80, 200, 0.2)',
+                border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)',
               }}
             >
               {runs.map((run, i) => (
@@ -146,7 +146,7 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
       {/* Overall summary card */}
       <div
         className="glass-card p-4"
-        style={{ borderColor: overallDelta >= 0 ? 'rgba(52, 211, 153, 0.25)' : 'rgba(248, 113, 113, 0.25)' }}
+        style={{ borderColor: overallDelta >= 0 ? 'var(--surface-border)' : 'var(--surface-border)' }}
       >
         <div className="flex items-center justify-between">
           <div>
@@ -162,7 +162,7 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
               {improved} rays up &middot; {declined} rays down
             </p>
             {biggestGain && biggestGain.delta > 0 && (
-              <p className="text-xs" style={{ color: '#34D399' }}>
+              <p className="text-xs" style={{ color: 'var(--neon-teal)' }}>
                 Biggest gain: {biggestGain.name} (+{biggestGain.delta.toFixed(1)})
               </p>
             )}
@@ -188,7 +188,7 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
                     className="absolute top-0 left-0 h-1.5 rounded-full"
                     style={{
                       width: `${Math.min(d.before, 100)}%`,
-                      background: 'rgba(148, 80, 200, 0.35)',
+                      background: 'color-mix(in srgb, var(--stroke-400) 35%, transparent)',
                     }}
                   />
                   {/* After bar (colored by delta) */}
@@ -197,8 +197,8 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
                     style={{
                       width: `${Math.min(d.after, 100)}%`,
                       background: d.delta >= 0
-                        ? 'linear-gradient(90deg, rgba(52, 211, 153, 0.6) 0%, rgba(52, 211, 153, 0.9) 100%)'
-                        : 'linear-gradient(90deg, rgba(248, 113, 113, 0.6) 0%, rgba(248, 113, 113, 0.9) 100%)',
+                        ? 'linear-gradient(90deg, var(--surface-border) 0%, var(--surface-border) 100%)'
+                        : 'linear-gradient(90deg, var(--surface-border) 0%, var(--surface-border) 100%)',
                     }}
                   />
                 </div>
@@ -228,13 +228,13 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
       {/* Legend */}
       <div className="flex items-center justify-center gap-4">
         <div className="flex items-center gap-1.5">
-          <div className="h-1.5 w-4 rounded-full" style={{ background: 'rgba(148, 80, 200, 0.35)' }} />
+          <div className="h-1.5 w-4 rounded-full" style={{ background: 'color-mix(in srgb, var(--stroke-400) 35%, transparent)' }} />
           <span className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
             Run #{beforeRun.run_number} ({formatDate(beforeRun.completed_at)})
           </span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="h-1.5 w-4 rounded-full" style={{ background: 'rgba(52, 211, 153, 0.7)' }} />
+          <div className="h-1.5 w-4 rounded-full" style={{ background: 'var(--surface-border)' }} />
           <span className="text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
             Run #{afterRun.run_number} ({formatDate(afterRun.completed_at)})
           </span>

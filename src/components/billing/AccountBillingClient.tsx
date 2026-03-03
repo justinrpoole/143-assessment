@@ -53,10 +53,10 @@ export function AccountBillingClient({
 
   return (
     <section className="glass-card p-6 sm:p-8 space-y-4">
-      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Billing</p>
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>Billing</p>
       <h2 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Manage Your Subscription</h2>
       <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-        Current plan: <code className="rounded px-1.5 py-0.5 text-xs" style={{ background: 'rgba(96, 5, 141, 0.25)', color: 'var(--text-on-dark)' }}>{userState}</code>
+        Current plan: <code className="rounded px-1.5 py-0.5 text-xs" style={{ background: 'color-mix(in srgb, var(--violet-650) 25%, transparent)', color: 'var(--text-on-dark)' }}>{userState}</code>
       </p>
       {error ? (
         <p className="mt-3 text-sm text-rose-700" role="alert">

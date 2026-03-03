@@ -93,7 +93,7 @@ export default function CoachQuestion({ rayId, bottomRayId }: Props) {
         </p>
         <span
           className="text-[10px] rounded-full px-2 py-0.5 font-medium"
-          style={{ background: 'rgba(248, 208, 17, 0.12)', color: 'var(--brand-gold)' }}
+          style={{ background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)', color: 'var(--brand-gold)' }}
         >
           {rayName}
         </span>

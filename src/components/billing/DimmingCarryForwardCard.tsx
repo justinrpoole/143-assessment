@@ -40,16 +40,16 @@ export default function DimmingCarryForwardCard() {
   return (
     <div
       className="glass-card mb-6 p-5"
-      style={{ borderLeft: '3px solid var(--brand-gold, #F8D011)' }}
+      style={{ borderLeft: '3px solid var(--gold-primary)' }}
     >
-      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
         Your Stability Check Result
       </p>
-      <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
-        Your check found <strong style={{ color: 'var(--brand-gold, #F8D011)' }}>{result.level.toLowerCase()}</strong> eclipse
+      <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-body)' }}>
+        Your check found <strong style={{ color: 'var(--gold-primary)' }}>{result.level.toLowerCase()}</strong> eclipse
         on <strong>{result.primaryRayName}</strong> — {levelText}.
       </p>
-      <p className="mt-2 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
+      <p className="mt-2 text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
         Start with your baseline, then unlock the full assessment for the deeper map and what to do first.
       </p>
     </div>

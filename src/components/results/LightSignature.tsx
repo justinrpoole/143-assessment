@@ -19,7 +19,7 @@ export default function LightSignature({ lightSignature }: Props) {
           <div
             className="px-6 py-8 text-center"
             style={{
-              background: 'linear-gradient(135deg, var(--bg-deep-mid) 0%, rgba(114, 21, 184, 0.30) 50%, var(--bg-deep) 100%)',
+              background: 'linear-gradient(135deg, var(--bg-deep-mid) 0%, var(--surface-border) 50%, var(--bg-deep) 100%)',
               borderBottom: '1px solid var(--surface-border)',
             }}
           >
@@ -81,7 +81,7 @@ export default function LightSignature({ lightSignature }: Props) {
           return (
           <div key={ray.ray_id} className="glass-card p-5" style={{ borderLeft: `3px solid ${rc}60` }}>
             <div className="flex items-center gap-2 mb-2">
-              <span style={{ color: rc, fontSize: '18px' }}>&#9733;</span>
+              <span style={{ color: rc, fontSize: '18px' }}>&var(--text-body);</span>
               <h4 className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>
                 {ray.ray_name} — {RAY_VERBS[ray.ray_id] || ''}
               </h4>
@@ -110,7 +110,7 @@ export default function LightSignature({ lightSignature }: Props) {
 
       {/* Under load / stress distortion */}
       {archetype?.stress_distortion && (
-        <div className="rounded-xl p-5" style={{ background: 'rgba(255, 207, 0, 0.06)', border: '1px solid rgba(255, 207, 0, 0.12)' }}>
+        <div className="rounded-xl p-5" style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
           <h3 className="text-sm font-semibold mb-1" style={{ color: 'var(--brand-gold)' }}>Under Load — What to Watch For</h3>
           <p className="text-xs mb-2 italic" style={{ color: 'var(--text-on-dark-muted)' }}>
             This is not a problem. It is the leading edge of your strength under pressure. Naming it is the rep.
@@ -147,7 +147,7 @@ export default function LightSignature({ lightSignature }: Props) {
 
       {/* Reflection Prompts from Archetype */}
       {archetype?.reflection_prompts && (
-        <div className="rounded-xl p-5" style={{ background: 'rgba(96, 5, 141, 0.12)', border: '1px solid rgba(148, 80, 200, 0.2)' }}>
+        <div className="rounded-xl p-5" style={{ background: 'color-mix(in srgb, var(--violet-650) 12%, transparent)', border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)' }}>
           <p className="text-xs uppercase tracking-wider mb-2" style={{ color: 'var(--brand-gold)' }}>Archetype Reflections</p>
           <p className="text-sm italic" style={{ color: 'var(--text-on-dark-secondary)' }}>{archetype.reflection_prompts}</p>
         </div>

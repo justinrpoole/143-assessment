@@ -56,10 +56,10 @@ const RAY_NAMES: Record<string, string> = {
 };
 
 const DIRECTION_LABELS: Record<string, { label: string; color: string }> = {
-  accelerating: { label: "Accelerating", color: "#22c55e" },
-  steady: { label: "Steady", color: "#F8D011" },
-  plateau: { label: "Plateau", color: "rgba(255,255,255,0.4)" },
-  declining: { label: "Declining", color: "#ef4444" },
+  accelerating: { label: "Accelerating", color: "var(--text-body)" },
+  steady: { label: "Steady", color: "var(--gold-primary)" },
+  plateau: { label: "Plateau", color: "color-mix(in srgb, var(--text-body) 40%, transparent)" },
+  declining: { label: "Declining", color: "var(--text-body)" },
 };
 
 /* ── Component ─────────────────────────────────────────────── */
@@ -119,13 +119,13 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
       <div className="glass-card p-6 text-center space-y-3">
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: "var(--brand-gold, #F8D011)" }}
+          style={{ color: "var(--gold-primary)" }}
         >
           Light Trajectory
         </p>
         <p
           className="text-sm leading-relaxed"
-          style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+          style={{ color: "var(--text-muted)" }}
         >
           Complete your second assessment to unlock trajectory tracking.
           One data point shows where you are. Two show where you are headed.
@@ -143,13 +143,13 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
       <div className="space-y-2">
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: "var(--brand-gold, #F8D011)" }}
+          style={{ color: "var(--gold-primary)" }}
         >
           Light Trajectory
         </p>
         <p
           className="text-sm leading-relaxed"
-          style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+          style={{ color: "var(--text-secondary)" }}
         >
           Not just where you are — where you are headed.
         </p>
@@ -170,7 +170,7 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
               className="glass-card p-3 text-left transition-all"
               style={{
                 borderColor: isSelected
-                  ? "var(--brand-gold, #F8D011)"
+                  ? "var(--gold-primary)"
                   : "transparent",
                 borderWidth: "1px",
                 borderStyle: "solid",
@@ -179,7 +179,7 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
               <div className="flex items-center justify-between">
                 <span
                   className="text-xs font-bold"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: "var(--gold-primary)" }}
                 >
                   {t.ray_name}
                 </span>
@@ -197,7 +197,7 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
                 <span
                   className="text-lg font-bold"
                   style={{
-                    color: "var(--text-on-dark, #FFFEF5)",
+                    color: "var(--text-body)",
                     fontFamily: "var(--font-cosmic-display)",
                   }}
                 >
@@ -208,10 +208,10 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
                   style={{
                     color:
                       t.delta > 0
-                        ? "#22c55e"
+                        ? "var(--text-body)"
                         : t.delta < 0
-                          ? "#ef4444"
-                          : "rgba(255,255,255,0.4)",
+                          ? "var(--text-body)"
+                          : "color-mix(in srgb, var(--text-body) 40%, transparent)",
                   }}
                 >
                   {t.delta > 0 ? "+" : ""}
@@ -232,12 +232,12 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
       {active && (
         <div
           className="glass-card p-5 space-y-3"
-          style={{ borderLeft: "3px solid var(--brand-gold, #F8D011)" }}
+          style={{ borderLeft: "3px solid var(--gold-primary)" }}
         >
           <div className="flex items-center justify-between">
             <p
               className="text-sm font-bold"
-              style={{ color: "var(--brand-gold, #F8D011)" }}
+              style={{ color: "var(--gold-primary)" }}
             >
               {active.ray_name} — Detailed Trajectory
             </p>
@@ -263,7 +263,7 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
                 >
                   <span
                     className="w-12 shrink-0 font-medium"
-                    style={{ color: "rgba(255,255,255,0.4)" }}
+                    style={{ color: "color-mix(in srgb, var(--text-body) 40%, transparent)" }}
                   >
                     Run {point.run_number}
                   </span>
@@ -272,12 +272,12 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
                     style={{
                       width: `${Math.max(8, point.net_energy * 0.6)}%`,
                       background:
-                        "linear-gradient(90deg, var(--brand-gold) 0%, rgba(248,208,17,0.3) 100%)",
+                        "linear-gradient(90deg, var(--brand-gold) 0%, color-mix(in srgb, var(--gold-primary) 30%, transparent) 100%)",
                     }}
                   />
                   <span
                     className="w-8 shrink-0 text-right"
-                    style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                    style={{ color: "var(--text-body)" }}
                   >
                     {Math.round(point.net_energy)}
                   </span>
@@ -287,10 +287,10 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
                       style={{
                         color:
                           change > 0
-                            ? "#22c55e"
+                            ? "var(--text-body)"
                             : change < 0
-                              ? "#ef4444"
-                              : "rgba(255,255,255,0.3)",
+                              ? "var(--text-body)"
+                              : "color-mix(in srgb, var(--text-body) 30%, transparent)",
                       }}
                     >
                       {change > 0 ? "+" : ""}
@@ -304,7 +304,7 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
 
           <p
             className="text-xs leading-relaxed italic"
-            style={{ color: "rgba(255,255,255,0.4)" }}
+            style={{ color: "color-mix(in srgb, var(--text-body) 40%, transparent)" }}
           >
             {active.direction === "accelerating" &&
               `${active.ray_name} is gaining momentum. Your practice is landing. Keep going.`}
@@ -350,7 +350,7 @@ function MiniSparkline({ data }: { data: number[] }) {
       <polyline
         points={points}
         fill="none"
-        stroke="#F8D011"
+        stroke="var(--gold-primary)"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

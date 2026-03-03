@@ -124,7 +124,7 @@ export default async function UpgradePage() {
 
   return (
     <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <section className="grid gap-8 md:grid-cols-[1fr,240px] items-center">
@@ -138,7 +138,7 @@ export default async function UpgradePage() {
             </p>
             <h1
               className="text-shimmer text-3xl font-semibold leading-tight sm:text-4xl"
-              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              style={{ color: "var(--text-body)" }}
             >
               The Stability Check showed you something real. The full assessment
               shows you everything.
@@ -146,7 +146,7 @@ export default async function UpgradePage() {
             <p
               className="text-base leading-relaxed max-w-[560px]"
               style={{
-                color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                color: "var(--text-secondary)",
               }}
             >
               143 questions. 15 minutes. Your Light Signature — which two of
@@ -193,7 +193,7 @@ export default async function UpgradePage() {
               </p>
               <h2
                 className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Six deliverables. One sitting. Yours permanently.
               </h2>
@@ -213,7 +213,7 @@ export default async function UpgradePage() {
                       className="text-sm leading-relaxed"
                       style={{
                         color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.70))",
+                          "var(--text-secondary)",
                       }}
                     >
                       {item.body}
@@ -224,13 +224,13 @@ export default async function UpgradePage() {
             </StaggerContainer>
 
             <FadeInSection delay={0.3}>
-              <div className="mx-auto max-w-[600px] space-y-4">
+              <div className="content-wrap--narrow space-y-4">
                 <SunRayDiagram />
                 <p
                   className="text-center text-sm leading-relaxed"
                   style={{
                     color:
-                      "var(--text-on-dark-secondary, rgba(255,255,255,0.70))",
+                      "var(--text-secondary)",
                   }}
                 >
                   9 capacities. 36 subfacets. 3 phases: Reconnect, Radiate,
@@ -256,7 +256,7 @@ export default async function UpgradePage() {
               </p>
               <h2
                 className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Other tools describe you. This one trains you.
               </h2>
@@ -276,7 +276,7 @@ export default async function UpgradePage() {
                       className="text-sm leading-relaxed"
                       style={{
                         color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.70))",
+                          "var(--text-secondary)",
                       }}
                     >
                       {item.body}
@@ -287,7 +287,7 @@ export default async function UpgradePage() {
             </StaggerContainer>
 
             <FadeInSection delay={0.2}>
-              <div className="mx-auto max-w-[520px]">
+              <div className="content-wrap--narrow">
                 <EclipseComparisonGraphic />
               </div>
             </FadeInSection>
@@ -308,7 +308,7 @@ export default async function UpgradePage() {
               </p>
             </div>
 
-            <StaggerContainer className="space-y-4 mx-auto max-w-[640px]">
+            <StaggerContainer className="space-y-4 content-wrap--narrow">
               {TESTIMONIALS.map((t, i) => (
                 <StaggerItem key={t.attribution}>
                   <blockquote
@@ -321,7 +321,7 @@ export default async function UpgradePage() {
                       className="text-sm italic leading-relaxed"
                       style={{
                         color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.70))",
+                          "var(--text-secondary)",
                       }}
                     >
                       &ldquo;{t.quote}&rdquo;
@@ -330,7 +330,7 @@ export default async function UpgradePage() {
                       className="mt-2 text-xs font-medium"
                       style={{
                         color:
-                          "var(--text-on-dark-muted, rgba(255,255,255,0.45))",
+                          "var(--text-muted)",
                       }}
                     >
                       — {t.attribution}
@@ -356,15 +356,15 @@ export default async function UpgradePage() {
               </p>
               <h2
                 className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 One report or ongoing proof. Both keep your history.
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 Cancel the membership anytime. Your data stays. Your map is
@@ -377,15 +377,15 @@ export default async function UpgradePage() {
               <div
                 className="glass-card flex flex-col p-6"
                 style={{
-                  border: "1.5px solid var(--brand-gold, #F8D011)",
-                  boxShadow: "0 0 24px rgba(248,208,17,0.12)",
+                  border: "1.5px solid var(--gold-primary)",
+                  boxShadow: "0 0 24px color-mix(in srgb, var(--gold-primary) 12%, transparent)",
                 }}
               >
                 <span
                   className="mb-3 inline-block self-start rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest"
                   style={{
-                    background: "var(--brand-gold, #F8D011)",
-                    color: "#020202",
+                    background: "var(--gold-primary)",
+                    color: "var(--ink-950)",
                   }}
                 >
                   Most Popular
@@ -398,7 +398,7 @@ export default async function UpgradePage() {
                 </p>
                 <p
                   className="mt-2 text-3xl font-bold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                  style={{ color: "var(--text-body)" }}
                 >
                   $43{" "}
                   <span
@@ -413,7 +413,7 @@ export default async function UpgradePage() {
                     <li
                       key={item}
                       className="flex items-start gap-2 text-sm"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      style={{ color: "var(--text-body)" }}
                     >
                       <CheckIcon />
                       <span>{item}</span>
@@ -432,7 +432,7 @@ export default async function UpgradePage() {
                 </p>
                 <p
                   className="mt-2 text-3xl font-bold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                  style={{ color: "var(--text-body)" }}
                 >
                   $14.33{" "}
                   <span
@@ -447,7 +447,7 @@ export default async function UpgradePage() {
                     <li
                       key={item}
                       className="flex items-start gap-2 text-sm"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      style={{ color: "var(--text-body)" }}
                     >
                       <CheckIcon />
                       <span>{item}</span>
@@ -487,7 +487,7 @@ export default async function UpgradePage() {
           <Link
             href="/pricing"
             className="text-sm font-medium transition-opacity hover:opacity-100"
-            style={{ color: "var(--brand-gold, #F8D011)", opacity: 0.7 }}
+            style={{ color: "var(--gold-primary)", opacity: 0.7 }}
           >
             See all plans and pricing &rarr;
           </Link>
@@ -509,10 +509,10 @@ function CheckIcon() {
       aria-hidden="true"
       className="mt-0.5 shrink-0"
     >
-      <circle cx="8" cy="8" r="7" stroke="#F8D011" strokeWidth="1.5" />
+      <circle cx="8" cy="8" r="7" stroke="var(--gold-primary)" strokeWidth="1.5" />
       <path
         d="M5 8l2 2 4-4"
-        stroke="#F8D011"
+        stroke="var(--gold-primary)"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

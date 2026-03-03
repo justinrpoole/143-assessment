@@ -12,6 +12,12 @@ interface GrowthRun {
   ray_scores: Record<string, number>;
 }
 
+const POS_COLOR = "var(--neon-cyan)";
+const NEG_COLOR = "var(--neon-pink)";
+const CHART_BG = "var(--bg-deep)";
+const CHART_BORDER = "var(--surface-border)";
+const GRID_LINE = "var(--constellation-line)";
+
 function Sparkline({ values, color, width = 90, height = 30 }: { values: number[]; color: string; width?: number; height?: number }) {
   if (values.length < 2) return null;
   const min = Math.min(...values);
@@ -30,7 +36,7 @@ function Sparkline({ values, color, width = 90, height = 30 }: { values: number[
   return (
     <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} aria-hidden="true">
       {[0.25, 0.5, 0.75].map((r) => (
-        <line key={r} x1={0} x2={width} y1={height * r} y2={height * r} stroke="rgba(37,246,255,0.06)" />
+        <line key={r} x1={0} x2={width} y1={height * r} y2={height * r} stroke={GRID_LINE} />
       ))}
       <polyline
         points={points.map((d) => `${d.x},${d.y}`).join(' ')}
@@ -62,29 +68,29 @@ export default function SparklineChart({ runs }: SparklineChartProps) {
   }), [chronological]);
 
   if (chronological.length < 2) {
-    return <p className="text-xs text-center py-3" style={{ color: 'rgba(255,255,255,0.6)' }}>Complete two or more assessments to see score trends.</p>;
+    return <p className="text-xs text-center py-3 text-secondary">Complete two or more assessments to see score trends.</p>;
   }
 
   return (
     <div className="space-y-3">
-      <div className="rounded-xl p-4 relative overflow-hidden" style={{ background: '#060014', border: '1px solid rgba(37,246,255,0.2)', boxShadow: '0 0 18px rgba(37,246,255,0.12)' }}>
-        <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'repeating-linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.22) 3px)' }} />
-        <div className="relative z-10 flex items-center justify-between" style={{ fontFamily: "'Orbitron', var(--font-cosmic-display)" }}>
-          <p className="text-[9px] uppercase tracking-[0.14em]" style={{ color: '#25F6FF', textShadow: '0 0 10px rgba(37,246,255,0.55)' }}>Overall Trend</p>
-          <span className="text-[9px]" style={{ color: 'rgba(37,246,255,0.85)', textShadow: '0 0 8px rgba(37,246,255,0.45)' }}>WEEKLY</span>
+      <div className="rounded-xl p-4 relative overflow-hidden" style={{ background: CHART_BG, border: `1px solid ${CHART_BORDER}`, boxShadow: 'var(--shadow-glow-cyan)' }}>
+        <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'repeating-linear-gradient(180deg, transparent 0px, transparent 2px, color-mix(in srgb, var(--ink-950) 24%, transparent) 3px)' }} />
+        <div className="relative z-10 flex items-center justify-between" style={{ fontFamily: "var(--font-cosmic-display)" }}>
+          <p className="text-[9px] uppercase tracking-[0.14em] text-neon-cyan" style={{ textShadow: "var(--text-glow-cyan)" }}>Overall Trend</p>
+          <span className="text-[9px] text-neon-cyan" style={{ opacity: 0.85, textShadow: "var(--text-glow-cyan)" }}>WEEKLY</span>
         </div>
       </div>
 
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {rayTrends.map((ray) => {
-          const color = ray.delta >= 0 ? '#25F6FF' : '#FF3FB4';
+          const color = ray.delta >= 0 ? POS_COLOR : NEG_COLOR;
           return (
-            <div key={ray.rayId} className="px-3 py-2.5 rounded-xl relative overflow-hidden" style={{ background: '#060014', border: '1px solid rgba(37,246,255,0.2)', boxShadow: '0 0 14px rgba(37,246,255,0.08)' }}>
-              <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'repeating-linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.22) 3px)' }} />
-              <div className="relative z-10 flex items-center justify-between gap-2" style={{ fontFamily: "'Orbitron', var(--font-cosmic-display)" }}>
+            <div key={ray.rayId} className="px-3 py-2.5 rounded-xl relative overflow-hidden" style={{ background: CHART_BG, border: `1px solid ${CHART_BORDER}`, boxShadow: 'var(--shadow-glow-cyan)' }}>
+              <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'repeating-linear-gradient(180deg, transparent 0px, transparent 2px, color-mix(in srgb, var(--ink-950) 24%, transparent) 3px)' }} />
+              <div className="relative z-10 flex items-center justify-between gap-2" style={{ fontFamily: "var(--font-cosmic-display)" }}>
                 <div>
-                  <p className="text-xs uppercase" style={{ color: '#25F6FF', textShadow: '0 0 9px rgba(37,246,255,0.45)' }}>{ray.name}</p>
-                  <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.55)' }}>{ray.first.toFixed(0)} → {ray.last.toFixed(0)}</p>
+                  <p className="text-xs uppercase text-neon-cyan" style={{ textShadow: "var(--text-glow-cyan)" }}>{ray.name}</p>
+                  <p className="text-[9px] text-muted">{ray.first.toFixed(0)} → {ray.last.toFixed(0)}</p>
                 </div>
                 <Sparkline values={ray.values} color={color} width={72} height={24} />
                 <span className="text-[11px] font-bold w-8 text-right" style={{ color, textShadow: `0 0 10px ${color}` }}>

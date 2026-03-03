@@ -69,24 +69,24 @@ export function ToolkitDeliveryClient(_props: ToolkitDeliveryClientProps) {
         <div className="flex items-center gap-3">
           <div
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
-            style={{ background: "rgba(248,208,17,0.15)" }}
+            style={{ background: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 13l4 4L19 7" stroke="#F8D011" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M5 13l4 4L19 7" stroke="var(--gold-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
           <div>
-            <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+            <p className="text-sm font-semibold" style={{ color: "var(--text-body)" }}>
               Your 143 Challenge Kit is confirmed.
             </p>
-            <p className="text-xs" style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}>
+            <p className="text-xs" style={{ color: "var(--text-muted)" }}>
               Check your inbox. The kit is on the way.
             </p>
           </div>
         </div>
         <p
           className="text-sm leading-relaxed"
-          style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+          style={{ color: "var(--text-secondary)" }}
         >
           Start the protocol above while you wait. When you are ready to see
           your full pattern, the Stability Check takes 3 minutes.
@@ -102,7 +102,7 @@ export function ToolkitDeliveryClient(_props: ToolkitDeliveryClientProps) {
     <div className="space-y-4">
       <p
         className="text-sm leading-relaxed"
-        style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+        style={{ color: "var(--text-secondary)" }}
       >
         Enter your email and we will send you the full Challenge Kit —
         daily instructions, the RAS Reset audio guide, printable tracker,
@@ -119,9 +119,9 @@ export function ToolkitDeliveryClient(_props: ToolkitDeliveryClientProps) {
           placeholder="you@company.com"
           className="flex-1 rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
           style={{
-            background: "var(--surface-glass, rgba(255,255,255,0.06))",
-            border: "1px solid var(--surface-border, rgba(255,255,255,0.10))",
-            color: "var(--text-on-dark, #FFFEF5)",
+            background: "var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))",
+            border: "1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))",
+            color: "var(--text-body)",
           }}
           disabled={submitting}
         />

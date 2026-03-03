@@ -46,7 +46,7 @@ export default function StateFirstPage() {
         </div>
         <button onClick={handleContinue}
           className="w-full py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all"
-          style={{background:"linear-gradient(180deg,#FFD35A 0%,#E07800 100%)",color:"#060014",boxShadow:"0 4px 20px rgba(255,211,90,0.4)"}}>
+          style={{background:"linear-gradient(180deg,var(--text-body) 0%,var(--text-body) 100%)",color:"var(--bg-deep)",boxShadow:"0 4px 20px var(--surface-border)"}}>
           Next: Your Tools →
         </button>
         <p className="text-center text-xs" style={{color:"var(--text-on-dark-secondary)"}}>

@@ -176,8 +176,8 @@ function Heatmap({
         const value = valueFor(day);
         const intensity = value / maxValue;
         const bg = value > 0
-          ? `color-mix(in srgb, ${color} ${Math.round(intensity * 100)}%, rgba(255,255,255,0.05))`
-          : "rgba(255,255,255,0.05)";
+          ? `color-mix(in srgb, ${color} ${Math.round(intensity * 100)}%, color-mix(in srgb, var(--text-body) 5%, transparent))`
+          : "color-mix(in srgb, var(--text-body) 5%, transparent)";
         return (
           <div
             key={`heat-${day.date}`}
@@ -219,9 +219,9 @@ function BarRow({
               className="w-full rounded-sm"
               style={{
                 height,
-                background: value > 0 ? accent : "rgba(255,255,255,0.08)",
+                background: value > 0 ? accent : "color-mix(in srgb, var(--text-body) 8%, transparent)",
                 opacity: muted ? 0.45 : 1,
-                boxShadow: value > 0 ? "0 0 8px rgba(248, 208, 17, 0.25)" : "none",
+                boxShadow: value > 0 ? "0 0 8px color-mix(in srgb, var(--gold-primary) 25%, transparent)" : "none",
               }}
               title={`${formatShortDate(day.date)} - ${value}`}
               aria-hidden="true"
@@ -439,10 +439,10 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
   if (loading) {
     return (
       <div className="glass-card p-5 space-y-3 animate-pulse">
-        <div className="h-3 w-40 rounded" style={{ background: "rgba(255,255,255,0.12)" }} />
-        <div className="h-2 w-56 rounded" style={{ background: "rgba(255,255,255,0.08)" }} />
-        <div className="h-14 rounded" style={{ background: "rgba(255,255,255,0.06)" }} />
-        <div className="h-20 rounded" style={{ background: "rgba(255,255,255,0.06)" }} />
+        <div className="h-3 w-40 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 12%, transparent)" }} />
+        <div className="h-2 w-56 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 8%, transparent)" }} />
+        <div className="h-14 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 6%, transparent)" }} />
+        <div className="h-20 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 6%, transparent)" }} />
       </div>
     );
   }
@@ -522,7 +522,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
             value={rangeDays}
             onChange={(e) => setRangeDays(Number(e.target.value))}
             className="ml-2 text-xs rounded-lg px-2 py-1"
-            style={{ background: "rgba(96, 5, 141, 0.3)", color: "var(--text-on-dark-secondary)", border: "1px solid rgba(148, 80, 200, 0.2)" }}
+            style={{ background: "color-mix(in srgb, var(--violet-650) 30%, transparent)", color: "var(--text-on-dark-secondary)", border: "1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)" }}
           >
             {RANGE_OPTIONS.map((option) => (
               <option key={option} value={option}>{option} days</option>
@@ -536,7 +536,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
             value={entryFilter}
             onChange={(e) => setEntryFilter(e.target.value as EntryFilter)}
             className="ml-2 text-xs rounded-lg px-2 py-1"
-            style={{ background: "rgba(96, 5, 141, 0.3)", color: "var(--text-on-dark-secondary)", border: "1px solid rgba(148, 80, 200, 0.2)" }}
+            style={{ background: "color-mix(in srgb, var(--violet-650) 30%, transparent)", color: "var(--text-on-dark-secondary)", border: "1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)" }}
           >
             <option value="all">All entries</option>
             <option value="morning">Morning</option>
@@ -558,7 +558,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
               setEntryTarget(next);
             }}
             className="ml-2 text-xs rounded-lg px-2 py-1 w-16"
-            style={{ background: "rgba(96, 5, 141, 0.3)", color: "var(--text-on-dark-secondary)", border: "1px solid rgba(148, 80, 200, 0.2)" }}
+            style={{ background: "color-mix(in srgb, var(--violet-650) 30%, transparent)", color: "var(--text-on-dark-secondary)", border: "1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)" }}
           />
         </label>
 
@@ -574,7 +574,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
               setLogTarget(next);
             }}
             className="ml-2 text-xs rounded-lg px-2 py-1 w-16"
-            style={{ background: "rgba(96, 5, 141, 0.3)", color: "var(--text-on-dark-secondary)", border: "1px solid rgba(148, 80, 200, 0.2)" }}
+            style={{ background: "color-mix(in srgb, var(--violet-650) 30%, transparent)", color: "var(--text-on-dark-secondary)", border: "1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)" }}
           />
         </label>
 
@@ -612,27 +612,27 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
       </div>
 
       <div className="flex flex-wrap items-center gap-2 text-[11px]" style={{ color: "var(--text-on-dark-muted)" }}>
-        <span className="px-2 py-1 rounded-full" style={{ background: "rgba(248, 208, 17, 0.12)", color: "var(--brand-gold)" }}>
+        <span className="px-2 py-1 rounded-full" style={{ background: "color-mix(in srgb, var(--gold-primary) 12%, transparent)", color: "var(--brand-gold)" }}>
           Impact: {view.mixTag}
         </span>
         <span className="flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full" style={{ background: "rgba(248,208,17,0.9)" }} />
+          <span className="h-2 w-2 rounded-full" style={{ background: "color-mix(in srgb, var(--gold-primary) 90%, transparent)" }} />
           Morning
         </span>
         <span className="flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full" style={{ background: "rgba(52,211,153,0.9)" }} />
+          <span className="h-2 w-2 rounded-full" style={{ background: "var(--surface-border)" }} />
           Micro-Joy
         </span>
         <span className="flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full" style={{ background: "rgba(139,91,255,0.9)" }} />
+          <span className="h-2 w-2 rounded-full" style={{ background: "var(--surface-border)" }} />
           Daily loop
         </span>
         <span className="flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full" style={{ background: "rgba(251,146,60,0.9)" }} />
+          <span className="h-2 w-2 rounded-full" style={{ background: "var(--surface-border)" }} />
           Reflection
         </span>
         <span className="flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full" style={{ background: "rgba(96,5,141,0.9)" }} />
+          <span className="h-2 w-2 rounded-full" style={{ background: "color-mix(in srgb, var(--violet-650) 90%, transparent)" }} />
           REPs
         </span>
         <span className="flex items-center gap-1">
@@ -667,10 +667,10 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
             </p>
           ) : (
             <>
-              <p className="text-sm font-semibold" style={{ color: view.dailyEntryDelta != null && view.dailyEntryDelta >= 0 ? "#34D399" : "#F87171" }}>
+              <p className="text-sm font-semibold" style={{ color: view.dailyEntryDelta != null && view.dailyEntryDelta >= 0 ? "var(--neon-teal)" : "var(--ray-power)" }}>
                 Entries {view.dailyEntryDelta != null && view.dailyEntryDelta >= 0 ? "+" : ""}{view.dailyEntryDelta}
               </p>
-              <p className="text-xs" style={{ color: view.dailyLogDelta != null && view.dailyLogDelta >= 0 ? "#34D399" : "#F87171" }}>
+              <p className="text-xs" style={{ color: view.dailyLogDelta != null && view.dailyLogDelta >= 0 ? "var(--neon-teal)" : "var(--ray-power)" }}>
                 Logs {view.dailyLogDelta != null && view.dailyLogDelta >= 0 ? "+" : ""}{view.dailyLogDelta}
               </p>
             </>
@@ -721,7 +721,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
           <p className="text-xs font-semibold" style={{ color: "var(--text-on-dark-secondary)" }}>
             Entry over entry
           </p>
-          <p className="text-xs" style={{ color: entryDelta >= 0 ? "#34D399" : "#F87171" }}>
+          <p className="text-xs" style={{ color: entryDelta >= 0 ? "var(--neon-teal)" : "var(--ray-power)" }}>
             {entryDelta >= 0 ? "+" : ""}{entryDelta} vs prior window
           </p>
         </div>
@@ -729,14 +729,14 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
           days={view.current}
           maxValue={view.maxEntries}
           valueFor={(d) => entryCount(d, entryFilter)}
-          accent="linear-gradient(180deg, rgba(248,208,17,0.9), rgba(248,208,17,0.2))"
+          accent="linear-gradient(180deg, color-mix(in srgb, var(--gold-primary) 90%, transparent), color-mix(in srgb, var(--gold-primary) 20%, transparent))"
         />
         {compareMode && view.previous.length > 0 && (
           <BarRow
             days={view.previous}
             maxValue={view.maxEntries}
             valueFor={(d) => entryCount(d, entryFilter)}
-            accent="linear-gradient(180deg, rgba(248,208,17,0.6), rgba(248,208,17,0.1))"
+            accent="linear-gradient(180deg, color-mix(in srgb, var(--gold-primary) 60%, transparent), color-mix(in srgb, var(--gold-primary) 10%, transparent))"
             muted
           />
         )}
@@ -747,7 +747,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
           <p className="text-xs font-semibold" style={{ color: "var(--text-on-dark-secondary)" }}>
             Log over log (REPs)
           </p>
-          <p className="text-xs" style={{ color: logDelta >= 0 ? "#34D399" : "#F87171" }}>
+          <p className="text-xs" style={{ color: logDelta >= 0 ? "var(--neon-teal)" : "var(--ray-power)" }}>
             {logDelta >= 0 ? "+" : ""}{logDelta} vs prior window
           </p>
         </div>
@@ -755,14 +755,14 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
           days={view.current}
           maxValue={view.maxLogs}
           valueFor={(d) => d.totals.logs}
-          accent="linear-gradient(180deg, rgba(96,5,141,0.9), rgba(96,5,141,0.2))"
+          accent="linear-gradient(180deg, color-mix(in srgb, var(--violet-650) 90%, transparent), color-mix(in srgb, var(--violet-650) 20%, transparent))"
         />
         {compareMode && view.previous.length > 0 && (
           <BarRow
             days={view.previous}
             maxValue={view.maxLogs}
             valueFor={(d) => d.totals.logs}
-            accent="linear-gradient(180deg, rgba(96,5,141,0.6), rgba(96,5,141,0.1))"
+            accent="linear-gradient(180deg, color-mix(in srgb, var(--violet-650) 60%, transparent), color-mix(in srgb, var(--violet-650) 10%, transparent))"
             muted
           />
         )}
@@ -776,7 +776,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
           <Heatmap
             days={view.current}
             valueFor={(d) => d.totals.entries}
-            color="rgba(248,208,17,0.9)"
+            color="color-mix(in srgb, var(--gold-primary) 90%, transparent)"
           />
         </div>
         <div className="space-y-2">
@@ -786,7 +786,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
           <Heatmap
             days={view.current}
             valueFor={(d) => d.totals.logs}
-            color="rgba(96,5,141,0.9)"
+            color="color-mix(in srgb, var(--violet-650) 90%, transparent)"
           />
         </div>
       </div>
@@ -810,7 +810,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
         </div>
       </div>
 
-      <div className="border-t pt-4 space-y-3" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+      <div className="border-t pt-4 space-y-3" style={{ borderColor: "color-mix(in srgb, var(--text-body) 8%, transparent)" }}>
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs font-semibold" style={{ color: "var(--text-on-dark-secondary)" }}>
@@ -838,8 +838,8 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
         )}
 
         {view.retakeReady && (
-          <div className="glass-card p-3" style={{ borderColor: "rgba(52, 211, 153, 0.35)" }}>
-            <p className="text-xs font-semibold" style={{ color: "#34D399" }}>
+          <div className="glass-card p-3" style={{ borderColor: "var(--surface-border)" }}>
+            <p className="text-xs font-semibold" style={{ color: "var(--neon-teal)" }}>
               Retake window open
             </p>
             <p className="text-xs" style={{ color: "var(--text-on-dark-secondary)" }}>
@@ -854,7 +854,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
               <span
                 key={run.id}
                 className="px-2 py-1 rounded-full text-[11px] font-semibold"
-                style={{ background: "rgba(96,5,141,0.2)", color: "var(--text-on-dark-secondary)" }}
+                style={{ background: "color-mix(in srgb, var(--violet-650) 20%, transparent)", color: "var(--text-on-dark-secondary)" }}
               >
                 Run {run.run_number}
               </span>

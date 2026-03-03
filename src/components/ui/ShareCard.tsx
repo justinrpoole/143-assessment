@@ -91,7 +91,7 @@ export function ShareCard({ signatureName, topRays, essence }: ShareCardProps) {
           overflow: 'hidden',
           borderRadius: 40,
           // Deep space gradient: navy → indigo → deep purple
-          background: 'linear-gradient(145deg, #070B24 0%, #0E1030 30%, #130830 60%, #1a0535 100%)',
+          background: 'linear-gradient(145deg, var(--text-body) 0%, var(--text-body) 30%, var(--text-body) 60%, var(--text-body) 100%)',
           fontFamily: "'Avenir Next', 'Inter', 'Segoe UI', sans-serif",
         }}
       >
@@ -102,12 +102,12 @@ export function ShareCard({ signatureName, topRays, essence }: ShareCardProps) {
           viewBox="0 0 1080 1080"
         >
           {STARS.map((s, i) => (
-            <circle key={i} cx={s.x} cy={s.y} r={s.r} fill="#FFFFFF" opacity={s.opacity} />
+            <circle key={i} cx={s.x} cy={s.y} r={s.r} fill="var(--text-body)" opacity={s.opacity} />
           ))}
           {/* Subtle nebula glow at centre */}
           <radialGradient id="nebula" cx="50%" cy="42%" r="45%">
-            <stop offset="0%" stopColor="#6B21A8" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#6B21A8" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--violet-650)" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="var(--violet-650)" stopOpacity="0" />
           </radialGradient>
           <ellipse cx="540" cy="450" rx="480" ry="360" fill="url(#nebula)" />
         </svg>
@@ -121,7 +121,7 @@ export function ShareCard({ signatureName, topRays, essence }: ShareCardProps) {
           width: 700,
           height: 500,
           borderRadius: '50%',
-          background: 'radial-gradient(ellipse at center, rgba(248,208,17,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, color-mix(in srgb, var(--gold-primary) 8%, transparent) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
 
@@ -143,7 +143,7 @@ export function ShareCard({ signatureName, topRays, essence }: ShareCardProps) {
             fontSize: 26,
             letterSpacing: '0.22em',
             textTransform: 'uppercase',
-            color: '#F8D011',
+            color: 'var(--gold-primary)',
             fontWeight: 700,
             marginBottom: 56,
             opacity: 0.9,
@@ -156,7 +156,7 @@ export function ShareCard({ signatureName, topRays, essence }: ShareCardProps) {
             fontSize: 22,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            color: 'rgba(248,208,17,0.75)',
+            color: 'color-mix(in srgb, var(--gold-primary) 75%, transparent)',
             fontWeight: 500,
             marginBottom: 28,
           }}>
@@ -167,11 +167,11 @@ export function ShareCard({ signatureName, topRays, essence }: ShareCardProps) {
           <h1 style={{
             fontSize: signatureName.length > 18 ? 76 : 96,
             fontWeight: 800,
-            color: '#FFFEF5',
+            color: 'var(--text-body)',
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
             marginBottom: 40,
-            textShadow: '0 0 60px rgba(248,208,17,0.20), 0 0 120px rgba(248,208,17,0.10)',
+            textShadow: '0 0 60px color-mix(in srgb, var(--gold-primary) 20%, transparent), 0 0 120px color-mix(in srgb, var(--gold-primary) 10%, transparent)',
           }}>
             {signatureName}
           </h1>
@@ -185,11 +185,11 @@ export function ShareCard({ signatureName, topRays, essence }: ShareCardProps) {
                   style={{
                     fontSize: 22,
                     fontWeight: 600,
-                    color: '#F8D011',
+                    color: 'var(--gold-primary)',
                     padding: '8px 24px',
                     borderRadius: 40,
-                    border: '1px solid rgba(248,208,17,0.35)',
-                    background: 'rgba(248,208,17,0.08)',
+                    border: '1px solid color-mix(in srgb, var(--gold-primary) 35%, transparent)',
+                    background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)',
                     letterSpacing: '0.04em',
                   }}
                 >
@@ -203,7 +203,7 @@ export function ShareCard({ signatureName, topRays, essence }: ShareCardProps) {
           {essence && (
             <p style={{
               fontSize: 22,
-              color: 'rgba(255,254,245,0.6)',
+              color: 'var(--surface-border)',
               maxWidth: 700,
               lineHeight: 1.5,
               fontStyle: 'italic',
@@ -220,14 +220,14 @@ export function ShareCard({ signatureName, topRays, essence }: ShareCardProps) {
           <div style={{
             width: 120,
             height: 1,
-            background: 'rgba(248,208,17,0.3)',
+            background: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)',
             marginBottom: 32,
           }} />
 
           {/* FOOTER */}
           <p style={{
             fontSize: 20,
-            color: 'rgba(248,208,17,0.65)',
+            color: 'color-mix(in srgb, var(--gold-primary) 65%, transparent)',
             letterSpacing: '0.1em',
             fontWeight: 500,
           }}>

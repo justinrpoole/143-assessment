@@ -68,7 +68,7 @@ export default async function AboutPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <ScrollProgressBar />
       <SectionTOC items={[
         { id: "hero", label: "Hero" },
@@ -79,10 +79,10 @@ export default async function AboutPage() {
         { id: "testimonials", label: "Testimonials" },
         { id: "cta", label: "Get Started" },
       ]} />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap space-y-16 py-12 sm:py-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section id="hero" className="content-wrap--narrow space-y-5 text-center">
           <div className="mx-auto w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full overflow-hidden border-2" style={{ borderColor: "var(--brand-gold)" }}>
             <Image
               src="/images/justin-ray-headshot.png"
@@ -94,15 +94,15 @@ export default async function AboutPage() {
             />
           </div>
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Not a motivator. A builder. · 6 min read
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Not a motivator. A builder. · 6 min read
           </p>
           <h1
-            className="text-shimmer mx-auto max-w-[600px] text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            className="text-shimmer content-wrap--narrow max-w-[600px] text-3xl font-bold leading-tight sm:text-4xl"
+            style={{ color: "var(--text-body)" }}
           >
             I built the map so you do not have to wander for 20 years.
           </h1>
-          <div className="mx-auto max-w-[540px]">
+          <div className="content-wrap--narrow max-w-[540px]">
             <ScrollTextReveal text="Executive development background. Real-world pressure. A framework built on behavioural science and tested in the rooms where leadership actually happens — not conference stages." />
           </div>
           <RaySpectrumStrip className="mt-6" />
@@ -112,7 +112,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 2 · THE STORY ──────────────────────────── */}
         <FadeInSection blur>
-          <section id="story" className="relative mx-auto max-w-[720px] section-blend-top">
+          <section id="story" className="relative content-wrap--narrow section-blend-top">
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -122,14 +122,14 @@ export default async function AboutPage() {
               </p>
               <h2
                 className="text-xl font-bold sm:text-2xl text-gold-gradient"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 I watched the same gap for years. Then I built the bridge.
               </h2>
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                  color: "var(--text-secondary)",
                 }}
               >
                 I spent years inside executive development. Real organisations.
@@ -144,7 +144,7 @@ export default async function AboutPage() {
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                  color: "var(--text-secondary)",
                 }}
               >
                 So I built the operating system. The 143 Assessment measures 9
@@ -159,7 +159,7 @@ export default async function AboutPage() {
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  color: "var(--text-muted)",
                 }}
               >
                 Why 143? One letter. Four letters. Three letters. I love you.
@@ -177,7 +177,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 3 · CREDENTIALS ────────────────────────── */}
         <FadeInSection>
-          <section id="credentials" className="relative mx-auto max-w-[720px] space-y-8">
+          <section id="credentials" className="relative content-wrap--narrow space-y-8">
             <FloatingOrbs />
             <div className="text-center space-y-3">
               <p
@@ -188,7 +188,7 @@ export default async function AboutPage() {
               </p>
               <h2
                 className="text-xl font-bold sm:text-2xl"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Built from the inside out.
               </h2>
@@ -201,7 +201,7 @@ export default async function AboutPage() {
                     <CheckIcon />
                     <span
                       className="text-sm leading-relaxed"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      style={{ color: "var(--text-body)" }}
                     >
                       {item}
                     </span>
@@ -216,10 +216,10 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 4 · DO / DON'T ─────────────────────────── */}
         <FadeInSection>
-          <section id="do-dont" className="mx-auto max-w-[720px] space-y-8">
+          <section id="do-dont" className="content-wrap--narrow space-y-8">
             <h2
               className="text-center text-xl font-bold sm:text-2xl"
-              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              style={{ color: "var(--text-body)" }}
             >
               What you will get. What you will not.
             </h2>
@@ -244,7 +244,7 @@ export default async function AboutPage() {
                         </span>
                         <p
                           className="text-sm leading-relaxed"
-                          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                          style={{ color: "var(--text-body)" }}
                         >
                           {item}
                         </p>
@@ -266,7 +266,7 @@ export default async function AboutPage() {
                       <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4">
                         <span
                           className="shrink-0 font-bold"
-                          style={{ color: "rgba(248,208,17,0.5)" }}
+                          style={{ color: "color-mix(in srgb, var(--gold-primary) 50%, transparent)" }}
                         >
                           &#x2715;
                         </span>
@@ -274,7 +274,7 @@ export default async function AboutPage() {
                           className="text-sm leading-relaxed"
                           style={{
                             color:
-                              "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                              "var(--text-muted)",
                           }}
                         >
                           {item}
@@ -292,7 +292,7 @@ export default async function AboutPage() {
 
         {/* ─── BUILT FOR REAL BRAINS (#3) ──────────────────────── */}
         <FadeInSection>
-          <section className="relative mx-auto max-w-[720px] space-y-5">
+          <section className="relative content-wrap--narrow space-y-5">
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -307,7 +307,7 @@ export default async function AboutPage() {
               </h2>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 ADHD does not wait for long assessments or abstract frameworks.
                 It needs: short practices. Clear structure. Immediate feedback.
@@ -316,7 +316,7 @@ export default async function AboutPage() {
               </p>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 Traditional assessments are 60 to 240 items, no breaks, abstract
                 language, one sitting. The 143 system was built for a brain that
@@ -334,7 +334,7 @@ export default async function AboutPage() {
                 ].map((item) => (
                   <div key={item.label} className="glass-card glass-card--magnetic p-3" style={{ borderTop: `2px solid ${rayHex(item.rayKey)}30` }}>
                     <p className="text-sm font-bold" style={{ color: rayHex(item.rayKey) }}>{item.label}</p>
-                    <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>{item.desc}</p>
+                    <p className="text-xs mt-1" style={{ color: "color-mix(in srgb, var(--text-body) 50%, transparent)" }}>{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -354,7 +354,7 @@ export default async function AboutPage() {
 
         {/* ─── THE 143 DESIGN PHILOSOPHY (#24) ────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -364,14 +364,14 @@ export default async function AboutPage() {
               </p>
               <h2
                 className="text-xl font-bold sm:text-2xl"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 We named it 143 because self-directed compassion is the
                 operating principle, not a nice-to-have.
               </h2>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 Kristin Neff&rsquo;s research on fierce self-compassion
                 demonstrates that <span className="gold-highlight">compassion
@@ -385,7 +385,7 @@ export default async function AboutPage() {
               </p>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+                style={{ color: "var(--text-muted)" }}
               >
                 In a market of clinical language and deficit framing, 143
                 is a deliberate act. The number is not branding. It is the
@@ -400,7 +400,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 5 · THE METHOD ─────────────────────────── */}
         <FadeInSection>
-          <section id="method" className="mx-auto max-w-[720px] space-y-5 text-center">
+          <section id="method" className="content-wrap--narrow space-y-5 text-center">
             <CosmicImage
               src="/images/logo-leadership-full.svg"
               alt="143 Leadership"
@@ -417,14 +417,14 @@ export default async function AboutPage() {
             </p>
             <h2
               className="text-xl font-bold sm:text-2xl"
-              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              style={{ color: "var(--text-body)" }}
             >
               Fix the operating system first. Then every tactic works.
             </h2>
             <p
-              className="mx-auto max-w-[540px] text-sm leading-relaxed"
+              className="content-wrap--narrow max-w-[540px] text-sm leading-relaxed"
               style={{
-                color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                color: "var(--text-secondary)",
               }}
             >
               The 9 Rays show you where your signal is online and where it is
@@ -439,7 +439,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 5b · TESTIMONIALS ─────────────────────────── */}
         <FadeInSection>
-          <section id="testimonials" className="relative mx-auto max-w-[720px] space-y-6 text-center section-blend-bottom">
+          <section id="testimonials" className="relative content-wrap--narrow space-y-6 text-center section-blend-bottom">
             <p
               className="text-xs font-bold uppercase tracking-widest"
               style={{ color: rayHex('R7') }}
@@ -448,7 +448,7 @@ export default async function AboutPage() {
             </p>
             <h2
               className="text-xl font-bold sm:text-2xl"
-              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              style={{ color: "var(--text-body)" }}
             >
               Built for real leaders. Tested by real leaders.
             </h2>
@@ -483,7 +483,7 @@ export default async function AboutPage() {
 
         {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
         <FadeInSection>
-          <section id="cta" className="mx-auto max-w-[720px]">
+          <section id="cta" className="content-wrap--narrow">
             <ConicBorderCard glow>
             <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
               <p
@@ -494,7 +494,7 @@ export default async function AboutPage() {
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 143 questions. 15 minutes. The most honest mirror your leadership
                 has seen.
@@ -519,7 +519,7 @@ export default async function AboutPage() {
 
 /* ── utility ───────────────────────────────────────────────── */
 
-function CheckIcon({ color = "#F8D011" }: { color?: string }) {
+function CheckIcon({ color = "var(--gold-primary)" }: { color?: string }) {
   return (
     <svg
       width="16"

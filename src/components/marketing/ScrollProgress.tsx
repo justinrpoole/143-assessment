@@ -27,9 +27,9 @@ export default function ScrollProgress() {
       className="fixed top-0 left-0 z-[60] h-[3px] sm:h-[2px]"
       style={{
         width: `${progress * 100}%`,
-        background: 'linear-gradient(to right, var(--cosmic-purple, #60058D), var(--brand-gold, #F8D011))',
+        background: 'linear-gradient(to right, var(--cosmic-purple, var(--text-body)), var(--gold-primary))',
         transition: 'width 80ms cubic-bezier(0.3, 0, 0.7, 1)',
-        boxShadow: progress > 0 ? '0 0 10px rgba(248, 208, 17, 0.5), 0 0 4px rgba(248, 208, 17, 0.3)' : 'none',
+        boxShadow: progress > 0 ? '0 0 10px color-mix(in srgb, var(--gold-primary) 50%, transparent), 0 0 4px color-mix(in srgb, var(--gold-primary) 30%, transparent)' : 'none',
       }}
       role="progressbar"
       aria-valuenow={Math.round(progress * 100)}

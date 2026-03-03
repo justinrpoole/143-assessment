@@ -63,9 +63,9 @@ export function ReportDownloadButton({ runId }: Props) {
       disabled={state === "checking" || state === "pending"}
       className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold transition-all duration-200"
       style={{
-        background: "#F8D011",
-        color: "#020202",
-        boxShadow: "0 0 24px rgba(248,208,17,0.25), 0 0 60px rgba(248,208,17,0.10)",
+        background: "var(--gold-primary)",
+        color: "var(--ink-950)",
+        boxShadow: "0 0 24px color-mix(in srgb, var(--gold-primary) 25%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 10%, transparent)",
         opacity: state === "checking" || state === "pending" ? 0.8 : 1,
         cursor: state === "checking" || state === "pending" ? "wait" : "pointer",
       }}

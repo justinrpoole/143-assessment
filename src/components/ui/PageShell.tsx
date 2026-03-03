@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 
 const MAX_WIDTH = {
-  narrow: "max-w-[720px]",   // legal, long-form content
-  default: "max-w-[960px]",  // portal, tools, account
-  wide: "max-w-5xl",         // marketing info pages (1024px)
-  full: "max-w-6xl",         // resource grids, admin (1152px)
+  narrow: "content-wrap--narrow",
+  default: "content-wrap",
+  wide: "content-wrap--wide",
+  full: "content-wrap--wide",
 } as const;
 
 const PADDING = {
@@ -31,8 +31,8 @@ export function PageShell({
   after,
 }: PageShellProps) {
   return (
-    <main className="cosmic-page-bg">
-      <div className={`mx-auto ${MAX_WIDTH[maxWidth]} ${PADDING[maxWidth]} ${className}`.trim()}>
+    <main className="cosmic-page-bg page-shell">
+      <div className={`${MAX_WIDTH[maxWidth]} ${PADDING[maxWidth]} ${className}`.trim()}>
         {children}
       </div>
       {after}

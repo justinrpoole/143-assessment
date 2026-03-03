@@ -35,23 +35,23 @@ export default async function GlossaryPage() {
 
   return (
     <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16 space-y-12">
+      <div className="content-wrap--wide px-5 py-12 sm:px-8 sm:py-16 space-y-12">
 
         {/* ─── HEADER ──────────────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section className="content-wrap--narrow space-y-5 text-center">
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Reference
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Reference
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
+            style={{ color: "var(--text-body)", textShadow: neonText(NEON.cyan) }}
           >
             Glossary
           </h1>
           <p
-            className="mx-auto max-w-[540px] text-base leading-relaxed"
+            className="content-wrap--narrow text-base leading-relaxed"
             style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+              color: "var(--text-secondary)",
             }}
           >
             Every term used in the 143 Leadership assessment and report,
@@ -82,7 +82,7 @@ export default async function GlossaryPage() {
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
+                style={{ color: "var(--text-body)", textShadow: neonText(NEON.cyan) }}
               >
                 Ready to see these concepts mapped to your own <span className="gold-highlight">leadership
                 pattern</span>?

@@ -358,7 +358,7 @@ function PreviewRayTrack({
         gap: 12,
         paddingBottom: isLast ? 0 : 10,
         marginBottom: isLast ? 0 : 10,
-        borderBottom: isLast ? "none" : "1px solid rgba(255,255,255,0.04)",
+        borderBottom: isLast ? "none" : "1px solid color-mix(in srgb, var(--text-body) 4%, transparent)",
       }}
     >
       {/* Ray label */}
@@ -379,7 +379,7 @@ function PreviewRayTrack({
         <div
           style={{
             fontSize: 8,
-            color: "rgba(255,255,255,0.5)",
+            color: "color-mix(in srgb, var(--text-body) 50%, transparent)",
             letterSpacing: ".05em",
             marginTop: 2,
             fontFamily: "'Space Grotesk', sans-serif",
@@ -407,7 +407,7 @@ function PreviewRayTrack({
             right: 0,
             height: 4,
             borderRadius: 99,
-            background: `linear-gradient(90deg, rgba(124,44,255,0.4) 0%, ${color}33 100%)`,
+            background: `linear-gradient(90deg, var(--surface-border) 0%, ${color}33 100%)`,
           }}
         />
 
@@ -420,7 +420,7 @@ function PreviewRayTrack({
               height: 4,
               borderRadius: 99,
               width: `${pct * 100}%`,
-              background: `linear-gradient(90deg, rgba(124,44,255,0.6), ${color})`,
+              background: `linear-gradient(90deg, var(--surface-border), ${color})`,
               boxShadow: `0 0 8px ${color}`,
               transition: "width 0.05s linear",
             }}
@@ -438,7 +438,7 @@ function PreviewRayTrack({
               transform: "translate(-50%,-50%)",
               width: 1,
               height: 8,
-              background: "rgba(255,255,255,0.1)",
+              background: "color-mix(in srgb, var(--text-body) 10%, transparent)",
             }}
           />
         ))}
@@ -455,8 +455,8 @@ function PreviewRayTrack({
             borderRadius: "50%",
             background:
               display >= 68
-                ? `radial-gradient(circle at 40% 35%, #fff, ${color})`
-                : `radial-gradient(circle at 40% 35%, ${color}, rgba(80,20,160,0.9))`,
+                ? `radial-gradient(circle at 40% 35%, var(--text-body), ${color})`
+                : `radial-gradient(circle at 40% 35%, ${color}, var(--surface-border))`,
             boxShadow: `0 0 ${orb.bloom}px ${color}, 0 0 ${orb.bloom * 2}px ${color}`,
             transition: "left 0.05s linear",
             zIndex: 5,
@@ -512,11 +512,11 @@ function SampleDashboardPreview() {
       {/* Dark panel */}
       <div
         style={{
-          background: "rgba(8,2,22,0.92)",
+          background: "var(--surface-border)",
           borderRadius: 16,
-          border: "2px solid rgba(244,196,48,0.25)",
+          border: "2px solid var(--surface-border)",
           boxShadow:
-            "0 0 40px rgba(244,196,48,0.08), inset 0 1px 0 rgba(255,255,255,0.04)",
+            "0 0 40px var(--surface-border), inset 0 1px 0 color-mix(in srgb, var(--text-body) 4%, transparent)",
           overflow: "hidden",
           marginBottom: 32,
         }}
@@ -525,7 +525,7 @@ function SampleDashboardPreview() {
         <div
           style={{
             padding: "20px 24px 14px",
-            borderBottom: "1px solid rgba(244,196,48,0.12)",
+            borderBottom: "1px solid var(--surface-border)",
           }}
         >
           <div
@@ -544,7 +544,7 @@ function SampleDashboardPreview() {
           <div
             style={{
               fontSize: 13,
-              color: "rgba(255,255,255,0.55)",
+              color: "color-mix(in srgb, var(--text-body) 55%, transparent)",
               marginTop: 6,
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 400,
@@ -572,8 +572,8 @@ function SampleDashboardPreview() {
       {/* Gold CTA banner */}
       <div
         style={{
-          background: "linear-gradient(135deg, rgba(244,196,48,0.12), rgba(244,196,48,0.06))",
-          border: "1px solid rgba(244,196,48,0.35)",
+          background: "linear-gradient(135deg, var(--surface-border), var(--surface-border))",
+          border: "1px solid var(--surface-border)",
           borderRadius: 12,
           padding: "20px 24px",
           display: "flex",
@@ -587,7 +587,7 @@ function SampleDashboardPreview() {
             margin: 0,
             fontSize: 15,
             fontWeight: 600,
-            color: "var(--text-on-dark, #fff)",
+            color: "var(--text-on-dark, var(--text-body))",
             fontFamily: "'Space Grotesk', sans-serif",
             letterSpacing: ".01em",
           }}
@@ -602,13 +602,13 @@ function SampleDashboardPreview() {
             padding: "10px 22px",
             borderRadius: 8,
             background: "var(--ray-joy)",
-            color: "#000",
+            color: "var(--text-body)",
             fontFamily: "'Orbitron', sans-serif",
             fontWeight: 700,
             fontSize: 12,
             letterSpacing: ".12em",
             textDecoration: "none",
-            boxShadow: "0 0 18px var(--ray-joy), 0 0 36px rgba(244,196,48,0.25)",
+            boxShadow: "0 0 18px var(--ray-joy), 0 0 36px var(--surface-border)",
             transition: "opacity 0.2s",
           }}
         >
@@ -662,7 +662,7 @@ export default function SampleReportClient() {
       {/* ── 1. Welcome + Confidence Band ── */}
       <FadeInSection>
         <div className="glass-card p-5">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--brand-gold, #F8D011)" }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
             Sample Light Signature Map — Driven Leader
           </p>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-on-dark)" }}>
@@ -700,10 +700,10 @@ export default function SampleReportClient() {
 
       {/* ── 3b. Micro-celebration ── */}
       <FadeInSection delay={0.2}>
-        <div className="glass-card p-5" style={{ borderColor: "rgba(248, 208, 17, 0.15)" }}>
+        <div className="glass-card p-5" style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-sm" style={{ color: "var(--brand-gold, #F8D011)" }}>&#9733;</span>
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--brand-gold, #F8D011)" }}>
+            <span className="text-sm" style={{ color: "var(--gold-primary)" }}>&var(--text-body);</span>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
               Your Light Is Here
             </p>
           </div>
@@ -759,7 +759,7 @@ export default function SampleReportClient() {
       {/* ── 5c. Eclipse Coaching Reframe ── */}
       <FadeInSection>
         <div className="glass-card p-5" style={{ borderColor: "var(--surface-border)" }}>
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--brand-gold, #F8D011)" }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
             Coaching Note
           </p>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-on-dark)" }}>
@@ -957,8 +957,8 @@ export default function SampleReportClient() {
 
       {/* ── 20. Sample Data Notice + CTA ── */}
       <FadeInSection>
-        <div className="glass-card p-6 space-y-4" style={{ borderColor: "rgba(248, 208, 17, 0.2)" }}>
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--brand-gold, #F8D011)" }}>
+        <div className="glass-card p-6 space-y-4" style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)" }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
             This is sample data
           </p>
           <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark)" }}>

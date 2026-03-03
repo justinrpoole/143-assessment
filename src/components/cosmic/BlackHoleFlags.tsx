@@ -146,34 +146,34 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
         <defs>
           {/* Deep space background */}
           <radialGradient id="bhf-bg" cx="50%" cy="50%">
-            <stop offset="0%" stopColor="#0f0520" />
-            <stop offset="35%" stopColor="#0a0318" />
-            <stop offset="70%" stopColor="#050210" />
-            <stop offset="100%" stopColor="#030108" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="35%" stopColor="var(--text-body)" />
+            <stop offset="70%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           {/* Accretion disc gradient */}
           <linearGradient id="bhf-accretion" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#2C0A3E" />
-            <stop offset="50%" stopColor="#4A0A0A" />
-            <stop offset="100%" stopColor="#2C0A3E" />
+            <stop offset="0%" stopColor="var(--violet-700)" />
+            <stop offset="50%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--violet-700)" />
           </linearGradient>
 
           {/* Gold card glow */}
           <radialGradient id="bhf-card-glow">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
 
           {/* Dark vortex gradient */}
           <radialGradient id="bhf-vortex">
-            <stop offset="0%" stopColor="#000000" />
-            <stop offset="40%" stopColor="#0A0010" />
-            <stop offset="70%" stopColor="#2C0A3E" stopOpacity="0.6" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="40%" stopColor="var(--text-body)" />
+            <stop offset="70%" stopColor="var(--violet-700)" stopOpacity="0.6" />
             <stop offset="100%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0" />
           </radialGradient>
 
-          <filter id="bhf-glow" x="-80%" y="-80%" width="260%" height="260%">
+          <filter id="bhf-glow" x="-80%" y="-80%" width={"260%"} height={"260%"}>
             <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b2" />
             <feMerge>
@@ -185,7 +185,7 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
 
           {/* Scanline pattern */}
           <pattern id="bhf-scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-            <rect width="4" height="2" fill="rgba(0,0,0,0.05)" />
+            <rect width="4" height="2" fill="color-mix(in srgb, var(--ink-950) 5%, transparent)" />
           </pattern>
         </defs>
 
@@ -199,17 +199,17 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
             cx={seededRandom(i * 29) * W}
             cy={seededRandom(i * 29 + 1) * H}
             r={0.3 + seededRandom(i * 29 + 2) * 0.5}
-            fill="#FFFFFF"
+            fill="var(--text-body)"
             opacity={0.04 + seededRandom(i * 29 + 3) * 0.08}
           />
         ))}
 
         {/* Faint background sun reference — upper left, out of focus */}
-        <circle cx={60} cy={60} r={25} fill="#F4C430" opacity={0.06} />
-        <circle cx={60} cy={60} r={12} fill="#F4C430" opacity={0.1} />
+        <circle cx={60} cy={60} r={25} fill="var(--gold-primary)" opacity={0.06} />
+        <circle cx={60} cy={60} r={12} fill="var(--gold-primary)" opacity={0.1} />
         {/* Faint orbit rings */}
-        <circle cx={60} cy={60} r={60} fill="none" stroke="#F4C430" strokeWidth={0.5} strokeOpacity={0.05} strokeDasharray="4 6" />
-        <circle cx={60} cy={60} r={90} fill="none" stroke="#F4C430" strokeWidth={0.3} strokeOpacity={0.03} strokeDasharray="3 8" />
+        <circle cx={60} cy={60} r={60} fill="none" stroke="var(--gold-primary)" strokeWidth={0.5} strokeOpacity={0.05} strokeDasharray="4 6" />
+        <circle cx={60} cy={60} r={90} fill="none" stroke="var(--gold-primary)" strokeWidth={0.3} strokeOpacity={0.03} strokeDasharray="3 8" />
 
         {/* ── Black Holes ── */}
         {blackHoles.map((hole, idx) => {
@@ -226,7 +226,7 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
                   key={`trail-${ti}`}
                   d={trail.path}
                   fill="none"
-                  stroke="#F4C430"
+                  stroke="var(--gold-primary)"
                   strokeWidth={0.6}
                   strokeOpacity={0.2}
                   initial={false}
@@ -267,7 +267,7 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
 
               {/* Dark vortex center */}
               <circle cx={cx} cy={cy} r={22 * size} fill="url(#bhf-vortex)" />
-              <circle cx={cx} cy={cy} r={8 * size} fill="#000000" />
+              <circle cx={cx} cy={cy} r={8 * size} fill="var(--ink-950)" />
 
               {/* Interactive tap target */}
               <circle
@@ -291,7 +291,7 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
                 cy={cy}
                 r={32 * size}
                 fill="none"
-                stroke={hole.severity === 'high' ? '#C0392B' : '#E8A317'}
+                stroke={hole.severity === 'high' ? 'var(--text-body)' : 'var(--neon-amber)'}
                 strokeWidth={1}
                 strokeDasharray="3 5"
                 initial={false}
@@ -312,7 +312,7 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
                 x={cx}
                 y={cy + 45 * size}
                 textAnchor="middle"
-                fill="#F0F0FF"
+                fill="var(--text-body)"
                 fontSize="10"
                 fontWeight="500"
                 opacity={0.5}
@@ -325,7 +325,7 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
                 x={cx}
                 y={cy + 57 * size}
                 textAnchor="middle"
-                fill={hole.severity === 'high' ? '#FB923C' : hole.severity === 'elevated' ? '#F59E0B' : '#A78BFA'}
+                fill={hole.severity === 'high' ? 'var(--neon-amber)' : hole.severity === 'elevated' ? 'var(--neon-amber)' : 'var(--neon-violet)'}
                 fontSize="8"
                 fontWeight="600"
                 opacity={0.6}
@@ -355,16 +355,16 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
               transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
               className="mt-4 p-4"
               style={{
-                background: 'rgba(17, 3, 32, 0.85)',
-                border: '1.5px solid #F4C430',
+                background: 'var(--surface-border)',
+                border: '1.5px solid var(--text-body)',
                 borderRadius: 'var(--radius-xl)',
                 backdropFilter: 'blur(20px)',
-                boxShadow: '0 0 24px rgba(244, 196, 48, 0.12)',
+                boxShadow: '0 0 24px var(--surface-border)',
               }}
               role="dialog"
               aria-label={`Actions to seal the ${hole.rayName} energy leak`}
             >
-              <p style={{ color: '#F4C430', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em' }}>
+              <p style={{ color: 'var(--gold-primary)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em' }}>
                 Seal the leak
               </p>
               <p style={{ color: 'var(--text-on-dark-secondary)', fontSize: 13, marginTop: 4 }}>
@@ -383,7 +383,7 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
                       cursor: 'pointer',
                     }}
                   >
-                    <span style={{ fontSize: 18, display: 'block', color: '#F4C430' }}>{action.icon}</span>
+                    <span style={{ fontSize: 18, display: 'block', color: 'var(--gold-primary)' }}>{action.icon}</span>
                     <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-on-dark)', display: 'block', marginTop: 4 }}>
                       {action.label}
                     </span>

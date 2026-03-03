@@ -13,7 +13,7 @@ export default function PortalBreadcrumb({ current }: PortalBreadcrumbProps) {
     <nav className="portal-breadcrumb" aria-label="Breadcrumb">
       <Link href="/portal">Light Portal</Link>
       <span className="portal-breadcrumb__separator" aria-hidden="true" />
-      <span style={{ color: 'rgba(248,208,17,0.7)' }}>{current}</span>
+      <span style={{ color: 'color-mix(in srgb, var(--gold-primary) 70%, transparent)' }}>{current}</span>
     </nav>
   );
 }

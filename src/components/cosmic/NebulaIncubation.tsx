@@ -34,7 +34,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
   // Nebula cloud layers
   const clouds = useMemo(() => {
     const layers: Array<{ x: number; y: number; rx: number; ry: number; color: string; opacity: number; rotation: number }> = [];
-    const colors = ['#5B2C8E', '#1ABC9C', '#C39BD3', '#E8A317', '#8E44AD'];
+    const colors = ['var(--text-body)', 'var(--text-body)', 'var(--text-secondary)', 'var(--neon-amber)', 'var(--neon-violet)'];
 
     for (let i = 0; i < 25; i++) {
       const angle = seededRandom(i * 7) * Math.PI * 2;
@@ -64,7 +64,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
         y1: cy + Math.sin(angle) * dist1,
         x2: cx + Math.cos(angle + 0.3) * dist2,
         y2: cy + Math.sin(angle + 0.3) * dist2,
-        color: seededRandom(i * 11 + 3) > 0.5 ? '#F4C430' : '#C39BD3',
+        color: seededRandom(i * 11 + 3) > 0.5 ? 'var(--gold-primary)' : 'var(--text-secondary)',
       });
     }
     return r;
@@ -84,10 +84,10 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
 
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label="Nebula incubation zone — goals forming">
         <defs>
-          <filter id="ni-blur" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="ni-blur" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="12" />
           </filter>
-          <filter id="ni-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="ni-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="6" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -132,7 +132,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
               y1={cy + Math.sin(angle) * d}
               x2={cx + Math.cos(angle + 0.5) * (d + 60)}
               y2={cy + Math.sin(angle + 0.5) * (d + 60)}
-              stroke="#2C0A3E"
+              stroke="var(--violet-700)"
               strokeWidth={8 + seededRandom(i * 19 + 2) * 12}
               strokeOpacity={0.4}
               strokeLinecap="round"
@@ -161,7 +161,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
           cx={cx}
           cy={cy}
           r={12}
-          fill="#F4C430"
+          fill="var(--gold-primary)"
           opacity={0.3 + avgProgress * 0.4}
           filter="url(#ni-glow)"
           initial={false}
@@ -172,7 +172,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
           }
           transition={!reducedMotion ? { duration: 4, repeat: Infinity, ease: 'easeInOut' } : undefined}
         />
-        <circle cx={cx} cy={cy} r={5} fill="#F4C430" opacity={0.55} />
+        <circle cx={cx} cy={cy} r={5} fill="var(--gold-primary)" opacity={0.55} />
 
         {/* Orbiting material fragments */}
         {goals.map((goal, i) => {
@@ -186,7 +186,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
               cx={gx}
               cy={gy}
               r={2 + goal.progress * 2}
-              fill="#E8A317"
+              fill="var(--neon-amber)"
               opacity={0.3 + goal.progress * 0.3}
               initial={false}
               animate={
@@ -209,7 +209,7 @@ export default function NebulaIncubation({ goals }: NebulaIncubationProps) {
         <div className="mt-3 space-y-2">
           {goals.map((goal) => (
             <div key={goal.id} className="flex items-center gap-3">
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#E8A317', opacity: 0.3 + goal.progress * 0.5 }} />
+              <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--neon-amber)', opacity: 0.3 + goal.progress * 0.5 }} />
               <span style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, flex: 1 }}>{goal.label}</span>
               <span style={{ color: 'var(--text-on-dark-muted)', fontSize: 10 }}>{Math.round(goal.progress * 100)}%</span>
             </div>

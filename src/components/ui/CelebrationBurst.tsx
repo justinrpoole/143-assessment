@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const RAY_COLORS = ['#60A5FA','#F4C430','#8E44AD','#2ECC71','#E74C8B','#1ABC9C','#F8D011','#D4770B','#C0392B'];
+const RAY_COLORS = ['var(--text-body)','var(--gold-primary)','var(--neon-violet)','var(--text-body)','var(--text-body)','var(--text-body)','var(--gold-primary)','var(--neon-amber)','var(--text-body)'];
 
 interface Particle {
   id: number;

@@ -92,7 +92,7 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
       >
         <motion.div
           className="glass-card w-full max-w-md p-6 space-y-5"
-          style={{ borderColor: 'rgba(248, 208, 17, 0.25)' }}
+          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
           initial={prefersReduced ? {} : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.1 }}
@@ -126,7 +126,7 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
                     placeholder="yourcoach@company.com"
                     className="w-full rounded-lg px-4 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-brand-gold/40"
                     style={{
-                      background: 'rgba(255,255,255,0.06)',
+                      background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                       border: '1px solid var(--surface-border)',
                       color: 'var(--text-on-dark)',
                     }}
@@ -145,7 +145,7 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
                     rows={3}
                     className="w-full rounded-lg px-4 py-2.5 text-sm outline-none transition-all resize-none focus:ring-2 focus:ring-brand-gold/40"
                     style={{
-                      background: 'rgba(255,255,255,0.06)',
+                      background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                       border: '1px solid var(--surface-border)',
                       color: 'var(--text-on-dark)',
                     }}
@@ -153,7 +153,7 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
                 </div>
 
                 {error && (
-                  <p className="text-sm" style={{ color: 'rgb(251, 146, 60)' }}>{error}</p>
+                  <p className="text-sm" style={{ color: 'var(--surface-border)' }}>{error}</p>
                 )}
 
                 <div className="flex gap-3">
@@ -183,7 +183,7 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
           ) : (
             <>
               <div className="text-center space-y-2">
-                <p className="text-2xl">&#10003;</p>
+                <p className="text-2xl">&var(--text-body);</p>
                 <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
                   Link Created
                 </h2>
@@ -195,7 +195,7 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
               <div
                 className="rounded-lg p-3 text-xs break-all"
                 style={{
-                  background: 'rgba(255,255,255,0.06)',
+                  background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                   border: '1px solid var(--surface-border)',
                   color: 'var(--text-on-dark)',
                 }}

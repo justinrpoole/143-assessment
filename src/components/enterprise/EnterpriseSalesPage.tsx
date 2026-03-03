@@ -164,7 +164,7 @@ export default function EnterpriseSalesPage() {
       {/* Privacy commitment */}
       <FadeInSection>
       <section className="px-6 py-16 max-w-4xl mx-auto">
-        <div className="glass-card p-8 space-y-4" style={{ borderTop: '2px solid var(--brand-gold, #F8D011)', borderColor: 'rgba(248, 208, 17, 0.3)' }}>
+        <div className="glass-card p-8 space-y-4" style={{ borderTop: '2px solid var(--gold-primary)', borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
           <span className="gold-tag inline-block text-xs font-bold">Privacy commitment</span>
           <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
             Individual scores never surface to managers. That is not a policy. It is architecture.
@@ -197,7 +197,7 @@ export default function EnterpriseSalesPage() {
             <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>This is / This is not</h2>
           </div>
 
-          <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--brand-gold, #F8D011)' }}>
+          <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--gold-primary)' }}>
             <div className="grid grid-cols-2 text-on-dark text-sm font-semibold" style={{ background: 'linear-gradient(to right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
               <div className="px-6 py-3">This IS</div>
               <div className="px-6 py-3 border-l border-white/20">This is NOT</div>
@@ -244,7 +244,7 @@ export default function EnterpriseSalesPage() {
                   ? 'scale-[1.02]'
                   : ''
               }`}
-              style={tier.highlight ? { borderColor: 'rgba(248, 208, 17, 0.4)' } : undefined}
+              style={tier.highlight ? { borderColor: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)' } : undefined}
             >
               {tier.highlight && (
                 <span className="text-xs bg-brand-gold text-brand-black font-bold px-3 py-1 rounded-full uppercase tracking-wide">

@@ -140,12 +140,12 @@
 .glass-card:hover {
   background: var(--surface-glass-hover);
   border-color: var(--surface-border-hover);
-  box-shadow: var(--shadow-glow-md), 0 0 12px rgba(37, 246, 255, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow-glow-md), 0 0 12px var(--neon-cyan-10), inset 0 1px 0 color-mix(in srgb, var(--text-body) 6%, transparent);
 }
 
 .glass-card--solid {
-  background: rgba(96, 5, 141, 0.50);
-  border: 1px solid rgba(148, 80, 200, 0.35);
+  background: color-mix(in srgb, var(--surface-600) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--stroke-400) 62%, transparent);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-depth), var(--shadow-glow-sm);
 }
@@ -173,10 +173,14 @@
     radial-gradient(ellipse 450px 350px at 10% 85%, rgba(96, 5, 141, 0.28) 0%, transparent 55%),
     /* Nebula cloud 7 — mid gold accent */
     radial-gradient(ellipse 300px 200px at 50% 45%, rgba(248, 208, 17, 0.04) 0%, transparent 60%);
-  color: var(--text-on-dark);
+  color: var(--text-body);
   font-family: var(--font-body);
   min-height: 100vh;
   width: 100%;
+}
+
+.body-copy {
+  color: var(--text-body);
 }
 
 /* ── Neon Atmosphere: Scanlines ── */
@@ -773,15 +777,15 @@
 /* ── Alternating section backgrounds ── */
 /* Creates visual rhythm: default cosmic purple → darker contrast sections */
 .section-alt-dark {
-  background: rgba(18, 5, 50, 0.82);
+  background: color-mix(in srgb, var(--surface-700) 86%, transparent);
   border-radius: 0;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   padding-left: calc(50vw - 50% + 20px);
   padding-right: calc(50vw - 50% + 20px);
   overflow-x: hidden;
-  border-top: 1px solid rgba(248, 208, 17, 0.12);
-  border-bottom: 1px solid rgba(248, 208, 17, 0.12);
+  border-top: 1px solid color-mix(in srgb, var(--gold-primary) 16%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--gold-primary) 16%, transparent);
 }
 
 @media (min-width: 640px) {
@@ -795,7 +799,7 @@
 
 /* Gold accent bar — left border for executive feel */
 .gold-accent-left {
-  border-left: 3px solid #F8D011;
+  border-left: 3px solid var(--text-header);
   padding-left: 20px;
   position: relative;
 }
@@ -807,8 +811,8 @@
   top: 0;
   bottom: 0;
   width: 3px;
-  background: #F8D011;
-  box-shadow: 0 0 12px rgba(248, 208, 17, 0.25), 0 0 4px rgba(248, 208, 17, 0.4);
+  background: var(--text-header);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--gold-primary) 35%, transparent), 0 0 4px color-mix(in srgb, var(--gold-primary) 56%, transparent);
   border-radius: 2px;
 }
 
@@ -819,20 +823,20 @@
   gap: 6px;
   padding: 5px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(248, 208, 17, 0.3);
-  background: rgba(248, 208, 17, 0.06);
+  border: 1px solid color-mix(in srgb, var(--gold-primary) 38%, transparent);
+  background: color-mix(in srgb, var(--gold-primary) 7%, transparent);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #F8D011;
+  color: var(--text-header);
   transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gold-tag:hover {
-  border-color: rgba(248, 208, 17, 0.5);
-  background: rgba(248, 208, 17, 0.10);
-  box-shadow: 0 0 12px rgba(248, 208, 17, 0.10);
+  border-color: color-mix(in srgb, var(--gold-primary) 56%, transparent);
+  background: color-mix(in srgb, var(--gold-primary) 11%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--gold-primary) 12%, transparent);
 }
 
 /* Gold underline accent for headings */
@@ -848,13 +852,13 @@
   bottom: -6px;
   width: 48px;
   height: 2px;
-  background: linear-gradient(to right, #F8D011, rgba(248, 208, 17, 0.2));
+  background: linear-gradient(to right, var(--gold-primary), color-mix(in srgb, var(--gold-primary) 25%, transparent));
   border-radius: 1px;
 }
 
 /* Gold keyword highlight — inline accent for key phrases */
 .gold-highlight {
-  color: #F8D011;
+  color: var(--text-header);
   font-weight: 600;
   text-shadow: 0 0 12px rgba(248, 208, 17, 0.15);
 }
@@ -921,7 +925,7 @@
 /* Gold horizontal rule — replaces generic dividers */
 .gold-rule {
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(248, 208, 17, 0.3), transparent);
+  background: linear-gradient(to right, transparent, color-mix(in srgb, var(--gold-primary) 35%, transparent), transparent);
   border: none;
   margin: 0;
   box-shadow: 0 0 8px rgba(248, 208, 17, 0.06);
@@ -934,8 +938,8 @@
 
 /* Gold glow text — for emphasis without gradient complexity */
 .text-gold-glow {
-  color: #F8D011;
-  text-shadow: 0 0 20px rgba(248, 208, 17, 0.3);
+  color: var(--text-header);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--gold-primary) 40%, transparent);
 }
 
 /* Executive card — refined glass with gold top border */
@@ -961,6 +965,7 @@
   line-height: 1.15;
   letter-spacing: -0.015em;
   font-weight: 700;
+  color: var(--text-header);
 }
 
 .heading-sub {

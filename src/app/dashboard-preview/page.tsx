@@ -13,7 +13,7 @@ const DEMO_SCORES = {
 
 export default function DashboardPreviewPage() {
   return (
-    <div style={{ minHeight: "100vh", background: "#0E1430", padding: "24px" }}>
+    <div style={{ minHeight: "100vh", background: "var(--text-body)", padding: "24px" }}>
       <IlluminateDashboard
         scores={DEMO_SCORES}
         eclipseLevel={28}

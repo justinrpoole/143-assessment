@@ -163,7 +163,7 @@ function computeResult(scores: Record<string, number>): ArchetypeResult {
     topRays: [top1, top2] as [string, string],
     topRayNames: [rayNameMap[top1] ?? top1, rayNameMap[top2] ?? top2] as [string, string],
     tagline: pub?.tagline ?? essence.slice(0, 80),
-    neonColor: pub?.neon_color ?? '#F8D011',
+    neonColor: pub?.neon_color ?? 'var(--gold-primary)',
     identityCode: pub?.identity_code ?? '',
   };
 }
@@ -215,7 +215,7 @@ export default function ArchetypeQuizClient() {
       {/* Progress bar */}
       {step < 9 && (
         <div className="mb-6">
-          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.1)' }}>
+          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
             <div
               className="h-full rounded-full bg-gradient-to-r from-brand-purple to-brand-gold transition-all duration-300"
               style={{ width: `${progress}%` }}
@@ -260,7 +260,7 @@ export default function ArchetypeQuizClient() {
                     color: 'var(--text-on-dark)',
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = 'rgba(248, 208, 17, 0.4)';
+                    (e.currentTarget as HTMLElement).style.borderColor = 'color-mix(in srgb, var(--gold-primary) 40%, transparent)';
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLElement).style.borderColor = 'var(--surface-border)';
@@ -282,7 +282,7 @@ export default function ArchetypeQuizClient() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <div className="glass-card p-8 text-center space-y-4" style={{ borderColor: 'rgba(248, 208, 17, 0.3)' }}>
+            <div className="glass-card p-8 text-center space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
                 Your Light Signature
               </p>

@@ -51,7 +51,7 @@ export default async function ReflectPage() {
             title="Did reflection land tonight?"
           />
           <RayDivider ray="R3" />
-          <section className="mx-auto max-w-lg">
+          <section className="content-wrap--narrow">
             <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: rayHex('R3') }}>
               Continue Your Practice
             </p>

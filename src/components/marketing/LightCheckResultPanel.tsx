@@ -62,7 +62,7 @@ export default function LightCheckResultPanel({ answers, visible }: LightCheckRe
     >
       <p
         className="mb-4 text-xs font-bold uppercase tracking-widest"
-        style={{ color: 'var(--brand-gold, #F8D011)' }}
+        style={{ color: 'var(--gold-primary)' }}
       >
         What Your Answers Suggest
       </p>
@@ -76,17 +76,17 @@ export default function LightCheckResultPanel({ answers, visible }: LightCheckRe
         {/* Coaching debrief */}
         <div
           className="glass-card p-5"
-          style={{ borderLeft: '3px solid var(--brand-gold, #F8D011)' }}
+          style={{ borderLeft: '3px solid var(--gold-primary)' }}
         >
           <p
             className="text-sm leading-relaxed"
-            style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+            style={{ color: 'var(--text-body)' }}
           >
             {callout}
           </p>
           <p
             className="mt-4 text-sm leading-relaxed"
-            style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.70))' }}
+            style={{ color: 'var(--text-secondary)' }}
           >
             Measurement is the first rep. The assessment does not just tell you where you are — it
             starts training your attention to notice capacity in real time. That is how the operating
@@ -126,18 +126,18 @@ function MiniEclipse({
     <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}>
       <defs>
         <radialGradient id="lcr-photo" cx="46%" cy="44%" r="52%">
-          <stop offset="0%" stopColor="#FFFEF5" />
-          <stop offset="30%" stopColor="#FFEC80" />
-          <stop offset="55%" stopColor="#F8D011" />
-          <stop offset="80%" stopColor="#E89D0C" />
-          <stop offset="100%" stopColor="#D4770B" stopOpacity="0" />
+          <stop offset="0%" stopColor="var(--text-body)" />
+          <stop offset="30%" stopColor="var(--text-body)" />
+          <stop offset="55%" stopColor="var(--gold-primary)" />
+          <stop offset="80%" stopColor="var(--neon-amber)" />
+          <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
         </radialGradient>
         <radialGradient id="lcr-corona" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFF8D6" stopOpacity="0.4" />
-          <stop offset="25%" stopColor="#F8D011" stopOpacity="0.15" />
+          <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.4" />
+          <stop offset="25%" stopColor="var(--gold-primary)" stopOpacity="0.15" />
           <stop offset="100%" stopColor="transparent" />
         </radialGradient>
-        <filter id="lcr-bloom" x="-80%" y="-80%" width="260%" height="260%">
+        <filter id="lcr-bloom" x="-80%" y="-80%" width={"260%"} height={"260%"}>
           <feGaussianBlur stdDeviation="5" result="b1" />
           <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b2" />
           <feMerge>
@@ -175,7 +175,7 @@ function MiniEclipse({
       {eclipsePercent > 0 && (
         <circle
           cx={moonCx} cy={moonCy} r={moonR}
-          fill="var(--bg-deep, #1A0A2E)"
+          fill="var(--bg-deep, var(--text-body))"
           opacity={0.97}
         />
       )}

@@ -117,21 +117,21 @@ function ResumeBanner({ runId, answered, total }: { runId: string; answered: num
     <Link
       href={`/assessment?run_id=${encodeURIComponent(runId)}`}
       className="glass-card block p-5 transition-all hover:scale-[1.01]"
-      style={{ borderColor: 'rgba(248, 208, 17, 0.4)' }}
+      style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)' }}
     >
-      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
         Continue Assessment
       </p>
-      <p className="mt-1.5 text-sm font-medium" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+      <p className="mt-1.5 text-sm font-medium" style={{ color: 'var(--text-body)' }}>
         You left off at question {answered}/{total}. Pick up where you stopped.
       </p>
-      <div className="mt-3 h-2 overflow-hidden rounded-full" style={{ background: 'rgba(255,255,255,0.1)' }}>
+      <div className="mt-3 h-2 overflow-hidden rounded-full" style={{ background: 'color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
         <div
           className="h-full rounded-full bg-gradient-to-r from-brand-purple to-brand-gold transition-all duration-500"
           style={{ width: `${pct}%` }}
         />
       </div>
-      <p className="mt-1.5 text-xs" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}>
+      <p className="mt-1.5 text-xs" style={{ color: 'var(--text-muted)' }}>
         {pct}% complete — your answers are saved
       </p>
     </Link>
@@ -148,21 +148,21 @@ function SubscriptionBanner({ state, gracePeriodEnd }: { state: PortalSummary['s
 
   const config = {
     grace: {
-      border: 'rgba(248, 208, 17, 0.4)',
+      border: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)',
       label: 'Subscription Ending',
-      labelColor: 'var(--brand-gold, #F8D011)',
+      labelColor: 'var(--gold-primary)',
       message: `Your subscription was canceled. You still have full access through ${graceDateLabel ?? 'your current period'}. Renew anytime to keep going.`,
     },
     expired: {
-      border: 'rgba(251, 146, 60, 0.4)',
+      border: 'var(--surface-border)',
       label: 'Subscription Expired',
-      labelColor: 'rgb(251, 146, 60)',
+      labelColor: 'var(--surface-border)',
       message: 'Your subscription has ended. Your report and progress are still here. Renew to continue your coaching tools and retakes.',
     },
     past_due: {
-      border: 'rgba(251, 146, 60, 0.4)',
+      border: 'var(--surface-border)',
       label: 'Payment Needs Attention',
-      labelColor: 'rgb(251, 146, 60)',
+      labelColor: 'var(--surface-border)',
       message: 'Your last payment didn\u2019t go through. Update your billing to continue your coaching without interruption.',
     },
   } as const;
@@ -177,7 +177,7 @@ function SubscriptionBanner({ state, gracePeriodEnd }: { state: PortalSummary['s
       <p className="text-xs font-bold uppercase tracking-widest" style={{ color: c.labelColor }}>
         {c.label}
       </p>
-      <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.7))' }}>
+      <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 70%, transparent))' }}>
         {c.message}
       </p>
       <Link
@@ -193,17 +193,17 @@ function SubscriptionBanner({ state, gracePeriodEnd }: { state: PortalSummary['s
 function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
   return (
     <div className="glass-card p-5 space-y-3">
-      <p className="gold-underline text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+      <p className="gold-underline text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
         Today
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
         <Link
           href="/reps"
           className="neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
-          style={{ background: 'rgba(96, 5, 141, 0.2)', border: '1px solid rgba(148, 80, 200, 0.25)' }}
+          style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)', border: '1px solid color-mix(in srgb, var(--stroke-400) 25%, transparent)' }}
         >
-          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(248, 208, 17, 0.15)' }}>
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#F8D011' }} />
+          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--gold-primary)' }} />
           </span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Capture a moment</p>
@@ -213,10 +213,10 @@ function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
         <Link
           href="/watch-me"
           className="neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
-          style={{ background: 'rgba(96, 5, 141, 0.2)', border: '1px solid rgba(148, 80, 200, 0.25)' }}
+          style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)', border: '1px solid color-mix(in srgb, var(--stroke-400) 25%, transparent)' }}
         >
-          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(139, 91, 255, 0.15)' }}>
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#8b5bff' }} />
+          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'var(--surface-border)' }}>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--text-body)' }} />
           </span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Take a small step</p>
@@ -228,10 +228,10 @@ function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
         <Link
           href="/reflect"
           className="neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
-          style={{ background: 'rgba(96, 5, 141, 0.2)', border: '1px solid rgba(148, 80, 200, 0.25)' }}
+          style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)', border: '1px solid color-mix(in srgb, var(--stroke-400) 25%, transparent)' }}
         >
-          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(46, 204, 113, 0.15)' }}>
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#2ECC71' }} />
+          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'var(--surface-border)' }}>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--text-body)' }} />
           </span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Daily Debrief</p>
@@ -247,95 +247,95 @@ const WEEKLY_TARGET = 5; // reps per week
 
 const TOOL_ACCENTS: Record<string, StreakFireAccent> = {
   '90_second_window': {
-    base: '#F59E0B',
-    mid: '#F8D011',
-    tip: '#FDE68A',
-    core: '#FFFBEB',
-    glow: 'rgba(245, 158, 11, 0.55)',
+    base: 'var(--neon-amber)',
+    mid: 'var(--gold-primary)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   presence_pause: {
-    base: '#7C3AED',
-    mid: '#A78BFA',
-    tip: '#DDD6FE',
-    core: '#F5F3FF',
-    glow: 'rgba(167, 139, 250, 0.55)',
+    base: 'var(--text-body)',
+    mid: 'var(--neon-violet)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   watch_me: {
-    base: '#E89D0C',
-    mid: '#F8D011',
-    tip: '#FFEC80',
-    core: '#FFFEF5',
-    glow: 'rgba(248, 208, 17, 0.6)',
+    base: 'var(--neon-amber)',
+    mid: 'var(--gold-primary)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'color-mix(in srgb, var(--gold-primary) 60%, transparent)',
   },
   go_first: {
-    base: '#EA580C',
-    mid: '#FB923C',
-    tip: '#FED7AA',
-    core: '#FFF7ED',
-    glow: 'rgba(251, 146, 60, 0.6)',
+    base: 'var(--text-body)',
+    mid: 'var(--neon-amber)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   i_rise: {
-    base: '#0284C7',
-    mid: '#38BDF8',
-    tip: '#BAE6FD',
-    core: '#F0F9FF',
-    glow: 'rgba(56, 189, 248, 0.55)',
+    base: 'var(--text-body)',
+    mid: 'var(--text-body)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   reflection_loop: {
-    base: '#0F766E',
-    mid: '#2DD4BF',
-    tip: '#99F6E4',
-    core: '#F0FDFA',
-    glow: 'rgba(45, 212, 191, 0.55)',
+    base: 'var(--text-body)',
+    mid: 'var(--text-body)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   if_then_planning: {
-    base: '#059669',
-    mid: '#34D399',
-    tip: '#A7F3D0',
-    core: '#ECFDF5',
-    glow: 'rgba(52, 211, 153, 0.55)',
+    base: 'var(--text-body)',
+    mid: 'var(--neon-teal)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   boundary_of_light: {
-    base: '#DB2777',
-    mid: '#F472B6',
-    tip: '#FBCFE8',
-    core: '#FFF1F2',
-    glow: 'rgba(244, 114, 182, 0.55)',
+    base: 'var(--text-body)',
+    mid: 'var(--text-body)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   ras_reset: {
-    base: '#9340ff',
-    mid: '#60A5FA',
-    tip: '#BFDBFE',
-    core: '#EFF6FF',
-    glow: 'rgba(96, 165, 250, 0.55)',
+    base: 'var(--text-body)',
+    mid: 'var(--text-body)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   question_loop: {
-    base: '#7C3AED',
-    mid: '#C084FC',
-    tip: '#E9D5FF',
-    core: '#F5F3FF',
-    glow: 'rgba(192, 132, 252, 0.55)',
+    base: 'var(--text-body)',
+    mid: 'var(--text-body)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   witness: {
-    base: '#4F46E5',
-    mid: '#818CF8',
-    tip: '#C7D2FE',
-    core: '#EEF2FF',
-    glow: 'rgba(129, 140, 248, 0.55)',
+    base: 'var(--text-body)',
+    mid: 'var(--text-body)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   '143_challenge': {
-    base: '#B45309',
-    mid: '#F59E0B',
-    tip: '#FDE68A',
-    core: '#FFFBEB',
-    glow: 'rgba(245, 158, 11, 0.6)',
+    base: 'var(--text-body)',
+    mid: 'var(--neon-amber)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
   let_them: {
-    base: '#BE123C',
-    mid: '#FB7185',
-    tip: '#FBCFE8',
-    core: '#FFF1F2',
-    glow: 'rgba(251, 113, 133, 0.55)',
+    base: 'var(--text-body)',
+    mid: 'var(--text-body)',
+    tip: 'var(--text-body)',
+    core: 'var(--text-body)',
+    glow: 'var(--surface-border)',
   },
 };
 
@@ -690,7 +690,7 @@ export default function PortalDashboard() {
               <WeeklyGoalRing current={summary.reps_this_week} target={WEEKLY_TARGET} />
               <div className="flex-1 space-y-1.5">
                 <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-secondary)' }}>Weekly reps</p>
-                <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.1)' }}>
+                <div className="h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
                   <div
                     className="h-full bg-gradient-to-r from-brand-purple to-brand-gold rounded-full transition-all duration-500"
                     style={{ width: `${progressPct}%` }}
@@ -786,8 +786,8 @@ export default function PortalDashboard() {
                 const ramp = rayRamp(summary.bottom_ray_id ?? summary.bottom_ray_name);
                 const glowStyle = showGlow
                   ? {
-                      boxShadow: '0 0 0 2px rgba(248, 208, 17, 0.6), 0 0 18px rgba(248, 208, 17, 0.35)',
-                      borderColor: 'rgba(248, 208, 17, 0.8)',
+                      boxShadow: '0 0 0 2px color-mix(in srgb, var(--gold-primary) 60%, transparent), 0 0 18px color-mix(in srgb, var(--gold-primary) 35%, transparent)',
+                      borderColor: 'color-mix(in srgb, var(--gold-primary) 80%, transparent)',
                     }
                   : {};
                 return (
@@ -912,7 +912,7 @@ export default function PortalDashboard() {
       {/* Stretch nudge for streak ≥ 3 */}
       {summary.streak_days >= 3 && (
         <FadeInSection>
-          <div className="glass-card p-4 flex items-start gap-3" style={{ borderColor: 'rgba(248, 208, 17, 0.3)' }}>
+          <div className="glass-card p-4 flex items-start gap-3" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
             <span className="text-xl">🌟</span>
             <div>
               <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>

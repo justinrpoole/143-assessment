@@ -50,11 +50,11 @@ export default function StarfieldBackground() {
 
     for (let i = 0; i < STAR_COUNT; i++) {
       const roll = Math.random();
-      const color = roll < 0.08 ? '#F8D011'   // 8% gold
-                  : roll < 0.12 ? '#25f6ff'   // 4% cyan
-                  : roll < 0.14 ? '#ff3fb4'   // 2% pink
-                  : roll < 0.15 ? '#c6ff4d'   // 1% lime
-                  : '#FFFEF5';                 // 85% white
+      const color = roll < 0.08 ? 'var(--gold-primary)'   // 8% gold
+                  : roll < 0.12 ? 'var(--text-body)'   // 4% cyan
+                  : roll < 0.14 ? 'var(--text-body)'   // 2% pink
+                  : roll < 0.15 ? 'var(--text-body)'   // 1% lime
+                  : 'var(--text-body)';                 // 85% white
       stars.push({
         x: Math.random() * w,
         y: Math.random() * h,

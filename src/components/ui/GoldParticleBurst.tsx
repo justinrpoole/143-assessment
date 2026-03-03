@@ -23,7 +23,7 @@ export default function GoldParticleBurst({ children }: { children: React.ReactN
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
     const count = 8 + Math.floor(Math.random() * 5);
-    const neonColors = ['#F8D011', '#F8D011', '#F8D011', '#25f6ff', '#ff3fb4', '#c6ff4d', '#8b5bff'];
+    const neonColors = ['var(--gold-primary)', 'var(--gold-primary)', 'var(--gold-primary)', 'var(--text-body)', 'var(--text-body)', 'var(--text-body)', 'var(--text-body)'];
     const batch = Array.from({ length: count }, (_, i) => ({
       id: Date.now() + i,
       x: cx,

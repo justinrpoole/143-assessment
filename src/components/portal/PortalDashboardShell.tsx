@@ -84,35 +84,35 @@ export default function PortalDashboardShell() {
   if (loading) {
     return (
       <div style={{
-        background:'#4A0E78',borderRadius:20,padding:'60px 0',
+        background:'var(--text-body)',borderRadius:20,padding:'60px 0',
         display:'flex',flexDirection:'column',alignItems:'center',gap:16,
         fontFamily:"'Orbitron',system-ui,sans-serif",
-        border:'1px solid rgba(255,255,255,0.06)',
+        border:'1px solid color-mix(in srgb, var(--text-body) 6%, transparent)',
       }}>
         <style>{`@keyframes spin{to{transform:rotate(360deg)}}@keyframes illum-pulse2{0%,100%{opacity:.4}50%{opacity:1}}`}</style>
-        <div style={{fontSize:10,letterSpacing:'.28em',color:'#F4C430',animation:'illum-pulse2 1.5s ease-in-out infinite'}}>CALIBRATING YOUR LIGHT...</div>
-        <div style={{width:48,height:48,borderRadius:'50%',border:'3px solid rgba(37,246,255,0.2)',borderTop:'3px solid #25F6FF',animation:'spin 1s linear infinite'}} />
+        <div style={{fontSize:10,letterSpacing:'.28em',color:'var(--gold-primary)',animation:'illum-pulse2 1.5s ease-in-out infinite'}}>CALIBRATING YOUR LIGHT...</div>
+        <div style={{width:48,height:48,borderRadius:'50%',border:'3px solid color-mix(in srgb, var(--neon-cyan) 20%, transparent)',borderTop:'3px solid var(--text-body)',animation:'spin 1s linear infinite'}} />
       </div>
     );
   }
 
   return (
-    <div className="relative rounded-2xl p-4 sm:p-5 overflow-hidden" style={{ background: '#060014', border: '1px solid rgba(37,246,255,0.2)', boxShadow: 'inset 0 0 24px rgba(37,246,255,0.08)' }}>
-      <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(37,246,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(37,246,255,0.08) 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
+    <div className="relative rounded-2xl p-4 sm:p-5 overflow-hidden" style={{ background: 'var(--bg-deep)', border: '1px solid color-mix(in srgb, var(--neon-cyan) 20%, transparent)', boxShadow: 'inset 0 0 24px color-mix(in srgb, var(--neon-cyan) 8%, transparent)' }}>
+      <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'linear-gradient(color-mix(in srgb, var(--neon-cyan) 8%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--neon-cyan) 8%, transparent) 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
       <div className="relative z-10">
-      <p className="mb-3 text-xs uppercase tracking-[0.2em]" style={{ color: '#25F6FF', fontFamily: 'var(--font-cosmic-display)', textShadow: '0 0 10px rgba(37,246,255,0.6)' }}>
+      <p className="mb-3 text-xs uppercase tracking-[0.2em]" style={{ color: 'var(--neon-cyan)', fontFamily: 'var(--font-cosmic-display)', textShadow: '0 0 10px color-mix(in srgb, var(--neon-cyan) 60%, transparent)' }}>
         Portal Command Dashboard
       </p>
       {!hasRun && (
         <div style={{
           marginBottom:16,padding:'12px 18px',borderRadius:12,
-          background:'rgba(255,209,102,0.08)',border:'1px solid rgba(255,209,102,0.2)',
-          fontFamily:"'Space Grotesk',sans-serif",fontSize:13,color:'rgba(255,255,255,0.7)',
+          background:'var(--surface-border)',border:'1px solid var(--surface-border)',
+          fontFamily:"'Space Grotesk',sans-serif",fontSize:13,color:'color-mix(in srgb, var(--text-body) 70%, transparent)',
           display:'flex',alignItems:'center',gap:12,
         }}>
           <span style={{fontSize:18}}>🌑</span>
           <span>No light signature yet. Take the assessment — 143 questions, one clean map.{' '}
-            <a href="/assessment" style={{color:'#F4C430',textDecoration:'underline'}}>Start →</a>
+            <a href="/assessment" style={{color:'var(--gold-primary)',textDecoration:'underline'}}>Start →</a>
           </span>
         </div>
       )}

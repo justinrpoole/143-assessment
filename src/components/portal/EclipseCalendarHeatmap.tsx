@@ -12,33 +12,33 @@ const DAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 /** Map state to cell color */
 function cellColor(day: CalendarDay, isToday: boolean): string {
-  if (isToday) return 'rgba(248, 208, 17, 0.25)'; // gold outline handled separately
+  if (isToday) return 'color-mix(in srgb, var(--gold-primary) 25%, transparent)'; // gold outline handled separately
 
   if (day.has_loop && day.load_band) {
     // Both data points available — blend based on load
     switch (day.load_band) {
-      case 'low': return 'rgba(52, 211, 153, 0.5)';       // green — great day
-      case 'moderate': return 'rgba(248, 208, 17, 0.35)';  // gold — normal
-      case 'elevated': return 'rgba(251, 146, 60, 0.4)';   // amber — strained
-      case 'high': return 'rgba(248, 113, 113, 0.4)';      // rose — heavy load
+      case 'low': return 'var(--surface-border)';       // green — great day
+      case 'moderate': return 'color-mix(in srgb, var(--gold-primary) 35%, transparent)';  // gold — normal
+      case 'elevated': return 'var(--surface-border)';   // amber — strained
+      case 'high': return 'var(--surface-border)';      // rose — heavy load
     }
   }
 
   if (day.has_loop) {
-    return 'rgba(52, 211, 153, 0.35)'; // green — completed loop, no audit data
+    return 'var(--surface-border)'; // green — completed loop, no audit data
   }
 
   if (day.load_band) {
     // Energy audit exists but no loop
     switch (day.load_band) {
-      case 'low': return 'rgba(52, 211, 153, 0.2)';
-      case 'moderate': return 'rgba(248, 208, 17, 0.15)';
-      case 'elevated': return 'rgba(251, 146, 60, 0.2)';
-      case 'high': return 'rgba(248, 113, 113, 0.25)';
+      case 'low': return 'var(--surface-border)';
+      case 'moderate': return 'color-mix(in srgb, var(--gold-primary) 15%, transparent)';
+      case 'elevated': return 'var(--surface-border)';
+      case 'high': return 'var(--surface-border)';
     }
   }
 
-  return 'rgba(255, 255, 255, 0.04)'; // no data
+  return 'color-mix(in srgb, var(--text-body) 4%, transparent)'; // no data
 }
 
 function cellLabel(day: CalendarDay): string {
@@ -112,7 +112,7 @@ export default function EclipseCalendarHeatmap() {
   if (days.length < 7) return null; // Need at least a week of data
 
   return (
-    <div className="glass-card p-5 space-y-3" style={{ borderTop: '2px solid var(--brand-gold, #F8D011)' }}>
+    <div className="glass-card p-5 space-y-3" style={{ borderTop: '2px solid var(--gold-primary)' }}>
       <div className="flex items-center justify-between">
         <div>
           <h3
@@ -130,15 +130,15 @@ export default function EclipseCalendarHeatmap() {
         {/* Legend */}
         <div className="flex items-center gap-2">
           <span className="flex items-center gap-1 text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
-            <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'rgba(52, 211, 153, 0.5)' }} />
+            <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'var(--surface-border)' }} />
             Clear
           </span>
           <span className="flex items-center gap-1 text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
-            <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'rgba(248, 208, 17, 0.35)' }} />
+            <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'color-mix(in srgb, var(--gold-primary) 35%, transparent)' }} />
             Moderate
           </span>
           <span className="flex items-center gap-1 text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
-            <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'rgba(248, 113, 113, 0.4)' }} />
+            <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'var(--surface-border)' }} />
             Heavy
           </span>
         </div>

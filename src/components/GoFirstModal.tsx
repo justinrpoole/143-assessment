@@ -137,7 +137,7 @@ export default function GoFirstModal({
                 </div>
               )}
 
-              <div className="rounded-xl p-4 space-y-1" style={{ background: 'rgba(248, 208, 17, 0.08)' }}>
+              <div className="rounded-xl p-4 space-y-1" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}>
                 <p className="text-xs font-semibold text-brand-gold uppercase tracking-wide">
                   The science
                 </p>
@@ -147,7 +147,7 @@ export default function GoFirstModal({
                 </p>
               </div>
 
-              <div className="rounded-xl p-4 space-y-2" style={{ background: 'rgba(255,255,255,0.04)' }}>
+              <div className="rounded-xl p-4 space-y-2" style={{ background: 'color-mix(in srgb, var(--text-body) 4%, transparent)' }}>
                 <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
                   Quick prompts
                 </p>
@@ -158,7 +158,7 @@ export default function GoFirstModal({
                       type="button"
                       onClick={() => setSmallestAction(prompt.action)}
                       className="text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01]"
-                      style={{ border: '1px solid var(--surface-border)', background: 'rgba(2, 2, 2, 0.35)', color: 'var(--text-on-dark)' }}
+                      style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
                     >
                       <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                         {prompt.label}
@@ -189,7 +189,7 @@ export default function GoFirstModal({
                   placeholder="Open the doc / send the message / make the call..."
                   className="w-full rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
                   style={{
-                    background: 'rgba(255,255,255,0.06)',
+                    background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                     border: '1px solid var(--surface-border)',
                     color: 'var(--text-on-dark)',
                   }}
@@ -212,7 +212,7 @@ export default function GoFirstModal({
               <div
                 className="w-24 h-24 rounded-full flex items-center justify-center mx-auto border-4 border-brand-gold"
                 style={{
-                  background: `conic-gradient(#F8D011 ${((60 - countdown) / 60) * 360}deg, rgba(255,255,255,0.06) 0deg)`,
+                  background: `conic-gradient(var(--text-body) ${((60 - countdown) / 60) * 360}deg, color-mix(in srgb, var(--text-body) 6%, transparent) 0deg)`,
                 }}
               >
                 <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'var(--bg-deep)' }}>
@@ -224,7 +224,7 @@ export default function GoFirstModal({
                   Do it right now.
                 </p>
                 {smallestAction && (
-                  <div className="rounded-xl px-4 py-3" style={{ background: 'rgba(248, 208, 17, 0.10)' }}>
+                  <div className="rounded-xl px-4 py-3" style={{ background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)' }}>
                     <p className="text-sm font-medium text-brand-gold">
                       &ldquo;{smallestAction}&rdquo;
                     </p>

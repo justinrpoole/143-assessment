@@ -42,7 +42,7 @@ export default function StardustCheckins({
       const y = seededRandom(i * 3 + 1) * H;
       const size = seededRandom(i * 3 + 2) < 0.85 ? 0.8 : seededRandom(i * 3 + 2) < 0.95 ? 1.4 : 2;
       const colorRoll = seededRandom(i * 7);
-      const color = colorRoll < 0.8 ? '#FFFFFF' : colorRoll < 0.95 ? '#F4C430' : '#C39BD3';
+      const color = colorRoll < 0.8 ? 'var(--text-body)' : colorRoll < 0.95 ? 'var(--gold-primary)' : 'var(--text-secondary)';
       const opacity = 0.15 + seededRandom(i * 7 + 1) * 0.55;
       s.push({ x, y, size, opacity, color, delay: seededRandom(i * 7 + 2) * 6 });
     }
@@ -104,7 +104,7 @@ export default function StardustCheckins({
             y1={H / 2}
             x2={W / 2 + Math.cos((deg * Math.PI) / 180) * 60}
             y2={H / 2 + Math.sin((deg * Math.PI) / 180) * 60}
-            stroke="#FFFFFF"
+            stroke="var(--text-body)"
             strokeWidth={0.5}
             strokeOpacity={0.12}
           />
@@ -141,7 +141,7 @@ export default function StardustCheckins({
                 cx={ripple.x}
                 cy={ripple.y}
                 fill="none"
-                stroke="#F4C430"
+                stroke="var(--gold-primary)"
                 strokeWidth={1.5 - ri * 0.4}
                 initial={{ r: 4, opacity: 0 }}
                 animate={{ r: 40 + ri * 25, opacity: [0, opacity, 0] }}
@@ -168,7 +168,7 @@ export default function StardustCheckins({
                 y1={prev.y}
                 x2={pt.x}
                 y2={pt.y}
-                stroke="#F4C430"
+                stroke="var(--gold-primary)"
                 strokeWidth={0.8}
                 strokeOpacity={0.5}
               />
@@ -184,8 +184,8 @@ export default function StardustCheckins({
                 cx={pt.x}
                 cy={pt.y}
                 r={lit ? 3 : 2}
-                fill={lit ? '#F4C430' : 'none'}
-                stroke={lit ? '#F4C430' : '#FFFFFF'}
+                fill={lit ? 'var(--gold-primary)' : 'none'}
+                stroke={lit ? 'var(--gold-primary)' : 'var(--text-body)'}
                 strokeWidth={lit ? 0 : 0.8}
                 strokeOpacity={lit ? 1 : 0.25}
               />
@@ -198,7 +198,7 @@ export default function StardustCheckins({
           x={W - 70}
           y={H - 18}
           textAnchor="middle"
-          fill="#F4C430"
+          fill="var(--gold-primary)"
           fontSize="9"
           fontWeight="600"
           opacity={0.6}

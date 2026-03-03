@@ -87,11 +87,11 @@ export default function CometMoments({ comets, onCapture }: CometMomentsProps) {
             <stop offset="100%" stopColor="var(--cosmic-svg-bg)" />
           </radialGradient>
           <radialGradient id="cm-head">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="40%" stopColor="#E8F4FD" />
-            <stop offset="100%" stopColor="#BDE0FE" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="40%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--text-body)" stopOpacity="0" />
           </radialGradient>
-          <filter id="cm-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="cm-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="4" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -106,14 +106,14 @@ export default function CometMoments({ comets, onCapture }: CometMomentsProps) {
             cx={seededRandom(i * 11) * W}
             cy={seededRandom(i * 11 + 1) * H * 0.7}
             r={0.6}
-            fill="#FFFFFF"
+            fill="var(--text-body)"
             opacity={0.15 + seededRandom(i * 11 + 2) * 0.15}
           />
         ))}
 
         {/* Mini orbit map at bottom */}
-        <circle cx={W / 2} cy={H - 60} r={8} fill="#F4C430" opacity={0.2} />
-        <ellipse cx={W / 2} cy={H - 60} rx={55} ry={28} fill="none" stroke="#FFFFFF" strokeWidth={0.5} strokeOpacity={0.1} strokeDasharray="3 5" />
+        <circle cx={W / 2} cy={H - 60} r={8} fill="var(--gold-primary)" opacity={0.2} />
+        <ellipse cx={W / 2} cy={H - 60} rx={55} ry={28} fill="none" stroke="var(--text-body)" strokeWidth={0.5} strokeOpacity={0.1} strokeDasharray="3 5" />
 
         {/* Captured chips on orbit map */}
         {comets.map((comet, idx) => {
@@ -125,14 +125,14 @@ export default function CometMoments({ comets, onCapture }: CometMomentsProps) {
                 cx={lp.x}
                 cy={lp.y}
                 r={6}
-                fill="#F4C430"
+                fill="var(--gold-primary)"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
                 style={{ transformOrigin: `${lp.x}px ${lp.y}px` }}
               />
               {/* Tiny comet tail wisp */}
-              <line x1={lp.x + 6} y1={lp.y - 2} x2={lp.x + 16} y2={lp.y - 6} stroke="#F4C430" strokeWidth={0.8} strokeOpacity={0.3} />
+              <line x1={lp.x + 6} y1={lp.y - 2} x2={lp.x + 16} y2={lp.y - 6} stroke="var(--gold-primary)" strokeWidth={0.8} strokeOpacity={0.3} />
             </g>
           );
         })}
@@ -152,7 +152,7 @@ export default function CometMoments({ comets, onCapture }: CometMomentsProps) {
                   cx={dp.x}
                   cy={dp.y}
                   r={dp.size}
-                  fill="#F4C430"
+                  fill="var(--gold-primary)"
                   initial={false}
                   animate={
                     !reducedMotion
@@ -173,14 +173,14 @@ export default function CometMoments({ comets, onCapture }: CometMomentsProps) {
                 y1={headY}
                 x2={headX - W * 0.45}
                 y2={headY + 5}
-                stroke="#BDE0FE"
+                stroke="var(--text-secondary)"
                 strokeWidth={1.5}
                 strokeOpacity={0.35}
               />
 
               {/* Comet head */}
               <circle cx={headX} cy={headY} r={8} fill="url(#cm-head)" filter="url(#cm-glow)" />
-              <circle cx={headX} cy={headY} r={3} fill="#FFFFFF" />
+              <circle cx={headX} cy={headY} r={3} fill="var(--text-body)" />
 
               {/* Pulsing capture ring */}
               <motion.circle
@@ -188,7 +188,7 @@ export default function CometMoments({ comets, onCapture }: CometMomentsProps) {
                 cy={headY}
                 r={16}
                 fill="none"
-                stroke="#F4C430"
+                stroke="var(--gold-primary)"
                 strokeWidth={1}
                 strokeDasharray="4 4"
                 initial={false}
@@ -225,7 +225,7 @@ export default function CometMoments({ comets, onCapture }: CometMomentsProps) {
               />
 
               {/* Label */}
-              <text x={headX} y={headY + 28} textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="500" opacity={0.5}>
+              <text x={headX} y={headY + 28} textAnchor="middle" fill="var(--text-body)" fontSize="9" fontWeight="500" opacity={0.5}>
                 {comet.label}
               </text>
             </g>

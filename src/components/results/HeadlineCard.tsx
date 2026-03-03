@@ -8,7 +8,7 @@ interface Props {
 }
 
 function rayColor(id: string): string {
-  return RAY_COLORS[id]?.hex ?? '#F8D011';
+  return RAY_COLORS[id]?.hex ?? 'var(--gold-primary)';
 }
 
 /**
@@ -32,17 +32,17 @@ export default function HeadlineCard({ output }: Props) {
     HIGH: 'High load',
   };
   const eclipseColors: Record<string, string> = {
-    LOW: '#A78BFA',
-    MODERATE: '#F8D011',
-    ELEVATED: '#F59E0B',
-    HIGH: '#FB923C',
+    LOW: 'var(--neon-violet)',
+    MODERATE: 'var(--gold-primary)',
+    ELEVATED: 'var(--neon-amber)',
+    HIGH: 'var(--neon-amber)',
   };
 
   return (
     <div
       className="rounded-2xl overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, rgba(96, 5, 141, 0.25) 0%, rgba(30, 14, 53, 0.9) 100%)',
+        background: 'linear-gradient(135deg, color-mix(in srgb, var(--violet-650) 25%, transparent) 0%, var(--surface-border) 100%)',
         border: '1px solid var(--surface-border)',
         boxShadow: 'var(--shadow-glow-md)',
       }}
@@ -51,7 +51,7 @@ export default function HeadlineCard({ output }: Props) {
         {/* Archetype name */}
         <p
           className="text-xs tracking-[0.25em] uppercase mb-1"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           Your Light Signature
         </p>
@@ -85,9 +85,9 @@ export default function HeadlineCard({ output }: Props) {
             <span
               className="text-xs font-medium px-3 py-1 rounded-full"
               style={{
-                background: `${eclipseColors[eclipse.level] ?? '#F8D011'}12`,
-                border: `1px solid ${eclipseColors[eclipse.level] ?? '#F8D011'}25`,
-                color: eclipseColors[eclipse.level] ?? '#F8D011',
+                background: `${eclipseColors[eclipse.level] ?? 'var(--gold-primary)'}12`,
+                border: `1px solid ${eclipseColors[eclipse.level] ?? 'var(--gold-primary)'}25`,
+                color: eclipseColors[eclipse.level] ?? 'var(--gold-primary)',
               }}
             >
               {eclipseLabels[eclipse.level] ?? eclipse.level}

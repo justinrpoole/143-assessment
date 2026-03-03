@@ -57,14 +57,14 @@ export default function CinematicCompleteClient() {
       <div
         className="fixed inset-0 flex items-center justify-center"
         style={{
-          background: 'radial-gradient(ellipse at 50% 30%, rgba(96,5,141,0.35) 0%, transparent 60%), linear-gradient(180deg, #0a0420 0%, #1E0E35 50%, #0a0420 100%)',
+          background: 'radial-gradient(ellipse at 50% 30%, color-mix(in srgb, var(--violet-650) 35%, transparent) 0%, transparent 60%), linear-gradient(180deg, var(--text-body) 0%, var(--text-body) 50%, var(--text-body) 100%)',
         }}
       >
         <div
           style={{
             width: 48, height: 48, borderRadius: '50%',
-            border: '3px solid rgba(248,208,17,0.2)',
-            borderTop: '3px solid #F8D011',
+            border: '3px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
+            borderTop: '3px solid var(--text-body)',
             animation: 'spin 1s linear infinite',
           }}
         />

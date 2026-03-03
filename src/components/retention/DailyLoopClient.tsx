@@ -15,7 +15,7 @@ const LOOP_STEPS = [
     prompt: "What\u2019s pulling at your attention right now?",
     hint: 'Name the signal. One sentence. That\u2019s all it takes to reduce the charge.',
     science: 'Affect labeling reduces amygdala reactivity.',
-    color: '#A78BFA',
+    color: 'var(--neon-violet)',
   },
   {
     id: 'ground_it',
@@ -23,7 +23,7 @@ const LOOP_STEPS = [
     prompt: "What\u2019s one thing that\u2019s steady right now?",
     hint: 'Shift your attention to what\u2019s working. It doesn\u2019t have to be big.',
     science: 'Gratitude shifts attentional bias toward available resources.',
-    color: '#F8D011',
+    color: 'var(--gold-primary)',
   },
   {
     id: 'move',
@@ -31,7 +31,7 @@ const LOOP_STEPS = [
     prompt: "What\u2019s the one clear action you\u2019re choosing today?",
     hint: 'Specific and small. Something you can finish.',
     science: 'Implementation intentions double follow-through rates.',
-    color: '#2ecc71',
+    color: 'var(--text-body)',
   },
 ] as const;
 
@@ -191,7 +191,7 @@ export default function DailyLoopClient() {
                 key={s.id}
                 className="h-1.5 w-6 rounded-full transition-colors duration-300"
                 style={{
-                  backgroundColor: i <= step ? currentStep.color : 'rgba(255,255,255,0.12)',
+                  backgroundColor: i <= step ? currentStep.color : 'color-mix(in srgb, var(--text-body) 12%, transparent)',
                 }}
               />
             ))}
@@ -215,7 +215,7 @@ export default function DailyLoopClient() {
           aria-label={currentStep.prompt}
           className="w-full rounded-xl px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
           style={{
-            background: 'rgba(255,255,255,0.06)',
+            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
             border: '1px solid var(--surface-border)',
             color: 'var(--text-on-dark)',
           }}
@@ -248,9 +248,9 @@ export default function DailyLoopClient() {
 
         {error && (
           <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
-            style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
+            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
           >
-            <p className="text-xs" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+            <p className="text-xs" style={{ color: 'var(--ray-power)' }}>{humanizeError(error)}</p>
             <button
               type="button"
               onClick={() => void saveLoop(texts)}

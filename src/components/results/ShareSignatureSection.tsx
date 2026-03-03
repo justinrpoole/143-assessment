@@ -41,19 +41,19 @@ export default function ShareSignatureSection({ runId }: ShareSignatureSectionPr
 
   const ray1      = topTwo[0]?.ray_name ?? '';
   const ray2      = topTwo[1]?.ray_name ?? '';
-  const neonColor = RAY_COLORS[topTwo[0]?.ray_id ?? '']?.hex ?? '#F8D011';
+  const neonColor = RAY_COLORS[topTwo[0]?.ray_id ?? '']?.hex ?? 'var(--gold-primary)';
 
   return (
     <section className="mx-auto max-w-2xl px-6 py-12 text-center">
       <p
         className="text-xs uppercase tracking-widest mb-3"
-        style={{ color: 'var(--brand-gold, #F8D011)' }}
+        style={{ color: 'var(--gold-primary)' }}
       >
         Share Your Light Signature
       </p>
       <h2
         className="text-xl font-bold mb-6"
-        style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+        style={{ color: 'var(--text-body)' }}
       >
         Show the world what your system looks like right now.
       </h2>

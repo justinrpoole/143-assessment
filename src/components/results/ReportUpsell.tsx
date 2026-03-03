@@ -20,7 +20,7 @@ export default function ReportUpsell({ subscriptionActive }: ReportUpsellProps) 
   return (
     <section
       className="glass-card p-6 sm:p-8 space-y-5"
-      style={{ borderColor: 'rgba(248, 208, 17, 0.2)' }}
+      style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}
     >
       <div className="text-center space-y-2">
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
@@ -39,7 +39,7 @@ export default function ReportUpsell({ subscriptionActive }: ReportUpsellProps) 
           <div
             key={f.label}
             className="flex items-start gap-3 rounded-xl p-3"
-            style={{ background: 'rgba(96, 5, 141, 0.2)' }}
+            style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}
           >
             <span className="mt-0.5 text-sm" style={{ color: 'var(--brand-gold)' }}>&#x2713;</span>
             <div>

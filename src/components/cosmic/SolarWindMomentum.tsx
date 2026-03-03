@@ -75,7 +75,7 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
 
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label={`Solar wind momentum — ${isStrong ? 'strong' : 'weak'}`}>
         <defs>
-          <filter id="swm-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="swm-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="3" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -86,8 +86,8 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
           <rect x={0} y={0} width={W} height={halfH} rx="12" fill="var(--cosmic-svg-bg)" />
 
           {/* Bright 143 sun */}
-          <circle cx={50} cy={halfH / 2} r={18} fill="#F4C430" opacity={0.8} filter="url(#swm-glow)" />
-          <circle cx={50} cy={halfH / 2} r={9} fill="#FFFFFF" opacity={0.6} />
+          <circle cx={50} cy={halfH / 2} r={18} fill="var(--gold-primary)" opacity={0.8} filter="url(#swm-glow)" />
+          <circle cx={50} cy={halfH / 2} r={9} fill="var(--text-body)" opacity={0.6} />
           {Array.from({ length: 8 }).map((_, i) => {
             const angle = (i / 8) * Math.PI * 2;
             return (
@@ -97,7 +97,7 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
                 y1={halfH / 2 + Math.sin(angle) * 20}
                 x2={50 + Math.cos(angle) * 28}
                 y2={halfH / 2 + Math.sin(angle) * 28}
-                stroke="#F4C430"
+                stroke="var(--gold-primary)"
                 strokeWidth={2}
                 strokeOpacity={0.5}
               />
@@ -112,7 +112,7 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
               cy={p.y}
               rx={p.size * 1.8}
               ry={p.size * 0.5}
-              fill={i % 3 === 0 ? '#E8A317' : '#F4C430'}
+              fill={i % 3 === 0 ? 'var(--neon-amber)' : 'var(--gold-primary)'}
               initial={false}
               animate={
                 !reducedMotion
@@ -135,7 +135,7 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
               y={0}
               width={30}
               height={halfH}
-              fill="#E8A317"
+              fill="var(--neon-amber)"
               initial={false}
               animate={
                 !reducedMotion
@@ -150,21 +150,21 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
             />
           ))}
 
-          <text x={W - 16} y={halfH / 2 + 4} textAnchor="end" fill="#F4C430" fontSize="10" fontWeight="600" opacity={0.5}>
+          <text x={W - 16} y={halfH / 2 + 4} textAnchor="end" fill="var(--gold-primary)" fontSize="10" fontWeight="600" opacity={0.5}>
             STRONG
           </text>
         </g>
 
         {/* Divider */}
-        <rect x={0} y={halfH} width={W} height={8} fill="#2C0A3E" />
+        <rect x={0} y={halfH} width={W} height={8} fill="var(--violet-700)" />
 
         {/* BOTTOM — Weak Wind */}
         <g transform={`translate(0, ${halfH + 8})`}>
-          <rect x={0} y={0} width={W} height={halfH} rx="12" fill="#3A0A5E" />
+          <rect x={0} y={0} width={W} height={halfH} rx="12" fill="var(--violet-650)" />
 
           {/* Dim sun */}
-          <circle cx={50} cy={halfH / 2} r={14} fill="#F4C430" opacity={0.3} />
-          <circle cx={50} cy={halfH / 2} r={6} fill="#F4C430" opacity={0.2} />
+          <circle cx={50} cy={halfH / 2} r={14} fill="var(--gold-primary)" opacity={0.3} />
+          <circle cx={50} cy={halfH / 2} r={6} fill="var(--gold-primary)" opacity={0.2} />
 
           {/* Sparse aimless particles */}
           {weakParticles.map((p, i) => (
@@ -173,7 +173,7 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
               cx={p.x}
               cy={p.y}
               r={p.size}
-              fill="#F4C430"
+              fill="var(--gold-primary)"
               initial={false}
               animate={
                 !reducedMotion
@@ -192,7 +192,7 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
             />
           ))}
 
-          <text x={W - 16} y={halfH / 2 + 4} textAnchor="end" fill="#888888" fontSize="10" fontWeight="600" opacity={0.4}>
+          <text x={W - 16} y={halfH / 2 + 4} textAnchor="end" fill="var(--text-muted)" fontSize="10" fontWeight="600" opacity={0.4}>
             WEAK
           </text>
         </g>
@@ -204,8 +204,8 @@ export default function SolarWindMomentum({ rays }: SolarWindMomentumProps) {
         <span
           className="status-pill"
           style={{
-            background: isStrong ? 'rgba(244, 196, 48, 0.12)' : 'rgba(167, 139, 250, 0.12)',
-            color: isStrong ? '#F4C430' : '#A78BFA',
+            background: isStrong ? 'var(--surface-border)' : 'var(--surface-border)',
+            color: isStrong ? 'var(--gold-primary)' : 'var(--neon-violet)',
           }}
         >
           {isStrong ? 'Strong' : 'Building'}

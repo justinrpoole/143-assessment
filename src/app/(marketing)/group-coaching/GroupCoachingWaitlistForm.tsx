@@ -52,31 +52,31 @@ export default function GroupCoachingWaitlistForm({ onSuccess }: { onSuccess?: (
     <div
       className="rounded-2xl border p-6 sm:p-8"
       style={{
-        background: "rgba(12, 4, 22, 0.8)",
-        borderColor: "rgba(248, 208, 17, 0.2)",
-        boxShadow: "0 0 40px rgba(248,208,17,0.08)",
+        background: "var(--surface-border)",
+        borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)",
+        boxShadow: "0 0 40px color-mix(in srgb, var(--gold-primary) 8%, transparent)",
       }}
     >
       {status === "success" ? (
         <div className="space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: "#F8D011" }}>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: "var(--gold-primary)" }}>
             Application received
           </p>
-          <h3 className="text-2xl font-bold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+          <h3 className="text-2xl font-bold" style={{ color: "var(--text-body)" }}>
             You&apos;re on my waitlist.
           </h3>
-          <p style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.78))" }}>
+          <p style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 78%, transparent))" }}>
             I read every submission personally. If it feels like the right fit, you&apos;ll hear from me directly.
           </p>
         </div>
       ) : (
         <form className="space-y-5" onSubmit={(event) => void onSubmit(event)}>
-          <h3 className="text-xl font-bold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+          <h3 className="text-xl font-bold" style={{ color: "var(--text-body)" }}>
             Apply for the Next Cohort
           </h3>
 
           <div className="space-y-2">
-            <label htmlFor="group-name" className="text-sm font-semibold" style={{ color: "#F8D011" }}>
+            <label htmlFor="group-name" className="text-sm font-semibold" style={{ color: "var(--gold-primary)" }}>
               Name
             </label>
             <input
@@ -85,16 +85,16 @@ export default function GroupCoachingWaitlistForm({ onSuccess }: { onSuccess?: (
               required
               className="w-full rounded-xl border px-4 py-3 text-sm"
               style={{
-                borderColor: "rgba(248, 208, 17, 0.26)",
-                background: "rgba(255,255,255,0.04)",
-                color: "var(--text-on-dark, #FFFEF5)",
+                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+                color: "var(--text-body)",
               }}
               placeholder="Your name"
             />
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="group-email" className="text-sm font-semibold" style={{ color: "#F8D011" }}>
+            <label htmlFor="group-email" className="text-sm font-semibold" style={{ color: "var(--gold-primary)" }}>
               Email
             </label>
             <input
@@ -104,16 +104,16 @@ export default function GroupCoachingWaitlistForm({ onSuccess }: { onSuccess?: (
               required
               className="w-full rounded-xl border px-4 py-3 text-sm"
               style={{
-                borderColor: "rgba(248, 208, 17, 0.26)",
-                background: "rgba(255,255,255,0.04)",
-                color: "var(--text-on-dark, #FFFEF5)",
+                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+                color: "var(--text-body)",
               }}
               placeholder="you@example.com"
             />
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="group-why" className="text-sm font-semibold" style={{ color: "#F8D011" }}>
+            <label htmlFor="group-why" className="text-sm font-semibold" style={{ color: "var(--gold-primary)" }}>
               Why do you want to join?
             </label>
             <textarea
@@ -123,9 +123,9 @@ export default function GroupCoachingWaitlistForm({ onSuccess }: { onSuccess?: (
               rows={5}
               className="w-full rounded-xl border px-4 py-3 text-sm"
               style={{
-                borderColor: "rgba(248, 208, 17, 0.26)",
-                background: "rgba(255,255,255,0.04)",
-                color: "var(--text-on-dark, #FFFEF5)",
+                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+                color: "var(--text-body)",
               }}
               placeholder="What are you ready to shift in your life or leadership?"
             />
@@ -136,8 +136,8 @@ export default function GroupCoachingWaitlistForm({ onSuccess }: { onSuccess?: (
             disabled={status === "submitting"}
             className="inline-flex items-center rounded-xl px-6 py-3 text-sm font-bold transition-all"
             style={{
-              background: "#F8D011",
-              color: "#020202",
+              background: "var(--gold-primary)",
+              color: "var(--ink-950)",
               opacity: status === "submitting" ? 0.8 : 1,
             }}
           >
@@ -145,7 +145,7 @@ export default function GroupCoachingWaitlistForm({ onSuccess }: { onSuccess?: (
           </button>
 
           {status === "error" && (
-            <p className="text-sm" style={{ color: "#fb7185" }}>
+            <p className="text-sm" style={{ color: "var(--text-body)" }}>
               {error ?? "Could not submit. Please try again."}
             </p>
           )}

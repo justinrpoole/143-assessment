@@ -62,13 +62,13 @@ export default function EmailGate({ children }: { children: React.ReactNode }) {
 
   return (
     <section className="glass-card p-6 sm:p-8 my-8 text-center">
-      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
         Your Report Is Ready
       </p>
-      <h2 className="mt-3 text-xl font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+      <h2 className="mt-3 text-xl font-semibold" style={{ color: 'var(--text-body)' }}>
         See the full cosmic visualizations.
       </h2>
-      <p className="mt-2 max-w-md mx-auto text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+      <p className="mt-2 max-w-md mx-auto text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         Enter your email and your sample report opens instantly. We will send
         one follow-up with your results — nothing else unless you ask.
       </p>
@@ -81,9 +81,9 @@ export default function EmailGate({ children }: { children: React.ReactNode }) {
           aria-label="Your email address"
           className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
           style={{
-            background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-            border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-            color: 'var(--text-on-dark, #FFFEF5)',
+            background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+            color: 'var(--text-body)',
           }}
           disabled={submitting}
         />
@@ -99,7 +99,7 @@ export default function EmailGate({ children }: { children: React.ReactNode }) {
           type="button"
           onClick={() => { setCapturedCookie(); setGated(false); }}
           className="mt-4 text-xs transition-colors"
-          style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.4))' }}
+          style={{ color: 'var(--text-muted)' }}
         >
           Skip for now
         </button>

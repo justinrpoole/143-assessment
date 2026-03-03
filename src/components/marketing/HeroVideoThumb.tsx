@@ -57,8 +57,8 @@ export default function HeroVideoThumb() {
           onClick={() => setPlaying(true)}
           className="group relative block w-full overflow-hidden rounded-2xl text-left focus:outline-none"
           style={{
-            background: 'linear-gradient(135deg, rgba(96,5,141,0.4) 0%, rgba(26,10,46,0.9) 100%)',
-            border: '1px solid rgba(248,208,17,0.15)',
+            background: 'linear-gradient(135deg, color-mix(in srgb, var(--violet-650) 40%, transparent) 0%, var(--surface-border) 100%)',
+            border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)',
           }}
           aria-label="Play video: What is the 143 Leadership Assessment?"
         >
@@ -68,7 +68,7 @@ export default function HeroVideoThumb() {
             <div
               className="absolute h-32 w-32 rounded-full opacity-20"
               style={{
-                background: 'radial-gradient(circle, #F8D011 0%, transparent 70%)',
+                background: 'radial-gradient(circle, var(--text-body) 0%, transparent 70%)',
               }}
             />
 
@@ -76,21 +76,21 @@ export default function HeroVideoThumb() {
             <div
               className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full transition-all duration-200 group-hover:scale-110"
               style={{
-                background: 'var(--brand-gold, #F8D011)',
-                boxShadow: '0 0 32px rgba(248,208,17,0.3), 0 0 60px rgba(248,208,17,0.15)',
+                background: 'var(--gold-primary)',
+                boxShadow: '0 0 32px color-mix(in srgb, var(--gold-primary) 30%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 15%, transparent)',
               }}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M8 5v14l11-7L8 5z" fill="#1A0A2E" />
+                <path d="M8 5v14l11-7L8 5z" fill="var(--violet-800)" />
               </svg>
             </div>
 
             {/* Bottom text with gradient overlay */}
-            <div className="absolute bottom-0 left-0 right-0 px-5 pb-5" style={{ background: 'linear-gradient(to top, rgba(2,2,2,0.7), transparent)' }}>
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <div className="absolute bottom-0 left-0 right-0 px-5 pb-5" style={{ background: 'linear-gradient(to top, color-mix(in srgb, var(--ink-950) 70%, transparent), transparent)' }}>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
                 Watch (90 sec)
               </p>
-              <p className="mt-1 text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+              <p className="mt-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
                 What happens when exhaustion covers your strongest capacities?
               </p>
             </div>

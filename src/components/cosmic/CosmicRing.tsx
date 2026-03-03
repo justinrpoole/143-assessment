@@ -30,7 +30,7 @@ export default function CosmicRing({
   cx = 150,
   cy = 150,
   radius,
-  color = '#F8D011',
+  color = 'var(--gold-primary)',
   strokeWidth = 1.5,
   smoothness = 1,
   rotate = false,

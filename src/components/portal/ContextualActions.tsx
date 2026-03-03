@@ -93,7 +93,7 @@ export default function ContextualActions({ eclipseLevel }: ContextualActionsPro
       <Link
         href={primary.href}
         className="glass-card block p-4 transition-all hover:scale-[1.01]"
-        style={{ borderColor: 'rgba(248, 208, 17, 0.25)' }}
+        style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
       >
         <div className="flex items-start gap-3">
           <span className="text-2xl">{primary.icon}</span>
@@ -103,7 +103,7 @@ export default function ContextualActions({ eclipseLevel }: ContextualActionsPro
                 {primary.label}
               </p>
               {primary.time && (
-                <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ background: 'rgba(248, 208, 17, 0.12)', color: 'var(--brand-gold)' }}>
+                <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)', color: 'var(--brand-gold)' }}>
                   {primary.time}
                 </span>
               )}
@@ -122,7 +122,7 @@ export default function ContextualActions({ eclipseLevel }: ContextualActionsPro
             key={action.href}
             href={action.href}
             className="glass-card flex flex-col items-center gap-1 p-3 text-center transition-all hover:scale-[1.02]"
-            style={{ borderColor: 'rgba(148, 80, 200, 0.2)' }}
+            style={{ borderColor: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)' }}
           >
             <span className="text-lg">{action.icon}</span>
             <span className="text-[11px] font-medium leading-tight" style={{ color: 'var(--text-on-dark-secondary)' }}>

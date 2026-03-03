@@ -66,7 +66,7 @@ export default function PsychometricSummary() {
           <div>
             <p
               className="text-[10px] font-bold uppercase tracking-widest"
-              style={{ color: 'var(--brand-gold, #F8D011)' }}
+              style={{ color: 'var(--gold-primary)' }}
             >
               Measurement Model
             </p>
@@ -95,13 +95,13 @@ export default function PsychometricSummary() {
               key={stat.label}
               className="rounded-lg p-3 text-center"
               style={{
-                background: 'rgba(96, 5, 141, 0.2)',
-                border: '1px solid rgba(148, 80, 200, 0.15)',
+                background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+                border: '1px solid color-mix(in srgb, var(--stroke-400) 15%, transparent)',
               }}
             >
               <p
                 className="text-xl font-bold"
-                style={{ color: 'var(--brand-gold, #F8D011)' }}
+                style={{ color: 'var(--gold-primary)' }}
               >
                 {stat.value}
               </p>
@@ -126,7 +126,7 @@ export default function PsychometricSummary() {
       <div className="glass-card p-5 sm:p-6 space-y-3">
         <p
           className="text-[10px] font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           Construct Design
         </p>
@@ -135,8 +135,8 @@ export default function PsychometricSummary() {
             key={principle.title}
             className="rounded-lg p-3"
             style={{
-              background: 'rgba(96, 5, 141, 0.12)',
-              border: '1px solid rgba(148, 80, 200, 0.1)',
+              background: 'color-mix(in srgb, var(--violet-650) 12%, transparent)',
+              border: '1px solid color-mix(in srgb, var(--stroke-400) 10%, transparent)',
             }}
           >
             <p
@@ -165,7 +165,7 @@ export default function PsychometricSummary() {
           <div>
             <p
               className="text-[10px] font-bold uppercase tracking-widest"
-              style={{ color: 'var(--brand-gold, #F8D011)' }}
+              style={{ color: 'var(--gold-primary)' }}
             >
               Research Foundation
             </p>
@@ -190,7 +190,7 @@ export default function PsychometricSummary() {
             }}
             aria-hidden="true"
           >
-            &#9660;
+            &var(--text-body);
           </span>
         </div>
       </button>
@@ -202,8 +202,8 @@ export default function PsychometricSummary() {
               key={pillar.name}
               className="rounded-lg px-4 py-3 border"
               style={{
-                background: 'rgba(96, 5, 141, 0.1)',
-                borderColor: 'rgba(148, 80, 200, 0.12)',
+                background: 'color-mix(in srgb, var(--violet-650) 10%, transparent)',
+                borderColor: 'color-mix(in srgb, var(--stroke-400) 12%, transparent)',
               }}
             >
               <div className="flex items-baseline justify-between gap-2 mb-1">
@@ -216,8 +216,8 @@ export default function PsychometricSummary() {
                 <span
                   className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full shrink-0"
                   style={{
-                    background: 'rgba(248, 208, 17, 0.12)',
-                    color: 'var(--brand-gold, #F8D011)',
+                    background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)',
+                    color: 'var(--gold-primary)',
                   }}
                 >
                   {pillar.rays}
@@ -225,7 +225,7 @@ export default function PsychometricSummary() {
               </div>
               <p
                 className="text-[10px] font-semibold uppercase tracking-wider mb-1"
-                style={{ color: 'var(--brand-gold, #F8D011)' }}
+                style={{ color: 'var(--gold-primary)' }}
               >
                 {pillar.domain}
               </p>
@@ -237,7 +237,7 @@ export default function PsychometricSummary() {
               </p>
               <p
                 className="text-[9px] mt-1.5 leading-snug italic"
-                style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.4))' }}
+                style={{ color: 'var(--text-muted)' }}
               >
                 {pillar.citation}
               </p>

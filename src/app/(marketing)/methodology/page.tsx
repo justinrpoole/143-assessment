@@ -29,13 +29,13 @@ export default async function MethodologyPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[880px] px-5 py-12 sm:px-8 sm:py-16 space-y-14">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-14">
         <section className="text-center space-y-4 max-w-[720px] mx-auto">
           <p className="gold-tag mx-auto">◆ Methodology (Teaser)</p>
-          <h1 className="text-3xl sm:text-4xl font-bold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+          <h1 className="text-3xl sm:text-4xl font-bold" style={{ color: "var(--text-body)" }}>
             The system is evidence-based. The full mechanics are gated.
           </h1>
-          <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}>
+          <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             I do not teach the full operating model cold on a webpage. You start with your own baseline first,
             then I show you the exact framework that fits your signal.
           </p>
@@ -49,8 +49,8 @@ export default async function MethodologyPage() {
               { title: "Train", body: "Use reps to retrain your operating system in the real world." },
             ].map((card) => (
               <div key={card.title} className="glass-card p-5">
-                <h2 className="text-lg font-semibold" style={{ color: "#F8D011" }}>{card.title}</h2>
-                <p className="text-sm mt-2" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}>{card.body}</p>
+                <h2 className="text-lg font-semibold" style={{ color: "var(--gold-primary)" }}>{card.title}</h2>
+                <p className="text-sm mt-2" style={{ color: "var(--text-secondary)" }}>{card.body}</p>
               </div>
             ))}
           </section>
@@ -60,21 +60,21 @@ export default async function MethodologyPage() {
 
         <FadeInSection>
           <section className="glass-card p-8 text-center max-w-[720px] mx-auto space-y-4">
-            <p className="text-xs uppercase tracking-widest font-bold" style={{ color: "#F8D011" }}>
+            <p className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--gold-primary)" }}>
               Discover your Rays
             </p>
-            <h2 className="text-2xl font-bold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+            <h2 className="text-2xl font-bold" style={{ color: "var(--text-body)" }}>
               Start your free Stability Check.
             </h2>
-            <p className="text-sm" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}>
+            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
               Get your signal first. Then unlock full methodology, scoring logic, and your custom training path.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <NeonGlowButton href="/preview">Discover your Rays — free Stability Check</NeonGlowButton>
               <LiquidFillButton href="/pricing">See full options</LiquidFillButton>
             </div>
-            <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Want context first? <Link href="/upgrade-your-os" style={{ color: "#F8D011" }}>Read Eclipse/Nova</Link>
+            <p className="text-xs" style={{ color: "color-mix(in srgb, var(--text-body) 45%, transparent)" }}>
+              Want context first? <Link href="/upgrade-your-os" style={{ color: "var(--gold-primary)" }}>Read Eclipse/Nova</Link>
             </p>
           </section>
         </FadeInSection>

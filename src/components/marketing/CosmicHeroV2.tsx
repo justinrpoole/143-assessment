@@ -201,7 +201,7 @@ export default function CosmicHeroV2() {
         starCtx.save();
         starCtx.translate(s.x, s.y);
         starCtx.rotate(s.rotOffset + t * s.rotSpeed);
-        starCtx.strokeStyle = `rgba(255,200,66,${alpha.toFixed(3)})`;
+        starCtx.strokeStyle = `var(--surface-border)})`;
         starCtx.lineWidth = 1.15;
         starCtx.beginPath();
         starCtx.moveTo(-size, 0); starCtx.lineTo(size, 0);
@@ -209,7 +209,7 @@ export default function CosmicHeroV2() {
         starCtx.stroke();
         starCtx.beginPath();
         starCtx.arc(0, 0, size * 0.7, 0, Math.PI * 2);
-        starCtx.fillStyle = `rgba(255,200,66,${glow.toFixed(3)})`;
+        starCtx.fillStyle = `var(--surface-border)})`;
         starCtx.fill();
         starCtx.restore();
       }
@@ -242,13 +242,13 @@ export default function CosmicHeroV2() {
         const ty = y - s.dirY * s.trail;
         const grad = starCtx.createLinearGradient(x, y, tx, ty);
         if (s.gold) {
-          grad.addColorStop(0, `rgba(255,236,185,${alpha.toFixed(3)})`);
-          grad.addColorStop(0.35, `rgba(255,200,66,${(alpha * 0.72).toFixed(3)})`);
+          grad.addColorStop(0, `var(--surface-border)})`);
+          grad.addColorStop(0.35, `var(--surface-border).toFixed(3)})`);
         } else {
-          grad.addColorStop(0, `rgba(255,255,255,${alpha.toFixed(3)})`);
-          grad.addColorStop(0.35, `rgba(244,244,255,${(alpha * 0.72).toFixed(3)})`);
+          grad.addColorStop(0, `var(--surface-border)})`);
+          grad.addColorStop(0.35, `var(--surface-border).toFixed(3)})`);
         }
-        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        grad.addColorStop(1, 'color-mix(in srgb, var(--text-body) 0%, transparent)');
         starCtx.strokeStyle = grad;
         starCtx.lineWidth = 1.6;
         starCtx.lineCap = 'round';
@@ -260,8 +260,8 @@ export default function CosmicHeroV2() {
         starCtx.beginPath();
         starCtx.arc(x, y, 1.8, 0, Math.PI * 2);
         starCtx.fillStyle = s.gold
-          ? `rgba(255,218,120,${Math.min(1, alpha + 0.1).toFixed(3)})`
-          : `rgba(255,255,255,${Math.min(1, alpha + 0.1).toFixed(3)})`;
+          ? `var(--surface-border).toFixed(3)})`
+          : `var(--surface-border).toFixed(3)})`;
         starCtx.fill();
       }
     }
@@ -300,9 +300,9 @@ export default function CosmicHeroV2() {
         const tw = 0.3 + 0.7 * ((Math.sin(t * s.twSp + s.twPh) + 1) * 0.5);
         const a = tw * vis;
         if (a < 0.02) continue;
-        const c = s.hue < 0.06 ? `rgba(180,210,255,${a})`
-                : s.hue > 0.96 ? `rgba(255,220,180,${a})`
-                : `rgba(255,255,255,${a})`;
+        const c = s.hue < 0.06 ? `var(--surface-border)`
+                : s.hue > 0.96 ? `var(--surface-border)`
+                : `var(--surface-border)`;
         starCtx.beginPath();
         starCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         starCtx.fillStyle = c;
@@ -311,7 +311,7 @@ export default function CosmicHeroV2() {
       drawSparkleCrosses(t, vis);
       drawShootingStars(t, vis);
 
-      starCtx.strokeStyle = `rgba(255,255,255,${0.04 * vis})`;
+      starCtx.strokeStyle = `var(--surface-border)`;
       starCtx.lineWidth = 0.5;
       for (const [a, b] of LEO_LINES) {
         const sa = leoMap.get(a), sb = leoMap.get(b);
@@ -326,9 +326,9 @@ export default function CosmicHeroV2() {
         const x = s.x * sw, y = s.y * sh;
         const r = Math.max(1.0, (5 - s.m) * 0.8);
         starCtx.beginPath(); starCtx.arc(x, y, r + 1.2, 0, Math.PI * 2);
-        starCtx.fillStyle = `rgba(255,245,220,${0.06 * vis})`; starCtx.fill();
+        starCtx.fillStyle = `var(--surface-border)`; starCtx.fill();
         starCtx.beginPath(); starCtx.arc(x, y, r, 0, Math.PI * 2);
-        starCtx.fillStyle = `rgba(255,250,235,${Math.min(0.80, 0.35 + (5 - s.m) * 0.11) * vis})`; starCtx.fill();
+        starCtx.fillStyle = `var(--surface-border) * 0.11) * vis})`; starCtx.fill();
       }
     }
 
@@ -388,10 +388,10 @@ export default function CosmicHeroV2() {
         const [cr, cg, cb] = COSMIC_COLORS[ci];
 
         const sg = cosmoCtx.createLinearGradient(x1, y1, x2, y2);
-        sg.addColorStop(0, `rgba(255,250,220,${(0.35 * intensity).toFixed(2)})`);
-        sg.addColorStop(0.08, `rgba(255,230,160,${(0.25 * intensity).toFixed(2)})`);
-        sg.addColorStop(0.25, `rgba(${cr},${cg},${cb},${(0.18 * intensity).toFixed(2)})`);
-        sg.addColorStop(0.55, `rgba(${cr},${cg},${cb},${(0.09 * intensity).toFixed(2)})`);
+        sg.addColorStop(0, `var(--surface-border).toFixed(2)})`);
+        sg.addColorStop(0.08, `var(--surface-border).toFixed(2)})`);
+        sg.addColorStop(0.25, `var(--surface-border).toFixed(2)})`);
+        sg.addColorStop(0.55, `var(--surface-border).toFixed(2)})`);
         sg.addColorStop(1, 'transparent');
 
         cosmoCtx.strokeStyle = sg;
@@ -406,11 +406,11 @@ export default function CosmicHeroV2() {
       /* Warm radial wash */
       const bloomR = maxR * (0.5 + intensity * 0.6);
       const bloom = cosmoCtx.createRadialGradient(cx, cy, 0, cx, cy, bloomR);
-      bloom.addColorStop(0, `rgba(255,240,180,${0.35 * intensity})`);
-      bloom.addColorStop(0.12, `rgba(255,210,110,${0.22 * intensity})`);
-      bloom.addColorStop(0.3, `rgba(200,100,180,${0.12 * intensity})`);
-      bloom.addColorStop(0.5, `rgba(120,60,255,${0.08 * intensity})`);
-      bloom.addColorStop(0.7, `rgba(40,120,220,${0.05 * intensity})`);
+      bloom.addColorStop(0, `var(--surface-border)`);
+      bloom.addColorStop(0.12, `var(--surface-border)`);
+      bloom.addColorStop(0.3, `var(--surface-border)`);
+      bloom.addColorStop(0.5, `var(--surface-border)`);
+      bloom.addColorStop(0.7, `var(--surface-border)`);
       bloom.addColorStop(1, 'transparent');
       cosmoCtx.fillStyle = bloom;
       cosmoCtx.fillRect(0, 0, cW, cH);
@@ -428,10 +428,10 @@ export default function CosmicHeroV2() {
       const flashI = Math.pow(intensity, 0.6);
       const flashR = maxR * (0.25 + flashI * 0.45);
       const flash = cosmoCtx.createRadialGradient(cx, cy, 0, cx, cy, flashR);
-      flash.addColorStop(0, `rgba(255,255,240,${(0.70 * flashI).toFixed(2)})`);
-      flash.addColorStop(0.15, `rgba(255,245,200,${(0.50 * flashI).toFixed(2)})`);
-      flash.addColorStop(0.35, `rgba(255,220,140,${(0.30 * flashI).toFixed(2)})`);
-      flash.addColorStop(0.6, `rgba(255,190,80,${(0.12 * flashI).toFixed(2)})`);
+      flash.addColorStop(0, `var(--surface-border).toFixed(2)})`);
+      flash.addColorStop(0.15, `var(--surface-border).toFixed(2)})`);
+      flash.addColorStop(0.35, `var(--surface-border).toFixed(2)})`);
+      flash.addColorStop(0.6, `var(--surface-border).toFixed(2)})`);
       flash.addColorStop(1, 'transparent');
       cosmoCtx.fillStyle = flash;
       cosmoCtx.fillRect(0, 0, cW, cH);
@@ -456,11 +456,11 @@ export default function CosmicHeroV2() {
         const [cr, cg, cb] = COSMIC_COLORS[ci];
 
         const grad = cosmoCtx.createLinearGradient(x1, y1, x2, y2);
-        grad.addColorStop(0, `rgba(255,255,230,${(0.60 * intensity).toFixed(2)})`);
-        grad.addColorStop(0.06, `rgba(255,245,190,${(0.45 * intensity).toFixed(2)})`);
-        grad.addColorStop(0.18, `rgba(255,220,130,${(0.30 * intensity).toFixed(2)})`);
-        grad.addColorStop(0.35, `rgba(${cr},${cg},${cb},${(0.18 * intensity).toFixed(2)})`);
-        grad.addColorStop(0.65, `rgba(${cr},${cg},${cb},${(0.06 * intensity).toFixed(2)})`);
+        grad.addColorStop(0, `var(--surface-border).toFixed(2)})`);
+        grad.addColorStop(0.06, `var(--surface-border).toFixed(2)})`);
+        grad.addColorStop(0.18, `var(--surface-border).toFixed(2)})`);
+        grad.addColorStop(0.35, `var(--surface-border).toFixed(2)})`);
+        grad.addColorStop(0.65, `var(--surface-border).toFixed(2)})`);
         grad.addColorStop(1, 'transparent');
 
         cosmoCtx.strokeStyle = grad;
@@ -520,13 +520,13 @@ export default function CosmicHeroV2() {
         /* Glow halo */
         cosmoCtx.beginPath();
         cosmoCtx.arc(x, y, e.size * 5, 0, Math.PI * 2);
-        cosmoCtx.fillStyle = `rgba(${cr},${cg},${cb},${(alpha * 0.15).toFixed(3)})`;
+        cosmoCtx.fillStyle = `var(--surface-border).toFixed(3)})`;
         cosmoCtx.fill();
 
         /* Core point */
         cosmoCtx.beginPath();
         cosmoCtx.arc(x, y, e.size * (0.5 + localI * 0.7), 0, Math.PI * 2);
-        cosmoCtx.fillStyle = `rgba(${cr},${cg},${cb},${(alpha * 0.85).toFixed(3)})`;
+        cosmoCtx.fillStyle = `var(--surface-border).toFixed(3)})`;
         cosmoCtx.fill();
       }
 
@@ -576,7 +576,7 @@ export default function CosmicHeroV2() {
         const sz = s.size * (0.8 + twinkle * 0.6);
         const armLen = sz * 4;
 
-        cosmoCtx.strokeStyle = `rgba(${r},${g},${b},${(alpha * 0.7).toFixed(3)})`;
+        cosmoCtx.strokeStyle = `var(--surface-border).toFixed(3)})`;
         cosmoCtx.lineWidth = sz * 0.3;
         cosmoCtx.beginPath();
         cosmoCtx.moveTo(x - armLen, y); cosmoCtx.lineTo(x + armLen, y);
@@ -585,12 +585,12 @@ export default function CosmicHeroV2() {
 
         cosmoCtx.beginPath();
         cosmoCtx.arc(x, y, sz * 0.6, 0, Math.PI * 2);
-        cosmoCtx.fillStyle = `rgba(${r},${g},${b},${(alpha * 0.95).toFixed(3)})`;
+        cosmoCtx.fillStyle = `var(--surface-border).toFixed(3)})`;
         cosmoCtx.fill();
 
         cosmoCtx.beginPath();
         cosmoCtx.arc(x, y, sz * 3.5, 0, Math.PI * 2);
-        cosmoCtx.fillStyle = `rgba(${r},${g},${b},${(alpha * 0.08).toFixed(3)})`;
+        cosmoCtx.fillStyle = `var(--surface-border).toFixed(3)})`;
         cosmoCtx.fill();
       }
 
@@ -619,9 +619,9 @@ export default function CosmicHeroV2() {
         const cloudR = maxR * c.size;
 
         const ng = cosmoCtx.createRadialGradient(cloudCx, cloudCy, 0, cloudCx, cloudCy, cloudR);
-        ng.addColorStop(0,   `rgba(${c.r},${c.g},${c.b},${(0.12 * intensity).toFixed(3)})`);
-        ng.addColorStop(0.3, `rgba(${c.r},${c.g},${c.b},${(0.06 * intensity).toFixed(3)})`);
-        ng.addColorStop(0.6, `rgba(${c.r},${c.g},${c.b},${(0.02 * intensity).toFixed(3)})`);
+        ng.addColorStop(0,   `var(--surface-border).toFixed(3)})`);
+        ng.addColorStop(0.3, `var(--surface-border).toFixed(3)})`);
+        ng.addColorStop(0.6, `var(--surface-border).toFixed(3)})`);
         ng.addColorStop(1,   'transparent');
         cosmoCtx.fillStyle = ng;
         cosmoCtx.fillRect(0, 0, cW, cH);
@@ -777,7 +777,7 @@ export default function CosmicHeroV2() {
       /* Sun SVG dims as eclipse builds */
       if (phaseChanged) {
         if (phase === 'eclipse') {
-          sunSvg.style.filter = `brightness(0.30) drop-shadow(0 0 10px rgba(255,200,70,0.10))`;
+          sunSvg.style.filter = `brightness(0.30) drop-shadow(0 0 10px var(--surface-border))`;
         } else if (phase === 'radiance') {
           sunSvg.style.filter = '';
         }
@@ -799,13 +799,13 @@ export default function CosmicHeroV2() {
           sunnovaEl.style.filter = [
             'brightness(1.8)',
             'saturate(1.3)',
-            'drop-shadow(0 0 20px rgba(255,220,100,0.95))',
-            'drop-shadow(0 0 60px rgba(255,180,40,0.70))',
-            'drop-shadow(0 0 160px rgba(255,140,20,0.40))',
-            'drop-shadow(0 0 320px rgba(180,80,255,0.20))',
+            'drop-shadow(0 0 20px var(--surface-border))',
+            'drop-shadow(0 0 60px var(--surface-border))',
+            'drop-shadow(0 0 160px var(--surface-border))',
+            'drop-shadow(0 0 320px var(--surface-border))',
           ].join(' ');
         } else if (phase === 'eclipse') {
-          sunnovaEl.style.filter = `drop-shadow(0 0 30px rgba(255,200,80,0.70)) drop-shadow(0 0 90px rgba(255,160,40,0.40)) drop-shadow(0 0 180px rgba(200,80,255,0.20))`;
+          sunnovaEl.style.filter = `drop-shadow(0 0 30px var(--surface-border)) drop-shadow(0 0 90px var(--surface-border)) drop-shadow(0 0 180px var(--surface-border))`;
         } else {
           sunnovaEl.style.filter = '';
         }
@@ -845,9 +845,9 @@ export default function CosmicHeroV2() {
       /* Moon filter — only update on phase change */
       if (phaseChanged || phase === 'eclipse') {
         if (eclI > 0.1) {
-          moonEl.style.filter = `drop-shadow(0 0 ${(12 + eclI * 30).toFixed(0)}px rgba(160,100,255,${(0.35 + eclI * 0.45).toFixed(2)})) drop-shadow(0 0 ${(40 + eclI * 120).toFixed(0)}px rgba(130,60,240,${(0.15 + eclI * 0.50).toFixed(2)}))`;
+          moonEl.style.filter = `drop-shadow(0 0 ${(12 + eclI * 30).toFixed(0)}px var(--surface-border).toFixed(2)})) drop-shadow(0 0 ${(40 + eclI * 120).toFixed(0)}px var(--surface-border).toFixed(2)}))`;
         } else {
-          moonEl.style.filter = 'drop-shadow(0 0 10px rgba(160,100,255,0.30)) drop-shadow(0 0 25px rgba(130,60,240,0.12))';
+          moonEl.style.filter = 'drop-shadow(0 0 10px var(--surface-border)) drop-shadow(0 0 25px var(--surface-border))';
         }
       }
 

@@ -51,7 +51,7 @@ export default async function PlanPage() {
 
       <RayDivider ray="R1" />
       <FadeInSection>
-        <section className="mx-auto max-w-lg">
+        <section className="content-wrap--narrow">
           <p className="text-center text-xs font-bold uppercase tracking-widest mb-4" style={{ color: rayHex('R1') }}>
             Continue Your Practice
           </p>

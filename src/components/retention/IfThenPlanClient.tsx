@@ -114,7 +114,7 @@ export default function IfThenPlanClient() {
       <div className="glass-card p-6 flex items-center justify-center">
         <div
           className="w-5 h-5 border-2 rounded-full animate-spin"
-          style={{ borderColor: 'var(--surface-border)', borderTopColor: 'var(--brand-gold, #F8D011)' }}
+          style={{ borderColor: 'var(--surface-border)', borderTopColor: 'var(--gold-primary)' }}
         />
       </div>
     );
@@ -158,7 +158,7 @@ export default function IfThenPlanClient() {
             transition={{ duration: shouldAnimate ? 0.2 : 0 }}
             className="overflow-hidden"
           >
-            <div className="glass-card p-4 space-y-3" style={{ borderColor: 'rgba(96, 5, 141, 0.3)' }}>
+            <div className="glass-card p-4 space-y-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
               <div>
                 <label className="text-xs font-medium block mb-1"
                   style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -171,7 +171,7 @@ export default function IfThenPlanClient() {
                   placeholder="the cue or trigger"
                   className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none transition-colors"
                   style={{
-                    background: 'rgba(255,255,255,0.06)',
+                    background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                     border: '1px solid var(--surface-border)',
                     color: 'var(--text-on-dark)',
                   }}
@@ -185,7 +185,7 @@ export default function IfThenPlanClient() {
                         onClick={() => setIfCue(cue)}
                         className="text-xs px-2 py-1 rounded-full transition-colors"
                         style={{
-                          background: 'rgba(255,255,255,0.04)',
+                          background: 'color-mix(in srgb, var(--text-body) 4%, transparent)',
                           border: '1px solid var(--surface-border)',
                           color: 'var(--text-on-dark-muted)',
                         }}
@@ -209,7 +209,7 @@ export default function IfThenPlanClient() {
                   placeholder="the specific action or tool"
                   className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none transition-colors"
                   style={{
-                    background: 'rgba(255,255,255,0.06)',
+                    background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
                     border: '1px solid var(--surface-border)',
                     color: 'var(--text-on-dark)',
                   }}
@@ -243,8 +243,8 @@ export default function IfThenPlanClient() {
 
               {error && (
                 <div className="rounded-lg px-3 py-2"
-                  style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}>
-                  <p className="text-xs" style={{ color: '#FCA5A5' }} role="alert">{humanizeError(error)}</p>
+                  style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+                  <p className="text-xs" style={{ color: 'var(--ray-power)' }} role="alert">{humanizeError(error)}</p>
                 </div>
               )}
 
@@ -266,34 +266,34 @@ export default function IfThenPlanClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: shouldAnimate ? i * 0.05 : 0, duration: shouldAnimate ? undefined : 0 }}
               className="glass-card flex items-start gap-3 p-3 group"
-              style={{ borderColor: plan.completed_count >= 3 ? 'rgba(248, 208, 17, 0.2)' : undefined }}
+              style={{ borderColor: plan.completed_count >= 3 ? 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' : undefined }}
             >
               <button
                 type="button"
                 onClick={() => void completePlan(plan.id)}
                 className="mt-0.5 w-5 h-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors"
                 style={{
-                  borderColor: 'var(--brand-gold, #F8D011)',
+                  borderColor: 'var(--gold-primary)',
                 }}
                 title="Mark completed"
               >
                 <span className="opacity-0 group-hover:opacity-100 text-xs"
-                  style={{ color: 'var(--brand-gold, #F8D011)' }}>
-                  &#10003;
+                  style={{ color: 'var(--gold-primary)' }}>
+                  &var(--text-body);
                 </span>
               </button>
               <div className="flex-1 min-w-0 space-y-1.5">
                 <div className="flex items-start gap-2">
                   <span
                     className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded shrink-0 mt-0.5"
-                    style={{ background: 'rgba(245, 158, 11, 0.15)', color: '#F59E0B' }}
+                    style={{ background: 'var(--surface-border)', color: 'var(--neon-amber)' }}
                   >If</span>
                   <p className="text-sm" style={{ color: 'var(--text-on-dark)' }}>{plan.if_cue}</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <span
                     className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded shrink-0 mt-0.5"
-                    style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)' }}
+                    style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}
                   >Then</span>
                   <p className="text-sm" style={{ color: 'var(--text-on-dark)' }}>{plan.then_action}</p>
                 </div>
@@ -312,7 +312,7 @@ export default function IfThenPlanClient() {
                 style={{ color: 'var(--text-on-dark-muted)' }}
                 title="Remove plan"
               >
-                &#10005;
+                &var(--text-body);
               </button>
             </motion.div>
           ))}

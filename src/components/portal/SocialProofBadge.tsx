@@ -109,7 +109,7 @@ function StatPill({
     <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
       <span
         className="font-semibold"
-        style={{ color: 'var(--brand-gold, #F8D011)' }}
+        style={{ color: 'var(--gold-primary)' }}
       >
         {display}
       </span>{' '}

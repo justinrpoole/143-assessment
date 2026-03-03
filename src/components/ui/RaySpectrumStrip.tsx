@@ -9,8 +9,8 @@ interface RaySpectrumStripProps {
 }
 
 const SPECTRUM = [
-  '#60A5FA', '#F4C430', '#8E44AD', '#C0392B', '#D4770B',
-  '#2ECC71', '#E74C8B', '#1ABC9C', '#F8D011',
+  'var(--text-body)', 'var(--gold-primary)', 'var(--neon-violet)', 'var(--text-body)', 'var(--neon-amber)',
+  'var(--text-body)', 'var(--text-body)', 'var(--text-body)', 'var(--gold-primary)',
 ];
 
 const GRADIENT = `linear-gradient(90deg, ${SPECTRUM.join(', ')})`;
@@ -29,10 +29,10 @@ export default function RaySpectrumStrip({ height = 4, className }: RaySpectrumS
           background: GRADIENT,
           borderRadius: 9999,
           boxShadow: [
-            '0 0 8px 2px rgba(96,165,250,0.7)',
-            '0 0 16px 4px rgba(244,196,48,0.5)',
-            '0 0 24px 6px rgba(142,68,173,0.4)',
-            '0 0 32px 8px rgba(248,208,17,0.3)',
+            '0 0 8px 2px var(--surface-border)',
+            '0 0 16px 4px var(--surface-border)',
+            '0 0 24px 6px var(--surface-border)',
+            '0 0 32px 8px color-mix(in srgb, var(--gold-primary) 30%, transparent)',
           ].join(', '),
         }}
         initial={prefersReduced ? false : { scaleX: 0, opacity: 0 }}

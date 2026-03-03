@@ -89,7 +89,7 @@ export default function TrajectoryView({ currentRunId }: { currentRunId: string 
     <section className="glass-card p-5 space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
             Light Trajectory
           </p>
           <p className="mt-1 text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -101,9 +101,9 @@ export default function TrajectoryView({ currentRunId }: { currentRunId: string 
             className="text-sm font-bold"
             style={{
               color: overallDirection === 'Growing'
-                ? '#34D399'
+                ? 'var(--neon-teal)'
                 : overallDirection === 'Shifting'
-                  ? '#FB923C'
+                  ? 'var(--neon-amber)'
                   : 'var(--brand-gold)',
             }}
           >
@@ -124,16 +124,16 @@ export default function TrajectoryView({ currentRunId }: { currentRunId: string 
             onClick={() => setSelectedRay(selectedRay === t.rayId ? null : t.rayId)}
             className="w-full flex items-center gap-3 py-1 px-1 rounded-lg transition-colors"
             style={{
-              background: selectedRay === t.rayId ? 'rgba(248, 208, 17, 0.06)' : 'transparent',
+              background: selectedRay === t.rayId ? 'color-mix(in srgb, var(--gold-primary) 6%, transparent)' : 'transparent',
             }}
           >
             <span
               className="text-xs font-medium w-[80px] shrink-0 text-left"
               style={{
                 color: t.direction === 'growing'
-                  ? '#34D399'
+                  ? 'var(--neon-teal)'
                   : t.direction === 'declining'
-                    ? '#FB923C'
+                    ? 'var(--neon-amber)'
                     : 'var(--text-on-dark-muted)',
               }}
             >
@@ -142,7 +142,7 @@ export default function TrajectoryView({ currentRunId }: { currentRunId: string 
 
             {/* Inline sparkline */}
             <div className="flex-1 h-4">
-              <svg width="100%" height="16" preserveAspectRatio="none" viewBox={`0 0 ${t.values.length - 1} 1`}>
+              <svg width={"100%"} height="16" preserveAspectRatio="none" viewBox={`0 0 ${t.values.length - 1} 1`}>
                 <polyline
                   fill="none"
                   strokeWidth="0.06"
@@ -150,10 +150,10 @@ export default function TrajectoryView({ currentRunId }: { currentRunId: string 
                   strokeLinejoin="round"
                   style={{
                     stroke: t.direction === 'growing'
-                      ? '#34D399'
+                      ? 'var(--neon-teal)'
                       : t.direction === 'declining'
-                        ? '#FB923C'
-                        : 'rgba(248, 208, 17, 0.5)',
+                        ? 'var(--neon-amber)'
+                        : 'color-mix(in srgb, var(--gold-primary) 50%, transparent)',
                   }}
                   points={t.values
                     .map((v, i) => {
@@ -169,9 +169,9 @@ export default function TrajectoryView({ currentRunId }: { currentRunId: string 
               className="text-xs font-medium w-[50px] text-right shrink-0"
               style={{
                 color: t.totalDelta > 0
-                  ? '#34D399'
+                  ? 'var(--neon-teal)'
                   : t.totalDelta < 0
-                    ? '#FB923C'
+                    ? 'var(--neon-amber)'
                     : 'var(--text-on-dark-muted)',
               }}
             >
@@ -185,7 +185,7 @@ export default function TrajectoryView({ currentRunId }: { currentRunId: string 
       {selected && (
         <div
           className="rounded-xl p-3 space-y-2"
-          style={{ background: 'rgba(248, 208, 17, 0.04)', border: '1px solid rgba(248, 208, 17, 0.08)' }}
+          style={{ background: 'color-mix(in srgb, var(--gold-primary) 4%, transparent)', border: '1px solid color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}
         >
           <p className="text-xs font-semibold" style={{ color: 'var(--brand-gold)' }}>
             {selected.name} — Detail
@@ -208,7 +208,7 @@ export default function TrajectoryView({ currentRunId }: { currentRunId: string 
               <p
                 className="text-sm font-medium capitalize"
                 style={{
-                  color: selected.direction === 'growing' ? '#34D399' : selected.direction === 'declining' ? '#FB923C' : 'var(--brand-gold)',
+                  color: selected.direction === 'growing' ? 'var(--neon-teal)' : selected.direction === 'declining' ? 'var(--neon-amber)' : 'var(--brand-gold)',
                 }}
               >
                 {selected.direction}

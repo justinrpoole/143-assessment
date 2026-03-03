@@ -135,7 +135,7 @@ export default function IRiseModal({ onClose, onRepLogged }: Props) {
                 {showScience ? 'Hide' : 'Why naming it helps'}
               </button>
               {showScience && (
-                <div className="rounded-xl p-4 text-xs leading-relaxed" style={{ background: 'rgba(248, 208, 17, 0.08)', color: 'var(--text-on-dark-secondary)' }}>
+                <div className="rounded-xl p-4 text-xs leading-relaxed" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)', color: 'var(--text-on-dark-secondary)' }}>
                   Naming the emotion (affect labeling) reduces amygdala reactivity within seconds
                   (Lieberman et al., 2007). The declaration shifts processing to prefrontal cortex.
                   The small move cements the interrupt.
@@ -157,7 +157,7 @@ export default function IRiseModal({ onClose, onRepLogged }: Props) {
               <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
                 Step 2 — Say this (out loud if you can)
               </p>
-              <div className="border-2 border-brand-gold rounded-2xl px-6 py-6 space-y-2" style={{ background: 'rgba(248, 208, 17, 0.08)' }}>
+              <div className="border-2 border-brand-gold rounded-2xl px-6 py-6 space-y-2" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}>
                 <p className="text-lg font-bold leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
                   I rise like the sun —
                 </p>

@@ -25,21 +25,21 @@ interface RetroFrameProps {
 export default function RetroFrame({
   children,
   label,
-  accent = 'var(--brand-gold, #F4C430)',
+  accent = 'var(--brand-gold, var(--text-body))',
   className = '',
 }: RetroFrameProps) {
   return (
     <div
       className={`retro-frame relative rounded-lg overflow-hidden ${className}`}
       style={{
-        background: 'linear-gradient(180deg, rgba(10, 5, 28, 0.96) 0%, rgba(15, 8, 35, 0.94) 50%, rgba(20, 10, 45, 0.92) 100%)',
+        background: 'linear-gradient(180deg, var(--surface-border) 0%, var(--surface-border) 50%, var(--surface-border) 100%)',
         border: `1px solid color-mix(in srgb, ${accent} 25%, transparent)`,
         boxShadow: `
-          inset 0 0 40px rgba(0, 0, 0, 0.6),
-          inset 0 0 80px rgba(0, 0, 0, 0.2),
+          inset 0 0 40px color-mix(in srgb, var(--ink-950) 60%, transparent),
+          inset 0 0 80px color-mix(in srgb, var(--ink-950) 20%, transparent),
           0 0 15px color-mix(in srgb, ${accent} 8%, transparent),
-          0 2px 8px rgba(0, 0, 0, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.03)
+          0 2px 8px color-mix(in srgb, var(--ink-950) 40%, transparent),
+          inset 0 1px 0 color-mix(in srgb, var(--text-body) 3%, transparent)
         `,
       }}
     >
@@ -74,7 +74,7 @@ export default function RetroFrame({
             className="flex items-center gap-1.5 px-3 py-0.5 text-[10px] font-mono uppercase tracking-[0.2em] rounded-b-sm"
             style={{
               color: accent,
-              background: 'rgba(10, 5, 28, 0.95)',
+              background: 'var(--surface-border)',
               borderLeft: `1px solid color-mix(in srgb, ${accent} 20%, transparent)`,
               borderRight: `1px solid color-mix(in srgb, ${accent} 20%, transparent)`,
               borderBottom: `1px solid color-mix(in srgb, ${accent} 20%, transparent)`,
@@ -95,7 +95,7 @@ export default function RetroFrame({
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.17) 2px, rgba(0, 0, 0, 0.17) 4px)',
+            'repeating-linear-gradient(0deg, transparent, transparent 2px, color-mix(in srgb, var(--ink-950) 17%, transparent) 2px, color-mix(in srgb, var(--ink-950) 17%, transparent) 4px)',
           mixBlendMode: 'multiply',
         }}
       />
@@ -105,8 +105,8 @@ export default function RetroFrame({
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(37,246,255,0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(37,246,255,0.08) 1px, transparent 1px)
+            linear-gradient(color-mix(in srgb, var(--neon-cyan) 8%, transparent) 1px, transparent 1px),
+            linear-gradient(90deg, color-mix(in srgb, var(--neon-cyan) 8%, transparent) 1px, transparent 1px)
           `,
           backgroundSize: '48px 48px',
         }}

@@ -164,7 +164,7 @@ export default function TodaysRep({ bottomRayId, bottomRayName, eclipseLevel, on
           <span className="text-xs whitespace-nowrap flex-shrink-0" style={{ color: 'var(--text-on-dark-muted)' }}>{tool.time}</span>
         </div>
 
-        <p className="text-xs italic rounded-lg px-3 py-2 leading-relaxed" style={{ color: 'var(--brand-gold, #F8D011)', background: 'rgba(248, 208, 17, 0.1)' }}>
+        <p className="text-xs italic rounded-lg px-3 py-2 leading-relaxed" style={{ color: 'var(--gold-primary)', background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)' }}>
           {tool.science}
         </p>
 

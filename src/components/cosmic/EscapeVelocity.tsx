@@ -93,16 +93,16 @@ export default function EscapeVelocity({
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label={`Escape velocity — ${progress}% progress${aboveThreshold ? ', above threshold' : ''}`}>
         <defs>
           <linearGradient id="ev-bg" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stopColor="#3A0A5E" />
+            <stop offset="0%" stopColor="var(--text-body)" />
             <stop offset="45%" stopColor="var(--cosmic-svg-bg)" />
             <stop offset="100%" stopColor="var(--cosmic-purple-vivid)" />
           </linearGradient>
           <linearGradient id="ev-trail" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stopColor="#E8A317" stopOpacity="0.3" />
-            <stop offset="50%" stopColor="#F4C430" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0.9" />
+            <stop offset="0%" stopColor="var(--neon-amber)" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0.9" />
           </linearGradient>
-          <filter id="ev-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="ev-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="4" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -116,15 +116,15 @@ export default function EscapeVelocity({
             key={i}
             points={pts}
             fill="none"
-            stroke="#F4C430"
+            stroke="var(--gold-primary)"
             strokeWidth={0.4}
             strokeOpacity={0.2}
           />
         ))}
 
         {/* Dark well center */}
-        <circle cx={cx} cy={H * 0.85} r={25} fill="#1A1A1A" opacity={0.7} />
-        <circle cx={cx} cy={H * 0.85} r={35} fill="#3A0A5E" opacity={0.3} />
+        <circle cx={cx} cy={H * 0.85} r={25} fill="var(--ink-900)" opacity={0.7} />
+        <circle cx={cx} cy={H * 0.85} r={35} fill="var(--violet-650)" opacity={0.3} />
 
         {/* Threshold line */}
         <line
@@ -132,12 +132,12 @@ export default function EscapeVelocity({
           y1={thresholdY}
           x2={W - 40}
           y2={thresholdY}
-          stroke="#FFFFFF"
+          stroke="var(--text-body)"
           strokeWidth={1}
           strokeOpacity={0.2}
           strokeDasharray="6 6"
         />
-        <text x={W - 44} y={thresholdY - 6} textAnchor="end" fill="#FFFFFF" fontSize="8" fontWeight="500" opacity={0.3}>
+        <text x={W - 44} y={thresholdY - 6} textAnchor="end" fill="var(--text-body)" fontSize="8" fontWeight="500" opacity={0.3}>
           escape threshold
         </text>
 
@@ -158,7 +158,7 @@ export default function EscapeVelocity({
           cx={cx}
           cy={sphereY}
           r={10}
-          fill="#F4C430"
+          fill="var(--gold-primary)"
           filter={aboveThreshold ? 'url(#ev-glow)' : undefined}
           initial={false}
           animate={
@@ -168,11 +168,11 @@ export default function EscapeVelocity({
           }
           transition={!reducedMotion ? { duration: 2, repeat: Infinity, ease: 'easeInOut' } : undefined}
         />
-        <circle cx={cx} cy={sphereY} r={4} fill="#FFFFFF" opacity={aboveThreshold ? 0.6 : 0.3} />
+        <circle cx={cx} cy={sphereY} r={4} fill="var(--text-body)" opacity={aboveThreshold ? 0.6 : 0.3} />
 
         {/* Label */}
         {rayName && (
-          <text x={cx} y={H - 16} textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="500" opacity={0.4}>
+          <text x={cx} y={H - 16} textAnchor="middle" fill="var(--text-body)" fontSize="9" fontWeight="500" opacity={0.4}>
             {patternLabel} — {rayName}
           </text>
         )}

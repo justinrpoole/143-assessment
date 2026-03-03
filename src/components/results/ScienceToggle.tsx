@@ -25,7 +25,7 @@ export function ScienceToggle({ mechanism, citation, anchor }: Props) {
         type="button"
         onClick={() => setOpen(!open)}
         className="inline-flex items-center gap-1.5 text-[11px] font-medium transition-opacity hover:opacity-80"
-        style={{ color: 'var(--brand-gold, #F8D011)' }}
+        style={{ color: 'var(--gold-primary)' }}
         aria-expanded={open}
       >
         <svg
@@ -45,8 +45,8 @@ export function ScienceToggle({ mechanism, citation, anchor }: Props) {
         <div
           className="mt-2 rounded-lg p-3 text-xs leading-relaxed"
           style={{
-            background: 'rgba(248, 208, 17, 0.04)',
-            border: '1px solid rgba(248, 208, 17, 0.1)',
+            background: 'color-mix(in srgb, var(--gold-primary) 4%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--gold-primary) 10%, transparent)',
             color: 'var(--text-on-dark-secondary)',
           }}
         >
@@ -60,7 +60,7 @@ export function ScienceToggle({ mechanism, citation, anchor }: Props) {
             <a
               href={`/methodology#${anchor}`}
               className="mt-1.5 inline-block underline underline-offset-2"
-              style={{ color: 'var(--brand-gold, #F8D011)' }}
+              style={{ color: 'var(--gold-primary)' }}
             >
               Full methodology
             </a>

@@ -51,7 +51,7 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
       {/* Backdrop */}
       <div
         className="fixed inset-0 z-50"
-        style={{ background: 'rgba(2, 2, 2, 0.7)' }}
+        style={{ background: 'color-mix(in srgb, var(--ink-950) 70%, transparent)' }}
         onClick={onClose}
       />
 
@@ -104,14 +104,14 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
 
           {/* Score summary */}
           <div className="grid grid-cols-3 gap-3">
-            <ScoreBlock label="Shine" value={ray.score} color="#F8D011" />
-            <ScoreBlock label="Eclipse" value={ray.eclipse_score ?? 0} color="#FB923C" />
-            <ScoreBlock label="Net Energy" value={ray.net_energy ?? ray.score} color="#A78BFA" />
+            <ScoreBlock label="Shine" value={ray.score} color="var(--gold-primary)" />
+            <ScoreBlock label="Eclipse" value={ray.eclipse_score ?? 0} color="var(--neon-amber)" />
+            <ScoreBlock label="Net Energy" value={ray.net_energy ?? ray.score} color="var(--neon-violet)" />
           </div>
 
           {/* Definition */}
           {explanation && (
-            <div className="glass-card p-4 space-y-2" style={{ borderColor: 'rgba(248, 208, 17, 0.15)' }}>
+            <div className="glass-card p-4 space-y-2" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
                 {explanation.definition}
               </p>
@@ -138,7 +138,7 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
                       className="h-full rounded-full transition-all duration-500"
                       style={{
                         width: `${sf.score}%`,
-                        background: sf.score >= 70 ? 'var(--brand-gold)' : sf.score >= 40 ? '#F59E0B' : '#FB923C',
+                        background: sf.score >= 70 ? 'var(--brand-gold)' : sf.score >= 40 ? 'var(--neon-amber)' : 'var(--neon-amber)',
                       }}
                     />
                   </div>
@@ -157,7 +157,7 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
                 <div
                   key={i}
                   className="glass-card p-3 text-sm leading-relaxed"
-                  style={{ color: 'var(--text-on-dark-secondary)', borderColor: 'rgba(96, 5, 141, 0.2)' }}
+                  style={{ color: 'var(--text-on-dark-secondary)', borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}
                 >
                   {rep}
                 </div>
@@ -179,7 +179,7 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
                 ))}
               </div>
               <div className="space-y-1.5">
-                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#FB923C' }}>
+                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--neon-amber)' }}>
                   When Eclipsed
                 </p>
                 {explanation.whenEclipsed.map((item, i) => (

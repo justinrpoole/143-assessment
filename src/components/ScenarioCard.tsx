@@ -37,13 +37,13 @@ export default function ScenarioCard({ itemId, options, selectedKey, onChange }:
             style={{
               padding: '14px 16px',
               background: isSelected
-                ? 'rgba(248, 208, 17, 0.12)'
-                : 'rgba(96, 5, 141, 0.25)',
+                ? 'color-mix(in srgb, var(--gold-primary) 12%, transparent)'
+                : 'color-mix(in srgb, var(--violet-650) 25%, transparent)',
               borderColor: isSelected
                 ? 'var(--brand-gold)'
-                : 'rgba(148, 80, 200, 0.25)',
+                : 'color-mix(in srgb, var(--stroke-400) 25%, transparent)',
               boxShadow: isSelected
-                ? '0 0 20px rgba(248, 208, 17, 0.18), inset 0 1px 0 rgba(248, 208, 17, 0.1)'
+                ? '0 0 20px color-mix(in srgb, var(--gold-primary) 18%, transparent), inset 0 1px 0 color-mix(in srgb, var(--gold-primary) 10%, transparent)'
                 : 'none',
               transform: isSelected && !prefersReduced ? 'scale(1.02)' : 'scale(1)',
               transitionDuration: prefersReduced ? '0ms' : '200ms',
@@ -57,10 +57,10 @@ export default function ScenarioCard({ itemId, options, selectedKey, onChange }:
                 style={{
                   background: isSelected
                     ? 'var(--brand-gold)'
-                    : 'rgba(148, 80, 200, 0.3)',
+                    : 'color-mix(in srgb, var(--stroke-400) 30%, transparent)',
                   color: isSelected
-                    ? '#020202'
-                    : 'rgba(255, 255, 255, 0.7)',
+                    ? 'var(--ink-950)'
+                    : 'color-mix(in srgb, var(--text-body) 70%, transparent)',
                   transitionDuration: prefersReduced ? '0ms' : '200ms',
                 }}
               >
@@ -68,7 +68,7 @@ export default function ScenarioCard({ itemId, options, selectedKey, onChange }:
               </span>
               <span
                 className="text-sm leading-relaxed"
-                style={{ color: 'var(--text-on-dark, rgba(255,255,255,0.92))' }}
+                style={{ color: 'var(--text-on-dark, color-mix(in srgb, var(--text-body) 92%, transparent))' }}
               >
                 {opt.label}
               </span>

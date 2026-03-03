@@ -22,7 +22,7 @@ export default function BreathingMoment({ message, onContinue }: BreathingMoment
           <div
             className="w-16 h-16 rounded-full animate-breathe"
             style={{
-              background: 'radial-gradient(circle, #ffad47 0%, #0d1e3e 72%)',
+              background: 'radial-gradient(circle, var(--text-body) 0%, var(--text-body) 72%)',
             }}
           />
         </div>
@@ -40,7 +40,7 @@ export default function BreathingMoment({ message, onContinue }: BreathingMoment
             onClick={onContinue}
             disabled={!showButton}
             className="px-8 py-3 rounded-xl text-base font-semibold transition
-              bg-[var(--ink)] text-on-dark hover:brightness-110 shadow-[0_10px_26px_rgba(13,30,62,0.25)]"
+              bg-[var(--ink)] text-on-dark hover:brightness-110 shadow-[0_10px_26px_var(--surface-border)]"
           >
             Continue
           </button>

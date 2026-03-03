@@ -51,20 +51,20 @@ export default function DailyLoopVisual() {
       <div className="text-center space-y-3">
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: '#F8D011' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           The 143 Loop
         </p>
         <h2
           className="heading-section mx-auto max-w-[640px]"
-          style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+          style={{ color: 'var(--text-body)' }}
         >
           Your daily operating system.{' '}
           <span className="text-gold-gradient">3 minutes to start. 5 minutes to measure.</span>
         </h2>
         <p
           className="mx-auto max-w-[540px] text-sm leading-relaxed"
-          style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+          style={{ color: 'var(--text-secondary)' }}
         >
           Morning → Practice → Rep → Reflect → Scan.
           The full leadership operating system for less time than it takes to check your email.
@@ -80,9 +80,9 @@ export default function DailyLoopVisual() {
               <div
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm"
                 style={{
-                  background: 'rgba(248,208,17,0.1)',
-                  color: '#F8D011',
-                  border: '1px solid rgba(248,208,17,0.25)',
+                  background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)',
+                  color: 'var(--gold-primary)',
+                  border: '1px solid color-mix(in srgb, var(--gold-primary) 25%, transparent)',
                 }}
               >
                 {step.icon}
@@ -91,7 +91,7 @@ export default function DailyLoopVisual() {
                 <div
                   className="w-px flex-1"
                   style={{
-                    background: 'linear-gradient(to bottom, rgba(248,208,17,0.2), rgba(248,208,17,0.05))',
+                    background: 'linear-gradient(to bottom, color-mix(in srgb, var(--gold-primary) 20%, transparent), color-mix(in srgb, var(--gold-primary) 5%, transparent))',
                     minHeight: 'clamp(8px, 2vw, 24px)',
                   }}
                 />
@@ -103,7 +103,7 @@ export default function DailyLoopVisual() {
               <div className="flex items-center justify-between">
                 <p
                   className="text-sm font-bold"
-                  style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+                  style={{ color: 'var(--text-body)' }}
                 >
                   {step.label}
                 </p>
@@ -111,15 +111,15 @@ export default function DailyLoopVisual() {
                   <span
                     className="rounded-full px-2.5 py-0.5 text-xs font-bold"
                     style={{
-                      background: 'rgba(248,208,17,0.08)',
-                      color: '#F8D011',
+                      background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)',
+                      color: 'var(--gold-primary)',
                     }}
                   >
                     {step.duration}
                   </span>
                   <span
                     className="text-xs"
-                    style={{ color: 'rgba(255,255,255,0.5)' }}
+                    style={{ color: 'color-mix(in srgb, var(--text-body) 50%, transparent)' }}
                   >
                     {step.time}
                   </span>
@@ -127,7 +127,7 @@ export default function DailyLoopVisual() {
               </div>
               <p
                 className="mt-2 text-sm leading-relaxed"
-                style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+                style={{ color: 'var(--text-secondary)' }}
               >
                 {step.description}
               </p>
@@ -140,12 +140,12 @@ export default function DailyLoopVisual() {
       <div
         className="glass-card glass-card--lift rounded-xl p-5 sm:p-6"
         style={{
-          border: '1px solid rgba(248,208,17,0.2)',
+          border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
         }}
       >
         <p
           className="mb-3 text-xs font-bold uppercase tracking-widest"
-          style={{ color: '#F8D011' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           Time Comparison
         </p>
@@ -155,7 +155,7 @@ export default function DailyLoopVisual() {
               <span
                 className="text-sm font-bold tabular-nums"
                 style={{
-                  color: c.name === 'The 143 Loop' ? '#F8D011' : 'rgba(255,255,255,0.5)',
+                  color: c.name === 'The 143 Loop' ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 50%, transparent)',
                 }}
               >
                 {c.time}
@@ -165,7 +165,7 @@ export default function DailyLoopVisual() {
                 style={{
                   color: c.name === 'The 143 Loop'
                     ? 'var(--text-on-dark-secondary)'
-                    : 'rgba(255,255,255,0.45)',
+                    : 'color-mix(in srgb, var(--text-body) 45%, transparent)',
                 }}
               >
                 {c.name}: {c.note}

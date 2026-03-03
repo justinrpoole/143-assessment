@@ -59,7 +59,7 @@ export default function ArchetypeShareCard({
         className="relative w-full max-w-sm rounded-3xl p-8 text-center space-y-5"
         style={{
           background:
-            'linear-gradient(135deg, rgba(11,2,18,0.96) 0%, rgba(26,10,46,0.96) 100%)',
+            'linear-gradient(135deg, var(--surface-border) 0%, var(--surface-border) 100%)',
           border: `2px solid ${archetype.neon_color}40`,
           boxShadow: `0 0 60px ${archetype.neon_color}20, 0 0 120px ${archetype.neon_color}10`,
         }}
@@ -133,7 +133,7 @@ export default function ArchetypeShareCard({
             type="button"
             onClick={handleShare}
             className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all hover:brightness-110"
-            style={{ background: archetype.neon_color, color: '#020202' }}
+            style={{ background: archetype.neon_color, color: 'var(--ink-950)' }}
           >
             {copied ? 'Copied!' : 'Share This'}
           </button>

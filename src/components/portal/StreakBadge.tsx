@@ -32,8 +32,8 @@ export default function StreakBadge() {
         />
         <defs>
           <linearGradient id="flame-grad" x1="8" y1="1" x2="8" y2="14" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#F8D011" />
-            <stop offset="1" stopColor="#FF8C00" />
+            <stop stopColor="var(--gold-primary)" />
+            <stop offset="1" stopColor="var(--text-body)" />
           </linearGradient>
         </defs>
       </svg>

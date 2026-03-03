@@ -130,7 +130,7 @@ export default function IlluminateBoard({
       moon.style.opacity = String(1 - cross);
       sun.style.opacity = String(cross);
       glow.style.opacity = String(0.25 + cross * 0.5);
-      glow.style.boxShadow = `0 0 20px hsla(${hue}, 90%, 60%, 0.45)`;
+      glow.style.boxShadow = `0 0 20px var(--surface-border)`;
     }
 
     function renderParticles(dt: number) {
@@ -138,7 +138,7 @@ export default function IlluminateBoard({
       ctx.save();
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.globalCompositeOperation = "source-over";
-      ctx.fillStyle = "rgba(0,0,0,0.18)";
+      ctx.fillStyle = "color-mix(in srgb, var(--ink-950) 18%, transparent)";
       ctx.fillRect(0, 0, width, height);
       ctx.globalCompositeOperation = "lighter";
 
@@ -156,7 +156,7 @@ export default function IlluminateBoard({
         }
 
         ctx.globalAlpha = 0.35 * t;
-        ctx.fillStyle = `hsla(${p.hue}, 95%, 65%, 1)`;
+        ctx.fillStyle = `var(--surface-border)`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2.1 * (0.6 + 0.8 * t), 0, Math.PI * 2);
         ctx.fill();
@@ -226,24 +226,24 @@ export default function IlluminateBoard({
       <svg viewBox="0 0 760 520" className="console-board" aria-label="Eclipse to Radiant Board">
         <defs>
           <linearGradient id="consoleRailGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stopColor="#7c2cff" stopOpacity="0.95" />
-            <stop offset="0.55" stopColor="#7c2cff" stopOpacity="0.95" />
-            <stop offset="0.55" stopColor="#ff7a18" stopOpacity="0.95" />
-            <stop offset="1" stopColor="#ffd35a" stopOpacity="0.95" />
+            <stop offset="0" stopColor="var(--text-body)" stopOpacity="0.95" />
+            <stop offset="0.55" stopColor="var(--text-body)" stopOpacity="0.95" />
+            <stop offset="0.55" stopColor="var(--text-body)" stopOpacity="0.95" />
+            <stop offset="1" stopColor="var(--text-body)" stopOpacity="0.95" />
           </linearGradient>
           <linearGradient id="consoleBorder" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#ff2bd6" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#ff7a18" stopOpacity="0.9" />
+            <stop offset="0" stopColor="var(--text-body)" stopOpacity="0.9" />
+            <stop offset="1" stopColor="var(--text-body)" stopOpacity="0.9" />
           </linearGradient>
           <linearGradient id="consoleCapFill" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0" stopColor="rgba(124,44,255,.75)" />
-            <stop offset="0.55" stopColor="rgba(255,43,214,.65)" />
-            <stop offset="1" stopColor="rgba(255,211,90,.92)" />
+            <stop offset="0" stopColor="var(--surface-border)" />
+            <stop offset="0.55" stopColor="var(--surface-border)" />
+            <stop offset="1" stopColor="var(--surface-border)" />
           </linearGradient>
         </defs>
 
-        <rect x="22" y="18" width="716" height="360" rx="26" fill="rgba(0,0,0,0)" stroke="url(#consoleBorder)" strokeWidth="4" />
-        <rect x="34" y="30" width="692" height="336" rx="22" fill="rgba(0,0,0,0)" stroke="rgba(255,122,24,.25)" strokeWidth="2" />
+        <rect x="22" y="18" width={"716"} height={"360"} rx="26" fill="color-mix(in srgb, var(--ink-950) 0%, transparent)" stroke="url(#consoleBorder)" strokeWidth="4" />
+        <rect x="34" y="30" width={"692"} height={"336"} rx="22" fill="color-mix(in srgb, var(--ink-950) 0%, transparent)" stroke="var(--surface-border)" strokeWidth="2" />
 
         {/* Rails */}
         {RAY_KEYS.map((key, index) => {
@@ -270,7 +270,7 @@ export default function IlluminateBoard({
                 y1={y}
                 x2={rightX}
                 y2={y}
-                stroke="rgba(255,255,255,.10)"
+                stroke="color-mix(in srgb, var(--text-body) 10%, transparent)"
                 strokeWidth="2"
                 strokeLinecap="round"
                 opacity="0.5"
@@ -279,24 +279,24 @@ export default function IlluminateBoard({
                 cx={leftX}
                 cy={y}
                 r={9}
-                fill="rgba(124,44,255,.25)"
-                stroke="rgba(124,44,255,.85)"
+                fill="var(--surface-border)"
+                stroke="var(--surface-border)"
                 strokeWidth={2}
               />
               <circle
                 cx={rightX}
                 cy={y}
                 r={9}
-                fill="rgba(255,211,90,.18)"
-                stroke="rgba(255,211,90,.70)"
+                fill="var(--surface-border)"
+                stroke="var(--surface-border)"
                 strokeWidth={2}
               />
               <circle
                 cx={x}
                 cy={y}
                 r={10}
-                fill={`color-mix(in srgb, ${color} 40%, rgba(6,3,20,0.8))`}
-                stroke={`color-mix(in srgb, ${color} 70%, rgba(255,255,255,0.2))`}
+                fill={`color-mix(in srgb, ${color} 40%, var(--surface-border))`}
+                stroke={`color-mix(in srgb, ${color} 70%, color-mix(in srgb, var(--text-body) 20%, transparent))`}
                 strokeWidth={2}
                 opacity={0.25}
               />
@@ -306,8 +306,8 @@ export default function IlluminateBoard({
 
         {/* Console */}
         <g transform="translate(70 392)">
-          <rect x="0" y="0" width="620" height="132" rx="18" fill="rgba(6,3,20,.78)" stroke="rgba(124,44,255,.22)" strokeWidth="2" />
-          <rect x="10" y="10" width="600" height="112" rx="14" fill="rgba(124,44,255,0.10)" stroke="rgba(255,255,255,.06)" strokeWidth="1" />
+          <rect x="0" y="0" width={"620"} height={"132"} rx="18" fill="var(--surface-border)" stroke="var(--surface-border)" strokeWidth="2" />
+          <rect x="10" y="10" width={"600"} height={"112"} rx="14" fill="var(--surface-border)" stroke="color-mix(in srgb, var(--text-body) 6%, transparent)" strokeWidth="1" />
 
           <text x="310" y="30" textAnchor="middle" className="consolePhase">{phase}</text>
           <text x="310" y="64" textAnchor="middle" className="consoleRadiance">{toPct(radiance)}</text>

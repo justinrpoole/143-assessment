@@ -108,7 +108,7 @@ export default function EclipseSnapshot({ eclipse }: Props) {
               style={{ transform: showDetail ? 'rotate(90deg)' : 'rotate(0deg)' }}
               aria-hidden="true"
             >
-              &#9654;
+              &var(--text-body);
             </span>
             What this means — science, real life, and what to do next
           </button>
@@ -133,7 +133,7 @@ export default function EclipseSnapshot({ eclipse }: Props) {
                 <ul className="space-y-1.5">
                   {explanation.realLife.map((ex, i) => (
                     <li key={i} className="flex gap-2 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                      <span className="mt-0.5 shrink-0" style={{ color: 'var(--text-on-dark-muted)' }}>&#9679;</span>
+                      <span className="mt-0.5 shrink-0" style={{ color: 'var(--text-on-dark-muted)' }}>&var(--text-body);</span>
                       {ex}
                     </li>
                   ))}

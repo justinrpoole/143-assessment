@@ -86,7 +86,7 @@ export default function InlineCheckoutModal({
       {/* Backdrop */}
       <div
         className="absolute inset-0"
-        style={{ background: 'rgba(2, 2, 2, 0.85)', backdropFilter: 'blur(8px)' }}
+        style={{ background: 'color-mix(in srgb, var(--ink-950) 85%, transparent)', backdropFilter: 'blur(8px)' }}
         onClick={onClose}
         aria-hidden="true"
       />
@@ -95,9 +95,9 @@ export default function InlineCheckoutModal({
       <div
         className="relative w-full max-w-md mx-3 rounded-t-2xl sm:rounded-2xl overflow-hidden"
         style={{
-          background: 'linear-gradient(180deg, rgba(96, 5, 141, 0.25) 0%, var(--overlay-heavy) 100%)',
-          border: '1px solid rgba(248, 208, 17, 0.2)',
-          boxShadow: '0 -8px 40px rgba(248, 208, 17, 0.06), 0 16px 48px rgba(0, 0, 0, 0.6)',
+          background: 'linear-gradient(180deg, color-mix(in srgb, var(--violet-650) 25%, transparent) 0%, var(--overlay-heavy) 100%)',
+          border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
+          boxShadow: '0 -8px 40px color-mix(in srgb, var(--gold-primary) 6%, transparent), 0 16px 48px color-mix(in srgb, var(--ink-950) 60%, transparent)',
           animation: 'checkoutSlideUp 300ms ease-out',
         }}
         role="dialog"
@@ -137,8 +137,8 @@ export default function InlineCheckoutModal({
             disabled={loading !== null}
             className="w-full text-left rounded-xl border p-4 transition-all hover:scale-[1.01]"
             style={{
-              background: 'rgba(96, 5, 141, 0.2)',
-              borderColor: 'rgba(148, 80, 200, 0.25)',
+              background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+              borderColor: 'color-mix(in srgb, var(--stroke-400) 25%, transparent)',
             }}
           >
             <div className="flex items-start justify-between">
@@ -169,9 +169,9 @@ export default function InlineCheckoutModal({
             disabled={loading !== null}
             className="w-full text-left rounded-xl border p-4 transition-all hover:scale-[1.01]"
             style={{
-              background: 'rgba(248, 208, 17, 0.08)',
-              borderColor: 'rgba(248, 208, 17, 0.3)',
-              boxShadow: '0 0 16px rgba(248, 208, 17, 0.06)',
+              background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)',
+              borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)',
+              boxShadow: '0 0 16px color-mix(in srgb, var(--gold-primary) 6%, transparent)',
             }}
           >
             <div className="flex items-start justify-between">
@@ -182,7 +182,7 @@ export default function InlineCheckoutModal({
                   </p>
                   <span
                     className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full"
-                    style={{ background: 'rgba(248, 208, 17, 0.15)', color: 'var(--brand-gold)' }}
+                    style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}
                   >
                     Best value
                   </span>

@@ -27,17 +27,17 @@ export default function BrandLockup({ className }: { className?: string }) {
           height="64"
           viewBox="0 0 64 64"
           aria-hidden="true"
-          className="drop-shadow-[0_0_20px_rgba(248,208,17,0.3)]"
+          className="drop-shadow-[0_0_20px_color-mix(in srgb, var(--gold-primary) 30%, transparent)]"
         >
           <defs>
             <radialGradient id="lockup-sun" cx="45%" cy="45%" r="50%">
-              <stop offset="0%" stopColor="#FFFEF5" />
-              <stop offset="30%" stopColor="#FFEC80" />
-              <stop offset="60%" stopColor="#F8D011" />
-              <stop offset="100%" stopColor="#D4770B" stopOpacity="0" />
+              <stop offset="0%" stopColor="var(--text-body)" />
+              <stop offset="30%" stopColor="var(--text-body)" />
+              <stop offset="60%" stopColor="var(--gold-primary)" />
+              <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
             </radialGradient>
             <radialGradient id="lockup-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#F8D011" stopOpacity="0.25" />
+              <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.25" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
           </defs>
@@ -46,12 +46,12 @@ export default function BrandLockup({ className }: { className?: string }) {
           {/* Sun */}
           <circle cx="30" cy="32" r="16" fill="url(#lockup-sun)" />
           {/* Moon eclipse */}
-          <circle cx="38" cy="28" r="14.5" fill="#2A0440" />
-          <circle cx="38" cy="28" r="14.5" fill="#60058D" opacity="0.4" />
+          <circle cx="38" cy="28" r="14.5" fill="var(--violet-700)" />
+          <circle cx="38" cy="28" r="14.5" fill="var(--brand-purple)" opacity="0.4" />
           {/* Rim glow */}
-          <circle cx="38" cy="28" r="15" fill="none" stroke="#F8D011" strokeWidth="0.8" opacity="0.2" />
+          <circle cx="38" cy="28" r="15" fill="none" stroke="var(--gold-primary)" strokeWidth="0.8" opacity="0.2" />
           {/* Diamond flash */}
-          <circle cx="25" cy="34" r="2" fill="#FFFEF5" opacity="0.6">
+          <circle cx="25" cy="34" r="2" fill="var(--text-body)" opacity="0.6">
             {animate && (
               <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" />
             )}
@@ -71,10 +71,10 @@ export default function BrandLockup({ className }: { className?: string }) {
           className="brand-lockup-143 text-5xl sm:text-6xl font-bold leading-none"
           style={{
             fontFamily: 'var(--font-cosmic-display)',
-            background: 'linear-gradient(135deg, #FFFEF5 0%, #F8D011 40%, #E89D0C 100%)',
+            background: 'linear-gradient(135deg, var(--text-body) 0%, var(--text-body) 40%, var(--text-body) 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            filter: 'drop-shadow(0 0 24px rgba(248, 208, 17, 0.25))',
+            filter: 'drop-shadow(0 0 24px color-mix(in srgb, var(--gold-primary) 25%, transparent))',
           }}
         >
           143
@@ -83,7 +83,7 @@ export default function BrandLockup({ className }: { className?: string }) {
         {/* "LEADERSHIP" — spaced tracking */}
         <p
           className="mt-1 text-[11px] font-bold tracking-[0.35em] uppercase"
-          style={{ color: 'rgba(255,255,255,0.55)' }}
+          style={{ color: 'color-mix(in srgb, var(--text-body) 55%, transparent)' }}
         >
           Leadership
         </p>
@@ -92,14 +92,14 @@ export default function BrandLockup({ className }: { className?: string }) {
         <div
           className="mx-auto mt-3 h-px w-16"
           style={{
-            background: 'linear-gradient(to right, transparent, rgba(248,208,17,0.4), transparent)',
+            background: 'linear-gradient(to right, transparent, color-mix(in srgb, var(--gold-primary) 40%, transparent), transparent)',
           }}
         />
 
         {/* "with Justin Ray" */}
         <motion.p
           className="mt-3 text-sm font-medium tracking-wide"
-          style={{ color: 'rgba(255,255,255,0.7)' }}
+          style={{ color: 'color-mix(in srgb, var(--text-body) 70%, transparent)' }}
           initial={animate ? { opacity: 0 } : false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6, ease: EASE }}

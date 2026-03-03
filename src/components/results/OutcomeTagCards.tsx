@@ -8,9 +8,9 @@ interface Props {
 }
 
 const CONFIDENCE_STYLES: Record<ConfidenceBand, { color: string; bg: string }> = {
-  HIGH: { color: '#34D399', bg: 'rgba(52, 211, 153, 0.12)' },
-  MODERATE: { color: '#F8D011', bg: 'rgba(248, 208, 17, 0.10)' },
-  LOW: { color: '#FB923C', bg: 'rgba(251, 146, 60, 0.10)' },
+  HIGH: { color: 'var(--neon-teal)', bg: 'var(--surface-border)' },
+  MODERATE: { color: 'var(--gold-primary)', bg: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)' },
+  LOW: { color: 'var(--neon-amber)', bg: 'var(--surface-border)' },
 };
 
 /**
@@ -53,8 +53,8 @@ function OutcomeCard({ tag }: { tag: OutcomeTag }) {
       onClick={() => setExpanded(!expanded)}
       className="w-full text-left rounded-xl border transition-colors"
       style={{
-        background: 'rgba(96, 5, 141, 0.12)',
-        borderColor: expanded ? `${conf.color}40` : 'rgba(148, 80, 200, 0.2)',
+        background: 'color-mix(in srgb, var(--violet-650) 12%, transparent)',
+        borderColor: expanded ? `${conf.color}40` : 'color-mix(in srgb, var(--stroke-400) 20%, transparent)',
         padding: '14px 16px',
       }}
       aria-expanded={expanded}
@@ -79,20 +79,20 @@ function OutcomeCard({ tag }: { tag: OutcomeTag }) {
             }}
             aria-hidden="true"
           >
-            &#9660;
+            &var(--text-body);
           </span>
         </div>
       </div>
 
       {/* Evidence chain */}
       {expanded && tag.evidence.length > 0 && (
-        <div className="mt-3 pt-3 space-y-1.5" style={{ borderTop: '1px solid rgba(148, 80, 200, 0.15)' }}>
+        <div className="mt-3 pt-3 space-y-1.5" style={{ borderTop: '1px solid color-mix(in srgb, var(--stroke-400) 15%, transparent)' }}>
           <p className="text-xs uppercase tracking-wider mb-2" style={{ color: 'var(--brand-gold)' }}>
             Evidence
           </p>
           {tag.evidence.map((ev, i) => (
             <div key={i} className="flex items-start gap-2">
-              <span className="text-xs mt-0.5 shrink-0" style={{ color: conf.color }}>&#8226;</span>
+              <span className="text-xs mt-0.5 shrink-0" style={{ color: conf.color }}>&var(--text-body);</span>
               <p className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>{ev}</p>
             </div>
           ))}

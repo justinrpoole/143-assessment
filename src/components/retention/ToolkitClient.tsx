@@ -190,7 +190,7 @@ const CATEGORY_FILTERS: { key: Category; label: string; color: string }[] = [
   { key: 'plan', label: 'Plan', color: rayHex('R1') },          // intention — direction
   { key: 'connect', label: 'Connect', color: rayHex('R7') },    // connection — relationship
   { key: 'protect', label: 'Protect', color: rayHex('R8') },    // possibility — boundaries
-  { key: 'release', label: 'Release', color: '#C39BD3' },       // aurora-pink — letting go
+  { key: 'release', label: 'Release', color: 'var(--text-secondary)' },       // aurora-pink — letting go
   { key: 'practice', label: 'Practice', color: rayHex('R5') },  // purpose — meaning
 ];
 
@@ -207,13 +207,13 @@ export default function ToolkitClient() {
     <div className="space-y-6">
 
       {/* Header / framing */}
-      <div className="glass-card p-5 space-y-2" style={{ borderColor: 'rgba(96, 5, 141, 0.3)' }}>
+      <div className="glass-card p-5 space-y-2" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
         <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
           🛠️ Your tool stack — 13 protocols from the OS
         </p>
         <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
           Every tool here is a rep. Pick one. Run it. Log it.{' '}
-          <strong style={{ color: 'var(--brand-gold, #F8D011)' }}>That&apos;s the whole thing.</strong>
+          <strong style={{ color: 'var(--gold-primary)' }}>That&apos;s the whole thing.</strong>
           {' '}Each rep rewires your Reticular Activating System — training your brain to find what you practice, not just what threatens it.
         </p>
       </div>
@@ -229,7 +229,7 @@ export default function ToolkitClient() {
               onClick={() => setActiveCategory(f.key)}
               className="px-3 py-1.5 rounded-full text-sm border transition-all"
               style={{
-                background: active ? `${f.color}22` : 'rgba(255,255,255,0.04)',
+                background: active ? `${f.color}22` : 'color-mix(in srgb, var(--text-body) 4%, transparent)',
                 color: active ? f.color : 'var(--text-on-dark-muted)',
                 borderColor: active ? `${f.color}66` : 'var(--surface-border)',
               }}
@@ -286,9 +286,9 @@ export default function ToolkitClient() {
                           </span>
                           <span className="text-xs rounded-full px-2 py-0.5"
                             style={{
-                              color: catFilter?.color ?? '#7B4BAE',
-                              background: `${catFilter?.color ?? '#7B4BAE'}15`,
-                              border: `1px solid ${catFilter?.color ?? '#7B4BAE'}33`,
+                              color: catFilter?.color ?? 'var(--violet-650)',
+                              background: `${catFilter?.color ?? 'var(--violet-650)'}15`,
+                              border: `1px solid ${catFilter?.color ?? 'var(--violet-650)'}33`,
                             }}>
                             {tool.category_label}
                           </span>
@@ -338,8 +338,8 @@ export default function ToolkitClient() {
                         </div>
 
                         {/* RAS connection */}
-                        <div className="glass-card p-3" style={{ borderColor: 'rgba(96, 5, 141, 0.2)' }}>
-                          <p className="text-xs font-medium" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                        <div className="glass-card p-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
+                          <p className="text-xs font-medium" style={{ color: 'var(--gold-primary)' }}>
                             🧠 RAS connection
                           </p>
                           <p className="text-xs mt-1" style={{ color: 'var(--text-on-dark-secondary)' }}>
@@ -358,7 +358,7 @@ export default function ToolkitClient() {
                               <li key={si} className="flex gap-2 text-sm"
                                 style={{ color: 'var(--text-on-dark-secondary)' }}>
                                 <span className="font-semibold flex-shrink-0"
-                                  style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                                  style={{ color: 'var(--gold-primary)' }}>
                                   {si + 1}.
                                 </span>
                                 {step}
@@ -387,7 +387,7 @@ export default function ToolkitClient() {
       <p className="text-center text-xs py-2" style={{ color: 'var(--text-on-dark-muted)' }}>
         {filteredTools.length} tool{filteredTools.length !== 1 ? 's' : ''} ·{' '}
         <Link href="/reps" className="underline underline-offset-2"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          style={{ color: 'var(--gold-primary)' }}>
           See your rep history →
         </Link>
       </p>

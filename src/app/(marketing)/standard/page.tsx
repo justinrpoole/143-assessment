@@ -139,21 +139,21 @@ export default async function StandardPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── HERO ────────────────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section className="content-wrap--narrow space-y-5 text-center">
           <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
-            <span style={{ color: "#F8D011" }}>◆</span> Category-Defining Principles
+            <span style={{ color: "var(--gold-primary)" }}>◆</span> Category-Defining Principles
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.violet) }}
+            style={{ color: "var(--text-body)", textShadow: neonText(NEON.violet) }}
           >
             The 143 Standard.
           </h1>
-          <div className="mx-auto max-w-[540px]">
+          <div className="content-wrap--narrow">
             <ScrollTextReveal text="10 principles that define what every leadership assessment should be. We did not just build an assessment. We defined the standard we wish existed — then held ourselves to it." />
           </div>
           <RaySpectrumStrip className="mt-4" />
@@ -164,7 +164,7 @@ export default async function StandardPage() {
         {/* ─── THE 10 PRINCIPLES ───────────────────────────────── */}
         <FadeInSection>
           <RadialSpotlight>
-            <section className="mx-auto max-w-[720px] space-y-8">
+            <section className="content-wrap--narrow space-y-8">
               <div className="space-y-3 text-center">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
@@ -174,7 +174,7 @@ export default async function StandardPage() {
                 </p>
                 <h2
                   className="text-2xl font-semibold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.violet) }}
+                  style={{ color: "var(--text-body)", textShadow: neonText(NEON.violet) }}
                 >
                   What a leadership assessment should be.
                 </h2>
@@ -211,7 +211,7 @@ export default async function StandardPage() {
                         className="mt-2 text-sm leading-relaxed"
                         style={{
                           color:
-                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                            "var(--text-secondary)",
                         }}
                       >
                         {p.description}
@@ -236,7 +236,7 @@ export default async function StandardPage() {
 
         {/* ─── LEGACY vs STANDARD ──────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-6">
+          <section className="content-wrap--narrow space-y-6">
             <div className="space-y-3 text-center">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -246,7 +246,7 @@ export default async function StandardPage() {
               </p>
               <h2
                 className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 The industry has been measuring the wrong thing.
               </h2>
@@ -257,17 +257,17 @@ export default async function StandardPage() {
               <div
                 className="grid grid-cols-3 gap-px text-xs font-bold uppercase tracking-widest p-3"
                 style={{
-                  background: "rgba(248,208,17,0.06)",
-                  borderBottom: "1px solid rgba(248,208,17,0.15)",
+                  background: "color-mix(in srgb, var(--gold-primary) 6%, transparent)",
+                  borderBottom: "1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)",
                 }}
               >
-                <span style={{ color: "rgba(255,255,255,0.4)" }}>
+                <span style={{ color: "color-mix(in srgb, var(--text-body) 40%, transparent)" }}>
                   Dimension
                 </span>
-                <span style={{ color: "rgba(255,255,255,0.35)" }}>
+                <span style={{ color: "color-mix(in srgb, var(--text-body) 35%, transparent)" }}>
                   Legacy
                 </span>
-                <span style={{ color: "var(--brand-gold, #F8D011)" }}>
+                <span style={{ color: "var(--gold-primary)" }}>
                   143 Standard
                 </span>
               </div>
@@ -280,18 +280,18 @@ export default async function StandardPage() {
                   style={{
                     borderBottom:
                       i < COMPARISON_ROWS.length - 1
-                        ? "1px solid rgba(255,255,255,0.05)"
+                        ? "1px solid color-mix(in srgb, var(--text-body) 5%, transparent)"
                         : "none",
                     borderLeft: `2px solid ${rayHex(cycleRay(i))}25`,
                   }}
                 >
                   <span
                     className="font-medium"
-                    style={{ color: "rgba(255,255,255,0.6)" }}
+                    style={{ color: "color-mix(in srgb, var(--text-body) 60%, transparent)" }}
                   >
                     {row.dimension}
                   </span>
-                  <span style={{ color: "rgba(255,255,255,0.3)" }}>
+                  <span style={{ color: "color-mix(in srgb, var(--text-body) 30%, transparent)" }}>
                     {row.legacy}
                   </span>
                   <span style={{ color: rayHex(cycleRay(i)) }}>
@@ -315,7 +315,7 @@ export default async function StandardPage() {
 
         {/* ─── WHY THIS MATTERS ────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -325,7 +325,7 @@ export default async function StandardPage() {
               </p>
               <h2
                 className="text-xl font-bold sm:text-2xl"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 The leadership development industry is a $240 billion market
                 built on tools that do not measure change.
@@ -334,7 +334,7 @@ export default async function StandardPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 85% of leadership training fails to produce lasting behaviour
@@ -350,7 +350,7 @@ export default async function StandardPage() {
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  color: "var(--text-muted)",
                 }}
               >
                 The 143 Standard is not a marketing claim. It is a set of
@@ -366,7 +366,7 @@ export default async function StandardPage() {
 
         {/* ─── CTA ─────────────────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <ConicBorderCard glow>
               <div
                 className="glass-card p-8 text-center space-y-5"
@@ -374,15 +374,15 @@ export default async function StandardPage() {
               >
                 <h2
                   className="text-2xl font-bold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                  style={{ color: "var(--text-body)" }}
                 >
                   See the standard in action.
                 </h2>
                 <p
-                  className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                  className="content-wrap--narrow text-sm leading-relaxed"
                   style={{
                     color:
-                      "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                      "var(--text-secondary)",
                   }}
                 >
                   The 143 Standard is not theory. It is live. Take the

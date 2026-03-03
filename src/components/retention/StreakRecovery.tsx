@@ -34,7 +34,7 @@ export default function StreakRecovery({
   return (
     <div
       className="glass-card p-5 space-y-3"
-      style={{ borderColor: 'rgba(248, 208, 17, 0.25)' }}
+      style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
     >
       <div className="flex items-start gap-3">
         <span className="text-2xl">🔥</span>

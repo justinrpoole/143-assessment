@@ -87,9 +87,9 @@ export function GrowthSummaryClient() {
       {loading ? <p className="mt-4 text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>Loading run history...</p> : null}
       {error ? (
         <div className="mt-4 rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
-          style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}
+          style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
         >
-          <p className="text-sm" style={{ color: '#FCA5A5' }}>{humanizeError(error)}</p>
+          <p className="text-sm" style={{ color: 'var(--ray-power)' }}>{humanizeError(error)}</p>
           <button type="button" onClick={() => setRetryKey((k) => k + 1)} className="btn-primary text-xs py-1.5 px-4 flex-shrink-0">
             Try Again
           </button>

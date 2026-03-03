@@ -14,19 +14,19 @@ export default function GlobalError({
       <div className="mx-auto flex min-h-[60vh] max-w-[640px] flex-col items-center justify-center px-5 py-16 text-center">
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: "var(--brand-gold, #F8D011)" }}
+          style={{ color: "var(--gold-primary)" }}
         >
           Something Went Wrong
         </p>
         <h1
           className="mt-3 text-2xl font-semibold"
-          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+          style={{ color: "var(--text-body)" }}
         >
           Your system hit a temporary glitch.
         </h1>
         <p
           className="mt-3 text-sm leading-relaxed"
-          style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.70))" }}
+          style={{ color: "var(--text-secondary)" }}
         >
           This is not you — it is us. The operating system is recalibrating.
           Try again or head home.
@@ -42,8 +42,8 @@ export default function GlobalError({
             href="/upgrade-your-os"
             className="rounded-lg px-5 py-2.5 text-sm font-semibold"
             style={{
-              border: "1px solid var(--brand-gold, #F8D011)",
-              color: "var(--brand-gold, #F8D011)",
+              border: "1px solid var(--gold-primary)",
+              color: "var(--gold-primary)",
             }}
           >
             Go Home

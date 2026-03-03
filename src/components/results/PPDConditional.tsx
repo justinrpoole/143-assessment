@@ -16,15 +16,15 @@ export default function PPDConditional({ acting }: Props) {
         className="rounded-xl p-5"
         style={{
           background: acting.status === 'FLAGGED'
-            ? 'rgba(255, 207, 0, 0.08)'
+            ? 'var(--surface-border)'
             : 'var(--surface-glass)',
           border: acting.status === 'FLAGGED'
-            ? '2px solid rgba(255, 207, 0, 0.25)'
+            ? '2px solid var(--surface-border)'
             : '1px solid var(--surface-border)',
         }}
       >
         <div className="flex items-start gap-3">
-          <span className="text-xl mt-0.5">&#9888;&#65039;</span>
+          <span className="text-xl mt-0.5">&var(--text-body);&var(--text-body);</span>
           <div className="space-y-2">
             <h3 className="font-semibold" style={{ color: 'var(--brand-gold)' }}>
               {acting.status === 'FLAGGED'
@@ -40,7 +40,7 @@ export default function PPDConditional({ acting }: Props) {
               <ul className="space-y-1 mt-2">
                 {acting.indicators.map((ind) => (
                   <li key={ind.indicator_id} className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
-                    &#8226; {ind.label}
+                    &var(--text-body); {ind.label}
                   </li>
                 ))}
               </ul>

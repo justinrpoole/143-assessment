@@ -39,13 +39,13 @@ export default async function ToolsPage() {
       {/* Hero */}
       <section className="relative overflow-hidden py-20 sm:py-28">
         <div className="pointer-events-none absolute inset-0 opacity-20" style={{ background: `radial-gradient(ellipse 70% 50% at 50% 0%, ${rayHex("R5")} 0%, transparent 70%)` }} />
-        <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
+        <div className="relative content-wrap--wide px-5 text-center sm:px-8">
           <FadeInSection>
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--brand-gold, #F8D011)" }}>The Tool Library</p>
-            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>The Tool Library</p>
+            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl" style={{ color: "var(--text-body)" }}>
               13 protocols.<br />Each one is a rep.
             </h1>
-            <p className="mt-5 text-lg leading-relaxed" style={{ color: "var(--text-on-dark-secondary, #C4BFA8)" }}>
+            <p className="mt-5 text-lg leading-relaxed" style={{ color: "var(--text-on-dark-secondary, var(--text-body))" }}>
               Every tool in this library trains a specific leadership capacity. Not theory. Not a worksheet. A rep — a deliberate action that changes your wiring over time.
             </p>
             <p className="mt-4 text-sm font-semibold" style={{ color: rayHex("R1") }}>
@@ -60,19 +60,19 @@ export default async function ToolsPage() {
       </section>
 
       {/* Tool grid */}
-      <section className="mx-auto max-w-5xl px-5 pb-8 sm:px-8">
+      <section className="content-wrap--wide px-5 pb-8 sm:px-8">
         <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((tool, i) => (
             <StaggerItem key={tool.num}>
               <div className="glass-card h-full rounded-2xl p-5" style={{ borderTop: `2px solid ${tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray)}` }}>
                 <div className="flex items-start justify-between gap-3">
-                  <span className="text-xs font-bold opacity-40" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>{tool.num}</span>
+                  <span className="text-xs font-bold opacity-40" style={{ color: "var(--text-body)" }}>{tool.num}</span>
                   <span className="rounded-full px-2 py-0.5 text-xs font-bold" style={{ background: `${tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray)}22`, color: tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray) }}>
                     {tool.rayName}
                   </span>
                 </div>
-                <h3 className="mt-3 text-base font-bold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>{tool.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary, #C4BFA8)" }}>{tool.body}</p>
+                <h3 className="mt-3 text-base font-bold" style={{ color: "var(--text-body)" }}>{tool.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary, var(--text-body))" }}>{tool.body}</p>
               </div>
             </StaggerItem>
           ))}
@@ -80,12 +80,12 @@ export default async function ToolsPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="mx-auto max-w-2xl px-5 py-16 text-center sm:px-8">
+      <section className="content-wrap--wide px-5 py-16 text-center sm:px-8">
         <FadeInSection>
-          <div className="rounded-2xl border p-10" style={{ background: "rgba(255,255,255,0.03)", borderColor: `${rayHex("R1")}33` }}>
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--brand-gold, #F8D011)" }}>Your Personalized Sequence</p>
-            <h2 className="mt-3 text-2xl font-semibold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>The assessment tells you which tool to use first.</h2>
-            <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary, #C4BFA8)" }}>
+          <div className="rounded-2xl border p-10" style={{ background: "color-mix(in srgb, var(--text-body) 3%, transparent)", borderColor: `${rayHex("R1")}33` }}>
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>Your Personalized Sequence</p>
+            <h2 className="mt-3 text-2xl font-semibold" style={{ color: "var(--text-body)" }}>The assessment tells you which tool to use first.</h2>
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary, var(--text-body))" }}>
               Using the wrong tool at the wrong time is just noise. Your 9-Ray scores and Eclipse Snapshot reveal exactly which capacity needs training — and in what order.
             </p>
             <div className="mt-6">

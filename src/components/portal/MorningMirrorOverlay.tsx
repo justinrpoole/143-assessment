@@ -185,7 +185,7 @@ export default function MorningMirrorOverlay({
             {/* Bottom ray + micro-rep */}
             <div
               className="glass-card p-5 space-y-3"
-              style={{ borderColor: 'rgba(248, 208, 17, 0.25)' }}
+              style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
             >
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                 {rayVerb}: {rayShort}
@@ -249,7 +249,7 @@ export function MorningMirrorToggle() {
       <div
         className="w-10 h-6 rounded-full relative transition-colors"
         style={{
-          background: disabled ? 'rgba(255,255,255,0.1)' : 'var(--brand-gold)',
+          background: disabled ? 'color-mix(in srgb, var(--text-body) 10%, transparent)' : 'var(--brand-gold)',
         }}
       >
         <div

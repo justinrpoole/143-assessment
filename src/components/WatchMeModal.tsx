@@ -94,7 +94,7 @@ export default function WatchMeModal({
   }
 
   const inputStyle = {
-    background: 'rgba(255,255,255,0.06)',
+    background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
     border: '1px solid var(--surface-border)',
     color: 'var(--text-on-dark)',
   } as const;
@@ -148,7 +148,7 @@ export default function WatchMeModal({
                 </div>
               )}
 
-              <div className="rounded-xl p-4 space-y-2" style={{ background: 'rgba(255,255,255,0.04)' }}>
+              <div className="rounded-xl p-4 space-y-2" style={{ background: 'color-mix(in srgb, var(--text-body) 4%, transparent)' }}>
                 <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
                   Quick prompts
                 </p>
@@ -162,7 +162,7 @@ export default function WatchMeModal({
                         setNextMove(prompt.move);
                       }}
                       className="text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01]"
-                      style={{ border: '1px solid var(--surface-border)', background: 'rgba(2, 2, 2, 0.35)', color: 'var(--text-on-dark)' }}
+                      style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
                     >
                       <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                         {prompt.label}
@@ -227,7 +227,7 @@ export default function WatchMeModal({
               <div
                 className="w-24 h-24 rounded-full flex items-center justify-center mx-auto border-4 border-brand-gold"
                 style={{
-                  background: `conic-gradient(#F8D011 ${((5 - countdown) / 5) * 360}deg, rgba(255,255,255,0.06) 0deg)`,
+                  background: `conic-gradient(var(--text-body) ${((5 - countdown) / 5) * 360}deg, color-mix(in srgb, var(--text-body) 6%, transparent) 0deg)`,
                 }}
               >
                 <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'var(--bg-deep)' }}>
@@ -259,7 +259,7 @@ export default function WatchMeModal({
                     : 'You chose your signal. Did you take one step toward it?'}
                 </p>
               </div>
-              <div className="text-xs italic rounded-xl p-3" style={{ background: 'rgba(248, 208, 17, 0.08)', color: 'var(--cosmic-purple-light)' }}>
+              <div className="text-xs italic rounded-xl p-3" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)', color: 'var(--cosmic-purple-light)' }}>
                 Reinforce the rep, not the outcome: &ldquo;I returned. That&apos;s the win.&rdquo;
               </div>
               <button

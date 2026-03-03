@@ -32,61 +32,61 @@ export default function SunCore({
 
         {/* Photosphere — white-hot core fading through gold to amber */}
         <radialGradient id={`${uid}-photo`} cx="46%" cy="44%" r="52%">
-          <stop offset="0%" stopColor="#FFFEF5" />
-          <stop offset="15%" stopColor="#FFF8D6" />
-          <stop offset="30%" stopColor="#FFEC80" />
-          <stop offset="50%" stopColor="#F8D011" />
-          <stop offset="68%" stopColor="#F0B800" />
-          <stop offset="82%" stopColor="#E89D0C" />
-          <stop offset="100%" stopColor="#D4770B" stopOpacity="0" />
+          <stop offset="0%" stopColor="var(--text-body)" />
+          <stop offset="15%" stopColor="var(--text-body)" />
+          <stop offset="30%" stopColor="var(--text-body)" />
+          <stop offset="50%" stopColor="var(--gold-primary)" />
+          <stop offset="68%" stopColor="var(--neon-amber)" />
+          <stop offset="82%" stopColor="var(--neon-amber)" />
+          <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
         </radialGradient>
 
         {/* Inner glow — bright gold halo with feathered edge */}
         <radialGradient id={`${uid}-inner`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFFEF5" stopOpacity="0.9" />
-          <stop offset="25%" stopColor="#FFF8D6" stopOpacity="0.6" />
-          <stop offset="50%" stopColor="#F8D011" stopOpacity="0.3" />
-          <stop offset="75%" stopColor="#F0B800" stopOpacity="0.1" />
+          <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.9" />
+          <stop offset="25%" stopColor="var(--text-body)" stopOpacity="0.6" />
+          <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.3" />
+          <stop offset="75%" stopColor="var(--neon-amber)" stopOpacity="0.1" />
           <stop offset="100%" stopColor="transparent" />
         </radialGradient>
 
         {/* Corona — wide warm haze */}
         <radialGradient id={`${uid}-corona`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFF8D6" stopOpacity="0.5" />
-          <stop offset="15%" stopColor="#F8D011" stopOpacity="0.3" />
-          <stop offset="30%" stopColor="#F8D011" stopOpacity="0.15" />
-          <stop offset="50%" stopColor="#F0B800" stopOpacity="0.06" />
-          <stop offset="75%" stopColor="#E89D0C" stopOpacity="0.02" />
+          <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.5" />
+          <stop offset="15%" stopColor="var(--gold-primary)" stopOpacity="0.3" />
+          <stop offset="30%" stopColor="var(--gold-primary)" stopOpacity="0.15" />
+          <stop offset="50%" stopColor="var(--neon-amber)" stopOpacity="0.06" />
+          <stop offset="75%" stopColor="var(--neon-amber)" stopOpacity="0.02" />
           <stop offset="100%" stopColor="transparent" />
         </radialGradient>
 
         {/* Outer bloom — massive diffuse glow */}
         <radialGradient id={`${uid}-outer`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#F8D011" stopOpacity="0.2" />
-          <stop offset="25%" stopColor="#F0B800" stopOpacity="0.08" />
-          <stop offset="55%" stopColor="#E89D0C" stopOpacity="0.02" />
+          <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.2" />
+          <stop offset="25%" stopColor="var(--neon-amber)" stopOpacity="0.08" />
+          <stop offset="55%" stopColor="var(--neon-amber)" stopOpacity="0.02" />
           <stop offset="100%" stopColor="transparent" />
         </radialGradient>
 
         {/* Chromospheric edge — warm orange rim, fully feathered */}
         <radialGradient id={`${uid}-chromo`} cx="50%" cy="50%" r="55%">
           <stop offset="60%" stopColor="transparent" />
-          <stop offset="78%" stopColor="rgba(240, 160, 30, 0.18)" />
-          <stop offset="90%" stopColor="rgba(230, 120, 15, 0.08)" />
+          <stop offset="78%" stopColor="var(--surface-border)" />
+          <stop offset="90%" stopColor="var(--surface-border)" />
           <stop offset="100%" stopColor="transparent" />
         </radialGradient>
 
         {/* Ray wisp gradient — radial fade from gold to invisible */}
         <radialGradient id={`${uid}-wisp`} cx="50%" cy="0%" r="80%">
-          <stop offset="0%" stopColor="#FFF8D6" stopOpacity="0.45" />
-          <stop offset="40%" stopColor="#F8D011" stopOpacity="0.2" />
+          <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.45" />
+          <stop offset="40%" stopColor="var(--gold-primary)" stopOpacity="0.2" />
           <stop offset="100%" stopColor="transparent" />
         </radialGradient>
 
         {/* ── FILTERS ── */}
 
         {/* Ultra-soft body bloom — stacks multiple blur passes */}
-        <filter id={`${uid}-bloom`} x="-150%" y="-150%" width="400%" height="400%">
+        <filter id={`${uid}-bloom`} x="-150%" y="-150%" width={"400%"} height={"400%"}>
           <feGaussianBlur stdDeviation="18" result="b1" />
           <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b2" />
           <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b3" />
@@ -100,7 +100,7 @@ export default function SunCore({
         </filter>
 
         {/* Wisp blur — dissolves corona rays into soft streaks */}
-        <filter id={`${uid}-wisp-blur`} x="-300%" y="-300%" width="700%" height="700%">
+        <filter id={`${uid}-wisp-blur`} x="-300%" y="-300%" width={"700%"} height={"700%"}>
           <feGaussianBlur stdDeviation="10" result="s1" />
           <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="s2" />
           <feMerge>
@@ -110,12 +110,12 @@ export default function SunCore({
         </filter>
 
         {/* Outer haze — super diffuse for background wisps */}
-        <filter id={`${uid}-haze`} x="-400%" y="-400%" width="900%" height="900%">
+        <filter id={`${uid}-haze`} x="-400%" y="-400%" width={"900%"} height={"900%"}>
           <feGaussianBlur stdDeviation="16" />
         </filter>
 
         {/* Surface granulation — subtle convection texture */}
-        <filter id={`${uid}-grain`} x="-10%" y="-10%" width="120%" height="120%">
+        <filter id={`${uid}-grain`} x="-10%" y="-10%" width={"120%"} height={"120%"}>
           <feTurbulence type="turbulence" baseFrequency="0.07" numOctaves="4" seed="42" result="cells">
             {animate && (
               <animate attributeName="baseFrequency" values="0.07;0.09;0.07" dur="14s" repeatCount="indefinite" />
@@ -125,7 +125,7 @@ export default function SunCore({
         </filter>
 
         {/* Surface noise — very subtle fractal overlay */}
-        <filter id={`${uid}-noise`} x="0%" y="0%" width="100%" height="100%">
+        <filter id={`${uid}-noise`} x="0%" y="0%" width={"100%"} height={"100%"}>
           <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="3" seed="13" result="n" />
           <feColorMatrix type="saturate" values="0" in="n" result="mono" />
           <feBlend in="SourceGraphic" in2="mono" mode="soft-light" />
@@ -212,7 +212,7 @@ export default function SunCore({
           cy={cy - radius * 0.5}
           rx={radius * wisp.scaleX}
           ry={radius * wisp.scaleY}
-          fill="#F8D011"
+          fill="var(--gold-primary)"
           filter={`url(#${uid}-haze)`}
           opacity={wisp.opacity}
           transform={`rotate(${wisp.angle}, ${cx}, ${cy})`}

@@ -48,7 +48,7 @@ function Word({
 export default function ScrollTextReveal({
   text,
   className = '',
-  color = 'var(--text-on-dark, rgba(255,255,255,0.94))',
+  color = 'var(--text-on-dark, color-mix(in srgb, var(--text-body) 94%, transparent))',
 }: ScrollTextRevealProps) {
   const prefersReduced = useReducedMotion();
   const container = useRef<HTMLParagraphElement>(null);

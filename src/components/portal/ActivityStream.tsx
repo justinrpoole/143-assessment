@@ -22,8 +22,8 @@ interface ActivityResponse {
 
 function typeColor(type: ActivityType): string {
   if (type === "assessment") return "var(--brand-gold)";
-  if (type === "log") return "rgba(148, 80, 200, 0.9)";
-  return "rgba(52, 211, 153, 0.85)";
+  if (type === "log") return "color-mix(in srgb, var(--stroke-400) 90%, transparent)";
+  return "var(--surface-border)";
 }
 
 function formatStamp(stamp: string): string {

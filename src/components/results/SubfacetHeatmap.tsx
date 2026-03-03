@@ -11,11 +11,11 @@ interface Props {
 
 // Score to color mapping (cosmic theme)
 function scoreColor(score: number): string {
-  if (score >= 80) return '#34D399'; // emerald — mastery
-  if (score >= 60) return '#F8D011'; // gold — active capacity
-  if (score >= 40) return '#FB923C'; // amber — emerging
-  if (score >= 20) return '#F87171'; // rose — training edge
-  return '#94A3B8';                  // slate — dormant
+  if (score >= 80) return 'var(--neon-teal)'; // emerald — mastery
+  if (score >= 60) return 'var(--gold-primary)'; // gold — active capacity
+  if (score >= 40) return 'var(--neon-amber)'; // amber — emerging
+  if (score >= 20) return 'var(--ray-power)'; // rose — training edge
+  return 'var(--text-body)';                  // slate — dormant
 }
 
 function scoreLabel(score: number): string {
@@ -50,11 +50,11 @@ export default function SubfacetHeatmap({ rays }: Props) {
       {/* Legend */}
       <div className="flex flex-wrap gap-3 text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
         {[
-          { label: 'Mastery (80+)', color: '#34D399' },
-          { label: 'Active (60-79)', color: '#F8D011' },
-          { label: 'Emerging (40-59)', color: '#FB923C' },
-          { label: 'Training (20-39)', color: '#F87171' },
-          { label: 'Dormant (<20)', color: '#94A3B8' },
+          { label: 'Mastery (80+)', color: 'var(--neon-teal)' },
+          { label: 'Active (60-79)', color: 'var(--gold-primary)' },
+          { label: 'Emerging (40-59)', color: 'var(--neon-amber)' },
+          { label: 'Training (20-39)', color: 'var(--ray-power)' },
+          { label: 'Dormant (<20)', color: 'var(--text-body)' },
         ].map((item) => (
           <div key={item.label} className="flex items-center gap-1.5">
             <span
@@ -68,7 +68,7 @@ export default function SubfacetHeatmap({ rays }: Props) {
       </div>
 
       {/* Heatmap grid */}
-      <div className="glass-card p-4 overflow-x-auto">
+      <div className="glass-card p-4 overflow-auto">
         <table className="w-full border-collapse" style={{ minWidth: '320px' }}>
           <thead>
             <tr>
@@ -115,7 +115,7 @@ export default function SubfacetHeatmap({ rays }: Props) {
                           aria-label={`${label}: ${Math.round(score)}%`}
                           title={`${label}: ${Math.round(score)}%`}
                         >
-                          <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold" style={{ color: score >= 60 ? '#0B0212' : '#fff' }}>
+                          <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold" style={{ color: score >= 60 ? 'var(--text-body)' : 'var(--text-body)' }}>
                             {sf ? Math.round(score) : '—'}
                           </span>
                         </button>

@@ -102,23 +102,23 @@ export default async function Challenge143Page() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5">
+        <section className="content-wrap--narrow space-y-5">
           <p className="gold-tag">
-            <span style={{ color: '#F8D011' }}>◆</span> Your brain is running a threat filter you never installed.
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Your brain is running a threat filter you never installed.
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            style={{ color: "var(--text-body)" }}
           >
             3 days to reprogram it. 3 minutes a day. Free.
           </h1>
           <p
             className="text-base leading-relaxed max-w-[560px]"
             style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+              color: "var(--text-secondary)",
             }}
           >
             You talk to yourself worse than you would talk to anyone you love.
@@ -151,7 +151,7 @@ export default async function Challenge143Page() {
         {/* ─── SECTION 2 · THE SCIENCE ────────────────────────── */}
         <FadeInSection blur>
           <RadialSpotlight>
-            <section className="mx-auto max-w-[720px] space-y-8">
+            <section className="content-wrap--narrow space-y-8">
               <div className="space-y-3">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
@@ -161,7 +161,7 @@ export default async function Challenge143Page() {
                 </p>
                 <h2
                   className="text-2xl font-semibold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                  style={{ color: "var(--text-body)" }}
                 >
                   Your inner critic is not a character flaw. It is a miscalibrated
                   filter.
@@ -188,7 +188,7 @@ export default async function Challenge143Page() {
                         className="mt-1 text-sm leading-relaxed"
                         style={{
                           color:
-                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                            "var(--text-secondary)",
                         }}
                       >
                         {card.body}
@@ -207,7 +207,7 @@ export default async function Challenge143Page() {
         <FadeInSection>
           <section
             id="challenge-start"
-            className="mx-auto max-w-[720px] space-y-8 scroll-mt-20"
+            className="content-wrap--narrow space-y-8 scroll-mt-20"
           >
             <div className="space-y-3">
               <p
@@ -218,7 +218,7 @@ export default async function Challenge143Page() {
               </p>
               <h2
                 className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 143 means I love you. That is the rep.
               </h2>
@@ -233,14 +233,14 @@ export default async function Challenge143Page() {
                         className="shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest"
                         style={{
                           background: stepColor,
-                          color: "#020202",
+                          color: "var(--ink-950)",
                         }}
                       >
                         {step.week}
                       </span>
                       <p
                         className="text-sm font-semibold"
-                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                        style={{ color: "var(--text-body)" }}
                       >
                         {step.title}
                       </p>
@@ -249,7 +249,7 @@ export default async function Challenge143Page() {
                       className="text-sm leading-relaxed"
                       style={{
                         color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                          "var(--text-secondary)",
                       }}
                     >
                       {step.instruction}
@@ -262,7 +262,7 @@ export default async function Challenge143Page() {
             <p
               className="text-sm leading-relaxed"
               style={{
-                color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                color: "var(--text-muted)",
               }}
             >
               Variable repetition keeps the brain engaged. Same repetition leads
@@ -284,7 +284,7 @@ export default async function Challenge143Page() {
 
         {/* ─── THE DESIGN PHILOSOPHY ─────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -300,7 +300,7 @@ export default async function Challenge143Page() {
               </h2>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 A regulated nervous system sustains high standards. A shamed
                 one collapses. Kristin Neff&rsquo;s research on fierce
@@ -313,7 +313,7 @@ export default async function Challenge143Page() {
               </p>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+                style={{ color: "var(--text-muted)" }}
               >
                 In a market full of clinical language and deficit framing,
                 this is a deliberate act. Other assessments find your
@@ -330,7 +330,7 @@ export default async function Challenge143Page() {
 
         {/* ─── SECTION 4 · THE CHALLENGE KIT ──────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-6">
+          <section className="content-wrap--narrow space-y-6">
             <div className="glass-card p-6 sm:p-8 space-y-5">
               <CosmicImage
                 src="/images/logo-143-sun.png"
@@ -349,7 +349,7 @@ export default async function Challenge143Page() {
               </p>
               <h2
                 className="text-xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Everything you need to start. Free. No card required.
               </h2>
@@ -363,7 +363,7 @@ export default async function Challenge143Page() {
                     className="flex items-start gap-2 text-sm leading-relaxed"
                     style={{
                       color:
-                        "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        "var(--text-secondary)",
                     }}
                   >
                     <span
@@ -384,7 +384,7 @@ export default async function Challenge143Page() {
 
         {/* ─── SECTION 5 · THE BRIDGE ─────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -394,7 +394,7 @@ export default async function Challenge143Page() {
               </p>
               <h2
                 className="text-xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 The Challenge resets your filter. The assessment maps your whole
                 system.
@@ -402,7 +402,7 @@ export default async function Challenge143Page() {
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                  color: "var(--text-secondary)",
                 }}
               >
                 The 143 Challenge helps reset your filter. For the deeper map,
@@ -427,19 +427,19 @@ export default async function Challenge143Page() {
 
         {/* ─── SECTION 6 · CTA ────────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card p-8 text-center space-y-5">
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 &ldquo;I choose what my mind magnifies.&rdquo;
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 3 days. 3 minutes. Your brain starts scanning for possibility

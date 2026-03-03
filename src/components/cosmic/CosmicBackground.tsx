@@ -53,19 +53,19 @@ export default function CosmicBackground({ dailyEnergy }: CosmicBackgroundProps)
         let color: string;
         let opacity: number;
         if (level < 0.2) {
-          color = '#2C0A3E';
+          color = 'var(--violet-700)';
           opacity = 0.4;
         } else if (level < 0.4) {
-          color = '#1ABC9C';
+          color = 'var(--text-body)';
           opacity = 0.08;
         } else if (level < 0.6) {
-          color = '#E8A317';
+          color = 'var(--neon-amber)';
           opacity = 0.1;
         } else if (level < 0.8) {
-          color = '#F4C430';
+          color = 'var(--gold-primary)';
           opacity = 0.15;
         } else {
-          color = '#F4C430';
+          color = 'var(--gold-primary)';
           opacity = 0.3;
         }
 
@@ -88,7 +88,7 @@ export default function CosmicBackground({ dailyEnergy }: CosmicBackgroundProps)
           rx: 15,
           ry: 12,
           rotation: 0,
-          color: '#FFFFFF',
+          color: 'var(--text-body)',
           opacity: 0.08,
         });
       }
@@ -108,7 +108,7 @@ export default function CosmicBackground({ dailyEnergy }: CosmicBackgroundProps)
 
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label="Weekly energy heat map" style={{ borderRadius: 'var(--radius-xl)' }}>
         <defs>
-          <filter id="cbr-blur" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="cbr-blur" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="16" />
           </filter>
         </defs>
@@ -151,7 +151,7 @@ export default function CosmicBackground({ dailyEnergy }: CosmicBackgroundProps)
             x={di * dayWidth + dayWidth / 2}
             y={H - 8}
             textAnchor="middle"
-            fill="#FFFFFF"
+            fill="var(--text-body)"
             fontSize="8"
             fontWeight="400"
             opacity={0.25}
@@ -169,7 +169,7 @@ export default function CosmicBackground({ dailyEnergy }: CosmicBackgroundProps)
               style={{
                 fontSize: 12,
                 fontWeight: 700,
-                color: day.level > 70 ? '#F4C430' : day.level > 40 ? '#E8A317' : 'var(--text-on-dark-muted)',
+                color: day.level > 70 ? 'var(--gold-primary)' : day.level > 40 ? 'var(--neon-amber)' : 'var(--text-on-dark-muted)',
               }}
             >
               {day.level}

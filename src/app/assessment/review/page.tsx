@@ -17,7 +17,7 @@ export default async function AssessmentReviewPage() {
   emitPageView({ eventName: "assessment_review_view", sourceRoute: "/assessment/review", userState });
   return (
     <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-8">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-8">
         <section className="relative">
           <FloatingOrbs variant="gold" />
           <div className="glass-card p-8 sm:p-12 text-center space-y-6">
@@ -33,7 +33,7 @@ export default async function AssessmentReviewPage() {
               <Link
                 href="/assessment/scoring"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all duration-150"
-                style={{background:'linear-gradient(180deg,#FFD35A 0%,#E07800 100%)',color:'#060014',boxShadow:'0 4px 20px rgba(255,211,90,0.4)'}}
+                style={{background:'linear-gradient(180deg,var(--text-body) 0%,var(--text-body) 100%)',color:'var(--bg-deep)',boxShadow:'0 4px 20px var(--surface-border)'}}
               >
                 Reveal My Map →
               </Link>

@@ -79,33 +79,33 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
           <p className="text-[10px] tracking-[0.3em] uppercase mb-1" style={{ color: 'var(--brand-gold)' }}>
             143 Leadership &middot; Light Signature
           </p>
-          <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: '#FFFEF5' }}>
+          <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-body)' }}>
             {archetype?.name ?? 'The Lightkeeper'}
           </h3>
           {archetype?.essence && (
-            <p className="text-xs mt-1 max-w-xs mx-auto" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
+            <p className="text-xs mt-1 max-w-xs mx-auto" style={{ color: 'color-mix(in srgb, var(--text-body) 60%, transparent)' }}>
               {archetype.essence}
             </p>
           )}
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-3 text-center py-4 px-4" style={{ background: 'rgba(96, 5, 141, 0.15)' }}>
+        <div className="grid grid-cols-3 text-center py-4 px-4" style={{ background: 'color-mix(in srgb, var(--violet-650) 15%, transparent)' }}>
           <div>
             <p className="text-lg font-bold" style={{ color: 'var(--brand-gold)' }}>{Math.round(overallScore)}%</p>
-            <p className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255, 255, 255, 0.4)' }}>Overall</p>
+            <p className="text-[10px] uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--text-body) 40%, transparent)' }}>Overall</p>
           </div>
           <div>
-            <p className="text-lg font-bold" style={{ color: '#34D399' }}>
+            <p className="text-lg font-bold" style={{ color: 'var(--neon-teal)' }}>
               {topTwo.length > 0 ? RAY_SHORT_NAMES[topTwo[0].ray_id] ?? topTwo[0].ray_name : '—'}
             </p>
-            <p className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255, 255, 255, 0.4)' }}>Top Ray</p>
+            <p className="text-[10px] uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--text-body) 40%, transparent)' }}>Top Ray</p>
           </div>
           <div>
-            <p className="text-lg font-bold" style={{ color: eclipse?.level === 'HIGH' ? '#F87171' : eclipse?.level === 'ELEVATED' ? '#FB923C' : '#34D399' }}>
+            <p className="text-lg font-bold" style={{ color: eclipse?.level === 'HIGH' ? 'var(--ray-power)' : eclipse?.level === 'ELEVATED' ? 'var(--neon-amber)' : 'var(--neon-teal)' }}>
               {eclipse?.level ?? '—'}
             </p>
-            <p className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255, 255, 255, 0.4)' }}>Eclipse</p>
+            <p className="text-[10px] uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--text-body) 40%, transparent)' }}>Eclipse</p>
           </div>
         </div>
 
@@ -116,7 +116,7 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
               key={ray.ray_id}
               className="px-3 py-1 rounded-full text-xs font-medium"
               style={{
-                background: 'rgba(255, 207, 0, 0.1)',
+                background: 'var(--surface-border)',
                 color: 'var(--brand-gold)',
                 border: '1px solid var(--surface-border)',
               }}
@@ -128,8 +128,8 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
             <span
               className="px-3 py-1 rounded-full text-xs font-medium"
               style={{
-                background: 'rgba(148, 80, 200, 0.15)',
-                color: '#B794E6',
+                background: 'color-mix(in srgb, var(--stroke-400) 15%, transparent)',
+                color: 'var(--text-body)',
                 border: '1px solid var(--surface-border)',
               }}
             >
@@ -139,8 +139,8 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
         </div>
 
         {/* Footer */}
-        <div className="px-4 py-2 text-center" style={{ borderTop: '1px solid rgba(148, 80, 200, 0.15)' }}>
-          <p className="text-[9px] tracking-wider" style={{ color: 'rgba(255, 255, 255, 0.3)' }}>
+        <div className="px-4 py-2 text-center" style={{ borderTop: '1px solid color-mix(in srgb, var(--stroke-400) 15%, transparent)' }}>
+          <p className="text-[9px] tracking-wider" style={{ color: 'color-mix(in srgb, var(--text-body) 30%, transparent)' }}>
             143leadership.com
           </p>
         </div>
@@ -152,9 +152,9 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
           onClick={() => void copyToClipboard()}
           className="flex-1 text-sm font-medium px-4 py-2.5 rounded-xl transition-all"
           style={{
-            background: copied ? 'rgba(52, 211, 153, 0.15)' : 'var(--surface-glass)',
-            color: copied ? '#34D399' : 'var(--text-on-dark)',
-            border: `1px solid ${copied ? 'rgba(52, 211, 153, 0.3)' : 'var(--surface-border)'}`,
+            background: copied ? 'var(--surface-border)' : 'var(--surface-glass)',
+            color: copied ? 'var(--neon-teal)' : 'var(--text-on-dark)',
+            border: `1px solid ${copied ? 'var(--surface-border)' : 'var(--surface-border)'}`,
           }}
         >
           {copied ? '\u2713 Copied' : 'Copy Text'}
@@ -165,7 +165,7 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
             onClick={() => void handleNativeShare()}
             className="flex-1 text-sm font-medium px-4 py-2.5 rounded-xl transition-colors"
             style={{
-              background: 'rgba(248, 208, 17, 0.1)',
+              background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)',
               color: 'var(--brand-gold)',
               border: '1px solid var(--surface-border)',
             }}

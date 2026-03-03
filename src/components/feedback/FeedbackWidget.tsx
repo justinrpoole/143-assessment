@@ -108,7 +108,7 @@ export function FeedbackWidget(props: FeedbackWidgetProps) {
                     ? "bg-brand-gold text-brand-black font-semibold"
                     : ""
                 }`}
-                style={rating !== value ? { background: 'rgba(96, 5, 141, 0.35)', color: 'var(--text-on-dark-secondary)', border: '1px solid var(--surface-border)' } : undefined}
+                style={rating !== value ? { background: 'color-mix(in srgb, var(--violet-650) 35%, transparent)', color: 'var(--text-on-dark-secondary)', border: '1px solid var(--surface-border)' } : undefined}
                 onClick={() => setRating((previous) => (previous === value ? null : value))}
                 aria-pressed={rating === value}
               >
@@ -122,7 +122,7 @@ export function FeedbackWidget(props: FeedbackWidgetProps) {
           <span className="text-xs font-medium" style={{ color: 'var(--text-on-dark)' }}>Comment (optional)</span>
           <textarea
             className="mt-2 w-full rounded p-2 text-sm"
-            style={{ background: 'rgba(96, 5, 141, 0.25)', color: 'var(--text-on-dark)', border: '1px solid var(--surface-border)' }}
+            style={{ background: 'color-mix(in srgb, var(--violet-650) 25%, transparent)', color: 'var(--text-on-dark)', border: '1px solid var(--surface-border)' }}
             value={freeText}
             onChange={(event) => setFreeText(clampText(event.target.value))}
             maxLength={1000}

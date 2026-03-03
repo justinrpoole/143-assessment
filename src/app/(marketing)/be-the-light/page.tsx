@@ -94,10 +94,10 @@ export default async function BeTheLightPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="relative mx-auto max-w-[720px] space-y-5">
+        <section className="relative content-wrap--narrow space-y-5">
           <FloatingOrbs variant="mixed" />
           <div
             className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl"
@@ -124,18 +124,18 @@ export default async function BeTheLightPage() {
             variant="decorative"
           />
           <p className="gold-tag">
-            <span style={{ color: '#F8D011' }}>◆</span> The Third Commitment
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Third Commitment
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            style={{ color: "var(--text-body)" }}
           >
             Be The Light.
           </h1>
           <p
             className="text-lg leading-relaxed max-w-[560px]"
             style={{
-              color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+              color: "var(--text-secondary)",
             }}
           >
             I see you holding the room together while nobody holds you. You walk
@@ -144,7 +144,7 @@ export default async function BeTheLightPage() {
           <p
             className="text-sm leading-relaxed max-w-[560px]"
             style={{
-              color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+              color: "var(--text-muted)",
             }}
           >
             They notice. And the question is not whether your light is there. It
@@ -157,7 +157,7 @@ export default async function BeTheLightPage() {
 
         {/* ─── SECTION 2 · SELF-RECOGNITION ───────────────────── */}
         <FadeInSection blur>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card glass-card--magnetic p-6 sm:p-8 space-y-5" style={{ borderLeft: `3px solid ${rayHex('R3')}40`, background: `${rayHex('R3')}06` }}>
               <p
                 className="text-sm font-semibold leading-relaxed"
@@ -168,7 +168,7 @@ export default async function BeTheLightPage() {
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                  color: "var(--text-secondary)",
                 }}
               >
                 Performed confidence in a room where no one checks on you afterward.
@@ -179,7 +179,7 @@ export default async function BeTheLightPage() {
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                  color: "var(--text-secondary)",
                 }}
               >
                 That is not selflessness. That is one ray carrying the load while
@@ -196,7 +196,7 @@ export default async function BeTheLightPage() {
         {/* ─── SECTION 3 · SOUND FAMILIAR ─────────────────────── */}
         <FadeInSection>
           <RadialSpotlight>
-            <section className="mx-auto max-w-[720px]">
+            <section className="content-wrap--narrow">
               <div className="glass-card p-6 sm:p-8">
                 <p
                   className="mb-5 text-xs font-bold uppercase tracking-widest"
@@ -214,7 +214,7 @@ export default async function BeTheLightPage() {
                         className="flex items-start gap-3 text-sm leading-relaxed"
                         style={{
                           color:
-                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                            "var(--text-secondary)",
                         }}
                       >
                         <span
@@ -236,7 +236,7 @@ export default async function BeTheLightPage() {
 
         {/* ─── SECTION 4 · THE ECLIPSE COST ───────────────────── */}
         <FadeInSection>
-          <section className="relative mx-auto max-w-[720px] space-y-8 gold-dot-grid">
+          <section className="relative content-wrap--narrow space-y-8 gold-dot-grid">
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -246,7 +246,7 @@ export default async function BeTheLightPage() {
               </p>
               <h2
                 className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Your light is not gone. It is running on reserves you have not
                 replenished.
@@ -275,7 +275,7 @@ export default async function BeTheLightPage() {
                       className="mt-1 text-sm leading-relaxed"
                       style={{
                         color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                          "var(--text-secondary)",
                       }}
                     >
                       {item.description}
@@ -289,7 +289,7 @@ export default async function BeTheLightPage() {
             <p
               className="text-sm leading-relaxed"
               style={{
-                color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                color: "var(--text-muted)",
               }}
             >
               None of this means you are failing. It means your system is
@@ -303,7 +303,7 @@ export default async function BeTheLightPage() {
 
         {/* ─── ECLIPSE IS NOT FAILURE (#14) ──────────────────── */}
         <FadeInSection blur>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4" style={{ borderTop: `2px solid ${rayHex('R3')}30` }}>
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -319,7 +319,7 @@ export default async function BeTheLightPage() {
               </h2>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 Other assessments find your weaknesses and label them &ldquo;derailment risks&rdquo;
                 (Hogan) or &ldquo;reactive tendencies&rdquo; (Leadership Circle Profile).
@@ -329,7 +329,7 @@ export default async function BeTheLightPage() {
               </p>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+                style={{ color: "var(--text-muted)" }}
               >
                 Kristin Neff&rsquo;s self-compassion research shows that fierce compassion
                 drives sustained motivation without the cost of self-criticism.
@@ -353,7 +353,7 @@ export default async function BeTheLightPage() {
 
         {/* ─── SECTION 5 · SIGNATURE PATTERNS ─────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
+          <section className="content-wrap--narrow space-y-8">
             <div className="space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -363,7 +363,7 @@ export default async function BeTheLightPage() {
               </p>
               <h2
                 className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Each Light Signature has a cost when it runs on borrowed energy.
               </h2>
@@ -379,7 +379,7 @@ export default async function BeTheLightPage() {
                       className="text-sm leading-relaxed"
                       style={{
                         color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                          "var(--text-secondary)",
                       }}
                     >
                       <strong
@@ -398,7 +398,7 @@ export default async function BeTheLightPage() {
             <p
               className="text-sm leading-relaxed"
               style={{
-                color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                color: "var(--text-muted)",
               }}
             >
               There are 36 Light Signatures. The assessment shows you which one
@@ -411,7 +411,7 @@ export default async function BeTheLightPage() {
 
         {/* ─── SECTION 6 · THE MEANING ────────────────────────── */}
         <FadeInSection blur>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card glass-card--magnetic p-6 sm:p-8 space-y-4" style={{ borderTop: `2px solid ${rayHex('R9')}30` }}>
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -421,14 +421,14 @@ export default async function BeTheLightPage() {
               </p>
               <h2
                 className="text-xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 143 means I love you. One letter. Four letters. Three letters.
               </h2>
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                  color: "var(--text-secondary)",
                 }}
               >
                 Be The Light is not a slogan. It is what happens when you
@@ -445,7 +445,7 @@ export default async function BeTheLightPage() {
 
         {/* ─── SECTION 7 · CTA ────────────────────────────────── */}
         <FadeInSection blur>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card p-8 text-center space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -455,16 +455,16 @@ export default async function BeTheLightPage() {
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Your light is still there. The assessment shows you what is
                 covering it.
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 Not a personality label. A map of 9 trainable capacities. Where you
@@ -483,7 +483,7 @@ export default async function BeTheLightPage() {
                 className="text-xs"
                 style={{
                   color:
-                    "var(--text-on-dark-muted, rgba(255,255,255,0.45))",
+                    "var(--text-muted)",
                 }}
               >
                 143 questions. 15 minutes. Your map shows what is carrying and

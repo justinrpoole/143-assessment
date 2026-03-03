@@ -162,23 +162,23 @@ export default async function ResultsPage({ searchParams }: PageProps) {
       <ShareSignatureSection runId={runId} />
 
       {/* Portal CTA — bridge from results to daily practice */}
-      <section className="mx-auto max-w-2xl px-6 py-16 text-center">
-        <p className="text-sm uppercase tracking-widest mb-3" style={{ color: "var(--brand-gold, #F8D011)" }}>
+      <section className="content-wrap--wide px-6 py-16 text-center">
+        <p className="text-sm uppercase tracking-widest mb-3" style={{ color: "var(--gold-primary)" }}>
           Your Next Step
         </p>
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--text-body)" }}>
           Your Light Signature unlocked 14 daily practice tools.
         </h2>
-        <p className="text-base mb-8" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}>
+        <p className="text-base mb-8" style={{ color: "var(--text-secondary)" }}>
           Morning intentions, energy audits, micro-joy tracking, behavioural reps, evening reflections, and more — all personalised to your map.
         </p>
         <a
           href="/portal"
           className="inline-flex items-center gap-2 rounded-2xl px-8 py-4 text-base font-bold transition-all duration-200"
           style={{
-            background: "var(--brand-gold, #F8D011)",
-            color: "var(--text-on-gold, #020202)",
-            boxShadow: "0 0 24px rgba(248,208,17,0.25), 0 0 60px rgba(248,208,17,0.10)",
+            background: "var(--gold-primary)",
+            color: "var(--text-on-gold, var(--text-body))",
+            boxShadow: "0 0 24px color-mix(in srgb, var(--gold-primary) 25%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 10%, transparent)",
           }}
         >
           Open My Light Portal

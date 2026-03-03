@@ -13,9 +13,9 @@ function seededRandom(seed: number): number {
 }
 
 const RAY_COLORS: Record<string, string> = {
-  R1: '#F4C430', R2: '#F4C430', R3: '#8E44AD',
-  R4: '#C0392B', R5: '#D4770B', R6: '#E8A317',
-  R7: '#1ABC9C', R8: '#1ABC9C', R9: '#F4C430',
+  R1: 'var(--gold-primary)', R2: 'var(--gold-primary)', R3: 'var(--neon-violet)',
+  R4: 'var(--text-body)', R5: 'var(--neon-amber)', R6: 'var(--neon-amber)',
+  R7: 'var(--text-body)', R8: 'var(--text-body)', R9: 'var(--gold-primary)',
 };
 
 /**
@@ -53,7 +53,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
 
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" aria-label="Gravitational stability comparison — unstable vs stable">
         <defs>
-          <filter id="gs-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="gs-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="3" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -61,13 +61,13 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
 
         {/* LEFT — Unstable */}
         <g>
-          <rect x={0} y={0} width={half} height={H} rx="12" fill="#3A0A5E" />
+          <rect x={0} y={0} width={half} height={H} rx="12" fill="var(--violet-650)" />
           {/* Noise texture overlay */}
-          <rect x={0} y={0} width={half} height={H} rx="12" fill="#2C0A3E" opacity={0.3} />
+          <rect x={0} y={0} width={half} height={H} rx="12" fill="var(--violet-700)" opacity={0.3} />
 
           {/* Sputtering sun */}
-          <circle cx={half / 2} cy={H / 2} r={12} fill="#F4C430" opacity={0.4} />
-          <circle cx={half / 2} cy={H / 2} r={6} fill="#FFFFFF" opacity={0.2} />
+          <circle cx={half / 2} cy={H / 2} r={12} fill="var(--gold-primary)" opacity={0.4} />
+          <circle cx={half / 2} cy={H / 2} r={6} fill="var(--text-body)" opacity={0.2} />
 
           {/* Chaotic orbits — tangled crossing paths */}
           {rayEntries.map(([id], idx) => {
@@ -77,7 +77,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
             const rx = 30 + seededRandom(idx * 13 + 1) * 80;
             const ry = 20 + seededRandom(idx * 13 + 2) * 60;
             const rotation = seededRandom(idx * 13 + 3) * 120 - 60;
-            const color = RAY_COLORS[id] ?? '#F4C430';
+            const color = RAY_COLORS[id] ?? 'var(--gold-primary)';
 
             // Orbit position
             const t = seededRandom(idx * 13 + 4) * Math.PI * 2;
@@ -93,7 +93,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
                   rx={rx}
                   ry={ry}
                   fill="none"
-                  stroke="#FFFFFF"
+                  stroke="var(--text-body)"
                   strokeWidth={0.4}
                   strokeOpacity={0.12}
                   transform={`rotate(${rotation} ${cx} ${cy})`}
@@ -131,7 +131,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
               cx={half / 2 + (seededRandom(i * 17) - 0.5) * 120}
               cy={H / 2 + (seededRandom(i * 17 + 1) - 0.5) * 100}
               r={1 + seededRandom(i * 17 + 2)}
-              fill="#F4C430"
+              fill="var(--gold-primary)"
               initial={false}
               animate={
                 !reducedMotion
@@ -146,21 +146,21 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
             />
           ))}
 
-          <text x={half / 2} y={H - 16} textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="600" opacity={0.35}>
+          <text x={half / 2} y={H - 16} textAnchor="middle" fill="var(--text-body)" fontSize="10" fontWeight="600" opacity={0.35}>
             UNSTABLE
           </text>
         </g>
 
         {/* Divider */}
-        <rect x={half} y={0} width={8} height={H} fill="#2C0A3E" />
+        <rect x={half} y={0} width={8} height={H} fill="var(--violet-700)" />
 
         {/* RIGHT — Stable */}
         <g transform={`translate(${half + 8}, 0)`}>
           <rect x={0} y={0} width={half} height={H} rx="12" fill="var(--cosmic-purple-vivid)" />
 
           {/* Brilliant sun */}
-          <circle cx={half / 2} cy={H / 2} r={16} fill="#F4C430" opacity={0.8} filter="url(#gs-glow)" />
-          <circle cx={half / 2} cy={H / 2} r={8} fill="#FFFFFF" opacity={0.6} />
+          <circle cx={half / 2} cy={H / 2} r={16} fill="var(--gold-primary)" opacity={0.8} filter="url(#gs-glow)" />
+          <circle cx={half / 2} cy={H / 2} r={8} fill="var(--text-body)" opacity={0.6} />
 
           {/* Sun beams */}
           {Array.from({ length: 12 }).map((_, i) => {
@@ -172,7 +172,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
                 y1={H / 2 + Math.sin(angle) * 18}
                 x2={half / 2 + Math.cos(angle) * 28}
                 y2={H / 2 + Math.sin(angle) * 28}
-                stroke="#F4C430"
+                stroke="var(--gold-primary)"
                 strokeWidth={2}
                 strokeOpacity={0.5}
               />
@@ -184,7 +184,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
             const cx = half / 2;
             const cy = H / 2;
             const r = 45 + idx * 14;
-            const color = RAY_COLORS[id] ?? '#F4C430';
+            const color = RAY_COLORS[id] ?? 'var(--gold-primary)';
             const t = (idx / rayEntries.length) * Math.PI * 2;
             const ox = cx + Math.cos(t) * r;
             const oy = cy + Math.sin(t) * r * 0.45;
@@ -197,7 +197,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
                   rx={r}
                   ry={r * 0.45}
                   fill="none"
-                  stroke="#F4C430"
+                  stroke="var(--gold-primary)"
                   strokeWidth={0.6}
                   strokeOpacity={0.2}
                 />
@@ -223,7 +223,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
             );
           })}
 
-          <text x={half / 2} y={H - 16} textAnchor="middle" fill="#F4C430" fontSize="10" fontWeight="600" opacity={0.5}>
+          <text x={half / 2} y={H - 16} textAnchor="middle" fill="var(--gold-primary)" fontSize="10" fontWeight="600" opacity={0.5}>
             STABLE
           </text>
         </g>
@@ -233,7 +233,7 @@ export default function GravitationalStability({ rays }: GravitationalStabilityP
       <div className="mt-3 flex items-center gap-3">
         <div style={{ flex: 1, height: 4, borderRadius: 2, background: 'var(--surface-glass)', overflow: 'hidden' }}>
           <motion.div
-            style={{ height: '100%', borderRadius: 2, background: stability > 0.6 ? '#F4C430' : stability > 0.35 ? '#E8A317' : '#C0392B' }}
+            style={{ height: '100%', borderRadius: 2, background: stability > 0.6 ? 'var(--gold-primary)' : stability > 0.35 ? 'var(--neon-amber)' : 'var(--text-body)' }}
             initial={false}
             animate={{ width: `${stability * 100}%` }}
             transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}

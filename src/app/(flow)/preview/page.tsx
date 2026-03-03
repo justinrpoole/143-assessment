@@ -51,7 +51,7 @@ export default async function PreviewPage() {
 
   return (
     <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <FadeInSection>
@@ -59,19 +59,19 @@ export default async function PreviewPage() {
             <div className="space-y-5">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: "var(--gold-primary)" }}
               >
                 Your Gravitational Stability Check
               </p>
               <h1
                 className="text-3xl font-semibold leading-tight sm:text-4xl"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 See where your light is strongest — and what might be covering it.
               </h1>
               <p
                 className="text-base leading-relaxed max-w-[540px]"
-                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.70))" }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 3 questions. 3 minutes. Free Stability Check with email unlock. Just honest answers about the last 30 days.
               </p>
@@ -98,13 +98,13 @@ export default async function PreviewPage() {
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: "var(--gold-primary)" }}
               >
                 When You Are Ready
               </p>
               <h2
                 className="text-2xl font-semibold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Two paths forward. Both start from where you are.
               </h2>
@@ -114,23 +114,23 @@ export default async function PreviewPage() {
               {/* Card A — Full Assessment */}
               <div
                 className="glass-card p-6 space-y-4"
-                style={{ borderColor: "rgba(248, 208, 17, 0.25)" }}
+                style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 25%, transparent)" }}
               >
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--brand-gold, #F8D011)" }}
+                  style={{ color: "var(--gold-primary)" }}
                 >
                   Be The Light Assessment
                 </p>
                 <h3
                   className="text-lg font-semibold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                  style={{ color: "var(--text-body)" }}
                 >
                   Map All 9 Rays — $43
                 </h3>
                 <p
                   className="text-sm leading-relaxed"
-                  style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.70))" }}
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   143 questions. 15 minutes. Your complete Light Signature, Eclipse
                   Snapshot, Energy Ratio, and Rise Path. A map of where your light is
@@ -144,23 +144,23 @@ export default async function PreviewPage() {
               {/* Card B — 143 Challenge */}
               <div
                 className="glass-card p-6 space-y-4"
-                style={{ borderColor: "rgba(167, 139, 250, 0.25)" }}
+                style={{ borderColor: "var(--surface-border)" }}
               >
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
-                  style={{ color: "var(--accent-purple, #A78BFA)" }}
+                  style={{ color: "var(--accent-purple, var(--text-body))" }}
                 >
                   Free Entry Point
                 </p>
                 <h3
                   className="text-lg font-semibold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                  style={{ color: "var(--text-body)" }}
                 >
                   Start the 143 Challenge — Free
                 </h3>
                 <p
                   className="text-sm leading-relaxed"
-                  style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.70))" }}
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   3 days. 3 minutes a day. Rewire the filter your brain is running.
                   Email unlock required. The entry point for everything else.
@@ -169,8 +169,8 @@ export default async function PreviewPage() {
                   href="/143"
                   className="inline-block text-sm font-semibold rounded-lg px-5 py-2.5"
                   style={{
-                    border: "1px solid var(--accent-purple, #A78BFA)",
-                    color: "var(--accent-purple, #A78BFA)",
+                    border: "1px solid var(--accent-purple, var(--text-body))",
+                    color: "var(--accent-purple, var(--text-body))",
                   }}
                 >
                   Start the 143 Challenge — Free
@@ -180,18 +180,18 @@ export default async function PreviewPage() {
 
             {/* Testimonial */}
             <blockquote
-              className="glass-card mx-auto max-w-[640px] p-6 text-center"
-              style={{ borderColor: "rgba(248, 208, 17, 0.15)" }}
+              className="glass-card content-wrap--narrow p-6 text-center"
+              style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}
             >
               <p
                 className="text-sm italic leading-relaxed"
-                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.70))" }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 &ldquo;{TESTIMONIAL.quote}&rdquo;
               </p>
               <footer
                 className="mt-3 text-xs font-medium"
-                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.45))" }}
+                style={{ color: "var(--text-muted)" }}
               >
                 — {TESTIMONIAL.attribution}
               </footer>
@@ -206,7 +206,7 @@ export default async function PreviewPage() {
           <Link
             href="/pricing"
             className="text-sm font-medium transition-opacity hover:opacity-100"
-            style={{ color: "var(--brand-gold, #F8D011)", opacity: 0.7 }}
+            style={{ color: "var(--gold-primary)", opacity: 0.7 }}
           >
             See all plans and pricing &rarr;
           </Link>
@@ -220,7 +220,7 @@ export default async function PreviewPage() {
 
 function GoldDivider() {
   return (
-    <div className="mx-auto max-w-[200px]">
+    <div className="content-wrap--narrow">
       <div
         className="h-px"
         style={{

@@ -53,7 +53,7 @@ export default function Closing({ output }: Props) {
 
       {/* Upsell — what comes next */}
       <div className="mt-6 glass-card p-6 text-left">
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           What Comes Next
         </p>
         <h3 className="mt-2 text-base font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -72,7 +72,7 @@ export default function Closing({ output }: Props) {
             <p>JSON data export</p>
           </div>
           <div className="space-y-1">
-            <p className="font-semibold" style={{ color: 'var(--brand-gold, #F8D011)' }}>Portal Membership</p>
+            <p className="font-semibold" style={{ color: 'var(--gold-primary)' }}>Portal Membership</p>
             <p>Weekly retakes (43-question)</p>
             <p>Growth tracking + sparklines</p>
             <p>Daily tools + streak system</p>
@@ -92,7 +92,7 @@ export default function Closing({ output }: Props) {
       <div className="pt-8 space-y-3" style={{ borderTop: '1px solid var(--surface-border)' }}>
         <p className="text-[11px] leading-relaxed text-left" style={{ color: 'var(--text-on-dark-muted)' }}>
           The 143 Leadership Assessment adapts peer-reviewed behavioral science frameworks. It is not a diagnostic instrument and does not assess or treat mental health conditions. Scores reflect self-reported behavior under recent conditions and are designed to change with deliberate practice. Validation studies are in progress.{' '}
-          <a href="/methodology" className="underline underline-offset-2 hover:opacity-80" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <a href="/methodology" className="underline underline-offset-2 hover:opacity-80" style={{ color: 'var(--gold-primary)' }}>
             Methodology &amp; limitations
           </a>
         </p>

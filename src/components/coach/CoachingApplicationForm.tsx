@@ -76,7 +76,7 @@ export function CoachingApplicationForm() {
   return (
     <section className="glass-card p-6 space-y-4">
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           Coaching Application
         </p>
         <h3 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -96,9 +96,9 @@ export function CoachingApplicationForm() {
               onChange={(event) => updateField('name', event.target.value)}
               className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
-                background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-                border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-                color: 'var(--text-on-dark, #FFFEF5)',
+                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+                color: 'var(--text-body)',
               }}
               placeholder="Your name"
               required
@@ -112,9 +112,9 @@ export function CoachingApplicationForm() {
               onChange={(event) => updateField('email', event.target.value)}
               className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
-                background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-                border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-                color: 'var(--text-on-dark, #FFFEF5)',
+                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+                color: 'var(--text-body)',
               }}
               placeholder="you@email.com"
               required
@@ -130,9 +130,9 @@ export function CoachingApplicationForm() {
               onChange={(event) => updateField('role', event.target.value)}
               className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
-                background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-                border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-                color: 'var(--text-on-dark, #FFFEF5)',
+                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+                color: 'var(--text-body)',
               }}
               placeholder="Founder, VP, Director..."
               required
@@ -145,9 +145,9 @@ export function CoachingApplicationForm() {
               onChange={(event) => updateField('organization', event.target.value)}
               className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
-                background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-                border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-                color: 'var(--text-on-dark, #FFFEF5)',
+                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+                color: 'var(--text-body)',
               }}
               placeholder="Company or team"
             />
@@ -162,9 +162,9 @@ export function CoachingApplicationForm() {
               onChange={(event) => updateField('focus', event.target.value)}
               className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
-                background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-                border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-                color: 'var(--text-on-dark, #FFFEF5)',
+                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+                color: 'var(--text-body)',
               }}
             >
               <option value="regulation">Regulation + stability</option>
@@ -181,9 +181,9 @@ export function CoachingApplicationForm() {
               onChange={(event) => updateField('commitment', event.target.value)}
               className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
               style={{
-                background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-                border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-                color: 'var(--text-on-dark, #FFFEF5)',
+                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+                color: 'var(--text-body)',
               }}
             >
               <option value="4-weeks">4 weeks</option>
@@ -201,9 +201,9 @@ export function CoachingApplicationForm() {
             onChange={(event) => updateField('timezone', event.target.value)}
             className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
             style={{
-              background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-              border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-              color: 'var(--text-on-dark, #FFFEF5)',
+              background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+              border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+              color: 'var(--text-body)',
             }}
             placeholder="Pacific, Eastern, GMT+1"
           />
@@ -216,9 +216,9 @@ export function CoachingApplicationForm() {
             onChange={(event) => updateField('note', event.target.value)}
             className="mt-1 w-full rounded-xl px-3 py-2 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
             style={{
-              background: 'var(--surface-glass, rgba(255,255,255,0.06))',
-              border: '1px solid var(--surface-border, rgba(255,255,255,0.10))',
-              color: 'var(--text-on-dark, #FFFEF5)',
+              background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+              border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+              color: 'var(--text-body)',
             }}
             rows={4}
             placeholder="One paragraph is enough."

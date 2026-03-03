@@ -53,13 +53,13 @@ export default function RayDetailGateClient({
     return (
       <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="glass-card p-8 text-center space-y-4">
-          <p className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: "#F8D011" }}>
+          <p className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: "var(--gold-primary)" }}>
             Discover your Rays
           </p>
-          <h1 className="text-2xl font-bold sm:text-4xl" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+          <h1 className="text-2xl font-bold sm:text-4xl" style={{ color: "var(--text-body)" }}>
             Unlock the full {rayName} breakdown.
           </h1>
-          <p className="text-sm" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}>
+          <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
             Get a quick Stability Check first, then access the full ray science and coaching reps.
           </p>
 
@@ -71,9 +71,9 @@ export default function RayDetailGateClient({
               onChange={(event) => setName(event.target.value)}
               className="w-full rounded-xl border px-4 py-3 text-sm"
               style={{
-                borderColor: "rgba(248, 208, 17, 0.26)",
-                background: "rgba(255,255,255,0.04)",
-                color: "var(--text-on-dark, #FFFEF5)",
+                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+                color: "var(--text-body)",
               }}
               placeholder="Your name"
             />
@@ -84,9 +84,9 @@ export default function RayDetailGateClient({
               onChange={(event) => setEmail(event.target.value)}
               className="w-full rounded-xl border px-4 py-3 text-sm"
               style={{
-                borderColor: "rgba(248, 208, 17, 0.26)",
-                background: "rgba(255,255,255,0.04)",
-                color: "var(--text-on-dark, #FFFEF5)",
+                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+                color: "var(--text-body)",
               }}
               placeholder="you@example.com"
             />
@@ -94,12 +94,12 @@ export default function RayDetailGateClient({
               type="submit"
               disabled={submitting || !name.trim() || !email.trim()}
               className="w-full rounded-xl px-5 py-3 text-sm font-bold"
-              style={{ background: "#F8D011", color: "#020202", opacity: submitting ? 0.8 : 1 }}
+              style={{ background: "var(--gold-primary)", color: "var(--ink-950)", opacity: submitting ? 0.8 : 1 }}
             >
               {submitting ? "Unlocking…" : "Discover your Rays — free Stability Check"}
             </button>
             {error && (
-              <p className="text-sm text-center" style={{ color: "#fb7185" }}>
+              <p className="text-sm text-center" style={{ color: "var(--text-body)" }}>
                 {error}
               </p>
             )}

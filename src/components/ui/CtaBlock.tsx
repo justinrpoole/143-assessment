@@ -40,7 +40,7 @@ export default function CtaBlock({
         {kicker && (
           <p
             className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: 'var(--brand-gold, #F8D011)' }}
+            style={{ color: 'var(--gold-primary)' }}
           >
             {kicker}
           </p>
@@ -48,7 +48,7 @@ export default function CtaBlock({
 
         <h2
           className={`${kicker ? 'mt-3' : ''} text-2xl font-bold sm:text-3xl`}
-          style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+          style={{ color: 'var(--text-body)' }}
         >
           {title}
         </h2>
@@ -56,7 +56,7 @@ export default function CtaBlock({
         {subtitle && (
           <p
             className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed"
-            style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+            style={{ color: 'var(--text-secondary)' }}
           >
             {subtitle}
           </p>

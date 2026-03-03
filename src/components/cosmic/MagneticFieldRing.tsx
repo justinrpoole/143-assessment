@@ -91,58 +91,58 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
         <defs>
           {/* Deep space backgrounds */}
           <radialGradient id="mfr-bg-left" cx="50%" cy="50%">
-            <stop offset="0%" stopColor="#0f0520" />
-            <stop offset="60%" stopColor="#0a0318" />
-            <stop offset="100%" stopColor="#050210" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="60%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
           <radialGradient id="mfr-bg-right" cx="50%" cy="50%">
-            <stop offset="0%" stopColor="#1a0a35" />
-            <stop offset="60%" stopColor="#0f0520" />
-            <stop offset="100%" stopColor="#050210" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="60%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           {/* Low coherence ring gradient */}
           <linearGradient id="mfr-low-ring" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.3" />
-            <stop offset="25%" stopColor="#A0D468" stopOpacity="0.2" />
-            <stop offset="50%" stopColor="#BDC3C7" stopOpacity="0.25" />
-            <stop offset="75%" stopColor="#F4C430" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#C39BD3" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.3" />
+            <stop offset="25%" stopColor="var(--text-body)" stopOpacity="0.2" />
+            <stop offset="50%" stopColor="var(--text-body)" stopOpacity="0.25" />
+            <stop offset="75%" stopColor="var(--gold-primary)" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="var(--text-secondary)" stopOpacity="0.2" />
           </linearGradient>
 
           {/* High coherence ring gradient */}
           <radialGradient id="mfr-high-ring" cx="50%" cy="50%">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0" />
-            <stop offset="55%" stopColor="#F4C430" stopOpacity="0.08" />
-            <stop offset="75%" stopColor="#F4C430" stopOpacity="0.5" />
-            <stop offset="85%" stopColor="#F4C430" stopOpacity="0.65" />
-            <stop offset="93%" stopColor="#FFF8E7" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#FFF8E7" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0" />
+            <stop offset="55%" stopColor="var(--gold-primary)" stopOpacity="0.08" />
+            <stop offset="75%" stopColor="var(--gold-primary)" stopOpacity="0.5" />
+            <stop offset="85%" stopColor="var(--gold-primary)" stopOpacity="0.65" />
+            <stop offset="93%" stopColor="var(--text-body)" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="var(--text-body)" stopOpacity="0" />
           </radialGradient>
 
           {/* Sun gradients */}
           <radialGradient id="mfr-low-sun" cx="42%" cy="38%">
-            <stop offset="0%" stopColor="#F5E6CC" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#F4C430" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#E8A317" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="mfr-high-sun" cx="38%" cy="38%" r="56%">
-            <stop offset="0%" stopColor="#FFFDF5" />
-            <stop offset="25%" stopColor="#FFF8E7" />
-            <stop offset="55%" stopColor="#F4C430" />
-            <stop offset="80%" stopColor="#E8A317" />
-            <stop offset="100%" stopColor="#A8820A" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="25%" stopColor="var(--text-body)" />
+            <stop offset="55%" stopColor="var(--gold-primary)" />
+            <stop offset="80%" stopColor="var(--neon-amber)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           {/* Glow filters */}
-          <filter id="mfr-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <filter id="mfr-glow" x="-60%" y="-60%" width={"220%"} height={"220%"}>
             <feGaussianBlur stdDeviation="4" result="b" />
             <feMerge>
               <feMergeNode in="b" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
-          <filter id="mfr-bloom" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="mfr-bloom" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="8" result="b1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b2" />
             <feMerge>
@@ -151,7 +151,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
-          <filter id="mfr-particle-glow" x="-100%" y="-100%" width="300%" height="300%">
+          <filter id="mfr-particle-glow" x="-100%" y="-100%" width={"300%"} height={"300%"}>
             <feGaussianBlur stdDeviation="2" result="b" />
             <feMerge>
               <feMergeNode in="b" />
@@ -161,17 +161,17 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
 
           {/* Nebula patches */}
           <radialGradient id="mfr-nebula-l" cx="40%" cy="35%">
-            <stop offset="0%" stopColor="#6B21A8" stopOpacity="0.06" />
-            <stop offset="100%" stopColor="#6B21A8" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--violet-650)" stopOpacity="0.06" />
+            <stop offset="100%" stopColor="var(--violet-650)" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="mfr-nebula-r" cx="60%" cy="55%">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.03" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.03" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
 
           {/* Scanline pattern */}
           <pattern id="mfr-scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-            <rect width="4" height="2" fill="rgba(0,0,0,0.05)" />
+            <rect width="4" height="2" fill="color-mix(in srgb, var(--ink-950) 5%, transparent)" />
           </pattern>
         </defs>
 
@@ -193,7 +193,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
               cx={side + seededRandom(i * 31) * w}
               cy={seededRandom(i * 31 + 1) * H}
               r={0.3 + seededRandom(i * 31 + 2) * 0.5}
-              fill="#FFFFFF"
+              fill="var(--text-body)"
               initial={false}
               animate={
                 !reducedMotion && i % 6 === 0
@@ -212,7 +212,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
 
         {/* Desaturated sun with faded glow */}
         <circle cx={LEFT_CX} cy={CY} r={SUN_R * 2.2} fill="url(#mfr-low-sun)" opacity={0.35} />
-        <circle cx={LEFT_CX} cy={CY} r={SUN_R} fill="#F5E6CC" opacity={0.55} />
+        <circle cx={LEFT_CX} cy={CY} r={SUN_R} fill="var(--text-body)" opacity={0.55} />
         <circle cx={LEFT_CX - 2} cy={CY - 2} r={SUN_R * 0.2} fill="white" opacity={0.15} />
 
         {/* Irregular halo ring — fractured with glow */}
@@ -227,7 +227,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
         {/* Ring outer glow */}
         <path
           d={lowRingPath} fill="none"
-          stroke="#F4C430" strokeWidth={6} strokeOpacity={0.04}
+          stroke="var(--gold-primary)" strokeWidth={6} strokeOpacity={0.04}
         />
 
         {/* Fracture lines — energy breaks */}
@@ -242,7 +242,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
               y1={CY + Math.sin(rad) * r1}
               x2={LEFT_CX + Math.cos(rad) * r2}
               y2={CY + Math.sin(rad) * r2}
-              stroke="#C0392B" strokeWidth={0.6} strokeOpacity={0.25}
+              stroke="var(--ray-power)" strokeWidth={0.6} strokeOpacity={0.25}
               strokeLinecap="round"
             />
           );
@@ -253,7 +253,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
           <motion.circle
             key={`lp-${i}`}
             cx={p.x} cy={p.y} r={p.r}
-            fill={i % 3 === 0 ? '#F4C430' : '#F0F0FF'}
+            fill={i % 3 === 0 ? 'var(--gold-primary)' : 'var(--text-body)'}
             filter={i % 4 === 0 ? 'url(#mfr-particle-glow)' : undefined}
             initial={false}
             animate={!reducedMotion
@@ -271,11 +271,11 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
         {/* Label — monospace readout */}
         <rect
           x={LEFT_CX - 52} y={H - 28} width={104} height={16} rx={3}
-          fill="rgba(10,5,28,0.8)" stroke="rgba(192,57,43,0.2)" strokeWidth={0.5}
+          fill="var(--surface-border)" stroke="var(--surface-border)" strokeWidth={0.5}
         />
         <text
           x={LEFT_CX} y={H - 17}
-          textAnchor="middle" fill="#C0392B"
+          textAnchor="middle" fill="var(--ray-power)"
           fontSize="7" fontFamily="monospace" fontWeight="600"
           letterSpacing="0.1em" opacity={0.7}
         >
@@ -290,7 +290,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
         {/* Thick smooth pulsating halo ring — with bloom */}
         <motion.circle
           cx={RIGHT_CX} cy={CY} r={62}
-          fill="none" stroke="#F4C430" strokeWidth={8}
+          fill="none" stroke="var(--gold-primary)" strokeWidth={8}
           filter="url(#mfr-bloom)"
           initial={false}
           animate={!reducedMotion
@@ -303,7 +303,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
         {/* Concentric ripple 1 */}
         <motion.circle
           cx={RIGHT_CX} cy={CY} r={75}
-          fill="none" stroke="#F4C430" strokeWidth={1.5}
+          fill="none" stroke="var(--gold-primary)" strokeWidth={1.5}
           initial={false}
           animate={!reducedMotion
             ? { r: [73, 80, 73], strokeOpacity: [0.12, 0.28, 0.12] }
@@ -315,7 +315,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
         {/* Concentric ripple 2 */}
         <motion.circle
           cx={RIGHT_CX} cy={CY} r={90}
-          fill="none" stroke="#FFF8E7" strokeWidth={0.8}
+          fill="none" stroke="var(--text-body)" strokeWidth={0.8}
           initial={false}
           animate={!reducedMotion
             ? { r: [87, 95, 87], strokeOpacity: [0.06, 0.15, 0.06] }
@@ -327,7 +327,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
         {/* Concentric ripple 3 — outermost shimmer */}
         <motion.circle
           cx={RIGHT_CX} cy={CY} r={105}
-          fill="none" stroke="#F4C430" strokeWidth={0.4}
+          fill="none" stroke="var(--gold-primary)" strokeWidth={0.4}
           initial={false}
           animate={!reducedMotion
             ? { r: [102, 110, 102], strokeOpacity: [0.03, 0.08, 0.03] }
@@ -351,7 +351,7 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
               y1={CY + Math.sin(angle) * (SUN_R + 1)}
               x2={RIGHT_CX + Math.cos(angle) * len}
               y2={CY + Math.sin(angle) * len}
-              stroke="#F4C430" strokeWidth={i % 2 === 0 ? 1.5 : 0.8}
+              stroke="var(--gold-primary)" strokeWidth={i % 2 === 0 ? 1.5 : 0.8}
               strokeOpacity={0.4} strokeLinecap="round"
             />
           );
@@ -361,11 +361,11 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
         {/* Label — monospace readout */}
         <rect
           x={RIGHT_CX - 52} y={H - 28} width={104} height={16} rx={3}
-          fill="rgba(10,5,28,0.8)" stroke="rgba(244,196,48,0.2)" strokeWidth={0.5}
+          fill="var(--surface-border)" stroke="var(--surface-border)" strokeWidth={0.5}
         />
         <text
           x={RIGHT_CX} y={H - 17}
-          textAnchor="middle" fill="#F4C430"
+          textAnchor="middle" fill="var(--gold-primary)"
           fontSize="7" fontFamily="monospace" fontWeight="600"
           letterSpacing="0.1em" opacity={0.7}
         >
@@ -381,13 +381,13 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
               x={HALF + GAP / 2 + 1} y={1}
               width={HALF - GAP / 2 - 2} height={H - 2}
               rx="11" fill="none"
-              stroke="#F4C430" strokeWidth={1.5} strokeOpacity={0.3}
+              stroke="var(--gold-primary)" strokeWidth={1.5} strokeOpacity={0.3}
             />
             <rect
               x={HALF + GAP / 2 + 1} y={1}
               width={HALF - GAP / 2 - 2} height={H - 2}
               rx="11" fill="none"
-              stroke="#F4C430" strokeWidth={4} strokeOpacity={0.05}
+              stroke="var(--gold-primary)" strokeWidth={4} strokeOpacity={0.05}
             />
           </g>
         ) : (
@@ -396,13 +396,13 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
               x={1} y={1}
               width={HALF - GAP / 2 - 2} height={H - 2}
               rx="11" fill="none"
-              stroke="#C0392B" strokeWidth={1.5} strokeOpacity={0.3}
+              stroke="var(--ray-power)" strokeWidth={1.5} strokeOpacity={0.3}
             />
             <rect
               x={1} y={1}
               width={HALF - GAP / 2 - 2} height={H - 2}
               rx="11" fill="none"
-              stroke="#C0392B" strokeWidth={4} strokeOpacity={0.05}
+              stroke="var(--ray-power)" strokeWidth={4} strokeOpacity={0.05}
             />
           </g>
         )}
@@ -411,18 +411,18 @@ export default function MagneticFieldRing({ rays }: MagneticFieldRingProps) {
         <rect
           x={(isHighCoherence ? RIGHT_CX : LEFT_CX) - 18} y={14}
           width={36} height={14} rx={3}
-          fill="rgba(10,5,28,0.85)"
-          stroke={isHighCoherence ? '#F4C430' : '#C0392B'}
+          fill="var(--surface-border)"
+          stroke={isHighCoherence ? 'var(--gold-primary)' : 'var(--text-body)'}
           strokeWidth={0.5} strokeOpacity={0.4}
         />
         <circle
           cx={(isHighCoherence ? RIGHT_CX : LEFT_CX) - 10} cy={21}
           r={2.5}
-          fill={isHighCoherence ? '#F4C430' : '#C0392B'}
+          fill={isHighCoherence ? 'var(--gold-primary)' : 'var(--text-body)'}
         />
         <text
           x={(isHighCoherence ? RIGHT_CX : LEFT_CX) + 3} y={24}
-          fill={isHighCoherence ? '#F4C430' : '#C0392B'}
+          fill={isHighCoherence ? 'var(--gold-primary)' : 'var(--text-body)'}
           fontSize="7" fontFamily="monospace" fontWeight="700"
           letterSpacing="0.1em" opacity={0.8}
         >

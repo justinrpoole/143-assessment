@@ -35,7 +35,7 @@ export default function WeeklyGoalRing({ current, target }: WeeklyGoalRingProps)
             cy={size / 2}
             r={radius}
             fill="none"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="color-mix(in srgb, var(--text-body) 8%, transparent)"
             strokeWidth={strokeWidth}
           />
           {/* Progress ring */}
@@ -44,7 +44,7 @@ export default function WeeklyGoalRing({ current, target }: WeeklyGoalRingProps)
             cy={size / 2}
             r={radius}
             fill="none"
-            stroke={complete ? '#22C55E' : 'var(--brand-gold, #F8D011)'}
+            stroke={complete ? 'var(--ray-authenticity)' : 'var(--gold-primary)'}
             strokeWidth={strokeWidth}
             strokeLinecap="round"
             strokeDasharray={circumference}
@@ -56,7 +56,7 @@ export default function WeeklyGoalRing({ current, target }: WeeklyGoalRingProps)
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span
             className="text-lg font-bold leading-none"
-            style={{ color: complete ? '#22C55E' : 'var(--brand-gold, #F8D011)' }}
+            style={{ color: complete ? 'var(--ray-authenticity)' : 'var(--gold-primary)' }}
           >
             {current}
           </span>

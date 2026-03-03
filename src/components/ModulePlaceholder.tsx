@@ -7,12 +7,12 @@ export function ModulePlaceholder({ name }: ModulePlaceholderProps) {
     <section
       className="glass-card p-6 space-y-3"
       aria-label={name}
-      style={{ borderColor: "rgba(96, 5, 141, 0.15)" }}
+      style={{ borderColor: "color-mix(in srgb, var(--violet-650) 15%, transparent)" }}
     >
       <div className="flex items-center gap-2">
         <span
           className="w-2 h-2 rounded-full"
-          style={{ background: "var(--brand-gold, #F8D011)" }}
+          style={{ background: "var(--gold-primary)" }}
         />
         <h2
           className="text-sm font-semibold"

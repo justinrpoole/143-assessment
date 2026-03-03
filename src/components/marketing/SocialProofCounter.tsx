@@ -93,8 +93,8 @@ export default function SocialProofCounter({
     <div
       className={`glass-card mx-auto max-w-3xl px-6 py-5 ${className}`}
       style={{
-        background: 'rgba(248, 208, 17, 0.03)',
-        borderColor: 'rgba(248, 208, 17, 0.12)',
+        background: 'color-mix(in srgb, var(--gold-primary) 3%, transparent)',
+        borderColor: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)',
       }}
     >
       <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
@@ -103,8 +103,8 @@ export default function SocialProofCounter({
             <p
               className="text-2xl font-bold sm:text-3xl"
               style={{
-                color: '#F8D011',
-                textShadow: '0 0 24px rgba(248, 208, 17, 0.3)',
+                color: 'var(--gold-primary)',
+                textShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 30%, transparent)',
               }}
             >
               <AnimatedNumber

@@ -28,7 +28,7 @@ export default function ShareableSignatureCard({
   name,
   tagline,
   rays,
-  neonColor = '#F8D011',
+  neonColor = 'var(--gold-primary)',
   identityCode,
   className = '',
 }: ShareableSignatureCardProps) {

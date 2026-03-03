@@ -3271,3 +3271,29 @@ Ralph Loop Iteration 91 (2026-03-03, rerun)
 - Reconfirmed marketing/headshot requirements and CosmicHeroV2/TRON invariants remain stable (0.70 eclipse tail, 143-sun-nova spring, 72% moon, Orbitron+neon scanlines on #060014).
 
 Next loop priority (iteration 92): add parity coverage for apostrophe-led shifted plus-underscore-dot triple-tokenized insertion (`'${ts}+_.user${Date.now()}${Date.now()}${Date.now()}@...`) and assert against observed API semantics.
+Ralph Loop Iteration 59 (2026-03-03)
+
+- Loop 1 foundation: added locked semantic theme tokens in `src/app/styles/tokens.css`, expanded Tailwind v4 bridges in `src/app/globals.css`, tokenized core cosmic/shell primitives in `src/app/styles/cosmic.css` + `src/app/styles/shell.css`, and introduced canonical containment classes (`.content-wrap`, `--narrow`, `--wide`).
+- Removed hard-coded black override layer from `src/app/(marketing)/layout.tsx` and aligned skip-link colors to tokenized utilities.
+- Converted shared shells to containment primitives (`src/components/ui/PageShell.tsx`, `src/components/RouteShellPage.tsx`) with `page-shell + content-wrap` pattern.
+- Gate snapshot after Loop 1: A FAIL, B PARTIAL, C FAIL, D PARTIAL, E PARTIAL.
+
+Ralph Loop Iteration 60 (2026-03-03)
+
+- Loop 2 layout sweep: refactored high-drift pages to containment primitives (`src/app/(marketing)/upgrade-your-os/page.tsx`, `src/app/(marketing)/pricing/page.tsx`, `src/app/(marketing)/about/page.tsx`, `src/app/(marketing)/rays/[slug]/page.tsx`, `src/app/(marketing)/resources/page.tsx`) and applied broad page-level wrapper normalization across `src/app/**/page.tsx` to eliminate ad-hoc `mx-auto max-w-*` patterns.
+- Loop 3/4 color + chart sweep: tokenized targeted charts (`ScoreMovementChart`, `RadarMockup`, `SparklineChart`, `RayChart`, `StarChart`) and scrubbed runtime TSX/JSX literals to token references.
+- Replaced remaining hard-coded SVG stroke/fill hex values in runtime TSX components and migrated to tokenized values.
+- Gate snapshot after Loop 2/3/4: A PASS by scan, B PASS by scan, C PASS by scan, D PASS (hard-coded stroke/fill hex scan), E PARTIAL.
+
+Ralph Loop Iteration 61 (2026-03-03)
+
+- Verification rerun:
+  - `rg -n "#[0-9a-fA-F]{3,8}|rgba\(|rgb\(|hsla\(|hsl\(" src/app src/components -g '*.{tsx,jsx}'` => 0
+  - `rg -n "mx-auto max-w-" src/app -g 'page.tsx'` => 0
+  - `rg -n "w-screen|min-w-\[[0-9]+px\]|width=\"[0-9]{3,}|overflow-x-auto" src/app src/components -g '*.{tsx,jsx}'` => 0
+  - `rg -n "stroke=\"#[0-9a-fA-F]{3,8}\"|fill=\"#[0-9a-fA-F]{3,8}\"" src/app src/components -g '*.tsx'` => 0
+  - `npx tsc --noEmit` => PASS
+- `npm run build` remains blocked in this environment due external Google Fonts fetch failures (network-restricted execution), not TS/JS syntax.
+- `npm run qa:tone` currently fails due pre-existing path assumptions in the script (expects legacy route paths under `src/app/*`) plus existing content-policy flags.
+
+Next loop priority (iteration 62): run visual/manual viewport pass (375/768/1440/1920) and polish any token regressions introduced by broad literal scrubbing.

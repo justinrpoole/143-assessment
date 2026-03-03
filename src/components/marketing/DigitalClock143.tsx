@@ -61,8 +61,8 @@ const COLON_R = 3;
 const COLON_Y1 = DIGIT_Y + DIGIT_H * 0.33;
 const COLON_Y2 = DIGIT_Y + DIGIT_H * 0.67;
 
-const GOLD = '#F4C430';
-const GOLD_DIM = 'rgba(244,196,48,0.08)';
+const GOLD = 'var(--gold-primary)';
+const GOLD_DIM = 'var(--surface-border)';
 
 /* ── Component ───────────────────────────────────── */
 
@@ -82,7 +82,7 @@ export default function DigitalClock143() {
         className="w-full h-auto"
       >
         <defs>
-          <filter id="dc143-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <filter id="dc143-glow" x="-20%" y="-20%" width={"140%"} height={"140%"}>
             <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
@@ -90,8 +90,8 @@ export default function DigitalClock143() {
             </feMerge>
           </filter>
           <linearGradient id="dc143-bg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1a0a2e" />
-            <stop offset="100%" stopColor="#0C0118" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </linearGradient>
         </defs>
 
@@ -103,13 +103,13 @@ export default function DigitalClock143() {
           height={SVG_H}
           rx="16"
           ry="16"
-          fill="url(#dc143-bg)"
-          stroke="rgba(244,196,48,0.15)"
+          fill="url(var(--text-body)-bg)"
+          stroke="var(--surface-border)"
           strokeWidth="1.5"
         />
 
         {/* Digits with glow */}
-        <g filter="url(#dc143-glow)">
+        <g filter="url(var(--text-body)-glow)">
           <Digit char="1" x={POS_1} y={DIGIT_Y} />
           <Digit char="4" x={POS_4} y={DIGIT_Y} />
           <Digit char="3" x={POS_3} y={DIGIT_Y} />

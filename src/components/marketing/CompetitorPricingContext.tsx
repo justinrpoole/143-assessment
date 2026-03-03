@@ -14,13 +14,13 @@ export default function CompetitorPricingContext() {
       <div className="text-center space-y-3">
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           What Others Charge
         </p>
         <h3
           className="mx-auto max-w-[540px] text-xl font-bold sm:text-2xl"
-          style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+          style={{ color: 'var(--text-body)' }}
         >
           Same category. Different price point.{' '}
           <span className="text-gold-gradient">Different results.</span>
@@ -33,25 +33,25 @@ export default function CompetitorPricingContext() {
             key={c.name}
             className="rounded-full px-4 py-2 text-center"
             style={{
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+              border: '1px solid color-mix(in srgb, var(--text-body) 8%, transparent)',
             }}
           >
             <span
               className="text-xs"
-              style={{ color: 'rgba(255,255,255,0.4)' }}
+              style={{ color: 'color-mix(in srgb, var(--text-body) 40%, transparent)' }}
             >
               {c.name}:{' '}
             </span>
             <span
               className="text-sm font-bold tabular-nums"
-              style={{ color: 'rgba(255,255,255,0.6)' }}
+              style={{ color: 'color-mix(in srgb, var(--text-body) 60%, transparent)' }}
             >
               {c.price}
             </span>
             <span
               className="text-xs"
-              style={{ color: 'rgba(255,255,255,0.3)' }}
+              style={{ color: 'color-mix(in srgb, var(--text-body) 30%, transparent)' }}
             >
               {c.unit}
             </span>
@@ -63,30 +63,30 @@ export default function CompetitorPricingContext() {
       <div
         className="mx-auto max-w-[480px] rounded-xl p-5 text-center"
         style={{
-          background: 'rgba(248,208,17,0.04)',
-          border: '1.5px solid rgba(248,208,17,0.2)',
+          background: 'color-mix(in srgb, var(--gold-primary) 4%, transparent)',
+          border: '1.5px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
         }}
       >
         <p
           className="text-[10px] font-bold uppercase tracking-widest"
-          style={{ color: '#F8D011' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           143 Leadership
         </p>
         <p className="mt-2">
           <span
             className="text-3xl font-bold tabular-nums"
-            style={{ color: '#F8D011', fontFamily: 'var(--font-cosmic-display)' }}
+            style={{ color: 'var(--gold-primary)', fontFamily: 'var(--font-cosmic-display)' }}
           >
             $14.33
           </span>
-          <span className="text-sm" style={{ color: 'rgba(248,208,17,0.6)' }}>
+          <span className="text-sm" style={{ color: 'color-mix(in srgb, var(--gold-primary) 60%, transparent)' }}>
             /month
           </span>
         </p>
         <p
           className="mt-2 text-sm leading-relaxed"
-          style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+          style={{ color: 'var(--text-secondary)' }}
         >
           Full assessment + weekly retakes + daily practice system + growth tracking.
           Cancel anytime.
@@ -95,7 +95,7 @@ export default function CompetitorPricingContext() {
 
       <p
         className="text-center text-xs leading-relaxed"
-        style={{ color: 'rgba(255,255,255,0.4)' }}
+        style={{ color: 'color-mix(in srgb, var(--text-body) 40%, transparent)' }}
       >
         If 143 helps you avoid one mismanaged conflict per month,
         that is worth more than the annual subscription in the first week.

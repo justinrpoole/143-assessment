@@ -240,7 +240,7 @@ export default async function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
       />
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <ScrollProgressBar />
       <SectionTOC items={[
         { id: "hero", label: "Hero" },
@@ -250,21 +250,21 @@ export default async function PricingPage() {
         { id: "faq", label: "FAQ" },
         { id: "cta", label: "Get Started" },
       ]} />
-      <div className="mx-auto max-w-[1100px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap--wide space-y-16 py-12 sm:py-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section id="hero" className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section id="hero" className="content-wrap--narrow space-y-5 text-center">
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> Start free. Go deeper when you are ready.
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Start free. Go deeper when you are ready.
           </p>
           <h1
-            className="text-shimmer mx-auto max-w-[640px] text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+            className="text-shimmer content-wrap--narrow max-w-[640px] text-3xl font-bold leading-tight sm:text-4xl"
+            style={{ color: "var(--text-body)" }}
           >
             Every tier answers the same question: what happens when your{" "}
             <span className="gold-highlight">strongest capacities come back online</span>?
           </h1>
-          <div className="mx-auto max-w-[560px]">
+          <div className="content-wrap--narrow max-w-[560px]">
             <ScrollTextReveal text="The free Gravitational Stability Check takes 3 minutes. The full assessment takes 15 minutes. The Portal tracks your growth monthly. Coaching proves it in 10 weeks. Pick the depth that matches where you are right now." />
           </div>
           <div className="flex justify-center pt-2">
@@ -300,10 +300,10 @@ export default async function PricingPage() {
                     <span
                       className="mb-3 inline-block self-start rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest"
                       style={{
-                        background: "var(--brand-gold, #F8D011)",
-                        color: "#020202",
+                        background: "var(--gold-primary)",
+                        color: "var(--ink-950)",
                         ...('glowBadge' in plan && plan.glowBadge ? {
-                          boxShadow: '0 0 16px rgba(248,208,17,0.7), 0 0 32px rgba(248,208,17,0.35)',
+                          boxShadow: '0 0 16px color-mix(in srgb, var(--gold-primary) 70%, transparent), 0 0 32px color-mix(in srgb, var(--gold-primary) 35%, transparent)',
                           animation: 'badge-pulse 2s ease-in-out infinite',
                         } : {}),
                       }}
@@ -311,17 +311,17 @@ export default async function PricingPage() {
                       Most Popular
                     </span>
                   )}
-                  <style>{`@keyframes badge-pulse{0%,100%{box-shadow:0 0 16px rgba(248,208,17,0.7),0 0 32px rgba(248,208,17,0.35)}50%{box-shadow:0 0 24px rgba(248,208,17,0.9),0 0 48px rgba(248,208,17,0.5)}}`}</style>
+                  <style>{`@keyframes badge-pulse{0%,100%{box-shadow:0 0 16px color-mix(in srgb, var(--gold-primary) 70%, transparent),0 0 32px color-mix(in srgb, var(--gold-primary) 35%, transparent)}50%{box-shadow:0 0 24px color-mix(in srgb, var(--gold-primary) 90%, transparent),0 0 48px color-mix(in srgb, var(--gold-primary) 50%, transparent)}}`}</style>
                   <p
                     className="text-xs font-bold uppercase tracking-widest"
-                    style={{ color: "var(--brand-gold, #F8D011)" }}
+                    style={{ color: "var(--gold-primary)" }}
                   >
                     {plan.title}
                   </p>
                   <div className="mt-2 flex items-baseline gap-1">
                     <span
                       className="text-3xl font-bold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)", fontFamily: "var(--font-cosmic-display)" }}
+                      style={{ color: "var(--text-body)", fontFamily: "var(--font-cosmic-display)" }}
                     >
                       {plan.price}
                     </span>
@@ -330,7 +330,7 @@ export default async function PricingPage() {
                         className="text-sm"
                         style={{
                           color:
-                            "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                            "var(--text-muted)",
                         }}
                       >
                         {plan.frequency}
@@ -341,7 +341,7 @@ export default async function PricingPage() {
                     className="mt-3 text-sm leading-relaxed"
                     style={{
                       color:
-                        "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        "var(--text-secondary)",
                     }}
                   >
                     {plan.description}
@@ -351,7 +351,7 @@ export default async function PricingPage() {
                       <li
                         key={feature}
                         className="check-animated flex items-start gap-2 text-sm"
-                        style={{ color: "var(--text-on-dark, #FFFEF5)", animationDelay: `${index * 0.1}s` }}
+                        style={{ color: "var(--text-body)", animationDelay: `${index * 0.1}s` }}
                       >
                         <CheckIcon color={rayHex(cycleRay(index))} />
                         <span>{feature}</span>
@@ -409,33 +409,33 @@ export default async function PricingPage() {
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Compare Plans
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 See exactly what each tier includes. Every plan builds on the
                 one before it.
               </p>
             </div>
-            <div className="glass-card overflow-x-auto p-0">
-              <table className="w-full min-w-[600px] text-sm">
+            <div className="glass-card overflow-auto p-0">
+              <table className="w-full w-full text-sm">
                 <thead>
                   <tr
                     style={{
                       borderBottom:
-                        "1px solid var(--surface-border, rgba(255,255,255,0.10))",
+                        "1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))",
                     }}
                   >
                     <th
                       className="px-4 py-3 text-left text-xs font-bold uppercase tracking-widest"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                      style={{ color: "var(--gold-primary)" }}
                     >
                       Feature
                     </th>
@@ -447,7 +447,7 @@ export default async function PricingPage() {
                     </th>
                     <th
                       className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                      style={{ color: "var(--gold-primary)" }}
                     >
                       Report
                     </th>
@@ -459,7 +459,7 @@ export default async function PricingPage() {
                     </th>
                     <th
                       className="px-4 py-3 text-center text-xs font-bold uppercase tracking-widest"
-                      style={{ color: "var(--brand-gold, #F8D011)" }}
+                      style={{ color: "var(--gold-primary)" }}
                     >
                       Full Protocol
                     </th>
@@ -484,14 +484,14 @@ export default async function PricingPage() {
                       style={{
                         borderBottom:
                           i < COMPARISON_FEATURES.length - 1
-                            ? "1px solid var(--surface-border, rgba(255,255,255,0.06))"
+                            ? "1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 6%, transparent))"
                             : "none",
                         borderLeft: `2px solid ${rayHex(cycleRay(i))}25`,
                       }}
                     >
                       <td
                         className="px-4 py-3"
-                        style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                        style={{ color: "var(--text-body)" }}
                       >
                         {row.name}
                       </td>
@@ -505,7 +505,7 @@ export default async function PricingPage() {
                         {row.portal ? <CheckIcon /> : <DashIcon />}
                       </td>
                       <td className="px-4 py-3 text-center">
-                        {row.fullProtocol ? <CheckIcon color="var(--brand-gold, #F8D011)" /> : <DashIcon />}
+                        {row.fullProtocol ? <CheckIcon color="var(--gold-primary)" /> : <DashIcon />}
                       </td>
                       <td className="px-4 py-3 text-center">
                         {row.coaching10wk ? <CheckIcon /> : <DashIcon />}
@@ -525,7 +525,7 @@ export default async function PricingPage() {
 
         {/* ─── COMPETITOR PRICING CONTEXT (#7) ────────────────── */}
         <FadeInSection>
-          <section className="relative mx-auto max-w-[960px] px-5 py-16 sm:px-8">
+          <section className="relative content-wrap py-16">
             <CompetitorPricingContext />
           </section>
         </FadeInSection>
@@ -542,7 +542,7 @@ export default async function PricingPage() {
 
         {/* ─── LEADERSHIP MRI + STREAK (#11, #13) ────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-5">
+          <section className="content-wrap--narrow space-y-5">
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -552,13 +552,13 @@ export default async function PricingPage() {
               </p>
               <h2
                 className="text-xl font-bold sm:text-2xl"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 The Portal is not a subscription. It is a measurement system.
               </h2>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 Every week, you scan your operating system in 5 minutes. You see which
                 capacities gained energy, which lost it, and what to focus on next.
@@ -566,7 +566,7 @@ export default async function PricingPage() {
               </p>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))" }}
+                style={{ color: "var(--text-muted)" }}
               >
                 Leaders using The 143 Loop for 30+ days build a data trail of visible
                 growth. We do not use streaks to guilt you — we use them to show you
@@ -581,7 +581,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 4 · NO LOCK-IN ──────────────────────────── */}
         <FadeInSection>
-          <section id="no-lock-in" className="relative mx-auto max-w-[720px] watermark-143">
+          <section id="no-lock-in" className="relative content-wrap--narrow watermark-143">
             <div className="glass-card p-6 sm:p-8 space-y-4 text-center">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -591,15 +591,15 @@ export default async function PricingPage() {
               </p>
               <h2
                 className="text-xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 No Lock-In. No Penalties.
               </h2>
               <p
-                className="mx-auto max-w-[540px] text-sm leading-relaxed"
+                className="content-wrap--narrow max-w-[540px] text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 Cancel your Portal Membership anytime. No exit interviews. No
@@ -616,7 +616,7 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 5 · FAQ ─────────────────────────────────── */}
         <FadeInSection>
-          <section id="faq" className="relative mx-auto max-w-[720px] space-y-6 section-blend-bottom">
+          <section id="faq" className="relative content-wrap--narrow space-y-6 section-blend-bottom">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -626,15 +626,15 @@ export default async function PricingPage() {
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Frequently Asked Questions
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 Everything you need to know before you begin.
@@ -646,14 +646,14 @@ export default async function PricingPage() {
                   <details className="glass-card group p-5">
                     <summary
                       className="flex cursor-pointer items-center justify-between text-sm font-semibold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      style={{ color: "var(--text-body)" }}
                     >
                       {faq.q}
                       <svg
                         className="ml-3 h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180"
                         viewBox="0 0 16 16"
                         fill="none"
-                        style={{ color: "var(--brand-gold, #F8D011)" }}
+                        style={{ color: "var(--gold-primary)" }}
                         aria-hidden="true"
                       >
                         <path
@@ -669,7 +669,7 @@ export default async function PricingPage() {
                       className="mt-3 text-sm leading-relaxed"
                       style={{
                         color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                          "var(--text-secondary)",
                       }}
                     >
                       {faq.a}
@@ -685,26 +685,26 @@ export default async function PricingPage() {
 
         {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
         <FadeInSection>
-          <section id="cta" className="mx-auto max-w-[720px]">
+          <section id="cta" className="content-wrap--narrow">
             <ConicBorderCard glow>
             <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--brand-gold, #F8D011)" }}
+                style={{ color: "var(--gold-primary)" }}
               >
                 Not sure where to start?
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Start free. The assessment proves the rest.
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 The Gravitational Stability Check shows your baseline in 3
@@ -732,7 +732,7 @@ export default async function PricingPage() {
 
 /* ── utility ───────────────────────────────────────────────── */
 
-function CheckIcon({ color = "#F8D011" }: { color?: string }) {
+function CheckIcon({ color = "var(--gold-primary)" }: { color?: string }) {
   return (
     <svg
       width="16"
@@ -768,12 +768,12 @@ function DashIcon() {
         cx="8"
         cy="8"
         r="7"
-        stroke="rgba(255,255,255,0.15)"
+        stroke="color-mix(in srgb, var(--text-body) 15%, transparent)"
         strokeWidth="1.5"
       />
       <path
         d="M5.5 8h5"
-        stroke="rgba(255,255,255,0.25)"
+        stroke="color-mix(in srgb, var(--text-body) 25%, transparent)"
         strokeWidth="1.5"
         strokeLinecap="round"
       />

@@ -31,10 +31,10 @@ interface ApiResponse {
 }
 
 const PHASE_GLOW: Record<string, string> = {
-  orbit: '0 0 20px rgba(34, 197, 94, 0.15)',
-  gravity_shift: '0 0 20px rgba(234, 179, 8, 0.15)',
-  eclipse_onset: '0 0 20px rgba(249, 115, 22, 0.15)',
-  full_eclipse: '0 0 20px rgba(239, 68, 68, 0.15)',
+  orbit: '0 0 20px var(--surface-border)',
+  gravity_shift: '0 0 20px var(--surface-border)',
+  eclipse_onset: '0 0 20px var(--surface-border)',
+  full_eclipse: '0 0 20px var(--surface-border)',
 };
 
 const RAS_PHASE_NOTES: Record<string, string> = {
@@ -160,7 +160,7 @@ export default function PhaseCheckInClient() {
           {result.guidance.message}
         </p>
 
-        <div className="glass-card p-3" style={{ borderColor: 'rgba(96, 5, 141, 0.2)' }}>
+        <div className="glass-card p-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
           <p className="text-xs font-bold uppercase tracking-widest mb-1"
             style={{ color: rayHex('R3') }}>
             Your rep focus
@@ -216,7 +216,7 @@ export default function PhaseCheckInClient() {
                   key={i}
                   className="h-1.5 w-6 rounded-full transition-colors duration-300"
                   style={{
-                    backgroundColor: i <= step ? '#60058D' : 'rgba(255,255,255,0.1)',
+                    backgroundColor: i <= step ? 'var(--text-body)' : 'color-mix(in srgb, var(--text-body) 10%, transparent)',
                   }}
                 />
               ))}
@@ -239,11 +239,11 @@ export default function PhaseCheckInClient() {
                   onClick={() => handleAnswer(step, option.score)}
                   disabled={saving}
                   className={`w-full text-left px-4 py-3 rounded-xl border text-sm transition-all duration-150 ${
-                    isSelected ? 'shadow-[0_0_12px_rgba(96,5,141,0.3)]' : ''
+                    isSelected ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]' : ''
                   }`}
                   style={{
-                    background: isSelected ? 'rgba(96, 5, 141, 0.2)' : 'rgba(255,255,255,0.03)',
-                    borderColor: isSelected ? '#60058D' : 'var(--surface-border)',
+                    background: isSelected ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+                    borderColor: isSelected ? 'var(--text-body)' : 'var(--surface-border)',
                     color: isSelected ? 'var(--text-on-dark)' : 'var(--text-on-dark-secondary)',
                   }}
                 >
@@ -266,8 +266,8 @@ export default function PhaseCheckInClient() {
 
           {error && (
             <div className="rounded-lg px-3 py-2"
-              style={{ background: 'rgba(220, 38, 38, 0.15)', border: '1px solid rgba(220, 38, 38, 0.3)' }}>
-              <p className="text-xs" style={{ color: '#FCA5A5' }} role="alert">{humanizeError(error)}</p>
+              style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+              <p className="text-xs" style={{ color: 'var(--ray-power)' }} role="alert">{humanizeError(error)}</p>
             </div>
           )}
         </motion.div>

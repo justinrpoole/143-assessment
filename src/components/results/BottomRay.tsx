@@ -42,7 +42,7 @@ export default function BottomRay({ justInRay, selectionBasis }: Props) {
 
       <div className="glass-card p-6" style={{ border: `2px solid ${rayHex(justInRay.ray_id)}30` }}>
         <div className="flex items-center gap-3 mb-4">
-          <span className="text-2xl">&#129517;</span>
+          <span className="text-2xl">&var(--text-body);</span>
           <div>
             <h4 className="font-bold text-lg" style={{ color: 'var(--text-on-dark)' }}>
               {justInRay.ray_name} — {RAY_VERBS[justInRay.ray_id] || ''}
@@ -85,7 +85,7 @@ export default function BottomRay({ justInRay, selectionBasis }: Props) {
             <ul className="space-y-1.5">
               {rayInsight.whenEclipsed.map((ex, i) => (
                 <li key={i} className="flex gap-2 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                  <span className="mt-0.5 shrink-0" style={{ color: 'var(--text-on-dark-muted)' }}>&#9679;</span>
+                  <span className="mt-0.5 shrink-0" style={{ color: 'var(--text-on-dark-muted)' }}>&var(--text-body);</span>
                   {ex}
                 </li>
               ))}
@@ -138,13 +138,13 @@ export default function BottomRay({ justInRay, selectionBasis }: Props) {
                 </div>
               )}
               {selectionBasis && selectionBasis.length > 0 && (
-                <div className="flex-1 min-w-[200px]">
+                <div className="flex-1 w-[200px]">
                   <p className="text-xs uppercase tracking-wider mb-1.5" style={{ color: 'var(--brand-gold)' }}>
                     Why This Ray
                   </p>
                   {selectionBasis.map((reason, i) => (
                     <p key={i} className="text-xs mb-1" style={{ color: 'var(--text-on-dark-muted)' }}>
-                      &#8226; {reason}
+                      &var(--text-body); {reason}
                     </p>
                   ))}
                 </div>

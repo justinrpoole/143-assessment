@@ -3,15 +3,15 @@
 import { useMemo } from 'react';
 
 const RAY_COLORS = [
-  '#60A5FA', // R1 Intention — blue
-  '#F4C430', // R2 Joy — gold
-  '#8E44AD', // R3 Presence — violet
-  '#C0392B', // R4 Power — red
-  '#D4770B', // R5 Purpose — amber
-  '#2ECC71', // R6 Authenticity — green
-  '#E74C8B', // R7 Connection — pink
-  '#1ABC9C', // R8 Possibility — teal
-  '#F8D011', // R9 Be The Light — bright gold
+  'var(--text-body)', // R1 Intention — blue
+  'var(--gold-primary)', // R2 Joy — gold
+  'var(--neon-violet)', // R3 Presence — violet
+  'var(--text-body)', // R4 Power — red
+  'var(--neon-amber)', // R5 Purpose — amber
+  'var(--text-body)', // R6 Authenticity — green
+  'var(--text-body)', // R7 Connection — pink
+  'var(--text-body)', // R8 Possibility — teal
+  'var(--gold-primary)', // R9 Be The Light — bright gold
 ];
 
 interface Star {
@@ -40,7 +40,7 @@ function makeStars(count: number, seed: number): Star[] {
       x: (s1 % 10000) / 100,
       y: (s2 % 10000) / 100,
       size: isNeon ? 1.5 + (s3 % 30) / 10 : 0.5 + (s3 % 15) / 10,
-      color: isNeon ? RAY_COLORS[s4 % RAY_COLORS.length] : `rgba(255,255,255,${0.3 + (s5 % 50) / 100})`,
+      color: isNeon ? RAY_COLORS[s4 % RAY_COLORS.length] : `var(--surface-border) / 100})`,
       opacity: isNeon ? 0.6 + (s5 % 40) / 100 : 0.2 + (s6 % 50) / 100,
       delay: (s4 % 60) / 10,
       duration: 3 + (s5 % 50) / 10,

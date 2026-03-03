@@ -55,7 +55,7 @@ export function UpgradeCheckoutClient() {
 
   return (
     <section className="glass-card p-6 sm:p-8 space-y-4">
-      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>Checkout</p>
+      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>Checkout</p>
       <h2 className="text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Choose your path</h2>
       <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
         Get your Gravitational Stability Report for $43 one-time, or start the
@@ -94,23 +94,23 @@ export function UpgradeCheckoutClient() {
       <div
         className="mt-6 rounded-lg p-4"
         style={{
-          background: 'rgba(96, 5, 141, 0.15)',
-          border: '1px solid rgba(248, 208, 17, 0.15)',
+          background: 'color-mix(in srgb, var(--violet-650) 15%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)',
         }}
       >
         <div className="flex items-start gap-3">
           <span className="shrink-0 text-lg" aria-hidden="true">&#x1F6E1;</span>
           <div>
-            <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark, #FFFEF5)' }}>
+            <p className="text-sm font-semibold" style={{ color: 'var(--text-body)' }}>
               The Justin Ray Guarantee
             </p>
-            <p className="mt-1 text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+            <p className="mt-1 text-xs leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               If this report does not name a pattern you recognise in your own leadership, I
               will refund you. No questions. No hoops. Your data stays yours either way.
             </p>
           </div>
         </div>
-        <div className="mt-3 flex items-center gap-4 text-[10px] font-medium uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.45))' }}>
+        <div className="mt-3 flex items-center gap-4 text-[10px] font-medium uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>
           <span>Secure checkout via Stripe</span>
           <span aria-hidden="true">&#x2022;</span>
           <span>256-bit SSL encryption</span>

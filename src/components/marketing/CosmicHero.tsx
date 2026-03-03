@@ -19,8 +19,8 @@ import { useReducedMotion } from 'framer-motion';
  */
 
 const RAYS = [
-  '#60A5FA','#F4C430','#8E44AD','#C0392B','#D4770B',
-  '#2ECC71','#E74C8B','#1ABC9C','#F8D011',
+  'var(--text-body)','var(--gold-primary)','var(--neon-violet)','var(--text-body)','var(--neon-amber)',
+  'var(--text-body)','var(--text-body)','var(--text-body)','var(--gold-primary)',
 ];
 
 const eio = (t: number) => t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
@@ -56,7 +56,7 @@ export default function CosmicHero({ className }: { className?: string }) {
       x: Math.random(), y: Math.random(),
       r: Math.random()*1.4+0.4,
       op: Math.random()*0.45+0.1,
-      color: Math.random()>0.72 ? '#F4C430' : '#fff',
+      color: Math.random()>0.72 ? 'var(--gold-primary)' : 'var(--text-body)',
     }));
 
     function drawStars(brighten: number) {
@@ -72,27 +72,27 @@ export default function CosmicHero({ className }: { className?: string }) {
 
     function drawSun(phase: number, bloom: number) {
       const g1 = ctx.createRadialGradient(CX,CY,SUN_R*0.4,CX,CY,SUN_R*(3+bloom));
-      g1.addColorStop(0,'rgba(244,196,48,0.5)');
-      g1.addColorStop(0.5,'rgba(210,120,10,0.18)');
-      g1.addColorStop(1,'rgba(0,0,0,0)');
+      g1.addColorStop(0,'var(--surface-border)');
+      g1.addColorStop(0.5,'var(--surface-border)');
+      g1.addColorStop(1,'color-mix(in srgb, var(--ink-950) 0%, transparent)');
       ctx.beginPath(); ctx.arc(CX,CY,SUN_R*(3+bloom),0,Math.PI*2);
       ctx.fillStyle=g1; ctx.fill();
 
       const g2 = ctx.createRadialGradient(CX-SUN_R*.2,CY-SUN_R*.2,SUN_R*.1,CX,CY,SUN_R);
-      g2.addColorStop(0,'#FFFBAA'); g2.addColorStop(.4,'#F4C430');
-      g2.addColorStop(.75,'#D4770B'); g2.addColorStop(1,'#7B2F00');
+      g2.addColorStop(0,'var(--text-body)'); g2.addColorStop(.4,'var(--gold-primary)');
+      g2.addColorStop(.75,'var(--neon-amber)'); g2.addColorStop(1,'var(--text-body)');
       ctx.beginPath(); ctx.arc(CX,CY,SUN_R,0,Math.PI*2);
       ctx.fillStyle=g2; ctx.fill();
 
       ctx.beginPath(); ctx.arc(CX,CY,SUN_R,0,Math.PI*2);
-      ctx.strokeStyle=`rgba(255,240,100,${.25+.15*Math.sin(phase*2.8)})`;
+      ctx.strokeStyle=`var(--surface-border)})`;
       ctx.lineWidth=2; ctx.stroke();
     }
 
     function drawMoon(mx: number, my: number) {
       // Same radius as sun — this is what creates total eclipse
       const g = ctx.createRadialGradient(mx-SUN_R*.15,my-SUN_R*.15,SUN_R*.04,mx,my,SUN_R);
-      g.addColorStop(0,'#3D0860'); g.addColorStop(.55,'#18032A'); g.addColorStop(1,'#04010A');
+      g.addColorStop(0,'var(--text-body)'); g.addColorStop(.55,'var(--text-body)'); g.addColorStop(1,'var(--text-body)');
       ctx.beginPath(); ctx.arc(mx, my, SUN_R, 0, Math.PI*2);
       ctx.fillStyle=g; ctx.fill();
     }
@@ -105,8 +105,8 @@ export default function CosmicHero({ className }: { className?: string }) {
           CX+Math.cos(angle)*SUN_R, CY+Math.sin(angle)*SUN_R,
           CX+Math.cos(angle)*len, CY+Math.sin(angle)*len
         );
-        g.addColorStop(0,`rgba(255,240,120,${op*.8})`);
-        g.addColorStop(1,'rgba(255,200,50,0)');
+        g.addColorStop(0,`var(--surface-border)`);
+        g.addColorStop(1,'var(--surface-border)');
         ctx.beginPath();
         ctx.moveTo(CX+Math.cos(angle)*SUN_R,CY+Math.sin(angle)*SUN_R);
         ctx.lineTo(CX+Math.cos(angle)*len,CY+Math.sin(angle)*len);
@@ -118,14 +118,14 @@ export default function CosmicHero({ className }: { className?: string }) {
     function drawDiamond(t: number) {
       const bx=CX-SUN_R*.85, by=CY+SUN_R*.52;
       const g=ctx.createRadialGradient(bx,by,0,bx,by,SUN_R*.55);
-      g.addColorStop(0,`rgba(255,255,255,${t})`);
-      g.addColorStop(.35,`rgba(255,245,100,${t*.7})`);
-      g.addColorStop(1,'rgba(0,0,0,0)');
+      g.addColorStop(0,`var(--surface-border)`);
+      g.addColorStop(.35,`var(--surface-border)`);
+      g.addColorStop(1,'color-mix(in srgb, var(--ink-950) 0%, transparent)');
       ctx.beginPath(); ctx.arc(bx,by,SUN_R*.55,0,Math.PI*2);
       ctx.fillStyle=g; ctx.fill();
       ctx.beginPath(); ctx.arc(CX,CY,SUN_R*1.05,0,Math.PI*2);
-      ctx.strokeStyle=`rgba(255,248,150,${t*.95})`;
-      ctx.lineWidth=3; ctx.shadowColor='#FFF7A0'; ctx.shadowBlur=20*t;
+      ctx.strokeStyle=`var(--surface-border)`;
+      ctx.lineWidth=3; ctx.shadowColor='var(--text-body)'; ctx.shadowBlur=20*t;
       ctx.stroke(); ctx.shadowBlur=0;
     }
 
@@ -158,14 +158,14 @@ export default function CosmicHero({ className }: { className?: string }) {
       // Sub-label
       const labelSize = Math.max(11, SUN_R*.26);
       ctx.font=`${labelSize}px "Space Grotesk",sans-serif`;
-      ctx.fillStyle='rgba(200,150,255,0.85)';
+      ctx.fillStyle='var(--surface-border)';
       ctx.fillText('YOUR NAME IS YOUR DIRECTION', CX, CY - SUN_R*1.3);
 
       // Main reveal — "Live Just in a Ray of Light"
       const mainSize = Math.max(14, SUN_R*.48);
       ctx.font=`bold ${mainSize}px "Orbitron","Space Grotesk",sans-serif`;
-      ctx.fillStyle='#F4C430';
-      ctx.shadowColor='#F4C430'; ctx.shadowBlur=22*op;
+      ctx.fillStyle='var(--gold-primary)';
+      ctx.shadowColor='var(--gold-primary)'; ctx.shadowBlur=22*op;
       ctx.fillText('Live Just in a Ray of Light', CX, CY + SUN_R*1.65);
       ctx.shadowBlur=0; ctx.restore();
     }

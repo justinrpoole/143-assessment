@@ -77,24 +77,24 @@ const EDGE_CASE_META: Record<string, {
 
 const SEVERITY_STYLES = {
   info: {
-    bg: 'rgba(96, 5, 141, 0.12)',
-    border: 'rgba(148, 80, 200, 0.25)',
-    badge: 'rgba(148, 80, 200, 0.2)',
-    badgeText: '#B794E6',
+    bg: 'color-mix(in srgb, var(--violet-650) 12%, transparent)',
+    border: 'color-mix(in srgb, var(--stroke-400) 25%, transparent)',
+    badge: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)',
+    badgeText: 'var(--text-body)',
     label: 'Note',
   },
   watch: {
-    bg: 'rgba(255, 207, 0, 0.06)',
-    border: 'rgba(255, 207, 0, 0.15)',
-    badge: 'rgba(255, 207, 0, 0.15)',
-    badgeText: '#F8D011',
+    bg: 'var(--surface-border)',
+    border: 'var(--surface-border)',
+    badge: 'var(--surface-border)',
+    badgeText: 'var(--gold-primary)',
     label: 'Watch',
   },
   action: {
-    bg: 'rgba(251, 146, 60, 0.08)',
-    border: 'rgba(251, 146, 60, 0.2)',
-    badge: 'rgba(251, 146, 60, 0.15)',
-    badgeText: '#FB923C',
+    bg: 'var(--surface-border)',
+    border: 'var(--surface-border)',
+    badge: 'var(--surface-border)',
+    badgeText: 'var(--neon-amber)',
     label: 'Action',
   },
 };
@@ -165,7 +165,7 @@ function EdgeCaseCard({ edgeCase }: { edgeCase: EdgeCaseResult }) {
           }}
           aria-hidden="true"
         >
-          &#9660;
+          &var(--text-body);
         </span>
       </div>
 

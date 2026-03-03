@@ -41,19 +41,19 @@ export function useToast(): ToastContextValue {
 const VARIANT_STYLES: Record<ToastVariant, { border: string; accent: string }> = {
   success: {
     border: 'var(--surface-border-hover)',
-    accent: 'var(--brand-gold, #F8D011)',
+    accent: 'var(--gold-primary)',
   },
   info: {
     border: 'var(--surface-border-hover)',
     accent: 'var(--cosmic-purple-light)',
   },
   warning: {
-    border: 'rgba(251, 191, 36, 0.5)',
-    accent: 'rgb(251, 191, 36)',
+    border: 'var(--surface-border)',
+    accent: 'var(--surface-border)',
   },
   error: {
-    border: 'rgba(244, 63, 94, 0.5)',
-    accent: 'rgb(244, 63, 94)',
+    border: 'var(--surface-border)',
+    accent: 'var(--surface-border)',
   },
 };
 
@@ -100,7 +100,7 @@ function ToastCard({
       />
       <p
         className="text-sm font-medium flex-1"
-        style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+        style={{ color: 'var(--text-body)' }}
       >
         {item.message}
       </p>
@@ -111,7 +111,7 @@ function ToastCard({
           setTimeout(() => onDismiss(item.id), 300);
         }}
         className="text-xs opacity-50 hover:opacity-100 transition-opacity shrink-0"
-        style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+        style={{ color: 'var(--text-body)' }}
         aria-label="Dismiss"
       >
         &times;

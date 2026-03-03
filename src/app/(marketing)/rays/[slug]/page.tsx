@@ -76,14 +76,14 @@ export default async function RayDeepDivePage({
   });
 
   return (
-    <main className="cosmic-page-bg relative">
+    <main className="cosmic-page-bg page-shell relative">
       <RayDetailGateClient rayName={ray.name}>
       <ScrollProgress />
 
       {/* ── HERO ── */}
       <section
         id="hero"
-        className="relative z-10 mx-auto max-w-[960px] px-5 pt-16 pb-12 sm:px-8 sm:pt-24 sm:pb-16"
+        className="relative z-10 content-wrap py-16 sm:py-20"
       >
         <div className="grid items-center gap-10 md:grid-cols-2">
           {/* Text side */}
@@ -129,7 +129,7 @@ export default async function RayDeepDivePage({
               </NeonGlowButton>
               <span
                 className="text-xs"
-                style={{ color: 'rgba(255,255,255,0.45)' }}
+                style={{ color: 'color-mix(in srgb, var(--text-body) 45%, transparent)' }}
               >
                 Free during beta
               </span>
@@ -147,7 +147,7 @@ export default async function RayDeepDivePage({
 
       {/* ── THE SCIENCE ── */}
       <FadeInSection>
-        <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-20">
+        <section className="relative z-10 content-wrap--narrow py-16 sm:py-20">
           <FloatingOrbs variant="purple" />
           <div className="relative z-10">
             <span className="gold-tag mb-3 block w-fit">
@@ -183,7 +183,7 @@ export default async function RayDeepDivePage({
 
       {/* ── WHEN THIS RAY IS STRONG ── */}
       <FadeInSection>
-        <section className="section-alt-dark relative z-10 mx-auto max-w-[960px] px-5 py-16 sm:px-8 sm:py-20">
+        <section className="section-alt-dark relative z-10 content-wrap py-16 sm:py-20">
           <div className="mb-8 text-center">
             <span className="gold-tag mx-auto">
               <span style={{ color: hex }}>◆</span> When{' '}
@@ -231,10 +231,10 @@ export default async function RayDeepDivePage({
 
       {/* ── WHEN THIS RAY IS ECLIPSED ── */}
       <FadeInSection>
-        <section className="relative z-10 mx-auto max-w-[960px] px-5 py-16 sm:px-8 sm:py-20">
+        <section className="relative z-10 content-wrap py-16 sm:py-20">
           <div className="mb-8 text-center">
             <span className="gold-tag mx-auto">
-              <span style={{ color: 'rgba(255,255,255,0.5)' }}>◇</span>{' '}
+              <span style={{ color: 'color-mix(in srgb, var(--text-body) 50%, transparent)' }}>◇</span>{' '}
               When {ray.name} Is Eclipsed
             </span>
             <h2
@@ -261,16 +261,16 @@ export default async function RayDeepDivePage({
                 key={i}
                 className="glass-card glass-card--lift p-5 sm:p-6"
                 style={{
-                  borderTop: '3px solid rgba(255,255,255,0.1)',
-                  background: 'rgba(255,255,255,0.02)',
+                  borderTop: '3px solid color-mix(in srgb, var(--text-body) 10%, transparent)',
+                  background: 'color-mix(in srgb, var(--text-body) 2%, transparent)',
                 }}
               >
                 <span
                   className="mb-3 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold"
                   style={{
-                    background: 'rgba(255,255,255,0.06)',
-                    color: 'rgba(255,255,255,0.5)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+                    color: 'color-mix(in srgb, var(--text-body) 50%, transparent)',
+                    border: '1px solid color-mix(in srgb, var(--text-body) 10%, transparent)',
                   }}
                 >
                   {i + 1}
@@ -291,11 +291,11 @@ export default async function RayDeepDivePage({
 
       {/* ── COACHING REPS ── */}
       <FadeInSection>
-        <section className="section-alt-dark gold-dot-grid relative mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-20">
+        <section className="section-alt-dark gold-dot-grid relative content-wrap--narrow py-16 sm:py-20">
           <FloatingOrbs variant="gold" />
           <div className="relative z-10 mb-8 text-center">
             <span className="gold-tag mx-auto">
-              <span style={{ color: '#F8D011' }}>◆</span> Your Reps
+              <span style={{ color: 'var(--gold-primary)' }}>◆</span> Your Reps
             </span>
             <h2
               className="heading-section mt-3"
@@ -352,7 +352,7 @@ export default async function RayDeepDivePage({
 
       {/* ── WHERE THIS RAY LIVES ── */}
       <FadeInSection>
-        <section className="relative z-10 mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-20">
+        <section className="relative z-10 content-wrap--narrow py-16 sm:py-20">
           <div className="mb-8 text-center">
             <span className="gold-tag mx-auto">
               <span style={{ color: hex }}>◆</span> The System
@@ -390,7 +390,7 @@ export default async function RayDeepDivePage({
             <div className="mt-6">
               <p
                 className="mb-3 text-xs font-bold uppercase tracking-widest"
-                style={{ color: 'rgba(255,255,255,0.5)' }}
+                style={{ color: 'color-mix(in srgb, var(--text-body) 50%, transparent)' }}
               >
                 Rays in this phase
               </p>
@@ -445,7 +445,7 @@ export default async function RayDeepDivePage({
           <div className="mt-8">
             <p
               className="mb-3 text-center text-xs font-bold uppercase tracking-widest"
-              style={{ color: 'rgba(255,255,255,0.4)' }}
+              style={{ color: 'color-mix(in srgb, var(--text-body) 40%, transparent)' }}
             >
               All 9 Rays
             </p>
@@ -461,9 +461,9 @@ export default async function RayDeepDivePage({
                     style={{
                       background: isActive
                         ? `${c.hex}25`
-                        : 'rgba(255,255,255,0.04)',
-                      color: isActive ? c.hex : 'rgba(255,255,255,0.5)',
-                      border: `1px solid ${isActive ? `${c.hex}40` : 'rgba(255,255,255,0.08)'}`,
+                        : 'color-mix(in srgb, var(--text-body) 4%, transparent)',
+                      color: isActive ? c.hex : 'color-mix(in srgb, var(--text-body) 50%, transparent)',
+                      border: `1px solid ${isActive ? `${c.hex}40` : 'color-mix(in srgb, var(--text-body) 8%, transparent)'}`,
                     }}
                   >
                     <span
@@ -471,7 +471,7 @@ export default async function RayDeepDivePage({
                       style={{
                         background: isActive
                           ? c.hex
-                          : 'rgba(255,255,255,0.3)',
+                          : 'color-mix(in srgb, var(--text-body) 30%, transparent)',
                       }}
                     />
                     {c.label}
@@ -487,7 +487,7 @@ export default async function RayDeepDivePage({
 
       {/* ── FINAL CTA ── */}
       <FadeInSection>
-        <section className="relative mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-20">
+        <section className="relative content-wrap--narrow py-16 sm:py-20">
           <FloatingOrbs variant="gold" />
           <div className="glass-card glass-card--hero relative z-10 p-8 text-center sm:p-10">
             <h2 className="text-shimmer heading-section">
@@ -509,7 +509,7 @@ export default async function RayDeepDivePage({
             </div>
             <p
               className="mt-4 text-xs"
-              style={{ color: 'rgba(255,255,255,0.35)' }}
+              style={{ color: 'color-mix(in srgb, var(--text-body) 35%, transparent)' }}
             >
               Free during beta · No credit card required
             </p>
@@ -521,7 +521,7 @@ export default async function RayDeepDivePage({
               <Link
                 href={`/rays/${ray.prevRay}`}
                 className="inline-flex items-center gap-1 text-sm font-medium transition-colors duration-200 hover:brightness-125"
-                style={{ color: 'rgba(255,255,255,0.5)' }}
+                style={{ color: 'color-mix(in srgb, var(--text-body) 50%, transparent)' }}
               >
                 <span aria-hidden="true">&larr;</span>
                 {RAY_PAGES.find((r) => r.slug === ray.prevRay)?.name ??
@@ -534,7 +534,7 @@ export default async function RayDeepDivePage({
               <Link
                 href={`/rays/${ray.nextRay}`}
                 className="inline-flex items-center gap-1 text-sm font-medium transition-colors duration-200 hover:brightness-125"
-                style={{ color: 'rgba(255,255,255,0.5)' }}
+                style={{ color: 'color-mix(in srgb, var(--text-body) 50%, transparent)' }}
               >
                 {RAY_PAGES.find((r) => r.slug === ray.nextRay)?.name ??
                   'Next'}{' '}
@@ -544,7 +544,7 @@ export default async function RayDeepDivePage({
               <Link
                 href="/upgrade-your-os"
                 className="inline-flex items-center gap-1 text-sm font-medium transition-colors duration-200 hover:brightness-125"
-                style={{ color: '#F8D011' }}
+                style={{ color: 'var(--gold-primary)' }}
               >
                 See the full system <span aria-hidden="true">&rarr;</span>
               </Link>

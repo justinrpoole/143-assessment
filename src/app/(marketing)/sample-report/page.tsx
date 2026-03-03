@@ -63,19 +63,19 @@ export default async function SampleReportPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5">
+        <section className="content-wrap--narrow space-y-5">
           <FloatingOrbs variant="mixed" />
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-8">
             <div className="flex-1 space-y-5">
               <p className="gold-tag">
-                <span style={{ color: '#F8D011' }}>◆</span> Sample Light Signature Map
+                <span style={{ color: 'var(--gold-primary)' }}>◆</span> Sample Light Signature Map
               </p>
               <h1
                 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-                style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
+                style={{ color: "var(--text-body)", textShadow: neonText(NEON.cyan) }}
               >
                 This is what a full report reads like. Not a screenshot. The real
                 thing.
@@ -102,7 +102,7 @@ export default async function SampleReportPage() {
 
         {/* ─── SECTION 2 · WHAT PEOPLE SAY ─────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div className="glass-card p-6 sm:p-8 space-y-4">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -114,7 +114,7 @@ export default async function SampleReportPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 The first thing you will notice is that it sounds like someone
@@ -128,7 +128,7 @@ export default async function SampleReportPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 The report opens with your Light Signature and an identity
@@ -164,7 +164,7 @@ export default async function SampleReportPage() {
 
         {/* ─── SECTION 5 · TWO WAYS TO USE ─────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <ConicBorderCard>
             <div className="glass-card p-6 sm:p-8 space-y-5">
               <p
@@ -180,7 +180,7 @@ export default async function SampleReportPage() {
                     className="flex items-start gap-2 text-sm leading-relaxed"
                     style={{
                       color:
-                        "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                        "var(--text-secondary)",
                     }}
                   >
                     <span
@@ -195,7 +195,7 @@ export default async function SampleReportPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 A report that reads like someone who understands you handed you
@@ -204,7 +204,7 @@ export default async function SampleReportPage() {
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  color: "var(--text-on-dark-muted, rgba(255,255,255,0.5))",
+                  color: "var(--text-muted)",
                 }}
               >
                 Retake after 90 days of training. Watch your Light Signature

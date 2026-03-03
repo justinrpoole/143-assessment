@@ -126,7 +126,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
             key={i}
             points={line.points}
             fill="none"
-            stroke="#F4C430"
+            stroke="var(--gold-primary)"
             strokeWidth={0.5}
             strokeOpacity={0.25}
           />
@@ -137,7 +137,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
           cx={cx}
           cy={cy + wellDepth * 15}
           r={14}
-          fill="#F4C430"
+          fill="var(--gold-primary)"
           opacity={0.8}
           filter="url(#sw-glow)"
           initial={false}
@@ -150,7 +150,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
             !reducedMotion ? { duration: 3, repeat: Infinity, ease: 'easeInOut' } : undefined
           }
         />
-        <circle cx={cx} cy={cy + wellDepth * 15} r={6} fill="#FFFFFF" opacity={0.6} />
+        <circle cx={cx} cy={cy + wellDepth * 15} r={6} fill="var(--text-body)" opacity={0.6} />
 
         {/* Sun beams */}
         {Array.from({ length: 8 }).map((_, i) => {
@@ -163,7 +163,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
               y1={sunY + Math.sin(angle) * 16}
               x2={cx + Math.cos(angle) * 24}
               y2={sunY + Math.sin(angle) * 24}
-              stroke="#F4C430"
+              stroke="var(--gold-primary)"
               strokeWidth={1.5}
               strokeOpacity={0.4}
             />
@@ -173,8 +173,8 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
         {/* Orbital objects */}
         {orbitals.map((obj) => (
           <g key={obj.id}>
-            <circle cx={obj.x} cy={obj.y} r={6} fill="#FFFFFF" opacity={0.15} />
-            <circle cx={obj.x} cy={obj.y} r={4} fill="#F4C430" opacity={0.7} />
+            <circle cx={obj.x} cy={obj.y} r={6} fill="var(--text-body)" opacity={0.15} />
+            <circle cx={obj.x} cy={obj.y} r={4} fill="var(--gold-primary)" opacity={0.7} />
           </g>
         ))}
 
@@ -189,7 +189,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
               y1={a.y}
               x2={a.x + Math.cos(towardCenter) * len}
               y2={a.y + Math.sin(towardCenter) * len}
-              stroke="#FFFFFF"
+              stroke="var(--text-body)"
               strokeWidth={1}
               strokeOpacity={0.2}
               markerEnd="none"
@@ -198,7 +198,7 @@ export default function SpacetimeWell({ rays }: SpacetimeWellProps) {
         })}
 
         <defs>
-          <filter id="sw-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="sw-glow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
             <feGaussianBlur stdDeviation="4" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>

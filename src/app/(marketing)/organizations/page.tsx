@@ -130,21 +130,21 @@ export default async function OrganizationsPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[960px] px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
-        <section className="mx-auto max-w-[720px] space-y-5 text-center">
+        <section className="content-wrap--narrow space-y-5 text-center">
           <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> For Organizations
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> For Organizations
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
-            style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
+            style={{ color: "var(--text-body)", textShadow: neonText(NEON.cyan) }}
           >
             Your team has the skills. Do they have the capacity to use them?
           </h1>
-          <div className="mx-auto max-w-[540px]">
+          <div className="content-wrap--narrow">
             <ScrollTextReveal text="The 143 Leadership OS maps 9 trainable behavioural capacities across your team — and gives leaders aggregate intelligence to act before the cost shows up in turnover, disengagement, or initiative fatigue." />
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -162,7 +162,7 @@ export default async function OrganizationsPage() {
 
         {/* ─── SECTION 2 · THE PROBLEM ─────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
+          <section className="content-wrap--narrow space-y-8">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -172,7 +172,7 @@ export default async function OrganizationsPage() {
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)", textShadow: neonText(NEON.cyan) }}
+                style={{ color: "var(--text-body)", textShadow: neonText(NEON.cyan) }}
               >
                 How much did your last leadership initiative cost? How long did
                 the results last?
@@ -184,7 +184,7 @@ export default async function OrganizationsPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 When your team is deep in energy borrowing, performance
@@ -196,7 +196,7 @@ export default async function OrganizationsPage() {
                 className="text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 The 143 detects that gap at the team level, names the specific
@@ -228,7 +228,7 @@ export default async function OrganizationsPage() {
                         className="mt-2 text-xs leading-relaxed"
                         style={{
                           color:
-                            "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                            "var(--text-secondary)",
                         }}
                       >
                         {item.label}
@@ -245,7 +245,7 @@ export default async function OrganizationsPage() {
 
         {/* ─── SECTION 3 · HOW WE WORK ────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-8">
+          <section className="content-wrap--narrow space-y-8">
             <div className="text-center space-y-3">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -255,7 +255,7 @@ export default async function OrganizationsPage() {
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Three steps. One operating system.
               </h2>
@@ -282,7 +282,7 @@ export default async function OrganizationsPage() {
                       <div>
                         <h3
                           className="text-sm font-semibold"
-                          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                          style={{ color: "var(--text-body)" }}
                         >
                           {step.title}
                         </h3>
@@ -290,7 +290,7 @@ export default async function OrganizationsPage() {
                           className="mt-1 text-sm leading-relaxed"
                           style={{
                             color:
-                              "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                              "var(--text-secondary)",
                           }}
                         >
                           {step.description}
@@ -317,7 +317,7 @@ export default async function OrganizationsPage() {
         {/* ─── SECTION 4 · WHY DIFFERENT ───────────────────────── */}
         <FadeInSection>
           <RadialSpotlight>
-            <section className="mx-auto max-w-[720px] space-y-8">
+            <section className="content-wrap--narrow space-y-8">
               <div className="text-center space-y-3">
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
@@ -327,7 +327,7 @@ export default async function OrganizationsPage() {
                 </p>
                 <h2
                   className="text-2xl font-bold"
-                  style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                  style={{ color: "var(--text-body)" }}
                 >
                   Built for development. Not surveillance.
                 </h2>
@@ -347,7 +347,7 @@ export default async function OrganizationsPage() {
                       >
                         <h3
                           className="text-sm font-semibold"
-                          style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                          style={{ color: "var(--text-body)" }}
                         >
                           {item.title}
                         </h3>
@@ -355,7 +355,7 @@ export default async function OrganizationsPage() {
                           className="mt-2 text-sm leading-relaxed"
                           style={{
                             color:
-                              "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                              "var(--text-secondary)",
                           }}
                         >
                           {item.description}
@@ -373,10 +373,10 @@ export default async function OrganizationsPage() {
 
         {/* ─── SECTION 5 · OPERATIONAL FIT ─────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <div
               className="glass-card p-6 sm:p-8 space-y-5"
-              style={{ borderColor: "rgba(248, 208, 17, 0.3)" }}
+              style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 30%, transparent)" }}
             >
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -386,7 +386,7 @@ export default async function OrganizationsPage() {
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 Designed to fit inside your real workday.
               </h2>
@@ -395,7 +395,7 @@ export default async function OrganizationsPage() {
                   <div key={item.label}>
                     <p
                       className="text-sm font-semibold"
-                      style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                      style={{ color: "var(--text-body)" }}
                     >
                       {item.label}
                     </p>
@@ -403,7 +403,7 @@ export default async function OrganizationsPage() {
                       className="mt-1 text-sm leading-relaxed"
                       style={{
                         color:
-                          "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                          "var(--text-secondary)",
                       }}
                     >
                       {item.detail}
@@ -419,7 +419,7 @@ export default async function OrganizationsPage() {
 
         {/* ─── SECTION 5b · TESTIMONIALS ────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-[720px] space-y-6 text-center">
+          <section className="content-wrap--narrow space-y-6 text-center">
             <p
               className="text-xs font-bold uppercase tracking-widest"
               style={{ color: rayHex('R7') }}
@@ -428,7 +428,7 @@ export default async function OrganizationsPage() {
             </p>
             <h2
               className="text-xl font-bold sm:text-2xl"
-              style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+              style={{ color: "var(--text-body)" }}
             >
               The data changed how we develop our people.
             </h2>
@@ -463,7 +463,7 @@ export default async function OrganizationsPage() {
 
         {/* ─── SECTION 6 · CTA ─────────────────────────────────── */}
         <FadeInSection blur>
-          <section className="mx-auto max-w-[720px]">
+          <section className="content-wrap--narrow">
             <ConicBorderCard>
             <div className="glass-card p-8 text-center space-y-5">
               <p
@@ -474,16 +474,16 @@ export default async function OrganizationsPage() {
               </p>
               <h2
                 className="text-2xl font-bold"
-                style={{ color: "var(--text-on-dark, #FFFEF5)" }}
+                style={{ color: "var(--text-body)" }}
               >
                 The question is not whether your team has potential. It is
                 whether you can see where the potential is covered.
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow text-sm leading-relaxed"
                 style={{
                   color:
-                    "var(--text-on-dark-secondary, rgba(255,255,255,0.75))",
+                    "var(--text-secondary)",
                 }}
               >
                 Start with a conversation. We will show you the governance

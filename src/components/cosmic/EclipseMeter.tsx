@@ -17,10 +17,10 @@ const LEVEL_COVERAGE: Record<string, number> = {
 };
 
 const LEVEL_COLORS: Record<string, string> = {
-  LOW: 'var(--status-low, #A78BFA)',
-  MODERATE: 'var(--status-moderate, #F8D011)',
-  ELEVATED: 'var(--status-elevated, #F59E0B)',
-  HIGH: 'var(--status-high, #FB923C)',
+  LOW: 'var(--status-low, var(--text-body))',
+  MODERATE: 'var(--status-moderate, var(--text-body))',
+  ELEVATED: 'var(--status-elevated, var(--text-body))',
+  HIGH: 'var(--status-high, var(--text-body))',
 };
 
 const LEVEL_LABELS: Record<string, string> = {
@@ -75,8 +75,8 @@ function sparklePath(cx: number, cy: number, size: number): string {
 
 /**
  * Eclipse Meter — Gravitational Stability load visualization.
- * Deep cosmic background (#0B0212) with purple nebula haze,
- * gold sun (#F8D011), charcoal moon (#2C2C2C) with thin white outline,
+ * Deep cosmic background (var(--text-body)) with purple nebula haze,
+ * gold sun (var(--text-body)), charcoal moon (var(--text-body)) with thin white outline,
  * diamond-ring effect (intensely white crescent glow),
  * cleanly severed beams via moon mask, sparse diverse stars.
  */
@@ -86,7 +86,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
   const prefersReducedMotion = useReducedMotion();
   const anim = !prefersReducedMotion;
   const coverage = LEVEL_COVERAGE[eclipse.level] ?? 0.40;
-  const levelColor = LEVEL_COLORS[eclipse.level] ?? '#E8A317';
+  const levelColor = LEVEL_COLORS[eclipse.level] ?? 'var(--neon-amber)';
   const gateLabel = GATE_LABELS[eclipse.gating.mode] || eclipse.gating.reason;
   const cosmicLabel = getEclipseLabel(eclipse.level);
   const encouragement = getEclipseEncouragement(eclipse.level);
@@ -118,13 +118,13 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
       let fill: string;
       let maxOpacity: number;
       if (colorRoll < 0.10) {
-        fill = '#C39BD3'; // ~2 faint rose stars
+        fill = 'var(--text-secondary)'; // ~2 faint rose stars
         maxOpacity = 0.4;
       } else if (colorRoll < 0.25) {
-        fill = '#F8D011'; // ~3 pale gold stars
+        fill = 'var(--gold-primary)'; // ~3 pale gold stars
         maxOpacity = 0.55;
       } else {
-        fill = '#FDFCFD'; // ~15 warm white stars
+        fill = 'var(--text-body)'; // ~15 warm white stars
         maxOpacity = 0.85;
       }
       return {
@@ -148,7 +148,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
 
   return (
     <section className="space-y-4">
-      <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, #FDFCFD)' }}>{cosmicLabel}</p>
+      <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, var(--text-body))' }}>{cosmicLabel}</p>
 
       <div className="rounded-2xl overflow-hidden shadow-lg">
         <div className="relative">
@@ -167,90 +167,90 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
             <defs>
               {/* Deep space background — matches vintage 80s instrument aesthetic */}
               <radialGradient id="ecl-bg" cx="42%" cy="44%" r="65%">
-                <stop offset="0%" stopColor="#1a0a35" />
-                <stop offset="30%" stopColor="#0f0520" />
-                <stop offset="60%" stopColor="#0a0318" />
-                <stop offset="85%" stopColor="#060212" />
-                <stop offset="100%" stopColor="#030108" />
+                <stop offset="0%" stopColor="var(--text-body)" />
+                <stop offset="30%" stopColor="var(--text-body)" />
+                <stop offset="60%" stopColor="var(--text-body)" />
+                <stop offset="85%" stopColor="var(--text-body)" />
+                <stop offset="100%" stopColor="var(--text-body)" />
               </radialGradient>
 
-              {/* Golden atmospheric haze — #F8D011 at 8% per spec */}
+              {/* Golden atmospheric haze — var(--text-body) at 8% per spec */}
               <radialGradient id="ecl-golden-haze" cx="48%" cy="48%" r="45%">
-                <stop offset="0%" stopColor="#F8D011" stopOpacity="0.08" />
-                <stop offset="50%" stopColor="#F8D011" stopOpacity="0.03" />
+                <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.08" />
+                <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.03" />
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
 
               {/* Rose-violet warmth at gold/purple boundary */}
               <radialGradient id="ecl-rose-warmth" cx="48%" cy="48%" r="30%">
                 <stop offset="35%" stopColor="transparent" />
-                <stop offset="60%" stopColor="#C39BD3" stopOpacity="0.1" />
-                <stop offset="85%" stopColor="#C39BD3" stopOpacity="0.04" />
+                <stop offset="60%" stopColor="var(--text-secondary)" stopOpacity="0.1" />
+                <stop offset="85%" stopColor="var(--text-secondary)" stopOpacity="0.04" />
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
 
               {/* Warm nebula glow */}
               <radialGradient id="ecl-nebula" cx="60%" cy="40%" r="50%">
-                <stop offset="0%" stopColor="#7B4FA2" stopOpacity="0.2" />
+                <stop offset="0%" stopColor="var(--violet-650)" stopOpacity="0.2" />
                 <stop offset="50%" stopColor="var(--cosmic-svg-bg)" stopOpacity="0.08" />
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
 
               {/* Golden nebula wisp */}
               <radialGradient id="ecl-nebula2" cx="25%" cy="65%" r="35%">
-                <stop offset="0%" stopColor="#F8D011" stopOpacity="0.04" />
-                <stop offset="40%" stopColor="#C39BD3" stopOpacity="0.03" />
+                <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.04" />
+                <stop offset="40%" stopColor="var(--text-secondary)" stopOpacity="0.03" />
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
 
               {/* Gold dust */}
               <radialGradient id="ecl-stardust" cx="50%" cy="30%" r="35%">
-                <stop offset="0%" stopColor="#F8D011" stopOpacity="0.05" />
+                <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.05" />
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
 
               {/* v3 brand gold sun */}
               <radialGradient id="ecl-sun" cx="46%" cy="40%" r="54%">
-                <stop offset="0%" stopColor="#FFFEF5" />
-                <stop offset="20%" stopColor="#FFF7CC" />
-                <stop offset="50%" stopColor="#F8D011" />
-                <stop offset="78%" stopColor="#E8A317" />
-                <stop offset="100%" stopColor="#A8820A" stopOpacity="0.6" />
+                <stop offset="0%" stopColor="var(--text-body)" />
+                <stop offset="20%" stopColor="var(--text-body)" />
+                <stop offset="50%" stopColor="var(--gold-primary)" />
+                <stop offset="78%" stopColor="var(--neon-amber)" />
+                <stop offset="100%" stopColor="var(--text-body)" stopOpacity="0.6" />
               </radialGradient>
 
               {/* Gold corona */}
               <radialGradient id="ecl-corona" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#F8D011" stopOpacity="0.55" />
-                <stop offset="30%" stopColor="#F8D011" stopOpacity="0.25" />
-                <stop offset="55%" stopColor="#E8A317" stopOpacity="0.1" />
+                <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.55" />
+                <stop offset="30%" stopColor="var(--gold-primary)" stopOpacity="0.25" />
+                <stop offset="55%" stopColor="var(--neon-amber)" stopOpacity="0.1" />
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
 
-              {/* Charcoal moon — per v3: "#2C2C2C with thin white outline" */}
+              {/* Charcoal moon — per v3: "var(--text-body) with thin white outline" */}
               <radialGradient id="ecl-moon" cx="40%" cy="45%" r="55%">
-                <stop offset="0%" stopColor="#3A3A3A" />
-                <stop offset="35%" stopColor="#2C2C2C" />
-                <stop offset="70%" stopColor="#1F1F1F" />
-                <stop offset="100%" stopColor="#1A1A1A" />
+                <stop offset="0%" stopColor="var(--text-body)" />
+                <stop offset="35%" stopColor="var(--text-body)" />
+                <stop offset="70%" stopColor="var(--text-body)" />
+                <stop offset="100%" stopColor="var(--text-body)" />
               </radialGradient>
 
               {/* Moon surface texture */}
               <radialGradient id="ecl-moon-highlight" cx="65%" cy="35%" r="30%">
-                <stop offset="0%" stopColor="#4A4A4A" stopOpacity="0.3" />
+                <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.3" />
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
 
               {/* Diamond-ring — "crescent gap glows intensely white" */}
               <radialGradient id="ecl-diamond" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
-                <stop offset="12%" stopColor="#FFFEF5" stopOpacity="0.85" />
-                <stop offset="30%" stopColor="#F8D011" stopOpacity="0.5" />
-                <stop offset="55%" stopColor="#F8D011" stopOpacity="0.15" />
+                <stop offset="0%" stopColor="var(--text-body)" stopOpacity="1" />
+                <stop offset="12%" stopColor="var(--text-body)" stopOpacity="0.85" />
+                <stop offset="30%" stopColor="var(--gold-primary)" stopOpacity="0.5" />
+                <stop offset="55%" stopColor="var(--gold-primary)" stopOpacity="0.15" />
                 <stop offset="100%" stopColor="transparent" />
               </radialGradient>
 
               {/* Sun glow */}
-              <filter id="ecl-sun-glow" x="-80%" y="-80%" width="260%" height="260%">
+              <filter id="ecl-sun-glow" x="-80%" y="-80%" width={"260%"} height={"260%"}>
                 <feGaussianBlur stdDeviation="9" result="blur1" />
                 <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur2" />
                 <feMerge>
@@ -261,7 +261,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
               </filter>
 
               {/* Strong ray glow */}
-              <filter id="ecl-ray-glow" x="-80%" y="-80%" width="260%" height="260%">
+              <filter id="ecl-ray-glow" x="-80%" y="-80%" width={"260%"} height={"260%"}>
                 <feGaussianBlur stdDeviation="6" result="blur1" />
                 <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur2" />
                 <feMerge>
@@ -272,7 +272,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
               </filter>
 
               {/* Diamond-ring glow filter — intense bloom */}
-              <filter id="ecl-diamond-glow" x="-200%" y="-200%" width="500%" height="500%">
+              <filter id="ecl-diamond-glow" x="-200%" y="-200%" width={"500%"} height={"500%"}>
                 <feGaussianBlur stdDeviation="6" result="blur1" />
                 <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur2" />
                 <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur3" />
@@ -305,13 +305,13 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
 
               {/* CRT scanline pattern */}
               <pattern id="ecl-scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-                <rect width="4" height="2" fill="rgba(0,0,0,0.04)" />
+                <rect width="4" height="2" fill="color-mix(in srgb, var(--ink-950) 4%, transparent)" />
               </pattern>
 
               {/* Solid outline for SVG labels */}
-              <filter id="ecl-text-outline" x="-10%" y="-10%" width="120%" height="120%">
+              <filter id="ecl-text-outline" x="-10%" y="-10%" width={"120%"} height={"120%"}>
                 <feMorphology in="SourceAlpha" operator="dilate" radius="1.2" result="expanded" />
-                <feFlood floodColor="#1A1A1A" result="color" />
+                <feFlood floodColor="var(--text-body)" result="color" />
                 <feComposite in="color" in2="expanded" operator="in" result="outline" />
                 <feMerge>
                   <feMergeNode in="outline" />
@@ -383,19 +383,19 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
             {anim ? (
               <motion.circle
                 cx={CENTER} cy={CENTER} r={SUN_RADIUS * 1.5}
-                fill="none" stroke="#F8D011" strokeWidth={1.5} aria-hidden="true"
+                fill="none" stroke="var(--gold-primary)" strokeWidth={1.5} aria-hidden="true"
                 initial={false}
                 animate={{ strokeOpacity: [0.1 * (1 - coverage), 0.35 * (1 - coverage), 0.1 * (1 - coverage)] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
               />
             ) : (
               <circle cx={CENTER} cy={CENTER} r={SUN_RADIUS * 1.5}
-                fill="none" stroke="#F8D011" strokeWidth={1.5}
+                fill="none" stroke="var(--gold-primary)" strokeWidth={1.5}
                 strokeOpacity={0.2 * (1 - coverage)} aria-hidden="true" />
             )}
             <circle
               cx={CENTER} cy={CENTER} r={SUN_RADIUS * 1.25}
-              fill="none" stroke="#FFF7CC" strokeWidth={0.8}
+              fill="none" stroke="var(--text-body)" strokeWidth={0.8}
               opacity={0.3 * (1 - coverage)}
             />
 
@@ -419,7 +419,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                   <motion.polygon
                     key={`r-${i}`}
                     points={triPoints}
-                    fill="#F8D011"
+                    fill="var(--gold-primary)"
                     filter="url(#ecl-ray-glow)"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: [0.3, 0.85, 0.3] }}
@@ -434,7 +434,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                   <polygon
                     key={`r-${i}`}
                     points={triPoints}
-                    fill="#F8D011"
+                    fill="var(--gold-primary)"
                     filter="url(#ecl-ray-glow)"
                     opacity={0.6}
                   />
@@ -455,7 +455,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
             <circle cx={CENTER - 4} cy={CENTER - 5} r={SUN_RADIUS * 0.22} fill="white" opacity={0.22} />
             <circle cx={CENTER - 8} cy={CENTER - 9} r={SUN_RADIUS * 0.08} fill="white" opacity={0.4} />
 
-            {/* Moon — charcoal #2C2C2C per v3 spec */}
+            {/* Moon — charcoal var(--text-body) per v3 spec */}
             {anim ? (
               <motion.circle
                 cx={moonTargetX} cy={CENTER} r={SUN_RADIUS + 2}
@@ -485,32 +485,32 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
             {anim ? (
               <motion.circle
                 cx={moonTargetX + 12} cy={CENTER + 8} r={4}
-                fill="#3A3A3A" opacity={0.3} clipPath="url(#ecl-sun-clip)"
+                fill="var(--text-muted)" opacity={0.3} clipPath="url(#ecl-sun-clip)"
                 initial={{ cx: CENTER + SUN_RADIUS * 3 + 12 }}
                 animate={{ cx: moonTargetX + 12 }}
                 transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 }}
               />
             ) : (
               <circle cx={moonTargetX + 12} cy={CENTER + 8} r={4}
-                fill="#3A3A3A" opacity={0.3} clipPath="url(#ecl-sun-clip)" />
+                fill="var(--text-muted)" opacity={0.3} clipPath="url(#ecl-sun-clip)" />
             )}
             {anim ? (
               <motion.circle
                 cx={moonTargetX - 4} cy={CENTER - 12} r={3}
-                fill="#444444" opacity={0.25} clipPath="url(#ecl-sun-clip)"
+                fill="var(--text-muted)" opacity={0.25} clipPath="url(#ecl-sun-clip)"
                 initial={{ cx: CENTER + SUN_RADIUS * 3 - 4 }}
                 animate={{ cx: moonTargetX - 4 }}
                 transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 }}
               />
             ) : (
               <circle cx={moonTargetX - 4} cy={CENTER - 12} r={3}
-                fill="#444444" opacity={0.25} clipPath="url(#ecl-sun-clip)" />
+                fill="var(--text-muted)" opacity={0.25} clipPath="url(#ecl-sun-clip)" />
             )}
             {/* Moon edge — thin white outline per v3 spec */}
             {anim ? (
               <motion.circle
                 cx={moonTargetX} cy={CENTER} r={SUN_RADIUS + 1}
-                fill="none" stroke="#FDFCFD" strokeWidth={1.2}
+                fill="none" stroke="var(--text-body)" strokeWidth={1.2}
                 clipPath="url(#ecl-sun-clip)" opacity={0.5}
                 initial={{ cx: CENTER + SUN_RADIUS * 3 }}
                 animate={{ cx: moonTargetX }}
@@ -518,7 +518,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
               />
             ) : (
               <circle cx={moonTargetX} cy={CENTER} r={SUN_RADIUS + 1}
-                fill="none" stroke="#FDFCFD" strokeWidth={1.2}
+                fill="none" stroke="var(--text-body)" strokeWidth={1.2}
                 clipPath="url(#ecl-sun-clip)" opacity={0.5} />
             )}
 
@@ -546,14 +546,14 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                 {anim ? (
                   <motion.circle
                     cx={moonTargetX - (SUN_RADIUS + 2)} cy={CENTER}
-                    r={2 + coverage * 5} fill="#FFFFFF" clipPath="url(#ecl-sun-clip)"
+                    r={2 + coverage * 5} fill="var(--text-body)" clipPath="url(#ecl-sun-clip)"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: [0.5 + coverage * 0.3, 0.95, 0.5 + coverage * 0.3] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
                   />
                 ) : (
                   <circle cx={moonTargetX - (SUN_RADIUS + 2)} cy={CENTER}
-                    r={2 + coverage * 5} fill="#FFFFFF" clipPath="url(#ecl-sun-clip)"
+                    r={2 + coverage * 5} fill="var(--text-body)" clipPath="url(#ecl-sun-clip)"
                     opacity={0.7 + coverage * 0.2} />
                 )}
               </>
@@ -564,7 +564,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
               anim ? (
                 <motion.circle
                   cx={moonTargetX - 1} cy={CENTER} r={SUN_RADIUS + 3}
-                  fill="none" stroke="#F8D011" strokeWidth={2.5}
+                  fill="none" stroke="var(--gold-primary)" strokeWidth={2.5}
                   clipPath="url(#ecl-sun-clip)"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0.12, 0.3, 0.12] }}
@@ -572,7 +572,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                 />
               ) : (
                 <circle cx={moonTargetX - 1} cy={CENTER} r={SUN_RADIUS + 3}
-                  fill="none" stroke="#F8D011" strokeWidth={2.5}
+                  fill="none" stroke="var(--gold-primary)" strokeWidth={2.5}
                   clipPath="url(#ecl-sun-clip)" opacity={0.2} />
               )
             )}
@@ -594,7 +594,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                 y={CENTER + SUN_RADIUS + 28}
                 textAnchor="middle"
                 dominantBaseline="central"
-                fill="#FDFCFD"
+                fill="var(--text-body)"
                 filter="url(#ecl-text-outline)"
                 initial={{ opacity: 0, y: CENTER + SUN_RADIUS + 34 }}
                 animate={{ opacity: [0, 0, 0.9], y: CENTER + SUN_RADIUS + 28 }}
@@ -615,7 +615,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                 y={CENTER + SUN_RADIUS + 28}
                 textAnchor="middle"
                 dominantBaseline="central"
-                fill="#FDFCFD"
+                fill="var(--text-body)"
                 filter="url(#ecl-text-outline)"
                 opacity={0.9}
                 style={{
@@ -667,7 +667,7 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                 }}
               />
               <span style={{
-                color: eclipse.level === lvl ? LEVEL_COLORS[lvl] : 'var(--text-on-dark-muted, rgba(255,255,255,0.40))',
+                color: eclipse.level === lvl ? LEVEL_COLORS[lvl] : 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 40%, transparent))',
                 fontWeight: eclipse.level === lvl ? 600 : 400,
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
@@ -679,8 +679,8 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
         </div>
 
         {/* Data section — glass metric chips */}
-        <div className="p-5 space-y-4 rounded-b-2xl" style={{ background: 'var(--surface-glass, rgba(255,255,255,0.06))' }}>
-          <p className="text-sm text-center" style={{ color: 'var(--text-on-dark-secondary, #FDFCFD)' }}>{encouragement}</p>
+        <div className="p-5 space-y-4 rounded-b-2xl" style={{ background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))' }}>
+          <p className="text-sm text-center" style={{ color: 'var(--text-on-dark-secondary, var(--text-body))' }}>{encouragement}</p>
 
           <div className="grid grid-cols-2 gap-3">
             <button
@@ -719,38 +719,38 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                 transition={{ duration: 0.25, ease: 'easeInOut' }}
                 className="overflow-hidden"
               >
-                <div className="p-4 rounded-lg" style={{ background: 'var(--surface-glass, rgba(255,255,255,0.06))', border: '1px solid var(--surface-border, rgba(255,255,255,0.10))' }}>
-                  <p className="text-sm font-bold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                <div className="p-4 rounded-lg" style={{ background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))', border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))' }}>
+                  <p className="text-sm font-bold" style={{ color: 'var(--gold-primary)' }}>
                     {METRIC_DETAILS[expandedMetric].title}
                   </p>
-                  <p className="text-sm mt-1" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.60))' }}>
+                  <p className="text-sm mt-1" style={{ color: 'var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 60%, transparent))' }}>
                     {METRIC_DETAILS[expandedMetric].description}
                   </p>
                   {expandedMetric === 'recovery_access' && (
                     <div className="mt-3 grid grid-cols-3 gap-2 text-center">
                       <div>
-                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.40))' }}>Emotional</p>
-                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, rgba(255,255,255,0.92))' }}>{eclipse.dimensions.emotional_load.score}</p>
+                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 40%, transparent))' }}>Emotional</p>
+                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, color-mix(in srgb, var(--text-body) 92%, transparent))' }}>{eclipse.dimensions.emotional_load.score}</p>
                       </div>
                       <div>
-                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.40))' }}>Cognitive</p>
-                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, rgba(255,255,255,0.92))' }}>{eclipse.dimensions.cognitive_load.score}</p>
+                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 40%, transparent))' }}>Cognitive</p>
+                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, color-mix(in srgb, var(--text-body) 92%, transparent))' }}>{eclipse.dimensions.cognitive_load.score}</p>
                       </div>
                       <div>
-                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.40))' }}>Relational</p>
-                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, rgba(255,255,255,0.92))' }}>{eclipse.dimensions.relational_load.score}</p>
+                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 40%, transparent))' }}>Relational</p>
+                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, color-mix(in srgb, var(--text-body) 92%, transparent))' }}>{eclipse.dimensions.relational_load.score}</p>
                       </div>
                     </div>
                   )}
                   {expandedMetric === 'load_pressure' && (
                     <div className="mt-3 grid grid-cols-2 gap-2 text-center">
                       <div>
-                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.40))' }}>Energy Ratio</p>
-                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, rgba(255,255,255,0.92))' }}>{eclipse.derived_metrics.eer}</p>
+                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 40%, transparent))' }}>Energy Ratio</p>
+                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, color-mix(in srgb, var(--text-body) 92%, transparent))' }}>{eclipse.derived_metrics.eer}</p>
                       </div>
                       <div>
-                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.40))' }}>Load Signal Count</p>
-                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, rgba(255,255,255,0.92))' }}>{eclipse.derived_metrics.bri}</p>
+                        <p className="text-xs font-semibold" style={{ color: 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 40%, transparent))' }}>Load Signal Count</p>
+                        <p className="text-sm font-bold" style={{ color: 'var(--text-on-dark, color-mix(in srgb, var(--text-body) 92%, transparent))' }}>{eclipse.derived_metrics.bri}</p>
                       </div>
                     </div>
                   )}
@@ -759,28 +759,28 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
             )}
           </AnimatePresence>
 
-          <div className="pt-4" style={{ borderTop: '1px solid var(--surface-border, rgba(255,255,255,0.10))' }}>
-            <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.60))' }}>{gateLabel}</p>
+          <div className="pt-4" style={{ borderTop: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))' }}>
+            <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 60%, transparent))' }}>{gateLabel}</p>
             {gateExplanation && (
-              <p className="text-xs mt-2" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.42))' }}>{gateExplanation}</p>
+              <p className="text-xs mt-2" style={{ color: 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 42%, transparent))' }}>{gateExplanation}</p>
             )}
           </div>
 
           {/* Expandable "What This Means" section */}
-          <div className="pt-4" style={{ borderTop: '1px solid var(--surface-border, rgba(255,255,255,0.10))' }}>
+          <div className="pt-4" style={{ borderTop: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))' }}>
             <button
               type="button"
               onClick={() => setShowExplanation(!showExplanation)}
               aria-expanded={showExplanation}
               className="flex items-center gap-2 text-sm font-medium w-full text-left cosmic-focus-target transition-colors"
-              style={{ color: 'var(--brand-gold, #F8D011)' }}
+              style={{ color: 'var(--gold-primary)' }}
             >
               <span
                 className="inline-block transition-transform"
                 style={{ transform: showExplanation ? 'rotate(90deg)' : 'rotate(0deg)' }}
                 aria-hidden="true"
               >
-                &#9654;
+                &var(--text-body);
               </span>
               What this means — science, real life, and what to do next
             </button>
@@ -797,23 +797,23 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                   <div className="space-y-5 mt-4">
                     {/* Science */}
                     <div>
-                      <p className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                      <p className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: 'var(--gold-primary)' }}>
                         The Science
                       </p>
-                      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.70))' }}>
+                      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                         {explanation.science}
                       </p>
                     </div>
 
                     {/* Real Life Examples */}
                     <div>
-                      <p className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                      <p className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: 'var(--gold-primary)' }}>
                         What This Might Look Like
                       </p>
                       <ul className="space-y-2">
                         {explanation.realLife.map((example, i) => (
-                          <li key={i} className="flex gap-2.5 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.70))' }}>
-                            <span className="mt-0.5 shrink-0" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.42))' }}>&#9679;</span>
+                          <li key={i} className="flex gap-2.5 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                            <span className="mt-0.5 shrink-0" style={{ color: 'var(--text-on-dark-muted, color-mix(in srgb, var(--text-body) 42%, transparent))' }}>&var(--text-body);</span>
                             {example}
                           </li>
                         ))}
@@ -822,13 +822,13 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
 
                     {/* Coaching Interventions */}
                     <div>
-                      <p className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+                      <p className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: 'var(--gold-primary)' }}>
                         Where to Start
                       </p>
                       <ul className="space-y-2">
                         {explanation.coaching.map((step, i) => (
-                          <li key={i} className="flex gap-2.5 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.70))' }}>
-                            <span className="font-bold shrink-0" style={{ color: 'var(--brand-gold, #F8D011)' }}>{i + 1}.</span>
+                          <li key={i} className="flex gap-2.5 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                            <span className="font-bold shrink-0" style={{ color: 'var(--gold-primary)' }}>{i + 1}.</span>
                             {step}
                           </li>
                         ))}

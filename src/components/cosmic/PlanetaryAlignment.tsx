@@ -56,7 +56,7 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
       return {
         rayId,
         name: RAY_SHORT_NAMES[rayId] ?? rayId,
-        color: RAY_COLORS[rayId] ?? '#F4C430',
+        color: RAY_COLORS[rayId] ?? 'var(--gold-primary)',
         x, y, score,
         r: 14 + (score / 100) * 6,
       };
@@ -76,13 +76,13 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
         <defs>
           {/* Deep space background */}
           <linearGradient id="pa-space" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0a0318" />
-            <stop offset="40%" stopColor="#0f0520" />
-            <stop offset="100%" stopColor="#1a0a35" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="40%" stopColor="var(--text-body)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </linearGradient>
 
           {/* Sun bloom filter */}
-          <filter id="pa-sun-bloom" x="-100%" y="-100%" width="300%" height="300%">
+          <filter id="pa-sun-bloom" x="-100%" y="-100%" width={"300%"} height={"300%"}>
             <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b2" />
             <feMerge>
@@ -93,7 +93,7 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
           </filter>
 
           {/* Planet glow filter */}
-          <filter id="pa-planet-glow" x="-80%" y="-80%" width="260%" height="260%">
+          <filter id="pa-planet-glow" x="-80%" y="-80%" width={"260%"} height={"260%"}>
             <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b2" />
             <feMerge>
@@ -104,46 +104,46 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
           </filter>
 
           {/* Beam glow */}
-          <filter id="pa-beam-glow" x="-20%" y="-200%" width="140%" height="500%">
+          <filter id="pa-beam-glow" x="-20%" y="-200%" width={"140%"} height={"500%"}>
             <feGaussianBlur stdDeviation="3" />
           </filter>
 
           {/* Sun core gradient */}
           <radialGradient id="pa-sun-core" cx="38%" cy="38%">
-            <stop offset="0%" stopColor="#FFFDF5" />
-            <stop offset="25%" stopColor="#FFF8E7" />
-            <stop offset="55%" stopColor="#F4C430" />
-            <stop offset="80%" stopColor="#E8A317" />
-            <stop offset="100%" stopColor="#A8820A" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="25%" stopColor="var(--text-body)" />
+            <stop offset="55%" stopColor="var(--gold-primary)" />
+            <stop offset="80%" stopColor="var(--neon-amber)" />
+            <stop offset="100%" stopColor="var(--text-body)" />
           </radialGradient>
 
           {/* Sun corona */}
           <radialGradient id="pa-corona">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.3" />
-            <stop offset="50%" stopColor="#F4C430" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="var(--gold-primary)" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0" />
           </radialGradient>
 
           {/* Per-planet gradients */}
           {planets.map((p) => (
             <radialGradient key={`grad-${p.rayId}`} id={`pa-planet-${p.rayId}`} cx="35%" cy="35%">
-              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.3" />
               <stop offset="30%" stopColor={p.color} stopOpacity="0.95" />
               <stop offset="70%" stopColor={p.color} stopOpacity="1" />
-              <stop offset="100%" stopColor="rgba(0,0,0,0.4)" />
+              <stop offset="100%" stopColor="color-mix(in srgb, var(--ink-950) 40%, transparent)" />
             </radialGradient>
           ))}
 
           {/* Beam gradient */}
           <linearGradient id="pa-beam-grad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F4C430" stopOpacity="0.5" />
-            <stop offset="50%" stopColor="#FFF8E7" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#F4C430" stopOpacity="0.1" />
+            <stop offset="0%" stopColor="var(--gold-primary)" stopOpacity="0.5" />
+            <stop offset="50%" stopColor="var(--text-body)" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="var(--gold-primary)" stopOpacity="0.1" />
           </linearGradient>
 
           {/* Scanline pattern */}
           <pattern id="pa-scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-            <rect width="4" height="2" fill="rgba(0,0,0,0.05)" />
+            <rect width="4" height="2" fill="color-mix(in srgb, var(--ink-950) 5%, transparent)" />
           </pattern>
         </defs>
 
@@ -157,7 +157,7 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
             cx={seededRandom(i * 23) * W}
             cy={seededRandom(i * 23 + 1) * H}
             r={0.3 + seededRandom(i * 23 + 2) * 0.7}
-            fill="#FFFFFF"
+            fill="var(--text-body)"
             initial={false}
             animate={
               !reducedMotion && i % 6 === 0
@@ -188,19 +188,19 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
               y1={H / 2 + Math.sin(angle) * 23}
               x2={55 + Math.cos(angle) * len}
               y2={H / 2 + Math.sin(angle) * len}
-              stroke="#F4C430" strokeWidth={w}
+              stroke="var(--gold-primary)" strokeWidth={w}
               strokeOpacity={0.5} strokeLinecap="round"
             />
           );
         })}
         {/* Sun hotspot */}
-        <circle cx={51} cy={H / 2 - 4} r={5} fill="#FFFFFF" opacity={0.25} />
+        <circle cx={51} cy={H / 2 - 4} r={5} fill="var(--text-body)" opacity={0.25} />
 
         {/* Alignment beam — layered glow */}
         <line
           x1={77} y1={H / 2}
           x2={W - 15} y2={H / 2 + (W - 15 - W / 2) * -0.12}
-          stroke="#F4C430" strokeWidth={6}
+          stroke="var(--gold-primary)" strokeWidth={6}
           strokeOpacity={0.04 + alignment * 0.06}
           filter="url(#pa-beam-glow)"
         />
@@ -249,7 +249,7 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
               cx={planet.x + planet.r * 0.3}
               cy={planet.y + planet.r * 0.1}
               r={planet.r * 0.9}
-              fill="rgba(0,0,0,0.35)"
+              fill="color-mix(in srgb, var(--ink-950) 35%, transparent)"
               clipPath={`circle(${planet.r}px at ${planet.x}px ${planet.y}px)`}
             />
 
@@ -259,7 +259,7 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
               cy={planet.y}
               rx={planet.r * 0.6}
               ry={planet.r * 0.15}
-              fill="rgba(255,255,255,0.06)"
+              fill="color-mix(in srgb, var(--text-body) 6%, transparent)"
               transform={`rotate(-20 ${planet.x} ${planet.y})`}
             />
 
@@ -280,7 +280,7 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
             <rect
               x={planet.x - 22} y={planet.y + planet.r + 6}
               width={44} height={12} rx={2}
-              fill="rgba(10,5,28,0.7)"
+              fill="var(--surface-border)"
               stroke={planet.color} strokeWidth={0.4} strokeOpacity={0.3}
             />
             <text
@@ -298,7 +298,7 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
             <text
               x={planet.x} y={planet.y + planet.r + 28}
               textAnchor="middle"
-              fill="#F0F0FF"
+              fill="var(--text-body)"
               fontSize="7" fontFamily="monospace"
               fontWeight="400" opacity={0.4}
             >
@@ -343,12 +343,12 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
         {/* Alignment readout — vintage instrument style */}
         <rect
           x={12} y={H - 28} width={100} height={18} rx={3}
-          fill="rgba(10,5,28,0.8)"
-          stroke="rgba(244,196,48,0.2)" strokeWidth={0.5}
+          fill="var(--surface-border)"
+          stroke="var(--surface-border)" strokeWidth={0.5}
         />
         <text
           x={22} y={H - 15.5}
-          fill={alignment > 0.7 ? '#F4C430' : '#8B5CF6'}
+          fill={alignment > 0.7 ? 'var(--gold-primary)' : 'var(--text-body)'}
           fontSize="8" fontFamily="monospace" fontWeight="700"
           letterSpacing="0.08em"
         >
@@ -359,7 +359,7 @@ export default function PlanetaryAlignment({ rays }: PlanetaryAlignmentProps) {
       {/* Alignment readout */}
       <div className="mt-3 flex items-center justify-between">
         <span style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11 }}>Ray coherence</span>
-        <span style={{ color: alignment > 0.7 ? '#F4C430' : '#A78BFA', fontSize: 13, fontWeight: 700 }}>
+        <span style={{ color: alignment > 0.7 ? 'var(--gold-primary)' : 'var(--neon-violet)', fontSize: 13, fontWeight: 700 }}>
           {Math.round(alignment * 100)}%
         </span>
       </div>

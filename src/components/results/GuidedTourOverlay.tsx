@@ -132,7 +132,7 @@ export default function GuidedTourOverlay() {
             className="text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
             style={{
               background: 'var(--brand-gold)',
-              color: '#020202',
+              color: 'var(--ink-950)',
             }}
           >
             Start Tour
@@ -141,7 +141,7 @@ export default function GuidedTourOverlay() {
             onClick={dismissTour}
             className="text-xs font-medium px-4 py-2 rounded-lg transition-colors"
             style={{
-              background: 'rgba(148, 80, 200, 0.2)',
+              background: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)',
               color: 'var(--text-on-dark-secondary)',
             }}
           >
@@ -186,7 +186,7 @@ export default function GuidedTourOverlay() {
                 className="h-1.5 rounded-full transition-all"
                 style={{
                   width: i === stepIdx ? '16px' : '6px',
-                  background: i <= stepIdx ? 'var(--brand-gold)' : 'rgba(148, 80, 200, 0.3)',
+                  background: i <= stepIdx ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--stroke-400) 30%, transparent)',
                 }}
               />
             ))}
@@ -211,7 +211,7 @@ export default function GuidedTourOverlay() {
             disabled={stepIdx === 0}
             className="text-xs font-medium px-3 py-1.5 rounded-lg transition-colors"
             style={{
-              background: 'rgba(96, 5, 141, 0.2)',
+              background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
               color: stepIdx === 0 ? 'var(--text-on-dark-muted)' : 'var(--text-on-dark-secondary)',
               opacity: stepIdx === 0 ? 0.4 : 1,
             }}
@@ -229,9 +229,9 @@ export default function GuidedTourOverlay() {
             onClick={goNext}
             className="text-xs font-semibold px-4 py-1.5 rounded-lg transition-colors"
             style={{
-              background: isLast ? 'var(--brand-gold)' : 'rgba(248, 208, 17, 0.15)',
-              color: isLast ? '#020202' : 'var(--brand-gold)',
-              border: `1px solid ${isLast ? 'var(--brand-gold)' : 'rgba(248, 208, 17, 0.3)'}`,
+              background: isLast ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--gold-primary) 15%, transparent)',
+              color: isLast ? 'var(--ink-950)' : 'var(--brand-gold)',
+              border: `1px solid ${isLast ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--gold-primary) 30%, transparent)'}`,
             }}
           >
             {isLast ? 'Finish' : 'Next \u2192'}

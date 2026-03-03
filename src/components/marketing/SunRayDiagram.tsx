@@ -16,15 +16,15 @@ const RAYS = [
 ] as const;
 
 const ARC_COLORS: Record<string, string> = {
-  Reconnect: 'rgba(248, 208, 17, 0.9)',
-  Radiate:   'rgba(232, 163, 23, 0.9)',
-  Become:    'rgba(167, 139, 250, 0.9)',
+  Reconnect: 'color-mix(in srgb, var(--gold-primary) 90%, transparent)',
+  Radiate:   'var(--surface-border)',
+  Become:    'var(--surface-border)',
 };
 
 const ARC_COLORS_DIM: Record<string, string> = {
-  Reconnect: 'rgba(248, 208, 17, 0.25)',
-  Radiate:   'rgba(232, 163, 23, 0.25)',
-  Become:    'rgba(167, 139, 250, 0.25)',
+  Reconnect: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)',
+  Radiate:   'var(--surface-border)',
+  Become:    'var(--surface-border)',
 };
 
 /**
@@ -47,26 +47,26 @@ export default function SunRayDiagram({ className }: { className?: string }) {
 
   return (
     <div ref={ref} className={className}>
-      <svg viewBox={`0 0 ${size} ${size}`} width="100%" overflow="hidden" style={{ maxWidth: 480, margin: '0 auto', display: 'block' }}>
+      <svg viewBox={`0 0 ${size} ${size}`} width={"100%"} overflow="hidden" style={{ maxWidth: 480, margin: '0 auto', display: 'block' }}>
         <defs>
           {/* Sun core gradient */}
           <radialGradient id="srd-sun" cx="46%" cy="44%" r="52%">
-            <stop offset="0%" stopColor="#FFFEF5" />
-            <stop offset="25%" stopColor="#FFF8D6" />
-            <stop offset="50%" stopColor="#F8D011" />
-            <stop offset="75%" stopColor="#F0B800" />
-            <stop offset="100%" stopColor="#E89D0C" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--text-body)" />
+            <stop offset="25%" stopColor="var(--text-body)" />
+            <stop offset="50%" stopColor="var(--gold-primary)" />
+            <stop offset="75%" stopColor="var(--neon-amber)" />
+            <stop offset="100%" stopColor="var(--neon-amber)" stopOpacity="0" />
           </radialGradient>
 
           {/* Corona */}
           <radialGradient id="srd-corona" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFF8D6" stopOpacity="0.35" />
-            <stop offset="30%" stopColor="#F8D011" stopOpacity="0.12" />
+            <stop offset="0%" stopColor="var(--text-body)" stopOpacity="0.35" />
+            <stop offset="30%" stopColor="var(--gold-primary)" stopOpacity="0.12" />
             <stop offset="100%" stopColor="transparent" />
           </radialGradient>
 
           {/* Bloom */}
-          <filter id="srd-bloom" x="-80%" y="-80%" width="260%" height="260%">
+          <filter id="srd-bloom" x="-80%" y="-80%" width={"260%"} height={"260%"}>
             <feGaussianBlur stdDeviation="8" result="b1" />
             <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b2" />
             <feMerge>

@@ -29,13 +29,13 @@ export default async function CohortsPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-[880px] px-5 py-12 sm:px-8 sm:py-16 space-y-14">
+      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-14">
         <section className="text-center space-y-4 max-w-[720px] mx-auto">
           <p className="gold-tag mx-auto">◆ Light Circles</p>
-          <h1 className="text-3xl sm:text-4xl font-bold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+          <h1 className="text-3xl sm:text-4xl font-bold" style={{ color: "var(--text-body)" }}>
             Small group. Deep work. Real signal change.
           </h1>
-          <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}>
+          <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             This is not a workshop. It is a guided training environment where your behavior changes because your operating
             system changes.
           </p>
@@ -49,8 +49,8 @@ export default async function CohortsPage() {
               { title: "Outcome", body: "A measurable shift in how you lead under load." },
             ].map((card) => (
               <div key={card.title} className="glass-card p-5">
-                <h2 className="text-lg font-semibold" style={{ color: "#F8D011" }}>{card.title}</h2>
-                <p className="text-sm mt-2" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}>{card.body}</p>
+                <h2 className="text-lg font-semibold" style={{ color: "var(--gold-primary)" }}>{card.title}</h2>
+                <p className="text-sm mt-2" style={{ color: "var(--text-secondary)" }}>{card.body}</p>
               </div>
             ))}
           </section>
@@ -60,21 +60,21 @@ export default async function CohortsPage() {
 
         <FadeInSection>
           <section className="glass-card p-8 text-center max-w-[720px] mx-auto space-y-4">
-            <p className="text-xs uppercase tracking-widest font-bold" style={{ color: "#F8D011" }}>
+            <p className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--gold-primary)" }}>
               Apply first
             </p>
-            <h2 className="text-2xl font-bold" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+            <h2 className="text-2xl font-bold" style={{ color: "var(--text-body)" }}>
               Start with your free Stability Check, then apply for the cohort.
             </h2>
-            <p className="text-sm" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.75))" }}>
+            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
               I only open full cohort details after baseline signal and fit screening.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <NeonGlowButton href="/preview">Discover your Rays — free Stability Check</NeonGlowButton>
               <LiquidFillButton href="/group-coaching">Apply for Group Coaching</LiquidFillButton>
             </div>
-            <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Need the origin first? <Link href="/justin" style={{ color: "#F8D011" }}>Meet Justin</Link>
+            <p className="text-xs" style={{ color: "color-mix(in srgb, var(--text-body) 45%, transparent)" }}>
+              Need the origin first? <Link href="/justin" style={{ color: "var(--gold-primary)" }}>Meet Justin</Link>
             </p>
           </section>
         </FadeInSection>

@@ -55,8 +55,8 @@ export default function BetaAccessButton() {
         disabled={loading}
         className="inline-block rounded-xl px-8 py-4 text-base font-bold transition-opacity hover:opacity-90 disabled:opacity-60"
         style={{
-          background: 'var(--brand-gold, #F8D011)',
-          color: '#020202',
+          background: 'var(--gold-primary)',
+          color: 'var(--ink-950)',
           fontFamily: 'var(--font-display)',
           letterSpacing: '0.03em',
           cursor: loading ? 'wait' : 'pointer',
@@ -66,7 +66,7 @@ export default function BetaAccessButton() {
         {loading ? 'Setting up your access…' : 'Get Full Access — Free During Beta'}
       </button>
       {error && (
-        <p className="text-sm" style={{ color: '#E74C3C' }}>
+        <p className="text-sm" style={{ color: 'var(--text-body)' }}>
           {error}
         </p>
       )}

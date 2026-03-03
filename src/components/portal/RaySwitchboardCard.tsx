@@ -43,7 +43,7 @@ export default function RaySwitchboardCard({
         </div>
         <span
           className="text-[10px] uppercase tracking-widest rounded-full px-2 py-1"
-          style={{ color: 'var(--brand-gold)', background: 'rgba(248, 208, 17, 0.12)' }}
+          style={{ color: 'var(--brand-gold)', background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)' }}
         >
           1 minute
         </span>
@@ -63,13 +63,13 @@ export default function RaySwitchboardCard({
               onClick={() => setSelectedRay(rayId)}
               className="rounded-lg px-2.5 py-2 text-left transition-all hover:scale-[1.01]"
               style={{
-                background: isSelected ? ramp.badgeBg : 'rgba(2, 2, 2, 0.35)',
+                background: isSelected ? ramp.badgeBg : 'color-mix(in srgb, var(--ink-950) 35%, transparent)',
                 border: `1px solid ${isSelected ? ramp.hoverBorder : 'var(--surface-border)'}`,
                 color: ramp.full,
                 boxShadow: isTraining
-                  ? '0 0 0 1px rgba(248, 208, 17, 0.6), 0 0 10px rgba(248, 208, 17, 0.25)'
+                  ? '0 0 0 1px color-mix(in srgb, var(--gold-primary) 60%, transparent), 0 0 10px color-mix(in srgb, var(--gold-primary) 25%, transparent)'
                   : isTop
-                    ? '0 0 0 1px rgba(96, 5, 141, 0.5)'
+                    ? '0 0 0 1px color-mix(in srgb, var(--violet-650) 50%, transparent)'
                     : 'none',
               }}
             >
@@ -101,7 +101,7 @@ export default function RaySwitchboardCard({
                 type="button"
                 onClick={() => onOpenWatchMe(prompt.target, prompt.move)}
                 className="text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01]"
-                style={{ border: '1px solid var(--surface-border)', background: 'rgba(2, 2, 2, 0.35)', color: 'var(--text-on-dark)' }}
+                style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
               >
                 <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                   {prompt.label}
@@ -125,7 +125,7 @@ export default function RaySwitchboardCard({
                 type="button"
                 onClick={() => onOpenGoFirst(prompt.action)}
                 className="text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01]"
-                style={{ border: '1px solid var(--surface-border)', background: 'rgba(2, 2, 2, 0.35)', color: 'var(--text-on-dark)' }}
+                style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
               >
                 <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                   {prompt.label}

@@ -105,7 +105,7 @@ export default async function SpecCenterReportPreviewPage({ searchParams }: Page
 
   return (
     <main className="cosmic-page-bg">
-      <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-10">
+      <div className="content-wrap--wide px-5 py-8 sm:px-8 sm:py-10">
         <header className="glass-card p-6 mb-6 sm:p-8">
           <p className="chip mb-3">Spec Center</p>
           <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>

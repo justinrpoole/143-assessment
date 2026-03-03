@@ -4,7 +4,7 @@
 
 html {
   /* Match cosmic dark background to prevent white flash on swipe/overscroll */
-  background: var(--bg-deep, #1E0E35);
+  background: var(--bg-deep);
   overflow-x: hidden;
   overscroll-behavior-x: none;
 }
@@ -18,8 +18,8 @@ body {
 
 body {
   /* Dark base background prevents white flash on all platforms */
-  background: var(--bg-deep, #1E0E35);
-  color: var(--text-primary);
+  background: var(--bg-deep);
+  color: var(--text-body);
   font-family: var(--font-body);
   font-size: var(--type-sm);
   line-height: var(--line-normal);
@@ -50,9 +50,23 @@ a {
 }
 
 .page-shell {
-  margin: 0 auto;
-  max-width: 960px;
-  padding: var(--space-7) var(--space-5);
+  width: 100%;
+  padding-block: clamp(2.5rem, 4.5vw, 4.5rem);
+}
+
+.content-wrap {
+  width: min(100% - clamp(2rem, 4vw, 5rem), 960px);
+  margin-inline: auto;
+}
+
+.content-wrap--narrow {
+  width: min(100% - clamp(2rem, 4vw, 5rem), 720px);
+  margin-inline: auto;
+}
+
+.content-wrap--wide {
+  width: min(100% - clamp(2rem, 4vw, 5rem), 1160px);
+  margin-inline: auto;
 }
 
 .page-header {
@@ -71,11 +85,11 @@ a {
   font-size: var(--type-lg);
   line-height: var(--line-tight);
   margin: 0 0 var(--space-3);
-  color: var(--text-on-dark);
+  color: var(--text-header);
 }
 
 .page-header p {
-  color: var(--text-on-dark-secondary);
+  color: var(--text-secondary);
   margin: 0 0 var(--space-2);
 }
 
@@ -84,7 +98,7 @@ a {
   align-items: center;
   border: none;
   background: transparent;
-  color: #F8D011;
+  color: var(--text-header);
   border-radius: 0;
   padding: 0;
   font-size: 0.7rem;
@@ -141,7 +155,7 @@ a {
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #F8D011;
+  color: var(--text-header);
 }
 
 .question-band {
@@ -165,7 +179,7 @@ a {
   font-family: var(--font-display);
   font-size: var(--type-md);
   line-height: var(--line-tight);
-  color: var(--text-on-dark);
+  color: var(--text-body);
 }
 
 .challenge-flow {
@@ -186,12 +200,12 @@ a {
 .challenge-item h2 {
   margin: 0 0 var(--space-2);
   font-size: var(--type-md);
-  color: var(--text-on-dark);
+  color: var(--text-header);
 }
 
 .challenge-item p {
   margin: 0;
-  color: var(--text-on-dark-secondary);
+  color: var(--text-secondary);
 }
 
 .modules-grid {
@@ -213,18 +227,18 @@ a {
   font-size: var(--type-md);
   line-height: var(--line-tight);
   margin: 0 0 var(--space-2);
-  color: var(--text-on-dark);
+  color: var(--text-header);
 }
 
 .module-placeholder p {
-  color: var(--text-on-dark-secondary);
+  color: var(--text-secondary);
   margin: 0;
 }
 
 .gate-placeholder {
-  background: rgba(96, 5, 141, 0.25);
+  background: var(--surface-glass);
   border-color: var(--brand-gold);
-  color: var(--text-on-dark);
+  color: var(--text-body);
   margin-bottom: var(--space-4);
 }
 

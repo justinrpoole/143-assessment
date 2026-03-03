@@ -52,18 +52,18 @@ export default function SunWithGrowingRays({
       aria-label="Sun with 8 rays representing leadership capacities"
     >
       <defs>
-        <filter id="sunGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <filter id="sunGlow" x="-50%" y="-50%" width={"200%"} height={"200%"}>
           <feGaussianBlur stdDeviation="6" result="blur" />
           <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
-        <filter id="rayGlow" x="-100%" y="-100%" width="300%" height="300%">
+        <filter id="rayGlow" x="-100%" y="-100%" width={"300%"} height={"300%"}>
           <feGaussianBlur stdDeviation="2" result="blur" />
           <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
         <radialGradient id="sunGrad" cx="40%" cy="40%">
-          <stop offset="0%" stopColor="#FFFEF5" />
-          <stop offset="40%" stopColor="#F8D011" />
-          <stop offset="100%" stopColor="#D4770B" />
+          <stop offset="0%" stopColor="var(--text-body)" />
+          <stop offset="40%" stopColor="var(--gold-primary)" />
+          <stop offset="100%" stopColor="var(--neon-amber)" />
         </radialGradient>
       </defs>
 
@@ -73,7 +73,7 @@ export default function SunWithGrowingRays({
         cy={center}
         r={sunRadius * 2.2}
         fill="none"
-        stroke="rgba(248,208,17,0.08)"
+        stroke="color-mix(in srgb, var(--gold-primary) 8%, transparent)"
         strokeWidth={sunRadius * 0.8}
         animate={
           prefersReduced
@@ -167,7 +167,7 @@ export default function SunWithGrowingRays({
         cx={center - sunRadius * 0.2}
         cy={center - sunRadius * 0.2}
         r={sunRadius * 0.35}
-        fill="rgba(255,255,255,0.25)"
+        fill="color-mix(in srgb, var(--text-body) 25%, transparent)"
       />
     </svg>
   );

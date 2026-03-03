@@ -10,79 +10,79 @@ const RAYS = [
     name: 'Intention',
     phase: 'Reconnect',
     teaser: 'Where your attention goes before you choose',
-    color: 'var(--ray-intention, #60A5FA)',
+    color: 'var(--ray-intention, var(--text-body))',
     fillPercent: 0.72,
   },
   {
     name: 'Joy',
     phase: 'Reconnect',
     teaser: 'The fuel you forgot was a skill',
-    color: 'var(--ray-joy, #F4C430)',
+    color: 'var(--ray-joy, var(--text-body))',
     fillPercent: 0.58,
   },
   {
     name: 'Presence',
     phase: 'Reconnect',
     teaser: 'The truth detector behind every other score',
-    color: 'var(--ray-presence, #8E44AD)',
+    color: 'var(--ray-presence, var(--text-body))',
     fillPercent: 0.65,
   },
   {
     name: 'Power',
     phase: 'Expand',
     teaser: 'Movement before the feeling arrives',
-    color: 'var(--ray-power, #C0392B)',
+    color: 'var(--ray-power, var(--text-body))',
     fillPercent: 0.80,
   },
   {
     name: 'Purpose',
     phase: 'Expand',
     teaser: 'When your calendar matches your values',
-    color: 'var(--ray-purpose, #D4770B)',
+    color: 'var(--ray-purpose, var(--text-body))',
     fillPercent: 0.62,
   },
   {
     name: 'Authenticity',
     phase: 'Expand',
     teaser: 'Being the same person in every room',
-    color: 'var(--ray-authenticity, #2ECC71)',
+    color: 'var(--ray-authenticity, var(--text-body))',
     fillPercent: 0.70,
   },
   {
     name: 'Connection',
     phase: 'Become',
     teaser: 'Trust that makes honesty safe',
-    color: 'var(--ray-connection, #E74C8B)',
+    color: 'var(--ray-connection, var(--text-body))',
     fillPercent: 0.55,
   },
   {
     name: 'Possibility',
     phase: 'Become',
     teaser: 'Doors where others see walls',
-    color: 'var(--ray-possibility, #1ABC9C)',
+    color: 'var(--ray-possibility, var(--text-body))',
     fillPercent: 0.68,
   },
   {
     name: 'Be The Light',
     phase: 'Become',
     teaser: 'The capacity that holds the room steady',
-    color: 'var(--ray-btl, #F8D011)',
+    color: 'var(--ray-btl, var(--text-body))',
     fillPercent: 0.75,
   },
 ] as const;
 
 const PHASE_LABELS: Record<string, { color: string; border: string }> = {
-  Reconnect: { color: 'rgba(248, 208, 17, 0.85)', border: 'rgba(248, 208, 17, 0.15)' },
-  Expand: { color: 'rgba(232, 163, 23, 0.85)', border: 'rgba(232, 163, 23, 0.15)' },
-  Become: { color: 'rgba(167, 139, 250, 0.85)', border: 'rgba(167, 139, 250, 0.15)' },
+  Reconnect: { color: 'color-mix(in srgb, var(--gold-primary) 85%, transparent)', border: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' },
+  Expand: { color: 'var(--surface-border)', border: 'var(--surface-border)' },
+  Become: { color: 'var(--surface-border)', border: 'var(--surface-border)' },
 };
 
 /* ── Eclipse icon (crescent moon / covered sun) ── */
 function EclipseIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-      <circle cx="9" cy="9" r="7" fill="rgba(96, 5, 141, 0.6)" stroke="rgba(148, 80, 200, 0.4)" strokeWidth="1" />
-      <circle cx="12" cy="7" r="6" fill="var(--cosmic-purple-deep, #1A0A2E)" />
+      <circle cx="9" cy="9" r="7" fill="color-mix(in srgb, var(--violet-650) 60%, transparent)" stroke="color-mix(in srgb, var(--stroke-400) 40%, transparent)" strokeWidth="1" />
+      <circle cx="12" cy="7" r="6" fill="var(--cosmic-purple-deep, var(--text-body))" />
     </svg>
   );
 }
@@ -91,7 +91,7 @@ function EclipseIcon() {
 function SunIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-      <circle cx="9" cy="9" r="5" fill="var(--brand-gold, #F8D011)" />
+      <circle cx="9" cy="9" r="5" fill="var(--gold-primary)" />
       {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
         const rad = (angle * Math.PI) / 180;
         return (
@@ -101,7 +101,7 @@ function SunIcon() {
             y1={9 + Math.sin(rad) * 6.5}
             x2={9 + Math.cos(rad) * 8}
             y2={9 + Math.sin(rad) * 8}
-            stroke="var(--brand-gold, #F8D011)"
+            stroke="var(--gold-primary)"
             strokeWidth="1.5"
             strokeLinecap="round"
           />
@@ -136,21 +136,21 @@ export default function RaySpectrumBar({ className }: { className?: string }) {
           <EclipseIcon />
           <span
             className="text-[10px] font-semibold uppercase tracking-widest"
-            style={{ color: 'rgba(148, 80, 200, 0.7)' }}
+            style={{ color: 'color-mix(in srgb, var(--stroke-400) 70%, transparent)' }}
           >
             Eclipsed
           </span>
         </div>
         <span
           className="text-[10px] font-medium tracking-wide"
-          style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}
+          style={{ color: 'var(--text-muted)' }}
         >
           Where does your light land?
         </span>
         <div className="flex items-center gap-1.5">
           <span
             className="text-[10px] font-semibold uppercase tracking-widest"
-            style={{ color: 'rgba(248, 208, 17, 0.8)' }}
+            style={{ color: 'color-mix(in srgb, var(--gold-primary) 80%, transparent)' }}
           >
             Shining
           </span>
@@ -195,7 +195,7 @@ export default function RaySpectrumBar({ className }: { className?: string }) {
               className="group flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors"
               style={{ background: 'transparent' }}
               whileHover={{
-                background: 'rgba(96, 5, 141, 0.12)',
+                background: 'color-mix(in srgb, var(--violet-650) 12%, transparent)',
               }}
               initial={prefersReduced ? false : { opacity: 0, x: -12 }}
               animate={isInView ? { opacity: 1, x: 0 } : undefined}
@@ -215,7 +215,7 @@ export default function RaySpectrumBar({ className }: { className?: string }) {
                 </p>
                 <p
                   className="text-[10px] leading-snug mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                  style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))' }}
+                  style={{ color: 'var(--text-muted)' }}
                 >
                   {ray.teaser}
                 </p>
@@ -228,7 +228,7 @@ export default function RaySpectrumBar({ className }: { className?: string }) {
                   className="absolute inset-0 rounded-full overflow-hidden"
                   style={{
                     background:
-                      'linear-gradient(90deg, var(--cosmic-purple-deep, #1A0A2E) 0%, var(--cosmic-purple-mid, #2D1450) 25%, var(--cosmic-amber, #E8A317) 70%, var(--brand-gold, #F8D011) 100%)',
+                      'linear-gradient(90deg, var(--cosmic-purple-deep, var(--text-body)) 0%, var(--cosmic-purple-mid, var(--text-body)) 25%, var(--cosmic-amber, var(--text-body)) 70%, var(--gold-primary) 100%)',
                     opacity: 0.3,
                   }}
                 />
@@ -237,7 +237,7 @@ export default function RaySpectrumBar({ className }: { className?: string }) {
                 <motion.div
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{
-                    background: `linear-gradient(90deg, rgba(96, 5, 141, 0.6) 0%, ${ray.color} 60%, var(--brand-gold, #F8D011) 100%)`,
+                    background: `linear-gradient(90deg, color-mix(in srgb, var(--violet-650) 60%, transparent) 0%, ${ray.color} 60%, var(--gold-primary) 100%)`,
                     boxShadow: `0 0 12px ${ray.color}33`,
                   }}
                   initial={prefersReduced ? { width: `${ray.fillPercent * 100}%` } : { width: '0%' }}
@@ -290,15 +290,15 @@ export default function RaySpectrumBar({ className }: { className?: string }) {
       <motion.p
         className="text-center text-[11px] mt-4 pt-3"
         style={{
-          color: 'var(--text-on-dark-muted, rgba(255,255,255,0.5))',
-          borderTop: '1px solid rgba(148, 80, 200, 0.12)',
+          color: 'var(--text-muted)',
+          borderTop: '1px solid color-mix(in srgb, var(--stroke-400) 12%, transparent)',
         }}
         initial={prefersReduced ? false : { opacity: 0 }}
         animate={isInView ? { opacity: 1 } : undefined}
         transition={{ duration: 0.5, delay: 1.8 }}
       >
         These are illustrative positions.{' '}
-        <span style={{ color: 'var(--brand-gold, #F8D011)', fontWeight: 600 }}>
+        <span style={{ color: 'var(--gold-primary)', fontWeight: 600 }}>
           Your Light Signature is unique.
         </span>
       </motion.p>

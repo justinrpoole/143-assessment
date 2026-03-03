@@ -108,12 +108,12 @@ function DesktopDropdown({ group, pathname }: { group: NavGroup; pathname: strin
       {open && (
         <div className="absolute left-1/2 top-full pt-2" style={{ transform: "translateX(-50%)" }}>
           <div
-            className="min-w-[190px] rounded-xl border p-1.5"
+            className="w-[190px] rounded-xl border p-1.5"
             style={{
-              background: "var(--overlay-heavy, rgba(11, 2, 18, 0.92))",
+              background: "var(--overlay-heavy)",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
-              borderColor: "rgba(248, 208, 17, 0.12)",
+              borderColor: "var(--constellation-line-strong)",
             }}
           >
             {group.children.map((link) => (
@@ -243,7 +243,7 @@ export function MarketingNav() {
             />
             <span
               className="text-[15px] font-bold tracking-[0.18em]"
-              style={{ color: "var(--text-on-dark, rgba(255, 255, 255, 0.94))", letterSpacing: "0.18em" }}
+              style={{ color: "var(--text-on-dark)", letterSpacing: "0.18em" }}
             >
               LEADERSHIP
             </span>
@@ -317,7 +317,7 @@ export function MarketingNav() {
               type="button"
               onClick={() => setMenuOpen((prev) => !prev)}
               className="flex lg:hidden items-center justify-center w-9 h-9 rounded-lg transition-colors"
-              style={{ background: "rgba(255,255,255,0.06)" }}
+              style={{ background: "var(--constellation-line)" }}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
             >
@@ -342,7 +342,7 @@ export function MarketingNav() {
 
       {/* Full-screen mobile overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 flex flex-col lg:hidden" style={{ background: "var(--overlay-heavy, rgba(11, 2, 18, 0.92))" }}>
+        <div className="fixed inset-0 z-40 flex flex-col lg:hidden" style={{ background: "var(--overlay-heavy)" }}>
           <div className="h-[60px] shrink-0" />
 
           <div className="flex flex-1 flex-col items-center justify-center gap-5 overflow-y-auto py-8">
@@ -399,7 +399,7 @@ export function MarketingNav() {
       )}
 
       <style>{`
-        .dropdown-link:hover { color: var(--brand-gold) !important; background: rgba(248, 208, 17, 0.06); }
+        .dropdown-link:hover { color: var(--brand-gold) !important; background: color-mix(in srgb, var(--gold-primary) 8%, transparent); }
       `}</style>
     </>
   );

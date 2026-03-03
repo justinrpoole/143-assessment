@@ -13,8 +13,8 @@ interface RayDividerProps {
 }
 
 const SPECTRUM_COLORS = [
-  '#60A5FA', '#F4C430', '#8E44AD', '#C0392B', '#D4770B',
-  '#2ECC71', '#E74C8B', '#1ABC9C', '#F8D011',
+  'var(--text-body)', 'var(--gold-primary)', 'var(--neon-violet)', 'var(--text-body)', 'var(--neon-amber)',
+  'var(--text-body)', 'var(--text-body)', 'var(--text-body)', 'var(--gold-primary)',
 ];
 
 /**
@@ -31,7 +31,7 @@ export default function RayDivider({
   const isInView = useInView(ref, { once: true, margin: '-40px' });
   const prefersReduced = useReducedMotion();
 
-  const color = ray === 'spectrum' ? '#F8D011' : rayHex(ray);
+  const color = ray === 'spectrum' ? 'var(--gold-primary)' : rayHex(ray);
   const gradient =
     ray === 'spectrum'
       ? `linear-gradient(90deg, ${SPECTRUM_COLORS.join(', ')})`

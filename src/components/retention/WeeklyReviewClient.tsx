@@ -6,10 +6,10 @@ import { useCosmicMotion } from '@/lib/motion/use-cosmic-motion';
 import CosmicSkeleton from '@/components/ui/CosmicSkeleton';
 
 const PHASE_LABELS: Record<string, { label: string; color: string }> = {
-  orbit: { label: 'Orbit', color: '#22C55E' },
-  gravity_shift: { label: 'Gravity Shift', color: '#EAB308' },
-  eclipse_onset: { label: 'Eclipse Onset', color: '#F97316' },
-  full_eclipse: { label: 'Full Eclipse', color: '#EF4444' },
+  orbit: { label: 'Orbit', color: 'var(--ray-authenticity)' },
+  gravity_shift: { label: 'Gravity Shift', color: 'var(--text-body)' },
+  eclipse_onset: { label: 'Eclipse Onset', color: 'var(--text-body)' },
+  full_eclipse: { label: 'Full Eclipse', color: 'var(--text-body)' },
 };
 
 const QUALITY_LABELS = ['—', 'Surface', 'Specific', 'Actionable'];
@@ -115,7 +115,7 @@ export default function WeeklyReviewClient() {
       {/* Engagement summary */}
       <div
         className="glass-card p-6 space-y-4"
-        style={{ borderColor: 'rgba(248, 208, 17, 0.2)', boxShadow: '0 0 30px rgba(96, 5, 141, 0.1)' }}
+        style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)', boxShadow: '0 0 30px color-mix(in srgb, var(--violet-650) 10%, transparent)' }}
       >
         <div className="flex items-center justify-between">
           <span className="gold-tag text-xs font-bold">
@@ -128,13 +128,13 @@ export default function WeeklyReviewClient() {
 
         {/* Consistency bar */}
         <div className="space-y-1">
-          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
             <motion.div
               initial={shouldAnimate ? { width: 0 } : false}
               animate={{ width: `${consistencyPct}%` }}
               transition={{ duration: shouldAnimate ? 0.8 : 0, ease: 'easeOut' }}
               className="h-full rounded-full"
-              style={{ background: 'linear-gradient(90deg, #60058D, #F8D011)' }}
+              style={{ background: 'linear-gradient(90deg, var(--text-body), var(--text-body))' }}
             />
           </div>
           <div className="flex justify-between">
@@ -144,8 +144,8 @@ export default function WeeklyReviewClient() {
                 className="w-2 h-2 rounded-full"
                 style={{
                   background: d <= data.engagement.days_active
-                    ? 'var(--brand-gold, #F8D011)'
-                    : 'rgba(255,255,255,0.1)',
+                    ? 'var(--gold-primary)'
+                    : 'color-mix(in srgb, var(--text-body) 10%, transparent)',
                 }}
               />
             ))}
@@ -166,7 +166,7 @@ export default function WeeklyReviewClient() {
             <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>activities</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <p className="text-2xl font-bold" style={{ color: 'var(--gold-primary)' }}>
               {data.reps.streak_days > 0 ? `🔥 ${data.reps.streak_days}` : '—'}
             </p>
             <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>day streak</p>
@@ -178,7 +178,7 @@ export default function WeeklyReviewClient() {
       <div className="glass-card p-5 space-y-3">
         <div className="flex items-center justify-between">
           <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Reps</p>
-          <span className="text-sm font-bold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <span className="text-sm font-bold" style={{ color: 'var(--gold-primary)' }}>
             {data.reps.count_this_week}
           </span>
         </div>
@@ -195,13 +195,13 @@ export default function WeeklyReviewClient() {
                 <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{tool.name}</p>
                 <div className="flex items-center gap-2">
                   <div className="w-20 h-1.5 rounded-full overflow-hidden"
-                    style={{ background: 'rgba(255,255,255,0.08)' }}>
+                    style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
                     <motion.div
                       initial={shouldAnimate ? { width: 0 } : false}
                       animate={{ width: `${Math.round((tool.count / Math.max(data.reps.count_this_week, 1)) * 100)}%` }}
                       transition={{ duration: shouldAnimate ? 0.5 : 0, delay: shouldAnimate ? i * 0.05 : 0 }}
                       className="h-full rounded-full"
-                      style={{ background: 'var(--brand-gold, #F8D011)' }}
+                      style={{ background: 'var(--gold-primary)' }}
                     />
                   </div>
                   <span className="text-xs w-6 text-right" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -215,7 +215,7 @@ export default function WeeklyReviewClient() {
         {data.reps.count_this_week === 0 && (
           <div className="flex items-center gap-2">
             <p className="text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>No reps logged this week yet.</p>
-            <a href="/reps" className="text-xs underline" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <a href="/reps" className="text-xs underline" style={{ color: 'var(--gold-primary)' }}>
               Log one →
             </a>
           </div>
@@ -282,7 +282,7 @@ export default function WeeklyReviewClient() {
       </div>
 
       {/* RAS coaching nudge */}
-      <div className="glass-card gold-accent-left p-4 space-y-2" style={{ borderColor: 'rgba(96, 5, 141, 0.3)' }}>
+      <div className="glass-card gold-accent-left p-4 space-y-2" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
         <span className="gold-tag inline-block text-xs font-bold">
           The pattern
         </span>

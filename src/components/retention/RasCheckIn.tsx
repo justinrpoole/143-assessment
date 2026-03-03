@@ -87,7 +87,7 @@ export default function RasCheckIn({ bottomRayId }: { bottomRayId?: string }) {
   return (
     <div className="glass-card p-5 space-y-4">
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           RAS Check-In
         </p>
         <p className="mt-2 text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
@@ -107,7 +107,7 @@ export default function RasCheckIn({ bottomRayId }: { bottomRayId?: string }) {
             onClick={() => setSelectedRay(ray.id)}
             className="rounded-full px-3 py-1.5 text-xs font-medium transition-all"
             style={{
-              background: selectedRay === ray.id ? `${rc}20` : 'rgba(255,255,255,0.06)',
+              background: selectedRay === ray.id ? `${rc}20` : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
               border: `1px solid ${selectedRay === ray.id ? `${rc}60` : 'var(--surface-border)'}`,
               color: selectedRay === ray.id ? rc : 'var(--text-on-dark-muted)',
             }}
@@ -140,7 +140,7 @@ export default function RasCheckIn({ bottomRayId }: { bottomRayId?: string }) {
           type="text"
           className="mt-1 w-full rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
           style={{
-            background: 'rgba(255,255,255,0.06)',
+            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
             border: '1px solid var(--surface-border)',
             color: 'var(--text-on-dark)',
           }}

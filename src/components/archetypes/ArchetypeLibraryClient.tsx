@@ -296,7 +296,7 @@ export default function ArchetypeLibraryClient() {
       {swipeMode ? (
         <div
           ref={swipeRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5"
+          className="flex gap-4 overflow-auto snap-x snap-mandatory pb-4 -mx-5 px-5"
           style={{
             scrollbarWidth: 'none',
             WebkitOverflowScrolling: 'touch',
@@ -445,7 +445,7 @@ function ArchetypeCard({
       ? `2px solid ${a.neon_color}60`
       : '1px solid var(--surface-border)';
   const shadowHighlight = isOwn
-    ? '0 0 20px rgba(248, 208, 17, 0.12)'
+    ? '0 0 20px color-mix(in srgb, var(--gold-primary) 12%, transparent)'
     : isResonating
       ? `0 0 20px ${a.neon_color}15`
       : 'none';
@@ -473,7 +473,7 @@ function ArchetypeCard({
           if (!isOwn && !isResonating) {
             const el = e.currentTarget;
             el.style.boxShadow = 'none';
-            el.style.borderColor = 'rgba(148, 80, 200, 0.30)';
+            el.style.borderColor = 'color-mix(in srgb, var(--stroke-400) 30%, transparent)';
           }
         }}
       >
@@ -482,7 +482,7 @@ function ArchetypeCard({
             className="text-[10px] uppercase tracking-[0.2em] font-bold mb-2"
             style={{ color: 'var(--brand-gold)' }}
           >
-            &#9733; Your Light Signature
+            &var(--text-body); Your Light Signature
           </p>
         )}
 
@@ -647,7 +647,7 @@ function ArchetypeDetail({
                 className="mt-0.5 flex-shrink-0"
                 style={{ color: a.neon_color }}
               >
-                &#9656;
+                &var(--text-body);
               </span>
               {item}
             </li>
@@ -691,8 +691,8 @@ function ArchetypeDetail({
       <div
         className="rounded-xl p-4"
         style={{
-          background: 'rgba(0, 0, 0, 0.25)',
-          border: '1px solid rgba(255, 255, 255, 0.06)',
+          background: 'color-mix(in srgb, var(--ink-950) 25%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--text-body) 6%, transparent)',
         }}
       >
         <p
@@ -729,8 +729,8 @@ function ArchetypeDetail({
       <div
         className="rounded-xl p-3"
         style={{
-          background: 'rgba(148, 80, 200, 0.10)',
-          border: '1px solid rgba(148, 80, 200, 0.20)',
+          background: 'color-mix(in srgb, var(--stroke-400) 10%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)',
         }}
       >
         <p
@@ -764,8 +764,8 @@ function ArchetypeDetail({
       <div
         className="rounded-xl p-4"
         style={{
-          background: 'rgba(248, 208, 17, 0.06)',
-          border: '1px solid rgba(248, 208, 17, 0.15)',
+          background: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)',
+          border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)',
         }}
       >
         <p

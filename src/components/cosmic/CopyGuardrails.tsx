@@ -23,8 +23,8 @@ export default function CopyGuardrails() {
           <p style={{ color: 'var(--text-on-dark-muted)', fontSize: 10, marginBottom: 6 }}>TOOLTIP</p>
           <div
             style={{
-              background: 'rgba(17, 3, 32, 0.85)',
-              border: '1.5px solid #F4C430',
+              background: 'var(--surface-border)',
+              border: '1.5px solid var(--text-body)',
               borderRadius: 'var(--radius-md)',
               backdropFilter: 'blur(20px)',
               padding: '10px 16px',
@@ -45,7 +45,7 @@ export default function CopyGuardrails() {
                 height: 0,
                 borderLeft: '6px solid transparent',
                 borderRight: '6px solid transparent',
-                borderTop: '6px solid #F4C430',
+                borderTop: '6px solid var(--text-body)',
               }}
             />
           </div>
@@ -83,12 +83,12 @@ export default function CopyGuardrails() {
           <p style={{ color: 'var(--text-on-dark-muted)', fontSize: 10, marginBottom: 6 }}>BANNER BAR</p>
           <div
             style={{
-              background: '#1A1A1A',
+              background: 'var(--text-body)',
               padding: '10px 20px',
               borderRadius: 'var(--radius-sm)',
             }}
           >
-            <p style={{ color: '#F4C430', fontSize: 12, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+            <p style={{ color: 'var(--gold-primary)', fontSize: 12, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
               The light is still there
             </p>
           </div>
@@ -97,7 +97,7 @@ export default function CopyGuardrails() {
         {/* Voice principles */}
         <div
           style={{
-            borderTop: '1px solid rgba(255,255,255,0.08)',
+            borderTop: '1px solid color-mix(in srgb, var(--text-body) 8%, transparent)',
             paddingTop: 16,
             marginTop: 8,
           }}

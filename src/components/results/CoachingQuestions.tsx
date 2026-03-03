@@ -58,7 +58,7 @@ export default function CoachingQuestions({ questions, runId }: Props) {
   return (
     <section className="space-y-4">
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           Shooting Star Cues
         </p>
         <h3 className="mt-2 text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Shooting Star Cues</h3>
@@ -79,8 +79,8 @@ export default function CoachingQuestions({ questions, runId }: Props) {
               className="glass-card overflow-hidden transition-all"
               style={{
                 borderColor: hasSaved
-                  ? 'rgba(248, 208, 17, 0.25)'
-                  : 'rgba(148, 80, 200, 0.2)',
+                  ? 'color-mix(in srgb, var(--gold-primary) 25%, transparent)'
+                  : 'color-mix(in srgb, var(--stroke-400) 20%, transparent)',
               }}
             >
               {/* Question — always visible, clickable */}
@@ -92,8 +92,8 @@ export default function CoachingQuestions({ questions, runId }: Props) {
                 <span
                   className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold"
                   style={{
-                    background: hasSaved ? 'rgba(248, 208, 17, 0.2)' : 'rgba(148, 80, 200, 0.3)',
-                    color: hasSaved ? 'var(--brand-gold)' : 'rgba(255,255,255,0.6)',
+                    background: hasSaved ? 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' : 'color-mix(in srgb, var(--stroke-400) 30%, transparent)',
+                    color: hasSaved ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--text-body) 60%, transparent)',
                   }}
                 >
                   {hasSaved ? '\u2713' : i + 1}
@@ -124,7 +124,7 @@ export default function CoachingQuestions({ questions, runId }: Props) {
               {isExpanded && (
                 <div className="px-5 pb-5 space-y-3">
                   {hasSaved ? (
-                    <div className="rounded-xl p-4" style={{ background: 'rgba(248, 208, 17, 0.08)' }}>
+                    <div className="rounded-xl p-4" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}>
                       <p className="text-xs font-semibold mb-1" style={{ color: 'var(--brand-gold)' }}>
                         Your reflection
                       </p>
@@ -147,13 +147,13 @@ export default function CoachingQuestions({ questions, runId }: Props) {
                         maxLength={1000}
                         className="w-full rounded-xl border p-4 text-sm leading-relaxed resize-none"
                         style={{
-                          background: 'rgba(96, 5, 141, 0.2)',
-                          borderColor: 'rgba(148, 80, 200, 0.2)',
+                          background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+                          borderColor: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)',
                           color: 'var(--text-on-dark)',
                           outline: 'none',
                         }}
-                        onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(248, 208, 17, 0.4)'; }}
-                        onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(148, 80, 200, 0.2)'; }}
+                        onFocus={(e) => { e.currentTarget.style.borderColor = 'color-mix(in srgb, var(--gold-primary) 40%, transparent)'; }}
+                        onBlur={(e) => { e.currentTarget.style.borderColor = 'color-mix(in srgb, var(--stroke-400) 20%, transparent)'; }}
                       />
                       {ref?.text?.trim() && (
                         <button
@@ -162,9 +162,9 @@ export default function CoachingQuestions({ questions, runId }: Props) {
                           disabled={ref.saving}
                           className="text-xs font-semibold px-4 py-2 rounded-lg transition-colors disabled:opacity-50"
                           style={{
-                            background: 'rgba(248, 208, 17, 0.15)',
+                            background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)',
                             color: 'var(--brand-gold)',
-                            border: '1px solid rgba(248, 208, 17, 0.25)',
+                            border: '1px solid color-mix(in srgb, var(--gold-primary) 25%, transparent)',
                           }}
                         >
                           {ref.saving ? 'Saving...' : 'Save reflection'}

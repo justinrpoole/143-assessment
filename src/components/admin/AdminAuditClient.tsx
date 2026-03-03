@@ -123,13 +123,13 @@ export function AdminAuditClient() {
       </div>
 
       {/* Runs Table */}
-      <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--brand-gold, #F8D011)' }}>
-        <div className="overflow-x-auto">
+      <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--gold-primary)' }}>
+        <div className="overflow-auto">
           <table className="w-full text-sm">
             <thead>
               <tr
                 className="border-b"
-                style={{ borderColor: "var(--surface-border)", background: 'rgba(248, 208, 17, 0.03)' }}
+                style={{ borderColor: "var(--surface-border)", background: 'color-mix(in srgb, var(--gold-primary) 3%, transparent)' }}
               >
                 <th
                   className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider"

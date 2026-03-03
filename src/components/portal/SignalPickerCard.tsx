@@ -39,7 +39,7 @@ export default function SignalPickerCard({
             {bottomRayName ? `Training: ${bottomRayName}` : 'Pick one. Start small.'}
           </p>
         </div>
-        <span className="text-[10px] uppercase tracking-widest rounded-full px-2 py-1" style={{ color: 'var(--brand-gold)', background: 'rgba(248, 208, 17, 0.12)' }}>
+        <span className="text-[10px] uppercase tracking-widest rounded-full px-2 py-1" style={{ color: 'var(--brand-gold)', background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)' }}>
           2 minutes
         </span>
       </div>
@@ -56,7 +56,7 @@ export default function SignalPickerCard({
                 type="button"
                 onClick={() => onOpenWatchMe(prompt.target, prompt.move)}
                 className="text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01]"
-                style={{ border: '1px solid var(--surface-border)', background: 'rgba(2, 2, 2, 0.35)', color: 'var(--text-on-dark)' }}
+                style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
               >
                 <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                   {prompt.label}
@@ -80,7 +80,7 @@ export default function SignalPickerCard({
                 type="button"
                 onClick={() => onOpenGoFirst(prompt.action)}
                 className="text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01]"
-                style={{ border: '1px solid var(--surface-border)', background: 'rgba(2, 2, 2, 0.35)', color: 'var(--text-on-dark)' }}
+                style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
               >
                 <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                   {prompt.label}

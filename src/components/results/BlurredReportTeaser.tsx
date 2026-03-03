@@ -20,9 +20,9 @@ const PREVIEW_RAYS = [
 ];
 
 const ECLIPSE_BARS = [
-  { label: 'Emotional Load', pct: 45, color: '#9B59B6' },
-  { label: 'Cognitive Load', pct: 60, color: '#3498DB' },
-  { label: 'Relational Load', pct: 35, color: '#E74C3C' },
+  { label: 'Emotional Load', pct: 45, color: 'var(--text-body)' },
+  { label: 'Cognitive Load', pct: 60, color: 'var(--text-body)' },
+  { label: 'Relational Load', pct: 35, color: 'var(--text-body)' },
 ];
 
 export default function BlurredReportTeaser() {
@@ -42,25 +42,25 @@ export default function BlurredReportTeaser() {
         <div
           className="rounded-2xl p-6 mb-6 space-y-4"
           style={{
-            background: 'linear-gradient(135deg, var(--bg-deep-mid, #12052A) 0%, rgba(114,21,184,0.30) 50%, var(--bg-deep, #1A0A2E) 100%)',
-            border: '1px solid var(--surface-border, rgba(255,255,255,0.08))',
+            background: 'linear-gradient(135deg, var(--bg-deep-mid, var(--text-body)) 0%, var(--surface-border) 50%, var(--bg-deep, var(--text-body)) 100%)',
+            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 8%, transparent))',
           }}
         >
           <p
             className="text-xs font-bold uppercase tracking-widest text-center"
-            style={{ color: 'var(--brand-gold, #F8D011)' }}
+            style={{ color: 'var(--gold-primary)' }}
           >
             Your Light Signature
           </p>
           <h2
             className="text-2xl font-bold text-center"
-            style={{ fontFamily: 'var(--font-display)', color: 'var(--text-on-dark, #FFFEF5)' }}
+            style={{ fontFamily: 'var(--font-display)', color: 'var(--text-body)' }}
           >
             The Illuminated Architect
           </h2>
           <p
             className="text-sm text-center max-w-md mx-auto"
-            style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+            style={{ color: 'var(--text-secondary)' }}
           >
             When you are resourced, you lead by making the invisible visible. You build structures that outlast your presence and light paths others cannot yet see.
           </p>
@@ -69,15 +69,15 @@ export default function BlurredReportTeaser() {
               <div
                 key={r.label}
                 className="rounded-xl p-3"
-                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+                style={{ background: 'color-mix(in srgb, var(--text-body) 4%, transparent)', border: '1px solid color-mix(in srgb, var(--text-body) 7%, transparent)' }}
               >
-                <p className="text-xs mb-1" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.45))' }}>
+                <p className="text-xs mb-1" style={{ color: 'var(--text-muted)' }}>
                   {r.label}
                 </p>
-                <div className="h-1.5 w-full rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
+                <div className="h-1.5 w-full rounded-full" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
                   <div
                     className="h-1.5 rounded-full"
-                    style={{ width: `${r.pct}%`, background: 'var(--brand-gold, #F8D011)' }}
+                    style={{ width: `${r.pct}%`, background: 'var(--gold-primary)' }}
                   />
                 </div>
               </div>
@@ -89,23 +89,23 @@ export default function BlurredReportTeaser() {
         <div
           className="rounded-2xl p-6 space-y-4"
           style={{
-            background: 'var(--bg-deep-mid, #12052A)',
-            border: '1px solid var(--surface-border, rgba(255,255,255,0.08))',
+            background: 'var(--bg-deep-mid, var(--text-body))',
+            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 8%, transparent))',
           }}
         >
           <p
             className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: 'var(--brand-gold, #F8D011)' }}
+            style={{ color: 'var(--gold-primary)' }}
           >
             Eclipse Snapshot
           </p>
           <p
             className="text-lg font-semibold"
-            style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+            style={{ color: 'var(--text-body)' }}
           >
             Moderate Load &middot; System is stable
           </p>
-          <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+          <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
             Your capacity is not gone — it is covered. The snapshot below shows where stress is creating the most eclipse pressure.
           </p>
           <div className="space-y-3">
@@ -115,7 +115,7 @@ export default function BlurredReportTeaser() {
                   <span style={{ color: 'var(--text-on-dark-secondary)' }}>{b.label}</span>
                   <span style={{ color: b.color }}>{b.pct}%</span>
                 </div>
-                <div className="h-2 w-full rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                <div className="h-2 w-full rounded-full" style={{ background: 'color-mix(in srgb, var(--text-body) 6%, transparent)' }}>
                   <div
                     className="h-2 rounded-full"
                     style={{ width: `${b.pct}%`, background: b.color }}
@@ -132,7 +132,7 @@ export default function BlurredReportTeaser() {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(10,2,30,0.80)',
+          background: 'var(--surface-border)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -144,14 +144,14 @@ export default function BlurredReportTeaser() {
             className="text-2xl font-bold"
             style={{
               fontFamily: 'var(--font-display)',
-              color: 'var(--brand-gold, #F8D011)',
+              color: 'var(--gold-primary)',
             }}
           >
             Your full map is ready.
           </h2>
           <p
             className="text-base leading-relaxed"
-            style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+            style={{ color: 'var(--text-body)' }}
           >
             9 Ray scores. Eclipse pattern. Rise Path. Daily tools.
           </p>
@@ -159,8 +159,8 @@ export default function BlurredReportTeaser() {
             href="/upgrade"
             className="inline-block rounded-xl px-8 py-4 text-base font-bold transition-opacity hover:opacity-90"
             style={{
-              background: 'var(--brand-gold, #F8D011)',
-              color: '#020202',
+              background: 'var(--gold-primary)',
+              color: 'var(--ink-950)',
               fontFamily: 'var(--font-display)',
               letterSpacing: '0.03em',
             }}

@@ -28,11 +28,11 @@ export default function SystemHealthGauges({ indices }: Props) {
     : 'depleted';
 
   const eerConfig: Record<string, { color: string; label: string; message: string }> = {
-    strong: { color: '#34D399', label: 'Strong', message: 'Your energy output far exceeds your load. System is generating surplus.' },
-    balanced: { color: '#F8D011', label: 'Balanced', message: 'Healthy ratio between output and load. Continue current patterns.' },
-    strained: { color: '#FB923C', label: 'Strained', message: 'Load is approaching output levels. Recovery access is narrowing.' },
-    depleted: { color: '#F87171', label: 'Depleted', message: 'Load exceeds output capacity. Stabilization before growth work.' },
-    unknown: { color: '#94A3B8', label: 'N/A', message: 'Insufficient data to calculate.' },
+    strong: { color: 'var(--neon-teal)', label: 'Strong', message: 'Your energy output far exceeds your load. System is generating surplus.' },
+    balanced: { color: 'var(--gold-primary)', label: 'Balanced', message: 'Healthy ratio between output and load. Continue current patterns.' },
+    strained: { color: 'var(--neon-amber)', label: 'Strained', message: 'Load is approaching output levels. Recovery access is narrowing.' },
+    depleted: { color: 'var(--ray-power)', label: 'Depleted', message: 'Load exceeds output capacity. Stabilization before growth work.' },
+    unknown: { color: 'var(--text-body)', label: 'N/A', message: 'Insufficient data to calculate.' },
   };
 
   // BRI interpretation (0-9 rays)
@@ -42,10 +42,10 @@ export default function SystemHealthGauges({ indices }: Props) {
     : 'high';
 
   const briConfig: Record<string, { color: string; label: string; message: string }> = {
-    clear: { color: '#34D399', label: 'Clear', message: 'No rays showing eclipse dominance. Full range available.' },
-    watch: { color: '#F8D011', label: 'Watch', message: `${bri} ray${bri > 1 ? 's' : ''} with eclipse exceeding shine. Monitor but not urgent.` },
-    elevated: { color: '#FB923C', label: 'Elevated', message: `${bri} rays under eclipse pressure. Targeted recovery recommended.` },
-    high: { color: '#F87171', label: 'High Risk', message: `${bri} rays dominated by eclipse. Stabilization is priority one.` },
+    clear: { color: 'var(--neon-teal)', label: 'Clear', message: 'No rays showing eclipse dominance. Full range available.' },
+    watch: { color: 'var(--gold-primary)', label: 'Watch', message: `${bri} ray${bri > 1 ? 's' : ''} with eclipse exceeding shine. Monitor but not urgent.` },
+    elevated: { color: 'var(--neon-amber)', label: 'Elevated', message: `${bri} rays under eclipse pressure. Targeted recovery recommended.` },
+    high: { color: 'var(--ray-power)', label: 'High Risk', message: `${bri} rays dominated by eclipse. Stabilization is priority one.` },
   };
 
   // LSI interpretation (0-100)
@@ -56,11 +56,11 @@ export default function SystemHealthGauges({ indices }: Props) {
     : 'high';
 
   const lsiConfig: Record<string, { color: string; label: string; message: string }> = {
-    low: { color: '#34D399', label: 'Low', message: 'System is running light. Full capacity for growth and stretch work.' },
-    moderate: { color: '#F8D011', label: 'Moderate', message: 'Normal operating load. Stay aware of cumulative stress.' },
-    elevated: { color: '#FB923C', label: 'Elevated', message: 'Meaningful system pressure. Prioritize tools over reps.' },
-    high: { color: '#F87171', label: 'High', message: 'System under significant load. Stabilize before adding new challenges.' },
-    unknown: { color: '#94A3B8', label: 'N/A', message: 'Insufficient data.' },
+    low: { color: 'var(--neon-teal)', label: 'Low', message: 'System is running light. Full capacity for growth and stretch work.' },
+    moderate: { color: 'var(--gold-primary)', label: 'Moderate', message: 'Normal operating load. Stay aware of cumulative stress.' },
+    elevated: { color: 'var(--neon-amber)', label: 'Elevated', message: 'Meaningful system pressure. Prioritize tools over reps.' },
+    high: { color: 'var(--ray-power)', label: 'High', message: 'System under significant load. Stabilize before adding new challenges.' },
+    unknown: { color: 'var(--text-body)', label: 'N/A', message: 'Insufficient data.' },
   };
 
   const eerCfg = eerConfig[eerLevel];
@@ -165,7 +165,7 @@ function GaugeCard({
         <path
           d={bgArc}
           fill="none"
-          stroke="rgba(148, 80, 200, 0.2)"
+          stroke="color-mix(in srgb, var(--stroke-400) 20%, transparent)"
           strokeWidth="6"
           strokeLinecap="round"
         />

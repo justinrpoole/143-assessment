@@ -110,8 +110,8 @@ export function AttentionPrimer({ onComplete }: Props) {
                   width: 130,
                   height: 130,
                   background: 'transparent',
-                  boxShadow: '0 0 30px rgba(37, 246, 255, 0.12), 0 0 60px rgba(248, 208, 17, 0.08), inset 0 0 30px rgba(37, 246, 255, 0.06)',
-                  border: '1px solid rgba(37, 246, 255, 0.15)',
+                  boxShadow: '0 0 30px color-mix(in srgb, var(--neon-cyan) 12%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 8%, transparent), inset 0 0 30px color-mix(in srgb, var(--neon-cyan) 6%, transparent)',
+                  border: '1px solid color-mix(in srgb, var(--neon-cyan) 15%, transparent)',
                   transform: `scale(${circleScale})`,
                   transition: `transform ${transitionDuration} ease-in-out`,
                 }}
@@ -121,8 +121,8 @@ export function AttentionPrimer({ onComplete }: Props) {
                 style={{
                   width: 100,
                   height: 100,
-                  background: 'radial-gradient(circle, rgba(248, 208, 17, 0.25) 0%, rgba(114, 21, 184, 0.15) 70%, transparent 100%)',
-                  boxShadow: '0 0 40px rgba(248, 208, 17, 0.15), 0 0 80px rgba(96, 5, 141, 0.1)',
+                  background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 25%, transparent) 0%, var(--surface-border) 70%, transparent 100%)',
+                  boxShadow: '0 0 40px color-mix(in srgb, var(--gold-primary) 15%, transparent), 0 0 80px color-mix(in srgb, var(--violet-650) 10%, transparent)',
                   transform: `scale(${circleScale})`,
                   transition: `transform ${transitionDuration} ease-in-out`,
                 }}
@@ -132,7 +132,7 @@ export function AttentionPrimer({ onComplete }: Props) {
             {/* Phase instruction */}
             <p
               className="text-lg font-medium"
-              style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+              style={{ color: 'var(--text-body)' }}
             >
               {phaseText}
             </p>
@@ -160,7 +160,7 @@ export function AttentionPrimer({ onComplete }: Props) {
             {/* Complete state */}
             <p
               className="text-lg font-medium score-reveal"
-              style={{ color: 'var(--brand-gold, #F8D011)' }}
+              style={{ color: 'var(--gold-primary)' }}
             >
               Good. Your attention is here.
             </p>

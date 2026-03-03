@@ -46,7 +46,7 @@ export default function QuickRepFAB() {
       {open && (
         <div
           className="fixed inset-0 z-40"
-          style={{ background: 'rgba(2, 2, 2, 0.6)' }}
+          style={{ background: 'color-mix(in srgb, var(--ink-950) 60%, transparent)' }}
           onClick={() => setOpen(false)}
         />
       )}
@@ -57,7 +57,7 @@ export default function QuickRepFAB() {
           className="fixed bottom-20 right-5 z-50 glass-card p-3 space-y-1.5 w-52"
           style={{ borderColor: 'var(--surface-border)' }}
         >
-          <p className="text-xs font-bold uppercase tracking-widest px-2 pb-1" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest px-2 pb-1" style={{ color: 'var(--gold-primary)' }}>
             Log a Rep
           </p>
           {QUICK_TOOLS.map((tool) => (
@@ -68,10 +68,10 @@ export default function QuickRepFAB() {
               onClick={() => void logRep(tool.name, tool.label)}
               className="w-full text-left rounded-lg px-3 py-2 text-sm transition-colors disabled:opacity-50"
               style={{
-                color: 'var(--text-on-dark, #FFFEF5)',
+                color: 'var(--text-body)',
                 background: 'transparent',
               }}
-              onMouseEnter={(e) => { (e.target as HTMLElement).style.background = 'rgba(248, 208, 17, 0.1)'; }}
+              onMouseEnter={(e) => { (e.target as HTMLElement).style.background = 'color-mix(in srgb, var(--gold-primary) 10%, transparent)'; }}
               onMouseLeave={(e) => { (e.target as HTMLElement).style.background = 'transparent'; }}
             >
               {tool.label}
@@ -85,9 +85,9 @@ export default function QuickRepFAB() {
         <div
           className="fixed bottom-20 right-5 z-50 rounded-xl px-4 py-2 text-sm font-semibold"
           style={{
-            background: 'rgba(248, 208, 17, 0.15)',
-            border: '1px solid rgba(248, 208, 17, 0.3)',
-            color: 'var(--brand-gold, #F8D011)',
+            background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--gold-primary) 30%, transparent)',
+            color: 'var(--gold-primary)',
           }}
         >
           {flash} logged
@@ -100,21 +100,21 @@ export default function QuickRepFAB() {
         onClick={() => setOpen((prev) => !prev)}
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform active:scale-95"
         style={{
-          background: 'var(--brand-gold, #F8D011)',
-          boxShadow: '0 4px 20px rgba(248, 208, 17, 0.3)',
+          background: 'var(--gold-primary)',
+          boxShadow: '0 4px 20px color-mix(in srgb, var(--gold-primary) 30%, transparent)',
         }}
         aria-label={open ? 'Close rep menu' : 'Quick log a rep'}
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           {open ? (
             <>
-              <line x1="6" y1="6" x2="18" y2="18" stroke="var(--ink-dark, #020202)" strokeWidth="2" strokeLinecap="round" />
-              <line x1="18" y1="6" x2="6" y2="18" stroke="var(--ink-dark, #020202)" strokeWidth="2" strokeLinecap="round" />
+              <line x1="6" y1="6" x2="18" y2="18" stroke="var(--ink-dark, var(--text-body))" strokeWidth="2" strokeLinecap="round" />
+              <line x1="18" y1="6" x2="6" y2="18" stroke="var(--ink-dark, var(--text-body))" strokeWidth="2" strokeLinecap="round" />
             </>
           ) : (
             <>
-              <line x1="12" y1="5" x2="12" y2="19" stroke="var(--ink-dark, #020202)" strokeWidth="2" strokeLinecap="round" />
-              <line x1="5" y1="12" x2="19" y2="12" stroke="var(--ink-dark, #020202)" strokeWidth="2" strokeLinecap="round" />
+              <line x1="12" y1="5" x2="12" y2="19" stroke="var(--ink-dark, var(--text-body))" strokeWidth="2" strokeLinecap="round" />
+              <line x1="5" y1="12" x2="19" y2="12" stroke="var(--ink-dark, var(--text-body))" strokeWidth="2" strokeLinecap="round" />
             </>
           )}
         </svg>

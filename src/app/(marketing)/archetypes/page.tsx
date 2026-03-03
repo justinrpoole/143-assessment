@@ -34,13 +34,13 @@ export default function ArchetypesPage() {
   return (
     <main className="cosmic-page-bg">
       <ScrollProgressBar />
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16 space-y-12">
+      <div className="content-wrap--wide px-5 py-12 sm:px-8 sm:py-16 space-y-12">
 
         {/* ─── HERO ──────────────────────────────────────────── */}
-        <section className="relative mx-auto max-w-[720px] space-y-5 text-center">
+        <section className="relative content-wrap--narrow space-y-5 text-center">
           <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
-            <span style={{ color: '#F8D011' }}>◆</span> 36 Signals. One Is Yours.
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> 36 Signals. One Is Yours.
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
@@ -49,7 +49,7 @@ export default function ArchetypesPage() {
             Your Light Signature is one of 36. Which one are you?
           </h1>
           <p
-            className="mx-auto max-w-[540px] text-base leading-relaxed"
+            className="content-wrap--narrow text-base leading-relaxed"
             style={{
               color: "var(--text-on-dark-secondary)",
             }}
@@ -76,7 +76,7 @@ export default function ArchetypesPage() {
 
         {/* ─── 9 Signals — Vertical Progression ───────────────── */}
         <FadeInSection>
-          <div className="mx-auto max-w-[720px]">
+          <div className="content-wrap--narrow">
             <RayProgressionStack />
             <p
               className="mt-6 text-center text-sm leading-relaxed"
@@ -114,7 +114,7 @@ export default function ArchetypesPage() {
 
         {/* ─── INLINE QUICK QUIZ ─────────────────────────────── */}
         <FadeInSection>
-          <section className="mx-auto max-w-lg">
+          <section className="content-wrap--narrow">
             <div className="text-center mb-2">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
@@ -138,7 +138,7 @@ export default function ArchetypesPage() {
 
         {/* ─── FINAL CTA ─────────────────────────────────────── */}
         <FadeInSection>
-          <section className="relative mx-auto max-w-[720px]">
+          <section className="relative content-wrap--narrow">
             <FloatingOrbs variant="gold" />
             <div className="glass-card relative z-10 p-8 text-center space-y-5">
               <h2
@@ -148,7 +148,7 @@ export default function ArchetypesPage() {
                 Ready to see the full picture?
               </h2>
               <p
-                className="mx-auto max-w-[480px] text-sm leading-relaxed"
+                className="content-wrap--narrow text-sm leading-relaxed"
                 style={{
                   color: "var(--text-on-dark-secondary)",
                 }}

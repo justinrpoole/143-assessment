@@ -65,12 +65,12 @@ export default function Highlightable({
         borderLeft: isHighlighted ? '3px solid var(--brand-gold)' : '3px solid transparent',
         paddingLeft: isHighlighted ? '12px' : '12px',
         boxShadow: isHighlighted
-          ? '0 0 12px rgba(248, 208, 17, 0.15)'
+          ? '0 0 12px color-mix(in srgb, var(--gold-primary) 15%, transparent)'
           : 'none',
         background: isHighlighted
-          ? 'rgba(248, 208, 17, 0.04)'
+          ? 'color-mix(in srgb, var(--gold-primary) 4%, transparent)'
           : pressing
-            ? 'rgba(248, 208, 17, 0.02)'
+            ? 'color-mix(in srgb, var(--gold-primary) 2%, transparent)'
             : 'transparent',
       }}
       role="button"

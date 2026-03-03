@@ -52,10 +52,10 @@ export default async function LoginPage({ searchParams }: PageProps) {
             <p className="gold-tag inline-block text-xs font-bold" style={{ color: rayHex('R9') }}>
               {isSaveMap ? "Save Your Map" : "Sign In"}
             </p>
-            <h1 className="text-shimmer mt-3 text-2xl font-bold" style={{ color: 'var(--text-on-dark, #FFFEF5)', textShadow: neonText(NEON.amber) }}>
+            <h1 className="text-shimmer mt-3 text-2xl font-bold" style={{ color: 'var(--text-body)', textShadow: neonText(NEON.amber) }}>
               {isSaveMap ? "Your Light Signature Map is ready." : "Welcome back."}
             </h1>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {isSaveMap
                 ? "Enter your email to save your map and unlock your full results. We will send a secure link — no password needed."
                 : "Enter your email and we will send you a secure sign-in link. No password needed."}
@@ -68,7 +68,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
           </div>
 
           <div className="mt-6 text-center">
-            <p className="text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted, rgba(255,255,255,0.4))' }}>
+            <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               By signing in, you agree to our{" "}
               <Link href="/terms" className="underline underline-offset-2 transition-colors hover:text-brand-gold">
                 Terms of Service
@@ -83,9 +83,9 @@ export default async function LoginPage({ searchParams }: PageProps) {
         </div>
 
         <div className="mt-6 text-center">
-          <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}>
+          <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
             New here?{" "}
-            <Link href="/preview" className="font-semibold underline underline-offset-2 transition-colors hover:text-brand-gold" style={{ color: 'var(--brand-gold, #F8D011)' }}>
+            <Link href="/preview" className="font-semibold underline underline-offset-2 transition-colors hover:text-brand-gold" style={{ color: 'var(--gold-primary)' }}>
               Start with the free Gravitational Stability Check
             </Link>
           </p>

@@ -46,13 +46,13 @@ export default function OSExplainer() {
       <div className="text-center space-y-3">
         <p
           className="text-xs font-bold uppercase tracking-widest"
-          style={{ color: 'var(--brand-gold, #F8D011)' }}
+          style={{ color: 'var(--gold-primary)' }}
         >
           Your Operating System
         </p>
         <h2
           className="heading-section mx-auto max-w-[640px]"
-          style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+          style={{ color: 'var(--text-body)' }}
         >
           Your leadership runs on an{' '}
           <span className="text-gold-gradient">operating system</span>.
@@ -60,7 +60,7 @@ export default function OSExplainer() {
         </h2>
         <p
           className="mx-auto max-w-[540px] text-sm leading-relaxed"
-          style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+          style={{ color: 'var(--text-secondary)' }}
         >
           The assessment diagnoses your OS. The daily practice upgrades it.
           The retake proves it changed.
@@ -77,10 +77,10 @@ export default function OSExplainer() {
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold"
                   style={{
                     background: phase.highlight
-                      ? 'rgba(248,208,17,0.15)'
-                      : 'rgba(255,255,255,0.05)',
-                    color: phase.highlight ? '#F8D011' : 'rgba(255,255,255,0.3)',
-                    border: `1px solid ${phase.highlight ? 'rgba(248,208,17,0.3)' : 'rgba(255,255,255,0.1)'}`,
+                      ? 'color-mix(in srgb, var(--gold-primary) 15%, transparent)'
+                      : 'color-mix(in srgb, var(--text-body) 5%, transparent)',
+                    color: phase.highlight ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 30%, transparent)',
+                    border: `1px solid ${phase.highlight ? 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' : 'color-mix(in srgb, var(--text-body) 10%, transparent)'}`,
                   }}
                 >
                   {phase.icon}
@@ -89,7 +89,7 @@ export default function OSExplainer() {
                   <div
                     className="w-px flex-1"
                     style={{
-                      background: 'linear-gradient(to bottom, rgba(248,208,17,0.2), rgba(248,208,17,0.05))',
+                      background: 'linear-gradient(to bottom, color-mix(in srgb, var(--gold-primary) 20%, transparent), color-mix(in srgb, var(--gold-primary) 5%, transparent))',
                       minHeight: 'clamp(8px, 2vw, 24px)',
                     }}
                   />
@@ -99,25 +99,25 @@ export default function OSExplainer() {
               {/* Content */}
               <div
                 className={`glass-card flex-1 p-4 sm:p-5 ${phase.highlight ? 'glass-card--lift' : ''}`}
-                style={phase.highlight ? { borderLeft: '2px solid rgba(248,208,17,0.3)' } : undefined}
+                style={phase.highlight ? { borderLeft: '2px solid color-mix(in srgb, var(--gold-primary) 30%, transparent)' } : undefined}
               >
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
                   style={{
-                    color: phase.highlight ? '#F8D011' : 'rgba(255,255,255,0.45)',
+                    color: phase.highlight ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 45%, transparent)',
                   }}
                 >
                   {phase.label}
                 </p>
                 <p
                   className="mt-1 text-base font-semibold"
-                  style={{ color: 'var(--text-on-dark, #FFFEF5)' }}
+                  style={{ color: 'var(--text-body)' }}
                 >
                   {phase.title}
                 </p>
                 <p
                   className="mt-2 text-sm leading-relaxed"
-                  style={{ color: 'var(--text-on-dark-secondary, rgba(255,255,255,0.75))' }}
+                  style={{ color: 'var(--text-secondary)' }}
                 >
                   {phase.description}
                 </p>

@@ -45,13 +45,13 @@ export default function GroupCoachingGateClient({ children }: { children: React.
   if (!unlocked) {
     return (
       <section className="mx-auto max-w-3xl px-6 py-16 space-y-6">
-        <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "#F8D011" }}>
+        <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "var(--gold-primary)" }}>
           The Light Cohort
         </p>
-        <h1 className="text-3xl font-bold leading-tight sm:text-5xl" style={{ color: "var(--text-on-dark, #FFFEF5)" }}>
+        <h1 className="text-3xl font-bold leading-tight sm:text-5xl" style={{ color: "var(--text-body)" }}>
           Enter your name and email to unlock full cohort details.
         </h1>
-        <p className="text-base" style={{ color: "var(--text-on-dark-secondary, rgba(255,255,255,0.78))" }}>
+        <p className="text-base" style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 78%, transparent))" }}>
           Quick gate first. Full coaching details and application appear right after.
         </p>
 
@@ -59,12 +59,12 @@ export default function GroupCoachingGateClient({ children }: { children: React.
           onSubmit={(event) => void onSubmit(event)}
           className="rounded-2xl border p-6 sm:p-8 space-y-5"
           style={{
-            borderColor: "rgba(248, 208, 17, 0.2)",
-            background: "rgba(12, 4, 22, 0.8)",
+            borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)",
+            background: "var(--surface-border)",
           }}
         >
           <div>
-            <label htmlFor="group-gate-name" className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: "#F8D011" }}>
+            <label htmlFor="group-gate-name" className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: "var(--gold-primary)" }}>
               Name
             </label>
             <input
@@ -75,16 +75,16 @@ export default function GroupCoachingGateClient({ children }: { children: React.
               onChange={(event) => setName(event.target.value)}
               className="w-full rounded-xl border px-4 py-3 text-sm"
               style={{
-                borderColor: "rgba(248, 208, 17, 0.26)",
-                background: "rgba(255,255,255,0.04)",
-                color: "var(--text-on-dark, #FFFEF5)",
+                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+                color: "var(--text-body)",
               }}
               placeholder="Your name"
             />
           </div>
 
           <div>
-            <label htmlFor="group-gate-email" className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: "#F8D011" }}>
+            <label htmlFor="group-gate-email" className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: "var(--gold-primary)" }}>
               Email
             </label>
             <input
@@ -95,9 +95,9 @@ export default function GroupCoachingGateClient({ children }: { children: React.
               onChange={(event) => setEmail(event.target.value)}
               className="w-full rounded-xl border px-4 py-3 text-sm"
               style={{
-                borderColor: "rgba(248, 208, 17, 0.26)",
-                background: "rgba(255,255,255,0.04)",
-                color: "var(--text-on-dark, #FFFEF5)",
+                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+                color: "var(--text-body)",
               }}
               placeholder="you@example.com"
             />
@@ -108,8 +108,8 @@ export default function GroupCoachingGateClient({ children }: { children: React.
             disabled={submitting || !name.trim() || !email.trim()}
             className="inline-flex items-center rounded-xl px-6 py-3 text-sm font-bold transition-all"
             style={{
-              background: "#F8D011",
-              color: "#020202",
+              background: "var(--gold-primary)",
+              color: "var(--ink-950)",
               opacity: submitting ? 0.8 : 1,
             }}
           >
@@ -117,7 +117,7 @@ export default function GroupCoachingGateClient({ children }: { children: React.
           </button>
 
           {error && (
-            <p className="text-sm" style={{ color: "#fb7185" }}>
+            <p className="text-sm" style={{ color: "var(--text-body)" }}>
               {error}
             </p>
           )}

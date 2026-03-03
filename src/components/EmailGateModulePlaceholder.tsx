@@ -10,12 +10,12 @@ export function EmailGateModulePlaceholder({ route, message }: EmailGateModulePl
     <section
       className="glass-card p-6 space-y-4"
       aria-label="Sign in to continue"
-      style={{ borderColor: "rgba(248, 208, 17, 0.15)" }}
+      style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}
     >
       <div className="flex items-center gap-2">
         <span
           className="w-2 h-2 rounded-full"
-          style={{ background: "var(--brand-gold, #F8D011)" }}
+          style={{ background: "var(--gold-primary)" }}
         />
         <h2
           className="text-sm font-semibold"
