@@ -227,7 +227,7 @@ export function MarketingNav() {
     <>
       <nav
         className="sticky top-0 z-50 w-full border-b"
-        style={{ borderColor: "var(--surface-border)", background: "var(--brand-black)" }}
+        style={{ borderColor: "var(--surface-border)", background: "var(--bg-nav)" }}
         aria-label="Primary"
       >
         <div className="mx-auto flex h-[60px] max-w-[1200px] items-center justify-between gap-4 px-6">

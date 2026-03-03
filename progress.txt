@@ -2493,3 +2493,53 @@ Ralph Loop Iteration 32 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
 
 Next loop priority (iteration 33): add contract coverage for underscore at local-part start (`_user@...`) to explicitly confirm whether boundary policy should reject leading underscore or keep it allowed.
+[2026-03-02] Feature list — CosmicHeroV2 Hero Redesign (Ralph Loop, iteration 235+)
+- [TODO] Change 1: Update JSX text (row-light-on → "Your Light Was Never Gone", remove row-never-gone, REVELATION_TEXT)
+- [TODO] Change 2: Remove neverGoneEl DOM query + all JS usages
+- [TODO] Change 3: One-shot animation — freeze at progress=0.78, no loop
+- [TODO] Change 4: Text fade/pop sequence — eclipsed scale bounce, settle overrides
+- [TODO] Change 5: Moon GPU-only — transform instead of left/top/width/height
+- [TODO] Change 6: Reduced-motion RAF gate
+- [TODO] Change 7: CSS — neon glow on all rows, remove Dancing Script + row-never-gone, fix bottom padding
+- [TODO] Change 8: Lint + typecheck pass
+
+[2026-03-02] Feature: Change 1 — JSX text + REVELATION_TEXT
+Status: DONE
+Notes: REVELATION_TEXT → 'JUST IN A RAY OF LIGHT'. JSX: row-light-on text → "Your Light Was Never Gone", row-never-gone element removed.
+
+[2026-03-02] Feature: Change 2 — Remove neverGoneEl
+Status: DONE
+Notes: Removed DOM query + setStyle(neverGoneEl, ...) from frame loop. TypeScript clean.
+
+[2026-03-02] Feature: Change 3 — One-shot animation freeze
+Status: DONE
+Notes: progress = isFrozen ? FREEZE_AT : t/ECLIPSE_DUR. FREEZE_AT=0.78, frozenProgress=10.92s.
+
+[2026-03-02] Feature: Change 4 — Text fade/pop sequence
+Status: DONE
+Notes: Settle overrides block added after vigEl; eclipsed scale bounce 0.75→1.1→1.0 via popT.
+
+[2026-03-02] Feature: Change 5 — Moon GPU-only
+Status: DONE
+Notes: Removed MOON_FRAC, width/height setStyle, left/top writes. Now transform: translate(x,y) only.
+
+[2026-03-02] Feature: Change 6 — Reduced-motion RAF gate
+Status: DONE
+Notes: matchMedia check before requestAnimationFrame. CSS @media fallback shows all text at opacity:1.
+
+[2026-03-02] Feature: Change 7 — CSS neon glows + cleanup
+Status: DONE
+Notes: Removed Dancing Script import, row-never-gone block, chv2-scriptWrite keyframe. Added neon text-shadow + -webkit-text-stroke to all rows. eclipse-stage margin-bottom: -20px, hero padding-bottom: 32px, hero-copy margin-top: -8px.
+
+[2026-03-02] Feature: Change 8 — Lint + typecheck
+Status: DONE
+Notes: ESLint clean (0 errors/warnings). tsc smoothStep error confirmed pre-existing (present before our changes via git stash verify). Zero new errors introduced.
+
+[2026-03-02] SUMMARY — CosmicHeroV2 Hero Redesign
+COMPLETED: All 8 features
+REVISIT: none
+Pre-existing issues: smoothStep tsc error (unrelated tsconfig path issue), PortalDashboard missing-module errors
+
+[2026-03-02] Feature: Three-moment text sequence (mobile + final cleanup)
+Status: DONE
+Notes: Added .row-never-gone to @media (max-width: 600px) with clamp(2.2rem, 10vw, 4rem). Fixed .row-revelation mobile override to clamp(0.6rem, 2.2vw, 0.88rem) — was incorrectly set to 1.9rem-3.2rem from old large version. Fixed stale comment "LIVE JUST IN A RAY OF LIGHT" → "JUST IN A RAY OF LIGHT". ESLint: clean.

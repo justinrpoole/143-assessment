@@ -160,17 +160,17 @@
     var(--gradient-cosmic-radial),
     var(--gradient-gold-radial),
     /* Nebula cloud 1 — upper left purple wisp */
-    radial-gradient(ellipse 600px 400px at 15% 12%, rgba(96, 5, 141, 0.28) 0%, rgba(60, 10, 100, 0.10) 40%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 15% 12%, rgba(96, 5, 141, 0.40) 0%, rgba(60, 10, 100, 0.15) 40%, transparent 70%),
     /* Nebula cloud 2 — mid-right warm glow */
-    radial-gradient(ellipse 500px 350px at 82% 35%, rgba(140, 40, 180, 0.18) 0%, rgba(96, 5, 141, 0.06) 50%, transparent 75%),
+    radial-gradient(ellipse 500px 350px at 82% 35%, rgba(140, 40, 180, 0.30) 0%, rgba(96, 5, 141, 0.10) 50%, transparent 75%),
     /* Nebula cloud 3 — center-left gold shimmer */
     radial-gradient(ellipse 400px 300px at 25% 55%, rgba(248, 208, 17, 0.06) 0%, rgba(248, 208, 17, 0.02) 40%, transparent 70%),
     /* Nebula cloud 4 — lower purple bloom */
-    radial-gradient(ellipse 700px 500px at 60% 75%, rgba(96, 5, 141, 0.22) 0%, rgba(45, 20, 80, 0.08) 45%, transparent 75%),
+    radial-gradient(ellipse 700px 500px at 60% 75%, rgba(96, 5, 141, 0.35) 0%, rgba(45, 20, 80, 0.12) 45%, transparent 75%),
     /* Nebula cloud 5 — top-right diffuse */
-    radial-gradient(ellipse 550px 400px at 75% 8%, rgba(123, 79, 162, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 550px 400px at 75% 8%, rgba(123, 79, 162, 0.25) 0%, transparent 60%),
     /* Nebula cloud 6 — bottom-left purple mist */
-    radial-gradient(ellipse 450px 350px at 10% 85%, rgba(96, 5, 141, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 450px 350px at 10% 85%, rgba(96, 5, 141, 0.28) 0%, transparent 55%),
     /* Nebula cloud 7 — mid gold accent */
     radial-gradient(ellipse 300px 200px at 50% 45%, rgba(248, 208, 17, 0.04) 0%, transparent 60%);
   color: var(--text-on-dark);
@@ -773,7 +773,7 @@
 /* ── Alternating section backgrounds ── */
 /* Creates visual rhythm: default cosmic purple → darker contrast sections */
 .section-alt-dark {
-  background: rgba(6, 2, 18, 0.75);
+  background: rgba(18, 5, 50, 0.82);
   border-radius: 0;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);

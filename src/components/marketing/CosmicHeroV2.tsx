@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import './cosmic-hero-v2.css';
 
-const REVELATION_TEXT = 'LIVE JUST IN A RAY OF LIGHT';
+const REVELATION_TEXT = 'Just In A Ray Of Light';
 
 export default function CosmicHeroV2() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,9 +23,7 @@ export default function CosmicHeroV2() {
        Act 5  CELEBRATION  0.66 → 0.88   Nebula bloom, you are MORE
        Act 6  PEACE        0.88 → 1.00   Settle, ready again
        ============================================================ */
-    const ECLIPSE_DUR = 18;
-    const SUN_FRAC = 0.72;
-    const MOON_FRAC = 0.72;
+    const ECLIPSE_DUR = 14;
 
     /* ===== PERLIN NOISE ===== */
     const _p = new Uint8Array(512);
@@ -63,22 +61,22 @@ export default function CosmicHeroV2() {
     /* ===== DOM — all queries scoped to root ===== */
     const starCvs   = root.querySelector('.starfield') as HTMLCanvasElement;
     const starCtx   = starCvs.getContext('2d', { alpha: true })!;
-    const sunCvs    = root.querySelector('.sun-canvas') as HTMLCanvasElement;
-    const sunCtx    = sunCvs.getContext('2d', { alpha: true })!;
     const cosmoCvs  = root.querySelector('.cosmo-canvas') as HTMLCanvasElement;
     const cosmoCtx  = cosmoCvs.getContext('2d', { alpha: true })!;
     const grainCvs  = root.querySelector('.grain') as HTMLCanvasElement;
     const sunSvg    = root.querySelector('.sun-svg') as HTMLImageElement;
     const sunnovaEl = root.querySelector('.sunnova-svg') as HTMLImageElement;
     const moonEl    = root.querySelector('.moon') as HTMLImageElement;
-    const brand     = root.querySelector('.brand-143') as HTMLElement;
     const darkEl    = root.querySelector('.eclipse-darkness') as HTMLElement;
     const stageEl   = root.querySelector('.eclipse-stage') as HTMLElement;
     const nebEl     = root.querySelector('.nebula') as HTMLElement;
     const ambEl     = root.querySelector('.sun-ambient') as HTMLElement;
     const washEl    = root.querySelector('.celebration-wash') as HTMLElement;
-    const row1El    = root.querySelector('.row-1') as HTMLElement;
-    const vigEl     = root.querySelector('.vignette') as HTMLElement;
+    const neverGoneEl = root.querySelector('.row-never-gone') as HTMLElement;
+    const eclipsedEl  = root.querySelector('.row-eclipsed') as HTMLElement;
+    const learnEl     = root.querySelector('.row-learn') as HTMLElement;
+    const revelationEl = root.querySelector('.row-revelation') as HTMLElement;
+    const vigEl       = root.querySelector('.vignette') as HTMLElement;
 
     /* ===== STARFIELD ===== */
     let sw = 0, sh = 0, sdpr = 1;
@@ -347,124 +345,6 @@ export default function CosmicHeroV2() {
     }
 
     /* ===== SUN CANVAS ===== */
-    let scW = 0, scH = 0, scDpr = 1;
-
-    function resizeSun() {
-      scDpr = Math.min(1.5, devicePixelRatio || 1);
-      scW = sunCvs.clientWidth; scH = sunCvs.clientHeight;
-      sunCvs.width = Math.floor(scW * scDpr);
-      sunCvs.height = Math.floor(scH * scDpr);
-      sunCtx.setTransform(scDpr, 0, 0, scDpr, 0, 0);
-    }
-
-    function drawSunScene(time: number, bright: number, eclI: number, celebI: number, progress: number) {
-      sunCtx.clearRect(0, 0, scW, scH);
-      const cx = scW / 2, cy = scH / 2;
-      const R = (stageEl.clientWidth * SUN_FRAC) / 2;
-
-      /* Atmospheric glow — base warmth */
-      const glowMult = bright + celebI * 0.6;
-      const g1r = R * 4.5;
-      const g1 = sunCtx.createRadialGradient(cx, cy, R * 0.3, cx, cy, g1r);
-      g1.addColorStop(0, `rgba(255,200,80,${0.16 * glowMult})`);
-      g1.addColorStop(0.1, `rgba(255,180,60,${0.10 * glowMult})`);
-      g1.addColorStop(0.3, `rgba(255,150,40,${0.05 * glowMult})`);
-      g1.addColorStop(0.55, `rgba(255,120,20,${0.018 * glowMult})`);
-      g1.addColorStop(1, 'transparent');
-      sunCtx.fillStyle = g1;
-      sunCtx.beginPath(); sunCtx.arc(cx, cy, g1r, 0, Math.PI * 2); sunCtx.fill();
-
-      /* Tighter hot core */
-      const g2r = R * 1.8;
-      const g2 = sunCtx.createRadialGradient(cx, cy, R * 0.3, cx, cy, g2r);
-      g2.addColorStop(0, `rgba(255,220,130,${0.20 * glowMult})`);
-      g2.addColorStop(0.4, `rgba(255,190,80,${0.10 * glowMult})`);
-      g2.addColorStop(1, 'transparent');
-      sunCtx.fillStyle = g2;
-      sunCtx.beginPath(); sunCtx.arc(cx, cy, g2r, 0, Math.PI * 2); sunCtx.fill();
-
-      /* Corona streamers during eclipse */
-      if (eclI > 0.08) drawStreamers(cx, cy, R, eclI, time);
-
-      /* Diamond ring */
-      drawDiamondRing(cx, cy, R, progress);
-    }
-
-    /* ===== CORONA STREAMERS (eclipse) ===== */
-    function drawStreamers(cx: number, cy: number, R: number, intensity: number, time: number) {
-      const N = 32; // Reduced from 48
-      const base = R * 0.9;
-      sunCtx.save();
-      sunCtx.globalCompositeOperation = 'screen';
-
-      for (let i = 0; i < N; i++) {
-        const angle = (i / N) * Math.PI * 2 + Math.sin(time * 0.1) * 0.02;
-        const n1 = noiseTable[(i * 7 + (~~(time * 4))) & 255];
-        const len = base * (0.4 + n1 * 2.0);
-        const w = R * 0.03 * (0.3 + n1 * 0.7);
-        const startR = R * 0.85;
-        const x1 = cx + Math.cos(angle) * startR;
-        const y1 = cy + Math.sin(angle) * startR;
-        const x2 = cx + Math.cos(angle) * (startR + len);
-        const y2 = cy + Math.sin(angle) * (startR + len);
-        const drift = Math.sin(angle * 3 + time * 0.3) * w * 4;
-        const ctrlX = (x1 + x2) / 2 - Math.sin(angle) * drift;
-        const ctrlY = (y1 + y2) / 2 + Math.cos(angle) * drift;
-
-        const sg = sunCtx.createLinearGradient(x1, y1, x2, y2);
-        sg.addColorStop(0, `rgba(255,240,220,${0.50 * intensity})`);
-        sg.addColorStop(0.12, `rgba(255,210,140,${0.35 * intensity})`);
-        sg.addColorStop(0.35, `rgba(200,120,255,${0.28 * intensity})`);
-        sg.addColorStop(0.6, `rgba(147,64,255,${0.18 * intensity})`);
-        sg.addColorStop(1, 'transparent');
-
-        sunCtx.strokeStyle = sg;
-        sunCtx.lineWidth = w;
-        sunCtx.lineCap = 'round';
-        sunCtx.beginPath();
-        sunCtx.moveTo(x1, y1);
-        sunCtx.quadraticCurveTo(ctrlX, ctrlY, x2, y2);
-        sunCtx.stroke();
-      }
-
-      const rg = sunCtx.createRadialGradient(cx, cy, R * 0.75, cx, cy, R * 1.6);
-      rg.addColorStop(0, `rgba(255,200,120,${0.25 * intensity})`);
-      rg.addColorStop(0.25, `rgba(200,120,255,${0.22 * intensity})`);
-      rg.addColorStop(0.5, `rgba(147,64,255,${0.14 * intensity})`);
-      rg.addColorStop(1, 'transparent');
-      sunCtx.fillStyle = rg;
-      sunCtx.beginPath(); sunCtx.arc(cx, cy, R * 1.4, 0, Math.PI * 2); sunCtx.fill();
-      sunCtx.restore();
-    }
-
-    /* ===== DIAMOND RING ===== */
-    function drawDiamondRing(cx: number, cy: number, R: number, progress: number) {
-      const c1 = 0.44, c2 = 0.56, w = 0.025;
-      let I = 0;
-      if (Math.abs(progress - c1) < w) I = 1 - Math.abs(progress - c1) / w;
-      else if (Math.abs(progress - c2) < w) I = 1 - Math.abs(progress - c2) / w;
-      if (I < 0.01) return;
-      I *= I;
-
-      const side = progress < 0.5 ? -1 : 1;
-      const dx = cx + side * R * 0.80, dy = cy;
-
-      sunCtx.save();
-      sunCtx.globalCompositeOperation = 'screen';
-      const fl = sunCtx.createRadialGradient(dx, dy, 0, dx, dy, R * 0.4);
-      fl.addColorStop(0, `rgba(255,255,255,${I})`);
-      fl.addColorStop(0.06, `rgba(255,250,230,${I * 0.85})`);
-      fl.addColorStop(0.2, `rgba(255,220,160,${I * 0.35})`);
-      fl.addColorStop(0.5, `rgba(255,180,80,${I * 0.10})`);
-      fl.addColorStop(1, 'transparent');
-      sunCtx.fillStyle = fl;
-      sunCtx.fillRect(0, 0, scW, scH);
-      sunCtx.globalAlpha = I * 0.40;
-      sunCtx.fillStyle = 'rgba(255,240,210,0.5)';
-      sunCtx.fillRect(0, dy - 1, scW, 2);
-      sunCtx.restore();
-    }
-
     /* =============================================================
        ACT 5: CELEBRATION — FULL VIEWPORT COSMIC EXPLOSION
        ============================================================= */
@@ -778,6 +658,11 @@ export default function CosmicHeroV2() {
       return { x, y, o };
     }
 
+    function smoothStep(edge0: number, edge1: number, x: number) {
+      const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+      return t * t * (3 - 2 * t);
+    }
+
     function eclipseIntensity(p: number) {
       if (p < 0.34 || p > 0.70) return 0;
       const rise = smoothStep(0.34, 0.50, p);
@@ -827,7 +712,6 @@ export default function CosmicHeroV2() {
     function onResize() {
       resizeStars();
       seedStars();
-      resizeSun();
       resizeCosmo();
     }
 
@@ -849,12 +733,15 @@ export default function CosmicHeroV2() {
     const t0 = performance.now();
     /* Track previous phase to avoid redundant filter updates */
     let prevPhase = '';
-    let brandLocked = false;
-    let brandRevealAt = -1;
 
     function frame(now: number) {
       const t = (now - t0) / 1000;
-      const progress = (t % ECLIPSE_DUR) / ECLIPSE_DUR;
+      /* One-shot: freeze at peak celebration, no loop */
+      const FREEZE_AT = 0.78;
+      const frozenProgress = ECLIPSE_DUR * FREEZE_AT;
+      const isFrozen = t >= frozenProgress;
+      const progress = isFrozen ? FREEZE_AT : t / ECLIPSE_DUR;
+      const settleT = isFrozen ? Math.min(1, (t - frozenProgress) / 3.0) : 0;
       const eclI = eclipseIntensity(progress);
       const celebI = celebrationIntensity(progress);
       const sunBright = Math.min(1, (1 - eclI * 0.94) + celebI * 0.3);
@@ -870,55 +757,55 @@ export default function CosmicHeroV2() {
       setStyle(nebEl, 'transform', `translate(${mX * -5}px, ${mY * -5}px)`);
       setStyle(stageEl, 'transform', `translate(${mX * -8}px, ${mY * -8}px)`);
 
-      /* Starfield */
-      drawStars(t, eclI, celebI);
+      /* During settle phase, wind the celebration effects down to zero */
+      const drawCelebI = isFrozen ? Math.max(0, celebI * (1 - settleT)) : celebI;
 
-      /* Sun canvas */
-      drawSunScene(t, sunBright, eclI, celebI, progress);
+      /* Starfield */
+      drawStars(t, eclI, drawCelebI);
 
       /* Cosmo celebration canvas */
-      drawCosmoScene(t, celebI);
+      drawCosmoScene(t, drawCelebI);
 
-      /* ── Sun ↔ Sunnova seamless transition ──
-         NOVA_MATCH = 72% / 110% = 0.6545 — the scale at which sunnova
-         visually matches the sun-svg disc size. By starting and ending
-         at this scale, the crossfade is invisible. */
-      const NOVA_MATCH = 0.6545;
+      /* ── Sun → Sunnova eclipse-driven swap ──
+         Sunnova sits BEHIND the sun (z-index 1 < sun z-index 2), glowing as an
+         ambient light source. As eclipse builds the sun fades, revealing the
+         sunnova from behind. It blooms outward during celebration then settles. */
 
-      /* Fast crossfade over the first/last 20% of celebI so the swap
-         happens during the bright god-ray flash and is imperceptible. */
-      const swapT = Math.min(1, celebI * 5);
+      /* eclipseSwap: 0 at radiance → 1 at eclipse peak */
+      const eclipseSwap = smoothStep(0.34, 0.50, progress);
 
-      /* Sun SVG filter — expensive, only on phase change */
+      /* Sun SVG dims as eclipse builds */
       if (phaseChanged) {
-        if (phase === 'celeb') {
-          sunSvg.style.filter = `brightness(1.3) drop-shadow(0 0 40px rgba(255,200,70,0.50)) drop-shadow(0 0 80px rgba(255,160,40,0.25))`;
-        } else if (phase === 'eclipse') {
-          sunSvg.style.filter = `brightness(0.4) drop-shadow(0 0 15px rgba(255,200,70,0.20))`;
-        } else {
+        if (phase === 'eclipse') {
+          sunSvg.style.filter = `brightness(0.30) drop-shadow(0 0 10px rgba(255,200,70,0.10))`;
+        } else if (phase === 'radiance') {
           sunSvg.style.filter = '';
         }
       }
+      setStyle(sunSvg, 'opacity', Math.max(0, 1 - eclipseSwap * 2).toFixed(3));
 
-      /* Sun: gentle celebration pulse + fade out during swap */
-      const celebScale = 1 + celebI * 0.04;
-      setStyle(sunSvg, 'transform', `translate(-50%, -50%) scale(${celebScale.toFixed(4)})`);
-      setStyle(sunSvg, 'opacity', (sunBright * (1 - swapT)).toFixed(3));
-
-      /* Sunnova: fade in during swap, smooth S-curve growth */
-      setStyle(sunnovaEl, 'opacity', swapT.toFixed(3));
-
+      /* Sunnova: revealed from behind as sun fades, blooms during celebration */
       const growT = Math.min(1, celebI / 0.5);
       const ease = growT < 0.5
         ? 2 * growT * growT
         : 1 - 2 * (1 - growT) * (1 - growT);
-      const novaScale = NOVA_MATCH + (1.12 - NOVA_MATCH) * ease;
+      const novaScale = 1.0 + ease * 0.5; // 1.0 (compact) → 1.5 (bloom)
+      setStyle(sunnovaEl, 'opacity', eclipseSwap.toFixed(3));
       setStyle(sunnovaEl, 'transform', `translate(-50%, -50%) scale(${novaScale.toFixed(4)})`);
 
       /* Sunnova filter — expensive, only on phase change */
       if (phaseChanged) {
-        if (celebI > 0.01) {
-          sunnovaEl.style.filter = `brightness(2.0) drop-shadow(0 0 80px rgba(255,230,100,0.70)) drop-shadow(0 0 180px rgba(255,200,60,0.40))`;
+        if (phase === 'celeb') {
+          sunnovaEl.style.filter = [
+            'brightness(1.8)',
+            'saturate(1.3)',
+            'drop-shadow(0 0 20px rgba(255,220,100,0.95))',
+            'drop-shadow(0 0 60px rgba(255,180,40,0.70))',
+            'drop-shadow(0 0 160px rgba(255,140,20,0.40))',
+            'drop-shadow(0 0 320px rgba(180,80,255,0.20))',
+          ].join(' ');
+        } else if (phase === 'eclipse') {
+          sunnovaEl.style.filter = `drop-shadow(0 0 30px rgba(255,200,80,0.70)) drop-shadow(0 0 90px rgba(255,160,40,0.40)) drop-shadow(0 0 180px rgba(200,80,255,0.20))`;
         } else {
           sunnovaEl.style.filter = '';
         }
@@ -930,14 +817,28 @@ export default function CosmicHeroV2() {
       setStyle(nebEl, 'opacity', (0.85 + celebI * 0.15).toFixed(3));
       setStyle(vigEl, 'opacity', Math.max(0.08, 1 - celebI * 0.92).toFixed(3));
 
-      /* Moon */
+      /* ── SETTLE OVERRIDES — wind down celebration flash, hold final state ── */
+      if (isFrozen) {
+        setStyle(washEl, 'opacity', (1.0 - settleT).toFixed(3));
+        setStyle(vigEl, 'opacity', (settleT * 0.12).toFixed(3));
+        const novaOpacity = Math.max(0.75, 1.0 - settleT * 0.25);
+        setStyle(sunnovaEl, 'opacity', novaOpacity.toFixed(3));
+        const novaSettleScale = Math.max(1.0, 1.5 - settleT * 0.5);
+        setStyle(sunnovaEl, 'transform', `translate(-50%, -50%) scale(${novaSettleScale.toFixed(3)})`);
+        setStyle(revelationEl, 'opacity', (1).toFixed(3));
+        setStyle(revelationEl, 'transform', 'none');
+        setStyle(learnEl, 'opacity', (1).toFixed(3));
+        setStyle(learnEl, 'transform', 'none');
+        setStyle(neverGoneEl, 'opacity', (0).toFixed(3));
+        setStyle(eclipsedEl, 'opacity', (0).toFixed(3));
+      }
+
+      /* Moon — GPU-only: transform + opacity only (stage is square, aspect-ratio: 1/1) */
       const mp = moonPos(progress);
-      const stW = stageEl.clientWidth, stH = stageEl.clientHeight;
-      const mSize = MOON_FRAC * stW;
-      setStyle(moonEl, 'width', `${mSize.toFixed(1)}px`);
-      setStyle(moonEl, 'height', `${mSize.toFixed(1)}px`);
-      moonEl.style.left = (mp.x * stW - mSize / 2) + 'px';
-      moonEl.style.top  = (mp.y * stH - mSize / 2) + 'px';
+      const stW = stageEl.clientWidth;
+      const moonX = (mp.x * stW - stW * 0.25).toFixed(1);
+      const moonY = (mp.y * stW - stW * 0.25).toFixed(1);
+      setStyle(moonEl, 'transform', `translate(${moonX}px, ${moonY}px)`);
       const moonFade = Math.max(0, mp.o * (1 - celebI * 3));
       setStyle(moonEl, 'opacity', moonFade.toFixed(3));
 
@@ -953,53 +854,59 @@ export default function CosmicHeroV2() {
       /* Eclipse darkness */
       setStyle(darkEl, 'opacity', eclI.toFixed(3));
 
-      /* 143 brand text */
-      if (!brandLocked && (celebI > 0.08 || progress >= 0.66)) {
-        brandLocked = true;
-        brandRevealAt = t;
-      }
-      let brandPop = 1;
-      if (brandLocked && brandRevealAt >= 0) {
-        const revealT = Math.min(1, (t - brandRevealAt) / 0.2);
-        if (revealT < 0.5) brandPop = (revealT / 0.5) * 1.2;
-        else brandPop = 1.2 - ((revealT - 0.5) / 0.5) * 0.2;
-      }
-      const brandScale = celebScale * brandPop;
-      setStyle(brand, 'opacity', brandLocked ? '1' : '0');
-      setStyle(brand, 'transform', `translate(-50%, -50%) scale(${brandScale.toFixed(4)})`);
-      /* Only update filter on phase changes */
-      if (phaseChanged) {
-        brand.style.filter = `brightness(${(sunBright + celebI * 0.2).toFixed(3)})`;
-      }
-
-      /* Supernova text treatment */
-      if (celebI > 0.05) {
-        const sn = Math.min(1, (celebI - 0.05) / 0.45);
-
-        row1El.style.color = `rgba(255,255,240,${(0.10 * sn).toFixed(2)})`;
-        row1El.style.webkitTextStroke = `${(3.5 * sn).toFixed(1)}px rgba(255,255,255,${(0.98 * sn).toFixed(2)})`;
-        row1El.style.textShadow = [
-          `0 0 ${(6 + sn * 12).toFixed(0)}px rgba(255,255,255,${(0.80 * sn).toFixed(2)})`,
-          `0 0 ${(18 + sn * 30).toFixed(0)}px rgba(255,240,180,${(0.50 * sn).toFixed(2)})`,
-          `0 0 ${(40 + sn * 50).toFixed(0)}px rgba(255,210,100,${(0.30 * sn).toFixed(2)})`,
-          `0 0 ${(70 + sn * 80).toFixed(0)}px rgba(255,180,60,${(0.18 * sn).toFixed(2)})`,
-          `0 0 ${(sn * 130).toFixed(0)}px rgba(147,64,255,${(sn * 0.14).toFixed(2)})`
-        ].join(', ');
+      /* "It was eclipsed" — pops in with scale bounce, fades out into celebration */
+      const eclipsedOpacity = Math.min(1, eclI * 2.5) * Math.max(0, 1 - celebI * 4);
+      setStyle(eclipsedEl, 'opacity', eclipsedOpacity.toFixed(3));
+      if (eclI > 0) {
+        const popT = Math.min(1, eclI * 8);
+        const popScale = popT < 0.6
+          ? 0.75 + (popT / 0.6) * 0.35
+          : 1.1 - ((popT - 0.6) / 0.4) * 0.1;
+        setStyle(eclipsedEl, 'transform', `scale(${popScale.toFixed(3)})`);
       } else {
-        row1El.style.color            = '';
-        row1El.style.webkitTextStroke = '';
-        row1El.style.textShadow       = '';
+        setStyle(eclipsedEl, 'transform', 'scale(0.75)');
       }
+
+      /* "Never Gone" — CSS animation handles initial fade-in (0→1 at ~1.7s).
+         Once eclipse builds, JS fades it out and permanently holds at 0.
+         Use eclipseSwap (monotonic 0→1, clamps at 1) not eclI (bell curve that
+         returns to 0 after eclipse, which would make Never Gone ghost back). */
+      if (eclipseSwap > 0) {
+        setStyle(neverGoneEl, 'opacity', Math.max(0, 1 - eclipseSwap * 2).toFixed(3));
+      }
+
+      /* "Learn How To Live" fades in during celebration, replacing intro rows */
+      const learnIn = Math.max(0, Math.min(1, (celebI - 0.08) / 0.28));
+      setStyle(learnEl, 'opacity', learnIn.toFixed(3));
+      setStyle(learnEl, 'transform',
+        learnIn < 1
+          ? `translateY(${((1 - learnIn) * 10).toFixed(1)}px)`
+          : 'none'
+      );
+
+      /* "JUST IN A RAY OF LIGHT" — blazes in during celebration */
+      const revelationIn = Math.max(0, Math.min(1, (celebI - 0.18) / 0.25));
+      setStyle(revelationEl, 'opacity', revelationIn.toFixed(3));
+      setStyle(revelationEl, 'transform',
+        revelationIn < 1
+          ? `translateY(${((1 - revelationIn) * 14).toFixed(1)}px) scale(${(0.92 + revelationIn * 0.08).toFixed(3)})`
+          : 'none'
+      );
 
       /* Film grain — cheap transform */
       setStyle(grainCvs, 'opacity', (0.018 + eclI * 0.03 + celebI * 0.01).toFixed(3));
       setStyle(grainCvs, 'transform', `translate(${(Math.sin(t * 3.8) * 2).toFixed(1)}%, ${(Math.cos(t * 3.2) * 2).toFixed(1)}%)`);
       prevPhase = phase;
 
+      /* Stop loop once settle is fully complete — no visual work left to do */
+      if (isFrozen && settleT >= 1) return;
       rafRef.current = requestAnimationFrame(frame);
     }
 
-    rafRef.current = requestAnimationFrame(frame);
+    /* Skip animation for users who prefer reduced motion — CSS static fallback handles display */
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      rafRef.current = requestAnimationFrame(frame);
+    }
 
     /* ===== CLEANUP ===== */
     return () => {
@@ -1025,28 +932,21 @@ export default function CosmicHeroV2() {
         <canvas className="grain" aria-hidden="true" />
 
         <div className="eclipse-stage" aria-hidden="true">
-          <canvas className="sun-canvas" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="sun-svg" src="/marketing/Sun-143.svg" alt="" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="sunnova-svg" src="/marketing/143-sun-nova.png" alt="" />
-          <span className="brand-143">143</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="moon" src="/marketing/Purple-Moon-143.svg" alt="" />
         </div>
 
         <div className="hero-copy">
-          <h1 className="row-1">Upgrade Your Internal OS</h1>
-          <p className="row-2" aria-label={REVELATION_TEXT}>
-            {REVELATION_TEXT.split('').map((ch, i) => (
-              <span key={`${ch}-${i}`} className="char" style={{ animationDelay: `${900 + i * 28}ms` }}>
-                {ch === ' ' ? '\u00A0' : ch}
-              </span>
-            ))}
-          </p>
-          <p className="row-3">
-            <em>Watch Me Go First &amp; Be The Light</em> &mdash; Book Coming 2026
-          </p>
+          <p className="row-never-gone">Never Gone</p>
+          <p className="row-eclipsed" aria-label="It was eclipsed">It was eclipsed</p>
+          <div className="row-final">
+            <p className="row-learn">Learn How To Live</p>
+            <p className="row-revelation">{REVELATION_TEXT}</p>
+          </div>
         </div>
       </section>
     </div>

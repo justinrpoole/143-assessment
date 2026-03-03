@@ -129,9 +129,10 @@
   --brand-gold: #F8D011;
   --brand-black: #020202;
 
-  --bg-deep: #1E0E35;
-  --bg-deep-alt: #251345;
-  --bg-deep-mid: #2D1450;
+  --bg-deep: #1E0840;
+  --bg-deep-alt: #260A50;
+  --bg-deep-mid: #2D1060;
+  --bg-nav: rgba(18, 5, 40, 0.97);
   --surface-glass: rgba(96, 5, 141, 0.35);
   --surface-glass-hover: rgba(96, 5, 141, 0.45);
   --surface-glass-active: rgba(96, 5, 141, 0.55);
@@ -154,30 +155,30 @@
 
   /* ── Neon Spark Palette (80s accents) ── */
   --neon-cyan:    #25f6ff;
-  --neon-pink:    #ff3fb4;
+  --neon-pink:    #FF2DE0;
   --neon-lime:    #c6ff4d;
   --neon-violet:  #8b5bff;
-  --neon-amber:   #ffd166;
+  --neon-amber:   #FF8C00;
 
   /* Neon opacity variants */
   --neon-cyan-10:   rgba(37, 246, 255, 0.10);
   --neon-cyan-20:   rgba(37, 246, 255, 0.20);
   --neon-cyan-40:   rgba(37, 246, 255, 0.40);
-  --neon-pink-10:   rgba(255, 63, 180, 0.10);
-  --neon-pink-20:   rgba(255, 63, 180, 0.20);
-  --neon-pink-40:   rgba(255, 63, 180, 0.40);
+  --neon-pink-10:   rgba(255, 45, 224, 0.10);
+  --neon-pink-20:   rgba(255, 45, 224, 0.20);
+  --neon-pink-40:   rgba(255, 45, 224, 0.40);
   --neon-violet-10: rgba(139, 91, 255, 0.10);
   --neon-violet-20: rgba(139, 91, 255, 0.20);
   --neon-violet-40: rgba(139, 91, 255, 0.40);
 
   /* Neon glow shadows */
   --shadow-glow-cyan: 0 0 20px rgba(37, 246, 255, 0.15);
-  --shadow-glow-pink: 0 0 20px rgba(255, 63, 180, 0.12);
+  --shadow-glow-pink: 0 0 20px rgba(255, 45, 224, 0.12);
   --shadow-glow-violet: 0 0 20px rgba(139, 91, 255, 0.12);
 
   /* Neon text shadows */
   --text-glow-cyan: 0 0 12px rgba(37, 246, 255, 0.4), 0 0 30px rgba(37, 246, 255, 0.15);
-  --text-glow-pink: 0 0 12px rgba(255, 63, 180, 0.35), 0 0 30px rgba(255, 63, 180, 0.12);
+  --text-glow-pink: 0 0 12px rgba(255, 45, 224, 0.35), 0 0 30px rgba(255, 45, 224, 0.12);
 
   /* Atmosphere texture control */
   --scanline-opacity: 0.18;
@@ -185,9 +186,9 @@
   --grid-color: rgba(37, 246, 255, 0.10);
   --grid-size: 48px;
 
-  --overlay-heavy: rgba(11, 2, 18, 0.92);
-  --overlay-medium: rgba(11, 2, 18, 0.80);
-  --overlay-light: rgba(11, 2, 18, 0.60);
+  --overlay-heavy: rgba(18, 5, 48, 0.93);
+  --overlay-medium: rgba(18, 5, 48, 0.81);
+  --overlay-light: rgba(18, 5, 48, 0.62);
 
   --gradient-cosmic: linear-gradient(180deg, #2D1450 0%, #1A0A2E 100%);
   --gradient-cosmic-radial: radial-gradient(ellipse at 50% 15%, rgba(96, 5, 141, 0.45) 0%, transparent 65%);

@@ -125,7 +125,7 @@ export default async function UpgradeYourOsPage() {
         <div className="relative z-10 grid gap-8 md:grid-cols-2 items-start">
 
           {/* Left — THE ECLIPSE */}
-          <div className="glass-card p-7" style={{ borderLeft: '3px solid rgba(147,64,255,0.5)', background: 'rgba(20,3,40,0.6)' }}>
+          <div className="glass-card p-7" style={{ borderLeft: '3px solid rgba(147,64,255,0.5)', background: 'rgba(28,5,65,0.65)' }}>
             <div className="mb-4 flex items-center gap-3">
               {/* Moon / eclipse icon */}
               <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
@@ -387,7 +387,7 @@ export default async function UpgradeYourOsPage() {
             {/* Frosted glass CTA overlay */}
             <div
               className="absolute inset-0 flex flex-col items-center justify-center gap-5"
-              style={{ background: 'rgba(6,0,20,0.75)', backdropFilter: 'blur(12px)' }}
+              style={{ background: 'rgba(18,5,50,0.80)', backdropFilter: 'blur(12px)' }}
             >
               <div className="text-center space-y-1">
                 <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#F8D011' }}>
