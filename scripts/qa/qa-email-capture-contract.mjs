@@ -112,6 +112,12 @@ async function run() {
   }
   console.log('ok:email-capture:apostrophe-hyphen-combo-invalid');
 
+  const apostrophePlusComboRes = await post({ name: 'QA Contract', email: `user'+@example.com`, tag: 'qa-contract' });
+  if (apostrophePlusComboRes.status !== 400 || apostrophePlusComboRes.json?.error !== 'invalid_email') {
+    throw new Error(`apostrophe-plus combo contract failed: status=${apostrophePlusComboRes.status} body=${JSON.stringify(apostrophePlusComboRes.json)}`);
+  }
+  console.log('ok:email-capture:apostrophe-plus-combo-invalid');
+
   const percentLocalRes = await post({ name: 'QA Contract', email: `qa%tag.${Date.now()}@example.com`, tag: 'qa-contract' });
   if (percentLocalRes.status !== 400 || percentLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`percent local-part contract failed: status=${percentLocalRes.status} body=${JSON.stringify(percentLocalRes.json)}`);
