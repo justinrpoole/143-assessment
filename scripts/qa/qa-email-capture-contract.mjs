@@ -154,6 +154,12 @@ async function run() {
   }
   console.log('ok:email-capture:plus-dot-combo-invalid');
 
+  const dotPlusComboRes = await post({ name: 'QA Contract', email: `user.+@example.com`, tag: 'qa-contract' });
+  if (dotPlusComboRes.status !== 400 || dotPlusComboRes.json?.error !== 'invalid_email') {
+    throw new Error(`dot-plus combo contract failed: status=${dotPlusComboRes.status} body=${JSON.stringify(dotPlusComboRes.json)}`);
+  }
+  console.log('ok:email-capture:dot-plus-combo-invalid');
+
   const percentLocalRes = await post({ name: 'QA Contract', email: `qa%tag.${Date.now()}@example.com`, tag: 'qa-contract' });
   if (percentLocalRes.status !== 400 || percentLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`percent local-part contract failed: status=${percentLocalRes.status} body=${JSON.stringify(percentLocalRes.json)}`);
