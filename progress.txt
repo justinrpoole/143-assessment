@@ -2301,3 +2301,11 @@ Ralph Loop Iteration 20 (2026-03-03, rerun)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 21): add one invalid-email assertion for missing domain dot with subdomain-like punctuation edge (e.g., `user@com`) to continue tightening domain-shape boundary coverage.
+
+Ralph Loop Iteration 21 (2026-03-03)
+
+- Added explicit no-TLD domain invalid coverage (`user@com`) to `qa:email-capture-contract`, locking stable invalid semantics (`400 {error:"invalid_email"}`) for missing-domain-dot shapes.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after domain-shape contract expansion.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 22): add a contract assertion for uppercase-domain no-TLD shape (`user@COM`) to guarantee case-insensitive invalid-email handling stays stable.
