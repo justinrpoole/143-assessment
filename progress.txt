@@ -2005,3 +2005,11 @@ Ralph Loop Iteration 2 (2026-03-03)
 - Re-checked animation + TRON baselines from source: eclipse tail to 0.70, Act 5 sunnova spring setup, letter-by-letter reveal text, moon 72% sizing, and Orbitron/neon/scanline/#060014 treatment across dashboard/chart components.
 
 Next loop priority (iteration 3): add scripted browser assertions for gate-before/after states (DOM markers) so regression detection is automatic instead of manual snapshot inspection.
+
+Ralph Loop Iteration 2 (2026-03-03, rerun)
+
+- Re-ran lead-gate verification on /challenge, /group-coaching, /preview, and /rays/intention in a fresh pass; all four pages still present required capture gates before protected content renders.
+- Performed another content/asset sweep: Justin headshot remains present and referenced on key marketing pages, with no new ungated 9-Ray deep-explainer regressions detected in this cycle.
+- Re-confirmed CosmicHeroV2 + TRON contract remains stable in source checks (0.70 eclipse tail, sunnova spring, letter-by-letter reveal text, moon 72%, Orbitron/neon/scanline/#060014 across target components).
+
+Next loop priority (iteration 3): add a small scripted E2E harness that programmatically submits each gate and asserts both pre-gate and post-unlock DOM signatures to reduce manual snapshot drift risk.
