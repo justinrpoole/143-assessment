@@ -2485,3 +2485,11 @@ Ralph Loop Iteration 32 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 33): add a negative contract assertion for local-part ending with underscore (`user_@...`) if policy should treat trailing underscore similarly to trailing plus/hyphen boundaries.
+
+Ralph Loop Iteration 32 (2026-03-03, rerun)
+
+- Tightened local-part boundary policy by rejecting trailing underscore (`user_@...`) in `/api/email/capture`, aligning underscore behavior with other disallowed terminal punctuation edges.
+- Added explicit `qa:email-capture-contract` negative coverage for trailing-underscore local-part invalid input, locking stable invalid semantics (`400 {error:"invalid_email"}`) while keeping internal underscore acceptance intact.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 33): add contract coverage for underscore at local-part start (`_user@...`) to explicitly confirm whether boundary policy should reject leading underscore or keep it allowed.
