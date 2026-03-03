@@ -2133,3 +2133,11 @@ Ralph Loop Iteration 10 (2026-03-03)
 - Re-ran full QA stack (`qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) plus lead-gate/content/headshot/CosmicHero/TRON checks; all passed with no regressions.
 
 Next loop priority (iteration 11): add a tiny guard that fails if gate routes return HTTP 200 but miss expected gate form controls (input/button presence) to catch partial-render regressions earlier.
+
+Ralph Loop Iteration 10 (2026-03-03, rerun)
+
+- Added a new partial-render guardrail: `qa:gate-controls` now verifies each critical gate route returns HTTP 200 *and* renders expected gate form controls (name/email inputs + unlock button) before unlock state.
+- Wired `qa:gate-controls` into the CI gate workflow so route-level rendering regressions are caught even when status codes remain green.
+- Re-ran full QA stack (`qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) plus baseline content/headshot/CosmicHero/TRON checks with all passing.
+
+Next loop priority (iteration 11): add a lightweight API contract check for `/api/email/capture` response shape and status under valid/invalid payloads to catch backend gate regressions earlier.
