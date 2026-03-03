@@ -3409,3 +3409,11 @@ Ralph Loop Iteration 200 (2026-03-03, rerun)
 - Reconfirmed marketing/headshot requirements and CosmicHeroV2/TRON invariants remain intact (0.70 eclipse tail, Act-5 sun-nova spring, 72% moon, Orbitron + scanline neon on dark background).
 
 Next loop priority (iteration 201): emit machine-readable trend metadata alongside each summary artifact (e.g., `trendSignal`, `windowSize`, `recentClassifications`) for CI dashboards.
+
+Ralph Loop Iteration 201 (2026-03-03)
+
+- Extended diagnostics summary artifacts with machine-readable trend fields (`trendWindow`, `recentClassifications`, `trendSignal`) so CI/dashboard consumers can parse stability directly.
+- Revalidated lead gates, marketing/headshot constraints, CosmicHeroV2 animation invariants, and TRON vibe contracts; no regressions detected.
+- Re-ran mandatory QA stack and diagnostics triage/trend checks; outputs remained green, drift false, and trend steady.
+
+Next loop priority (iteration 202): add a minimal CI check that reads the latest summary JSON and hard-fails only when `trendSignal` is `flapping` for two consecutive loops.
