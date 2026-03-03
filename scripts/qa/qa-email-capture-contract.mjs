@@ -242,6 +242,22 @@ async function run() {
   }
   console.log('ok:email-capture:domain-space-invalid');
 
+  const localTabRes = await post({ name: 'QA Contract', email: 'us\ter@example.com', tag: 'qa-contract' });
+  if (localTabRes.status !== 400 || localTabRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `local-tab email contract failed: status=${localTabRes.status} body=${JSON.stringify(localTabRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:local-tab-invalid');
+
+  const domainNewlineRes = await post({ name: 'QA Contract', email: 'user@exa\nmple.com', tag: 'qa-contract' });
+  if (domainNewlineRes.status !== 400 || domainNewlineRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `domain-newline email contract failed: status=${domainNewlineRes.status} body=${JSON.stringify(domainNewlineRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:domain-newline-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
