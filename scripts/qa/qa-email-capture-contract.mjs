@@ -111,6 +111,16 @@ async function run() {
   }
   console.log('ok:email-capture:whitespace-tag-default');
 
+  const unicodeRes = await post({
+    name: 'Jústin 🚀 光',
+    email: `qa.unicode.${Date.now()}@example.com`,
+    tag: 'ünicode-✨-タグ',
+  });
+  if (unicodeRes.status !== 200 || unicodeRes.json?.ok !== true) {
+    throw new Error(`unicode input contract failed: status=${unicodeRes.status} body=${JSON.stringify(unicodeRes.json)}`);
+  }
+  console.log('ok:email-capture:unicode-name-tag');
+
   console.log('qa-email-capture-contract: ok');
 }
 
