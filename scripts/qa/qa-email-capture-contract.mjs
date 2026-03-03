@@ -202,6 +202,14 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-dot-local-invalid');
 
+  const whitespaceEmailRes = await post({ name: 'QA Contract', email: '    ', tag: 'qa-contract' });
+  if (whitespaceEmailRes.status !== 400 || whitespaceEmailRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `whitespace-only email contract failed: status=${whitespaceEmailRes.status} body=${JSON.stringify(whitespaceEmailRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:whitespace-only-email-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
