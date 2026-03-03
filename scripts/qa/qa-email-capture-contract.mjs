@@ -190,11 +190,23 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-underscore-local-invalid');
 
+  const plusUnderscoreBoundaryRes = await post({ name: 'QA Contract', email: 'user+_@example.com', tag: 'qa-contract' });
+  if (plusUnderscoreBoundaryRes.status !== 400 || plusUnderscoreBoundaryRes.json?.error !== 'invalid_email') {
+    throw new Error(`plus-underscore boundary contract failed: status=${plusUnderscoreBoundaryRes.status} body=${JSON.stringify(plusUnderscoreBoundaryRes.json)}`);
+  }
+  console.log('ok:email-capture:plus-underscore-boundary-invalid');
+
   const leadingUnderscoreRes = await post({ name: 'QA Contract', email: '_user@example.com', tag: 'qa-contract' });
   if (leadingUnderscoreRes.status !== 400 || leadingUnderscoreRes.json?.error !== 'invalid_email') {
     throw new Error(`leading-underscore local contract failed: status=${leadingUnderscoreRes.status} body=${JSON.stringify(leadingUnderscoreRes.json)}`);
   }
   console.log('ok:email-capture:leading-underscore-local-invalid');
+
+  const underscorePlusLeadingRes = await post({ name: 'QA Contract', email: '_+user@example.com', tag: 'qa-contract' });
+  if (underscorePlusLeadingRes.status !== 400 || underscorePlusLeadingRes.json?.error !== 'invalid_email') {
+    throw new Error(`underscore-plus leading contract failed: status=${underscorePlusLeadingRes.status} body=${JSON.stringify(underscorePlusLeadingRes.json)}`);
+  }
+  console.log('ok:email-capture:underscore-plus-leading-invalid');
 
   const quotedLocalRes = await post({ name: 'QA Contract', email: '"quoted"@example.com', tag: 'qa-contract' });
   if (quotedLocalRes.status !== 400 || quotedLocalRes.json?.error !== 'invalid_email') {
