@@ -1,0 +1,60 @@
+name: QA Gates E2E
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  gates-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright (Chromium)
+        run: npx playwright install --with-deps chromium
+
+      - name: Build app
+        run: npm run build
+
+      - name: Start app
+        run: |
+          npm run start -- --hostname 127.0.0.1 --port 3000 > /tmp/qa-gates-start.log 2>&1 &
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:3000/ >/dev/null; then
+              echo "App is up"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "App failed to start"
+          cat /tmp/qa-gates-start.log || true
+          exit 1
+
+      - name: Run gates E2E
+        env:
+          QA_BASE_URL: http://127.0.0.1:3000
+          QA_ARTIFACTS_DIR: .qa-artifacts/gates-e2e
+        run: npm run qa:gates-e2e
+
+      - name: Upload artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-gates-e2e-artifacts
+          path: |
+            .qa-artifacts/gates-e2e
+            /tmp/qa-gates-start.log
+          if-no-files-found: ignore
