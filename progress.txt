@@ -2309,3 +2309,11 @@ Ralph Loop Iteration 21 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 22): add a contract assertion for uppercase-domain no-TLD shape (`user@COM`) to guarantee case-insensitive invalid-email handling stays stable.
+
+Ralph Loop Iteration 21 (2026-03-03, rerun)
+
+- Added uppercase no-TLD domain invalid coverage (`user@COM`) to `qa:email-capture-contract`, ensuring case-insensitive invalid handling remains stable (`400 {error:"invalid_email"}`).
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after uppercase no-TLD assertion was added.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 22): add an invalid contract assertion for emails containing spaces inside the local-part/domain (e.g., `us er@example.com`) to tighten whitespace-shape boundaries.
