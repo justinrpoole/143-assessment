@@ -22,6 +22,16 @@ async function postRaw(rawBody) {
   return { status: res.status, json };
 }
 
+async function postText(rawBody) {
+  const res = await fetch(`${baseUrl}/api/email/capture`, {
+    method: 'POST',
+    headers: { 'content-type': 'text/plain' },
+    body: rawBody,
+  });
+  const json = await res.json().catch(() => ({}));
+  return { status: res.status, json };
+}
+
 async function run() {
   const valid = await post({ name: 'QA Contract', email: `qa.contract.${Date.now()}@example.com`, tag: 'qa-contract' });
   if (valid.status !== 200 || valid.json?.ok !== true) {
@@ -46,6 +56,12 @@ async function run() {
     throw new Error(`missing email contract failed: status=${missingEmail.status} body=${JSON.stringify(missingEmail.json)}`);
   }
   console.log('ok:email-capture:missing-email');
+
+  const nonJson = await postText('email=qa@example.com');
+  if (nonJson.status !== 400 || nonJson.json?.error !== 'invalid_email') {
+    throw new Error(`non-json content-type contract failed: status=${nonJson.status} body=${JSON.stringify(nonJson.json)}`);
+  }
+  console.log('ok:email-capture:non-json-content-type');
 
   console.log('qa-email-capture-contract: ok');
 }
