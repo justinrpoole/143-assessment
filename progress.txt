@@ -2551,3 +2551,11 @@ Ralph Loop Iteration 46 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON checks with no regressions.
 
 Next loop priority (iteration 47): add explicit contract coverage for local-part starting with a dot (`.user@...`) to confirm boundary parity with existing trailing-dot rejection.
+
+Ralph Loop Iteration 47 (2026-03-03)
+
+- Hardened `/api/email/capture` local-part boundary checks to reject leading hyphen (`-user@...`) in addition to existing trailing-hyphen rejection.
+- Added explicit `qa:email-capture-contract` negative assertion for leading-hyphen local-part invalid input, preserving API error contract (`400 {error:"invalid_email"}`).
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates, marketing/headshot, CosmicHeroV2, and TRON vibe checks with no regressions.
+
+Next loop priority (iteration 48): add explicit contract coverage for local-part ending with apostrophe-adjacent punctuation combo (e.g., `user'-@...`) to confirm punctuation-edge ordering stays consistently invalid.
