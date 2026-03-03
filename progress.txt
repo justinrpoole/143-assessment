@@ -2421,3 +2421,11 @@ Ralph Loop Iteration 28 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 29): add a negative contract assertion for percent-sign local-part edge (`user%tag@example.com`) if product policy intends to restrict uncommon RFC punctuation despite current regex allowance.
+
+Ralph Loop Iteration 28 (2026-03-03, rerun)
+
+- Added explicit positive contract coverage for underscore-in-local-part (`user_name@...`) in `qa:email-capture-contract`, clarifying allowed local underscore behavior while domain underscore remains rejected.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after local-underscore acceptance coverage was added.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 29): add a negative contract assertion for percent-sign local-part edge (`user%tag@example.com`) if product policy intends to restrict uncommon RFC punctuation despite current regex allowance.
