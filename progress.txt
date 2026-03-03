@@ -2935,3 +2935,11 @@ Ralph Loop Iteration 70 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 71): add explicit negative contract coverage for start-boundary apostrophe-led plus/underscore/dot ordering variant (`'_+.user${ts}@...`) to reconfirm order-symmetry under dynamic local-token variants.
+
+Ralph Loop Iteration 71 (2026-03-03)
+
+- Added explicit negative contract coverage variant for apostrophe-first start-boundary dot/underscore/plus ordering (`'._+user${ts}@example.com`) to reconfirm invalid handling across dynamic local-token variants.
+- Confirmed API invalid semantics remain stable for this variant (`400 {error:"invalid_email"}`) while preserving approved internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 72): add explicit negative contract coverage variant for apostrophe-first alternate start ordering (`'+._user${ts}@...`) to ensure variant-stable invalid handling across all apostrophe-led start-boundary order permutations.
