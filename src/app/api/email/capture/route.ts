@@ -11,6 +11,21 @@ async function persistLocalCapture(payload: { email: string; source: string; cap
   await appendFile(outPath, `${JSON.stringify(payload)}\n`, "utf8");
 }
 
+function isValidEmail(email: string) {
+  if (!email || !email.includes("@") || email.length > 254) return false;
+  const [local, domain, ...rest] = email.split("@");
+  if (rest.length > 0 || !local || !domain) return false;
+  if (local.length > 64) return false;
+
+  const labels = domain.split(".");
+  if (labels.length < 2) return false;
+  for (const label of labels) {
+    if (!label || label.length > 63) return false;
+  }
+
+  return true;
+}
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json().catch(() => ({}))) as {
@@ -25,7 +40,7 @@ export async function POST(request: Request) {
       ? body.tag.trim()
       : "email-capture";
 
-    if (!email || !email.includes("@")) {
+    if (!isValidEmail(email)) {
       return NextResponse.json({ error: "invalid_email" }, { status: 400 });
     }
 

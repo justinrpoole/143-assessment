@@ -130,6 +130,13 @@ async function run() {
   }
   console.log('ok:email-capture:boundary-email-shape');
 
+  const overlongLocalEmail = `${'x'.repeat(65)}@${longDomainLabel}.com`;
+  const overlongLocalRes = await post({ name: 'QA Contract', email: overlongLocalEmail, tag: 'qa-contract' });
+  if (overlongLocalRes.status !== 400 || overlongLocalRes.json?.error !== 'invalid_email') {
+    throw new Error(`overlong local-part contract failed: status=${overlongLocalRes.status} body=${JSON.stringify(overlongLocalRes.json)}`);
+  }
+  console.log('ok:email-capture:overlong-local-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
