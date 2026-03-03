@@ -3337,3 +3337,11 @@ Ralph Loop Iteration 195 (2026-03-03, rerun)
 - Reconfirmed marketing/headshot usage and CosmicHeroV2/TRON invariants remain intact (0.70 eclipse tail, Act-5 sun-nova spring, 72% moon, Orbitron+scanline neon styling).
 
 Next loop priority (iteration 196): update diagnostics workflow to run against a dedicated per-loop artifact log via `--file=<artifact>` and fail only on `UNKNOWN_UNCLASSIFIED` to tighten flake triage.
+
+Ralph Loop Iteration 196 (2026-03-03)
+
+- Implemented artifact-targeted loop diagnostics flow: default input now `.qa-artifacts/loop-status.current.log` with automatic fallback to `progress.txt` only when no explicit file is provided.
+- Added strict mode (`--strict-unclassified`) and npm script `qa:loop-status-diagnostics:strict` to fail only on `UNKNOWN_UNCLASSIFIED`, keeping known timeout-linked/absent unknowns non-blocking.
+- Revalidated all required lead gates, marketing/headshot checks, CosmicHeroV2 invariants, and TRON styling contracts; mandatory QA stack remained green.
+
+Next loop priority (iteration 197): capture and store a second artifact that includes flaky failure traces (when present) and assert the diagnostics classifier output is stable between clean and flaky logs.
