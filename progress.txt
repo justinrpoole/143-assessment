@@ -2189,3 +2189,11 @@ Ralph Loop Iteration 13 (2026-03-03, rerun)
 - Re-verified lead gates, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions in this iteration.
 
 Next loop priority (iteration 14): add a lightweight contract assertion that very long `name` values still preserve success/error semantics without causing server errors.
+
+Ralph Loop Iteration 14 (2026-03-03)
+
+- Added long-name payload coverage to `qa:email-capture-contract`: very large `name` inputs are now explicitly validated to preserve stable success behavior (`200 {ok:true}`) without server errors.
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks pass after long-name contract expansion.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions detected.
+
+Next loop priority (iteration 15): add API contract coverage for oversized `tag` values to ensure capture-source formatting remains stable and does not trigger 5xx failures.
