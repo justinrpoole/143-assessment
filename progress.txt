@@ -3143,3 +3143,11 @@ Ralph Loop Iteration 83 (2026-03-03, rerun)
 - Reconfirmed content/brand and UI invariants: CTA copy unchanged, headshot present+referenced, CosmicHeroV2 checks intact, and TRON components retain Orbitron/neon/scanline/#060014 contract.
 
 Next loop priority (iteration 84): add mirrored leading apostrophe shifted dot-plus-underscore trailing tokenized insertion coverage (`'${ts}._+user${Date.now()}@...`) and align expectation to observed API semantics.
+
+Ralph Loop Iteration 84 (2026-03-03)
+
+- Added explicit negative contract coverage for mirrored apostrophe-led shifted dot-plus-underscore trailing tokenized insertion (`'${ts}._+user${Date.now()}@...`) and confirmed API semantics stay `400 {"error":"invalid_email"}`.
+- Re-ran full QA suite (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing.
+- Re-verified lead-gate constraints, marketing CTA/headshot requirements, CosmicHeroV2 animation invariants, and TRON visual contracts remain stable.
+
+Next loop priority (iteration 85): add parity coverage for mirrored apostrophe-led shifted underscore-plus-dot trailing tokenized insertion (`'${ts}_.+user${Date.now()}@...`) and align assertion to observed API behavior.
