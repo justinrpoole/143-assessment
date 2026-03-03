@@ -130,6 +130,12 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-hyphen-local-invalid');
 
+  const leadingHyphenLocalRes = await post({ name: 'QA Contract', email: '-user@example.com', tag: 'qa-contract' });
+  if (leadingHyphenLocalRes.status !== 400 || leadingHyphenLocalRes.json?.error !== 'invalid_email') {
+    throw new Error(`leading-hyphen local contract failed: status=${leadingHyphenLocalRes.status} body=${JSON.stringify(leadingHyphenLocalRes.json)}`);
+  }
+  console.log('ok:email-capture:leading-hyphen-local-invalid');
+
   const plusHyphenSeqRes = await post({ name: 'QA Contract', email: 'user+-tag@example.com', tag: 'qa-contract' });
   if (plusHyphenSeqRes.status !== 400 || plusHyphenSeqRes.json?.error !== 'invalid_email') {
     throw new Error(`plus-hyphen sequence contract failed: status=${plusHyphenSeqRes.status} body=${JSON.stringify(plusHyphenSeqRes.json)}`);
