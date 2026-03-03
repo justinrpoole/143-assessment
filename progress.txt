@@ -2221,3 +2221,11 @@ Ralph Loop Iteration 15 (2026-03-03, rerun)
 - Re-verified lead-gate integrity, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions detected.
 
 Next loop priority (iteration 16): add contract coverage for Unicode/emoji characters in `name` and `tag` to ensure source formatting and capture flow stay stable across non-ASCII input.
+
+Ralph Loop Iteration 16 (2026-03-03)
+
+- Added Unicode/emoji input coverage to `qa:email-capture-contract`: non-ASCII `name` and `tag` values are now explicitly tested to ensure capture flow/source formatting remains stable (`200 {ok:true}`) across internationalized inputs.
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks pass after Unicode contract expansion.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions detected this iteration.
+
+Next loop priority (iteration 17): add a contract assertion for maximum-length email local-part/domain edge cases to ensure validation boundaries remain stable and non-crashing.
