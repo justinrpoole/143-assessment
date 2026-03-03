@@ -2173,3 +2173,11 @@ Ralph Loop Iteration 12 (2026-03-03, rerun)
 - Re-verified lead-gate integrity, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual consistency with no regressions found.
 
 Next loop priority (iteration 13): add an explicit whitespace-email normalization check (e.g., `'  user@example.com  '`) to confirm trimming/lowercasing semantics remain stable in the capture contract.
+
+Ralph Loop Iteration 13 (2026-03-03)
+
+- Added email normalization contract coverage to `qa:email-capture-contract`: whitespace + uppercase emails are now explicitly tested to ensure capture endpoint accepts normalized valid input (`200 {ok:true}`).
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after normalization coverage expansion.
+- Re-verified lead-gate integrity, content/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions detected.
+
+Next loop priority (iteration 14): add API contract coverage for duplicate-email idempotency expectations (same email captured twice) to ensure stable behavior and response semantics.
