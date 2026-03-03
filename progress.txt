@@ -2293,3 +2293,11 @@ Ralph Loop Iteration 20 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 21): add a negative contract assertion for whitespace-only email input after trimming to ensure empty-normalized emails always return stable invalid semantics.
+
+Ralph Loop Iteration 20 (2026-03-03, rerun)
+
+- Added whitespace-only email invalid coverage to `qa:email-capture-contract` so trimmed-empty email input now has an explicit contract assertion for stable invalid semantics (`400 {error:"invalid_email"}`).
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks pass after whitespace-email edge-case coverage expansion.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 21): add one invalid-email assertion for missing domain dot with subdomain-like punctuation edge (e.g., `user@com`) to continue tightening domain-shape boundary coverage.
