@@ -93,6 +93,12 @@ async function run() {
   }
   console.log('ok:email-capture:long-tag');
 
+  const missingTagRes = await post({ name: 'QA Contract', email: `qa.missingtag.${Date.now()}@example.com` });
+  if (missingTagRes.status !== 200 || missingTagRes.json?.ok !== true) {
+    throw new Error(`missing tag contract failed: status=${missingTagRes.status} body=${JSON.stringify(missingTagRes.json)}`);
+  }
+  console.log('ok:email-capture:missing-tag-default');
+
   console.log('qa-email-capture-contract: ok');
 }
 
