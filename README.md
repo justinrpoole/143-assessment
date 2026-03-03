@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 143 Assessment
 
-## Getting Started
+[![QA Gates E2E](https://github.com/justinrpoole/143-assessment/actions/workflows/qa-gates-e2e.yml/badge.svg)](https://github.com/justinrpoole/143-assessment/actions/workflows/qa-gates-e2e.yml)
 
-First, run the development server:
+Leadership signal product with gated marketing flows, stability preview, and ray methodology pages.
+
+## Quickstart
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App: <http://localhost:3000>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Required Gate Regression Check
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Before pushing gate-related changes, run:
 
-## Learn More
+```bash
+npm run qa:gates-e2e
+```
 
-To learn more about Next.js, take a look at the following resources:
+What it verifies:
+- **Pre-submit lock state** (protected content is hidden)
+- **Post-submit unlock state** (protected content appears only after capture)
+- Critical routes: `/challenge`, `/group-coaching`, `/preview`, `/rays/intention`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Failure Artifacts (for fast debugging)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+When `qa:gates-e2e` fails, artifacts are written to:
 
-## Deploy on Vercel
+```text
+.qa-artifacts/gates-e2e/
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Per failing route you get:
+- Full-page screenshot (`*.png`)
+- Captured HTML (`*.html`)
+- Error log (`*.txt`)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+CI also uploads these artifacts from the `QA Gates E2E` workflow.
+
+## Other QA Helpers
+
+```bash
+npm run qa:capture-fallback
+```
+
+Validates email-capture fallback behavior and JSONL persistence under forced fallback conditions (non-production only).
