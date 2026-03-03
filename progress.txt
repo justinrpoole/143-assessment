@@ -2469,3 +2469,11 @@ Ralph Loop Iteration 31 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
 
 Next loop priority (iteration 32): add contract coverage for consecutive hyphen local-part sequence (`user--tag@...`) and decide whether policy should permit or reject repeated hyphens internally.
+
+Ralph Loop Iteration 31 (2026-03-03, rerun)
+
+- Finalized mixed-punctuation sequence policy by explicitly rejecting double-hyphen local-part runs (`--`) in `/api/email/capture` validation.
+- Added matching `qa:email-capture-contract` negative assertion for `user--tag@example.com`, locking stable invalid semantics (`400 {error:"invalid_email"}`) alongside existing `+-` / `-+` checks.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 32): add explicit positive coverage for safe repeated alphanumerics around punctuation (e.g., `user--` rejected but `user-a` allowed) to document intended hyphen boundary policy clearly.
