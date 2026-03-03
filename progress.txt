@@ -2109,3 +2109,11 @@ Ralph Loop Iteration 8 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates, content/headshot, CosmicHero, and TRON constraints with no regressions.
 
 Next loop priority (iteration 9): include a compact line-by-line diff artifact for gate-hero drift failures so reviewers can see exact wording changes directly in CI logs.
+
+Ralph Loop Iteration 9 (2026-03-03)
+
+- Implemented compact drift diagnostics in `qa:gate-hero-snapshot`: when baseline mismatch occurs, CI/log output now includes concise baseline/current line-level diffs instead of only generic mismatch summaries.
+- Re-verified full quality stack after the diff enhancement (`qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing.
+- Reconfirmed lead-gate, content/headshot, CosmicHeroV2, and TRON visual constraints remain intact with no regressions during this iteration.
+
+Next loop priority (iteration 10): export the compact gate-hero diff report to a dedicated artifact file so reviewers can inspect drift details without scanning raw CI logs.
