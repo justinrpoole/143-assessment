@@ -3329,3 +3329,11 @@ Ralph Loop Iteration 195 (2026-03-03)
 - Revalidated lead gates, marketing/headshot constraints, CosmicHeroV2 animation invariants, and TRON visual contracts with no regressions.
 
 Next loop priority (iteration 196): feed parser input from explicit loop-run artifact/log file path (`--file=`) in CI/local reruns and assert non-`UNKNOWN_UNCLASSIFIED` for deterministic diagnostics.
+
+Ralph Loop Iteration 195 (2026-03-03, rerun)
+
+- Revalidated all mandatory lead gates (`/challenge`, `/group-coaching`, `/preview`, framework-detail gate paths) and confirmed no ungated methodology regressions.
+- Re-ran the required QA stack plus `qa:loop-status-diagnostics`; all required checks stayed green and diagnostics continued classifying historic `unknown` entries as likely timeout-linked flakes.
+- Reconfirmed marketing/headshot usage and CosmicHeroV2/TRON invariants remain intact (0.70 eclipse tail, Act-5 sun-nova spring, 72% moon, Orbitron+scanline neon styling).
+
+Next loop priority (iteration 196): update diagnostics workflow to run against a dedicated per-loop artifact log via `--file=<artifact>` and fail only on `UNKNOWN_UNCLASSIFIED` to tighten flake triage.
