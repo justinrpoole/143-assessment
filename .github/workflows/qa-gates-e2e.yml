@@ -58,6 +58,18 @@ jobs:
       - name: Validate gate hero copy snapshot
         run: npm run qa:gate-hero-snapshot
 
+      - name: Publish gate-hero drift summary
+        if: always()
+        run: |
+          echo "## Gate Hero Drift Summary" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f .qa-artifacts/gate-hero-copy.diff.txt ]; then
+            echo '```text' >> "$GITHUB_STEP_SUMMARY"
+            sed -n '1,120p' .qa-artifacts/gate-hero-copy.diff.txt >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No gate-hero drift report found." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Upload artifacts on failure
         if: failure()
         uses: actions/upload-artifact@v4
