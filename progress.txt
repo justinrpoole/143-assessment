@@ -2429,3 +2429,11 @@ Ralph Loop Iteration 28 (2026-03-03, rerun)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 29): add a negative contract assertion for percent-sign local-part edge (`user%tag@example.com`) if product policy intends to restrict uncommon RFC punctuation despite current regex allowance.
+
+Ralph Loop Iteration 29 (2026-03-03)
+
+- Tightened local-part punctuation policy in `/api/email/capture` by removing `%` from allowed local-part characters, making percent-sign local parts explicitly invalid.
+- Updated `qa:email-capture-contract` accordingly: percent local-part input now asserts stable invalid semantics (`400 {error:"invalid_email"}`), while accepted plus/underscore local-part cases remain covered.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 30): add explicit contract coverage for apostrophe in local-part (`o'connor@...`) and decide policy (allow vs reject) to finalize punctuation boundary clarity.
