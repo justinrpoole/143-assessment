@@ -142,6 +142,12 @@ async function run() {
   }
   console.log('ok:email-capture:apostrophe-dot-combo-invalid');
 
+  const dotApostropheComboRes = await post({ name: 'QA Contract', email: `user.'@example.com`, tag: 'qa-contract' });
+  if (dotApostropheComboRes.status !== 400 || dotApostropheComboRes.json?.error !== 'invalid_email') {
+    throw new Error(`dot-apostrophe combo contract failed: status=${dotApostropheComboRes.status} body=${JSON.stringify(dotApostropheComboRes.json)}`);
+  }
+  console.log('ok:email-capture:dot-apostrophe-combo-invalid');
+
   const percentLocalRes = await post({ name: 'QA Contract', email: `qa%tag.${Date.now()}@example.com`, tag: 'qa-contract' });
   if (percentLocalRes.status !== 400 || percentLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`percent local-part contract failed: status=${percentLocalRes.status} body=${JSON.stringify(percentLocalRes.json)}`);
