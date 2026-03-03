@@ -2141,3 +2141,11 @@ Ralph Loop Iteration 10 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) plus baseline content/headshot/CosmicHero/TRON checks with all passing.
 
 Next loop priority (iteration 11): add a lightweight API contract check for `/api/email/capture` response shape and status under valid/invalid payloads to catch backend gate regressions earlier.
+
+Ralph Loop Iteration 11 (2026-03-03)
+
+- Added backend contract coverage for gate capture API: new `qa:email-capture-contract` validates `/api/email/capture` success path (`200 {ok:true}`) and invalid-email path (`400 {error:"invalid_email"}`).
+- Enforced the API contract check in CI by wiring `npm run qa:email-capture-contract` into the `QA Gates E2E` workflow, so capture-regression failures surface before merge.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 12): add contract coverage for malformed JSON body handling on `/api/email/capture` to ensure error semantics remain stable under bad client payloads.
