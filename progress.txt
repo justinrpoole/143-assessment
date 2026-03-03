@@ -3393,3 +3393,11 @@ Ralph Loop Iteration 199 (2026-03-03, rerun)
 - Reconfirmed marketing/headshot presence and CosmicHeroV2/TRON invariants (0.70 eclipse tail, Act-5 sun-nova spring, 72% moon, Orbitron + scanline neon dark-stack styling).
 
 Next loop priority (iteration 200): implement a compact stability-trend helper over the last N summary artifacts to output a single steady/flapping signal for loop footer telemetry.
+
+Ralph Loop Iteration 200 (2026-03-03)
+
+- Added `scripts/qa/qa-loop-status-trend.mjs` plus `qa:loop-status-trend` to compute a concise stability signal (`steady`/`flapping`) from recent loop-status summary artifacts.
+- Integrated trend check into the loop verification flow after diagnostics triage; current signal reports steady UNKNOWN_ABSENT classification behavior.
+- Revalidated all required lead gates, marketing/headshot constraints, CosmicHeroV2 invariants, TRON vibe contracts, and mandatory QA stack with no regressions.
+
+Next loop priority (iteration 201): include the trend helper output inside the diagnostics JSON summary payload (or companion JSON) so CI can consume a machine-readable stability field.
