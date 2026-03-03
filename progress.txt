@@ -2575,3 +2575,11 @@ Ralph Loop Iteration 48 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 49): add explicit negative contract coverage for local-part ending with dot-hyphen combo (`user.-@...`) to ensure chained boundary punctuation is consistently rejected.
+
+Ralph Loop Iteration 48 (2026-03-03, rerun)
+
+- Added explicit negative contract coverage for chained boundary punctuation (`user.-@example.com`) to ensure dot+hyphen edge ordering is always rejected.
+- Confirmed email capture API invalid semantics remain stable for this edge (`400 {error:"invalid_email"}`) with no changes to intended valid internal punctuation behavior.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 49): add explicit negative contract coverage for chained boundary punctuation at the front (`-.user@...`) to mirror trailing chained-edge rejection.
