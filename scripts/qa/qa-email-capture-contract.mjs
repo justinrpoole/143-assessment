@@ -258,6 +258,18 @@ async function run() {
   }
   console.log('ok:email-capture:domain-newline-invalid');
 
+  const unicodeWhitespaceWrappedRes = await post({
+    name: 'QA Contract',
+    email: '\u00A0\u2003user.unicodews@example.com\u00A0',
+    tag: 'qa-contract',
+  });
+  if (unicodeWhitespaceWrappedRes.status !== 200 || unicodeWhitespaceWrappedRes.json?.ok !== true) {
+    throw new Error(
+      `unicode-whitespace wrapped email contract failed: status=${unicodeWhitespaceWrappedRes.status} body=${JSON.stringify(unicodeWhitespaceWrappedRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:unicode-whitespace-trimmed-valid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
