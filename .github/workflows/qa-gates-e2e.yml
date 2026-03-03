@@ -58,6 +58,9 @@ jobs:
       - name: Validate gate hero copy snapshot
         run: npm run qa:gate-hero-snapshot
 
+      - name: Validate gate control presence
+        run: npm run qa:gate-controls
+
       - name: Publish gate-hero drift summary
         if: always()
         run: |
