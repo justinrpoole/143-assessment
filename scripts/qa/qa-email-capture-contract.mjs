@@ -417,6 +417,14 @@ async function run() {
   }
   console.log('ok:email-capture:leading-dot-local-invalid');
 
+  const leadingDotPlusChainRes = await post({ name: 'QA Contract', email: '.+user@example.com', tag: 'qa-contract' });
+  if (leadingDotPlusChainRes.status !== 400 || leadingDotPlusChainRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `leading dot-plus chain contract failed: status=${leadingDotPlusChainRes.status} body=${JSON.stringify(leadingDotPlusChainRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:leading-dot-plus-chain-invalid');
+
   const trailingDotLocalRes = await post({ name: 'QA Contract', email: 'user.@example.com', tag: 'qa-contract' });
   if (trailingDotLocalRes.status !== 400 || trailingDotLocalRes.json?.error !== 'invalid_email') {
     throw new Error(
