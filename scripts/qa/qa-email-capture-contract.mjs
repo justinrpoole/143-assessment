@@ -226,6 +226,22 @@ async function run() {
   }
   console.log('ok:email-capture:no-tld-uppercase-domain-invalid');
 
+  const localSpaceRes = await post({ name: 'QA Contract', email: 'us er@example.com', tag: 'qa-contract' });
+  if (localSpaceRes.status !== 400 || localSpaceRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `local-space email contract failed: status=${localSpaceRes.status} body=${JSON.stringify(localSpaceRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:local-space-invalid');
+
+  const domainSpaceRes = await post({ name: 'QA Contract', email: 'user@exa mple.com', tag: 'qa-contract' });
+  if (domainSpaceRes.status !== 400 || domainSpaceRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `domain-space email contract failed: status=${domainSpaceRes.status} body=${JSON.stringify(domainSpaceRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:domain-space-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
