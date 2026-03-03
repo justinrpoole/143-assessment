@@ -37,7 +37,7 @@
     "qa:gates-e2e": "node scripts/qa/qa-gates-e2e.mjs",
     "qa:readme-sync": "node scripts/qa/qa-readme-sync.mjs",
     "qa:loop-status-diagnostics": "node scripts/qa/qa-loop-status-diagnostics.mjs",
-    "qa:loop-status-diagnostics:strict": "node scripts/qa/qa-loop-status-diagnostics.mjs --file=.qa-artifacts/loop-status.current.log --strict-unclassified",
+    "qa:loop-status-diagnostics:strict": "node scripts/qa/qa-loop-status-diagnostics.mjs --file=.qa-artifacts/loop-status.current.log --strict-unclassified --write-json --check-drift",
     "qa:loop-status-diagnostics:fixtures": "node scripts/qa/qa-loop-status-diagnostics.mjs --file=scripts/qa/fixtures/loop-status-clean.log --expect=UNKNOWN_ABSENT && node scripts/qa/qa-loop-status-diagnostics.mjs --file=scripts/qa/fixtures/loop-status-flake.log --expect=UNKNOWN_LIKELY_FLAKE && node scripts/qa/qa-loop-status-diagnostics.mjs --file=scripts/qa/fixtures/loop-status-unclassified.log --expect=UNKNOWN_UNCLASSIFIED",
     "qa:loop-status-diagnostics:triage": "npm run -s qa:loop-status-diagnostics:strict && npm run -s qa:loop-status-diagnostics:fixtures",
     "qa:cta-copy": "node scripts/qa/qa-cta-copy.mjs",
