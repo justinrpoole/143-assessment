@@ -2583,3 +2583,11 @@ Ralph Loop Iteration 48 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 49): add explicit negative contract coverage for chained boundary punctuation at the front (`-.user@...`) to mirror trailing chained-edge rejection.
+
+Ralph Loop Iteration 49 (2026-03-03)
+
+- Added explicit negative contract coverage for leading chained boundary punctuation (`-.user@example.com`) to mirror trailing chained-edge rejection.
+- Verified API response contract remains stable for this edge case (`400 {error:"invalid_email"}`) without impacting intended valid local-part formats.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 50): add negative contract coverage for mixed underscore-plus adjacency (`_+user@...` or `user+_@...`) to confirm punctuation adjacency policy remains consistent beyond hyphen/dot chains.
