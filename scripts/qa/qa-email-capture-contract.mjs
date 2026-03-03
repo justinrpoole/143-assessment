@@ -453,6 +453,14 @@ async function run() {
   }
   console.log('ok:email-capture:leading-dot-underscore-plus-chain-invalid');
 
+  const leadingDotPlusUnderscoreChainRes = await post({ name: 'QA Contract', email: '.+_user@example.com', tag: 'qa-contract' });
+  if (leadingDotPlusUnderscoreChainRes.status !== 400 || leadingDotPlusUnderscoreChainRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `leading dot-plus-underscore chain contract failed: status=${leadingDotPlusUnderscoreChainRes.status} body=${JSON.stringify(leadingDotPlusUnderscoreChainRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:leading-dot-plus-underscore-chain-invalid');
+
   const leadingDotHyphenChainRes = await post({ name: 'QA Contract', email: '.-user@example.com', tag: 'qa-contract' });
   if (leadingDotHyphenChainRes.status !== 400 || leadingDotHyphenChainRes.json?.error !== 'invalid_email') {
     throw new Error(
