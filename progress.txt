@@ -2357,3 +2357,11 @@ Ralph Loop Iteration 24 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 25): add a contract assertion for mixed invalid punctuation in domain labels (e.g., underscore in domain) to tighten RFC-shape boundary handling.
+
+Ralph Loop Iteration 24 (2026-03-03, rerun)
+
+- Tightened email domain-shape validation by requiring domain labels to match `[a-z0-9-]+` (case-insensitive), which rejects unsupported punctuation like underscores server-side.
+- Added explicit contract coverage for underscore domain invalid input (`user@bad_domain.com`) in `qa:email-capture-contract`, locking stable invalid semantics (`400 {error:"invalid_email"}`).
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 25): add contract assertions for plus-addressing + quoted-local edge shapes to confirm accepted/invalid boundaries remain intentional and stable.
