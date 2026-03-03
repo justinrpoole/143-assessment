@@ -99,6 +99,18 @@ async function run() {
   }
   console.log('ok:email-capture:missing-tag-default');
 
+  const emptyTagRes = await post({ name: 'QA Contract', email: `qa.emptytag.${Date.now()}@example.com`, tag: '' });
+  if (emptyTagRes.status !== 200 || emptyTagRes.json?.ok !== true) {
+    throw new Error(`empty tag contract failed: status=${emptyTagRes.status} body=${JSON.stringify(emptyTagRes.json)}`);
+  }
+  console.log('ok:email-capture:empty-tag-default');
+
+  const whitespaceTagRes = await post({ name: 'QA Contract', email: `qa.whitespacetag.${Date.now()}@example.com`, tag: '    ' });
+  if (whitespaceTagRes.status !== 200 || whitespaceTagRes.json?.ok !== true) {
+    throw new Error(`whitespace tag contract failed: status=${whitespaceTagRes.status} body=${JSON.stringify(whitespaceTagRes.json)}`);
+  }
+  console.log('ok:email-capture:whitespace-tag-default');
+
   console.log('qa-email-capture-contract: ok');
 }
 
