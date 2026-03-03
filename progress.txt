@@ -3087,3 +3087,11 @@ Ralph Loop Iteration 80 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing CTA/headshot constraints, CosmicHeroV2 animation invariants, and TRON visual contracts remain intact.
 
 Next loop priority (iteration 81): add explicit negative contract coverage for leading apostrophe-led shifted insertion mirror (`'${ts}._+user@...`) to compare insertion-position invariance across alternate start-boundary orderings.
+
+Ralph Loop Iteration 80 (2026-03-03, rerun)
+
+- Revalidated lead-gate behavior across `/challenge`, `/group-coaching`, `/preview`, and gated rays detail routes; no content leakage or gate bypass regression detected.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed checks continue passing in this rerun.
+- Reconfirmed marketing/headshot presence, CosmicHeroV2 animation invariants, and TRON visual contract markers remain intact without drift.
+
+Next loop priority (iteration 81): add explicit negative contract coverage for leading apostrophe-led shifted insertion mirror (`'${ts}._+user@...`) to compare start-boundary insertion invariance against existing shifted ordering coverage.
