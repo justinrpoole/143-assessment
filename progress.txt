@@ -2117,3 +2117,11 @@ Ralph Loop Iteration 9 (2026-03-03)
 - Reconfirmed lead-gate, content/headshot, CosmicHeroV2, and TRON visual constraints remain intact with no regressions during this iteration.
 
 Next loop priority (iteration 10): export the compact gate-hero diff report to a dedicated artifact file so reviewers can inspect drift details without scanning raw CI logs.
+
+Ralph Loop Iteration 9 (2026-03-03, rerun)
+
+- Implemented the next-priority improvement: `qa:gate-hero-snapshot` now writes a dedicated drift report artifact (`.qa-artifacts/gate-hero-copy.diff.txt`) with compact line-level baseline/current differences on mismatch.
+- Updated CI artifact upload paths so gate-hero current snapshot and compact diff report are both available for review when the QA workflow fails.
+- Re-ran full verification stack (gate hero snapshot, CTA copy, gate E2E, README sync) and baseline lead-gate/content/animation/TRON checks with no regressions.
+
+Next loop priority (iteration 10): add a tiny PR-comment helper (or CI summary step) that surfaces gate-hero drift diff excerpts directly in workflow summary for faster reviewer visibility.
