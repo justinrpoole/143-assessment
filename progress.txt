@@ -3321,3 +3321,11 @@ Ralph Loop Iteration 194 (2026-03-03, rerun-2)
 - Reconfirmed marketing/headshot requirements plus CosmicHeroV2/TRON invariants remain stable (0.70 eclipse tail, 143-sun-nova spring, 72% moon, Orbitron + neon scanlines on #060014).
 
 Next loop priority (iteration 195): implement the lightweight loop-status parser/check script to label `unknown` status artifacts distinctly from confirmed `qa:gates-e2e` timeout flakes in rerun logs.
+
+Ralph Loop Iteration 195 (2026-03-03)
+
+- Added `scripts/qa/qa-loop-status-diagnostics.mjs` to classify loop-log `unknown` statuses as `UNKNOWN_ABSENT`, `UNKNOWN_LIKELY_FLAKE`, or `UNKNOWN_UNCLASSIFIED` based on explicit timeout/`qa:gates-e2e` signals.
+- Wired new QA utility into `package.json` as `qa:loop-status-diagnostics` and executed it alongside the full mandatory QA stack.
+- Revalidated lead gates, marketing/headshot constraints, CosmicHeroV2 animation invariants, and TRON visual contracts with no regressions.
+
+Next loop priority (iteration 196): feed parser input from explicit loop-run artifact/log file path (`--file=`) in CI/local reruns and assert non-`UNKNOWN_UNCLASSIFIED` for deterministic diagnostics.
