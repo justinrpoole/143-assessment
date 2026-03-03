@@ -2341,3 +2341,11 @@ Ralph Loop Iteration 23 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 24): add a negative contract assertion for zero-width/invisible Unicode separators inside email text to ensure hidden-character payloads are rejected consistently.
+
+Ralph Loop Iteration 23 (2026-03-03, rerun)
+
+- Broadened server-side whitespace handling by using regex whitespace-class checks in `/api/email/capture` validation, ensuring tabs/newlines (not only literal spaces) are rejected inside local/domain segments.
+- Expanded `qa:email-capture-contract` with explicit tab/newline invalid assertions (`us\ter@...`, `user@exa\nmple...`) to lock stable invalid semantics (`400 {error:"invalid_email"}`).
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 24): add a negative contract assertion for zero-width/invisible Unicode separators inside email text to ensure hidden-character payloads are rejected consistently.
