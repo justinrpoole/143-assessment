@@ -2559,3 +2559,11 @@ Ralph Loop Iteration 47 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates, marketing/headshot, CosmicHeroV2, and TRON vibe checks with no regressions.
 
 Next loop priority (iteration 48): add explicit contract coverage for local-part ending with apostrophe-adjacent punctuation combo (e.g., `user'-@...`) to confirm punctuation-edge ordering stays consistently invalid.
+
+Ralph Loop Iteration 47 (2026-03-03, rerun)
+
+- Added explicit `qa:email-capture-contract` coverage for apostrophe-hyphen local-part punctuation ordering (`user'-@...`) to lock it as invalid.
+- Confirmed API contract behavior remains stable for punctuation-edge invalids (`400 {error:"invalid_email"}`) while preserving intended valid local-part forms.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 48): add positive contract coverage for internal apostrophe + hyphen separated by alphanumerics (e.g., `o'connor-a@...`) to prove non-edge mixed punctuation remains valid.
