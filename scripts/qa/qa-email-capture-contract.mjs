@@ -136,6 +136,12 @@ async function run() {
   }
   console.log('ok:email-capture:underscore-apostrophe-combo-invalid');
 
+  const apostropheDotComboRes = await post({ name: 'QA Contract', email: `user'.@example.com`, tag: 'qa-contract' });
+  if (apostropheDotComboRes.status !== 400 || apostropheDotComboRes.json?.error !== 'invalid_email') {
+    throw new Error(`apostrophe-dot combo contract failed: status=${apostropheDotComboRes.status} body=${JSON.stringify(apostropheDotComboRes.json)}`);
+  }
+  console.log('ok:email-capture:apostrophe-dot-combo-invalid');
+
   const percentLocalRes = await post({ name: 'QA Contract', email: `qa%tag.${Date.now()}@example.com`, tag: 'qa-contract' });
   if (percentLocalRes.status !== 400 || percentLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`percent local-part contract failed: status=${percentLocalRes.status} body=${JSON.stringify(percentLocalRes.json)}`);
