@@ -12,6 +12,16 @@ async function post(body) {
   return { status: res.status, json };
 }
 
+async function postRaw(rawBody) {
+  const res = await fetch(`${baseUrl}/api/email/capture`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: rawBody,
+  });
+  const json = await res.json().catch(() => ({}));
+  return { status: res.status, json };
+}
+
 async function run() {
   const valid = await post({ name: 'QA Contract', email: `qa.contract.${Date.now()}@example.com`, tag: 'qa-contract' });
   if (valid.status !== 200 || valid.json?.ok !== true) {
@@ -24,6 +34,12 @@ async function run() {
     throw new Error(`invalid payload contract failed: status=${invalid.status} body=${JSON.stringify(invalid.json)}`);
   }
   console.log('ok:email-capture:invalid-email');
+
+  const malformed = await postRaw('{"email":');
+  if (malformed.status !== 400 || malformed.json?.error !== 'invalid_email') {
+    throw new Error(`malformed json contract failed: status=${malformed.status} body=${JSON.stringify(malformed.json)}`);
+  }
+  console.log('ok:email-capture:malformed-json');
 
   console.log('qa-email-capture-contract: ok');
 }
