@@ -100,6 +100,12 @@ async function run() {
   }
   console.log('ok:email-capture:leading-apostrophe-local-invalid');
 
+  const apostropheDotLeadingRes = await post({ name: 'QA Contract', email: `'.user@example.com`, tag: 'qa-contract' });
+  if (apostropheDotLeadingRes.status !== 400 || apostropheDotLeadingRes.json?.error !== 'invalid_email') {
+    throw new Error(`leading apostrophe-dot chain contract failed: status=${apostropheDotLeadingRes.status} body=${JSON.stringify(apostropheDotLeadingRes.json)}`);
+  }
+  console.log('ok:email-capture:leading-apostrophe-dot-chain-invalid');
+
   const trailingApostropheRes = await post({ name: 'QA Contract', email: `oconnor'@example.com`, tag: 'qa-contract' });
   if (trailingApostropheRes.status !== 400 || trailingApostropheRes.json?.error !== 'invalid_email') {
     throw new Error(`trailing-apostrophe local contract failed: status=${trailingApostropheRes.status} body=${JSON.stringify(trailingApostropheRes.json)}`);
