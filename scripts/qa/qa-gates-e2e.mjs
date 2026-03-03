@@ -11,6 +11,7 @@ const cases = [
     name: 'challenge',
     path: '/challenge',
     preText: 'Unlock the 143 Workbook',
+    preAbsentText: 'Your workbook is ready.',
     fill: async (page) => {
       await page.getByPlaceholder('Your first name').fill('QA Loop');
       await page.getByPlaceholder('you@example.com').fill(`qa.challenge.${Date.now()}@gmail.com`);
@@ -22,6 +23,7 @@ const cases = [
     name: 'group-coaching',
     path: '/group-coaching',
     preText: 'Unlock Cohort Details',
+    preAbsentText: 'Apply for the Next Cohort',
     fill: async (page) => {
       await page.getByPlaceholder('Your name').fill('QA Loop');
       await page.getByPlaceholder('you@example.com').fill(`qa.gc.${Date.now()}@gmail.com`);
@@ -33,6 +35,7 @@ const cases = [
     name: 'preview',
     path: '/preview',
     preText: 'Unlock Free Stability Check',
+    preAbsentText: '3 questions. See where your light is strongest.',
     fill: async (page) => {
       await page.getByPlaceholder('Your name').fill('QA Loop');
       await page.getByPlaceholder('you@example.com').fill(`qa.preview.${Date.now()}@gmail.com`);
@@ -44,6 +47,7 @@ const cases = [
     name: 'rays-intention',
     path: '/rays/intention',
     preText: 'Discover your Rays — free Stability Check',
+    preAbsentText: 'Train your Intention this week',
     fill: async (page) => {
       await page.getByPlaceholder('Your name').fill('QA Loop');
       await page.getByPlaceholder('you@example.com').fill(`qa.ray.${Date.now()}@gmail.com`);
@@ -56,6 +60,18 @@ const cases = [
 async function assertVisible(page, text, label) {
   await page.getByText(text, { exact: false }).first().waitFor({ state: 'visible', timeout: 10000 });
   console.log(`ok:${label}:${text}`);
+}
+
+async function assertHidden(page, text, label) {
+  const locator = page.getByText(text, { exact: false }).first();
+  const count = await locator.count();
+  if (count > 0) {
+    const visible = await locator.isVisible().catch(() => false);
+    if (visible) {
+      throw new Error(`Expected hidden text but found visible: ${text}`);
+    }
+  }
+  console.log(`ok:${label}:hidden:${text}`);
 }
 
 function safeName(name) {
@@ -81,6 +97,9 @@ async function runCase(browser, spec) {
   try {
     await page.goto(`${baseUrl}${spec.path}`, { waitUntil: 'domcontentloaded' });
     await assertVisible(page, spec.preText, `${spec.name}:pre`);
+    if (spec.preAbsentText) {
+      await assertHidden(page, spec.preAbsentText, `${spec.name}:pre-absent`);
+    }
     await spec.fill(page);
     await assertVisible(page, spec.postText, `${spec.name}:post`);
   } catch (error) {
