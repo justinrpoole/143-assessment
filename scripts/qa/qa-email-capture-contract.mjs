@@ -186,6 +186,22 @@ async function run() {
   }
   console.log('ok:email-capture:consecutive-dot-local-invalid');
 
+  const leadingDotLocalRes = await post({ name: 'QA Contract', email: '.user@example.com', tag: 'qa-contract' });
+  if (leadingDotLocalRes.status !== 400 || leadingDotLocalRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `leading-dot local contract failed: status=${leadingDotLocalRes.status} body=${JSON.stringify(leadingDotLocalRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:leading-dot-local-invalid');
+
+  const trailingDotLocalRes = await post({ name: 'QA Contract', email: 'user.@example.com', tag: 'qa-contract' });
+  if (trailingDotLocalRes.status !== 400 || trailingDotLocalRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `trailing-dot local contract failed: status=${trailingDotLocalRes.status} body=${JSON.stringify(trailingDotLocalRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:trailing-dot-local-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
