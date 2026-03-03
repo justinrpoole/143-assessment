@@ -2623,3 +2623,11 @@ Ralph Loop Iteration 51 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 52): add explicit negative contract coverage for underscore-apostrophe boundary ordering (`user_\'@...`) to complete bidirectional parity for apostrophe/underscore punctuation edges.
+
+Ralph Loop Iteration 51 (2026-03-03, rerun)
+
+- Added explicit negative contract coverage for underscore-apostrophe boundary ordering (`user_'@example.com`) to complete bidirectional apostrophe/underscore punctuation-edge parity.
+- Confirmed API invalid semantics remain stable for this boundary (`400 {error:"invalid_email"}`) while preserving established valid internal punctuation patterns.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 52): add explicit negative contract coverage for apostrophe-dot boundary ordering (`user'.@...`) to continue punctuation-order parity hardening across quote+dot edges.
