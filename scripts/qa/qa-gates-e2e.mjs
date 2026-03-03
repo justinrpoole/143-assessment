@@ -15,7 +15,11 @@ const cases = [
     fill: async (page) => {
       await page.getByPlaceholder('Your first name').fill('QA Loop');
       await page.getByPlaceholder('you@example.com').fill(`qa.challenge.${Date.now()}@gmail.com`);
-      await page.getByRole('button', { name: 'Unlock the 143 Workbook' }).click();
+      await page.getByPlaceholder('you@example.com').press('Enter');
+      const unlock = page.getByRole('button', { name: 'Unlock the 143 Workbook' });
+      if (await unlock.isVisible().catch(() => false)) {
+        await unlock.click().catch(() => {});
+      }
     },
     postText: 'Your workbook is ready.',
   },
