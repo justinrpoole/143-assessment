@@ -76,6 +76,12 @@ async function run() {
   }
   console.log('ok:email-capture:plus-addressing-valid');
 
+  const underscoreLocalRes = await post({ name: 'QA Contract', email: `qa_user.${Date.now()}@example.com`, tag: 'qa-contract' });
+  if (underscoreLocalRes.status !== 200 || underscoreLocalRes.json?.ok !== true) {
+    throw new Error(`underscore local-part contract failed: status=${underscoreLocalRes.status} body=${JSON.stringify(underscoreLocalRes.json)}`);
+  }
+  console.log('ok:email-capture:underscore-local-valid');
+
   const trailingPlusRes = await post({ name: 'QA Contract', email: 'user+@example.com', tag: 'qa-contract' });
   if (trailingPlusRes.status !== 400 || trailingPlusRes.json?.error !== 'invalid_email') {
     throw new Error(`trailing-plus local contract failed: status=${trailingPlusRes.status} body=${JSON.stringify(trailingPlusRes.json)}`);
