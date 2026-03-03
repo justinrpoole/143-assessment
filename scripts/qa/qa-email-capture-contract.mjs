@@ -170,6 +170,14 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-hyphen-label-invalid');
 
+  const consecutiveDotRes = await post({ name: 'QA Contract', email: 'user@bad..com', tag: 'qa-contract' });
+  if (consecutiveDotRes.status !== 400 || consecutiveDotRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `consecutive-dot domain contract failed: status=${consecutiveDotRes.status} body=${JSON.stringify(consecutiveDotRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:consecutive-dot-domain-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
