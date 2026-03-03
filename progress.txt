@@ -3103,3 +3103,11 @@ Ralph Loop Iteration 81 (2026-03-03)
 - Re-verified lead gates, marketing CTA/headshot constraints, CosmicHeroV2 animation invariants, and TRON visual contracts remain stable.
 
 Next loop priority (iteration 82): add explicit negative contract coverage for leading apostrophe-led shifted insertion alternate ordering (`'${ts}+._user@...`) to complete insertion-position parity across apostrophe-first start-boundary 4-symbol permutations.
+
+Ralph Loop Iteration 81 (2026-03-03, rerun)
+
+- Revalidated all lead gates and protected marketing flows; `/challenge`, `/group-coaching`, `/preview`, and gated ray-detail pages still require capture before protected content.
+- Re-ran full regression suite (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed no regressions.
+- Reconfirmed homepage/headshot usage and CosmicHeroV2/TRON style invariants (Orbitron, neon glow, scanlines, #060014) remain intact.
+
+Next loop priority (iteration 82): add explicit negative contract coverage for leading apostrophe-led shifted alternate ordering (`'${ts}+._user@...`) to complete start-boundary apostrophe-first permutation parity.
