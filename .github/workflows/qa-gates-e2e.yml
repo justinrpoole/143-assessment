@@ -65,5 +65,6 @@ jobs:
           name: qa-gates-e2e-artifacts
           path: |
             .qa-artifacts/gates-e2e
+            .qa-artifacts/gate-hero-copy.current.json
             /tmp/qa-gates-start.log
           if-no-files-found: ignore

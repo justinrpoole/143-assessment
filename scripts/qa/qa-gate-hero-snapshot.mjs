@@ -5,6 +5,8 @@ import { chromium } from 'playwright';
 
 const baseUrl = process.env.QA_BASE_URL || 'http://127.0.0.1:3000';
 const outPath = path.join(process.cwd(), '.qa-artifacts', 'gate-hero-copy.current.json');
+const baselinePath = path.join(process.cwd(), 'qa', 'baselines', 'gate-hero-copy.baseline.json');
+const updateBaseline = process.env.QA_UPDATE_BASELINE === '1';
 
 const checks = [
   {
@@ -45,6 +47,10 @@ const checks = [
   },
 ];
 
+function excerpt(value) {
+  return String(value || '').slice(0, 160).replace(/\s+/g, ' ');
+}
+
 async function run() {
   const browser = await chromium.launch({ headless: true });
   const snapshot = { generatedAt: new Date().toISOString(), routes: {} };
@@ -72,6 +78,34 @@ async function run() {
 
     await fs.mkdir(path.dirname(outPath), { recursive: true });
     await fs.writeFile(outPath, JSON.stringify(snapshot, null, 2), 'utf8');
+
+    const normalized = { routes: snapshot.routes };
+
+    if (updateBaseline) {
+      await fs.mkdir(path.dirname(baselinePath), { recursive: true });
+      await fs.writeFile(baselinePath, JSON.stringify(normalized, null, 2), 'utf8');
+      console.log(`qa-gate-hero-snapshot: baseline updated (${baselinePath})`);
+      console.log(`qa-gate-hero-snapshot: ok (${outPath})`);
+      return;
+    }
+
+    const baselineRaw = await fs.readFile(baselinePath, 'utf8');
+    const baseline = JSON.parse(baselineRaw);
+
+    const drifts = [];
+    for (const check of checks) {
+      const routeName = check.name;
+      const currentText = normalized.routes[routeName] ?? '';
+      const baselineText = baseline?.routes?.[routeName] ?? '';
+      if (currentText !== baselineText) {
+        drifts.push(`- ${routeName}\n  baseline: ${excerpt(baselineText)}\n  current:  ${excerpt(currentText)}`);
+      }
+    }
+
+    if (drifts.length > 0) {
+      throw new Error(`Gate hero copy drift detected.\n${drifts.join('\n')}`);
+    }
+
     console.log(`qa-gate-hero-snapshot: ok (${outPath})`);
   } finally {
     await browser.close();
