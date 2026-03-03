@@ -2567,3 +2567,11 @@ Ralph Loop Iteration 47 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 48): add positive contract coverage for internal apostrophe + hyphen separated by alphanumerics (e.g., `o'connor-a@...`) to prove non-edge mixed punctuation remains valid.
+
+Ralph Loop Iteration 48 (2026-03-03)
+
+- Added explicit positive contract coverage for internal apostrophe+hyphen local-part composition (`oconnor-a.o'connor@...`) to confirm non-edge mixed punctuation remains valid.
+- Reconfirmed API invalid semantics for punctuation-edge boundary cases remain stable (`400 {error:"invalid_email"}`) while preserving approved internal punctuation patterns.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 49): add explicit negative contract coverage for local-part ending with dot-hyphen combo (`user.-@...`) to ensure chained boundary punctuation is consistently rejected.
