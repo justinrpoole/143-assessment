@@ -238,6 +238,12 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-underscore-local-invalid');
 
+  const dotUnderscoreBoundaryRes = await post({ name: 'QA Contract', email: 'user._@example.com', tag: 'qa-contract' });
+  if (dotUnderscoreBoundaryRes.status !== 400 || dotUnderscoreBoundaryRes.json?.error !== 'invalid_email') {
+    throw new Error(`dot-underscore boundary contract failed: status=${dotUnderscoreBoundaryRes.status} body=${JSON.stringify(dotUnderscoreBoundaryRes.json)}`);
+  }
+  console.log('ok:email-capture:dot-underscore-boundary-invalid');
+
   const plusUnderscoreBoundaryRes = await post({ name: 'QA Contract', email: 'user+_@example.com', tag: 'qa-contract' });
   if (plusUnderscoreBoundaryRes.status !== 400 || plusUnderscoreBoundaryRes.json?.error !== 'invalid_email') {
     throw new Error(`plus-underscore boundary contract failed: status=${plusUnderscoreBoundaryRes.status} body=${JSON.stringify(plusUnderscoreBoundaryRes.json)}`);
