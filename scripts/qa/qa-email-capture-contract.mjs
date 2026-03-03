@@ -69,6 +69,16 @@ async function run() {
   }
   console.log('ok:email-capture:normalized-email');
 
+  const dupEmail = `qa.dup.${Date.now()}@example.com`;
+  const firstDup = await post({ name: 'QA Contract', email: dupEmail, tag: 'qa-contract' });
+  const secondDup = await post({ name: 'QA Contract', email: dupEmail, tag: 'qa-contract' });
+  if (firstDup.status !== 200 || firstDup.json?.ok !== true || secondDup.status !== 200 || secondDup.json?.ok !== true) {
+    throw new Error(
+      `duplicate email contract failed: first=${firstDup.status}/${JSON.stringify(firstDup.json)} second=${secondDup.status}/${JSON.stringify(secondDup.json)}`,
+    );
+  }
+  console.log('ok:email-capture:duplicate-idempotent');
+
   console.log('qa-email-capture-contract: ok');
 }
 
