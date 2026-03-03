@@ -2229,3 +2229,11 @@ Ralph Loop Iteration 16 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions detected this iteration.
 
 Next loop priority (iteration 17): add a contract assertion for maximum-length email local-part/domain edge cases to ensure validation boundaries remain stable and non-crashing.
+
+Ralph Loop Iteration 16 (2026-03-03, rerun)
+
+- Added boundary-shape email contract coverage to `qa:email-capture-contract` (max-like local part + long domain labels) to ensure capture API remains non-crashing and stable on edge-format valid emails.
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after boundary email coverage expansion.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions detected.
+
+Next loop priority (iteration 17): add one negative email boundary assertion (overlong local-part shape) to ensure invalid high-length patterns still produce stable validation errors.
