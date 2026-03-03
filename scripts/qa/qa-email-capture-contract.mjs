@@ -130,6 +130,18 @@ async function run() {
   }
   console.log('ok:email-capture:trailing-hyphen-local-invalid');
 
+  const plusHyphenSeqRes = await post({ name: 'QA Contract', email: 'user+-tag@example.com', tag: 'qa-contract' });
+  if (plusHyphenSeqRes.status !== 400 || plusHyphenSeqRes.json?.error !== 'invalid_email') {
+    throw new Error(`plus-hyphen sequence contract failed: status=${plusHyphenSeqRes.status} body=${JSON.stringify(plusHyphenSeqRes.json)}`);
+  }
+  console.log('ok:email-capture:plus-hyphen-sequence-invalid');
+
+  const hyphenPlusSeqRes = await post({ name: 'QA Contract', email: 'user-+tag@example.com', tag: 'qa-contract' });
+  if (hyphenPlusSeqRes.status !== 400 || hyphenPlusSeqRes.json?.error !== 'invalid_email') {
+    throw new Error(`hyphen-plus sequence contract failed: status=${hyphenPlusSeqRes.status} body=${JSON.stringify(hyphenPlusSeqRes.json)}`);
+  }
+  console.log('ok:email-capture:hyphen-plus-sequence-invalid');
+
   const quotedLocalRes = await post({ name: 'QA Contract', email: '"quoted"@example.com', tag: 'qa-contract' });
   if (quotedLocalRes.status !== 400 || quotedLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`quoted-local contract failed: status=${quotedLocalRes.status} body=${JSON.stringify(quotedLocalRes.json)}`);

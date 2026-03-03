@@ -21,6 +21,7 @@ function isValidEmail(email: string) {
   if (!/^[a-z0-9!#$&'*+/=?^_`{|}~.-]+$/i.test(local)) return false;
   if (local.startsWith(".") || local.endsWith(".") || local.includes("..") || /\s/.test(local)) return false;
   if (local.startsWith("+") || local.endsWith("+") || local.includes("++") || local.endsWith("-") || local.startsWith("'") || local.endsWith("'")) return false;
+  if (local.includes("+-") || local.includes("-+")) return false;
   if (/\s/.test(domain)) return false;
 
   const labels = domain.split(".");
