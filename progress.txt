@@ -2405,3 +2405,11 @@ Ralph Loop Iteration 27 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
 
 Next loop priority (iteration 28): add one negative contract assertion for repeated plus punctuation edge (`user++tag@example.com`) if product policy should disallow stacked plus tokens.
+
+Ralph Loop Iteration 27 (2026-03-03, rerun)
+
+- Finalized terminal-punctuation policy by rejecting trailing-hyphen local parts in `/api/email/capture` (`user-@...`) while preserving previously accepted local-part patterns.
+- Added matching `qa:email-capture-contract` assertion for trailing-hyphen local invalid input, locking stable invalid semantics (`400 {error:"invalid_email"}`) alongside plus-edge tests.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 28): add an explicit positive contract case for underscore in local-part (`user_name@...`) to document allowed-vs-rejected underscore behavior symmetry with domain-label restrictions.
