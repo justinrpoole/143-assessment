@@ -2029,3 +2029,11 @@ Ralph Loop Iteration 3 (2026-03-03, rerun)
 - Rechecked content/animation/TRON guardrails after automation add; no regressions detected in headshot usage, CosmicHero transition constraints, or #060014 Orbitron neon chart surfaces.
 
 Next loop priority (iteration 4): wire `qa:gates-e2e` into CI (or pre-push QA script) and add artifact capture (screenshots on failure) for faster root-cause debugging.
+
+Ralph Loop Iteration 4 (2026-03-03)
+
+- Implemented the top missed item from prior loops: CI now runs `qa:gates-e2e` via new `.github/workflows/qa-gates-e2e.yml`, so gate regressions are caught automatically on PRs and main pushes.
+- Added failure-debug artifacts to the gate harness (full-page screenshot, HTML dump, and error log per failing route) and wired GitHub artifact upload on workflow failure for fast triage.
+- Re-ran the gate E2E suite locally and rechecked content/animation/TRON guardrails; all critical gate routes passed and baseline visual/style constraints remain intact.
+
+Next loop priority (iteration 5): extend `qa:gates-e2e` with explicit negative assertions (e.g., workbook/result selectors absent before submit) so tests prove non-leakage, not just successful unlock.
