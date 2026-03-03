@@ -20,7 +20,7 @@ function isValidEmail(email: string) {
   if (local.length > 64) return false;
   if (!/^[a-z0-9!#$&'*+/=?^_`{|}~.-]+$/i.test(local)) return false;
   if (local.startsWith(".") || local.endsWith(".") || local.includes("..") || /\s/.test(local)) return false;
-  if (local.startsWith("+") || local.endsWith("+") || local.includes("++") || local.endsWith("-") || local.endsWith("_") || local.startsWith("'") || local.endsWith("'")) return false;
+  if (local.startsWith("+") || local.endsWith("+") || local.includes("++") || local.endsWith("-") || local.startsWith("_") || local.endsWith("_") || local.startsWith("'") || local.endsWith("'")) return false;
   if (local.includes("+-") || local.includes("-+") || local.includes("--")) return false;
   if (/\s/.test(domain)) return false;
 
