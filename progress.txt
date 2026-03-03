@@ -2727,3 +2727,11 @@ Ralph Loop Iteration 57 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 58): add explicit negative contract coverage for leading mixed dot-underscore chain (`._user@...`) to round out start-boundary mixed-chain parity across dot+underscore permutations.
+
+Ralph Loop Iteration 58 (2026-03-03)
+
+- Added explicit negative contract coverage for leading mixed dot-underscore chain (`._user@example.com`) to round out start-boundary mixed-chain parity across dot+underscore permutations.
+- Confirmed API invalid semantics remain stable for this case (`400 {error:"invalid_email"}`) while preserving approved internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 59): add explicit negative contract coverage for leading mixed dot-hyphen chain (`.-user@...`) to complete start-boundary mixed-chain parity across dot+hyphen permutations.
