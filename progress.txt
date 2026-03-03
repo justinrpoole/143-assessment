@@ -2165,3 +2165,11 @@ Ralph Loop Iteration 12 (2026-03-03)
 - Re-validated lead gates, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions this iteration.
 
 Next loop priority (iteration 13): add one contract assertion for non-JSON content-type payloads to lock error behavior when clients send plain text or malformed headers.
+
+Ralph Loop Iteration 12 (2026-03-03, rerun)
+
+- Expanded `/api/email/capture` contract QA again to include non-JSON `content-type` requests, locking expected validation behavior (`400 {error:"invalid_email"}`) for plain-text/malformed-header clients.
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after contract expansion.
+- Re-verified lead-gate integrity, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual consistency with no regressions found.
+
+Next loop priority (iteration 13): add an explicit whitespace-email normalization check (e.g., `'  user@example.com  '`) to confirm trimming/lowercasing semantics remain stable in the capture contract.
