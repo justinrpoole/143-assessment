@@ -2205,3 +2205,11 @@ Ralph Loop Iteration 14 (2026-03-03, rerun)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions detected.
 
 Next loop priority (iteration 15): add a contract check for missing `tag` to ensure default source-tag fallback (`email-capture`) semantics remain stable over time.
+
+Ralph Loop Iteration 15 (2026-03-03)
+
+- Added missing-tag fallback contract coverage to `qa:email-capture-contract`: requests without `tag` are now explicitly tested to ensure stable success semantics (`200 {ok:true}`) and preserve default-source behavior expectations.
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks pass after missing-tag coverage was added.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 16): add a contract check for empty-string `tag` and whitespace-only `tag` values to lock default-tag fallback semantics across blank-tag edge cases.
