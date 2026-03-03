@@ -121,6 +121,15 @@ async function run() {
   }
   console.log('ok:email-capture:unicode-name-tag');
 
+  const longLocal = 'l'.repeat(64);
+  const longDomainLabel = 'd'.repeat(63);
+  const boundaryEmail = `${longLocal}@${longDomainLabel}.${longDomainLabel}.com`;
+  const boundaryRes = await post({ name: 'QA Contract', email: boundaryEmail, tag: 'qa-contract' });
+  if (boundaryRes.status !== 200 || boundaryRes.json?.ok !== true) {
+    throw new Error(`email boundary contract failed: status=${boundaryRes.status} body=${JSON.stringify(boundaryRes.json)}`);
+  }
+  console.log('ok:email-capture:boundary-email-shape');
+
   console.log('qa-email-capture-contract: ok');
 }
 
