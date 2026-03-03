@@ -244,6 +244,12 @@ async function run() {
   }
   console.log('ok:email-capture:dot-underscore-boundary-invalid');
 
+  const underscoreDotBoundaryRes = await post({ name: 'QA Contract', email: 'user_.@example.com', tag: 'qa-contract' });
+  if (underscoreDotBoundaryRes.status !== 400 || underscoreDotBoundaryRes.json?.error !== 'invalid_email') {
+    throw new Error(`underscore-dot boundary contract failed: status=${underscoreDotBoundaryRes.status} body=${JSON.stringify(underscoreDotBoundaryRes.json)}`);
+  }
+  console.log('ok:email-capture:underscore-dot-boundary-invalid');
+
   const plusUnderscoreBoundaryRes = await post({ name: 'QA Contract', email: 'user+_@example.com', tag: 'qa-contract' });
   if (plusUnderscoreBoundaryRes.status !== 400 || plusUnderscoreBoundaryRes.json?.error !== 'invalid_email') {
     throw new Error(`plus-underscore boundary contract failed: status=${plusUnderscoreBoundaryRes.status} body=${JSON.stringify(plusUnderscoreBoundaryRes.json)}`);
