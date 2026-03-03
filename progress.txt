@@ -3377,3 +3377,11 @@ Ralph Loop Iteration 198 (2026-03-03, rerun)
 - Reconfirmed marketing/headshot requirements and CosmicHeroV2/TRON invariants are intact (0.70 eclipse tail, Act-5 sun-nova spring, 72% moon, Orbitron + scanline neon styling).
 
 Next loop priority (iteration 199): persist triage classifier JSON summaries as timestamped artifacts under `.qa-artifacts/` and add a small diff check for classification drift across consecutive loops.
+
+Ralph Loop Iteration 199 (2026-03-03)
+
+- Upgraded loop diagnostics to persist timestamped JSON summaries under `.qa-artifacts/` (`loop-status-summary.<timestamp>.json`) for traceable classifier history.
+- Added drift detection in strict diagnostics (`--check-drift`) so a classification change versus the previous summary now fails fast and surfaces instability immediately.
+- Revalidated all required lead gates, marketing/headshot constraints, CosmicHeroV2 invariants, TRON vibe contracts, and full mandatory QA suite with triage checks green.
+
+Next loop priority (iteration 200): add a compact helper to compare the last N summary JSON artifacts and print a one-line stability trend (steady/flapping) for the loop run footer.
