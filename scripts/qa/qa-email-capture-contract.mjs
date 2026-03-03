@@ -88,6 +88,12 @@ async function run() {
   }
   console.log('ok:email-capture:apostrophe-local-valid');
 
+  const apostropheBoundaryRes = await post({ name: 'QA Contract', email: `'oconnor@example.com`, tag: 'qa-contract' });
+  if (apostropheBoundaryRes.status !== 400 || apostropheBoundaryRes.json?.error !== 'invalid_email') {
+    throw new Error(`leading-apostrophe local contract failed: status=${apostropheBoundaryRes.status} body=${JSON.stringify(apostropheBoundaryRes.json)}`);
+  }
+  console.log('ok:email-capture:leading-apostrophe-local-invalid');
+
   const percentLocalRes = await post({ name: 'QA Contract', email: `qa%tag.${Date.now()}@example.com`, tag: 'qa-contract' });
   if (percentLocalRes.status !== 400 || percentLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`percent local-part contract failed: status=${percentLocalRes.status} body=${JSON.stringify(percentLocalRes.json)}`);
