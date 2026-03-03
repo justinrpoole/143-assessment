@@ -2197,3 +2197,11 @@ Ralph Loop Iteration 14 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions detected.
 
 Next loop priority (iteration 15): add API contract coverage for oversized `tag` values to ensure capture-source formatting remains stable and does not trigger 5xx failures.
+
+Ralph Loop Iteration 14 (2026-03-03, rerun)
+
+- Added oversized-tag payload coverage to `qa:email-capture-contract`: very large `tag` values are now explicitly tested to ensure capture-source handling remains stable and returns `200 {ok:true}` without 5xx errors.
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks pass after oversized-tag contract expansion.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions detected.
+
+Next loop priority (iteration 15): add a contract check for missing `tag` to ensure default source-tag fallback (`email-capture`) semantics remain stable over time.
