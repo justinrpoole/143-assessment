@@ -3313,3 +3313,11 @@ Ralph Loop Iteration 194 (2026-03-03)
 - Reconfirmed marketing/headshot constraints and CosmicHeroV2/TRON invariants remain stable (0.70 eclipse tail, 143-sun-nova spring, 72% moon, Orbitron + neon scanlines on #060014).
 
 Next loop priority (iteration 195): add a lightweight loop-status parser/check script that classifies `unknown` statuses separately from explicit `qa:gates-e2e` timeout flakes to make rerun diagnostics deterministic.
+
+Ralph Loop Iteration 194 (2026-03-03, rerun-2)
+
+- Revalidated lead-gate enforcement for `/challenge`, `/group-coaching`, `/preview`, and gated framework-detail routes; protected content still stays behind capture gates.
+- Re-ran full QA suite (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed green status across all checks.
+- Reconfirmed marketing/headshot requirements plus CosmicHeroV2/TRON invariants remain stable (0.70 eclipse tail, 143-sun-nova spring, 72% moon, Orbitron + neon scanlines on #060014).
+
+Next loop priority (iteration 195): implement the lightweight loop-status parser/check script to label `unknown` status artifacts distinctly from confirmed `qa:gates-e2e` timeout flakes in rerun logs.
