@@ -2477,3 +2477,11 @@ Ralph Loop Iteration 31 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
 
 Next loop priority (iteration 32): add explicit positive coverage for safe repeated alphanumerics around punctuation (e.g., `user--` rejected but `user-a` allowed) to document intended hyphen boundary policy clearly.
+
+Ralph Loop Iteration 32 (2026-03-03)
+
+- Added explicit positive contract coverage for safe single-hyphen local-part usage (`user-a@...`) to document intended allow behavior alongside existing mixed/double-hyphen rejections.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after hyphen-policy clarity coverage expansion.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 33): add a negative contract assertion for local-part ending with underscore (`user_@...`) if policy should treat trailing underscore similarly to trailing plus/hyphen boundaries.
