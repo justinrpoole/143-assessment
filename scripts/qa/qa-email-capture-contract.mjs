@@ -88,6 +88,12 @@ async function run() {
   }
   console.log('ok:email-capture:leading-plus-local-invalid');
 
+  const stackedPlusRes = await post({ name: 'QA Contract', email: 'user++tag@example.com', tag: 'qa-contract' });
+  if (stackedPlusRes.status !== 400 || stackedPlusRes.json?.error !== 'invalid_email') {
+    throw new Error(`stacked-plus local contract failed: status=${stackedPlusRes.status} body=${JSON.stringify(stackedPlusRes.json)}`);
+  }
+  console.log('ok:email-capture:stacked-plus-local-invalid');
+
   const trailingHyphenLocalRes = await post({ name: 'QA Contract', email: 'user-@example.com', tag: 'qa-contract' });
   if (trailingHyphenLocalRes.status !== 400 || trailingHyphenLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`trailing-hyphen local contract failed: status=${trailingHyphenLocalRes.status} body=${JSON.stringify(trailingHyphenLocalRes.json)}`);
