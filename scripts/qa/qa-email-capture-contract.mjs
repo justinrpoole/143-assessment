@@ -148,6 +148,12 @@ async function run() {
   }
   console.log('ok:email-capture:dot-apostrophe-combo-invalid');
 
+  const plusDotComboRes = await post({ name: 'QA Contract', email: `user+.@example.com`, tag: 'qa-contract' });
+  if (plusDotComboRes.status !== 400 || plusDotComboRes.json?.error !== 'invalid_email') {
+    throw new Error(`plus-dot combo contract failed: status=${plusDotComboRes.status} body=${JSON.stringify(plusDotComboRes.json)}`);
+  }
+  console.log('ok:email-capture:plus-dot-combo-invalid');
+
   const percentLocalRes = await post({ name: 'QA Contract', email: `qa%tag.${Date.now()}@example.com`, tag: 'qa-contract' });
   if (percentLocalRes.status !== 400 || percentLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`percent local-part contract failed: status=${percentLocalRes.status} body=${JSON.stringify(percentLocalRes.json)}`);
