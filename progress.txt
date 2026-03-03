@@ -2093,3 +2093,11 @@ Ralph Loop Iteration 7 (2026-03-03, rerun)
 - Re-validated content/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no new regressions in this pass.
 
 Next loop priority (iteration 8): capture and diff lightweight text snapshots for gate hero sections to detect subtle copy drift beyond exact CTA phrase checks.
+
+Ralph Loop Iteration 8 (2026-03-03)
+
+- Implemented lightweight gate-hero copy snapshots via new `qa:gate-hero-snapshot` Playwright check, which validates expected gate hero text on /challenge, /group-coaching, /preview, and /rays/intention and writes a current snapshot artifact for quick diffing.
+- Wired the new gate-hero snapshot check into CI (`QA Gates E2E` workflow), so copy drift in gate hero messaging now fails alongside gate lock/unlock, CTA consistency, and docs-sync checks.
+- Re-ran full QA stack (`qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified content/headshot, CosmicHero, and TRON baseline constraints with no regressions.
+
+Next loop priority (iteration 9): persist a committed baseline snapshot (golden) and add automated diff output in CI so copy changes are reviewable rather than only pass/fail.
