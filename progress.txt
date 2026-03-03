@@ -1989,3 +1989,11 @@ Ralph Loop Iteration 1 (2026-03-03)
 - Re-validated CosmicHeroV2 + TRON baseline signals via code scan (eclipseIntensity tail to 0.70, sunnova asset + spring keyframes, letter-by-letter headline, moon 72%, Orbitron/neon/scanline/#060014 on portal charts).
 
 Next loop priority (iteration 2): run a clean-browser profile pass (fresh context) specifically for /rays/* to conclusively confirm no client-state carryover can expose ungated methodology content.
+
+Ralph Loop Iteration 1 (2026-03-03, rerun)
+
+- Re-verified lead gates in clean server-render output and browser snapshots: /challenge, /group-coaching, /preview, and /rays/intention all present capture gates before protected content.
+- Re-checked marketing/content constraints and asset usage: Justin headshot file exists and is referenced; no new ungated long-form 9-Ray explainer regressions were introduced in scanned entry surfaces.
+- Reconfirmed animation/TRON baselines remain intact (eclipseIntensity tail to 0.70, Act 5 sunnova wiring, letter-by-letter hero text, moon 72%, Orbitron + neon + scanline + #060014 on target components).
+
+Next loop priority (iteration 2): execute full interactive submit-and-unlock flows in a brand-new browser context for all gated pages and record before/after snapshots to rule out stateful bypass paths.
