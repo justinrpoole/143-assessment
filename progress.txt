@@ -2181,3 +2181,11 @@ Ralph Loop Iteration 13 (2026-03-03)
 - Re-verified lead-gate integrity, content/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions detected.
 
 Next loop priority (iteration 14): add API contract coverage for duplicate-email idempotency expectations (same email captured twice) to ensure stable behavior and response semantics.
+
+Ralph Loop Iteration 13 (2026-03-03, rerun)
+
+- Added duplicate-email idempotency coverage to `qa:email-capture-contract`: capturing the same email twice now explicitly asserts stable success semantics (`200 {ok:true}` both times).
+- Re-ran the full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after the duplicate-email contract addition.
+- Re-verified lead gates, marketing/headshot requirements, CosmicHeroV2 animation constraints, and TRON visual contract checks with no regressions in this iteration.
+
+Next loop priority (iteration 14): add a lightweight contract assertion that very long `name` values still preserve success/error semantics without causing server errors.
