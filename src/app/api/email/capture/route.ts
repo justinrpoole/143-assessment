@@ -26,6 +26,7 @@ function isValidEmail(email: string) {
   for (const label of labels) {
     if (!label || label.length > 63) return false;
     if (label.startsWith("-") || label.endsWith("-")) return false;
+    if (!/^[a-z0-9-]+$/i.test(label)) return false;
   }
 
   return true;

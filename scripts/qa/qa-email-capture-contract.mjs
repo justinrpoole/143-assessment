@@ -286,6 +286,14 @@ async function run() {
   }
   console.log('ok:email-capture:bom-char-invalid');
 
+  const underscoreDomainRes = await post({ name: 'QA Contract', email: 'user@bad_domain.com', tag: 'qa-contract' });
+  if (underscoreDomainRes.status !== 400 || underscoreDomainRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `underscore-domain email contract failed: status=${underscoreDomainRes.status} body=${JSON.stringify(underscoreDomainRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:underscore-domain-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
