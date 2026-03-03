@@ -2381,3 +2381,11 @@ Ralph Loop Iteration 25 (2026-03-03)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
 
 Next loop priority (iteration 26): add a negative contract assertion for local-part trailing plus (`user+@example.com`) to lock punctuation-edge handling around plus-addressing boundaries.
+
+Ralph Loop Iteration 26 (2026-03-03)
+
+- Tightened local-part punctuation boundaries in `/api/email/capture` by rejecting leading/trailing plus signs while preserving valid internal plus-addressing.
+- Added explicit contract assertion for trailing-plus local-part invalid input (`user+@example.com`) alongside existing plus-addressing accept and quoted-local reject checks.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 27): add a negative contract assertion for leading-plus local-part (`+user@example.com`) to complete plus-edge boundary coverage symmetry.
