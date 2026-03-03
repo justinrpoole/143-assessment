@@ -2847,3 +2847,11 @@ Ralph Loop Iteration 64 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 65): add explicit negative contract coverage for leading apostrophe-first 4-symbol cluster (`.'+_user@...`) to validate start/end parity for apostrophe-led mixed boundary blocks.
+
+Ralph Loop Iteration 65 (2026-03-03)
+
+- Added explicit negative contract coverage for leading apostrophe-first 4-symbol cluster (`.'+_user@example.com`) to validate start/end parity for apostrophe-led mixed boundary blocks.
+- Confirmed API invalid semantics remain stable for this case (`400 {error:"invalid_email"}`) while preserving approved internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 66): add explicit negative contract coverage for leading apostrophe-first inverse cluster (`.'_+user@...`) to complete order-symmetry checks across apostrophe-led 4-symbol start-boundary permutations.
