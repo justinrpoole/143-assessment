@@ -41,6 +41,12 @@ async function run() {
   }
   console.log('ok:email-capture:malformed-json');
 
+  const missingEmail = await post({ name: 'QA Contract', tag: 'qa-contract' });
+  if (missingEmail.status !== 400 || missingEmail.json?.error !== 'invalid_email') {
+    throw new Error(`missing email contract failed: status=${missingEmail.status} body=${JSON.stringify(missingEmail.json)}`);
+  }
+  console.log('ok:email-capture:missing-email');
+
   console.log('qa-email-capture-contract: ok');
 }
 
