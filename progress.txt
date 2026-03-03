@@ -3039,3 +3039,11 @@ Ralph Loop Iteration 77 (2026-03-03)
 - Re-verified lead-gate flows, marketing CTA/headshot constraints, CosmicHeroV2 animation invariants, and TRON visual contracts remain stable.
 
 Next loop priority (iteration 78): add explicit negative contract coverage variant for apostrophe-first trailing alternate shift (`user'+_.${ts}@...`) and compare against `user${ts}'+._@...` to assert insertion-position invariance across both apostrophe-led trailing patterns.
+
+Ralph Loop Iteration 77 (2026-03-03, rerun)
+
+- Revalidated lead-gate enforcement and marketing gate copy constraints across `/challenge`, `/group-coaching`, `/preview`, and gated ray detail flows with no regressions.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and confirmed all checks pass in this rerun.
+- Confirmed apostrophe-led trailing mirror variant invalid semantics remain stable (`400 {error:"invalid_email"}`) alongside CosmicHeroV2/TRON invariant checks.
+
+Next loop priority (iteration 78): add explicit negative contract coverage for apostrophe-led trailing alternate mirror with shifted token (`user'_.+${ts}@...`) to compare ordering stability vs existing trailing mirror variants.
