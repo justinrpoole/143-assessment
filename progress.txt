@@ -2069,3 +2069,11 @@ Ralph Loop Iteration 6 (2026-03-03)
 - Re-ran gate E2E with non-leakage assertions plus baseline content/animation/TRON scans; all critical checks passed with no new regressions.
 
 Next loop priority (iteration 7): add a periodic smoke that validates gate CTA copy consistency ("Discover your Rays — free Stability Check") across marketing teasers to catch copy drift.
+
+Ralph Loop Iteration 6 (2026-03-03, rerun)
+
+- Added a dedicated CTA drift check (`qa:cta-copy`) to assert the required teaser copy — "Discover your Rays — free Stability Check" — remains present in key marketing gate/teaser files.
+- Wired CTA drift validation into the existing `QA Gates E2E` CI workflow so copy regressions fail fast alongside gate lock/unlock and docs-sync checks.
+- Re-ran gate E2E + baseline content/animation/TRON scans; all priority checks passed and no regressions were detected.
+
+Next loop priority (iteration 7): expand CTA copy drift checks from file-level presence to route-level rendered-text assertions so copy regressions in conditional UI paths are caught too.
