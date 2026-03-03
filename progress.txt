@@ -1981,3 +1981,11 @@ Ralph Loop Iteration 6
 - Re-verified gate posture and vibe baselines remain intact on key entry pages (/challenge, /group-coaching, /preview, /rays/intention) plus CosmicHero/TRON scan checks with no new regressions.
 
 Next loop priority (iteration 7): add CI wiring so `qa:capture-fallback` runs automatically in PR checks, and persist fallback-test artifacts/log snippets for audit trail.
+
+Ralph Loop Iteration 1 (2026-03-03)
+
+- Re-ran gate verification on /challenge, /group-coaching, /preview, and /rays/intention entry points; capture forms are present before protected content on first-load entry states.
+- Re-checked content/brand requirements: Justin headshot is present and referenced on marketing pages, and the Stability Check CTA language is still in place across key teaser surfaces.
+- Re-validated CosmicHeroV2 + TRON baseline signals via code scan (eclipseIntensity tail to 0.70, sunnova asset + spring keyframes, letter-by-letter headline, moon 72%, Orbitron/neon/scanline/#060014 on portal charts).
+
+Next loop priority (iteration 2): run a clean-browser profile pass (fresh context) specifically for /rays/* to conclusively confirm no client-state carryover can expose ungated methodology content.
