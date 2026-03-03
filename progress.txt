@@ -2983,3 +2983,11 @@ Ralph Loop Iteration 73 (2026-03-03)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
 
 Next loop priority (iteration 74): add explicit negative contract coverage variant for apostrophe-first trailing shifted-token ordering (`user'+_.${ts}@...`) to stress order-independence under internal token relocation in trailing 4-symbol clusters.
+
+Ralph Loop Iteration 73 (2026-03-03, rerun)
+
+- Added explicit negative contract coverage variant for apostrophe-first trailing shifted-token ordering (`user'+_.${ts}@example.com`) to stress order-independence under internal token relocation in trailing 4-symbol clusters.
+- Confirmed API invalid semantics remain stable for this variant (`400 {error:"invalid_email"}`) while preserving approved internal punctuation combinations.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead gates/content/headshot/CosmicHeroV2/TRON checks with no regressions.
+
+Next loop priority (iteration 74): add explicit negative contract coverage variant for leading apostrophe-first shifted-token ordering (`'_.+user${ts}@...`) to maintain start/end shifted-token symmetry across apostrophe-led 4-symbol permutations.
