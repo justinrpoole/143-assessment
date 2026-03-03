@@ -2061,3 +2061,11 @@ Ralph Loop Iteration 5 (2026-03-03, rerun)
 - Re-checked CosmicHeroV2 + TRON implementation constraints in source (eclipse tail to 0.70, sunnova spring/asset, letter-by-letter reveal, moon 72%, Orbitron/neon/scanline/#060014) and found no drift.
 
 Next loop priority (iteration 6): add a tiny docs-sync script that asserts README QA commands map to real package.json scripts, then run it in CI alongside `qa:gates-e2e`.
+
+Ralph Loop Iteration 6 (2026-03-03)
+
+- Implemented the missed docs-sync safeguard: added `qa:readme-sync` to assert README QA command references and workflow badge target remain aligned with real package scripts/workflow paths.
+- Enforced docs-sync in CI by wiring `npm run qa:readme-sync` into the `QA Gates E2E` workflow after gate checks, preventing silent drift between contributor docs and executable QA commands.
+- Re-ran gate E2E with non-leakage assertions plus baseline content/animation/TRON scans; all critical checks passed with no new regressions.
+
+Next loop priority (iteration 7): add a periodic smoke that validates gate CTA copy consistency ("Discover your Rays — free Stability Check") across marketing teasers to catch copy drift.
