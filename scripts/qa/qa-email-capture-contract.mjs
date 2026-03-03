@@ -262,6 +262,12 @@ async function run() {
   }
   console.log('ok:email-capture:leading-underscore-local-invalid');
 
+  const underscoreDotLeadingRes = await post({ name: 'QA Contract', email: '_.user@example.com', tag: 'qa-contract' });
+  if (underscoreDotLeadingRes.status !== 400 || underscoreDotLeadingRes.json?.error !== 'invalid_email') {
+    throw new Error(`underscore-dot leading contract failed: status=${underscoreDotLeadingRes.status} body=${JSON.stringify(underscoreDotLeadingRes.json)}`);
+  }
+  console.log('ok:email-capture:underscore-dot-leading-invalid');
+
   const underscorePlusLeadingRes = await post({ name: 'QA Contract', email: '_+user@example.com', tag: 'qa-contract' });
   if (underscorePlusLeadingRes.status !== 400 || underscorePlusLeadingRes.json?.error !== 'invalid_email') {
     throw new Error(`underscore-plus leading contract failed: status=${underscorePlusLeadingRes.status} body=${JSON.stringify(underscorePlusLeadingRes.json)}`);
