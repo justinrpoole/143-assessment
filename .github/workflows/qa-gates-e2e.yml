@@ -55,6 +55,9 @@ jobs:
       - name: Validate CTA copy consistency
         run: npm run qa:cta-copy
 
+      - name: Validate gate hero copy snapshot
+        run: npm run qa:gate-hero-snapshot
+
       - name: Upload artifacts on failure
         if: failure()
         uses: actions/upload-artifact@v4
