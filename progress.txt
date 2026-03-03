@@ -2237,3 +2237,11 @@ Ralph Loop Iteration 16 (2026-03-03, rerun)
 - Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions detected.
 
 Next loop priority (iteration 17): add one negative email boundary assertion (overlong local-part shape) to ensure invalid high-length patterns still produce stable validation errors.
+
+Ralph Loop Iteration 17 (2026-03-03)
+
+- Closed the email-boundary gap by adding real server-side boundary validation in `/api/email/capture` (`isValidEmail`) for max total length, local-part length, and domain-label limits.
+- Extended `qa:email-capture-contract` with a negative overlong local-part assertion (65 chars before `@`) to lock stable invalid-email semantics (`400 {error:"invalid_email"}`).
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and rechecked lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
+
+Next loop priority (iteration 18): add one boundary-negative assertion for overlong domain label (>63 chars) to complete email-shape limit coverage.
