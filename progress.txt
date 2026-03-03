@@ -2373,3 +2373,11 @@ Ralph Loop Iteration 24 (2026-03-03, rerun)
 - Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) and re-verified lead-gate/content/headshot/CosmicHero/TRON baselines with no regressions.
 
 Next loop priority (iteration 25): add contract assertions for local-part plus-addressing acceptance versus quoted-local rejection in the same test block to make boundary intent explicit.
+
+Ralph Loop Iteration 25 (2026-03-03)
+
+- Made local-part boundary intent explicit in `qa:email-capture-contract` by pairing accepted plus-addressing (`user+tag@...`) with rejected quoted-local (`"quoted"@...`) checks in the core contract flow.
+- Re-ran full QA stack (`qa:email-capture-contract`, `qa:gate-controls`, `qa:gate-hero-snapshot`, `qa:cta-copy`, `qa:gates-e2e`, `qa:readme-sync`) with all checks passing after boundary-clarity update.
+- Re-verified lead-gate enforcement, marketing/headshot requirements, CosmicHeroV2 constraints, and TRON visual contract checks with no regressions.
+
+Next loop priority (iteration 26): add a negative contract assertion for local-part trailing plus (`user+@example.com`) to lock punctuation-edge handling around plus-addressing boundaries.
