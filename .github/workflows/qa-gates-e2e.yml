@@ -52,6 +52,9 @@ jobs:
       - name: Validate README QA sync
         run: npm run qa:readme-sync
 
+      - name: Validate CTA copy consistency
+        run: npm run qa:cta-copy
+
       - name: Upload artifacts on failure
         if: failure()
         uses: actions/upload-artifact@v4
