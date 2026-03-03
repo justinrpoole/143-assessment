@@ -82,6 +82,12 @@ async function run() {
   }
   console.log('ok:email-capture:underscore-local-valid');
 
+  const apostropheLocalRes = await post({ name: 'QA Contract', email: `oconnor.o'connor.${Date.now()}@example.com`, tag: 'qa-contract' });
+  if (apostropheLocalRes.status !== 200 || apostropheLocalRes.json?.ok !== true) {
+    throw new Error(`apostrophe local-part contract failed: status=${apostropheLocalRes.status} body=${JSON.stringify(apostropheLocalRes.json)}`);
+  }
+  console.log('ok:email-capture:apostrophe-local-valid');
+
   const percentLocalRes = await post({ name: 'QA Contract', email: `qa%tag.${Date.now()}@example.com`, tag: 'qa-contract' });
   if (percentLocalRes.status !== 400 || percentLocalRes.json?.error !== 'invalid_email') {
     throw new Error(`percent local-part contract failed: status=${percentLocalRes.status} body=${JSON.stringify(percentLocalRes.json)}`);
