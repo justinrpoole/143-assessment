@@ -51,6 +51,35 @@ function excerpt(value) {
   return String(value || '').slice(0, 160).replace(/\s+/g, ' ');
 }
 
+function wrapLines(value, width = 110) {
+  const text = String(value || '');
+  const out = [];
+  for (let i = 0; i < text.length; i += width) {
+    out.push(text.slice(i, i + width));
+  }
+  return out;
+}
+
+function compactLineDiff(baselineText, currentText) {
+  const base = wrapLines(baselineText);
+  const curr = wrapLines(currentText);
+  const max = Math.max(base.length, curr.length);
+  const lines = [];
+
+  for (let i = 0; i < max; i += 1) {
+    const b = base[i] ?? '';
+    const c = curr[i] ?? '';
+    if (b !== c) {
+      lines.push(`  line ${i + 1}`);
+      lines.push(`    - ${b}`);
+      lines.push(`    + ${c}`);
+    }
+    if (lines.length >= 12) break;
+  }
+
+  return lines.join('\n');
+}
+
 async function run() {
   const browser = await chromium.launch({ headless: true });
   const snapshot = { generatedAt: new Date().toISOString(), routes: {} };
@@ -98,12 +127,14 @@ async function run() {
       const currentText = normalized.routes[routeName] ?? '';
       const baselineText = baseline?.routes?.[routeName] ?? '';
       if (currentText !== baselineText) {
-        drifts.push(`- ${routeName}\n  baseline: ${excerpt(baselineText)}\n  current:  ${excerpt(currentText)}`);
+        drifts.push(
+          `- ${routeName}\n  baseline: ${excerpt(baselineText)}\n  current:  ${excerpt(currentText)}\n${compactLineDiff(baselineText, currentText)}`,
+        );
       }
     }
 
     if (drifts.length > 0) {
-      throw new Error(`Gate hero copy drift detected.\n${drifts.join('\n')}`);
+      throw new Error(`Gate hero copy drift detected (compact diff).\n${drifts.join('\n')}`);
     }
 
     console.log(`qa-gate-hero-snapshot: ok (${outPath})`);
