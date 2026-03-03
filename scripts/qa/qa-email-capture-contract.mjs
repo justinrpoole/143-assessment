@@ -137,6 +137,15 @@ async function run() {
   }
   console.log('ok:email-capture:overlong-local-invalid');
 
+  const overlongDomainLabelEmail = `qa@${'y'.repeat(64)}.com`;
+  const overlongDomainLabelRes = await post({ name: 'QA Contract', email: overlongDomainLabelEmail, tag: 'qa-contract' });
+  if (overlongDomainLabelRes.status !== 400 || overlongDomainLabelRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `overlong domain-label contract failed: status=${overlongDomainLabelRes.status} body=${JSON.stringify(overlongDomainLabelRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:overlong-domain-label-invalid');
+
   console.log('qa-email-capture-contract: ok');
 }
 
