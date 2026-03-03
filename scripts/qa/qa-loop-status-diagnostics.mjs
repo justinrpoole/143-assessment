@@ -7,6 +7,8 @@ const strictUnclassified = process.argv.includes('--strict-unclassified');
 const expectClassification = process.argv.find((a) => a.startsWith('--expect='))?.slice('--expect='.length);
 const writeJson = process.argv.includes('--write-json');
 const checkDrift = process.argv.includes('--check-drift');
+const trendWindowArg = process.argv.find((a) => a.startsWith('--trend-window='));
+const trendWindow = Math.max(2, Number.parseInt(trendWindowArg?.slice('--trend-window='.length) ?? '5', 10) || 5);
 let target = argPath
   ? path.resolve(process.cwd(), argPath)
   : path.resolve(process.cwd(), '.qa-artifacts/loop-status.current.log');
@@ -47,16 +49,31 @@ const summary = {
 if (writeJson || checkDrift) {
   const outDir = path.resolve(process.cwd(), '.qa-artifacts');
   fs.mkdirSync(outDir, { recursive: true });
+
+  const previous = fs
+    .readdirSync(outDir)
+    .filter((name) => /^loop-status-summary\..+\.json$/.test(name))
+    .sort();
+
+  const previousClassifications = previous
+    .slice(-Math.max(0, trendWindow - 1))
+    .map((name) => {
+      const payload = JSON.parse(fs.readFileSync(path.join(outDir, name), 'utf8'));
+      return payload.classification || 'UNKNOWN';
+    });
+
+  const recentClassifications = [...previousClassifications, summary.classification];
+  const uniqueRecent = [...new Set(recentClassifications)];
+  summary.trendWindow = trendWindow;
+  summary.recentClassifications = recentClassifications;
+  summary.trendSignal = uniqueRecent.length === 1 ? 'steady' : 'flapping';
+
   const timestamp = summary.createdAt.replace(/[.:]/g, '-');
   const outFile = path.join(outDir, `loop-status-summary.${timestamp}.json`);
   fs.writeFileSync(outFile, `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
   summary.summaryFile = path.relative(process.cwd(), outFile);
 
   if (checkDrift) {
-    const previous = fs
-      .readdirSync(outDir)
-      .filter((name) => /^loop-status-summary\..+\.json$/.test(name) && name !== path.basename(outFile))
-      .sort();
     const latestPrev = previous.at(-1);
     if (latestPrev) {
       const prevSummary = JSON.parse(fs.readFileSync(path.join(outDir, latestPrev), 'utf8'));
