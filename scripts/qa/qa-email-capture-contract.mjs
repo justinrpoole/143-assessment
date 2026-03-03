@@ -425,6 +425,14 @@ async function run() {
   }
   console.log('ok:email-capture:leading-dot-plus-chain-invalid');
 
+  const trailingDotPlusChainRes = await post({ name: 'QA Contract', email: 'user.+@example.com', tag: 'qa-contract' });
+  if (trailingDotPlusChainRes.status !== 400 || trailingDotPlusChainRes.json?.error !== 'invalid_email') {
+    throw new Error(
+      `trailing dot-plus chain contract failed: status=${trailingDotPlusChainRes.status} body=${JSON.stringify(trailingDotPlusChainRes.json)}`,
+    );
+  }
+  console.log('ok:email-capture:trailing-dot-plus-chain-invalid');
+
   const trailingDotLocalRes = await post({ name: 'QA Contract', email: 'user.@example.com', tag: 'qa-contract' });
   if (trailingDotLocalRes.status !== 400 || trailingDotLocalRes.json?.error !== 'invalid_email') {
     throw new Error(
