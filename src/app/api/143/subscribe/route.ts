@@ -96,7 +96,8 @@ export async function POST(request: NextRequest) {
     const token = crypto.randomBytes(24).toString('base64url');
     const code = buildCodeFromToken(token);
     const origin = getOrigin(request);
-    const unlockUrl = `${origin}/143/unlock.html?token=${encodeURIComponent(token)}`;
+    const unlockPath = `/143/unlock.html?token=${encodeURIComponent(token)}`;
+    const unlockUrl = `${origin}${unlockPath}`;
     const pdfUrl = `${origin}/marketing/143-challenge-workbook.pdf`;
 
     saveUnlockRecord({ token, code, email, source, redirect, unlockUrl, pdfUrl });
@@ -108,14 +109,15 @@ export async function POST(request: NextRequest) {
       ok: true,
       emailHint: createEmailHint(email),
       tokenHint: code,
-      unlockUrl,
+      unlockUrl: unlockPath,
+      unlockAbsoluteUrl: unlockUrl,
       pdfUrl,
       devOnly,
       provider: emailResult.provider,
       message: emailResult.sent
         ? 'Check your email for the workbook PDF and unlock link.'
         : 'DEV ONLY: Email provider not configured. Use unlockUrl/tokenHint below.',
-      dev: devOnly ? { unlockUrl, tokenHint: code } : undefined,
+      dev: devOnly ? { unlockUrl: unlockPath, unlockAbsoluteUrl: unlockUrl, tokenHint: code } : undefined,
     });
   } catch (error) {
     console.error('[143:subscribe]', error);

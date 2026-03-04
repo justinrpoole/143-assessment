@@ -173,3 +173,19 @@
     display: none;
   }
 }
+
+/* Homepage hero overrides */
+.hero-h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hero-hl-yellow {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 14px rgba(255, 231, 90, 0.16);
+}
+
+.hero-hl-purple {
+  color: var(--neon-purple);
+  text-shadow: 0 0 16px rgba(155, 92, 255, 0.18);
+}
