@@ -57,6 +57,32 @@ function renderTemplate(
 </html>`.trim(),
       };
 
+    case "challenge_kit_delivery":
+      return {
+        subject: "Your 143 Challenge workbook is ready",
+        html: `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #090515; color: #fff; padding: 36px 18px;">
+  <div style="max-width: 520px; margin: 0 auto; border-radius: 20px; border: 1px solid rgba(255, 43, 214, 0.30); background: linear-gradient(180deg, rgba(130,70,210,0.22), rgba(130,70,210,0.12)); box-shadow: 0 0 34px rgba(155,92,255,0.18); padding: 28px;">
+    <p style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #ffe75a; margin: 0 0 12px;">143 Challenge Kit</p>
+    <h1 style="margin: 0 0 12px; font-size: 24px; color: rgba(255,255,255,0.96);">Your workbook is ready.</h1>
+    <p style="margin: 0 0 18px; color: rgba(255,255,255,0.84); line-height: 1.6;">
+      Download the PDF first, then unlock the full /143 experience from the same email link.
+    </p>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+      <a href="${payload.pdf_url}" style="display: inline-block; background: linear-gradient(180deg, #ffe75a, #ffb72c); color: rgba(0,0,0,0.88); text-decoration: none; font-weight: 700; border-radius: 12px; padding: 10px 16px;">Download Workbook PDF</a>
+      <a href="${payload.unlock_url}" style="display: inline-block; border: 1px solid rgba(46,233,255,0.5); color: #c7f7ff; text-decoration: none; font-weight: 600; border-radius: 12px; padding: 10px 16px;">Unlock Full /143</a>
+    </div>
+    <p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.65);">
+      Source: ${payload.source_route} · Kit ${payload.toolkit_version}
+    </p>
+  </div>
+</body>
+</html>`.trim(),
+      };
+
     default:
       return {
         subject: `143 Leadership — ${templateId}`,

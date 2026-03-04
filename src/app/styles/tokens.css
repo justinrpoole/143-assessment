@@ -143,7 +143,7 @@
   --stroke-400: #795E85;
 
   --text-header: #F2D249;
-  --text-body: #FFFFFF;
+  --text-body: rgba(255, 255, 255, 0.86);
   --text-secondary: #CBB9D6;
   --text-muted: #A792B2;
   --text-neon: #B57BFF;
@@ -210,8 +210,9 @@
 
   --focus-ring-gold: 0 0 0 3px rgba(248, 208, 17, 0.45);
 
+  --radius-card: 22px;
   --radius-xl: 20px;
-  --radius-2xl: 24px;
+  --radius-2xl: var(--radius-card);
 
   --shadow-glow-sm: 0 0 16px rgba(96, 5, 141, 0.45), 0 0 4px rgba(148, 80, 200, 0.25);
   --shadow-glow-md: 0 4px 28px rgba(96, 5, 141, 0.40), 0 0 56px rgba(96, 5, 141, 0.20);

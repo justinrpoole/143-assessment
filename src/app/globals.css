@@ -1,9 +1,10 @@
-/* Style load order: tailwindcss → tokens.css → cosmic.css → shell.css → lead-engine.css */
+/* Style load order: tailwindcss → tokens.css → cosmic.css → shell.css → lead-engine.css → cosmic-ui.css */
 @import "tailwindcss";
 @import "./styles/tokens.css";
 @import "./styles/cosmic.css";
 @import "./styles/shell.css";
 @import "./styles/lead-engine.css";
+@import "../../styles/cosmic-ui.css";
 
 @theme inline {
   --color-header: var(--text-header);

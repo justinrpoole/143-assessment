@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import CosmicImage from "@/components/marketing/CosmicImage";
 import DigitalClock143 from "@/components/marketing/DigitalClock143";
-import { ToolkitDeliveryClient } from "@/components/retention/ToolkitDeliveryClient";
+import { Challenge143Gate } from "@/components/retention/Challenge143Gate";
 import {
   FadeInSection,
   StaggerContainer,
@@ -102,6 +102,7 @@ export default async function Challenge143Page() {
   return (
     <main className="cosmic-page-bg page-shell">
       <ScrollProgressBar />
+      <Challenge143Gate isAuthenticated={auth.isAuthenticated}>
       <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
@@ -372,7 +373,17 @@ export default async function Challenge143Page() {
                 );})}
               </ul>
 
-              <ToolkitDeliveryClient isAuthenticated={auth.isAuthenticated} />
+              <div className="glass-card--noGlow rounded-2xl p-4">
+                <p className="text-sm leading-relaxed text-secondary">
+                  Already unlocked from the workbook email? You are set. If you need
+                  another copy, download the workbook again and we will send a fresh link.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <Link href="/marketing/143-challenge-workbook.pdf" className="cta">
+                    Download Workbook PDF
+                  </Link>
+                </div>
+              </div>
             </div>
           </section>
         </FadeInSection>
@@ -451,6 +462,7 @@ export default async function Challenge143Page() {
           </section>
         </FadeInSection>
       </div>
+      </Challenge143Gate>
       <BackToTopButton />
     </main>
   );

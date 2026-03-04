@@ -30,6 +30,9 @@ export async function renderReportPdf({ html }) {
   try {
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: "networkidle" });
+    await page.addStyleTag({
+      content: "html, body { background: #0b0620 !important; }",
+    });
     const pdf = await page.pdf({
       format: "Letter",
       printBackground: true,

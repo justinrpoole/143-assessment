@@ -55,7 +55,7 @@ a {
 }
 
 .content-wrap {
-  width: min(100% - clamp(2rem, 4vw, 5rem), 960px);
+  width: min(100% - clamp(2rem, 4vw, 5rem), 1120px);
   margin-inline: auto;
 }
 
@@ -65,7 +65,18 @@ a {
 }
 
 .content-wrap--wide {
-  width: min(100% - clamp(2rem, 4vw, 5rem), 1160px);
+  width: min(100% - clamp(2rem, 4vw, 5rem), 1200px);
+  margin-inline: auto;
+}
+
+.container {
+  width: min(100% - clamp(2rem, 4vw, 5rem), 1120px);
+  margin-inline: auto;
+}
+
+.page-shell > section:not(.full-bleed),
+.page-shell > article:not(.full-bleed) {
+  width: min(100% - clamp(2rem, 4vw, 5rem), 1120px);
   margin-inline: auto;
 }
 

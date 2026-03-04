@@ -85,7 +85,7 @@ export default function WeeklyRepBreakdown({ weeklyTarget, repsThisWeek }: Props
         aria-expanded={expanded}
       >
         <span style={{ transform: expanded ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 150ms', display: 'inline-block' }}>
-          &var(--text-body);
+          ▸
         </span>
         Week breakdown
       </button>

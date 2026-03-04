@@ -23,6 +23,12 @@ function normalizeToolkitVersion(value: unknown): string {
   return "v1";
 }
 
+function getBaseUrl(request: Request): string {
+  if (process.env.NEXT_PUBLIC_BASE_URL) return process.env.NEXT_PUBLIC_BASE_URL;
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return new URL(request.url).origin;
+}
+
 export async function POST(request: Request) {
   const auth = await getRequestAuthContext();
   if (!auth.isAuthenticated || !auth.userId) {
@@ -38,6 +44,7 @@ export async function POST(request: Request) {
 
   const sourceRoute = normalizeSourceRoute(body.source_route);
   const toolkitVersion = normalizeToolkitVersion(body.toolkit_version);
+  const baseUrl = getBaseUrl(request);
 
   try {
     emitEvent({
@@ -57,7 +64,9 @@ export async function POST(request: Request) {
       payload: {
         source_route: sourceRoute,
         toolkit_version: toolkitVersion,
-        next_route: "/143",
+        next_route: "/143?gate=1",
+        unlock_url: `${baseUrl}/143?gate=1`,
+        pdf_url: `${baseUrl}/marketing/143-challenge-workbook.pdf`,
       },
     });
 

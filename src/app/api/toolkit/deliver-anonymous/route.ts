@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { createChallengeUnlockToken } from "@/lib/auth/challenge-unlock";
 import { emitEvent } from "@/lib/analytics/emitter";
 import { supabaseRestFetch } from "@/lib/db/supabase-rest";
 import { queueEmailJob } from "@/lib/email/scheduler";
@@ -11,6 +12,12 @@ interface DeliverBody {
 }
 
 const ANON_USER_ID = "00000000-0000-0000-0000-000000000000";
+
+function getBaseUrl(request: Request): string {
+  if (process.env.NEXT_PUBLIC_BASE_URL) return process.env.NEXT_PUBLIC_BASE_URL;
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return new URL(request.url).origin;
+}
 
 export async function POST(request: Request) {
   let body: DeliverBody = {};
@@ -39,6 +46,11 @@ export async function POST(request: Request) {
       : "v1";
 
   try {
+    const baseUrl = getBaseUrl(request);
+    const unlockToken = createChallengeUnlockToken(email, sourceRoute);
+    const unlockUrl = `${baseUrl}/143?unlock=${encodeURIComponent(unlockToken)}`;
+    const pdfUrl = `${baseUrl}/marketing/143-challenge-workbook.pdf`;
+
     // 1. Capture the email (upsert — safe for duplicates)
     await supabaseRestFetch({
       restPath: "/email_captures",
@@ -59,7 +71,9 @@ export async function POST(request: Request) {
         to_email: email,
         source_route: sourceRoute,
         toolkit_version: toolkitVersion,
-        next_route: "/143",
+        next_route: "/143?gate=1",
+        unlock_url: unlockUrl,
+        pdf_url: pdfUrl,
       },
     });
 
@@ -78,6 +92,8 @@ export async function POST(request: Request) {
       status: "ok",
       email_job_id: job.id,
       toolkit_version: toolkitVersion,
+      unlock_preview_url:
+        process.env.NODE_ENV !== "production" ? unlockUrl : undefined,
     });
   } catch (error) {
     return NextResponse.json(

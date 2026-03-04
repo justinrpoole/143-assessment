@@ -32,7 +32,8 @@ export default function ReportTableOfContents({ entries }: Props) {
         className="flex w-full items-center justify-between px-5 py-3 text-left"
         style={{ color: 'var(--text-body)' }}
       >
-        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+        <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+          <img src="/images/purple-moon-143.svg" alt="" className="icon-moon icon-tiny" aria-hidden="true" />
           Jump to Section
         </span>
         <svg

@@ -25,7 +25,13 @@ export const EMAIL_TEMPLATE_LIBRARY: Record<EmailTemplateId, EmailTemplateMeta> 
   },
   challenge_kit_delivery: {
     id: "challenge_kit_delivery",
-    requiredVariables: ["source_route", "toolkit_version", "next_route"],
+    requiredVariables: [
+      "source_route",
+      "toolkit_version",
+      "next_route",
+      "unlock_url",
+      "pdf_url",
+    ],
   },
   preview_nudge: {
     id: "preview_nudge",

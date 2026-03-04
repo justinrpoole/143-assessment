@@ -491,7 +491,8 @@ export function ReportClient({ runId }: ReportClientProps) {
         <section className="glass-card p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
             <div>
-              <h2 className="text-2xl font-semibold" style={{ color: "var(--text-on-dark)" }}>
+              <h2 className="flex items-center gap-2 text-2xl font-semibold" style={{ color: "var(--text-on-dark)" }}>
+                <img src="/images/sun-143.svg" alt="" className="icon-sun" aria-hidden="true" />
                 Full Interactive Report
               </h2>
               <p className="mt-1 text-xs" style={{ color: "var(--text-on-dark-muted)" }}>

@@ -55,9 +55,7 @@ export function ToolkitDeliveryClient(_props: ToolkitDeliveryClientProps) {
       setCapturedCookie();
       setCaptured(true);
     } catch {
-      // If API fails, still let them through — don't block for infra issues
-      setCapturedCookie();
-      setCaptured(true);
+      setError("We could not send the workbook email right now. Please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -67,27 +65,21 @@ export function ToolkitDeliveryClient(_props: ToolkitDeliveryClientProps) {
     return (
       <div className="space-y-4">
         <div className="flex items-center gap-3">
-          <div
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
-            style={{ background: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}
-          >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/10">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M5 13l4 4L19 7" stroke="var(--gold-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
           <div>
-            <p className="text-sm font-semibold" style={{ color: "var(--text-body)" }}>
+            <p className="text-sm font-semibold text-body">
               Your 143 Challenge Kit is confirmed.
             </p>
-            <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-              Check your inbox. The kit is on the way.
+            <p className="text-xs text-muted">
+              Check your inbox for the workbook PDF + your /143 unlock link.
             </p>
           </div>
         </div>
-        <p
-          className="text-sm leading-relaxed"
-          style={{ color: "var(--text-secondary)" }}
-        >
+        <p className="text-sm leading-relaxed text-secondary">
           Start the protocol above while you wait. When you are ready to see
           your full pattern, the Stability Check takes 3 minutes.
         </p>
@@ -100,13 +92,11 @@ export function ToolkitDeliveryClient(_props: ToolkitDeliveryClientProps) {
 
   return (
     <div className="space-y-4">
-      <p
-        className="text-sm leading-relaxed"
-        style={{ color: "var(--text-secondary)" }}
-      >
+      <p className="text-sm leading-relaxed text-secondary">
         Enter your email and we will send you the full Challenge Kit —
         daily instructions, the RAS Reset audio guide, printable tracker,
-        and the science brief. One follow-up. Nothing else unless you ask.
+        and the science brief, plus your secure unlock link. One follow-up.
+        Nothing else unless you ask.
       </p>
       <form
         onSubmit={handleSubmit}
@@ -117,12 +107,7 @@ export function ToolkitDeliveryClient(_props: ToolkitDeliveryClientProps) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@company.com"
-          className="flex-1 rounded-xl px-4 py-2.5 text-sm outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
-          style={{
-            background: "var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))",
-            border: "1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))",
-            color: "var(--text-body)",
-          }}
+          className="flex-1 rounded-xl border border-stroke bg-surface/35 px-4 py-2.5 text-sm text-body outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
           disabled={submitting}
         />
         <button

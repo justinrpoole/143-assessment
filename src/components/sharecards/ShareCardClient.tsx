@@ -44,12 +44,14 @@ export function ShareCardClient({
       const cardEl =
         cardRef.current.querySelector<HTMLElement>('[data-share-card]') ??
         cardRef.current;
+      const captureBackground =
+        getComputedStyle(document.documentElement).getPropertyValue('--bg1').trim() || '#0b0620';
 
       const canvas = await html2canvas(cardEl, {
         // Capture at 2× for retina-quality PNGs
         scale: 2,
         useCORS: true,
-        backgroundColor: null,
+        backgroundColor: captureBackground,
         // Remove the CSS transform before capture, restore after
         onclone: (doc) => {
           const el = doc.querySelector<HTMLElement>('[data-share-card]');
