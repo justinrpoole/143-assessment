@@ -1,0 +1,221 @@
+[data-cosmic-hero-static] {
+  --hero-violet-core: color-mix(in srgb, var(--card-base) 50%, transparent);
+  --hero-violet-soft: color-mix(in srgb, var(--glow-violet) 26%, transparent);
+  --hero-pink-soft: color-mix(in srgb, var(--glow-pink) 18%, transparent);
+  --hero-gold-soft: color-mix(in srgb, var(--gold-primary) 18%, transparent);
+}
+
+[data-cosmic-hero-static] *,
+[data-cosmic-hero-static] *::before,
+[data-cosmic-hero-static] *::after {
+  box-sizing: border-box;
+}
+
+[data-cosmic-hero-static] .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(480px, 76svh, 760px);
+  display: grid;
+  place-items: center;
+  padding: clamp(2rem, 5vw, 3rem) 1.25rem clamp(2.5rem, 5vw, 3.25rem);
+  background:
+    radial-gradient(ellipse 120% 90% at 50% 30%, var(--hero-violet-core) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 80% at 50% 45%, color-mix(in srgb, var(--violet-700) 70%, transparent) 0%, transparent 72%),
+    linear-gradient(180deg, color-mix(in srgb, var(--ink-900) 90%, transparent) 0%, var(--bg-cosmic) 100%);
+}
+
+[data-cosmic-hero-static] .starfield,
+[data-cosmic-hero-static] .nebula,
+[data-cosmic-hero-static] .scanlines,
+[data-cosmic-hero-static] .vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+[data-cosmic-hero-static] .starfield {
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 14% 24%, var(--constellation-core-dim) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 22% 12%, var(--constellation-core) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 38% 20%, var(--constellation-core-dim) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 64% 16%, var(--constellation-core-dim) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 78% 24%, var(--constellation-core) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 87% 38%, var(--constellation-core-dim) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 18% 72%, var(--constellation-core-dim) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 42% 80%, var(--constellation-core) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 72% 74%, var(--constellation-core-dim) 0 1px, transparent 1.3px);
+  opacity: 0.58;
+}
+
+[data-cosmic-hero-static] .nebula {
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 52% 36% at 50% 38%, var(--hero-violet-soft) 0%, transparent 75%),
+    radial-gradient(ellipse 38% 30% at 62% 44%, var(--hero-pink-soft) 0%, transparent 72%),
+    radial-gradient(ellipse 35% 26% at 42% 48%, var(--hero-gold-soft) 0%, transparent 72%);
+  mix-blend-mode: screen;
+}
+
+[data-cosmic-hero-static] .scanlines {
+  z-index: 2;
+  background: repeating-linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--text-body) 3%, transparent) 0,
+    color-mix(in srgb, var(--text-body) 3%, transparent) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.22;
+}
+
+[data-cosmic-hero-static] .vignette {
+  z-index: 5;
+  background: radial-gradient(
+    ellipse 72% 58% at 50% 40%,
+    transparent 42%,
+    color-mix(in srgb, var(--ink-950) 58%, transparent) 100%
+  );
+}
+
+[data-cosmic-hero-static] .eclipse-stage {
+  position: relative;
+  z-index: 3;
+  width: min(420px, 70vw);
+  aspect-ratio: 1 / 1;
+  margin-bottom: clamp(-16px, -2vw, -12px);
+}
+
+[data-cosmic-hero-static] .sunnova-svg,
+[data-cosmic-hero-static] .sun-svg,
+[data-cosmic-hero-static] .moon {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+[data-cosmic-hero-static] .sunnova-svg {
+  z-index: 1;
+  width: 66%;
+  height: 66%;
+  opacity: 0.9;
+  filter:
+    drop-shadow(0 0 28px color-mix(in srgb, var(--gold-primary) 45%, transparent))
+    drop-shadow(0 0 92px color-mix(in srgb, var(--glow-pink) 20%, transparent));
+}
+
+[data-cosmic-hero-static] .sun-svg {
+  z-index: 2;
+  width: 74%;
+  height: 74%;
+  filter:
+    drop-shadow(0 0 26px color-mix(in srgb, var(--gold-primary) 62%, transparent))
+    drop-shadow(0 0 120px color-mix(in srgb, var(--gold-primary) 28%, transparent))
+    drop-shadow(0 0 180px color-mix(in srgb, var(--glow-violet) 12%, transparent));
+}
+
+[data-cosmic-hero-static] .moon {
+  z-index: 4;
+  width: 50%;
+  height: 50%;
+  transform: translate(-30%, -50%);
+  opacity: 0.96;
+  filter:
+    drop-shadow(0 0 12px color-mix(in srgb, var(--text-body) 16%, transparent))
+    drop-shadow(0 0 36px color-mix(in srgb, var(--glow-violet) 20%, transparent));
+}
+
+[data-cosmic-hero-static] .hero-copy {
+  position: relative;
+  z-index: 6;
+  margin-top: clamp(-0.6rem, -0.8vw, -0.4rem);
+  text-align: center;
+  display: grid;
+  gap: 0.2rem;
+  width: min(100%, 980px);
+}
+
+[data-cosmic-hero-static] .row-never-gone,
+[data-cosmic-hero-static] .row-eclipsed,
+[data-cosmic-hero-static] .row-learn,
+[data-cosmic-hero-static] .row-revelation {
+  margin: 0;
+}
+
+[data-cosmic-hero-static] .row-never-gone,
+[data-cosmic-hero-static] .row-eclipsed {
+  font-family: var(--font-cosmic-display), "Orelega One", serif;
+  font-size: clamp(2.4rem, 7.6vw, 5.7rem);
+  line-height: 0.95;
+  letter-spacing: 0.012em;
+  color: var(--text-neon-strong);
+  text-shadow:
+    0 0 8px color-mix(in srgb, var(--text-neon-strong) 42%, transparent),
+    0 0 28px color-mix(in srgb, var(--glow-violet) 25%, transparent);
+}
+
+[data-cosmic-hero-static] .row-never-gone {
+  opacity: 0.98;
+}
+
+[data-cosmic-hero-static] .row-eclipsed {
+  opacity: 0.9;
+}
+
+[data-cosmic-hero-static] .row-final {
+  margin-top: clamp(0.25rem, 0.6vw, 0.45rem);
+  display: grid;
+  gap: 0.18rem;
+}
+
+[data-cosmic-hero-static] .row-learn {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: clamp(1rem, 2.2vw, 1.8rem);
+  line-height: 1.1;
+  color: var(--text-header);
+  text-shadow:
+    0 0 10px color-mix(in srgb, var(--gold-primary) 45%, transparent),
+    0 0 32px color-mix(in srgb, var(--gold-primary) 20%, transparent);
+}
+
+[data-cosmic-hero-static] .row-revelation {
+  font-family: var(--font-cosmic-display), "Orelega One", serif;
+  font-size: clamp(1.5rem, 4.4vw, 3.1rem);
+  line-height: 1;
+  color: var(--text-neon);
+  text-shadow:
+    0 0 8px color-mix(in srgb, var(--text-neon) 45%, transparent),
+    0 0 24px color-mix(in srgb, var(--glow-pink) 22%, transparent);
+}
+
+@media (max-width: 640px) {
+  [data-cosmic-hero-static] .hero {
+    min-height: clamp(460px, 70svh, 620px);
+    padding-inline: 0.9rem;
+  }
+
+  [data-cosmic-hero-static] .eclipse-stage {
+    width: min(360px, 82vw);
+  }
+
+  [data-cosmic-hero-static] .row-never-gone,
+  [data-cosmic-hero-static] .row-eclipsed {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  [data-cosmic-hero-static] .row-learn {
+    font-size: clamp(0.9rem, 4vw, 1.15rem);
+  }
+
+  [data-cosmic-hero-static] .row-revelation {
+    font-size: clamp(1.2rem, 6vw, 2rem);
+  }
+}
+

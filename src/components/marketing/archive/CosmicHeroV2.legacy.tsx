@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import './cosmic-hero-v2.css';
+import './cosmic-hero-v2.legacy.css';
 
 const REVELATION_TEXT = 'Just In A Ray Of Light';
 

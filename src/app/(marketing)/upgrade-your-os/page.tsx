@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import CosmicHeroV2 from "@/components/marketing/CosmicHeroV2";
+import CosmicHeroStatic from "@/components/marketing/CosmicHeroStatic";
 import HeroProofStrip from "@/components/marketing/HeroProofStrip";
 import ScrollProgress from "@/components/marketing/ScrollProgress";
 import CountUp from "@/components/marketing/CountUp";
@@ -90,9 +90,9 @@ export default async function UpgradeYourOsPage() {
         { id: "final-cta", label: "Get Started" },
       ]} />
 
-      {/* ── SECTION 1: COSMIC HERO V2 ── */}
+      {/* ── SECTION 1: COSMIC HERO (STATIC) ── */}
       <div id="hero" className="relative z-10">
-        <CosmicHeroV2 />
+        <CosmicHeroStatic />
       </div>
 
       {/* Proof strip */}
