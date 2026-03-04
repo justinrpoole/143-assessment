@@ -2,7 +2,7 @@
   --color-ray-purple: #60058D;
   --color-sun-gold: #F8D011;
   --color-banner-black: #020202;
-  --color-outline-white: #FDFCFD;
+  --color-outline-white: var(--text-body);
 
   /* Vibe alignment tokens (do not replace locked palette) */
   --color-purple-600: #61048E;
@@ -13,20 +13,20 @@
 
   --gradient-primary: linear-gradient(90deg, #60058D 0%, #F8D011 100%);
 
-  --bg-page: var(--color-outline-white);
-  --bg-surface: #FFFFFF;
-  --bg-elevated: #F9F5FC;
-  --bg-inverse: var(--color-banner-black);
+  --bg-page: var(--violet-800);
+  --bg-surface: var(--surface-700);
+  --bg-elevated: color-mix(in srgb, var(--surface-700) 82%, var(--surface-600) 18%);
+  --bg-inverse: var(--ink-950);
 
-  --text-primary: var(--color-banner-black);
-  --text-secondary: #2A2A2A;
-  --text-on-purple: var(--color-outline-white);
-  --text-on-gold: var(--color-banner-black);
+  --text-primary: var(--text-body);
+  --text-secondary-ui: var(--text-secondary);
+  --text-on-purple: var(--text-body);
+  --text-on-gold: var(--on-gold);
   --text-link: var(--color-ray-purple);
 
-  --border-default: #E9E3EE;
+  --border-default: var(--stroke-500);
   --border-strong: var(--color-ray-purple);
-  --border-inverse: #2F2F2F;
+  --border-inverse: var(--stroke-400);
 
   --btn-primary-bg: var(--gradient-primary);
   --btn-primary-text: var(--color-banner-black);
@@ -49,9 +49,9 @@
   --progress-fill: var(--gradient-primary);
   --progress-marker: var(--color-ray-purple);
 
-  --card-bg: #FFFFFF;
-  --card-border: #E7DDF0;
-  --card-shadow: 0 8px 24px rgba(2, 2, 2, 0.08);
+  --card-bg: var(--surface-700);
+  --card-border: var(--surface-border);
+  --card-shadow: var(--shadow-glow-md);
 
   --font-display: var(--font-cosmic-display), "Orelega One", Georgia, serif;
   --font-body: var(--font-inter), "Inter", "Segoe UI", system-ui, sans-serif;
@@ -100,7 +100,7 @@
   --cosmic-purple-darkest: #0B0212;
   --cosmic-gold: #F8D011;
   --cosmic-amber: #E8A317;
-  --cosmic-black: #000000;
+  --cosmic-black: var(--ink-950);
   --cosmic-nebula: rgba(96, 5, 141, 0.08);
   --cosmic-stardust: rgba(248, 208, 17, 0.12);
   --cosmic-aurora-green: #2ecc71;
@@ -131,9 +131,13 @@
   --violet-700: #2C0E46;
   --violet-650: #3F1161;
 
-  --surface-700: #320F4B;
-  --surface-650: #39134E;
-  --surface-600: #3F1652;
+  --card-base: #832CA6;
+  --card-base-2: #6F2490;
+  --card-base-3: #5B1D77;
+
+  --surface-700: var(--card-base);
+  --surface-650: var(--card-base-2);
+  --surface-600: var(--card-base-3);
 
   --stroke-500: #603D6D;
   --stroke-400: #795E85;
@@ -142,9 +146,13 @@
   --text-body: #FFFFFF;
   --text-secondary: #CBB9D6;
   --text-muted: #A792B2;
+  --text-neon: #B57BFF;
+  --text-neon-strong: #D1A6FF;
+  --neon-text-a1: 0.35;
+  --neon-text-a2: 0.18;
 
   --bg-cosmic: var(--violet-800);
-  --bg-surface: var(--surface-650);
+  --bg-surface: var(--surface-700);
 
   --gold-primary: #F2D249;
   --gold-hover: #F5D658;
@@ -190,9 +198,9 @@
   --bg-deep-alt: var(--surface-700);
   --bg-deep-mid: var(--surface-600);
   --bg-nav: rgba(18, 5, 40, 0.97);
-  --surface-glass: color-mix(in srgb, var(--surface-700) 84%, transparent);
-  --surface-glass-hover: color-mix(in srgb, var(--surface-650) 88%, transparent);
-  --surface-glass-active: color-mix(in srgb, var(--surface-600) 92%, transparent);
+  --surface-glass: color-mix(in srgb, var(--surface-700) 86%, transparent);
+  --surface-glass-hover: color-mix(in srgb, var(--surface-650) 90%, transparent);
+  --surface-glass-active: color-mix(in srgb, var(--surface-600) 94%, transparent);
   --surface-border: color-mix(in srgb, var(--stroke-500) 72%, transparent);
   --surface-border-hover: color-mix(in srgb, var(--stroke-400) 80%, transparent);
 

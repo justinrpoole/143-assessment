@@ -116,7 +116,15 @@ export default function WhyThisMatters({ rays, eclipse }: Props) {
             : 'var(--gold-primary)';
 
           return (
-            <div key={ray.ray_id} className="glass-card p-4" style={{ borderLeft: `3px solid ${isEclipsed ? 'var(--text-body)' : `${rc}40`}` }}>
+            <div
+              key={ray.ray_id}
+              className={`glass-card p-4 ${isEclipsed ? 'card-border-left-body' : 'card-border-left-accent-soft'}`}
+              style={
+                isEclipsed
+                  ? undefined
+                  : ({ '--card-accent': rc } as { ['--card-accent']: string })
+              }
+            >
               <div className="flex items-center gap-2 mb-1.5">
                 <span
                   className="inline-block h-2 w-2 rounded-full"

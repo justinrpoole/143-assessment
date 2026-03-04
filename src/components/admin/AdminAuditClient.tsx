@@ -123,7 +123,7 @@ export function AdminAuditClient() {
       </div>
 
       {/* Runs Table */}
-      <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--gold-primary)' }}>
+      <div className="glass-card overflow-hidden card-border-top-gold">
         <div className="overflow-auto">
           <table className="w-full text-sm">
             <thead>

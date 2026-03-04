@@ -67,15 +67,10 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
       {/* Visual card */}
       <div
         ref={cardRef}
-        className="rounded-2xl overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, var(--cosmic-purple-darkest) 0%, var(--cosmic-purple-deep) 50%, var(--cosmic-deepest) 100%)',
-          border: '1px solid var(--surface-border)',
-          boxShadow: 'var(--shadow-glow-sm)',
-        }}
+        className="panel-gradient-deep card-border-default border rounded-2xl overflow-hidden"
       >
         {/* Header */}
-        <div className="px-6 py-5 text-center" style={{ borderBottom: '1px solid var(--surface-border)' }}>
+        <div className="border-bottom-surface px-6 py-5 text-center">
           <p className="text-[10px] tracking-[0.3em] uppercase mb-1" style={{ color: 'var(--brand-gold)' }}>
             143 Leadership &middot; Light Signature
           </p>
@@ -90,7 +85,7 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-3 text-center py-4 px-4" style={{ background: 'color-mix(in srgb, var(--violet-650) 15%, transparent)' }}>
+        <div className="surface-violet-tint grid grid-cols-3 text-center py-4 px-4">
           <div>
             <p className="text-lg font-bold" style={{ color: 'var(--brand-gold)' }}>{Math.round(overallScore)}%</p>
             <p className="text-[10px] uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--text-body) 40%, transparent)' }}>Overall</p>
@@ -114,24 +109,14 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
           {topTwo.map((ray) => (
             <span
               key={ray.ray_id}
-              className="px-3 py-1 rounded-full text-xs font-medium"
-              style={{
-                background: 'var(--surface-border)',
-                color: 'var(--brand-gold)',
-                border: '1px solid var(--surface-border)',
-              }}
+              className="chip-surface-gold px-3 py-1 rounded-full text-xs font-medium"
             >
               {RAY_SHORT_NAMES[ray.ray_id] ?? ray.ray_name}
             </span>
           ))}
           {justInRay && (
             <span
-              className="px-3 py-1 rounded-full text-xs font-medium"
-              style={{
-                background: 'color-mix(in srgb, var(--stroke-400) 15%, transparent)',
-                color: 'var(--text-body)',
-                border: '1px solid var(--surface-border)',
-              }}
+              className="chip-surface-body px-3 py-1 rounded-full text-xs font-medium"
             >
               Training: {RAY_SHORT_NAMES[justInRay.ray_id] ?? justInRay.ray_name}
             </span>
@@ -139,7 +124,7 @@ export default function ReportShareCard({ lightSignature, eclipse, overallScore 
         </div>
 
         {/* Footer */}
-        <div className="px-4 py-2 text-center" style={{ borderTop: '1px solid color-mix(in srgb, var(--stroke-400) 15%, transparent)' }}>
+        <div className="border-top-stroke-soft px-4 py-2 text-center">
           <p className="text-[9px] tracking-wider" style={{ color: 'color-mix(in srgb, var(--text-body) 30%, transparent)' }}>
             143leadership.com
           </p>

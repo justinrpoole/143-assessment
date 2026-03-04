@@ -42,8 +42,7 @@ export default function RaySwitchboardCard({
           </p>
         </div>
         <span
-          className="text-[10px] uppercase tracking-widest rounded-full px-2 py-1"
-          style={{ color: 'var(--brand-gold)', background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)' }}
+          className="badge-gold-soft text-[10px] uppercase tracking-widest rounded-full px-2 py-1"
         >
           1 minute
         </span>
@@ -54,24 +53,18 @@ export default function RaySwitchboardCard({
           const ramp = rayRamp(rayId);
           const isSelected = selectedRay === rayId;
           const isTraining = bottomRayId === rayId;
-          const isTop = topRayIds?.includes(rayId) ?? false;
           const label = RAY_SHORT_NAMES[rayId] ?? RAY_NAMES[rayId] ?? rayId;
           return (
             <button
               key={rayId}
               type="button"
               onClick={() => setSelectedRay(rayId)}
-              className="rounded-lg px-2.5 py-2 text-left transition-all hover:scale-[1.01]"
+              className="ray-chip rounded-lg px-2.5 py-2 text-left transition-all hover:scale-[1.01]"
               style={{
-                background: isSelected ? ramp.badgeBg : 'color-mix(in srgb, var(--ink-950) 35%, transparent)',
-                border: `1px solid ${isSelected ? ramp.hoverBorder : 'var(--surface-border)'}`,
-                color: ramp.full,
-                boxShadow: isTraining
-                  ? '0 0 0 1px color-mix(in srgb, var(--gold-primary) 60%, transparent), 0 0 10px color-mix(in srgb, var(--gold-primary) 25%, transparent)'
-                  : isTop
-                    ? '0 0 0 1px color-mix(in srgb, var(--violet-650) 50%, transparent)'
-                    : 'none',
-              }}
+                '--chip-fill': isSelected ? ramp.badgeBg : 'color-mix(in srgb, var(--ink-950) 35%, transparent)',
+                '--chip-stroke': isSelected ? ramp.hoverBorder : 'var(--surface-border)',
+                '--chip-ink': ramp.full,
+              } as { ['--chip-fill']: string; ['--chip-stroke']: string; ['--chip-ink']: string }}
             >
               <p className="text-[10px] uppercase tracking-widest" style={{ color: isSelected ? ramp.full : 'var(--text-on-dark-muted)' }}>
                 {rayId}
@@ -100,8 +93,7 @@ export default function RaySwitchboardCard({
                 key={`watch-${selectedRay}-${prompt.label}`}
                 type="button"
                 onClick={() => onOpenWatchMe(prompt.target, prompt.move)}
-                className="text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01]"
-                style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
+                className="surface-ink-soft text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01] text-body"
               >
                 <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                   {prompt.label}
@@ -124,8 +116,7 @@ export default function RaySwitchboardCard({
                 key={`go-first-${selectedRay}-${prompt.label}`}
                 type="button"
                 onClick={() => onOpenGoFirst(prompt.action)}
-                className="text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01]"
-                style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
+                className="surface-ink-soft text-left rounded-lg px-3 py-2 transition-all hover:scale-[1.01] text-body"
               >
                 <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                   {prompt.label}

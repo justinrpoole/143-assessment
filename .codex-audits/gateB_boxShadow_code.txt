@@ -1,0 +1,2 @@
+src/lib/ui/neon.ts:103:    boxShadow: isHovered ? neonGlow(color, 'medium') : 'none',
+src/lib/ui/neon.ts:111:    boxShadow: isHovered

@@ -16,7 +16,7 @@ import { getResultForRun, getRunForUser } from "@/lib/db/assessment-runs";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { RAY_COLORS } from "@/lib/ui/ray-colors";
-import type { AssessmentOutputV1, RayOutput, SubfacetOutput } from "@/lib/types";
+import type { AssessmentOutputV1, RayOutput } from "@/lib/types";
 import RayDetailClient from "./RayDetailClient";
 
 export const dynamic = "force-dynamic";
@@ -77,7 +77,7 @@ export default async function RayDetailPage({ params, searchParams }: PageProps)
   // ── Load data ──────────────────────────────────────────────────────────────
   let rayData: RayOutput | null = null;
   let pipelineOutput: AssessmentOutputV1 | null = null;
-  let resolvedRunId = runId ?? null;
+  const resolvedRunId = runId ?? null;
 
   if (runId) {
     try {
@@ -120,8 +120,8 @@ export default async function RayDetailPage({ params, searchParams }: PageProps)
   // ── No data state ──────────────────────────────────────────────────────────
   if (!rayData) {
     return (
-      <main className="cosmic-page-bg page-shell min-h-screen flex items-center justify-center px-5">
-        <div className="text-center max-w-sm space-y-5">
+      <main className="cosmic-page-bg page-shell min-h-screen flex items-center justify-center">
+        <div className="content-wrap--narrow max-w-sm text-center space-y-5">
           <p className="gold-tag inline-block">{rayId} — {rayName}</p>
           <h1 className="text-xl font-bold text-white">No results found</h1>
           <p className="text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>

@@ -1,0 +1,74 @@
+src/app/not-found.tsx:11:      <div className="mx-auto flex min-h-[60vh] max-w-[640px] flex-col items-center justify-center px-5 py-16 text-center">
+src/app/not-found.tsx:37:            className="rounded-lg px-5 py-2.5 text-sm font-semibold"
+src/app/(flow)/preview/page.tsx:168:                  className="inline-block text-sm font-semibold rounded-lg px-5 py-2.5 border border-body text-body"
+src/app/(marketing)/login/page.tsx:48:      <div className="relative mx-auto flex min-h-[70vh] max-w-[440px] flex-col items-center justify-center px-5 py-16 sm:px-8 sm:py-24">
+src/app/error.tsx:14:      <div className="mx-auto flex min-h-[60vh] max-w-[640px] flex-col items-center justify-center px-5 py-16 text-center">
+src/app/error.tsx:43:            className="rounded-lg px-5 py-2.5 text-sm font-semibold"
+src/app/(marketing)/cohorts/page.tsx:32:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-14">
+src/app/(marketing)/archetypes/page.tsx:37:      <div className="content-wrap--wide px-5 py-12 sm:px-8 sm:py-16 space-y-12">
+src/app/(marketing)/standard/page.tsx:142:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(marketing)/coaches/page.tsx:77:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(marketing)/coaches/page.tsx:96:        <section id="leading-the-witness" className="relative content-wrap--narrow px-5 pb-12 sm:px-8 section-blend-top">
+src/app/(marketing)/how-it-works/page.tsx:51:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:54:      <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-20">
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:96:              className="w-full rounded-xl px-5 py-3 text-sm font-bold"
+src/app/(marketing)/faq/page.tsx:159:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(portal)/light-dashboard/page.tsx:21:      <div className="content-wrap--wide px-4 py-8 sm:px-6 sm:py-10">
+src/app/(marketing)/challenge/page.tsx:16:      <section className="content-wrap--wide px-6 py-20 sm:py-24">
+src/app/(marketing)/sample-report/page.tsx:66:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:67:          className="mt-6 inline-flex items-center rounded-xl px-5 py-3 text-sm font-bold no-underline transition-all hover:brightness-105"
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:130:        className="inline-flex items-center rounded-xl px-5 py-3 text-sm font-bold transition-all"
+src/app/assessment/page.tsx:58:        <div className="content-wrap--narrow px-5 py-12 sm:px-8 sm:py-16">
+src/app/assessment/page.tsx:141:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16">
+src/app/(marketing)/framework/page.tsx:32:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-14">
+src/app/assessment/review/page.tsx:35:                className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all duration-150"
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:135:            className="inline-flex items-center rounded-xl px-6 py-3 text-sm font-bold transition-all"
+src/app/assessment/setup/page.tsx:27:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-8">
+src/app/assessment/instructions/page.tsx:25:      <div className="content-wrap--wide px-5 py-10 sm:px-8 sm:py-14">
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:47:      <section className="mx-auto max-w-3xl px-6 py-16 space-y-6">
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:109:            className="inline-flex items-center rounded-xl px-6 py-3 text-sm font-bold transition-all"
+src/app/(marketing)/143/page.tsx:105:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(marketing)/watch-me/page.tsx:8:      <section className="content-wrap--wide px-6 py-16 sm:py-24 space-y-6 text-center relative overflow-hidden">
+src/app/assessment/scoring/page.tsx:129:      <main className="cosmic-page-bg page-shell min-h-screen flex items-center justify-center px-5">
+src/app/assessment/scoring/page.tsx:143:              className="btn-primary px-6 py-3 text-sm"
+src/app/assessment/scoring/page.tsx:150:                className="btn-secondary px-6 py-3 text-sm"
+src/app/(marketing)/enterprise/page.tsx:24:      <section className="content-wrap--wide px-6 py-14 sm:py-18 space-y-6 relative">
+src/app/(marketing)/privacy/page.tsx:31:      <article className="content-wrap--narrow px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
+src/app/(marketing)/upgrade/page.tsx:127:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(marketing)/justin/page.tsx:73:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(marketing)/tools/page.tsx:41:        <div className="relative content-wrap--wide px-5 text-center sm:px-8">
+src/app/(marketing)/tools/page.tsx:62:      <section className="content-wrap--wide px-5 pb-8 sm:px-8">
+src/app/(marketing)/tools/page.tsx:85:      <section className="content-wrap--wide px-5 py-16 text-center sm:px-8">
+src/app/spec-center/page.tsx:100:      <div className="content-wrap--wide px-5 py-8 sm:px-8 sm:py-10">
+src/app/(marketing)/go-first/page.tsx:8:      <section className="content-wrap--wide px-6 py-16 sm:py-24 space-y-6 text-center relative overflow-hidden">
+src/app/(marketing)/terms/page.tsx:31:      <article className="content-wrap--narrow px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
+src/app/(portal)/results/ReportDownloadButton.tsx:64:      className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold transition-all duration-200"
+src/app/(marketing)/organizations/page.tsx:133:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(marketing)/methodology/page.tsx:32:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-14">
+src/app/(marketing)/glossary/page.tsx:38:      <div className="content-wrap--wide px-5 py-12 sm:px-8 sm:py-16 space-y-12">
+src/app/(marketing)/outcomes/page.tsx:70:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(marketing)/podcast/page.tsx:41:        <div className="relative content-wrap--wide px-5 text-center sm:px-8">
+src/app/(marketing)/podcast/page.tsx:50:                className="inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-all hover:opacity-80"
+src/app/(marketing)/podcast/page.tsx:55:              <Link href="/assessment" className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all hover:opacity-80" style={{ background: "var(--brand-purple, var(--text-body))" }}>
+src/app/(marketing)/podcast/page.tsx:64:      <section className="content-wrap--wide px-5 pb-16 sm:px-8">
+src/app/(marketing)/podcast/page.tsx:95:      <section className="content-wrap--wide px-5 pb-16 sm:px-8">
+src/app/(marketing)/podcast/page.tsx:111:      <section className="content-wrap--wide px-5 pb-24 sm:px-8">
+src/app/spec-center/report-preview/page.tsx:108:      <div className="content-wrap--wide px-5 py-8 sm:px-8 sm:py-10">
+src/app/admin/audit/page.tsx:21:      <div className="content-wrap--wide px-5 py-12 sm:px-8 sm:py-16">
+src/app/(marketing)/be-the-light/page.tsx:96:      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+src/app/(portal)/results/page.tsx:165:      <section className="content-wrap--wide px-6 py-16 text-center">
+src/app/(portal)/results/page.tsx:177:          className="inline-flex items-center gap-2 rounded-2xl px-8 py-4 text-base font-bold transition-all duration-200"
+src/app/preview-cosmic/page.tsx:88:      <nav aria-label="Section navigation" className="sticky top-[60px] z-40 flex items-center justify-center gap-6 px-6 py-3" style={{ background: 'var(--overlay-medium)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderBottom: '1px solid var(--surface-border)' }}>
+src/app/preview-cosmic/page.tsx:103:      <section className="relative flex flex-col items-center justify-center text-center px-6 overflow-hidden" style={{ minHeight: '50vh' }}>
+src/app/preview-cosmic/page.tsx:305:        <section className="py-16 sm:py-24 px-4 sm:px-6">
+src/app/preview-cosmic/page.tsx:337:      <footer className="py-12 px-6 text-center" style={{ borderTop: '1px solid var(--surface-border)' }}>
+src/app/preview-cosmic/page.tsx:347:    <section id={id} className="py-12 sm:py-16 px-4 sm:px-6" aria-labelledby={`${id}-h`}>
+src/app/preview-cosmic/page.tsx:366:    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 text-center">
+src/app/(portal)/results/rays/[rayId]/page.tsx:123:      <main className="cosmic-page-bg page-shell min-h-screen flex items-center justify-center px-5">
+src/app/(portal)/results/rays/[rayId]/page.tsx:131:            <Link href="/assessment/setup" className="btn-primary px-6 py-3 text-sm">
+src/app/(portal)/results/rays/[rayId]/page.tsx:134:            <Link href="/results" className="btn-secondary px-6 py-3 text-sm">
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:131:      <div className="mx-auto max-w-[800px] px-5 py-10 sm:px-8 space-y-8">
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:327:            className="w-full flex items-center justify-between px-6 py-4 text-left"
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:343:            <div className="px-6 pb-5 space-y-2">
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:359:            className="flex items-center gap-2 glass-card px-5 py-3 text-sm font-medium transition-all hover:scale-105"
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:373:            className="flex items-center gap-2 glass-card px-5 py-3 text-sm font-medium transition-all hover:scale-105"

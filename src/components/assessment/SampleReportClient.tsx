@@ -509,14 +509,11 @@ function SampleDashboardPreview() {
 
       {/* Dark panel */}
       <div
-        className="glass-card glass-card--glow"
+        className="glass-card glass-card--glow card-bg-var card-border-var mb-8 overflow-hidden rounded-2xl"
         style={{
-          background: "var(--surface-border)",
-          borderRadius: 16,
-          border: "2px solid var(--surface-border)",
-          overflow: "hidden",
-          marginBottom: 32,
-        }}
+          '--card-bg': "var(--surface-border)",
+          '--card-border': "2px solid var(--surface-border)",
+        } as { ['--card-bg']: string; ['--card-border']: string }}
       >
         {/* Header */}
         <div
@@ -696,7 +693,7 @@ export default function SampleReportClient() {
 
       {/* ── 3b. Micro-celebration ── */}
       <FadeInSection delay={0.2}>
-        <div className="glass-card p-5" style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}>
+        <div className="glass-card p-5 card-border-gold-soft">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-sm" style={{ color: "var(--gold-primary)" }}>&var(--text-body);</span>
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
@@ -754,7 +751,7 @@ export default function SampleReportClient() {
 
       {/* ── 5c. Eclipse Coaching Reframe ── */}
       <FadeInSection>
-        <div className="glass-card p-5" style={{ borderColor: "var(--surface-border)" }}>
+        <div className="glass-card p-5 card-border-default">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
             Coaching Note
           </p>
@@ -953,7 +950,7 @@ export default function SampleReportClient() {
 
       {/* ── 20. Sample Data Notice + CTA ── */}
       <FadeInSection>
-        <div className="glass-card p-6 space-y-4" style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)" }}>
+        <div className="glass-card p-6 space-y-4 card-border-gold-soft">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
             This is sample data
           </p>

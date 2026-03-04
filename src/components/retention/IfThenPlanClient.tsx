@@ -158,7 +158,7 @@ export default function IfThenPlanClient() {
             transition={{ duration: shouldAnimate ? 0.2 : 0 }}
             className="overflow-hidden"
           >
-            <div className="glass-card p-4 space-y-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+            <div className="glass-card p-4 space-y-3 card-border-violet-mid">
               <div>
                 <label className="text-xs font-medium block mb-1"
                   style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -265,8 +265,8 @@ export default function IfThenPlanClient() {
               initial={shouldAnimate ? { opacity: 0, y: 8 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: shouldAnimate ? i * 0.05 : 0, duration: shouldAnimate ? undefined : 0 }}
-              className="glass-card flex items-start gap-3 p-3 group"
-              style={{ borderColor: plan.completed_count >= 3 ? 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' : undefined }}
+              className="glass-card card-border-color-var flex items-start gap-3 p-3 group"
+              style={{ '--card-border': plan.completed_count >= 3 ? 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' : 'var(--surface-border)' } as { ['--card-border']: string }}
             >
               <button
                 type="button"

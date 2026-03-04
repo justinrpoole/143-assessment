@@ -122,7 +122,11 @@
   inset: 0;
   z-index: 8;
   pointer-events: none;
-  background: radial-gradient(ellipse 65% 55% at 50% 42%, transparent 35%, rgba(0,0,0,0.55) 100%);
+  background: radial-gradient(
+    ellipse 65% 55% at 50% 42%,
+    transparent 35%,
+    color-mix(in srgb, var(--ink-950) 55%, transparent) 100%
+  );
 }
 
 [data-cosmic-hero-v2] .eclipse-darkness {
@@ -130,7 +134,7 @@
   inset: 0;
   z-index: 7;
   pointer-events: none;
-  background: #000;
+  background: var(--ink-950);
   opacity: 0;
 }
 

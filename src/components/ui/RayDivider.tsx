@@ -48,7 +48,6 @@ export default function RayDivider({
         className="h-px"
         style={{
           background: gradient,
-          boxShadow: glow,
           transformOrigin: 'center',
         }}
         initial={prefersReduced ? false : { scaleX: 0, opacity: 0 }}

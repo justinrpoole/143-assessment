@@ -114,8 +114,7 @@ export default function WeeklyReviewClient() {
     >
       {/* Engagement summary */}
       <div
-        className="glass-card p-6 space-y-4"
-        style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)', boxShadow: '0 0 30px color-mix(in srgb, var(--violet-650) 10%, transparent)' }}
+        className="glass-card card-border-gold-soft p-6 space-y-4"
       >
         <div className="flex items-center justify-between">
           <span className="gold-tag text-xs font-bold">
@@ -128,13 +127,12 @@ export default function WeeklyReviewClient() {
 
         {/* Consistency bar */}
         <div className="space-y-1">
-          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
+          <div className="surface-track-soft h-2 rounded-full overflow-hidden">
             <motion.div
               initial={shouldAnimate ? { width: 0 } : false}
               animate={{ width: `${consistencyPct}%` }}
               transition={{ duration: shouldAnimate ? 0.8 : 0, ease: 'easeOut' }}
-              className="h-full rounded-full"
-              style={{ background: 'linear-gradient(90deg, var(--text-body), var(--text-body))' }}
+              className="dot-body h-full rounded-full"
             />
           </div>
           <div className="flex justify-between">
@@ -194,14 +192,12 @@ export default function WeeklyReviewClient() {
               >
                 <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{tool.name}</p>
                 <div className="flex items-center gap-2">
-                  <div className="w-20 h-1.5 rounded-full overflow-hidden"
-                    style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
+                  <div className="surface-track-soft w-20 h-1.5 rounded-full overflow-hidden">
                     <motion.div
                       initial={shouldAnimate ? { width: 0 } : false}
                       animate={{ width: `${Math.round((tool.count / Math.max(data.reps.count_this_week, 1)) * 100)}%` }}
                       transition={{ duration: shouldAnimate ? 0.5 : 0, delay: shouldAnimate ? i * 0.05 : 0 }}
-                      className="h-full rounded-full"
-                      style={{ background: 'var(--gold-primary)' }}
+                      className="dot-gold h-full rounded-full"
                     />
                   </div>
                   <span className="text-xs w-6 text-right" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -282,7 +278,7 @@ export default function WeeklyReviewClient() {
       </div>
 
       {/* RAS coaching nudge */}
-      <div className="glass-card gold-accent-left p-4 space-y-2" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+      <div className="glass-card card-border-violet-mid gold-accent-left p-4 space-y-2">
         <span className="gold-tag inline-block text-xs font-bold">
           The pattern
         </span>

@@ -19,7 +19,7 @@ export default async function AdminAuditPage() {
   return (
     <main className="cosmic-page-bg page-shell">
       <div className="content-wrap--wide px-5 py-12 sm:px-8 sm:py-16">
-        <header className="glass-card mb-6 p-6 sm:p-8" style={{ borderTop: '2px solid var(--gold-primary)' }}>
+        <header className="glass-card mb-6 p-6 sm:p-8 card-border-top-gold">
           <span className="gold-tag inline-block text-xs font-bold">
             Admin
           </span>

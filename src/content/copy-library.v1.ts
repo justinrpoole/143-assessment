@@ -64,17 +64,17 @@ export const CONFIDENCE_LABELS: Record<ConfidenceBand, {
   HIGH: {
     label: 'High Confidence',
     description: 'Strong data quality. Your results reflect a clear, consistent signal.',
-    color: '#34D399',
+    color: 'var(--status-low)',
   },
   MODERATE: {
     label: 'Moderate Confidence',
     description: 'Good data quality with minor variability. Your core profile is reliable.',
-    color: 'var(--brand-gold, #F8D011)',
+    color: 'var(--brand-gold)',
   },
   LOW: {
     label: 'Lower Confidence',
     description: 'Some data quality concerns detected. Consider a retake for sharper accuracy.',
-    color: '#FB923C',
+    color: 'var(--status-elevated)',
   },
 };
 

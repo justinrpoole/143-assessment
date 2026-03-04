@@ -172,11 +172,8 @@ export default async function Challenge143Page() {
                 {SCIENCE_CARDS.map((card) => { const color = rayHex(card.rayKey); return (
                   <StaggerItem key={card.label}>
                     <div
-                      className="glass-card glass-card--magnetic p-5"
-                      style={{
-                        borderLeft: `3px solid ${color}40`,
-                        background: `${color}06`,
-                      }}
+                      className="glass-card glass-card--magnetic card-border-left-accent-soft card-surface-accent-soft p-5"
+                      style={{ '--card-accent': color } as { ['--card-accent']: string }}
                     >
                       <p
                         className="text-sm font-semibold"

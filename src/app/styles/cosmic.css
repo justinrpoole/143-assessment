@@ -65,10 +65,9 @@
 .cosmic-bg {
   background: radial-gradient(
     ellipse at 50% 30%,
-    #2D1450 0%,
-    #1A1045 25%,
-    #1A0A2E 55%,
-    #0B0212 100%
+    color-mix(in srgb, var(--violet-700) 92%, transparent) 0%,
+    color-mix(in srgb, var(--violet-800) 94%, transparent) 35%,
+    color-mix(in srgb, var(--ink-900) 96%, transparent) 100%
   );
 }
 
@@ -80,7 +79,7 @@
 
 /* Focus indicators — WCAG 2.2 §2.4.7 */
 .cosmic-focus-target:focus-visible {
-  outline: 3px solid #F8D011;
+  outline: 3px solid var(--gold-primary);
   outline-offset: 2px;
   border-radius: 8px;
 }
@@ -126,7 +125,13 @@
 
 .glass-card {
   position: relative;
-  background: var(--surface-glass);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-700) 96%, var(--surface-650) 4%) 0%,
+      color-mix(in srgb, var(--surface-650) 94%, var(--surface-600) 6%) 56%,
+      color-mix(in srgb, var(--surface-600) 94%, var(--surface-700) 6%) 100%
+    );
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-2xl);
   backdrop-filter: blur(20px);
@@ -135,12 +140,13 @@
   --card-halo-2: 0 0 var(--card-glow-r2) color-mix(in srgb, var(--glow-pink) calc(var(--card-glow-a2) * 100%), transparent);
   --card-halo-3: 0 0 var(--card-glow-r3) color-mix(in srgb, var(--glow-violet) calc(var(--card-glow-a3) * 100%), transparent);
   --card-rim: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--glow-pink) 32%, transparent), transparent 55%);
-  --card-shadow-base: var(--card-halo-1), var(--card-halo-2), var(--card-halo-3), inset 0 1px 0 color-mix(in srgb, var(--text-body) 6%, transparent);
+  --card-shadow-base: var(--card-halo-1), var(--card-halo-2), var(--card-halo-3), inset 0 1px 0 color-mix(in srgb, var(--text-body) 8%, transparent), inset 0 -14px 32px color-mix(in srgb, var(--ink-900) 22%, transparent);
   --card-shadow-strong: 0 0 var(--card-glow-r1) color-mix(in srgb, var(--glow-violet) 18%, transparent),
                         0 0 var(--card-glow-r2) color-mix(in srgb, var(--glow-pink) 13%, transparent),
                         0 0 var(--card-glow-r3) color-mix(in srgb, var(--glow-violet) 8%, transparent),
-                        inset 0 1px 0 color-mix(in srgb, var(--text-body) 8%, transparent);
-  --card-shadow-none: inset 0 1px 0 color-mix(in srgb, var(--text-body) 6%, transparent);
+                        inset 0 1px 0 color-mix(in srgb, var(--text-body) 10%, transparent),
+                        inset 0 -16px 36px color-mix(in srgb, var(--ink-900) 24%, transparent);
+  --card-shadow-none: inset 0 1px 0 color-mix(in srgb, var(--text-body) 8%, transparent), inset 0 -12px 28px color-mix(in srgb, var(--ink-900) 18%, transparent);
   box-shadow: var(--card-shadow-base);
   transition: background var(--motion-base) var(--motion-ease),
               border-color var(--motion-base) var(--motion-ease),
@@ -149,7 +155,13 @@
 }
 
 .glass-card:hover {
-  background: var(--surface-glass-hover);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-700) 94%, var(--surface-650) 6%) 0%,
+      color-mix(in srgb, var(--surface-650) 92%, var(--surface-600) 8%) 56%,
+      color-mix(in srgb, var(--surface-600) 92%, var(--surface-700) 8%) 100%
+    );
   border-color: var(--surface-border-hover);
   box-shadow: var(--card-shadow-strong);
 }
@@ -163,6 +175,15 @@
   background: var(--card-rim);
   opacity: var(--card-rim-a);
   filter: blur(12px);
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-body) 10%, transparent), inset 0 -1px 0 color-mix(in srgb, var(--ink-900) 30%, transparent);
 }
 
 .glass-card--solid {
@@ -179,6 +200,26 @@
   box-shadow: var(--card-shadow-none);
 }
 
+.ray-glow-card {
+  background: var(--ray-bg, color-mix(in srgb, var(--surface-700) 92%, transparent));
+  border: 1px solid var(--ray-border, var(--surface-border));
+  transition:
+    border-color var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease);
+}
+
+.ray-glow-card:hover {
+  border-color: var(--ray-hover-border, var(--surface-border-hover));
+  box-shadow:
+    var(--card-shadow-base),
+    0 0 var(--card-glow-r1) var(--ray-glow, color-mix(in srgb, var(--glow-violet) 16%, transparent));
+}
+
+.ray-glow-card:active {
+  border-color: var(--ray-active, var(--surface-border-hover));
+}
+
 /* ── Dark Cosmic Page Background ── */
 
 .cosmic-page-bg {
@@ -188,6 +229,17 @@
     /* Primary cosmic radials */
     var(--gradient-cosmic-radial),
     var(--gradient-gold-radial),
+    /* Constellation specks */
+    radial-gradient(circle at 11% 18%, var(--constellation-core-dim) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 23% 32%, var(--constellation-core) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 37% 14%, var(--constellation-core-dim) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 58% 22%, var(--constellation-core-dim) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 72% 16%, var(--constellation-core) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 84% 34%, var(--constellation-core-dim) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 16% 72%, var(--constellation-core-dim) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 42% 78%, var(--constellation-core) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 63% 66%, var(--constellation-core-dim) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 88% 74%, var(--constellation-core) 0 1px, transparent 1.5px),
     /* Nebula cloud 1 — upper left purple wisp */
     radial-gradient(ellipse 600px 400px at 15% 12%, rgba(96, 5, 141, 0.40) 0%, rgba(60, 10, 100, 0.15) 40%, transparent 70%),
     /* Nebula cloud 2 — mid-right warm glow */
@@ -208,8 +260,23 @@
   width: 100%;
 }
 
+.section-alt-dark {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--violet-700) 90%, transparent) 0%,
+    color-mix(in srgb, var(--violet-800) 94%, transparent) 100%
+  );
+}
+
 .body-copy {
   color: var(--text-body);
+}
+
+.cosmic-page-bg h1,
+.cosmic-page-bg h2,
+.cosmic-page-bg h3,
+.cosmic-page-bg .heading-section {
+  color: var(--text-header) !important;
 }
 
 /* ── Neon Atmosphere: Scanlines ── */
@@ -930,18 +997,30 @@
   background-position: 0 0, 16px 16px;
   pointer-events: none;
   z-index: 0;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.5) 70%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.5) 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--ink-950) 50%, transparent) 30%,
+    color-mix(in srgb, var(--ink-950) 50%, transparent) 70%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--ink-950) 50%, transparent) 30%,
+    color-mix(in srgb, var(--ink-950) 50%, transparent) 70%,
+    transparent 100%
+  );
 }
 
 /* Testimonial gold stripe — left accent bar on testimonial cards */
 .testimonial-gold-stripe {
   position: relative;
-  border-left: 2px solid rgba(248, 208, 17, 0.4);
+  border-left: 2px solid color-mix(in srgb, var(--gold-primary) 40%, transparent);
 }
 
 .testimonial-gold-stripe:hover {
-  border-left-color: #F8D011;
+  border-left-color: var(--gold-primary);
 }
 
 /* Gold ring — circular border element for executive authority sections */
@@ -1726,7 +1805,7 @@ html {
 
 /* Global body text improvements */
 .cosmic-page-bg {
-  color: var(--text-on-dark, rgba(255, 255, 255, 0.92));
+  color: var(--text-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1789,19 +1868,258 @@ html {
   background: rgba(248, 208, 17, 0.25);
 }
 
-/* ── Neon 80s boost ─────────────────────────────────────────── */
-.glass-card { transition: box-shadow 0.3s ease, border-color 0.3s ease; }
-.glass-card:hover {
-  box-shadow: 0 0 0 1px rgba(139,91,255,0.35), 0 8px 32px rgba(139,91,255,0.14), inset 0 1px 0 rgba(255,255,255,0.07);
+/* ── Neon text utilities (labels, microheadings, medium sentences only) ── */
+.neon-text {
+  color: var(--text-neon);
+  text-shadow:
+    0 0 8px color-mix(in srgb, var(--text-neon) calc(var(--neon-text-a1) * 100%), transparent),
+    0 0 20px color-mix(in srgb, var(--text-neon) calc(var(--neon-text-a2) * 100%), transparent);
 }
-.btn-primary, [class*='btn-primary'] {
-  box-shadow: 0 0 20px rgba(248,208,17,0.25), 0 4px 12px rgba(0,0,0,0.4);
+
+.neon-text--strong {
+  color: var(--text-neon-strong);
+  text-shadow:
+    0 0 10px color-mix(in srgb, var(--text-neon-strong) calc(var(--neon-text-a1) * 100%), transparent),
+    0 0 24px color-mix(in srgb, var(--text-neon-strong) calc(var(--neon-text-a2) * 100%), transparent);
 }
-.btn-primary:hover, [class*='btn-primary']:hover {
-  box-shadow: 0 0 32px rgba(248,208,17,0.5), 0 4px 16px rgba(0,0,0,0.5);
+
+.neon-text-gold {
+  color: var(--gold-primary);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--gold-primary) 48%, transparent), 0 0 20px color-mix(in srgb, var(--gold-primary) 24%, transparent);
 }
-.neon-text-gold { text-shadow: 0 0 8px rgba(248,208,17,0.6), 0 0 20px rgba(248,208,17,0.3); }
-.neon-text-purple { text-shadow: 0 0 8px rgba(139,91,255,0.6), 0 0 20px rgba(139,91,255,0.3); }
+
+.neon-text-purple {
+  color: var(--text-neon);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--text-neon) 55%, transparent), 0 0 20px color-mix(in srgb, var(--text-neon) 28%, transparent);
+}
+
+/* ── Tokenized card/surface helpers (TSX inline border/background replacement) ── */
+.card-border-default {
+  border-color: var(--surface-border) !important;
+}
+
+.card-border-body {
+  border-color: var(--text-body) !important;
+}
+
+.card-border-gold-soft {
+  border-color: color-mix(in srgb, var(--gold-primary) 20%, transparent) !important;
+}
+
+.card-border-gold-mid {
+  border-color: color-mix(in srgb, var(--gold-primary) 30%, transparent) !important;
+}
+
+.card-border-violet-soft {
+  border-color: color-mix(in srgb, var(--violet-650) 20%, transparent) !important;
+}
+
+.card-border-violet-mid {
+  border-color: color-mix(in srgb, var(--violet-650) 30%, transparent) !important;
+}
+
+.card-border-stroke-soft {
+  border-color: color-mix(in srgb, var(--stroke-400) 20%, transparent) !important;
+}
+
+.card-border-none {
+  border: none !important;
+}
+
+.card-border-top-gold {
+  border-top: 2px solid var(--gold-primary) !important;
+}
+
+.card-border-left-gold {
+  border-left: 3px solid color-mix(in srgb, var(--gold-primary) 40%, transparent) !important;
+}
+
+.card-border-left-gold-soft {
+  border-left: 3px solid color-mix(in srgb, var(--gold-primary) 25%, transparent) !important;
+}
+
+.card-border-left-stroke {
+  border-left: 3px solid color-mix(in srgb, var(--stroke-400) 40%, transparent) !important;
+}
+
+.card-border-left-accent {
+  border-left: 3px solid var(--card-accent, color-mix(in srgb, var(--gold-primary) 40%, transparent)) !important;
+}
+
+.card-border-left-accent-soft {
+  border-left: 3px solid color-mix(in srgb, var(--card-accent, var(--gold-primary)) 40%, transparent) !important;
+}
+
+.card-border-left-body {
+  border-left: 3px solid color-mix(in srgb, var(--text-body) 72%, transparent) !important;
+}
+
+.card-border-accent {
+  border-color: var(--card-accent, var(--surface-border)) !important;
+}
+
+.card-border-accent-soft {
+  border-color: color-mix(in srgb, var(--card-accent, var(--surface-border)) 25%, transparent) !important;
+}
+
+.card-border-thick {
+  border-width: 2px !important;
+}
+
+.card-border-top-accent {
+  border-top: 2px solid var(--card-accent, var(--gold-primary)) !important;
+}
+
+.card-border-top-accent-soft {
+  border-top: 2px solid color-mix(in srgb, var(--card-accent, var(--gold-primary)) 30%, transparent) !important;
+}
+
+.card-surface-accent {
+  background: var(--card-surface, var(--surface-glass)) !important;
+}
+
+.card-surface-accent-soft {
+  background: color-mix(in srgb, var(--card-accent, var(--surface-700)) 6%, transparent) !important;
+}
+
+.card-surface-accent-subtle {
+  background: color-mix(in srgb, var(--card-accent, var(--surface-700)) 4%, transparent) !important;
+}
+
+.card-bg-var {
+  background: var(--card-bg, var(--surface-glass)) !important;
+}
+
+.card-border-var {
+  border: var(--card-border, 1px solid var(--surface-border)) !important;
+}
+
+.card-border-color-var {
+  border-color: var(--card-border, var(--surface-border)) !important;
+}
+
+.card-border-left-var {
+  border-left: var(--card-border-left, 3px solid var(--surface-border)) !important;
+}
+
+.card-border-top-var {
+  border-top: var(--card-border-top, 2px solid var(--surface-border)) !important;
+}
+
+.surface-glass-fill {
+  background: var(--surface-glass) !important;
+}
+
+.surface-border-fill {
+  background: var(--surface-border) !important;
+  border: 1px solid var(--surface-border) !important;
+}
+
+.field-soft {
+  background: color-mix(in srgb, var(--text-body) 6%, transparent) !important;
+  border: 1px solid var(--surface-border) !important;
+  color: var(--text-on-dark) !important;
+}
+
+.surface-track-soft {
+  background: color-mix(in srgb, var(--text-body) 8%, transparent) !important;
+}
+
+.surface-track-mid {
+  background: color-mix(in srgb, var(--text-body) 10%, transparent) !important;
+}
+
+.surface-pill-violet {
+  background: color-mix(in srgb, var(--violet-650) 20%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--stroke-400) 25%, transparent) !important;
+}
+
+.surface-ink-soft {
+  background: color-mix(in srgb, var(--ink-950) 35%, transparent) !important;
+  border: 1px solid var(--surface-border) !important;
+}
+
+.badge-gold-soft {
+  background: color-mix(in srgb, var(--gold-primary) 12%, transparent) !important;
+  color: var(--brand-gold) !important;
+}
+
+.ray-chip {
+  background: var(--chip-fill, color-mix(in srgb, var(--ink-950) 35%, transparent)) !important;
+  border: 1px solid var(--chip-stroke, var(--surface-border)) !important;
+  color: var(--chip-ink, var(--text-body)) !important;
+}
+
+.badge-gold-dot {
+  background: color-mix(in srgb, var(--gold-primary) 90%, transparent) !important;
+}
+
+.dot-surface {
+  background: var(--surface-border) !important;
+}
+
+.dot-body {
+  background: var(--text-body) !important;
+}
+
+.dot-gold {
+  background: var(--gold-primary) !important;
+}
+
+.panel-gradient-deep {
+  background: linear-gradient(to bottom right, var(--cosmic-deepest), var(--cosmic-purple-gradient)) !important;
+}
+
+.panel-gradient-mid {
+  background: linear-gradient(to bottom right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid)) !important;
+}
+
+.border-bottom-surface {
+  border-bottom: 1px solid var(--surface-border) !important;
+}
+
+.surface-violet-soft {
+  background: color-mix(in srgb, var(--violet-650) 12%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent) !important;
+}
+
+.surface-violet-tint {
+  background: color-mix(in srgb, var(--violet-650) 15%, transparent) !important;
+}
+
+.surface-gold-soft {
+  background: color-mix(in srgb, var(--gold-primary) 6%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent) !important;
+}
+
+.border-top-stroke-soft {
+  border-top: 1px solid color-mix(in srgb, var(--stroke-400) 15%, transparent) !important;
+}
+
+.gold-fade-rule {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--gold-primary) 30%, transparent),
+    color-mix(in srgb, var(--gold-primary) 5%, transparent)
+  ) !important;
+}
+
+.chip-surface-gold {
+  background: var(--surface-border) !important;
+  color: var(--brand-gold) !important;
+  border: 1px solid var(--surface-border) !important;
+}
+
+.chip-surface-body {
+  background: color-mix(in srgb, var(--stroke-400) 15%, transparent) !important;
+  color: var(--text-body) !important;
+  border: 1px solid var(--surface-border) !important;
+}
+
+.badge-soft-muted {
+  background: color-mix(in srgb, var(--text-body) 4%, transparent) !important;
+  color: var(--text-on-dark-muted) !important;
+}
 
 /* ── Scroll fix — ensure overlays never block interaction ── */
 html, body {

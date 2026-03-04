@@ -9,7 +9,6 @@ import RayDivider from "@/components/ui/RayDivider";
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
-import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import GoldHeroBanner from "@/components/ui/GoldHeroBanner";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -121,10 +120,7 @@ export default async function OutcomesPage() {
                 {WINS.map((win, i) => (
                   <StaggerItem key={i}>
                     <div
-                      className="glass-card p-5"
-                      style={{
-                        borderLeft: "3px solid var(--gold-primary)",
-                      }}
+                      className="glass-card card-border-left-gold p-5"
                     >
                       <p
                         className="text-sm leading-relaxed"

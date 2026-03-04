@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 import {
   FadeInSection,
@@ -20,7 +19,7 @@ import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
-import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
+import { NEON, neonText } from '@/lib/ui/neon';
 
 export const dynamic = "force-dynamic";
 
@@ -212,11 +211,8 @@ export default async function OrganizationsPage() {
                 return (
                   <StaggerItem key={item.stat}>
                     <div
-                      className="glass-card glass-card--magnetic metric-badge p-5 text-center h-full"
-                      style={{
-                        borderLeft: `3px solid ${color}40`,
-                        background: `${color}04`,
-                      }}
+                      className="glass-card glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle metric-badge h-full p-5 text-center"
+                      style={{ '--card-accent': color } as { ['--card-accent']: string }}
                     >
                       <p
                         className="text-3xl font-bold"
@@ -267,11 +263,8 @@ export default async function OrganizationsPage() {
                 return (
                   <StaggerItem key={step.num}>
                     <div
-                      className="glass-card glass-card--magnetic flex gap-5 p-6"
-                      style={{
-                        borderLeft: `3px solid ${color}40`,
-                        background: `${color}04`,
-                      }}
+                      className="glass-card glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle flex gap-5 p-6"
+                      style={{ '--card-accent': color } as { ['--card-accent']: string }}
                     >
                       <span
                         className="shrink-0 text-2xl font-bold"
@@ -339,11 +332,8 @@ export default async function OrganizationsPage() {
                   return (
                     <StaggerItem key={item.title}>
                       <div
-                        className="glass-card glass-card--magnetic p-6 h-full"
-                        style={{
-                          borderLeft: `3px solid ${color}40`,
-                          background: `${color}04`,
-                        }}
+                        className="glass-card glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle h-full p-6"
+                        style={{ '--card-accent': color } as { ['--card-accent']: string }}
                       >
                         <h3
                           className="text-sm font-semibold"
@@ -375,8 +365,7 @@ export default async function OrganizationsPage() {
         <FadeInSection>
           <section className="content-wrap--narrow">
             <div
-              className="glass-card p-6 sm:p-8 space-y-5"
-              style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 30%, transparent)" }}
+              className="glass-card p-6 sm:p-8 space-y-5 card-border-gold-mid"
             >
               <p
                 className="text-xs font-bold uppercase tracking-widest"

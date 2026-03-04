@@ -40,7 +40,10 @@ export default function BottomRay({ justInRay, selectionBasis }: Props) {
         This is your next skill to train. Small investment here creates the biggest return.
       </p>
 
-      <div className="glass-card p-6" style={{ border: `2px solid ${rayHex(justInRay.ray_id)}30` }}>
+      <div
+        className="glass-card card-border-accent-soft card-border-thick p-6"
+        style={{ '--card-accent': rayHex(justInRay.ray_id) } as { ['--card-accent']: string }}
+      >
         <div className="flex items-center gap-3 mb-4">
           <span className="text-2xl">&var(--text-body);</span>
           <div>

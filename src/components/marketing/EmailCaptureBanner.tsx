@@ -36,8 +36,7 @@ export default function EmailCaptureBanner() {
   if (status === 'success') {
     return (
       <div
-        className="glass-card mx-auto mt-6 max-w-[480px] p-5 sm:p-6 text-center"
-        style={{ borderColor: 'var(--surface-border)', boxShadow: '0 0 20px var(--surface-border)' }}
+        className="glass-card card-border-default mx-auto mt-6 max-w-[480px] p-5 sm:p-6 text-center"
       >
         <p className="text-sm font-semibold" style={{ color: 'var(--text-body)' }}>
           &#x2713; You&rsquo;re in.

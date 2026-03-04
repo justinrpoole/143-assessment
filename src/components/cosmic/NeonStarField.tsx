@@ -120,9 +120,6 @@ export default function NeonStarField({
             height: star.size,
             background: star.color,
             opacity: star.opacity,
-            boxShadow: star.glow > 0
-              ? `0 0 ${star.glow}px ${star.glow / 2}px ${star.color}`
-              : 'none',
             animation: `star-twinkle ${star.duration}s ease-in-out ${star.delay}s infinite`,
             willChange: 'opacity, transform',
           }}

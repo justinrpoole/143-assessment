@@ -221,7 +221,6 @@ function BarRow({
                 height,
                 background: value > 0 ? accent : "color-mix(in srgb, var(--text-body) 8%, transparent)",
                 opacity: muted ? 0.45 : 1,
-                boxShadow: value > 0 ? "0 0 8px color-mix(in srgb, var(--gold-primary) 25%, transparent)" : "none",
               }}
               title={`${formatShortDate(day.date)} - ${value}`}
               aria-hidden="true"
@@ -838,7 +837,7 @@ export default function EntryLogOverTime({ days = 28 }: { days?: number }) {
         )}
 
         {view.retakeReady && (
-          <div className="glass-card p-3" style={{ borderColor: "var(--surface-border)" }}>
+          <div className="glass-card card-border-default p-3">
             <p className="text-xs font-semibold" style={{ color: "var(--neon-teal)" }}>
               Retake window open
             </p>

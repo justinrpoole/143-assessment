@@ -231,8 +231,7 @@ export default function GrowthTrajectory({ runs }: GrowthTrajectoryProps) {
       {/* ── Detail Panel ───────────────────────────────────── */}
       {active && (
         <div
-          className="glass-card p-5 space-y-3"
-          style={{ borderLeft: "3px solid var(--gold-primary)" }}
+          className="glass-card card-border-left-gold p-5 space-y-3"
         >
           <div className="flex items-center justify-between">
             <p

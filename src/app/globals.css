@@ -10,6 +10,8 @@
   --color-body: var(--text-body);
   --color-secondary: var(--text-secondary);
   --color-muted: var(--text-muted);
+  --color-neon: var(--text-neon);
+  --color-neon-strong: var(--text-neon-strong);
   --color-cosmic: var(--bg-cosmic);
   --color-surface: var(--bg-surface);
   --color-stroke: var(--stroke-500);

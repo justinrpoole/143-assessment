@@ -86,13 +86,13 @@ function ToastCard({
     <div
       role="status"
       aria-live="polite"
-      className="pointer-events-auto glass-card px-4 py-3 flex items-center gap-3 transition-all duration-300"
+      className="pointer-events-auto glass-card card-border-color-var px-4 py-3 flex items-center gap-3 transition-all duration-300"
       style={{
-        borderColor: style.border,
+        '--card-border': style.border,
         opacity: exiting ? 0 : 1,
         transform: exiting ? 'translateX(100%)' : 'translateX(0)',
         maxWidth: '22rem',
-      }}
+      } as { ['--card-border']: string; opacity: number; transform: string; maxWidth: string }}
     >
       <span
         className="h-2 w-2 rounded-full shrink-0"

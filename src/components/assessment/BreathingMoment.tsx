@@ -21,8 +21,7 @@ export default function BreathingMoment({ phaseName, message }: BreathingMomentP
 
   return (
     <div
-      className="glass-card flex flex-col items-center gap-4 py-8 px-6 text-center"
-      style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}
+      className="glass-card flex flex-col items-center gap-4 py-8 px-6 text-center card-border-gold-soft"
     >
       {/* Breathing circle */}
       <div

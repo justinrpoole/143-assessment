@@ -1,0 +1,15 @@
+src/lib/email/email-provider.ts:43:  <div style="max-width: 480px; margin: 0 auto; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 32px;">
+src/lib/email/email-provider.ts:45:    <p style="color: rgba(255,255,255,0.75); font-size: 14px; line-height: 1.6; margin: 0 0 24px;">
+src/lib/email/email-provider.ts:51:    <p style="color: rgba(255,255,255,0.4); font-size: 12px; line-height: 1.5; margin: 24px 0 0;">
+src/lib/report/gravitational-stability.ts:52:const DEEP_PURPLE = rgb(6 / 255, 0, 20 / 255);
+src/lib/report/gravitational-stability.ts:53:const MID_PURPLE = rgb(75 / 255, 34 / 255, 122 / 255);
+src/lib/report/gravitational-stability.ts:54:const SOFT_PURPLE = rgb(227 / 255, 217 / 255, 238 / 255);
+src/lib/report/gravitational-stability.ts:55:const GOLD = rgb(1, 200 / 255, 66 / 255);
+src/lib/report/gravitational-stability.ts:56:const GOLD_SOFT = rgb(1, 240 / 255, 194 / 255);
+src/lib/report/gravitational-stability.ts:57:const WHITE = rgb(1, 1, 1);
+src/lib/report/gravitational-stability.ts:58:const BLACK = rgb(18 / 255, 14 / 255, 28 / 255);
+src/lib/report/gravitational-stability.ts:59:const GRAY = rgb(112 / 255, 104 / 255, 129 / 255);
+src/lib/report/gravitational-stability.ts:637:      borderColor: rgb(201 / 255, 192 / 255, 217 / 255),
+src/lib/report/gravitational-stability.ts:685:      color: rgb(248 / 255, 246 / 255, 252 / 255),
+src/lib/report/gravitational-stability.ts:686:      borderColor: rgb(224 / 255, 214 / 255, 238 / 255),
+src/lib/report/gravitational-stability.ts:753:      color: rgb(250 / 255, 247 / 255, 241 / 255),

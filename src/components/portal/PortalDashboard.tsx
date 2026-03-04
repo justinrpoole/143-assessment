@@ -116,8 +116,7 @@ function ResumeBanner({ runId, answered, total }: { runId: string; answered: num
   return (
     <Link
       href={`/assessment?run_id=${encodeURIComponent(runId)}`}
-      className="glass-card block p-5 transition-all hover:scale-[1.01]"
-      style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)' }}
+      className="glass-card card-border-gold-mid block p-5 transition-all hover:scale-[1.01]"
     >
       <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
         Continue Assessment
@@ -125,7 +124,7 @@ function ResumeBanner({ runId, answered, total }: { runId: string; answered: num
       <p className="mt-1.5 text-sm font-medium" style={{ color: 'var(--text-body)' }}>
         You left off at question {answered}/{total}. Pick up where you stopped.
       </p>
-      <div className="mt-3 h-2 overflow-hidden rounded-full" style={{ background: 'color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
+      <div className="surface-track-mid mt-3 h-2 overflow-hidden rounded-full">
         <div
           className="h-full rounded-full bg-gradient-to-r from-brand-purple to-brand-gold transition-all duration-500"
           style={{ width: `${pct}%` }}
@@ -148,19 +147,19 @@ function SubscriptionBanner({ state, gracePeriodEnd }: { state: PortalSummary['s
 
   const config = {
     grace: {
-      border: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)',
+      stroke: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)',
       label: 'Subscription Ending',
       labelColor: 'var(--gold-primary)',
       message: `Your subscription was canceled. You still have full access through ${graceDateLabel ?? 'your current period'}. Renew anytime to keep going.`,
     },
     expired: {
-      border: 'var(--surface-border)',
+      stroke: 'var(--surface-border)',
       label: 'Subscription Expired',
       labelColor: 'var(--surface-border)',
       message: 'Your subscription has ended. Your report and progress are still here. Renew to continue your coaching tools and retakes.',
     },
     past_due: {
-      border: 'var(--surface-border)',
+      stroke: 'var(--surface-border)',
       label: 'Payment Needs Attention',
       labelColor: 'var(--surface-border)',
       message: 'Your last payment didn\u2019t go through. Update your billing to continue your coaching without interruption.',
@@ -171,8 +170,8 @@ function SubscriptionBanner({ state, gracePeriodEnd }: { state: PortalSummary['s
 
   return (
     <div
-      className="glass-card p-5 space-y-3"
-      style={{ borderColor: c.border }}
+      className="glass-card card-border-accent p-5 space-y-3"
+      style={{ '--card-accent': c.stroke } as { ['--card-accent']: string }}
     >
       <p className="text-xs font-bold uppercase tracking-widest" style={{ color: c.labelColor }}>
         {c.label}
@@ -199,11 +198,10 @@ function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
         <Link
           href="/reps"
-          className="neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
-          style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)', border: '1px solid color-mix(in srgb, var(--stroke-400) 25%, transparent)' }}
+          className="surface-pill-violet neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
         >
-          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}>
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--gold-primary)' }} />
+          <span className="badge-gold-soft w-8 h-8 rounded-full flex items-center justify-center">
+            <span className="dot-gold w-2.5 h-2.5 rounded-full" />
           </span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Capture a moment</p>
@@ -212,11 +210,10 @@ function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
         </Link>
         <Link
           href="/watch-me"
-          className="neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
-          style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)', border: '1px solid color-mix(in srgb, var(--stroke-400) 25%, transparent)' }}
+          className="surface-pill-violet neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
         >
-          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'var(--surface-border)' }}>
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--text-body)' }} />
+          <span className="dot-surface w-8 h-8 rounded-full flex items-center justify-center">
+            <span className="dot-body w-2.5 h-2.5 rounded-full" />
           </span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Take a small step</p>
@@ -227,11 +224,10 @@ function PriorityActions({ bottomRayName }: { bottomRayName?: string | null }) {
         </Link>
         <Link
           href="/reflect"
-          className="neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
-          style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)', border: '1px solid color-mix(in srgb, var(--stroke-400) 25%, transparent)' }}
+          className="surface-pill-violet neon-border-hover flex items-center gap-3 rounded-xl p-3 transition-all hover:scale-[1.02]"
         >
-          <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'var(--surface-border)' }}>
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--text-body)' }} />
+          <span className="dot-surface w-8 h-8 rounded-full flex items-center justify-center">
+            <span className="dot-body w-2.5 h-2.5 rounded-full" />
           </span>
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Daily Debrief</p>
@@ -426,7 +422,7 @@ export default function PortalDashboard() {
       <div className="space-y-6">
         <SupernovaEvent totalReps={summary.total_reps} />
 
-        <div className="text-on-dark rounded-2xl p-7 space-y-3" style={{ background: 'linear-gradient(to bottom right, var(--cosmic-deepest), var(--cosmic-purple-gradient))' }}>
+        <div className="panel-gradient-deep text-on-dark rounded-2xl p-7 space-y-3">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold">Welcome back.</h2>
             <SignOutButton />
@@ -514,7 +510,7 @@ export default function PortalDashboard() {
       <div className="space-y-6">
         <SupernovaEvent totalReps={summary?.total_reps ?? 0} />
 
-        <div className="text-on-dark rounded-2xl p-7 space-y-3" style={{ background: 'linear-gradient(to bottom right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
+        <div className="panel-gradient-mid text-on-dark rounded-2xl p-7 space-y-3">
           <div className="flex items-center justify-between">
             <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--text-on-dark-muted)' }}>Your OS</p>
             <SignOutButton />
@@ -605,7 +601,7 @@ export default function PortalDashboard() {
       />
 
       {/* Welcome header — identity-based language */}
-      <div className="text-on-dark rounded-2xl p-7 space-y-2" style={{ background: 'linear-gradient(to bottom right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
+      <div className="panel-gradient-mid text-on-dark rounded-2xl p-7 space-y-2">
         <div className="flex items-center justify-between">
           <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: 'var(--text-on-dark-muted)' }}>
             Your OS
@@ -690,7 +686,7 @@ export default function PortalDashboard() {
               <WeeklyGoalRing current={summary.reps_this_week} target={WEEKLY_TARGET} />
               <div className="flex-1 space-y-1.5">
                 <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-secondary)' }}>Weekly reps</p>
-                <div className="h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
+                <div className="surface-track-mid h-2 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-brand-purple to-brand-gold rounded-full transition-all duration-500"
                     style={{ width: `${progressPct}%` }}
@@ -786,7 +782,6 @@ export default function PortalDashboard() {
                 const ramp = rayRamp(summary.bottom_ray_id ?? summary.bottom_ray_name);
                 const glowStyle = showGlow
                   ? {
-                      boxShadow: '0 0 0 2px color-mix(in srgb, var(--gold-primary) 60%, transparent), 0 0 18px color-mix(in srgb, var(--gold-primary) 35%, transparent)',
                       borderColor: 'color-mix(in srgb, var(--gold-primary) 80%, transparent)',
                     }
                   : {};
@@ -912,7 +907,7 @@ export default function PortalDashboard() {
       {/* Stretch nudge for streak ≥ 3 */}
       {summary.streak_days >= 3 && (
         <FadeInSection>
-          <div className="glass-card p-4 flex items-start gap-3" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
+          <div className="glass-card card-border-gold-mid p-4 flex items-start gap-3">
             <span className="text-xl">🌟</span>
             <div>
               <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>

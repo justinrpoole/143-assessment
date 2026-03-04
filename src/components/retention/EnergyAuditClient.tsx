@@ -35,11 +35,11 @@ interface ApiResponse {
 }
 
 // Band-specific cosmic styling — uses status token colors
-const BAND_STYLES: Record<string, { glow: string; border: string; accent: string }> = {
-  green: { glow: '0 0 20px var(--surface-border)', border: 'var(--surface-border)', accent: 'var(--text-body)' },
-  yellow: { glow: '0 0 20px color-mix(in srgb, var(--gold-primary) 15%, transparent)', border: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)', accent: 'var(--gold-primary)' },
-  orange: { glow: '0 0 20px var(--surface-border)', border: 'var(--surface-border)', accent: 'var(--neon-amber)' },
-  red: { glow: '0 0 20px var(--surface-border)', border: 'var(--surface-border)', accent: 'var(--neon-amber)' },
+const BAND_STYLES: Record<string, { glow: string; stroke: string; accent: string }> = {
+  green: { glow: '0 0 20px var(--surface-border)', stroke: 'var(--surface-border)', accent: 'var(--text-body)' },
+  yellow: { glow: '0 0 20px color-mix(in srgb, var(--gold-primary) 15%, transparent)', stroke: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)', accent: 'var(--gold-primary)' },
+  orange: { glow: '0 0 20px var(--surface-border)', stroke: 'var(--surface-border)', accent: 'var(--neon-amber)' },
+  red: { glow: '0 0 20px var(--surface-border)', stroke: 'var(--surface-border)', accent: 'var(--neon-amber)' },
 };
 
 const RAS_INSIGHTS: Record<string, string> = {
@@ -165,8 +165,8 @@ export default function EnergyAuditClient() {
       >
         {/* Load summary */}
         <div
-          className="glass-card p-5 space-y-3"
-          style={{ borderColor: bandStyle.border, boxShadow: bandStyle.glow }}
+          className="glass-card card-border-accent p-5 space-y-3"
+          style={{ '--card-accent': bandStyle.stroke } as { ['--card-accent']: string }}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -184,7 +184,7 @@ export default function EnergyAuditClient() {
           </div>
 
           {/* Load bar */}
-          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
+          <div className="surface-track-soft h-2 rounded-full overflow-hidden">
             <motion.div
               initial={shouldAnimate ? { width: 0 } : false}
               animate={{ width: `${pct}%` }}
@@ -199,7 +199,7 @@ export default function EnergyAuditClient() {
           </p>
 
           {/* Action card */}
-          <div className="glass-card p-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
+          <div className="glass-card card-border-violet-soft p-3">
             <p className="text-xs font-medium uppercase tracking-widest mb-1"
               style={{ color: 'var(--gold-primary)' }}>
               This week&apos;s protocol
@@ -252,7 +252,7 @@ export default function EnergyAuditClient() {
                 <p className="text-xs w-24 flex-shrink-0" style={{ color: 'var(--text-on-dark-secondary)' }}>
                   {dim.label}
                 </p>
-                <div className="flex-1 h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
+                <div className="surface-track-soft flex-1 h-2 rounded-full overflow-hidden">
                   <motion.div
                     initial={shouldAnimate ? { width: 0 } : false}
                     animate={{ width: `${width}%` }}
@@ -357,8 +357,7 @@ export default function EnergyAuditClient() {
           )}
 
           {error && (
-            <div className="rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert"
-              style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+            <div className="surface-border-fill rounded-lg px-4 py-3 flex items-center justify-between gap-3" role="alert">
               <p className="text-xs" style={{ color: 'var(--ray-power)' }}>{humanizeError(error)}</p>
               <button
                 type="button"

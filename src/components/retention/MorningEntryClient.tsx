@@ -128,7 +128,7 @@ export function MorningEntryClient() {
         onDone={() => setCelebration(null)}
       />
       {/* Header */}
-      <div className="glass-card p-5 space-y-2" style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)" }}>
+      <div className="glass-card p-5 space-y-2 card-border-gold-soft">
         <div className="flex items-center gap-2">
           <span className="neon-tag text-xs font-bold">MORNING</span>
           <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
@@ -226,8 +226,7 @@ export function MorningEntryClient() {
               initial={shouldAnimate ? { opacity: 0 } : false}
               animate={{ opacity: 1 }}
               transition={{ duration: shouldAnimate ? undefined : 0 }}
-              className="glass-card gold-accent-left p-4 text-center"
-              style={{ borderColor: "var(--surface-border)" }}
+              className="glass-card gold-accent-left p-4 text-center card-border-default"
             >
               <p className="text-sm font-medium score-reveal" style={{ color: "var(--ray-authenticity)" }}>
                 ✓ Morning intention set. Your RAS is primed.

@@ -48,8 +48,7 @@ export default function RetakeRecommendation({ confidenceBand, dataQuality, edge
 
   return (
     <div
-      className="glass-card p-6 space-y-4"
-      style={{ borderColor: 'var(--surface-border)' }}
+      className="glass-card p-6 space-y-4 card-border-default"
     >
       <div>
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--surface-border)' }}>

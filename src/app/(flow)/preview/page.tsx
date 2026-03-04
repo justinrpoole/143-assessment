@@ -51,7 +51,7 @@ export default async function PreviewPage() {
 
   return (
     <main className="cosmic-page-bg page-shell">
-      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
+      <div className="content-wrap py-12 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <FadeInSection>
@@ -113,8 +113,7 @@ export default async function PreviewPage() {
             <div className="grid gap-6 sm:grid-cols-2">
               {/* Card A — Full Assessment */}
               <div
-                className="glass-card p-6 space-y-4"
-                style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 25%, transparent)" }}
+                className="glass-card card-border-gold-mid p-6 space-y-4"
               >
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
@@ -143,8 +142,7 @@ export default async function PreviewPage() {
 
               {/* Card B — 143 Challenge */}
               <div
-                className="glass-card p-6 space-y-4"
-                style={{ borderColor: "var(--surface-border)" }}
+                className="glass-card card-border-default p-6 space-y-4"
               >
                 <p
                   className="text-xs font-bold uppercase tracking-widest"
@@ -167,11 +165,7 @@ export default async function PreviewPage() {
                 </p>
                 <Link
                   href="/143"
-                  className="inline-block text-sm font-semibold rounded-lg px-5 py-2.5"
-                  style={{
-                    border: "1px solid var(--accent-purple, var(--text-body))",
-                    color: "var(--accent-purple, var(--text-body))",
-                  }}
+                  className="inline-block text-sm font-semibold rounded-lg px-5 py-2.5 border border-body text-body"
                 >
                   Start the 143 Challenge — Free
                 </Link>
@@ -180,8 +174,7 @@ export default async function PreviewPage() {
 
             {/* Testimonial */}
             <blockquote
-              className="glass-card content-wrap--narrow p-6 text-center"
-              style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}
+              className="glass-card card-border-gold-soft content-wrap--narrow p-6 text-center"
             >
               <p
                 className="text-sm italic leading-relaxed"

@@ -30,13 +30,6 @@ interface ApiResponse {
   error?: string;
 }
 
-const PHASE_GLOW: Record<string, string> = {
-  orbit: '0 0 20px var(--surface-border)',
-  gravity_shift: '0 0 20px var(--surface-border)',
-  eclipse_onset: '0 0 20px var(--surface-border)',
-  full_eclipse: '0 0 20px var(--surface-border)',
-};
-
 const RAS_PHASE_NOTES: Record<string, string> = {
   orbit: 'Your RAS has capacity for growth reps. This is where real rewiring happens.',
   gravity_shift: 'Your RAS is managing increased load. Stay intentional about where you direct attention.',
@@ -128,18 +121,14 @@ export default function PhaseCheckInClient() {
 
   // ─── RESULT STATE ──────────────────────────────────────────────────────────
   if (result) {
-    const glow = PHASE_GLOW[result.detectedPhase] ?? '';
     const rasNote = RAS_PHASE_NOTES[result.detectedPhase] ?? '';
 
     return (
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        className="glass-card p-5 space-y-3"
-        style={{
-          borderColor: result.guidance.color + '44',
-          boxShadow: glow,
-        }}
+        className="glass-card card-border-accent p-5 space-y-3"
+        style={{ '--card-accent': `${result.guidance.color}44` } as { ['--card-accent']: string }}
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -160,7 +149,7 @@ export default function PhaseCheckInClient() {
           {result.guidance.message}
         </p>
 
-        <div className="glass-card p-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
+        <div className="glass-card card-border-violet-soft p-3">
           <p className="text-xs font-bold uppercase tracking-widest mb-1"
             style={{ color: rayHex('R3') }}>
             Your rep focus
@@ -265,8 +254,7 @@ export default function PhaseCheckInClient() {
           )}
 
           {error && (
-            <div className="rounded-lg px-3 py-2"
-              style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+            <div className="surface-border-fill rounded-lg px-3 py-2">
               <p className="text-xs" style={{ color: 'var(--ray-power)' }} role="alert">{humanizeError(error)}</p>
             </div>
           )}

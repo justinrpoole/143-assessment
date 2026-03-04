@@ -1,0 +1,130 @@
+src/app/(flow)/preview/page.tsx:73:                className="text-base leading-relaxed max-w-[540px]"
+src/app/onboarding/state-first/page.tsx:39:                className="w-full accent-yellow-400"
+src/app/onboarding/state-first/page.tsx:49:          className="btn-primary w-full py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all"
+src/app/api/og/results/[runId]/route.tsx:83:            position: "absolute",
+src/app/api/og/results/[runId]/route.tsx:184:            position: "absolute",
+src/app/(marketing)/login/page.tsx:50:        <div className="relative gold-dot-grid glass-card w-full max-w-[440px] p-6 sm:p-8">
+src/app/api/og/signature/route.tsx:71:            position: "absolute",
+src/app/api/og/signature/route.tsx:82:            position: "absolute",
+src/app/api/og/signature/route.tsx:95:            position: "absolute",
+src/app/api/og/signature/route.tsx:107:            position: "absolute",
+src/app/api/og/signature/route.tsx:119:            position: "absolute",
+src/app/(marketing)/pricing/page.tsx:261:            className="text-shimmer content-wrap--narrow max-w-[640px] text-3xl font-bold leading-tight sm:text-4xl"
+src/app/(marketing)/pricing/page.tsx:267:          <div className="content-wrap--narrow max-w-[560px]">
+src/app/(marketing)/pricing/page.tsx:357:                    <NeonFlicker className="mt-6 w-full">
+src/app/(marketing)/pricing/page.tsx:358:                      <NeonGlowButton href={plan.cta.href} className="w-full justify-center">
+src/app/(marketing)/pricing/page.tsx:412:                className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed"
+src/app/(marketing)/pricing/page.tsx:423:              <table className="w-full w-full text-sm">
+src/app/(marketing)/pricing/page.tsx:594:                className="content-wrap--narrow max-w-[540px] text-sm leading-relaxed"
+src/app/(marketing)/pricing/page.tsx:629:                className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed"
+src/app/(marketing)/pricing/page.tsx:699:                className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed"
+src/app/styles/cosmic.css:94:  position: absolute;
+src/app/styles/cosmic.css:171:  position: absolute;
+src/app/styles/cosmic.css:182:  position: absolute;
+src/app/styles/cosmic.css:278:  position: fixed;
+src/app/styles/cosmic.css:297:  position: fixed;
+src/app/styles/cosmic.css:540:  position: fixed;
+src/app/styles/cosmic.css:669:  position: absolute;
+src/app/styles/cosmic.css:729:  position: absolute;
+src/app/styles/cosmic.css:797:  position: absolute;
+src/app/styles/cosmic.css:821:  position: absolute;
+src/app/styles/cosmic.css:898:  position: absolute;
+src/app/styles/cosmic.css:939:  position: absolute;
+src/app/styles/cosmic.css:984:  position: absolute;
+src/app/styles/cosmic.css:1099:  position: absolute;
+src/app/styles/cosmic.css:1120:  position: absolute;
+src/app/styles/cosmic.css:1157:  position: absolute;
+src/app/styles/cosmic.css:1225:  position: absolute;
+src/app/styles/cosmic.css:1255:  position: fixed;
+src/app/styles/cosmic.css:1299:  position: absolute;
+src/app/styles/cosmic.css:1313:  position: absolute;
+src/app/styles/cosmic.css:1325:  position: fixed;
+src/app/styles/cosmic.css:1372:  position: fixed;
+src/app/styles/cosmic.css:1394:  position: fixed;
+src/app/styles/cosmic.css:1453:  position: absolute;
+src/app/styles/cosmic.css:1493:  position: fixed;
+src/app/styles/cosmic.css:1515:  position: fixed;
+src/app/styles/cosmic.css:1550:  position: absolute;
+src/app/(marketing)/cohorts/page.tsx:33:        <section className="text-center space-y-4 max-w-[720px] mx-auto">
+src/app/(marketing)/cohorts/page.tsx:62:          <section className="glass-card p-8 text-center max-w-[720px] mx-auto space-y-4">
+src/app/styles/lead-engine.css:23:  position: absolute;
+src/app/styles/lead-engine.css:162:  position: fixed;
+src/app/(marketing)/about/page.tsx:91:              className="object-cover w-full h-full"
+src/app/(marketing)/about/page.tsx:99:            className="text-shimmer content-wrap--narrow max-w-[600px] text-3xl font-bold leading-tight sm:text-4xl"
+src/app/(marketing)/about/page.tsx:104:          <div className="content-wrap--narrow max-w-[540px]">
+src/app/(marketing)/about/page.tsx:152:                designed to change — because you are not a fixed type. I built it
+src/app/(marketing)/about/page.tsx:431:              className="content-wrap--narrow max-w-[540px] text-sm leading-relaxed"
+src/app/(marketing)/how-it-works/page.tsx:58:          <p className="mx-auto text-base leading-relaxed max-w-[540px]" style={{ color: "var(--text-secondary)" }}>
+src/app/(marketing)/coaches/page.tsx:133:            <p className="text-sm max-w-lg mx-auto leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/app/(marketing)/coaches/page.tsx:286:            <p className="max-w-lg mx-auto text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/app/(marketing)/rays/[slug]/page.tsx:120:              className="mt-5 max-w-[480px] text-base leading-relaxed"
+src/app/(marketing)/rays/[slug]/page.tsx:251:              className="mx-auto mt-2 max-w-[520px] text-sm"
+src/app/(marketing)/rays/[slug]/page.tsx:309:              className="mx-auto mt-2 max-w-[480px] text-sm"
+src/app/(marketing)/rays/[slug]/page.tsx:497:              className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed"
+src/app/(marketing)/justin/page.tsx:84:              className="object-cover w-full h-full"
+src/app/(marketing)/justin/page.tsx:99:            className="max-w-[560px] text-base leading-relaxed"
+src/app/(marketing)/upgrade-your-os/page.tsx:328:          <p className="mx-auto mt-3 max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:355:        <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+src/app/(marketing)/upgrade-your-os/page.tsx:370:          <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:376:        <div className="relative z-10 content-wrap--narrow max-w-[680px]">
+src/app/(marketing)/upgrade-your-os/page.tsx:395:              className="absolute inset-0 flex flex-col items-center justify-center gap-5"
+src/app/(marketing)/upgrade-your-os/page.tsx:576:          <p className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:796:              className="h-full w-full object-cover"
+src/app/(marketing)/upgrade-your-os/page.tsx:808:          <p className="content-wrap--narrow max-w-[520px] text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:815:          <p className="mx-auto mt-3 max-w-[520px] text-xs" style={{ color: 'color-mix(in srgb, var(--gold-primary) 50%, transparent)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:828:          <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:66:          <form onSubmit={(event) => void onSubmit(event)} className="mx-auto mt-5 max-w-md space-y-3 text-left">
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:72:              className="w-full rounded-xl border px-4 py-3 text-sm"
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:85:              className="w-full rounded-xl border px-4 py-3 text-sm"
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:96:              className="w-full rounded-xl px-5 py-3 text-sm font-bold"
+src/app/(marketing)/143/page.tsx:119:            className="text-base leading-relaxed max-w-[560px]"
+src/app/(marketing)/group-coaching/page.tsx:29:          <p className="max-w-2xl text-lg leading-relaxed" style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 78%, transparent))" }}>
+src/app/(marketing)/group-coaching/page.tsx:62:              className="h-auto w-full object-cover"
+src/app/(marketing)/podcast/page.tsx:40:        <div className="pointer-events-none absolute inset-0 opacity-20" style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${rayHex("R1")} 0%, transparent 70%)` }} />
+src/app/(marketing)/faq/page.tsx:82:        a: "Yes — that is by design. Unlike personality assessments that give you a fixed type, the 143 measures trainable capacities. With the Portal Membership subscription, you can retake a 43-question tracking version each week and watch your scores change over time.",
+src/app/(marketing)/faq/page.tsx:124:        a: "No. Personality tests give you a fixed type. The 143 measures trainable capacities — scores that are designed to change over time. Your results describe how you are operating right now, not who you are permanently.",
+src/app/(marketing)/be-the-light/page.tsx:102:            className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl"
+src/app/(marketing)/be-the-light/page.tsx:135:            className="text-lg leading-relaxed max-w-[560px]"
+src/app/(marketing)/be-the-light/page.tsx:144:            className="text-sm leading-relaxed max-w-[560px]"
+src/app/(marketing)/methodology/page.tsx:33:        <section className="text-center space-y-4 max-w-[720px] mx-auto">
+src/app/(marketing)/methodology/page.tsx:62:          <section className="glass-card p-8 text-center max-w-[720px] mx-auto space-y-4">
+src/app/(marketing)/layout.tsx:13:        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-lg focus:bg-gold focus:text-on-gold focus:px-4 focus:py-2 focus:text-sm focus:font-bold"
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:81:              className="w-full rounded-xl border px-4 py-3 text-sm"
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:100:              className="w-full rounded-xl border px-4 py-3 text-sm"
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:119:              className="w-full rounded-xl border px-4 py-3 text-sm"
+src/app/(marketing)/challenge/page.tsx:23:        <p className="mt-5 max-w-2xl text-base leading-relaxed" style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 78%, transparent))" }}>
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:97:          className="w-full rounded-xl border px-4 py-3 text-sm"
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:117:          className="w-full rounded-xl border px-4 py-3 text-sm"
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:76:              className="w-full rounded-xl border px-4 py-3 text-sm"
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:96:              className="w-full rounded-xl border px-4 py-3 text-sm"
+src/app/(marketing)/resources/page.tsx:68:          <div className="content-wrap--narrow max-w-[540px]">
+src/app/(marketing)/resources/page.tsx:115:              <p className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/(marketing)/sample-report/page.tsx:83:              <div className="max-w-[560px]">
+src/app/(marketing)/go-first/page.tsx:9:        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(transparent 0px, color-mix(in srgb, var(--ink-950) 3%, transparent) 1px, transparent 2px)" }} />
+src/app/(marketing)/framework/page.tsx:64:          <section className="glass-card p-8 text-center space-y-4 max-w-[720px] mx-auto">
+src/app/assessment/scoring/page.tsx:130:        <div className="text-center max-w-sm space-y-5">
+src/app/assessment/review/page.tsx:28:            <p className="text-lg max-w-lg mx-auto" style={{color:'var(--text-on-dark-secondary)'}}>
+src/app/assessment/instructions/page.tsx:33:          <p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/preview-cosmic/page.tsx:104:          className="absolute inset-0 pointer-events-none" aria-hidden="true"
+src/app/preview-cosmic/page.tsx:108:          <div className="max-w-2xl">
+src/app/preview-cosmic/page.tsx:111:            <p className="mx-auto mb-10 max-w-xl text-base" style={{ color: 'var(--text-on-dark)', lineHeight: 1.65 }}>
+src/app/preview-cosmic/page.tsx:309:            <p className="text-base max-w-lg mx-auto mb-12" style={{ color: 'var(--text-on-dark)', lineHeight: 1.6 }}>
+src/app/preview-cosmic/page.tsx:353:            <span className="block h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold))' }} />
+src/app/preview-cosmic/page.tsx:355:            <span className="block h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, var(--brand-gold), transparent)' }} />
+src/app/preview-cosmic/page.tsx:358:          <p className="text-base max-w-lg mx-auto" style={{ color: 'var(--text-on-dark)', lineHeight: 1.6 }}>{desc}</p>
+src/app/(marketing)/watch-me/page.tsx:9:        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(transparent 0px, color-mix(in srgb, var(--ink-950) 3%, transparent) 1px, transparent 2px)" }} />
+src/app/(portal)/light-dashboard/dashboard.css:30:  position: absolute;
+src/app/(portal)/light-dashboard/dashboard.css:76:  position: absolute;
+src/app/(portal)/light-dashboard/dashboard.css:86:  position: absolute;
+src/app/(portal)/light-dashboard/dashboard.css:99:  position: absolute;
+src/app/(portal)/light-dashboard/dashboard.css:123:  position: absolute;
+src/app/(portal)/light-dashboard/dashboard.css:157:  position: fixed;
+src/app/(marketing)/tools/page.tsx:40:        <div className="pointer-events-none absolute inset-0 opacity-20" style={{ background: `radial-gradient(ellipse 70% 50% at 50% 0%, ${rayHex("R5")} 0%, transparent 70%)` }} />
+src/app/(marketing)/organizations/page.tsx:80:    title: "Trainable capacities, not fixed traits",
+src/app/(marketing)/upgrade/page.tsx:46:    body: "All nine capacities scored across 36 subfacets. Not good or bad. Strong or eclipsed. Every score is a trainable capacity, not a fixed trait.",
+src/app/(marketing)/upgrade/page.tsx:147:              className="text-base leading-relaxed max-w-[560px]"
+src/app/(portal)/results/rays/[rayId]/page.tsx:124:        <div className="content-wrap--narrow max-w-sm text-center space-y-5">
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:53:        <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:76:        <div className="absolute inset-0 flex flex-col items-center justify-center">
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:327:            className="w-full flex items-center justify-between px-6 py-4 text-left"
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:349:                not fixed traits. Retake in 30–90 days after consistent reps to track change.

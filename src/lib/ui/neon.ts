@@ -20,12 +20,12 @@
 /* ── Named neon palette (matches tokens.css) ──────────── */
 
 export const NEON = {
-  cyan: '#25f6ff',
-  pink: '#ff3fb4',
-  lime: '#c6ff4d',
-  violet: '#8b5bff',
-  amber: '#ffd166',
-  gold: '#F8D011',
+  cyan: 'var(--neon-cyan)',
+  pink: 'var(--neon-pink)',
+  lime: 'var(--neon-lime)',
+  violet: 'var(--neon-violet)',
+  amber: 'var(--neon-amber)',
+  gold: 'var(--gold-primary)',
 } as const;
 
 export type NeonColorName = keyof typeof NEON;
@@ -47,46 +47,50 @@ export const PAGE_NEON: Record<string, string> = {
 /* ── Core neon functions ──────────────────────────────── */
 
 /** Multi-layer box shadow glow (hover cards, CTA buttons) */
+function alpha(color: string, pct: number): string {
+  return `color-mix(in srgb, ${color} ${pct}%, transparent)`;
+}
+
 export function neonGlow(color: string, intensity: 'soft' | 'medium' | 'strong' = 'medium'): string {
   switch (intensity) {
     case 'soft':
-      return `0 0 16px ${color}15, 0 0 4px ${color}10`;
+      return `0 0 16px ${alpha(color, 15)}, 0 0 4px ${alpha(color, 10)}`;
     case 'medium':
-      return `0 0 24px ${color}18, 0 0 48px ${color}10`;
+      return `0 0 24px ${alpha(color, 18)}, 0 0 48px ${alpha(color, 10)}`;
     case 'strong':
-      return `0 0 32px ${color}25, 0 0 64px ${color}15, 0 0 120px ${color}08`;
+      return `0 0 32px ${alpha(color, 25)}, 0 0 64px ${alpha(color, 15)}, 0 0 120px ${alpha(color, 8)}`;
   }
 }
 
 /** Border with neon color at graduated opacity */
 export function neonBorder(color: string, state: 'rest' | 'hover' | 'active' | 'focus' = 'rest'): string {
-  const opacity: Record<string, string> = {
-    rest: '15',
-    hover: '40',
-    active: '60',
-    focus: '80',
+  const opacity: Record<string, number> = {
+    rest: 15,
+    hover: 40,
+    active: 60,
+    focus: 80,
   };
-  return `1px solid ${color}${opacity[state]}`;
+  return `1px solid ${alpha(color, opacity[state])}`;
 }
 
 /** Background tint fill */
 export function neonTint(color: string, level: 'subtle' | 'medium' | 'strong' = 'subtle'): string {
-  const opacity: Record<string, string> = {
-    subtle: '08',
-    medium: '12',
-    strong: '20',
+  const opacity: Record<string, number> = {
+    subtle: 8,
+    medium: 12,
+    strong: 20,
   };
-  return `${color}${opacity[level]}`;
+  return alpha(color, opacity[level]);
 }
 
 /** Text shadow glow for headings */
 export function neonText(color: string): string {
-  return `0 0 12px ${color}30, 0 0 30px ${color}15`;
+  return `0 0 12px ${alpha(color, 30)}, 0 0 30px ${alpha(color, 15)}`;
 }
 
 /** Multi-layer halo (hero backgrounds, large feature sections) */
 export function neonHalo(color: string): string {
-  return `0 0 60px ${color}20, 0 0 120px ${color}10`;
+  return `0 0 60px ${alpha(color, 20)}, 0 0 120px ${alpha(color, 10)}`;
 }
 
 /* ── Composite style objects ──────────────────────────── */
@@ -96,7 +100,6 @@ export function neonCardStyle(color: string, isHovered = false) {
   return {
     background: neonTint(color, isHovered ? 'medium' : 'subtle'),
     border: neonBorder(color, isHovered ? 'hover' : 'rest'),
-    boxShadow: isHovered ? neonGlow(color, 'medium') : 'none',
     transition: 'all 0.3s ease',
   };
 }
@@ -104,10 +107,8 @@ export function neonCardStyle(color: string, isHovered = false) {
 /** Returns style object for a neon-accented CTA button */
 export function neonButtonStyle(color: string, isHovered = false) {
   return {
-    boxShadow: isHovered
-      ? `0 0 24px ${color}30, 0 0 48px ${color}15`
-      : `0 0 12px ${color}15`,
-    transition: 'box-shadow 0.3s ease',
+    border: neonBorder(color, isHovered ? 'hover' : 'rest'),
+    transition: 'border-color 0.3s ease',
   };
 }
 
@@ -121,25 +122,25 @@ export function neonHeadingStyle(color: string) {
 /** Badge/tag style (archetype labels, ray badges) */
 export function neonBadgeStyle(color: string) {
   return {
-    background: `${color}12`,
+    background: alpha(color, 12),
     color,
-    border: `1px solid ${color}25`,
+    border: `1px solid ${alpha(color, 25)}`,
   };
 }
 
 /** Full ramp object for a given neon color — all opacity tiers */
 export function neonRamp(color: string) {
   return {
-    bgTint: `${color}08`,
-    badgeBg: `${color}12`,
-    restBorder: `${color}15`,
-    softGlow: `${color}18`,
-    outerHalo: `${color}20`,
-    textGlow: `${color}25`,
-    mediumBorder: `${color}30`,
-    hoverBorder: `${color}40`,
-    activeBorder: `${color}60`,
-    focusRing: `${color}80`,
+    bgTint: alpha(color, 8),
+    badgeBg: alpha(color, 12),
+    restBorder: alpha(color, 15),
+    softGlow: alpha(color, 18),
+    outerHalo: alpha(color, 20),
+    textGlow: alpha(color, 25),
+    mediumBorder: alpha(color, 30),
+    hoverBorder: alpha(color, 40),
+    activeBorder: alpha(color, 60),
+    focusRing: alpha(color, 80),
     full: color,
   };
 }

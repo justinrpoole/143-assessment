@@ -473,7 +473,7 @@ export function ReportClient({ runId }: ReportClientProps) {
 
   if (error && !raw) {
     return (
-      <div className="glass-card p-6" style={{ borderColor: "var(--surface-border)" }}>
+      <div className="glass-card p-6 card-border-default">
         <p className="text-sm text-rose-400" role="alert">{error}</p>
         <Link href="/assessment/setup" className="btn-watch mt-4 inline-block">
           Start a new run

@@ -1,0 +1,11 @@
+src/lib/email/email-provider.ts:42:<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1025; color: #fffef5; padding: 40px 20px;">
+src/lib/email/email-provider.ts:48:    <a href="${payload.magic_link_url}" style="display: inline-block; background: #F8D011; color: #1a1025; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 10px; text-decoration: none;">
+src/lib/ui/ray-colors.ts:16:  R1: { token: '--ray-intention', hex: '#60A5FA', label: 'Intention' },
+src/lib/ui/ray-colors.ts:17:  R2: { token: '--ray-joy', hex: '#F4C430', label: 'Joy' },
+src/lib/ui/ray-colors.ts:18:  R3: { token: '--ray-presence', hex: '#8E44AD', label: 'Presence' },
+src/lib/ui/ray-colors.ts:19:  R4: { token: '--ray-power', hex: '#C0392B', label: 'Power' },
+src/lib/ui/ray-colors.ts:20:  R5: { token: '--ray-purpose', hex: '#D4770B', label: 'Purpose' },
+src/lib/ui/ray-colors.ts:21:  R6: { token: '--ray-authenticity', hex: '#2ECC71', label: 'Authenticity' },
+src/lib/ui/ray-colors.ts:22:  R7: { token: '--ray-connection', hex: '#E74C8B', label: 'Connection' },
+src/lib/ui/ray-colors.ts:23:  R8: { token: '--ray-possibility', hex: '#1ABC9C', label: 'Possibility' },
+src/lib/ui/ray-colors.ts:24:  R9: { token: '--ray-btl', hex: '#F8D011', label: 'Be The Light' },

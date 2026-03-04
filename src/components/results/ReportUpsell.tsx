@@ -19,8 +19,7 @@ export default function ReportUpsell({ subscriptionActive }: ReportUpsellProps) 
 
   return (
     <section
-      className="glass-card p-6 sm:p-8 space-y-5"
-      style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}
+      className="glass-card p-6 sm:p-8 space-y-5 card-border-gold-soft"
     >
       <div className="text-center space-y-2">
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>

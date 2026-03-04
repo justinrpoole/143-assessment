@@ -81,45 +81,46 @@ export default function CosmicPreview() {
   const [showNova, setShowNova] = useState(false);
 
   return (
-    <div className="cosmic-page-bg page-shell">
+    <main className="cosmic-page-bg page-shell min-h-screen">
       <AuroraCelebration show={showAurora} improvedRay="R4" rayName="Ray of Power" duration={5000} onComplete={() => setShowAurora(false)} />
       <NovaMoment show={showNova} rayName="Ray of Power" message="Ray of Power remembered." duration={4000} onComplete={() => setShowNova(false)} />
 
-      <nav aria-label="Section navigation" className="sticky top-[60px] z-40 flex items-center justify-center gap-6 px-6 py-3" style={{ background: 'var(--overlay-medium)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderBottom: '1px solid var(--surface-border)' }}>
+      <nav aria-label="Section navigation" className="preview-cosmic-nav sticky top-[60px] z-40 py-3">
+        <div className="content-wrap--wide flex items-center justify-center gap-6">
           {NAV_SECTIONS.map(({ href, label }) => (
             <a
               key={href}
               href={href}
-              className="text-sm cosmic-focus-target hidden sm:inline"
-              style={{ color: 'var(--text-on-dark-secondary)', fontWeight: 500, textDecoration: 'none' }}
-              onMouseOver={(e) => (e.currentTarget.style.color = 'var(--brand-gold)')}
-              onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-on-dark-secondary)')}
+              className="preview-cosmic-nav__link cosmic-focus-target hidden text-sm sm:inline"
             >
               {label}
             </a>
           ))}
+        </div>
       </nav>
 
-      <section className="relative flex flex-col items-center justify-center text-center px-6 overflow-hidden" style={{ minHeight: '50vh' }}>
+      <section className="relative overflow-hidden" style={{ minHeight: '50vh' }}>
         <div
           className="absolute inset-0 pointer-events-none" aria-hidden="true"
           style={{ background: 'radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--violet-650) 30%, transparent) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, color-mix(in srgb, var(--gold-primary) 5%, transparent) 0%, transparent 40%), radial-gradient(1px 1px at 12% 22%, color-mix(in srgb, var(--text-body) 30%, transparent) 1px, transparent 0), radial-gradient(1px 1px at 72% 32%, color-mix(in srgb, var(--text-body) 18%, transparent) 1px, transparent 0), radial-gradient(1px 1px at 88% 60%, color-mix(in srgb, var(--text-body) 25%, transparent) 1px, transparent 0)' }}
         />
-        <div className="relative z-10 max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.2em] mb-4" style={{ color: 'var(--text-on-dark)', fontWeight: 500 }}>All 28 Cosmic Visualizations</p>
-          <h1 className="text-4xl sm:text-5xl leading-[1.1] mb-5 uppercase" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)', letterSpacing: '0.04em' }}>Cosmic Assessment Report</h1>
-          <p className="text-base max-w-xl mx-auto mb-10" style={{ color: 'var(--text-on-dark)', lineHeight: 1.65 }}>
-            The complete visual system — from nine-ray capacity maps and eclipse meters through stardust check-ins, constellation progress, and cosmic background radiation.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a href="#results" className="btn-primary cosmic-focus-target">Explore</a>
-            <button className="btn-secondary cosmic-focus-target" onClick={() => setShowAurora(true)}>Trigger Aurora</button>
-            <button className="btn-secondary cosmic-focus-target" onClick={() => setShowNova(true)}>Trigger Nova</button>
+        <div className="content-wrap--wide relative z-10 flex min-h-[50vh] flex-col items-center justify-center px-4 text-center sm:px-6">
+          <div className="max-w-2xl">
+            <p className="mb-4 text-xs uppercase tracking-[0.2em]" style={{ color: 'var(--text-on-dark)', fontWeight: 500 }}>All 28 Cosmic Visualizations</p>
+            <h1 className="mb-5 text-4xl uppercase leading-[1.1] sm:text-5xl" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)', letterSpacing: '0.04em' }}>Cosmic Assessment Report</h1>
+            <p className="mx-auto mb-10 max-w-xl text-base" style={{ color: 'var(--text-on-dark)', lineHeight: 1.65 }}>
+              The complete visual system — from nine-ray capacity maps and eclipse meters through stardust check-ins, constellation progress, and cosmic background radiation.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="#results" className="btn-primary cosmic-focus-target">Explore</a>
+              <button className="btn-secondary cosmic-focus-target" onClick={() => setShowAurora(true)}>Trigger Aurora</button>
+              <button className="btn-secondary cosmic-focus-target" onClick={() => setShowNova(true)}>Trigger Nova</button>
+            </div>
           </div>
         </div>
       </section>
 
-      <main id="main-content">
+      <div id="main-content">
 
         {/* ═══ ASSESSMENT RESULTS (1-6) ═══ */}
         <div id="results" className="pt-8"><CatHead title="Assessment Results" sub="Components 1–6" /></div>
@@ -302,8 +303,8 @@ export default function CosmicPreview() {
         </Sec>
 
         {/* ── How It Works ── */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center">
+        <section className="py-16 sm:py-24">
+          <div className="content-wrap max-w-3xl text-center">
             <h2 className="text-2xl sm:text-3xl mb-4 uppercase" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)', letterSpacing: '0.04em' }}>How It Works</h2>
             <p className="text-base max-w-lg mx-auto mb-12" style={{ color: 'var(--text-on-dark)', lineHeight: 1.6 }}>
               The 143 Assessment maps your energy across nine Rays of leadership capacity.
@@ -316,8 +317,7 @@ export default function CosmicPreview() {
               ].map((item) => (
                 <div
                   key={item.step}
-                  className="glass-card p-6 text-left"
-                  style={{ border: '1.5px solid var(--text-body)' }}
+                  className="glass-card card-border-body p-6 text-left"
                 >
                   <span
                     className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold uppercase tracking-wider mb-3"
@@ -332,20 +332,22 @@ export default function CosmicPreview() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
 
-      <footer className="py-12 px-6 text-center" style={{ borderTop: '1px solid var(--surface-border)' }}>
-        <p className="text-sm uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)' }}>143 Leadership</p>
+      <footer className="py-12 text-center" style={{ borderTop: '1px solid var(--surface-border)' }}>
+        <div className="content-wrap">
+          <p className="mb-2 text-sm uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-display)', color: 'var(--brand-gold)' }}>143 Leadership</p>
         <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>Cosmic Assessment — All 28 Components</p>
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }
 
 function Sec({ id, n, title, desc, children }: { id: string; n: string; title: string; desc: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="py-12 sm:py-16 px-4 sm:px-6" aria-labelledby={`${id}-h`}>
-      <div className="max-w-4xl mx-auto">
+    <section id={id} className="py-12 sm:py-16" aria-labelledby={`${id}-h`}>
+      <div className="content-wrap--wide max-w-4xl">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-4 mb-4">
             <span className="block h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold))' }} />
@@ -363,7 +365,7 @@ function Sec({ id, n, title, desc, children }: { id: string; n: string; title: s
 
 function CatHead({ title, sub }: { title: string; sub: string }) {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 text-center">
+    <div className="content-wrap--wide max-w-4xl py-10 text-center">
       <div className="flex items-center gap-4 mb-5">
         <span className="block h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold))' }} />
         <span className="block h-px flex-1" style={{ background: 'linear-gradient(90deg, var(--brand-gold), transparent)' }} />

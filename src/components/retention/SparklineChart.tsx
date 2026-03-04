@@ -73,7 +73,7 @@ export default function SparklineChart({ runs }: SparklineChartProps) {
 
   return (
     <div className="space-y-3">
-      <div className="rounded-xl p-4 relative overflow-hidden" style={{ background: CHART_BG, border: `1px solid ${CHART_BORDER}`, boxShadow: 'var(--shadow-glow-cyan)' }}>
+      <div className="rounded-xl p-4 relative overflow-hidden" style={{ background: CHART_BG, border: `1px solid ${CHART_BORDER}` }}>
         <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'repeating-linear-gradient(180deg, transparent 0px, transparent 2px, color-mix(in srgb, var(--ink-950) 24%, transparent) 3px)' }} />
         <div className="relative z-10 flex items-center justify-between" style={{ fontFamily: "var(--font-cosmic-display)" }}>
           <p className="text-[9px] uppercase tracking-[0.14em] text-neon-cyan" style={{ textShadow: "var(--text-glow-cyan)" }}>Overall Trend</p>
@@ -85,7 +85,7 @@ export default function SparklineChart({ runs }: SparklineChartProps) {
         {rayTrends.map((ray) => {
           const color = ray.delta >= 0 ? POS_COLOR : NEG_COLOR;
           return (
-            <div key={ray.rayId} className="px-3 py-2.5 rounded-xl relative overflow-hidden" style={{ background: CHART_BG, border: `1px solid ${CHART_BORDER}`, boxShadow: 'var(--shadow-glow-cyan)' }}>
+            <div key={ray.rayId} className="px-3 py-2.5 rounded-xl relative overflow-hidden" style={{ background: CHART_BG, border: `1px solid ${CHART_BORDER}` }}>
               <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'repeating-linear-gradient(180deg, transparent 0px, transparent 2px, color-mix(in srgb, var(--ink-950) 24%, transparent) 3px)' }} />
               <div className="relative z-10 flex items-center justify-between gap-2" style={{ fontFamily: "var(--font-cosmic-display)" }}>
                 <div>

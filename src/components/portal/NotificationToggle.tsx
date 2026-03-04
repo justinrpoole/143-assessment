@@ -63,8 +63,9 @@ export default function NotificationToggle() {
 
   return (
     <div
-      className="glass-card p-4 flex items-center justify-between gap-3"
-      style={{ borderColor: state === 'on' ? 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' : undefined }}
+      className={`glass-card p-4 flex items-center justify-between gap-3 ${
+        state === 'on' ? 'card-border-gold-soft' : ''
+      }`}
     >
       <div className="min-w-0">
         <p className="text-sm font-medium" style={{ color: 'var(--text-on-dark)' }}>
@@ -105,7 +106,6 @@ export default function NotificationToggle() {
             height: 20,
             background: state === 'on' ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 50%, transparent)',
             transform: state === 'on' ? 'translateX(22px)' : 'translateX(2px)',
-            boxShadow: state === 'on' ? '0 0 8px color-mix(in srgb, var(--gold-primary) 40%, transparent)' : 'none',
           }}
         />
       </button>

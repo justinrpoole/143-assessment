@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import CosmicImage from "@/components/marketing/CosmicImage";
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
@@ -197,7 +196,10 @@ export default async function AboutPage() {
             <StaggerContainer className="space-y-3">
               {CREDENTIALS.map((item, idx) => (
                 <StaggerItem key={item}>
-                  <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4 check-animated" style={{ animationDelay: `${idx * 0.1}s`, borderLeft: `2px solid ${rayHex(cycleRay(idx))}40` }}>
+                  <div
+                    className="glass-card glass-card--magnetic card-border-left-accent-soft flex items-start gap-3 p-4 check-animated"
+                    style={{ animationDelay: `${idx * 0.1}s`, '--card-accent': rayHex(cycleRay(idx)) } as { animationDelay: string; ['--card-accent']: string }}
+                  >
                     <CheckIcon />
                     <span
                       className="text-sm leading-relaxed"
@@ -332,7 +334,11 @@ export default async function AboutPage() {
                   { label: "Visible proof", desc: "Scores you can see move — not abstract insight", rayKey: "R8" },
                   { label: "No willpower gate", desc: "Smallest viable rep — not behavior overhaul", rayKey: "R4" },
                 ].map((item) => (
-                  <div key={item.label} className="glass-card glass-card--magnetic p-3" style={{ borderTop: `2px solid ${rayHex(item.rayKey)}30` }}>
+                  <div
+                    key={item.label}
+                    className="glass-card glass-card--magnetic card-border-top-accent-soft p-3"
+                    style={{ '--card-accent': rayHex(item.rayKey) } as { ['--card-accent']: string }}
+                  >
                     <p className="text-sm font-bold" style={{ color: rayHex(item.rayKey) }}>{item.label}</p>
                     <p className="text-xs mt-1" style={{ color: "color-mix(in srgb, var(--text-body) 50%, transparent)" }}>{item.desc}</p>
                   </div>
@@ -485,7 +491,7 @@ export default async function AboutPage() {
         <FadeInSection>
           <section id="cta" className="content-wrap--narrow">
             <ConicBorderCard glow>
-            <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
+            <div className="glass-card p-8 text-center space-y-5 card-border-none">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: rayHex('R9') }}

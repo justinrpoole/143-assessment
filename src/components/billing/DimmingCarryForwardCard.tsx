@@ -39,8 +39,7 @@ export default function DimmingCarryForwardCard() {
 
   return (
     <div
-      className="glass-card mb-6 p-5"
-      style={{ borderLeft: '3px solid var(--gold-primary)' }}
+      className="glass-card card-border-left-gold mb-6 p-5"
     >
       <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
         Your Stability Check Result

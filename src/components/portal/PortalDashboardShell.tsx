@@ -97,7 +97,7 @@ export default function PortalDashboardShell() {
   }
 
   return (
-    <div className="relative rounded-2xl p-4 sm:p-5 overflow-hidden" style={{ background: 'var(--bg-deep)', border: '1px solid color-mix(in srgb, var(--neon-cyan) 20%, transparent)', boxShadow: 'inset 0 0 24px color-mix(in srgb, var(--neon-cyan) 8%, transparent)' }}>
+    <div className="relative rounded-2xl p-4 sm:p-5 overflow-hidden" style={{ background: 'var(--bg-deep)', border: '1px solid color-mix(in srgb, var(--neon-cyan) 20%, transparent)' }}>
       <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'linear-gradient(color-mix(in srgb, var(--neon-cyan) 8%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--neon-cyan) 8%, transparent) 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
       <div className="relative z-10">
       <p className="mb-3 text-xs uppercase tracking-[0.2em]" style={{ color: 'var(--neon-cyan)', fontFamily: 'var(--font-cosmic-display)', textShadow: '0 0 10px color-mix(in srgb, var(--neon-cyan) 60%, transparent)' }}>

@@ -1,0 +1,16 @@
+src/components/marketing/hero-evolved.html:74:  background:radial-gradient(ellipse 72% 62% at 50% 44%,transparent 38%,rgba(0,0,0,0.55) 100%);
+src/components/marketing/hero-evolved.html:80:  background:rgba(0,0,0,0.85);opacity:0;transition:opacity 0.15s;
+src/components/marketing/hero-evolved.html:190:    0 0 160px rgba(80,20,255,0.18),0 4px 20px rgba(0,0,0,0.40);
+src/components/marketing/hero-evolved.html:300:  text-shadow:0 6px 28px rgba(0,0,0,0.55),0 0 22px rgba(126,63,255,0.40),0 0 50px rgba(126,63,255,0.18);
+src/components/marketing/hero-evolved.html:311:  text-shadow:0 6px 22px rgba(0,0,0,0.50),0 0 12px rgba(126,63,255,0.08);
+src/components/marketing/hero-evolved.html:325:  box-shadow:0 8px 36px rgba(126,63,255,0.35),0 2px 8px rgba(0,0,0,0.25),
+src/components/marketing/hero-evolved.html:334:  box-shadow:0 14px 52px rgba(126,63,255,0.50),0 4px 12px rgba(0,0,0,0.30),
+src/components/marketing/hero-evolved.html:1037:          'rgba(0,0,0,0),rgba(0,0,0,0.28) 50%,rgba(0,0,0,0.40) 100%),' +
+src/components/marketing/hero-evolved.html:1040:        '0 26px 80px rgba(0,0,0,0.40),' +
+src/components/marketing/hero-evolved.html:1048:        '0 6px 24px rgba(0,0,0,0.50)';
+src/components/marketing/hero-evolved.html:1057:          'rgba(0,0,0,0),rgba(0,0,0,' + (0.24 + ecl*0.16) + ') 50%,rgba(0,0,0,' + (0.36 + ecl*0.14) + ') 100%),' +
+src/components/marketing/hero-evolved.html:1060:        '0 26px 80px rgba(0,0,0,' + (0.35 + ecl*0.15) + '),' +
+src/components/marketing/hero-evolved.html:1071:        '0 6px 24px rgba(0,0,0,0.50)';
+src/components/marketing/test hero.html:158:      background: radial-gradient(ellipse 65% 55% at 50% 42%, transparent 35%, rgba(0,0,0,0.55) 100%);
+src/components/marketing/test hero.html:166:      background: #000;
+src/components/marketing/test hero.html:295:        0 4px 20px rgba(0,0,0,0.50);

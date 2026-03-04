@@ -125,7 +125,7 @@ export default async function UpgradeYourOsPage() {
         <div className="relative z-10 grid gap-8 md:grid-cols-2 items-start">
 
           {/* Left — THE ECLIPSE */}
-          <div className="glass-card p-7" style={{ borderLeft: '3px solid var(--surface-border)', background: 'var(--surface-border)' }}>
+          <div className="glass-card card-border-left-stroke surface-border-fill p-7">
             <div className="mb-4 flex items-center gap-3">
               {/* Moon / eclipse icon */}
               <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
@@ -153,7 +153,7 @@ export default async function UpgradeYourOsPage() {
           </div>
 
           {/* Right — THE NOVA */}
-          <div className="glass-card p-7" style={{ borderLeft: '3px solid color-mix(in srgb, var(--gold-primary) 50%, transparent)', background: 'var(--surface-border)' }}>
+          <div className="glass-card card-border-left-gold surface-border-fill p-7">
             <div className="mb-4 flex items-center gap-3">
               {/* Starburst / nova icon */}
               <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
@@ -295,8 +295,8 @@ export default async function UpgradeYourOsPage() {
             return (
               <div
                 key={card.label}
-                className="glass-card glass-card--lift p-6"
-                style={{ borderTop: `2px solid ${color}50`, background: `${color}06` }}
+                className="glass-card glass-card--lift card-border-top-accent card-surface-accent-soft p-6"
+                style={{ '--card-accent': color } as { ['--card-accent']: string }}
               >
                 <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full"
                   style={{ background: `${color}10`, border: `1px solid ${color}25` }}>
@@ -455,7 +455,11 @@ export default async function UpgradeYourOsPage() {
           ].map((item, i) => {
             const color = rayHex(cycleRay(i));
             return (
-            <div key={item.q} className="glass-card glass-card--lift glass-card--executive glass-card--magnetic p-5" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
+            <div
+              key={item.q}
+              className="glass-card glass-card--lift glass-card--executive glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle p-5"
+              style={{ '--card-accent': color } as { ['--card-accent']: string }}
+            >
               <p className="text-sm font-semibold leading-relaxed" style={{ color }}>
                 {item.q}
               </p>
@@ -521,7 +525,7 @@ export default async function UpgradeYourOsPage() {
           </div>
           <StaggerChildren className="grid gap-4" staggerMs={200}>
             {/* Eclipsed day */}
-            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}>
+            <div className="glass-card glass-card--lift card-border-left-gold-soft p-5">
               <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.5 }}>
                 ◇ Eclipsed Monday
               </p>
@@ -532,7 +536,7 @@ export default async function UpgradeYourOsPage() {
               </p>
             </div>
             {/* Light-online day */}
-            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid var(--text-body)' }}>
+            <div className="glass-card glass-card--lift card-border-left-body p-5">
               <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
                 ◆ Light-Online Monday
               </p>
@@ -636,7 +640,11 @@ export default async function UpgradeYourOsPage() {
           {WHAT_I_DONT_DO.map((item, i) => {
             const color = rayHex(cycleRay(i));
             return (
-            <div key={item} className="glass-card glass-card--lift glass-card--magnetic flex items-start gap-3 p-4" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
+            <div
+              key={item}
+              className="glass-card glass-card--lift glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle flex items-start gap-3 p-4"
+              style={{ '--card-accent': color } as { ['--card-accent']: string }}
+            >
               <span className="shrink-0 text-sm font-bold" style={{ color }}>✕</span>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>{item}</p>
             </div>
@@ -664,7 +672,11 @@ export default async function UpgradeYourOsPage() {
           {TESTIMONIALS.map((t, i) => {
             const color = rayHex(cycleRay(i));
             return (
-            <div key={t.attribution} className="glass-card glass-card--magnetic testimonial-card p-5 pl-6" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
+            <div
+              key={t.attribution}
+              className="glass-card glass-card--magnetic testimonial-card card-border-left-accent-soft card-surface-accent-subtle p-5 pl-6"
+              style={{ '--card-accent': color } as { ['--card-accent']: string }}
+            >
               <p className="text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
                 &ldquo;{t.quote}&rdquo;
               </p>

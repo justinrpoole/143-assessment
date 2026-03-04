@@ -198,8 +198,7 @@ export function AssessmentSetupClient() {
       {/* Dimming carry-forward card (#11) */}
       {dimmingResult && !lockMessage && (
         <section
-          className="glass-card p-5 mb-4"
-          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
+          className="glass-card card-border-gold-soft mb-4 p-5"
         >
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
             Your Dimming Check

@@ -121,7 +121,7 @@ function MiniSun({
         {eclipsePercent > 0 && (
           <mask id={`${uid}-mask`}>
             <rect width={size} height={size} fill="white" />
-            <circle cx={moonCx} cy={moonCy} r={moonR} fill="black" />
+            <circle cx={moonCx} cy={moonCy} r={moonR} fill="var(--ink-950)" />
           </mask>
         )}
       </defs>

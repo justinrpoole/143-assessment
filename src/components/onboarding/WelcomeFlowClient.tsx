@@ -131,8 +131,7 @@ export default function WelcomeFlowClient() {
               ].map((item) => (
                 <div
                   key={item.step}
-                  className="glass-card p-4 flex items-start gap-4"
-                  style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}
+                  className="glass-card p-4 flex items-start gap-4 card-border-gold-soft"
                 >
                   <span
                     className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold"

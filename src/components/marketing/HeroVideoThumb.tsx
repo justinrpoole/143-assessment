@@ -77,7 +77,6 @@ export default function HeroVideoThumb() {
               className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full transition-all duration-200 group-hover:scale-110"
               style={{
                 background: 'var(--gold-primary)',
-                boxShadow: '0 0 32px color-mix(in srgb, var(--gold-primary) 30%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 15%, transparent)',
               }}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">

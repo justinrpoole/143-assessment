@@ -16,7 +16,7 @@ export default function GroupCoachingPage() {
   return (
     <main className="cosmic-page-bg page-shell min-h-screen">
       <GroupCoachingGateClient>
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+      <section className="content-wrap--wide grid gap-10 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <div className="space-y-6">
           <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "var(--gold-primary)" }}>
             Group coaching with Justin Ray
@@ -31,13 +31,7 @@ export default function GroupCoachingPage() {
             webinar. It&apos;s me, in the room with 6–8 people, every week, for 8 weeks.
           </p>
 
-          <div
-            className="rounded-2xl border p-6"
-            style={{
-              background: "var(--surface-border)",
-              borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)",
-            }}
-          >
+          <div className="surface-border-fill card-border-gold-soft rounded-2xl p-6">
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary, color-mix(in srgb, var(--text-body) 80%, transparent))" }}>
               I&apos;ll be direct, warm, and honest with you. I&apos;ll challenge patterns when they show up, and I&apos;ll stay with
               you long enough to help you build a new one.
@@ -59,13 +53,7 @@ export default function GroupCoachingPage() {
         </div>
 
         <div className="space-y-6">
-          <div
-            className="overflow-hidden rounded-2xl border"
-            style={{
-              borderColor: "color-mix(in srgb, var(--gold-primary) 25%, transparent)",
-              background: "color-mix(in srgb, var(--text-body) 3%, transparent)",
-            }}
-          >
+          <div className="glass-card card-border-gold-mid overflow-hidden rounded-2xl">
             <Image
               src="/images/justin-ray-headshot.png"
               alt="Justin Ray"

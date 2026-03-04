@@ -26,11 +26,8 @@ export default function RayChart({ rays, topTwo, bottomRay }: RayChartProps) {
       </p>
 
       <div
-        className="rounded-2xl p-5 space-y-3 relative overflow-hidden"
+        className="glass-card rounded-2xl p-5 space-y-3 relative overflow-hidden"
         style={{
-          background: 'var(--bg-deep)',
-          border: '1px solid var(--surface-border)',
-          boxShadow: 'inset 0 0 30px color-mix(in srgb, var(--neon-cyan) 12%, transparent)',
           fontFamily: "'Orbitron', var(--font-cosmic-display)",
         }}
       >
@@ -54,23 +51,20 @@ export default function RayChart({ rays, topTwo, bottomRay }: RayChartProps) {
               </div>
 
               <div className="flex-1 relative">
-                <div className="w-full h-7 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--ink-950) 60%, transparent)', border: '1px solid var(--surface-border)' }}>
+                <div className="surface-ink-soft w-full h-7 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-700 ${isTop ? 'animate-pulse' : ''}`}
                     style={{
                       width: `${Math.max(displayScore, 3)}%`,
                       background: `linear-gradient(90deg, ${color}, ${color}CC)`,
-                      boxShadow: isTop
-                        ? `0 0 10px ${color}, 0 0 22px ${color}`
-                        : `0 0 8px ${color}99`,
                     }}
                   />
                 </div>
 
                 {isTop && (
                   <span
-                    className="absolute top-1/2 -translate-y-1/2"
-                    style={{ left: `calc(${Math.max(displayScore, 3)}% - 16px)`, width: 18, height: 18, borderRadius: 9999, border: `1px solid ${color}`, boxShadow: `0 0 12px ${color}`, animation: 'pulseRing 1.2s ease-in-out infinite' }}
+                    className="absolute top-1/2 -translate-y-1/2 rounded-full ring-1 ring-[var(--chip-stroke)]"
+                    style={{ '--chip-stroke': color, left: `calc(${Math.max(displayScore, 3)}% - 16px)`, width: 18, height: 18, animation: 'pulseRing 1.2s ease-in-out infinite' } as { ['--chip-stroke']: string; left: string; width: number; height: number; animation: string }}
                   />
                 )}
 
@@ -80,11 +74,17 @@ export default function RayChart({ rays, topTwo, bottomRay }: RayChartProps) {
               </div>
 
               <div className="w-28 text-xs shrink-0 text-right" style={{ fontFamily: 'var(--font-cosmic-display)' }}>
-                {isTop && <span className="inline-block px-2 py-0.5 rounded-full" style={{ border: `1px solid ${color}`, color, boxShadow: `0 0 12px ${color}` }}>POWER SOURCE</span>}
+                {isTop && (
+                  <span
+                    className="ray-chip inline-block px-2 py-0.5 rounded-full"
+                    style={{ '--chip-fill': 'transparent', '--chip-stroke': color, '--chip-ink': color } as { ['--chip-fill']: string; ['--chip-stroke']: string; ['--chip-ink']: string }}
+                  >
+                    POWER SOURCE
+                  </span>
+                )}
                 {isBottom && (
                   <span
-                    className="inline-block px-2 py-0.5 rounded-full"
-                    style={{ border: "1px solid color-mix(in srgb, var(--neon-pink) 50%, transparent)", color: "var(--neon-pink)" }}
+                    className="inline-block px-2 py-0.5 rounded-full border border-[color-mix(in_srgb,_var(--neon-pink)_50%,_transparent)] text-neon-pink"
                   >
                     ◑ ECLIPSE
                   </span>

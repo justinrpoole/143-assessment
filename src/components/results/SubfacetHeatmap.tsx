@@ -109,7 +109,6 @@ export default function SubfacetHeatmap({ rays }: Props) {
                           style={{
                             background: color,
                             opacity: sf ? 1 : 0.25,
-                            boxShadow: isSelected ? `0 0 0 2px ${color}, 0 0 8px ${color}60` : 'none',
                             minHeight: '28px',
                           }}
                           aria-label={`${label}: ${Math.round(score)}%`}

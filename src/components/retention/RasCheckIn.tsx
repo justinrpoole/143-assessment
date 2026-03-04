@@ -60,7 +60,10 @@ export default function RasCheckIn({ bottomRayId }: { bottomRayId?: string }) {
 
   if (isSet) {
     return (
-      <div className="glass-card p-5 space-y-3" style={{ borderColor: `${rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`)}25` }}>
+      <div
+        className="glass-card card-border-accent-soft p-5 space-y-3"
+        style={{ '--card-accent': rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`) } as { ['--card-accent']: string }}
+      >
         <div className="flex items-center justify-between">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`) }}>
             RAS Focus Set

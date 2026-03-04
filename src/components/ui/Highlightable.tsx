@@ -64,9 +64,6 @@ export default function Highlightable({
         cursor: 'pointer',
         borderLeft: isHighlighted ? '3px solid var(--brand-gold)' : '3px solid transparent',
         paddingLeft: isHighlighted ? '12px' : '12px',
-        boxShadow: isHighlighted
-          ? '0 0 12px color-mix(in srgb, var(--gold-primary) 15%, transparent)'
-          : 'none',
         background: isHighlighted
           ? 'color-mix(in srgb, var(--gold-primary) 4%, transparent)'
           : pressing

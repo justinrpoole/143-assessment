@@ -158,7 +158,7 @@ export function MicroJoyClient() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="glass-card p-5 space-y-2" style={{ borderColor: "color-mix(in srgb, var(--violet-650) 30%, transparent)" }}>
+      <div className="glass-card card-border-violet-mid p-5 space-y-2">
         <div className="flex items-center gap-2">
           <span className="neon-tag text-xs font-bold">JOY</span>
           <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
@@ -186,11 +186,10 @@ export function MicroJoyClient() {
                 type="button"
                 onClick={() => setCategory(opt.key)}
                 className={`glass-card glass-card--interactive p-3 text-center transition-all ${
-                  active ? "shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]" : ""
+                  active
+                    ? "shadow-[0_0_12px_color-mix(in_srgb,_var(--violet-650)_30%,_transparent)] card-border-body"
+                    : "card-border-default"
                 }`}
-                style={{
-                  borderColor: active ? "var(--text-body)" : "var(--surface-border)",
-                }}
               >
                 <span className="text-lg">{opt.emoji}</span>
                 <p className="text-xs font-medium mt-1" style={{ color: "var(--text-on-dark)" }}>
@@ -231,8 +230,7 @@ export function MicroJoyClient() {
             animate={{ opacity: 1, y: 0 }}
             exit={shouldAnimate ? { opacity: 0, y: -8 } : undefined}
             transition={{ duration: shouldAnimate ? undefined : 0 }}
-            className="glass-card p-5 space-y-4"
-            style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)", boxShadow: "0 0 20px color-mix(in srgb, var(--gold-primary) 6%, transparent)" }}
+            className="glass-card card-border-gold-soft p-5 space-y-4"
           >
             <p className="text-base font-medium leading-relaxed" style={{ color: "var(--text-on-dark)" }}>
               {suggestionText}
@@ -246,12 +244,7 @@ export function MicroJoyClient() {
               </label>
               <textarea
                 id="joy_notes"
-                className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40 resize-none"
-                style={{
-                  background: "color-mix(in srgb, var(--text-body) 6%, transparent)",
-                  border: "1px solid var(--surface-border)",
-                  color: "var(--text-on-dark)",
-                }}
+                className="field-soft w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40 resize-none"
                 rows={2}
                 value={notes}
                 onChange={(event) => setNotes(event.target.value)}
@@ -277,8 +270,7 @@ export function MicroJoyClient() {
           initial={shouldAnimate ? { opacity: 0 } : false}
           animate={{ opacity: 1 }}
           transition={{ duration: shouldAnimate ? undefined : 0 }}
-          className="glass-card p-4 text-center"
-          style={{ borderColor: "var(--surface-border)" }}
+          className="glass-card card-border-default p-4 text-center"
         >
           <p className="text-sm font-medium" style={{ color: "var(--ray-authenticity)" }}>
             ✓ Micro joy logged. Your RAS noticed.
@@ -318,8 +310,7 @@ export function MicroJoyClient() {
 
       {/* Error */}
       {error && (
-        <div className="rounded-lg px-4 py-3"
-          style={{ background: "var(--surface-border)", border: "1px solid var(--surface-border)" }}>
+        <div className="surface-border-fill rounded-lg px-4 py-3">
           <p className="text-sm" style={{ color: "var(--ray-power)" }} role="alert">{humanizeError(error)}</p>
         </div>
       )}

@@ -162,11 +162,11 @@ export default async function RayDeepDivePage({
               matters
             </h2>
             <div
-              className="glass-card glass-card--lift mt-6 p-6 sm:p-8"
-              style={{
-                borderLeft: `3px solid ${ramp.hoverBorder}`,
-                background: ramp.bgTint,
-              }}
+              className="glass-card glass-card--lift card-border-left-var card-bg-var mt-6 p-6 sm:p-8"
+              style={({ 
+                '--card-border-left': `3px solid ${ramp.hoverBorder}`,
+                '--card-bg': ramp.bgTint,
+              } as { ['--card-border-left']: string; ['--card-bg']: string })}
             >
               <p
                 className="text-sm leading-relaxed sm:text-base"
@@ -201,11 +201,11 @@ export default async function RayDeepDivePage({
             {explanation.whenStrong.map((item, i) => (
               <div
                 key={i}
-                className="glass-card glass-card--lift p-5 sm:p-6"
-                style={{
-                  borderTop: `3px solid ${hex}50`,
-                  background: `${hex}06`,
-                }}
+                className="glass-card glass-card--lift card-border-top-var card-bg-var p-5 sm:p-6"
+                style={({ 
+                  '--card-border-top': `3px solid ${hex}50`,
+                  '--card-bg': `${hex}06`,
+                } as { ['--card-border-top']: string; ['--card-bg']: string })}
               >
                 <span
                   className="mb-3 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold"
@@ -259,11 +259,11 @@ export default async function RayDeepDivePage({
             {explanation.whenEclipsed.map((item, i) => (
               <div
                 key={i}
-                className="glass-card glass-card--lift p-5 sm:p-6"
-                style={{
-                  borderTop: '3px solid color-mix(in srgb, var(--text-body) 10%, transparent)',
-                  background: 'color-mix(in srgb, var(--text-body) 2%, transparent)',
-                }}
+                className="glass-card glass-card--lift card-border-top-var card-bg-var p-5 sm:p-6"
+                style={({ 
+                  '--card-border-top': '3px solid color-mix(in srgb, var(--text-body) 10%, transparent)',
+                  '--card-bg': 'color-mix(in srgb, var(--text-body) 2%, transparent)',
+                } as { ['--card-border-top']: string; ['--card-bg']: string })}
               >
                 <span
                   className="mb-3 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold"
@@ -317,11 +317,11 @@ export default async function RayDeepDivePage({
             {explanation.coachingReps.map((rep, i) => (
               <div
                 key={i}
-                className="glass-card glass-card--lift glass-card--magnetic p-5 sm:p-6"
-                style={{
-                  borderLeft: `3px solid ${hex}50`,
-                  background: `${hex}06`,
-                }}
+                className="glass-card glass-card--lift glass-card--magnetic card-border-left-var card-bg-var p-5 sm:p-6"
+                style={({ 
+                  '--card-border-left': `3px solid ${hex}50`,
+                  '--card-bg': `${hex}06`,
+                } as { ['--card-border-left']: string; ['--card-bg']: string })}
               >
                 <div className="flex items-start gap-4">
                   <span
@@ -366,11 +366,11 @@ export default async function RayDeepDivePage({
 
           {/* Phase card */}
           <div
-            className="glass-card glass-card--executive p-6 sm:p-8"
-            style={{
-              borderLeft: `3px solid ${hex}50`,
-              background: `${hex}04`,
-            }}
+            className="glass-card glass-card--executive card-border-left-var card-bg-var p-6 sm:p-8"
+            style={({ 
+              '--card-border-left': `3px solid ${hex}50`,
+              '--card-bg': `${hex}04`,
+            } as { ['--card-border-left']: string; ['--card-bg']: string })}
           >
             <p
               className="text-xs font-bold uppercase tracking-widest"

@@ -91,11 +91,11 @@ export default function SocialProofCounter({
 }) {
   return (
     <div
-      className={`glass-card mx-auto max-w-3xl px-6 py-5 ${className}`}
+      className={`glass-card card-bg-var card-border-color-var mx-auto max-w-3xl px-6 py-5 ${className}`}
       style={{
-        background: 'color-mix(in srgb, var(--gold-primary) 3%, transparent)',
-        borderColor: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)',
-      }}
+        '--card-bg': 'color-mix(in srgb, var(--gold-primary) 3%, transparent)',
+        '--card-border': 'color-mix(in srgb, var(--gold-primary) 12%, transparent)',
+      } as { ['--card-bg']: string; ['--card-border']: string }}
     >
       <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
         {metrics.map((m) => (

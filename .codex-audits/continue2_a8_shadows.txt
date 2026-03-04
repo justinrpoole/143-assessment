@@ -1,0 +1,121 @@
+src/components/LikertScale.tsx:32:                ? 'bg-brand-gold text-brand-black shadow-lg scale-110'
+src/components/glossary/GlossaryClient.tsx:348:          className="w-full rounded-xl py-3 pl-10 pr-4 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
+src/components/marketing/NeonGlowButton.tsx:17: * NeonGlowButton — Primary CTA with layered neon box-shadows.
+src/components/marketing/NeonGlowButton.tsx:65:          transition: 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease',
+src/components/marketing/BrandLockup.tsx:30:          className="drop-shadow-[0_0_20px_color-mix(in srgb, var(--gold-primary) 30%, transparent)]"
+src/components/marketing/hero-evolved.html:206:  box-shadow:
+src/components/marketing/hero-evolved.html:220:  pointer-events:none;margin-top:6%;transition:border-color 0.15s,box-shadow 0.15s;
+src/components/marketing/hero-evolved.html:271:  transition:background 0.3s,box-shadow 0.3s;
+src/components/marketing/hero-evolved.html:325:  box-shadow:0 8px 36px rgba(126,63,255,0.35),0 2px 8px rgba(0,0,0,0.25),
+src/components/marketing/hero-evolved.html:330:  transition:transform 0.3s,box-shadow 0.3s;
+src/components/marketing/hero-evolved.html:334:  box-shadow:0 14px 52px rgba(126,63,255,0.50),0 4px 12px rgba(0,0,0,0.30),
+src/components/marketing/hero-evolved.html:986:      ring.style.boxShadow =
+src/components/marketing/hero-evolved.html:1005:      ring.style.boxShadow = '0 0 0 transparent';
+src/components/marketing/hero-evolved.html:1039:      plate.style.boxShadow =
+src/components/marketing/hero-evolved.html:1059:      plate.style.boxShadow =
+src/components/PatternInterruptHub.tsx:71:                className="w-12 h-12 rounded-full text-on-dark shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+src/components/PatternInterruptHub.tsx:86:                className="w-12 h-12 rounded-full text-on-dark shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+src/components/PatternInterruptHub.tsx:101:                className="w-12 h-12 rounded-full text-on-dark shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+src/components/PatternInterruptHub.tsx:114:          className={`w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-on-dark font-bold text-lg transition-all duration-200 ${
+src/app/styles/shell.css:42:  box-shadow: var(--focus-ring);
+src/app/styles/shell.css:49:  box-shadow: var(--focus-ring-gold);
+src/app/styles/shell.css:229:  box-shadow: var(--shadow-glow-sm);
+src/app/styles/shell.css:274:  transition: transform var(--motion-base) var(--motion-ease), box-shadow var(--motion-base) var(--motion-ease), filter var(--motion-base) var(--motion-ease);
+src/app/styles/shell.css:280:  box-shadow: var(--shadow-glow-sm);
+src/app/styles/shell.css:300:  box-shadow: var(--shadow-glow-sm);
+src/app/styles/shell.css:325:  box-shadow: var(--shadow-glow-sm);
+src/app/styles/shell.css:374:  box-shadow: var(--shadow-glow-sm);
+src/app/styles/cosmic.css:75:  box-shadow:
+src/app/styles/cosmic.css:143:  --card-shadow-base: var(--card-halo-1), var(--card-halo-2), var(--card-halo-3), inset 0 1px 0 color-mix(in srgb, var(--text-body) 8%, transparent), inset 0 -14px 32px color-mix(in srgb, var(--ink-900) 22%, transparent);
+src/app/styles/cosmic.css:144:  --card-shadow-strong: 0 0 var(--card-glow-r1) color-mix(in srgb, var(--glow-violet) 18%, transparent),
+src/app/styles/cosmic.css:149:  --card-shadow-none: inset 0 1px 0 color-mix(in srgb, var(--text-body) 8%, transparent), inset 0 -12px 28px color-mix(in srgb, var(--ink-900) 18%, transparent);
+src/app/styles/cosmic.css:150:  box-shadow: var(--card-shadow-base);
+src/app/styles/cosmic.css:153:              box-shadow var(--motion-base) var(--motion-ease),
+src/app/styles/cosmic.css:166:  box-shadow: var(--card-shadow-strong);
+src/app/styles/cosmic.css:186:  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text-body) 10%, transparent), inset 0 -1px 0 color-mix(in srgb, var(--ink-900) 30%, transparent);
+src/app/styles/cosmic.css:192:  box-shadow: var(--card-shadow-base);
+src/app/styles/cosmic.css:196:  box-shadow: var(--card-shadow-strong);
+src/app/styles/cosmic.css:200:  box-shadow: var(--card-shadow-none);
+src/app/styles/cosmic.css:341:  box-shadow: 0 0 12px rgba(248, 208, 17, 0.20);
+src/app/styles/cosmic.css:344:              box-shadow var(--motion-fast) var(--motion-ease);
+src/app/styles/cosmic.css:351:  box-shadow: 0 0 20px rgba(248, 208, 17, 0.35);
+src/app/styles/cosmic.css:387:  box-shadow: 0 2px 16px rgba(248, 208, 17, 0.20), 0 0 0 1px rgba(248, 208, 17, 0.10);
+src/app/styles/cosmic.css:389:              box-shadow var(--motion-fast) var(--motion-ease),
+src/app/styles/cosmic.css:395:  box-shadow: 0 4px 24px rgba(248, 208, 17, 0.30), 0 0 0 1px rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:419:  box-shadow: 0 0 0 0 transparent;
+src/app/styles/cosmic.css:421:              box-shadow var(--motion-fast) var(--motion-ease),
+src/app/styles/cosmic.css:430:  box-shadow: 0 0 20px rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:454:              box-shadow var(--motion-fast) var(--motion-ease);
+src/app/styles/cosmic.css:460:  box-shadow: var(--shadow-glow-sm);
+src/app/styles/cosmic.css:538:  box-shadow: var(--shadow-depth), var(--shadow-glow-md);
+src/app/styles/cosmic.css:550:    box-shadow: 0 2px 18px rgba(248, 208, 17, 0.22),
+src/app/styles/cosmic.css:556:    box-shadow: 0 4px 32px rgba(248, 208, 17, 0.40),
+src/app/styles/cosmic.css:566:  0%, 100% { box-shadow: var(--card-shadow-base); }
+src/app/styles/cosmic.css:567:  50% { box-shadow: var(--card-shadow-strong); }
+src/app/styles/cosmic.css:576:              box-shadow var(--motion-base) var(--motion-ease);
+src/app/styles/cosmic.css:583:  box-shadow: var(--card-shadow-strong);
+src/app/styles/cosmic.css:688:              box-shadow 0.3s ease,
+src/app/styles/cosmic.css:694:  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
+src/app/styles/cosmic.css:703:              box-shadow 0.3s ease,
+src/app/styles/cosmic.css:722:  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3),
+src/app/styles/cosmic.css:742:    box-shadow: 0 0 30px rgba(248, 208, 17, 0.18),
+src/app/styles/cosmic.css:747:    box-shadow: 0 0 40px rgba(248, 208, 17, 0.28),
+src/app/styles/cosmic.css:814:  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+src/app/styles/cosmic.css:821:  box-shadow: 0 0 12px rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:884:  box-shadow: 0 0 12px color-mix(in srgb, var(--gold-primary) 35%, transparent), 0 0 4px color-mix(in srgb, var(--gold-primary) 56%, transparent);
+src/app/styles/cosmic.css:902:  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+src/app/styles/cosmic.css:908:  box-shadow: 0 0 12px color-mix(in srgb, var(--gold-primary) 12%, transparent);
+src/app/styles/cosmic.css:947:  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+src/app/styles/cosmic.css:953:  box-shadow: 0 0 16px rgba(248, 208, 17, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+src/app/styles/cosmic.css:1000:  box-shadow: 0 0 8px rgba(248, 208, 17, 0.06);
+src/app/styles/cosmic.css:1056:  box-shadow: var(--card-shadow-strong), 0 0 24px color-mix(in srgb, var(--gold-primary) 12%, transparent);
+src/app/styles/cosmic.css:1057:  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+src/app/styles/cosmic.css:1062:  box-shadow: var(--card-shadow-strong), 0 0 32px color-mix(in srgb, var(--gold-primary) 18%, transparent);
+src/app/styles/cosmic.css:1072:  box-shadow: var(--card-shadow-strong), 0 0 28px color-mix(in srgb, var(--gold-primary) 16%, transparent);
+src/app/styles/cosmic.css:1074:  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+src/app/styles/cosmic.css:1090:  box-shadow: var(--card-shadow-strong), 0 0 36px color-mix(in srgb, var(--gold-primary) 22%, transparent);
+src/app/styles/cosmic.css:1132:              box-shadow 0.3s ease;
+src/app/styles/cosmic.css:1150:  box-shadow: 0 0 12px rgba(248, 208, 17, 0.12);
+src/app/styles/cosmic.css:1394:  box-shadow: 0 0 16px rgba(248, 208, 17, 0.15), 0 4px 12px rgba(0, 0, 0, 0.3);
+src/app/styles/cosmic.css:1410:  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+src/app/styles/cosmic.css:1422:  box-shadow: 0 0 10px rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:1527:  box-shadow: 0 0 8px rgba(248,208,17,0.4);
+src/app/styles/cosmic.css:1571:  box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+src/app/styles/cosmic.css:1670:              box-shadow var(--motion-base) var(--motion-ease);
+src/app/styles/cosmic.css:1674:  box-shadow: var(--shadow-glow-sm), var(--shadow-glow-cyan);
+src/app/styles/cosmic.css:1784:  box-shadow: 0 0 6px rgba(248, 208, 17, 0.15);
+src/app/styles/tokens.css:54:  --card-shadow: var(--shadow-glow-md);
+src/app/styles/tokens.css:216:  --shadow-glow-sm: 0 0 16px rgba(96, 5, 141, 0.45), 0 0 4px rgba(148, 80, 200, 0.25);
+src/app/styles/tokens.css:217:  --shadow-glow-md: 0 4px 28px rgba(96, 5, 141, 0.40), 0 0 56px rgba(96, 5, 141, 0.20);
+src/app/styles/tokens.css:218:  --shadow-glow-gold: 0 0 20px rgba(248, 208, 17, 0.18);
+src/app/styles/tokens.css:219:  --shadow-depth: 0 8px 32px rgba(0, 0, 0, 0.50);
+src/app/styles/tokens.css:234:  --shadow-glow-cyan: 0 0 20px rgba(37, 246, 255, 0.15);
+src/app/styles/tokens.css:235:  --shadow-glow-pink: 0 0 20px rgba(255, 45, 224, 0.12);
+src/app/styles/tokens.css:236:  --shadow-glow-violet: 0 0 20px rgba(139, 91, 255, 0.12);
+src/app/styles/lead-engine.css:83:  box-shadow: 0 14px 32px rgba(27, 18, 51, 0.22);
+src/app/styles/lead-engine.css:84:  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+src/app/styles/lead-engine.css:158:  box-shadow: 0 12px 36px rgba(27, 18, 51, 0.16);
+src/app/(portal)/light-dashboard/dashboard.css:22:  box-shadow:
+src/app/(portal)/light-dashboard/dashboard.css:112:  box-shadow:
+src/app/(portal)/light-dashboard/dashboard.css:192:  transition: transform 0.2s ease, box-shadow 0.2s ease;
+src/app/(portal)/light-dashboard/dashboard.css:209:  box-shadow: 0 0 16px rgba(248, 208, 17, 0.2);
+src/app/(portal)/light-dashboard/dashboard.css:216:  box-shadow: 0 0 16px rgba(96, 5, 141, 0.2);
+src/components/BreathingMoment.tsx:43:              bg-[var(--ink)] text-on-dark hover:brightness-110 shadow-[0_10px_26px_var(--surface-border)]"
+src/components/retention/RepLogClient.tsx:250:  if (q === 3) return 'shadow-[0_0_8px_color-mix(in srgb, var(--gold-primary) 40%, transparent)]';
+src/components/retention/RepLogClient.tsx:251:  if (q === 2) return 'shadow-[0_0_8px_color-mix(in srgb, var(--violet-650) 40%, transparent)]';
+src/components/retention/RepLogClient.tsx:854:                      active ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 20%, transparent)]' : ''
+src/components/retention/RepLogClient.tsx:1126:                    isSelected ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]' : ''
+src/components/retention/RepLogClient.tsx:1247:                    active ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 20%, transparent)]' : ''
+src/components/portal/QuickRepFAB.tsx:87:        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gold shadow-lg transition-transform active:scale-95"
+src/components/retention/MicroJoyClient.tsx:190:                    ? "shadow-[0_0_12px_color-mix(in_srgb,_var(--violet-650)_30%,_transparent)] card-border-body"
+src/components/ui/MetricTooltip.tsx:66:          className="absolute bottom-full left-1/2 z-50 mb-2 w-72 -translate-x-1/2 rounded-xl p-4 text-left shadow-xl"
+src/components/retention/EnergyAuditClient.tsx:334:                    isSelected ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]' : ''
+src/components/auth/MagicLinkFormClient.tsx:101:        className="flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all hover:shadow-lg"
+src/components/retention/PhaseCheckInClient.tsx:231:                    isSelected ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]' : ''
+src/components/FrequencyScale.tsx:49:                ? 'border-brand-gold bg-brand-gold text-brand-black shadow-[0_0_16px_color-mix(in srgb, var(--gold-primary) 30%, transparent)]'
+src/components/ui/RayGlowCard.tsx:59:        e.currentTarget.style.boxShadow = `0 0 20px ${ramp.glow}`;
+src/components/ui/RayGlowCard.tsx:63:        e.currentTarget.style.boxShadow = 'none';
+src/components/cosmic/EclipseMeter.tsx:153:      <div className="rounded-2xl overflow-hidden shadow-lg">
+src/components/cosmic/IlluminateBoard.tsx:133:      glow.style.boxShadow = `0 0 20px var(--surface-border)`;
+src/components/cosmic/SolarCoreScore.tsx:275:        className="relative rounded-2xl overflow-hidden shadow-lg"
+src/components/cosmic/IlluminateDashboard.tsx:123:        .illum-btn { transition: transform 0.07s ease, box-shadow 0.07s ease; cursor: pointer; }

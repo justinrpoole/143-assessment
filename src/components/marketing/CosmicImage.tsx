@@ -35,7 +35,6 @@ const VARIANT_STYLES: Record<
   section: {
     wrapper: {
       border: "1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)",
-      boxShadow: "0 0 30px color-mix(in srgb, var(--gold-primary) 6%, transparent)",
       borderRadius: 16,
       overflow: "hidden",
     },
@@ -48,7 +47,6 @@ const VARIANT_STYLES: Record<
   product: {
     wrapper: {
       border: "1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)",
-      boxShadow: "0 0 40px color-mix(in srgb, var(--gold-primary) 8%, transparent)",
       borderRadius: 16,
       overflow: "hidden",
       background: "var(--surface-glass, color-mix(in srgb, var(--text-body) 4%, transparent))",

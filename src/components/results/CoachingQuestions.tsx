@@ -76,12 +76,12 @@ export default function CoachingQuestions({ questions, runId }: Props) {
           return (
             <div
               key={i}
-              className="glass-card overflow-hidden transition-all"
+              className="glass-card card-border-color-var overflow-hidden transition-all"
               style={{
-                borderColor: hasSaved
+                '--card-border': hasSaved
                   ? 'color-mix(in srgb, var(--gold-primary) 25%, transparent)'
                   : 'color-mix(in srgb, var(--stroke-400) 20%, transparent)',
-              }}
+              } as { ['--card-border']: string }}
             >
               {/* Question — always visible, clickable */}
               <button

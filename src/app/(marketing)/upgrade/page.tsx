@@ -202,7 +202,10 @@ export default async function UpgradePage() {
             <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {DELIVERABLES.map((item, i) => (
                 <StaggerItem key={item.title}>
-                  <div className="glass-card glass-card--magnetic p-5 space-y-2 h-full" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
+                  <div
+                    className="glass-card glass-card--magnetic card-border-top-accent p-5 h-full space-y-2"
+                    style={{ '--card-accent': rayHex(cycleRay(i)) } as { ['--card-accent']: string }}
+                  >
                     <p
                       className="text-sm font-semibold"
                       style={{ color: rayHex(cycleRay(i)) }}
@@ -265,7 +268,10 @@ export default async function UpgradePage() {
             <StaggerContainer className="grid gap-5 sm:grid-cols-3">
               {DIFFERENTIATORS.map((item, i) => (
                 <StaggerItem key={item.heading}>
-                  <div className="glass-card glass-card--magnetic p-5 space-y-2 h-full" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
+                  <div
+                    className="glass-card glass-card--magnetic card-border-top-accent p-5 h-full space-y-2"
+                    style={{ '--card-accent': rayHex(cycleRay(i)) } as { ['--card-accent']: string }}
+                  >
                     <p
                       className="text-sm font-semibold"
                       style={{ color: rayHex(cycleRay(i)) }}
@@ -312,10 +318,8 @@ export default async function UpgradePage() {
               {TESTIMONIALS.map((t, i) => (
                 <StaggerItem key={t.attribution}>
                   <blockquote
-                    className="glass-card glass-card--magnetic p-5"
-                    style={{
-                      borderLeft: `3px solid ${rayHex(cycleRay(i))}`,
-                    }}
+                    className="glass-card glass-card--magnetic card-border-left-accent p-5"
+                    style={{ '--card-accent': rayHex(cycleRay(i)) } as { ['--card-accent']: string }}
                   >
                     <p
                       className="text-sm italic leading-relaxed"
@@ -375,8 +379,8 @@ export default async function UpgradePage() {
             <div className="grid gap-5 sm:grid-cols-2">
               {/* Card A — Gravitational Stability Report */}
               <div
-                className="glass-card glass-card--glow flex flex-col p-6"
-                style={{ border: "1.5px solid var(--gold-primary)" }}
+                className="glass-card glass-card--glow card-border-var flex flex-col p-6"
+                style={{ '--card-border': '1.5px solid var(--gold-primary)' } as { ['--card-border']: string }}
               >
                 <span
                   className="mb-3 inline-block self-start rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest"

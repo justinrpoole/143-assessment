@@ -139,7 +139,6 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
           style={{
             right: 12,
             background: 'radial-gradient(circle at 40% 38%, var(--text-body) 0%, var(--text-body) 40%, var(--text-body) 70%, var(--text-body) 100%)',
-            boxShadow: '0 0 20px var(--surface-border)',
           }}
         />
 
@@ -149,7 +148,6 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
           style={{
             right: 12 + (1 - moonCoverage) * 16,
             background: 'var(--violet-800)',
-            boxShadow: moonCoverage > 0.3 ? '0 0 12px var(--surface-border)' : 'none',
           }}
           animate={{ right: 12 + (1 - moonCoverage) * 16 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
@@ -172,7 +170,6 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
             height: 20,
             borderRadius: '50%',
             background: 'radial-gradient(circle, var(--text-body) 0%, var(--text-body) 60%)',
-            boxShadow: '0 0 16px var(--surface-border), 0 0 4px color-mix(in srgb, var(--text-body) 80%, transparent)',
             border: '2px solid var(--surface-border)',
           }}
           animate={{ left: `calc(${value}% - 10px)` }}
@@ -203,14 +200,10 @@ function DimmingSlider({ value, onChange, lowLabel, highLabel }: DimmingSliderPr
 function BlurredPreview({ title, description }: { title: string; description: string }) {
   return (
     <div
-      className="relative rounded-xl p-4 overflow-hidden"
-      style={{
-        background: 'color-mix(in srgb, var(--text-body) 3%, transparent)',
-        border: '1px solid color-mix(in srgb, var(--gold-primary) 8%, transparent)',
-      }}
+      className="surface-gold-soft relative rounded-xl p-4 overflow-hidden"
     >
       <div className="filter blur-[2px] opacity-40 pointer-events-none">
-        <div className="h-24 rounded-lg mb-2" style={{ background: 'linear-gradient(135deg, var(--cosmic-purple-mid) 0%, var(--cosmic-purple-vivid) 100%)' }} />
+        <div className="panel-gradient-mid h-24 rounded-lg mb-2" />
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="mb-2 opacity-60">
@@ -338,8 +331,7 @@ export default function DimmingDetector() {
             className="text-center"
           >
             <p
-              className="chip mb-3 inline-block"
-              style={{ background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)', color: 'var(--brand-gold)' }}
+              className="badge-gold-soft chip mb-3 inline-block"
             >
               60-Second Stability Check
             </p>
@@ -377,7 +369,6 @@ export default function DimmingDetector() {
                   className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                   style={{
                     background: i === qIdx ? 'var(--brand-gold)' : i < qIdx ? 'var(--surface-border)' : 'color-mix(in srgb, var(--text-body) 12%, transparent)',
-                    boxShadow: i === qIdx ? '0 0 8px var(--surface-border)' : 'none',
                   }}
                 />
               ))}

@@ -29,7 +29,6 @@ export default function ScrollProgress() {
         width: `${progress * 100}%`,
         background: 'linear-gradient(to right, var(--cosmic-purple, var(--text-body)), var(--gold-primary))',
         transition: 'width 80ms cubic-bezier(0.3, 0, 0.7, 1)',
-        boxShadow: progress > 0 ? '0 0 10px color-mix(in srgb, var(--gold-primary) 50%, transparent), 0 0 4px color-mix(in srgb, var(--gold-primary) 30%, transparent)' : 'none',
       }}
       role="progressbar"
       aria-valuenow={Math.round(progress * 100)}

@@ -546,11 +546,8 @@ function MechButton({
           ? 'color-mix(in srgb, var(--ink-950) 10%, transparent)'
           : `radial-gradient(ellipse at 50% 20%, ${color}33 0%, var(--surface-border) 70%)`,
         border: `2px solid ${color}`,
-        boxShadow: pressed
-          ? `inset 0 6px 16px color-mix(in srgb, var(--ink-950) 90%, transparent), 0 0 8px ${glowColor}`
-          : `0 6px 0 color-mix(in srgb, var(--ink-950) 70%, transparent), 0 0 24px ${glowColor}, inset 0 1px 0 color-mix(in srgb, var(--text-body) 15%, transparent), inset 0 -1px 0 color-mix(in srgb, var(--ink-950) 50%, transparent)`,
         transform: pressed ? 'translateY(5px)' : 'translateY(0)',
-        transition: 'transform 0.07s ease, box-shadow 0.07s ease',
+        transition: 'transform 0.07s ease',
         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
       }}>
         {/* Icon */}

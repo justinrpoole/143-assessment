@@ -108,9 +108,7 @@ export default function HowItWorks() {
             </span>
 
             <div className="relative z-10">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full"
-                style={{ background: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)', boxShadow: '0 0 16px color-mix(in srgb, var(--gold-primary) 6%, transparent)' }}
-              >
+              <div className="surface-gold-soft mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
                 {step.icon}
               </div>
 
@@ -128,8 +126,7 @@ export default function HowItWorks() {
             {/* Connector line (not on last card) */}
             {i < STEPS.length - 1 && (
               <div
-                className="absolute -right-3 top-1/2 hidden h-px w-6 md:block"
-                style={{ background: 'linear-gradient(to right, color-mix(in srgb, var(--gold-primary) 30%, transparent), color-mix(in srgb, var(--gold-primary) 5%, transparent))' }}
+                className="gold-fade-rule absolute -right-3 top-1/2 hidden h-px w-6 md:block"
                 aria-hidden="true"
               />
             )}

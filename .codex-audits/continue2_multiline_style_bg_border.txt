@@ -1,0 +1,1312 @@
+src/components/ScenarioCard.tsx:37:            style={{
+src/components/ScenarioCard.tsx:38:              padding: '14px 16px',
+src/components/ScenarioCard.tsx:39:              background: isSelected
+src/components/ScenarioCard.tsx:54:                style={{
+src/components/ScenarioCard.tsx:55:                  background: isSelected
+src/app/(flow)/preview/page.tsx:219:        style={{
+src/app/(flow)/preview/page.tsx:220:          background:
+src/components/onboarding/WelcomeFlowClient.tsx:56:              style={{
+src/components/onboarding/WelcomeFlowClient.tsx:57:                width: i <= stepIdx ? '24px' : '8px',
+src/components/onboarding/WelcomeFlowClient.tsx:58:                background: i <= stepIdx ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--text-body) 15%, transparent)',
+src/components/onboarding/WelcomeFlowClient.tsx:78:              style={{
+src/components/onboarding/WelcomeFlowClient.tsx:79:                background: 'radial-gradient(circle, var(--brand-gold) 0%, color-mix(in srgb, var(--gold-primary) 30%, transparent) 40%, transparent 70%)',
+src/components/onboarding/WelcomeFlowClient.tsx:138:                    style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}
+src/components/onboarding/WelcomeFlowClient.tsx:184:              style={{
+src/components/onboarding/WelcomeFlowClient.tsx:185:                background: 'color-mix(in srgb, var(--violet-650) 25%, transparent)',
+src/components/billing/BetaAccessButton.tsx:57:        style={{
+src/components/billing/BetaAccessButton.tsx:58:          background: 'var(--gold-primary)',
+src/app/onboarding/tools-first/page.tsx:36:                <span className="ml-auto text-xs px-2 py-0.5 rounded-full" style={{background:"var(--surface-border)",color:"var(--text-body)"}}>{t.time}</span>
+src/components/billing/AccountBillingClient.tsx:58:      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/components/billing/AccountBillingClient.tsx:59:        Current plan: <code className="rounded px-1.5 py-0.5 text-xs" style={{ background: 'color-mix(in srgb, var(--violet-650) 25%, transparent)', color: 'var(--text-on-dark)' }}>{userState}</code>
+src/components/EmailGateModulePlaceholder.tsx:18:          style={{ background: "var(--gold-primary)" }}
+src/components/ProgressBar.tsx:17:        <span className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/ProgressBar.tsx:18:          {pct}%
+src/components/ProgressBar.tsx:19:        </span>
+src/components/ProgressBar.tsx:20:      </div>
+src/components/ProgressBar.tsx:21:      <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--violet-650) 25%, transparent)', border: '1px solid var(--surface-border)' }}>
+src/components/ProgressBar.tsx:24:          style={{
+src/components/ProgressBar.tsx:25:            width: `${pct}%`,
+src/components/ProgressBar.tsx:26:            background: 'linear-gradient(90deg, var(--text-body) 0%, var(--text-body) 100%)',
+src/app/opengraph-image.tsx:18:        style={{
+src/app/opengraph-image.tsx:19:          background: 'linear-gradient(135deg, var(--text-body) 0%, var(--text-body) 50%, var(--text-body) 100%)',
+src/components/ModulePlaceholder.tsx:15:          style={{ background: "var(--gold-primary)" }}
+src/components/billing/UpgradeCheckoutClient.tsx:96:        style={{
+src/components/billing/UpgradeCheckoutClient.tsx:97:          background: 'color-mix(in srgb, var(--violet-650) 15%, transparent)',
+src/components/billing/UpgradeCheckoutClient.tsx:98:          border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)',
+src/app/apple-icon.tsx:18:        style={{
+src/app/apple-icon.tsx:19:          background: rayHex('R3'),
+src/components/billing/InlineCheckoutModal.tsx:84:      style={{ animation: 'checkoutFadeIn 200ms ease-out' }}
+src/components/billing/InlineCheckoutModal.tsx:85:    >
+src/components/billing/InlineCheckoutModal.tsx:86:      {/* Backdrop */}
+src/components/billing/InlineCheckoutModal.tsx:87:      <div
+src/components/billing/InlineCheckoutModal.tsx:88:        className="absolute inset-0"
+src/components/billing/InlineCheckoutModal.tsx:89:        style={{ background: 'color-mix(in srgb, var(--ink-950) 85%, transparent)', backdropFilter: 'blur(8px)' }}
+src/components/billing/InlineCheckoutModal.tsx:97:        style={{
+src/components/billing/InlineCheckoutModal.tsx:98:          background: 'linear-gradient(180deg, color-mix(in srgb, var(--violet-650) 25%, transparent) 0%, var(--overlay-heavy) 100%)',
+src/components/billing/InlineCheckoutModal.tsx:99:          border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
+src/components/billing/InlineCheckoutModal.tsx:138:            style={{
+src/components/billing/InlineCheckoutModal.tsx:139:              background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+src/components/billing/InlineCheckoutModal.tsx:170:            style={{
+src/components/billing/InlineCheckoutModal.tsx:171:              background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)',
+src/components/billing/InlineCheckoutModal.tsx:183:                    style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}
+src/components/sharecards/ShareCardClient.tsx:132:          style={{
+src/components/sharecards/ShareCardClient.tsx:133:            color: 'var(--ray-power)',
+src/components/sharecards/ShareCardClient.tsx:134:            background: 'var(--surface-border)',
+src/components/sharecards/ShareCardClient.tsx:135:            border: '1px solid var(--surface-border)',
+src/components/sharecards/ShareCardClient.tsx:150:          style={{
+src/components/sharecards/ShareCardClient.tsx:151:            background: 'var(--gold-primary)',
+src/components/sharecards/ShareCardClient.tsx:185:          style={{
+src/components/sharecards/ShareCardClient.tsx:186:            color: 'var(--text-body)',
+src/components/sharecards/ShareCardClient.tsx:187:            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/sharecards/ShareCardClient.tsx:188:            border: '1px solid color-mix(in srgb, var(--text-body) 15%, transparent)',
+src/components/sharecards/ShareCardClient.tsx:225:            style={{
+src/components/sharecards/ShareCardClient.tsx:226:              background: 'color-mix(in srgb, var(--ink-950) 50%, transparent)',
+src/components/sharecards/ShareCardClient.tsx:227:              border: '1px solid color-mix(in srgb, var(--text-body) 12%, transparent)',
+src/components/sharecards/ShareCardClient.tsx:243:            style={{
+src/components/sharecards/ShareCardClient.tsx:244:              background: 'color-mix(in srgb, var(--ink-950) 50%, transparent)',
+src/components/sharecards/ShareCardClient.tsx:245:              border: '1px solid color-mix(in srgb, var(--text-body) 12%, transparent)',
+src/components/enterprise/EnterpriseSalesPage.tsx:201:            <div className="grid grid-cols-2 text-on-dark text-sm font-semibold" style={{ background: 'linear-gradient(to right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
+src/components/GoFirstModal.tsx:105:        <div className="px-6 py-5" style={{ background: 'linear-gradient(135deg, var(--cosmic-deepest) 0%, var(--cosmic-purple-gradient) 100%)' }}>
+src/components/GoFirstModal.tsx:140:              <div className="rounded-xl p-4 space-y-1" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}>
+src/components/GoFirstModal.tsx:150:              <div className="rounded-xl p-4 space-y-2" style={{ background: 'color-mix(in srgb, var(--text-body) 4%, transparent)' }}>
+src/components/GoFirstModal.tsx:161:                      style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
+src/components/GoFirstModal.tsx:191:                  style={{
+src/components/GoFirstModal.tsx:192:                    background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/GoFirstModal.tsx:193:                    border: '1px solid var(--surface-border)',
+src/components/GoFirstModal.tsx:214:                style={{
+src/components/GoFirstModal.tsx:215:                  background: `conic-gradient(var(--text-body) ${((60 - countdown) / 60) * 360}deg, color-mix(in srgb, var(--text-body) 6%, transparent) 0deg)`,
+src/components/GoFirstModal.tsx:218:                <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'var(--bg-deep)' }}>
+src/components/GoFirstModal.tsx:227:                  <div className="rounded-xl px-4 py-3" style={{ background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)' }}>
+src/components/quiz/ArchetypeQuizClient.tsx:218:          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
+src/components/quiz/ArchetypeQuizClient.tsx:257:                  style={{
+src/components/quiz/ArchetypeQuizClient.tsx:258:                    background: 'var(--surface-glass)',
+src/components/quiz/ArchetypeQuizClient.tsx:259:                    border: '1px solid var(--surface-border)',
+src/components/quiz/ArchetypeQuizClient.tsx:344:                style={{
+src/components/quiz/ArchetypeQuizClient.tsx:345:                  background: 'var(--surface-glass)',
+src/components/quiz/ArchetypeQuizClient.tsx:346:                  border: '1px solid var(--surface-border)',
+src/components/quiz/ArchetypeQuizClient.tsx:355:                style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
+src/components/glossary/GlossaryClient.tsx:349:          style={{
+src/components/glossary/GlossaryClient.tsx:350:            background: 'var(--surface-glass)',
+src/components/glossary/GlossaryClient.tsx:351:            border: '1px solid var(--surface-border)',
+src/components/glossary/GlossaryClient.tsx:370:              style={{
+src/components/glossary/GlossaryClient.tsx:371:                background: 'var(--surface-glass)',
+src/components/glossary/GlossaryClient.tsx:372:                border: '1px solid var(--surface-border)',
+src/components/glossary/GlossaryClient.tsx:384:              style={{
+src/components/glossary/GlossaryClient.tsx:385:                background: 'var(--surface-glass)',
+src/components/glossary/GlossaryClient.tsx:386:                border: '1px solid var(--surface-border)',
+src/components/sharecards/ShareCardButton.tsx:77:          style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
+src/app/(marketing)/pricing/page.tsx:302:                      style={{
+src/app/(marketing)/pricing/page.tsx:303:                        background: "var(--gold-primary)",
+src/components/admin/AdminAuditClient.tsx:132:                style={{ borderColor: "var(--surface-border)", background: 'color-mix(in srgb, var(--gold-primary) 3%, transparent)' }}
+src/components/PatternInterruptHub.tsx:66:              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'color-mix(in srgb, var(--ink-950) 70%, transparent)' }}>
+src/components/PatternInterruptHub.tsx:72:                style={{ background: 'linear-gradient(to bottom right, var(--cosmic-purple-deep), var(--cosmic-purple-gradient))' }}
+src/components/PatternInterruptHub.tsx:81:              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'color-mix(in srgb, var(--ink-950) 70%, transparent)' }}>
+src/components/PatternInterruptHub.tsx:87:                style={{ background: 'var(--cosmic-purple-deep)' }}
+src/components/PatternInterruptHub.tsx:96:              <span className="text-on-dark text-xs rounded-full px-3 py-1 whitespace-nowrap" style={{ background: 'color-mix(in srgb, var(--ink-950) 70%, transparent)' }}>
+src/components/PatternInterruptHub.tsx:102:                style={{ background: 'var(--cosmic-purple-vivid)' }}
+src/components/PatternInterruptHub.tsx:117:          style={{ background: expanded ? 'var(--cosmic-purple-mid)' : 'var(--cosmic-purple-gradient)' }}
+src/components/marketing/EmailGate.tsx:83:          style={{
+src/components/marketing/EmailGate.tsx:84:            background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/marketing/EmailGate.tsx:85:            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/BreathingMoment.tsx:24:            style={{
+src/components/BreathingMoment.tsx:25:              background: 'radial-gradient(circle, var(--text-body) 0%, var(--text-body) 72%)',
+src/components/IRiseModal.tsx:73:          style={{ background: 'linear-gradient(135deg, var(--cosmic-deepest) 0%, var(--cosmic-purple-gradient) 100%)' }}
+src/components/IRiseModal.tsx:138:                <div className="rounded-xl p-4 text-xs leading-relaxed" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)', color: 'var(--text-on-dark-secondary)' }}>
+src/components/IRiseModal.tsx:160:              <div className="border-2 border-brand-gold rounded-2xl px-6 py-6 space-y-2" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}>
+src/components/marketing/CosmicHero.tsx:243:      style={{ position:'relative', width:'100%', background:'transparent' }}
+src/components/marketing/SocialProofCounter.tsx:95:      style={{
+src/components/marketing/SocialProofCounter.tsx:96:        background: 'color-mix(in srgb, var(--gold-primary) 3%, transparent)',
+src/app/(marketing)/rays/[slug]/page.tsx:166:              style={{
+src/app/(marketing)/rays/[slug]/page.tsx:167:                borderLeft: `3px solid ${ramp.hoverBorder}`,
+src/app/(marketing)/rays/[slug]/page.tsx:168:                background: ramp.bgTint,
+src/app/(marketing)/rays/[slug]/page.tsx:205:                style={{
+src/app/(marketing)/rays/[slug]/page.tsx:206:                  borderTop: `3px solid ${hex}50`,
+src/app/(marketing)/rays/[slug]/page.tsx:207:                  background: `${hex}06`,
+src/app/(marketing)/rays/[slug]/page.tsx:212:                  style={{
+src/app/(marketing)/rays/[slug]/page.tsx:213:                    background: `${hex}15`,
+src/app/(marketing)/rays/[slug]/page.tsx:214:                    color: hex,
+src/app/(marketing)/rays/[slug]/page.tsx:215:                    border: `1px solid ${hex}30`,
+src/app/(marketing)/rays/[slug]/page.tsx:263:                style={{
+src/app/(marketing)/rays/[slug]/page.tsx:264:                  borderTop: '3px solid color-mix(in srgb, var(--text-body) 10%, transparent)',
+src/app/(marketing)/rays/[slug]/page.tsx:265:                  background: 'color-mix(in srgb, var(--text-body) 2%, transparent)',
+src/app/(marketing)/rays/[slug]/page.tsx:270:                  style={{
+src/app/(marketing)/rays/[slug]/page.tsx:271:                    background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/app/(marketing)/rays/[slug]/page.tsx:321:                style={{
+src/app/(marketing)/rays/[slug]/page.tsx:322:                  borderLeft: `3px solid ${hex}50`,
+src/app/(marketing)/rays/[slug]/page.tsx:323:                  background: `${hex}06`,
+src/app/(marketing)/rays/[slug]/page.tsx:329:                    style={{
+src/app/(marketing)/rays/[slug]/page.tsx:330:                      background: `${hex}12`,
+src/app/(marketing)/rays/[slug]/page.tsx:331:                      color: hex,
+src/app/(marketing)/rays/[slug]/page.tsx:332:                      border: `1px solid ${hex}25`,
+src/app/(marketing)/rays/[slug]/page.tsx:370:            style={{
+src/app/(marketing)/rays/[slug]/page.tsx:371:              borderLeft: `3px solid ${hex}50`,
+src/app/(marketing)/rays/[slug]/page.tsx:372:              background: `${hex}04`,
+src/app/(marketing)/rays/[slug]/page.tsx:400:                  style={{
+src/app/(marketing)/rays/[slug]/page.tsx:401:                    background: `${hex}20`,
+src/app/(marketing)/rays/[slug]/page.tsx:402:                    color: hex,
+src/app/(marketing)/rays/[slug]/page.tsx:403:                    border: `1px solid ${hex}40`,
+src/app/(marketing)/rays/[slug]/page.tsx:408:                    style={{ background: hex }}
+src/app/(marketing)/rays/[slug]/page.tsx:424:                      style={{
+src/app/(marketing)/rays/[slug]/page.tsx:425:                        background: `${relColor.hex}10`,
+src/app/(marketing)/rays/[slug]/page.tsx:426:                        color: `${relColor.hex}cc`,
+src/app/(marketing)/rays/[slug]/page.tsx:427:                        border: `1px solid ${relColor.hex}20`,
+src/app/(marketing)/rays/[slug]/page.tsx:432:                        style={{ background: relColor.hex }}
+src/app/(marketing)/rays/[slug]/page.tsx:460:                    style={{
+src/app/(marketing)/rays/[slug]/page.tsx:461:                      background: isActive
+src/app/(marketing)/rays/[slug]/page.tsx:470:                      style={{
+src/app/(marketing)/rays/[slug]/page.tsx:471:                        background: isActive
+src/app/(marketing)/tools/page.tsx:40:        <div className="pointer-events-none absolute inset-0 opacity-20" style={{ background: `radial-gradient(ellipse 70% 50% at 50% 0%, ${rayHex("R5")} 0%, transparent 70%)` }} />
+src/app/(marketing)/tools/page.tsx:71:                  <span className="text-xs font-bold opacity-40" style={{ color: "var(--text-body)" }}>{tool.num}</span>
+src/app/(marketing)/tools/page.tsx:72:                  <span className="rounded-full px-2 py-0.5 text-xs font-bold" style={{ background: `${tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray)}22`, color: tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray) }}>
+src/app/(marketing)/tools/page.tsx:87:          <div className="rounded-2xl border p-10" style={{ background: "color-mix(in srgb, var(--text-body) 3%, transparent)", borderColor: `${rayHex("R1")}33` }}>
+src/components/cosmic/GravitationalStability.tsx:234:        <div style={{ flex: 1, height: 4, borderRadius: 2, background: 'var(--surface-glass)', overflow: 'hidden' }}>
+src/components/cosmic/GravitationalStability.tsx:235:          <motion.div
+src/components/cosmic/GravitationalStability.tsx:236:            style={{ height: '100%', borderRadius: 2, background: stability > 0.6 ? 'var(--gold-primary)' : stability > 0.35 ? 'var(--neon-amber)' : 'var(--text-body)' }}
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:73:              style={{
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:74:                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:75:                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:86:              style={{
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:87:                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:88:                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:97:              style={{ background: "var(--gold-primary)", color: "var(--ink-950)", opacity: submitting ? 0.8 : 1 }}
+src/components/results/BlurredReportTeaser.tsx:44:          style={{
+src/components/results/BlurredReportTeaser.tsx:45:            background: 'linear-gradient(135deg, var(--bg-deep-mid, var(--text-body)) 0%, var(--surface-border) 50%, var(--bg-deep, var(--text-body)) 100%)',
+src/components/results/BlurredReportTeaser.tsx:46:            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 8%, transparent))',
+src/components/results/BlurredReportTeaser.tsx:72:                style={{ background: 'color-mix(in srgb, var(--text-body) 4%, transparent)', border: '1px solid color-mix(in srgb, var(--text-body) 7%, transparent)' }}
+src/components/results/BlurredReportTeaser.tsx:74:                <p className="text-xs mb-1" style={{ color: 'var(--text-muted)' }}>
+src/components/results/BlurredReportTeaser.tsx:75:                  {r.label}
+src/components/results/BlurredReportTeaser.tsx:76:                </p>
+src/components/results/BlurredReportTeaser.tsx:77:                <div className="h-1.5 w-full rounded-full" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
+src/components/results/BlurredReportTeaser.tsx:80:                    style={{ width: `${r.pct}%`, background: 'var(--gold-primary)' }}
+src/components/results/BlurredReportTeaser.tsx:91:          style={{
+src/components/results/BlurredReportTeaser.tsx:92:            background: 'var(--bg-deep-mid, var(--text-body))',
+src/components/results/BlurredReportTeaser.tsx:93:            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 8%, transparent))',
+src/components/results/BlurredReportTeaser.tsx:116:                  <span style={{ color: b.color }}>{b.pct}%</span>
+src/components/results/BlurredReportTeaser.tsx:117:                </div>
+src/components/results/BlurredReportTeaser.tsx:118:                <div className="h-2 w-full rounded-full" style={{ background: 'color-mix(in srgb, var(--text-body) 6%, transparent)' }}>
+src/components/results/BlurredReportTeaser.tsx:121:                    style={{ width: `${b.pct}%`, background: b.color }}
+src/components/results/BlurredReportTeaser.tsx:132:        style={{
+src/components/results/BlurredReportTeaser.tsx:133:          position: 'absolute',
+src/components/results/BlurredReportTeaser.tsx:134:          inset: 0,
+src/components/results/BlurredReportTeaser.tsx:135:          background: 'var(--surface-border)',
+src/components/results/BlurredReportTeaser.tsx:161:            style={{
+src/components/results/BlurredReportTeaser.tsx:162:              background: 'var(--gold-primary)',
+src/app/(marketing)/upgrade/page.tsx:385:                style={{ border: "1.5px solid var(--gold-primary)" }}
+src/app/(marketing)/upgrade/page.tsx:389:                  style={{
+src/app/(marketing)/upgrade/page.tsx:390:                    background: "var(--gold-primary)",
+src/components/portal/RetakeInsights.tsx:290:        <div className="h-3 w-36 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 12%, transparent)" }} />
+src/components/portal/RetakeInsights.tsx:291:        <div className="h-2 w-52 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 8%, transparent)" }} />
+src/components/portal/RetakeInsights.tsx:292:        <div className="h-16 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 6%, transparent)" }} />
+src/components/portal/RetakeInsights.tsx:293:        <div className="h-24 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 6%, transparent)" }} />
+src/components/portal/RetakeInsights.tsx:476:                style={{
+src/components/portal/RetakeInsights.tsx:477:                  background: delta.delta >= 0 ? "var(--surface-border)" : "var(--surface-border)",
+src/components/results/ThirtyDayCalendar.tsx:128:          <div className="h-2.5 w-2.5 rounded" style={{ background: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)' }} />
+src/components/results/ThirtyDayCalendar.tsx:132:          <div className="h-2.5 w-2.5 rounded" style={{ background: 'color-mix(in srgb, var(--stroke-400) 40%, transparent)' }} />
+src/components/results/ThirtyDayCalendar.tsx:155:                <div key={day.index} className="aspect-square rounded-lg" style={{ background: 'color-mix(in srgb, var(--violet-650) 5%, transparent)' }} />
+src/components/results/ThirtyDayCalendar.tsx:168:                style={{
+src/components/results/ThirtyDayCalendar.tsx:169:                  background: day.checked
+src/components/results/ThirtyDayCalendar.tsx:170:                    ? 'color-mix(in srgb, var(--gold-primary) 20%, transparent)'
+src/components/results/ThirtyDayCalendar.tsx:171:                    : phaseColor,
+src/components/results/ThirtyDayCalendar.tsx:172:                  border: day.isToday
+src/app/(marketing)/coaches/page.tsx:146:                  style={{
+src/app/(marketing)/coaches/page.tsx:147:                    borderLeft: `3px solid ${color}40`,
+src/app/(marketing)/coaches/page.tsx:148:                    background: `${color}04`,
+src/components/portal/GrowthTrajectory.tsx:188:                  style={{
+src/components/portal/GrowthTrajectory.tsx:189:                    color: dir.color,
+src/components/portal/GrowthTrajectory.tsx:190:                    background: `${dir.color}15`,
+src/components/portal/GrowthTrajectory.tsx:272:                    style={{
+src/components/portal/GrowthTrajectory.tsx:273:                      width: `${Math.max(8, point.net_energy * 0.6)}%`,
+src/components/portal/GrowthTrajectory.tsx:274:                      background:
+src/components/cosmic/ShootingStarActions.tsx:243:              style={{
+src/components/cosmic/ShootingStarActions.tsx:244:                border: `1.5px solid ${rayColor}`,
+src/app/(marketing)/organizations/page.tsx:216:                      style={{
+src/app/(marketing)/organizations/page.tsx:217:                        borderLeft: `3px solid ${color}40`,
+src/app/(marketing)/organizations/page.tsx:218:                        background: `${color}04`,
+src/app/(marketing)/organizations/page.tsx:271:                      style={{
+src/app/(marketing)/organizations/page.tsx:272:                        borderLeft: `3px solid ${color}40`,
+src/app/(marketing)/organizations/page.tsx:273:                        background: `${color}04`,
+src/app/(marketing)/organizations/page.tsx:343:                        style={{
+src/app/(marketing)/organizations/page.tsx:344:                          borderLeft: `3px solid ${color}40`,
+src/app/(marketing)/organizations/page.tsx:345:                          background: `${color}04`,
+src/app/(marketing)/faq/page.tsx:187:                style={{
+src/app/(marketing)/faq/page.tsx:188:                  color: rayHex(cycleRay(i)),
+src/app/(marketing)/faq/page.tsx:189:                  border: `1px solid ${rayHex(cycleRay(i))}33`,
+src/components/portal/WeeklyRepBreakdown.tsx:117:                        style={{
+src/components/portal/WeeklyRepBreakdown.tsx:118:                          height: `${heightPct}%`,
+src/components/portal/WeeklyRepBreakdown.tsx:119:                          minHeight: '2px',
+src/components/portal/WeeklyRepBreakdown.tsx:120:                          background: count > 0
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:51:        style={{
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:52:          borderColor: "color-mix(in srgb, var(--gold-primary) 35%, transparent)",
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:53:          background: "color-mix(in srgb, var(--gold-primary) 8%, transparent)",
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:68:          style={{
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:69:            background: "var(--gold-primary)",
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:98:          style={{
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:99:            borderColor: "color-mix(in srgb, var(--gold-primary) 25%, transparent)",
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:100:            background: "color-mix(in srgb, var(--text-body) 3%, transparent)",
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:118:          style={{
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:119:            borderColor: "color-mix(in srgb, var(--gold-primary) 25%, transparent)",
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:120:            background: "color-mix(in srgb, var(--text-body) 3%, transparent)",
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:131:        style={{
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:132:          background: "var(--gold-primary)",
+src/components/results/ReportUpsell.tsx:41:            style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}
+src/app/(marketing)/sample-report/page.tsx:188:                      style={{ background: rayHex(cycleRay(i)) }}
+src/components/cosmic/IlluminateDashboard.tsx:112:      style={{
+src/components/cosmic/IlluminateDashboard.tsx:113:        background: BG,
+src/components/cosmic/IlluminateDashboard.tsx:114:        borderRadius: 20,
+src/components/cosmic/IlluminateDashboard.tsx:115:        fontFamily: "'Orbitron', system-ui, sans-serif",
+src/components/cosmic/IlluminateDashboard.tsx:116:        border: '1px solid color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/cosmic/IlluminateDashboard.tsx:138:          <span key={i} className="absolute rounded-full" style={{
+src/components/cosmic/IlluminateDashboard.tsx:139:            left: `${d.x}%`, top: `${d.y}%`,
+src/components/cosmic/IlluminateDashboard.tsx:140:            width: d.size, height: d.size,
+src/components/cosmic/IlluminateDashboard.tsx:141:            background: d.color, opacity: d.opacity,
+src/components/cosmic/IlluminateDashboard.tsx:201:        <div style={{
+src/components/cosmic/IlluminateDashboard.tsx:202:          margin: '0 20px',
+src/components/cosmic/IlluminateDashboard.tsx:203:          background: PANEL,
+src/components/cosmic/IlluminateDashboard.tsx:204:          borderRadius: 16,
+src/components/cosmic/IlluminateDashboard.tsx:205:          border: '2px solid transparent',
+src/components/cosmic/IlluminateDashboard.tsx:211:          <div style={{
+src/components/cosmic/IlluminateDashboard.tsx:212:            position: 'absolute', inset: -2, borderRadius: 18, pointerEvents: 'none',
+src/components/cosmic/IlluminateDashboard.tsx:213:            background: `linear-gradient(160deg, ${MAGENTA}66, ${GOLD}44, ${CYAN}22)`,
+src/components/cosmic/IlluminateDashboard.tsx:232:        <div style={{ margin: '10px 20px 0', padding: '10px 16px', borderRadius: 12,
+src/components/cosmic/IlluminateDashboard.tsx:233:          background: `linear-gradient(90deg, color-mix(in srgb, var(--gold-primary) 8%, transparent), color-mix(in srgb, var(--gold-primary) 3%, transparent))`,
+src/components/cosmic/IlluminateDashboard.tsx:286:        <div style={{
+src/components/cosmic/IlluminateDashboard.tsx:287:          flex: 1, background: 'color-mix(in srgb, var(--ink-950) 45%, transparent)', borderRadius: 14,
+src/components/cosmic/IlluminateDashboard.tsx:288:          padding: '14px 18px', border: `1px solid ${MAGENTA}22`,
+src/components/cosmic/IlluminateDashboard.tsx:304:        <div style={{
+src/components/cosmic/IlluminateDashboard.tsx:305:          minWidth: 130, background: 'color-mix(in srgb, var(--ink-950) 55%, transparent)', borderRadius: 14,
+src/components/cosmic/IlluminateDashboard.tsx:388:        <div style={{
+src/components/cosmic/IlluminateDashboard.tsx:389:          position: 'absolute', left: 0, right: 0, height: 4, borderRadius: 99,
+src/components/cosmic/IlluminateDashboard.tsx:390:          background: `linear-gradient(90deg, var(--surface-border) 0%, ${color}22 50%, ${color}55 100%)`,
+src/components/cosmic/IlluminateDashboard.tsx:394:        {pct > 0 && <div style={{
+src/components/cosmic/IlluminateDashboard.tsx:395:          position: 'absolute', left: 0, height: 4, borderRadius: 99,
+src/components/cosmic/IlluminateDashboard.tsx:396:          width: `${pct * 100}%`,
+src/components/cosmic/IlluminateDashboard.tsx:397:          background: `linear-gradient(90deg, var(--surface-border), ${color})`,
+src/components/cosmic/IlluminateDashboard.tsx:403:          <div key={t} style={{
+src/components/cosmic/IlluminateDashboard.tsx:404:            position: 'absolute', left: `${t}%`, top: '50%', transform: 'translate(-50%,-50%)',
+src/components/cosmic/IlluminateDashboard.tsx:405:            width: 1, height: 8, background: 'color-mix(in srgb, var(--text-body) 10%, transparent)',
+src/components/cosmic/IlluminateDashboard.tsx:436:        <div style={{
+src/components/cosmic/IlluminateDashboard.tsx:437:          position: 'absolute', inset: -8, borderRadius: '50%',
+src/components/cosmic/IlluminateDashboard.tsx:438:          background: color,
+src/components/cosmic/IlluminateDashboard.tsx:529:      style={{
+src/components/cosmic/IlluminateDashboard.tsx:530:        flex: 1,
+src/components/cosmic/IlluminateDashboard.tsx:531:        border: 'none',
+src/components/cosmic/IlluminateDashboard.tsx:542:      <div style={{
+src/components/cosmic/IlluminateDashboard.tsx:543:        borderRadius: 12,
+src/components/cosmic/IlluminateDashboard.tsx:544:        padding: '12px 10px 8px',
+src/components/cosmic/IlluminateDashboard.tsx:545:        background: ghost
+src/components/results/GuidedTourOverlay.tsx:115:        style={{
+src/components/results/GuidedTourOverlay.tsx:116:          background: 'var(--overlay-heavy)',
+src/components/results/GuidedTourOverlay.tsx:117:          border: '1px solid var(--surface-border)',
+src/components/results/GuidedTourOverlay.tsx:132:            style={{
+src/components/results/GuidedTourOverlay.tsx:133:              background: 'var(--brand-gold)',
+src/components/results/GuidedTourOverlay.tsx:142:            style={{
+src/components/results/GuidedTourOverlay.tsx:143:              background: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)',
+src/components/results/GuidedTourOverlay.tsx:171:        style={{
+src/components/results/GuidedTourOverlay.tsx:172:          pointerEvents: 'auto',
+src/components/results/GuidedTourOverlay.tsx:173:          background: 'var(--overlay-heavy)',
+src/components/results/GuidedTourOverlay.tsx:174:          border: '1px solid var(--surface-border)',
+src/components/results/GuidedTourOverlay.tsx:185:                style={{
+src/components/results/GuidedTourOverlay.tsx:186:                  width: i === stepIdx ? '16px' : '6px',
+src/components/results/GuidedTourOverlay.tsx:187:                  background: i <= stepIdx ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--stroke-400) 30%, transparent)',
+src/components/results/GuidedTourOverlay.tsx:211:            style={{
+src/components/results/GuidedTourOverlay.tsx:212:              background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+src/components/results/GuidedTourOverlay.tsx:229:            style={{
+src/components/results/GuidedTourOverlay.tsx:230:              background: isLast ? 'var(--brand-gold)' : 'color-mix(in srgb, var(--gold-primary) 15%, transparent)',
+src/components/marketing/ScrollProgress.tsx:28:      style={{
+src/components/marketing/ScrollProgress.tsx:29:        width: `${progress * 100}%`,
+src/components/marketing/ScrollProgress.tsx:30:        background: 'linear-gradient(to right, var(--cosmic-purple, var(--text-body)), var(--gold-primary))',
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:85:              style={{
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:86:                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:87:                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:104:              style={{
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:105:                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:106:                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:123:              style={{
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:124:                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:125:                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:136:            style={{
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:137:              background: "var(--gold-primary)",
+src/components/portal/EclipseCalendarHeatmap.tsx:132:          <span className="flex items-center gap-1 text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/portal/EclipseCalendarHeatmap.tsx:133:            <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'var(--surface-border)' }} />
+src/components/portal/EclipseCalendarHeatmap.tsx:136:          <span className="flex items-center gap-1 text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/portal/EclipseCalendarHeatmap.tsx:137:            <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'color-mix(in srgb, var(--gold-primary) 35%, transparent)' }} />
+src/components/portal/EclipseCalendarHeatmap.tsx:140:          <span className="flex items-center gap-1 text-[10px]" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/portal/EclipseCalendarHeatmap.tsx:141:            <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'var(--surface-border)' }} />
+src/components/portal/EclipseCalendarHeatmap.tsx:170:                    style={{ background: 'transparent' }}
+src/components/portal/EclipseCalendarHeatmap.tsx:182:                  style={{
+src/components/portal/EclipseCalendarHeatmap.tsx:183:                    background: cellColor(day, false),
+src/components/portal/EclipseCalendarHeatmap.tsx:184:                    border: isToday ? '1.5px solid var(--brand-gold)' : '1px solid transparent',
+src/components/portal/EclipseCalendarHeatmap.tsx:200:                      style={{ background: 'var(--brand-gold)' }}
+src/components/marketing/FloatingOrbs.tsx:43:          style={{
+src/components/marketing/FloatingOrbs.tsx:44:            width: orb.size,
+src/components/marketing/FloatingOrbs.tsx:45:            height: orb.size,
+src/components/marketing/FloatingOrbs.tsx:46:            left: orb.x,
+src/components/marketing/FloatingOrbs.tsx:47:            top: orb.y,
+src/components/marketing/FloatingOrbs.tsx:48:            background: `radial-gradient(circle, ${orb.color} 0%, transparent 70%)`,
+src/components/marketing/HeroVideoThumb.tsx:59:          style={{
+src/components/marketing/HeroVideoThumb.tsx:60:            background: 'linear-gradient(135deg, color-mix(in srgb, var(--violet-650) 40%, transparent) 0%, var(--surface-border) 100%)',
+src/components/marketing/HeroVideoThumb.tsx:61:            border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)',
+src/components/marketing/HeroVideoThumb.tsx:70:              style={{
+src/components/marketing/HeroVideoThumb.tsx:71:                background: 'radial-gradient(circle, var(--text-body) 0%, transparent 70%)',
+src/components/marketing/HeroVideoThumb.tsx:78:              style={{
+src/components/marketing/HeroVideoThumb.tsx:79:                background: 'var(--gold-primary)',
+src/components/marketing/HeroVideoThumb.tsx:88:            <div className="absolute bottom-0 left-0 right-0 px-5 pb-5" style={{ background: 'linear-gradient(to top, color-mix(in srgb, var(--ink-950) 70%, transparent), transparent)' }}>
+src/components/results/EdgeCaseAlerts.tsx:137:      style={{
+src/components/results/EdgeCaseAlerts.tsx:138:        background: severity.bg,
+src/components/results/EdgeCaseAlerts.tsx:154:              style={{ background: severity.badge, color: severity.badgeText }}
+src/components/cosmic/RayProgressionStack.tsx:54:      style={{
+src/components/cosmic/RayProgressionStack.tsx:55:        borderLeft: `3px solid ${ramp.hoverBorder}`,
+src/components/cosmic/RayProgressionStack.tsx:56:        background: ramp.bgTint,
+src/components/cosmic/RayProgressionStack.tsx:142:          style={{
+src/components/cosmic/RayProgressionStack.tsx:143:            background:
+src/components/cosmic/RayProgressionStack.tsx:170:            style={{
+src/components/cosmic/RayProgressionStack.tsx:171:              border: '1.5px solid color-mix(in srgb, var(--gold-primary) 40%, transparent)',
+src/components/cosmic/RayProgressionStack.tsx:172:              background: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)',
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:61:          style={{
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:62:            borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:63:            background: "var(--surface-border)",
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:77:              style={{
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:78:                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:79:                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:97:              style={{
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:98:                borderColor: "color-mix(in srgb, var(--gold-primary) 26%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:99:                background: "color-mix(in srgb, var(--text-body) 4%, transparent)",
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:110:            style={{
+src/app/(marketing)/group-coaching/GroupCoachingGateClient.tsx:111:              background: "var(--gold-primary)",
+src/components/marketing/HeroProofStrip.tsx:46:        style={{ background: 'linear-gradient(to right, var(--bg-deep, var(--text-body)), transparent)' }}
+src/components/marketing/HeroProofStrip.tsx:50:        style={{ background: 'linear-gradient(to left, var(--bg-deep, var(--text-body)), transparent)' }}
+src/components/marketing/LightCheckOrchestrator.tsx:53:          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="rounded-xl border px-4 py-3 text-sm" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)', background: 'color-mix(in srgb, var(--ink-950) 30%, transparent)', color: 'var(--text-body)' }} />
+src/components/marketing/LightCheckOrchestrator.tsx:54:          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="rounded-xl border px-4 py-3 text-sm" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)', background: 'color-mix(in srgb, var(--ink-950) 30%, transparent)', color: 'var(--text-body)' }} />
+src/components/marketing/LightCheckOrchestrator.tsx:56:        <button type="button" onClick={() => void unlockCheck()} disabled={submitting || !name.trim() || !email.trim()} className="rounded-xl px-5 py-3 text-sm font-bold" style={{ background: 'var(--gold-primary)', color: 'var(--ink-950)', opacity: submitting ? 0.8 : 1 }}>
+src/components/portal/MorningMirrorOverlay.tsx:156:          style={{ background: 'var(--overlay-heavy)' }}
+src/components/portal/MorningMirrorOverlay.tsx:213:              style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
+src/components/portal/MorningMirrorOverlay.tsx:251:        style={{
+src/components/portal/MorningMirrorOverlay.tsx:252:          background: disabled ? 'color-mix(in srgb, var(--text-body) 10%, transparent)' : 'var(--brand-gold)',
+src/components/portal/MorningMirrorOverlay.tsx:257:          style={{
+src/components/portal/MorningMirrorOverlay.tsx:258:            background: disabled ? 'var(--text-on-dark-muted)' : 'var(--brand-black)',
+src/components/results/WhyThisMatters.tsx:131:                  style={{ background: indicatorColor }}
+src/app/(marketing)/watch-me/WatchMeGateClient.tsx:33:          <input value={name} onChange={(e)=>setName(e.target.value)} placeholder="Name" className="rounded-xl border px-4 py-3 text-sm" style={{ background: "color-mix(in srgb, var(--ink-950) 50%, transparent)", borderColor: "color-mix(in srgb, var(--neon-cyan) 20%, transparent)", color: "var(--text-body)" }} />
+src/app/(marketing)/watch-me/WatchMeGateClient.tsx:34:          <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Email" className="rounded-xl border px-4 py-3 text-sm" style={{ background: "color-mix(in srgb, var(--ink-950) 50%, transparent)", borderColor: "color-mix(in srgb, var(--neon-cyan) 20%, transparent)", color: "var(--text-body)" }} />
+src/app/(marketing)/watch-me/WatchMeGateClient.tsx:36:        <button onClick={() => void unlock()} disabled={!name || !email || loading} className="rounded-xl px-4 py-2.5 text-sm font-bold" style={{ background: "var(--gold-primary)", color: "var(--ink-950)" }}>
+src/components/portal/ContextualActions.tsx:106:                <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)', color: 'var(--brand-gold)' }}>
+src/components/marketing/BrandLockup.tsx:72:          style={{
+src/components/marketing/BrandLockup.tsx:73:            fontFamily: 'var(--font-cosmic-display)',
+src/components/marketing/BrandLockup.tsx:74:            background: 'linear-gradient(135deg, var(--text-body) 0%, var(--text-body) 40%, var(--text-body) 100%)',
+src/components/marketing/BrandLockup.tsx:94:          style={{
+src/components/marketing/BrandLockup.tsx:95:            background: 'linear-gradient(to right, transparent, color-mix(in srgb, var(--gold-primary) 40%, transparent), transparent)',
+src/components/results/BottomRay.tsx:56:                style={{ background: `${rayHex(justInRay.ray_id)}15`, color: rayHex(justInRay.ray_id) }}
+src/components/results/BottomRay.tsx:101:          <div className="rounded-xl p-3" style={{ background: 'var(--surface-glass)' }}>
+src/components/results/BottomRay.tsx:103:            <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>{justInRay.work_rep}</p>
+src/components/results/BottomRay.tsx:104:          </div>
+src/components/results/BottomRay.tsx:105:          <div className="rounded-xl p-3" style={{ background: 'var(--surface-glass)' }}>
+src/components/portal/StreakFire.tsx:57:          style={{
+src/components/portal/StreakFire.tsx:58:            background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 20%, transparent) 0%, transparent 70%)',
+src/components/portal/StreakFire.tsx:119:          <div className="absolute" style={{ top: 2, left: '50%', width: 3, height: 3, borderRadius: '50%', background: 'var(--text-body)', animation: 'streakSpark 1.2s ease-out infinite', opacity: 0.8 }} />
+src/components/portal/StreakFire.tsx:120:          <div className="absolute" style={{ top: 6, left: '30%', width: 2, height: 2, borderRadius: '50%', background: 'var(--brand-gold)', animation: 'streakSpark 1.5s ease-out infinite 0.4s', opacity: 0.6 }} />
+src/components/portal/StreakFire.tsx:121:          <div className="absolute" style={{ top: 4, left: '65%', width: 2, height: 2, borderRadius: '50%', background: 'var(--text-body)', animation: 'streakSpark 1.8s ease-out infinite 0.8s', opacity: 0.7 }} />
+src/components/portal/StreakFire.tsx:158:          style={{
+src/components/portal/StreakFire.tsx:159:            background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)',
+src/components/portal/StreakFire.tsx:160:            color: 'var(--brand-gold)',
+src/components/portal/StreakFire.tsx:161:            border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
+src/components/results/SubfacetHeatmap.tsx:62:              style={{ background: item.color }}
+src/components/results/SubfacetHeatmap.tsx:109:                          style={{
+src/components/results/SubfacetHeatmap.tsx:110:                            background: color,
+src/components/results/SubfacetHeatmap.tsx:135:          style={{
+src/components/results/SubfacetHeatmap.tsx:136:            background: `${scoreColor(selected.score)}10`,
+src/components/results/SubfacetHeatmap.tsx:137:            border: `1px solid ${scoreColor(selected.score)}30`,
+src/components/results/SubfacetHeatmap.tsx:146:              style={{ background: `${scoreColor(selected.score)}20`, color: scoreColor(selected.score) }}
+src/components/cosmic/CopyGuardrails.tsx:23:          <p style={{ color: 'var(--text-on-dark-muted)', fontSize: 10, marginBottom: 6 }}>TOOLTIP</p>
+src/components/cosmic/CopyGuardrails.tsx:24:          <div
+src/components/cosmic/CopyGuardrails.tsx:25:            style={{
+src/components/cosmic/CopyGuardrails.tsx:26:              background: 'var(--surface-border)',
+src/components/cosmic/CopyGuardrails.tsx:83:          <p style={{ color: 'var(--text-on-dark-muted)', fontSize: 10, marginBottom: 6 }}>BANNER BAR</p>
+src/components/cosmic/CopyGuardrails.tsx:84:          <div
+src/components/cosmic/CopyGuardrails.tsx:85:            style={{
+src/components/cosmic/CopyGuardrails.tsx:86:              background: 'var(--text-body)',
+src/components/cosmic/CopyGuardrails.tsx:110:                style={{
+src/components/cosmic/CopyGuardrails.tsx:111:                  background: 'var(--surface-glass)',
+src/components/cosmic/CopyGuardrails.tsx:112:                  border: '1px solid var(--surface-border)',
+src/components/marketing/RaySpectrumBar.tsx:178:                  style={{ background: phaseStyle.border }}
+src/components/marketing/RaySpectrumBar.tsx:188:                  style={{ background: phaseStyle.border }}
+src/components/marketing/RaySpectrumBar.tsx:196:              style={{ background: 'transparent' }}
+src/components/marketing/RaySpectrumBar.tsx:197:              whileHover={{
+src/components/marketing/RaySpectrumBar.tsx:198:                background: 'color-mix(in srgb, var(--violet-650) 12%, transparent)',
+src/components/marketing/RaySpectrumBar.tsx:229:                  style={{
+src/components/marketing/RaySpectrumBar.tsx:230:                    background:
+src/components/marketing/RaySpectrumBar.tsx:239:                  style={{
+src/components/marketing/RaySpectrumBar.tsx:240:                    background: `linear-gradient(90deg, color-mix(in srgb, var(--violet-650) 60%, transparent) 0%, ${ray.color} 60%, var(--gold-primary) 100%)`,
+src/components/marketing/RaySpectrumBar.tsx:254:                  style={{
+src/components/marketing/RaySpectrumBar.tsx:255:                    background: ray.color,
+src/components/marketing/StickyCtaBar.tsx:29:          style={{
+src/components/marketing/StickyCtaBar.tsx:30:            background: 'color-mix(in srgb, var(--ink-950) 94%, transparent)',
+src/components/marketing/StickyCtaBar.tsx:44:              style={{
+src/components/marketing/StickyCtaBar.tsx:45:                background: 'var(--gold-primary)',
+src/app/(marketing)/enterprise/page.tsx:40:          style={{ background: 'color-mix(in srgb, var(--ink-950) 65%, transparent)', border: '1px solid color-mix(in srgb, var(--neon-cyan) 18%, transparent)' }}
+src/components/portal/PortalDashboardShell.tsx:86:      <div style={{
+src/components/portal/PortalDashboardShell.tsx:87:        background:'var(--text-body)',borderRadius:20,padding:'60px 0',
+src/components/portal/PortalDashboardShell.tsx:94:        <div style={{width:48,height:48,borderRadius:'50%',border:'3px solid color-mix(in srgb, var(--neon-cyan) 20%, transparent)',borderTop:'3px solid var(--text-body)',animation:'spin 1s linear infinite'}} />
+src/components/portal/PortalDashboardShell.tsx:100:    <div className="relative rounded-2xl p-4 sm:p-5 overflow-hidden" style={{ background: 'var(--bg-deep)', border: '1px solid color-mix(in srgb, var(--neon-cyan) 20%, transparent)' }}>
+src/components/portal/PortalDashboardShell.tsx:107:        <div style={{
+src/components/portal/PortalDashboardShell.tsx:108:          marginBottom:16,padding:'12px 18px',borderRadius:12,
+src/components/portal/PortalDashboardShell.tsx:109:          background:'var(--surface-border)',border:'1px solid var(--surface-border)',
+src/app/(marketing)/podcast/page.tsx:40:        <div className="pointer-events-none absolute inset-0 opacity-20" style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${rayHex("R1")} 0%, transparent 70%)` }} />
+src/app/(marketing)/podcast/page.tsx:55:              <Link href="/assessment" className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all hover:opacity-80" style={{ background: "var(--brand-purple, var(--text-body))" }}>
+src/app/(marketing)/podcast/page.tsx:66:          <div className="rounded-2xl border p-8" style={{ background: "color-mix(in srgb, var(--text-body) 3%, transparent)", borderColor: "color-mix(in srgb, var(--text-body) 8%, transparent)" }}>
+src/app/(marketing)/podcast/page.tsx:74:                <div key={v.title} className="flex items-start gap-4 rounded-xl border p-4" style={{ background: "color-mix(in srgb, var(--text-body) 3%, transparent)", borderColor: `${rayHex("R9")}33` }}>
+src/app/(marketing)/podcast/page.tsx:75:                  <div className="mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-xs font-bold" style={{ background: `${rayHex("R1")}22`, color: rayHex("R1") }}>{v.year}</div>
+src/app/(marketing)/podcast/page.tsx:101:              <div key={item.title} className="rounded-xl border p-5" style={{ background: "color-mix(in srgb, var(--text-body) 3%, transparent)", borderTop: `2px solid ${rayHex(item.ray)}`, borderLeft: "1px solid color-mix(in srgb, var(--text-body) 6%, transparent)", borderRight: "1px solid color-mix(in srgb, var(--text-body) 6%, transparent)", borderBottom: "1px solid color-mix(in srgb, var(--text-body) 6%, transparent)" }}>
+src/components/results/PsychometricSummary.tsx:97:              style={{
+src/components/results/PsychometricSummary.tsx:98:                background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+src/components/results/PsychometricSummary.tsx:99:                border: '1px solid color-mix(in srgb, var(--stroke-400) 15%, transparent)',
+src/components/results/PsychometricSummary.tsx:137:            style={{
+src/components/results/PsychometricSummary.tsx:138:              background: 'color-mix(in srgb, var(--violet-650) 12%, transparent)',
+src/components/results/PsychometricSummary.tsx:139:              border: '1px solid color-mix(in srgb, var(--stroke-400) 10%, transparent)',
+src/components/results/PsychometricSummary.tsx:204:              style={{
+src/components/results/PsychometricSummary.tsx:205:                background: 'color-mix(in srgb, var(--violet-650) 10%, transparent)',
+src/components/results/PsychometricSummary.tsx:218:                  style={{
+src/components/results/PsychometricSummary.tsx:219:                    background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)',
+src/components/results/PPDConditional.tsx:17:        style={{
+src/components/results/PPDConditional.tsx:18:          background: acting.status === 'FLAGGED'
+src/components/results/PPDConditional.tsx:19:            ? 'var(--surface-border)'
+src/components/results/PPDConditional.tsx:20:            : 'var(--surface-glass)',
+src/components/results/PPDConditional.tsx:21:          border: acting.status === 'FLAGGED'
+src/components/cosmic/CosmicStarfield.tsx:43:          style={{
+src/components/cosmic/CosmicStarfield.tsx:44:            left: `${star.x}%`,
+src/components/cosmic/CosmicStarfield.tsx:45:            top: `${star.y}%`,
+src/components/cosmic/CosmicStarfield.tsx:46:            width: star.size,
+src/components/cosmic/CosmicStarfield.tsx:47:            height: star.size,
+src/components/cosmic/CosmicStarfield.tsx:48:            background: star.size > 1 ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 80%, transparent)',
+src/components/marketing/ShareableSignatureCard.tsx:87:        style={{ border: `1px solid ${neonColor}30` }}
+src/components/portal/PortalDashboard.tsx:775:                    style={{ background: ramp.badgeBg, color: ramp.full, border: `1px solid ${ramp.hoverBorder}` }}
+src/components/portal/PortalDashboard.tsx:791:                    style={{ background: ramp.bgTint, color: ramp.full, border: `1px solid ${ramp.border}`, ...glowStyle }}
+src/components/results/OutcomeTagCards.tsx:55:      style={{
+src/components/results/OutcomeTagCards.tsx:56:        background: 'color-mix(in srgb, var(--violet-650) 12%, transparent)',
+src/components/results/OutcomeTagCards.tsx:70:            style={{ background: conf.bg, color: conf.color }}
+src/app/(portal)/results/ReportDownloadButton.tsx:65:      style={{
+src/app/(portal)/results/ReportDownloadButton.tsx:66:        background: "var(--gold-primary)",
+src/components/results/ToolReadiness.tsx:23:              <h4 className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>{tool.label}</h4>
+src/components/results/ToolReadiness.tsx:24:              <span
+src/components/results/ToolReadiness.tsx:25:                className="text-xs px-2 py-0.5 rounded-full"
+src/components/results/ToolReadiness.tsx:26:                style={{ background: 'var(--surface-glass)', color: 'var(--text-on-dark-secondary)' }}
+src/components/marketing/DailyLoopVisual.tsx:82:                style={{
+src/components/marketing/DailyLoopVisual.tsx:83:                  background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)',
+src/components/marketing/DailyLoopVisual.tsx:84:                  color: 'var(--gold-primary)',
+src/components/marketing/DailyLoopVisual.tsx:85:                  border: '1px solid color-mix(in srgb, var(--gold-primary) 25%, transparent)',
+src/components/marketing/DailyLoopVisual.tsx:93:                  style={{
+src/components/marketing/DailyLoopVisual.tsx:94:                    background: 'linear-gradient(to bottom, color-mix(in srgb, var(--gold-primary) 20%, transparent), color-mix(in srgb, var(--gold-primary) 5%, transparent))',
+src/components/marketing/DailyLoopVisual.tsx:113:                    style={{
+src/components/marketing/DailyLoopVisual.tsx:114:                      background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)',
+src/components/marketing/DailyLoopVisual.tsx:142:        style={{
+src/components/marketing/DailyLoopVisual.tsx:143:          border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
+src/components/portal/ActivityStream.tsx:100:              style={{ background: typeColor(event.type) }}
+src/app/api/og/results/[runId]/route.tsx:96:          style={{
+src/app/api/og/results/[runId]/route.tsx:97:            width: "80px",
+src/app/api/og/results/[runId]/route.tsx:98:            height: "3px",
+src/app/api/og/results/[runId]/route.tsx:99:            background: "var(--gold-primary)",
+src/app/api/og/results/[runId]/route.tsx:141:            style={{
+src/app/api/og/results/[runId]/route.tsx:142:              padding: "6px 16px",
+src/app/api/og/results/[runId]/route.tsx:143:              borderRadius: "20px",
+src/app/api/og/results/[runId]/route.tsx:144:              fontSize: "18px",
+src/app/api/og/results/[runId]/route.tsx:145:              fontWeight: 600,
+src/app/api/og/results/[runId]/route.tsx:146:              background: "color-mix(in srgb, var(--gold-primary) 12%, transparent)",
+src/app/api/og/results/[runId]/route.tsx:154:            style={{
+src/app/api/og/results/[runId]/route.tsx:155:              padding: "6px 16px",
+src/app/api/og/results/[runId]/route.tsx:156:              borderRadius: "20px",
+src/app/api/og/results/[runId]/route.tsx:157:              fontSize: "18px",
+src/app/api/og/results/[runId]/route.tsx:158:              fontWeight: 600,
+src/app/api/og/results/[runId]/route.tsx:159:              background: "color-mix(in srgb, var(--stroke-400) 15%, transparent)",
+src/components/cosmic/BinaryStarPartnership.tsx:198:        <div style={{ flex: 1, height: 4, borderRadius: 2, background: 'var(--surface-glass)', overflow: 'hidden' }}>
+src/components/cosmic/BinaryStarPartnership.tsx:199:          <motion.div
+src/components/cosmic/BinaryStarPartnership.tsx:200:            style={{ height: '100%', borderRadius: 2, background: isAligned ? 'var(--gold-primary)' : 'var(--neon-violet)' }}
+src/app/(marketing)/be-the-light/page.tsx:224:                          style={{ background: dotColor }}
+src/app/(marketing)/be-the-light/page.tsx:265:                    style={{
+src/app/(marketing)/be-the-light/page.tsx:266:                      borderLeft: `3px solid ${color}40`,
+src/app/(marketing)/be-the-light/page.tsx:267:                      background: `${color}06`,
+src/app/api/og/signature/route.tsx:197:            style={{
+src/app/api/og/signature/route.tsx:198:              width: isStory ? "80px" : "60px",
+src/app/api/og/signature/route.tsx:199:              height: "1px",
+src/app/api/og/signature/route.tsx:200:              background: `linear-gradient(90deg, transparent, ${neonColor}50, transparent)`,
+src/app/api/og/signature/route.tsx:263:            <div style={{ flex: 1, background: ray1Hex }} />
+src/app/api/og/signature/route.tsx:264:            <div style={{ flex: 1, background: ray2Hex }} />
+src/components/results/HeadlineCard.tsx:44:      style={{
+src/components/results/HeadlineCard.tsx:45:        background: 'linear-gradient(135deg, color-mix(in srgb, var(--violet-650) 25%, transparent) 0%, var(--surface-border) 100%)',
+src/components/results/HeadlineCard.tsx:46:        border: '1px solid var(--surface-border)',
+src/components/results/HeadlineCard.tsx:70:              style={{
+src/components/results/HeadlineCard.tsx:71:                background: `${rayColor(ray.ray_id)}15`,
+src/components/results/HeadlineCard.tsx:72:                border: `1px solid ${rayColor(ray.ray_id)}30`,
+src/components/results/HeadlineCard.tsx:78:                style={{ background: rayColor(ray.ray_id) }}
+src/components/results/HeadlineCard.tsx:86:              style={{
+src/components/results/HeadlineCard.tsx:87:                background: `${eclipseColors[eclipse.level] ?? 'var(--gold-primary)'}12`,
+src/components/results/HeadlineCard.tsx:88:                border: `1px solid ${eclipseColors[eclipse.level] ?? 'var(--gold-primary)'}25`,
+src/app/(marketing)/143/page.tsx:176:                      style={{
+src/app/(marketing)/143/page.tsx:177:                        borderLeft: `3px solid ${color}40`,
+src/app/(marketing)/143/page.tsx:178:                        background: `${color}06`,
+src/app/(marketing)/143/page.tsx:234:                        style={{
+src/app/(marketing)/143/page.tsx:235:                          background: stepColor,
+src/app/(marketing)/143/page.tsx:371:                      style={{ background: rayHex(dotColors[i % 5]) }}
+src/components/portal/NotificationToggle.tsx:87:        style={{
+src/components/portal/NotificationToggle.tsx:88:          width: 44,
+src/components/portal/NotificationToggle.tsx:89:          height: 24,
+src/components/portal/NotificationToggle.tsx:90:          background: state === 'on'
+src/components/portal/NotificationToggle.tsx:104:          style={{
+src/components/portal/NotificationToggle.tsx:105:            width: 20,
+src/components/portal/NotificationToggle.tsx:106:            height: 20,
+src/components/portal/NotificationToggle.tsx:107:            background: state === 'on' ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 50%, transparent)',
+src/components/marketing/OSExplainer.tsx:78:                  style={{
+src/components/marketing/OSExplainer.tsx:79:                    background: phase.highlight
+src/components/marketing/OSExplainer.tsx:91:                    style={{
+src/components/marketing/OSExplainer.tsx:92:                      background: 'linear-gradient(to bottom, color-mix(in srgb, var(--gold-primary) 20%, transparent), color-mix(in srgb, var(--gold-primary) 5%, transparent))',
+src/components/portal/StarChart.tsx:103:      style={{
+src/components/portal/StarChart.tsx:104:        background: "linear-gradient(180deg, var(--bg-deep), color-mix(in srgb, var(--bg-deep) 92%, transparent))",
+src/components/portal/StarChart.tsx:112:      <div className="relative w-full overflow-hidden rounded-2xl" style={{ minHeight: 320, background: BG_DEEP }}>
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:91:        style={{
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:92:          background: `${color}22`,
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:93:          color,
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:94:          border: `1px solid ${color}44`,
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:162:              style={{ background: "var(--surface-border)", color: "var(--text-body)", border: "1px solid var(--surface-border)" }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:195:                      <span style={{ color: rayColor }}>{Math.round(sf.score)}</span>
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:196:                    </div>
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:197:                    <div className="h-1.5 rounded-full" style={{ background: "color-mix(in srgb, var(--text-body) 8%, transparent)" }}>
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:200:                        style={{ background: rayColor }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:235:                      <span style={{ color: "var(--text-on-dark-muted)" }}>{Math.round(sf.score)}</span>
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:236:                    </div>
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:237:                    <div className="h-1.5 rounded-full" style={{ background: "color-mix(in srgb, var(--text-body) 8%, transparent)" }}>
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:240:                        style={{ background: "var(--surface-border)" }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:267:              style={{
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:268:                background: `${rayColor}12`,
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:269:                border: `1px solid ${rayColor}33`,
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:293:          style={{ border: `1px solid ${rayColor}44` }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:297:            <h2 className="text-lg font-bold" style={{ color: "var(--text-on-dark)" }}>Your Micro-Rep</h2>
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:298:            <span
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:299:              className="text-xs ml-auto px-2 py-0.5 rounded-full"
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:300:              style={{ background: `${rayColor}20`, color: rayColor }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:310:            style={{ background: `${rayColor}0f`, border: `1px solid ${rayColor}33` }}
+src/components/marketing/CompetitorPricingContext.tsx:35:            style={{
+src/components/marketing/CompetitorPricingContext.tsx:36:              background: 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+src/components/marketing/CompetitorPricingContext.tsx:37:              border: '1px solid color-mix(in srgb, var(--text-body) 8%, transparent)',
+src/components/marketing/CompetitorPricingContext.tsx:65:        style={{
+src/components/marketing/CompetitorPricingContext.tsx:66:          background: 'color-mix(in srgb, var(--gold-primary) 4%, transparent)',
+src/components/marketing/CompetitorPricingContext.tsx:67:          border: '1.5px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
+src/components/cosmic/OrbitMap.tsx:397:          style={{
+src/components/cosmic/OrbitMap.tsx:398:            background: 'var(--surface-glass)',
+src/components/cosmic/OrbitMap.tsx:399:            border: '1px solid var(--surface-border)',
+src/app/(portal)/results/page.tsx:178:          style={{
+src/app/(portal)/results/page.tsx:179:            background: "var(--gold-primary)",
+src/components/portal/InviteColleagueCard.tsx:114:            style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
+src/components/portal/InviteColleagueCard.tsx:137:              style={{
+src/components/portal/InviteColleagueCard.tsx:138:                background: 'var(--surface-glass)',
+src/components/portal/InviteColleagueCard.tsx:139:                border: '1px solid var(--surface-border)',
+src/components/portal/InviteColleagueCard.tsx:149:              style={{
+src/components/portal/InviteColleagueCard.tsx:150:                background: 'var(--surface-glass)',
+src/components/portal/InviteColleagueCard.tsx:151:                border: '1px solid var(--surface-border)',
+src/components/portal/InviteColleagueCard.tsx:171:                  style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
+src/components/portal/InviteColleagueCard.tsx:210:                style={{
+src/components/portal/InviteColleagueCard.tsx:211:                  background: inv.status === 'completed'
+src/components/portal/InviteColleagueCard.tsx:242:                  style={{ background: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)', border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}
+src/components/cosmic/SolarWindMomentum.tsx:203:        <span style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11 }}>Your momentum</span>
+src/components/cosmic/SolarWindMomentum.tsx:204:        <span
+src/components/cosmic/SolarWindMomentum.tsx:205:          className="status-pill"
+src/components/cosmic/SolarWindMomentum.tsx:206:          style={{
+src/components/cosmic/SolarWindMomentum.tsx:207:            background: isStrong ? 'var(--surface-border)' : 'var(--surface-border)',
+src/components/RayChart.tsx:30:        style={{
+src/components/RayChart.tsx:31:          fontFamily: "'Orbitron', var(--font-cosmic-display)",
+src/components/RayChart.tsx:32:        }}
+src/components/RayChart.tsx:33:      >
+src/components/RayChart.tsx:34:        <div className="pointer-events-none absolute inset-0" style={{ background: 'repeating-linear-gradient(180deg, transparent 0px, transparent 2px, color-mix(in srgb, var(--ink-950) 25%, transparent) 3px)' }} />
+src/components/RayChart.tsx:57:                    style={{
+src/components/RayChart.tsx:58:                      width: `${Math.max(displayScore, 3)}%`,
+src/components/RayChart.tsx:59:                      background: `linear-gradient(90deg, ${color}, ${color}CC)`,
+src/components/results/ShareWithCoachModal.tsx:87:        style={{ background: 'var(--overlay-heavy)' }}
+src/components/results/ShareWithCoachModal.tsx:128:                    style={{
+src/components/results/ShareWithCoachModal.tsx:129:                      background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/results/ShareWithCoachModal.tsx:130:                      border: '1px solid var(--surface-border)',
+src/components/results/ShareWithCoachModal.tsx:147:                    style={{
+src/components/results/ShareWithCoachModal.tsx:148:                      background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/results/ShareWithCoachModal.tsx:149:                      border: '1px solid var(--surface-border)',
+src/components/results/ShareWithCoachModal.tsx:164:                    style={{
+src/components/results/ShareWithCoachModal.tsx:165:                      background: 'var(--surface-glass)',
+src/components/results/ShareWithCoachModal.tsx:166:                      border: '1px solid var(--surface-border)',
+src/components/results/ShareWithCoachModal.tsx:176:                    style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
+src/components/results/ShareWithCoachModal.tsx:197:                style={{
+src/components/results/ShareWithCoachModal.tsx:198:                  background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/results/ShareWithCoachModal.tsx:199:                  border: '1px solid var(--surface-border)',
+src/components/results/ShareWithCoachModal.tsx:211:                  style={{ background: 'var(--brand-gold)', color: 'var(--brand-black)' }}
+src/components/results/ShareWithCoachModal.tsx:219:                  style={{
+src/components/results/ShareWithCoachModal.tsx:220:                    background: 'var(--surface-glass)',
+src/components/results/ShareWithCoachModal.tsx:221:                    border: '1px solid var(--surface-border)',
+src/components/portal/SignalPickerCard.tsx:42:        <span className="text-[10px] uppercase tracking-widest rounded-full px-2 py-1" style={{ color: 'var(--brand-gold)', background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)' }}>
+src/components/portal/SignalPickerCard.tsx:59:                style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
+src/components/portal/SignalPickerCard.tsx:83:                style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
+src/app/(marketing)/standard/page.tsx:188:                      style={{
+src/app/(marketing)/standard/page.tsx:189:                        borderLeft: `3px solid ${color}40`,
+src/app/(marketing)/standard/page.tsx:190:                        background: `${color}04`,
+src/app/(marketing)/standard/page.tsx:259:                style={{
+src/app/(marketing)/standard/page.tsx:260:                  background: "color-mix(in srgb, var(--gold-primary) 6%, transparent)",
+src/app/(marketing)/standard/page.tsx:373:                style={{ border: "none" }}
+src/components/cosmic/SolarCoreScore.tsx:649:              style={{ background: 'var(--overlay-heavy)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
+src/components/cosmic/SolarCoreScore.tsx:670:        style={{ background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))', border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))' }}
+src/components/cosmic/SolarCoreScore.tsx:674:          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'linear-gradient(90deg, var(--text-body), var(--text-body))' }} />
+src/components/cosmic/SolarCoreScore.tsx:678:          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'var(--surface-border)' }} />
+src/components/cosmic/SolarCoreScore.tsx:682:          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'var(--cosmic-svg-bg)' }} />
+src/components/cosmic/SolarCoreScore.tsx:686:          <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: 'var(--surface-border)' }} />
+src/components/cosmic/SolarCoreScore.tsx:703:            style={{ background: 'var(--overlay-heavy)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
+src/components/cosmic/SolarCoreScore.tsx:734:                <div className="h-2 rounded-full overflow-hidden" style={{ background: 'var(--surface-glass)' }}>
+src/components/cosmic/SolarCoreScore.tsx:735:                  <motion.div className="h-full rounded-full"
+src/components/cosmic/SolarCoreScore.tsx:736:                    style={{ background: 'linear-gradient(90deg, var(--brand-purple), var(--brand-gold))' }}
+src/components/cosmic/SolarCoreScore.tsx:753:                  style={{ background: 'var(--surface-glass)', color: 'var(--text-on-dark-secondary)' }}>
+src/components/cosmic/SolarCoreScore.tsx:758:                    style={{ background: 'var(--surface-border)', color: 'var(--brand-gold)' }}>
+src/components/cosmic/SolarCoreScore.tsx:764:                    style={{ background: 'var(--surface-glass)', color: 'var(--text-on-dark-secondary)' }}>
+src/components/cosmic/SolarCoreScore.tsx:770:                    style={{ background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)', color: 'var(--neon-violet)' }}>
+src/components/ReflectionInput.tsx:26:        style={{
+src/components/ReflectionInput.tsx:27:          background: 'var(--surface-glass)',
+src/components/portal/QuickRepFAB.tsx:49:          style={{ background: 'color-mix(in srgb, var(--ink-950) 60%, transparent)' }}
+src/components/results/ExecutiveSignals.tsx:52:      style={{
+src/components/results/ExecutiveSignals.tsx:53:        background: expanded ? config.bg : 'var(--surface-glass)',
+src/components/results/ExecutiveSignals.tsx:65:          style={{ background: config.dot }}
+src/components/results/ExecutiveSignals.tsx:77:              style={{ background: config.bg, color: config.color }}
+src/components/results/ExecutiveSignals.tsx:125:                    style={{ background: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)', color: 'var(--text-on-dark-secondary)' }}
+src/components/results/ExecutiveSignals.tsx:234:          style={{
+src/components/results/ExecutiveSignals.tsx:235:            background: activeTab === 'exec' ? 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' : 'color-mix(in srgb, var(--violet-650) 15%, transparent)',
+src/components/results/ExecutiveSignals.tsx:245:          style={{
+src/components/results/ExecutiveSignals.tsx:246:            background: activeTab === 'core' ? 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' : 'color-mix(in srgb, var(--violet-650) 15%, transparent)',
+src/components/results/ExecutiveSignals.tsx:259:            <span className="h-2 w-2 rounded-full" style={{ background: LEVEL_CONFIG.HIGH.dot }} />
+src/components/results/ExecutiveSignals.tsx:267:            <span className="h-2 w-2 rounded-full" style={{ background: LEVEL_CONFIG.ELEVATED.dot }} />
+src/components/results/ExecutiveSignals.tsx:275:            <span className="h-2 w-2 rounded-full" style={{ background: LEVEL_CONFIG.MODERATE.dot }} />
+src/components/results/ExecutiveSignals.tsx:283:            <span className="h-2 w-2 rounded-full" style={{ background: LEVEL_CONFIG.LOW.dot }} />
+src/components/portal/PortalTabBar.tsx:54:      style={{
+src/components/portal/PortalTabBar.tsx:55:        background: 'var(--overlay-heavy)',
+src/components/portal/PortalTabBar.tsx:81:                style={{ background: 'var(--brand-gold)' }}
+src/app/preview-cosmic/page.tsx:102:      <section className="relative overflow-hidden" style={{ minHeight: '50vh' }}>
+src/app/preview-cosmic/page.tsx:103:        <div
+src/app/preview-cosmic/page.tsx:104:          className="absolute inset-0 pointer-events-none" aria-hidden="true"
+src/app/preview-cosmic/page.tsx:105:          style={{ background: 'radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--violet-650) 30%, transparent) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, color-mix(in srgb, var(--gold-primary) 5%, transparent) 0%, transparent 40%), radial-gradient(1px 1px at 12% 22%, color-mix(in srgb, var(--text-body) 30%, transparent) 1px, transparent 0), radial-gradient(1px 1px at 72% 32%, color-mix(in srgb, var(--text-body) 18%, transparent) 1px, transparent 0), radial-gradient(1px 1px at 88% 60%, color-mix(in srgb, var(--text-body) 25%, transparent) 1px, transparent 0)' }}
+src/app/preview-cosmic/page.tsx:324:                    style={{ background: 'var(--brand-gold)', color: 'var(--ink-950)' }}
+src/app/preview-cosmic/page.tsx:353:            <span className="block h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold))' }} />
+src/app/preview-cosmic/page.tsx:354:            <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: 'var(--brand-gold)' }}>{n}</p>
+src/app/preview-cosmic/page.tsx:355:            <span className="block h-px flex-1 max-w-[80px]" style={{ background: 'linear-gradient(90deg, var(--brand-gold), transparent)' }} />
+src/app/preview-cosmic/page.tsx:370:        <span className="block h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, var(--brand-gold))' }} />
+src/app/preview-cosmic/page.tsx:371:        <span className="block h-px flex-1" style={{ background: 'linear-gradient(90deg, var(--brand-gold), transparent)' }} />
+src/components/portal/PortalWelcome.tsx:38:          style={{ background: 'var(--bg-deep, var(--text-body))' }}
+src/components/portal/PortalWelcome.tsx:46:            style={{
+src/components/portal/PortalWelcome.tsx:47:              width: 120,
+src/components/portal/PortalWelcome.tsx:48:              height: 120,
+src/components/portal/PortalWelcome.tsx:49:              background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 25%, transparent) 0%, transparent 70%)',
+src/components/portal/PortalWelcome.tsx:82:            style={{
+src/components/portal/PortalWelcome.tsx:83:              width: 80,
+src/components/portal/PortalWelcome.tsx:84:              background: 'linear-gradient(90deg, transparent, var(--gold-primary), transparent)',
+src/components/portal/RetroBootSequence.tsx:72:      style={{ background: 'radial-gradient(circle at top, color-mix(in srgb, var(--violet-650) 90%, transparent), color-mix(in srgb, var(--ink-950) 95%, transparent))' }}
+src/components/portal/RetroBootSequence.tsx:80:        style={{ background: 'color-mix(in srgb, var(--ink-950) 75%, transparent)', borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}
+src/components/portal/RetroBootSequence.tsx:85:          style={{
+src/components/portal/RetroBootSequence.tsx:86:            background: 'repeating-linear-gradient(180deg, color-mix(in srgb, var(--text-body) 8%, transparent) 0px, color-mix(in srgb, var(--text-body) 2%, transparent) 2px, transparent 4px, transparent 8px)',
+src/components/portal/RetroBootSequence.tsx:114:            style={{ background: 'color-mix(in srgb, var(--gold-primary) 16%, transparent)', color: 'var(--brand-gold)' }}
+src/components/SiteFooter.tsx:10:      style={{ background: "var(--gold-primary)" }}
+src/components/SiteFooter.tsx:34:        <div className="mb-10" style={{ height: "2px", background: "color-mix(in srgb, var(--on-gold) 12%, transparent)" }} />
+src/components/cosmic/BlackHoleFlags.tsx:357:              style={{
+src/components/cosmic/BlackHoleFlags.tsx:358:                background: 'var(--surface-border)',
+src/components/cosmic/BlackHoleFlags.tsx:359:                border: '1.5px solid var(--text-body)',
+src/components/cosmic/BlackHoleFlags.tsx:378:                    style={{
+src/components/cosmic/BlackHoleFlags.tsx:379:                      background: 'var(--surface-glass)',
+src/components/cosmic/BlackHoleFlags.tsx:380:                      border: '1px solid var(--surface-border)',
+src/app/(marketing)/upgrade-your-os/page.tsx:299:                style={{ borderTop: `2px solid ${color}50`, background: `${color}06` }}
+src/app/(marketing)/upgrade-your-os/page.tsx:302:                  style={{ background: `${color}10`, border: `1px solid ${color}25` }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:386:                    <div className="h-2 rounded-full mb-2" style={{ background: rayHex(cycleRay(i)), width: `${55 + i * 7}%` }} />
+src/app/(marketing)/upgrade-your-os/page.tsx:396:              style={{ background: 'var(--surface-border)', backdropFilter: 'blur(12px)' }}
+src/app/(marketing)/upgrade-your-os/page.tsx:802:          <p className="mx-auto mt-1 text-xs font-medium uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.6 }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:803:            Educator · Coach · System Builder
+src/app/(marketing)/upgrade-your-os/page.tsx:804:          </p>
+src/app/(marketing)/upgrade-your-os/page.tsx:805:
+src/app/(marketing)/upgrade-your-os/page.tsx:806:          <div className="mx-auto my-4 h-px w-24" style={{ background: 'linear-gradient(to right, transparent, var(--text-body), transparent)' }} />
+src/components/results/ResultsStabilityScore.tsx:127:            <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
+src/components/results/ResultsStabilityScore.tsx:130:                style={{
+src/components/results/ResultsStabilityScore.tsx:131:                  width: `${Math.min(100, Math.max(5, (ray.current / 4) * 100))}%`,
+src/components/results/ResultsStabilityScore.tsx:132:                  background: ray.stable
+src/components/portal/EntryLogOverTime.tsx:185:            style={{ background: bg }}
+src/components/portal/EntryLogOverTime.tsx:220:              style={{
+src/components/portal/EntryLogOverTime.tsx:221:                height,
+src/components/portal/EntryLogOverTime.tsx:222:                background: value > 0 ? accent : "color-mix(in srgb, var(--text-body) 8%, transparent)",
+src/components/portal/EntryLogOverTime.tsx:231:                style={{ background: "var(--brand-gold)" }}
+src/components/portal/EntryLogOverTime.tsx:441:        <div className="h-3 w-40 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 12%, transparent)" }} />
+src/components/portal/EntryLogOverTime.tsx:442:        <div className="h-2 w-56 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 8%, transparent)" }} />
+src/components/portal/EntryLogOverTime.tsx:443:        <div className="h-14 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 6%, transparent)" }} />
+src/components/portal/EntryLogOverTime.tsx:444:        <div className="h-20 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 6%, transparent)" }} />
+src/components/portal/EntryLogOverTime.tsx:524:            style={{ background: "color-mix(in srgb, var(--violet-650) 30%, transparent)", color: "var(--text-on-dark-secondary)", border: "1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)" }}
+src/components/portal/EntryLogOverTime.tsx:538:            style={{ background: "color-mix(in srgb, var(--violet-650) 30%, transparent)", color: "var(--text-on-dark-secondary)", border: "1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)" }}
+src/components/portal/EntryLogOverTime.tsx:560:            style={{ background: "color-mix(in srgb, var(--violet-650) 30%, transparent)", color: "var(--text-on-dark-secondary)", border: "1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)" }}
+src/components/portal/EntryLogOverTime.tsx:576:            style={{ background: "color-mix(in srgb, var(--violet-650) 30%, transparent)", color: "var(--text-on-dark-secondary)", border: "1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)" }}
+src/components/portal/EntryLogOverTime.tsx:613:      <div className="flex flex-wrap items-center gap-2 text-[11px]" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/EntryLogOverTime.tsx:614:        <span className="px-2 py-1 rounded-full" style={{ background: "color-mix(in srgb, var(--gold-primary) 12%, transparent)", color: "var(--brand-gold)" }}>
+src/components/portal/EntryLogOverTime.tsx:618:          <span className="h-2 w-2 rounded-full" style={{ background: "color-mix(in srgb, var(--gold-primary) 90%, transparent)" }} />
+src/components/portal/EntryLogOverTime.tsx:622:          <span className="h-2 w-2 rounded-full" style={{ background: "var(--surface-border)" }} />
+src/components/portal/EntryLogOverTime.tsx:626:          <span className="h-2 w-2 rounded-full" style={{ background: "var(--surface-border)" }} />
+src/components/portal/EntryLogOverTime.tsx:630:          <span className="h-2 w-2 rounded-full" style={{ background: "var(--surface-border)" }} />
+src/components/portal/EntryLogOverTime.tsx:634:          <span className="h-2 w-2 rounded-full" style={{ background: "color-mix(in srgb, var(--violet-650) 90%, transparent)" }} />
+src/components/portal/EntryLogOverTime.tsx:638:          <span className="h-2 w-2 rounded-full" style={{ background: "var(--brand-gold)" }} />
+src/components/portal/EntryLogOverTime.tsx:856:                style={{ background: "color-mix(in srgb, var(--violet-650) 20%, transparent)", color: "var(--text-on-dark-secondary)" }}
+src/components/portal/TodaysRep.tsx:146:      <div className="px-5 py-4" style={{ background: 'linear-gradient(to right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
+src/components/portal/TodaysRep.tsx:167:        <p className="text-xs italic rounded-lg px-3 py-2 leading-relaxed" style={{ color: 'var(--gold-primary)', background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)' }}>
+src/components/ui/MetricTooltip.tsx:67:          style={{ background: 'var(--bg-deep)', border: '1px solid var(--surface-border)' }}
+src/components/ui/MetricTooltip.tsx:89:          <div className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-b border-r" style={{ background: 'var(--bg-deep)', borderColor: 'var(--surface-border)' }} />
+src/components/ui/RayDivider.tsx:45:      style={{ maxWidth }}
+src/components/ui/RayDivider.tsx:46:    >
+src/components/ui/RayDivider.tsx:47:      <motion.div
+src/components/ui/RayDivider.tsx:48:        className="h-px"
+src/components/ui/RayDivider.tsx:49:        style={{
+src/components/ui/RayDivider.tsx:50:          background: gradient,
+src/components/portal/BadgeShowcase.tsx:109:            style={{
+src/components/portal/BadgeShowcase.tsx:110:              background: badge.earned ? 'var(--surface-border)' : 'color-mix(in srgb, var(--violet-650) 8%, transparent)',
+src/components/portal/BadgeShowcase.tsx:111:              border: `1px solid ${badge.earned ? 'var(--surface-border)' : 'color-mix(in srgb, var(--stroke-400) 12%, transparent)'}`,
+src/components/results/TrajectoryView.tsx:126:            style={{
+src/components/results/TrajectoryView.tsx:127:              background: selectedRay === t.rayId ? 'color-mix(in srgb, var(--gold-primary) 6%, transparent)' : 'transparent',
+src/components/results/TrajectoryView.tsx:188:          style={{ background: 'color-mix(in srgb, var(--gold-primary) 4%, transparent)', border: '1px solid color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}
+src/components/ui/CelebrationBurst.tsx:64:          style={{
+src/components/ui/CelebrationBurst.tsx:65:            position: 'absolute',
+src/components/ui/CelebrationBurst.tsx:66:            left: `${p.x}%`,
+src/components/ui/CelebrationBurst.tsx:67:            top: `${p.y}%`,
+src/components/ui/CelebrationBurst.tsx:68:            width: p.size,
+src/components/ui/CelebrationBurst.tsx:69:            height: p.size,
+src/components/ui/CelebrationBurst.tsx:70:            background: p.color,
+src/components/cosmic/NebulaIncubation.tsx:212:              <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--neon-amber)', opacity: 0.3 + goal.progress * 0.5 }} />
+src/components/retention/MicroWinsLedger.tsx:105:          style={{
+src/components/retention/MicroWinsLedger.tsx:106:            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/MicroWinsLedger.tsx:107:            border: '1px solid var(--surface-border)',
+src/components/retention/MicroWinsLedger.tsx:151:                style={{ background: rayHex(cycleRay(i)) }}
+src/components/ui/Toast.tsx:99:        style={{ background: style.accent }}
+src/components/cosmic/EclipseMeter.tsx:657:          style={{ background: 'var(--overlay-light)' }}
+src/components/cosmic/EclipseMeter.tsx:664:                style={{
+src/components/cosmic/EclipseMeter.tsx:665:                  background: LEVEL_COLORS[lvl],
+src/components/cosmic/EclipseMeter.tsx:681:        <div className="p-5 space-y-4 rounded-b-2xl" style={{ background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))' }}>
+src/components/cosmic/EclipseMeter.tsx:721:                <div className="p-4 rounded-lg" style={{ background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))', border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))' }}>
+src/components/retention/PhaseCheckInClient.tsx:233:                  style={{
+src/components/retention/PhaseCheckInClient.tsx:234:                    background: isSelected ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+src/components/ui/RadialSpotlight.tsx:53:        style={{
+src/components/ui/RadialSpotlight.tsx:54:          opacity,
+src/components/ui/RadialSpotlight.tsx:55:          transition: 'opacity 0.4s ease',
+src/components/ui/RadialSpotlight.tsx:56:          background: `radial-gradient(${radius}px circle at ${pos.x}px ${pos.y}px, ${color}, transparent 70%)`,
+src/components/cosmic/NeonStarField.tsx:116:          style={{
+src/components/cosmic/NeonStarField.tsx:117:            left: `${star.x}%`,
+src/components/cosmic/NeonStarField.tsx:118:            top: `${star.y}%`,
+src/components/cosmic/NeonStarField.tsx:119:            width: star.size,
+src/components/cosmic/NeonStarField.tsx:120:            height: star.size,
+src/components/cosmic/NeonStarField.tsx:121:            background: star.color,
+src/components/results/RetakeRecommendation.tsx:81:        <div className="rounded-xl p-3" style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+src/components/archetypes/ArchetypeShareCard.tsx:60:        style={{
+src/components/archetypes/ArchetypeShareCard.tsx:61:          background:
+src/components/archetypes/ArchetypeShareCard.tsx:62:            'linear-gradient(135deg, var(--surface-border) 0%, var(--surface-border) 100%)',
+src/components/archetypes/ArchetypeShareCard.tsx:63:          border: `2px solid ${archetype.neon_color}40`,
+src/components/archetypes/ArchetypeShareCard.tsx:110:              style={{
+src/components/archetypes/ArchetypeShareCard.tsx:111:                background: `${archetype.neon_color}15`,
+src/components/archetypes/ArchetypeShareCard.tsx:112:                color: archetype.neon_color,
+src/components/archetypes/ArchetypeShareCard.tsx:113:                border: `1px solid ${archetype.neon_color}30`,
+src/components/archetypes/ArchetypeShareCard.tsx:135:            style={{ background: archetype.neon_color, color: 'var(--ink-950)' }}
+src/components/archetypes/ArchetypeShareCard.tsx:143:            style={{
+src/components/archetypes/ArchetypeShareCard.tsx:144:              background: 'var(--surface-glass)',
+src/components/archetypes/ArchetypeShareCard.tsx:145:              border: '1px solid var(--surface-border)',
+src/components/results/ReportShareCard.tsx:139:          style={{
+src/components/results/ReportShareCard.tsx:140:            background: copied ? 'var(--surface-border)' : 'var(--surface-glass)',
+src/components/results/ReportShareCard.tsx:141:            color: copied ? 'var(--neon-teal)' : 'var(--text-on-dark)',
+src/components/results/ReportShareCard.tsx:142:            border: `1px solid ${copied ? 'var(--surface-border)' : 'var(--surface-border)'}`,
+src/components/results/ReportShareCard.tsx:152:            style={{
+src/components/results/ReportShareCard.tsx:153:              background: 'color-mix(in srgb, var(--gold-primary) 10%, transparent)',
+src/components/results/ReportShareCard.tsx:154:              color: 'var(--brand-gold)',
+src/components/results/ReportShareCard.tsx:155:              border: '1px solid var(--surface-border)',
+src/components/WatchMeModal.tsx:116:        <div className="px-6 py-5" style={{ background: 'linear-gradient(135deg, var(--cosmic-deepest) 0%, var(--cosmic-purple-gradient) 100%)' }}>
+src/components/WatchMeModal.tsx:151:              <div className="rounded-xl p-4 space-y-2" style={{ background: 'color-mix(in srgb, var(--text-body) 4%, transparent)' }}>
+src/components/WatchMeModal.tsx:165:                      style={{ border: '1px solid var(--surface-border)', background: 'color-mix(in srgb, var(--ink-950) 35%, transparent)', color: 'var(--text-on-dark)' }}
+src/components/WatchMeModal.tsx:229:                style={{
+src/components/WatchMeModal.tsx:230:                  background: `conic-gradient(var(--text-body) ${((5 - countdown) / 5) * 360}deg, color-mix(in srgb, var(--text-body) 6%, transparent) 0deg)`,
+src/components/WatchMeModal.tsx:233:                <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: 'var(--bg-deep)' }}>
+src/components/WatchMeModal.tsx:262:              <div className="text-xs italic rounded-xl p-3" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)', color: 'var(--cosmic-purple-light)' }}>
+src/components/retention/DailyLoopClient.tsx:217:          style={{
+src/components/retention/DailyLoopClient.tsx:218:            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/DailyLoopClient.tsx:219:            border: '1px solid var(--surface-border)',
+src/components/retention/DailyLoopClient.tsx:251:            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
+src/components/ui/GoldHeroBanner.tsx:37:        style={{
+src/components/ui/GoldHeroBanner.tsx:38:          background: 'linear-gradient(135deg, var(--text-body) 0%, var(--text-body) 50%, var(--text-body) 100%)',
+src/components/ui/GoldHeroBanner.tsx:45:          style={{
+src/components/ui/GoldHeroBanner.tsx:46:            background:
+src/components/ui/GoldHeroBanner.tsx:55:          style={{
+src/components/ui/GoldHeroBanner.tsx:56:            background: 'linear-gradient(90deg, transparent 5%, var(--neon-cyan, var(--text-body)) 30%, var(--neon-pink, var(--text-body)) 70%, transparent 95%)',
+src/components/ui/GoldHeroBanner.tsx:104:                style={{
+src/components/ui/GoldHeroBanner.tsx:105:                  background: 'var(--ink-950)',
+src/components/results/CoachingBrief.tsx:162:          style={{
+src/components/results/CoachingBrief.tsx:163:            background: 'color-mix(in srgb, var(--violet-650) 15%, transparent)',
+src/components/results/CoachingBrief.tsx:164:            border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)',
+src/components/results/CoachingBrief.tsx:230:                    style={{ background: 'color-mix(in srgb, var(--stroke-400) 15%, transparent)' }}
+src/components/results/CoachingBrief.tsx:234:                      style={{
+src/components/results/CoachingBrief.tsx:235:                        width: `${ray.score}%`,
+src/components/results/CoachingBrief.tsx:236:                        background: isTop
+src/components/results/CoachingBrief.tsx:283:                        style={{ background: cfg.color }}
+src/components/results/CoachingBrief.tsx:294:                      style={{ background: `${cfg.color}20`, color: cfg.color }}
+src/components/results/CoachingBrief.tsx:420:                <span className="bar" style={{ width: `${Math.max(ray.score * 3, 6)}px`, background: barColor }} />
+src/components/results/CoachingBrief.tsx:436:                    <span className="signal-dot" style={{ background: cfg.color }} />
+src/components/results/PdfDownloadButton.tsx:36:      style={{
+src/components/results/PdfDownloadButton.tsx:37:        color:
+src/components/results/PdfDownloadButton.tsx:38:          status === 'error'
+src/components/results/PdfDownloadButton.tsx:39:            ? 'var(--text-body)'
+src/components/results/PdfDownloadButton.tsx:40:            : 'var(--text-on-dark-secondary)',
+src/components/results/PdfDownloadButton.tsx:41:        background:
+src/components/results/LightSignatureReveal.tsx:307:              style={{
+src/components/results/LightSignatureReveal.tsx:308:                width: orbSize,
+src/components/results/LightSignatureReveal.tsx:309:                height: orbSize,
+src/components/results/LightSignatureReveal.tsx:310:                borderRadius: '50%',
+src/components/results/LightSignatureReveal.tsx:311:                background: `radial-gradient(circle at 38% 38%, ${ray.hex}cc 0%, ${ray.hex}55 45%, ${ray.hex}18 70%, transparent 100%)`,
+src/components/results/LightSignatureReveal.tsx:427:        style={{
+src/components/results/LightSignatureReveal.tsx:428:          height: 1,
+src/components/results/LightSignatureReveal.tsx:429:          width: 130,
+src/components/results/LightSignatureReveal.tsx:430:          background: 'linear-gradient(90deg, transparent, var(--gold-primary), transparent)',
+src/components/results/LightSignatureReveal.tsx:546:            style={{
+src/components/results/LightSignatureReveal.tsx:547:              position: 'absolute',
+src/components/results/LightSignatureReveal.tsx:548:              inset: -8,
+src/components/results/LightSignatureReveal.tsx:549:              borderRadius: '50%',
+src/components/results/LightSignatureReveal.tsx:550:              border: `1px solid ${ray.hex}`,
+src/components/results/LightSignatureReveal.tsx:557:            style={{
+src/components/results/LightSignatureReveal.tsx:558:              width: 58,
+src/components/results/LightSignatureReveal.tsx:559:              height: 58,
+src/components/results/LightSignatureReveal.tsx:560:              borderRadius: '50%',
+src/components/results/LightSignatureReveal.tsx:561:              background: `radial-gradient(circle at 38% 38%, ${ray.hex}cc 0%, ${ray.hex}55 45%, ${ray.hex}18 70%, transparent 100%)`,
+src/components/results/LightSignatureReveal.tsx:654:        style={{
+src/components/results/LightSignatureReveal.tsx:655:          marginTop: 40,
+src/components/results/LightSignatureReveal.tsx:656:          width: 32,
+src/components/results/LightSignatureReveal.tsx:657:          height: 32,
+src/components/results/LightSignatureReveal.tsx:658:          borderRadius: '50%',
+src/components/results/LightSignatureReveal.tsx:659:          border: '1.5px solid color-mix(in srgb, var(--gold-primary) 50%, transparent)',
+src/components/results/LightSignatureReveal.tsx:756:        style={{
+src/components/results/LightSignatureReveal.tsx:757:          background:
+src/components/results/LightSignatureReveal.tsx:798:              style={{
+src/components/results/LightSignatureReveal.tsx:799:                width: i === stage ? 24 : 7,
+src/components/results/LightSignatureReveal.tsx:800:                height: 7,
+src/components/results/LightSignatureReveal.tsx:801:                borderRadius: 4,
+src/components/results/LightSignatureReveal.tsx:802:                background: i === stage
+src/components/ui/RayAccentSection.tsx:32:      style={{
+src/components/ui/RayAccentSection.tsx:33:        background: ramp.bgTint,
+src/components/results/ScienceToggle.tsx:47:          style={{
+src/components/results/ScienceToggle.tsx:48:            background: 'color-mix(in srgb, var(--gold-primary) 4%, transparent)',
+src/components/results/ScienceToggle.tsx:49:            border: '1px solid color-mix(in srgb, var(--gold-primary) 10%, transparent)',
+src/components/feedback/FeedbackWidget.tsx:122:          <span className="text-xs font-medium" style={{ color: 'var(--text-on-dark)' }}>Comment (optional)</span>
+src/components/feedback/FeedbackWidget.tsx:123:          <textarea
+src/components/feedback/FeedbackWidget.tsx:124:            className="mt-2 w-full rounded p-2 text-sm"
+src/components/feedback/FeedbackWidget.tsx:125:            style={{ background: 'color-mix(in srgb, var(--violet-650) 25%, transparent)', color: 'var(--text-on-dark)', border: '1px solid var(--surface-border)' }}
+src/components/retention/RepLogClient.tsx:705:              style={{
+src/components/retention/RepLogClient.tsx:706:                background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RepLogClient.tsx:707:                border: '1px solid var(--surface-border)',
+src/components/retention/RepLogClient.tsx:759:            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
+src/components/retention/RepLogClient.tsx:811:                style={{
+src/components/retention/RepLogClient.tsx:812:                  background: !repsToolKey ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RepLogClient.tsx:827:                    style={{
+src/components/retention/RepLogClient.tsx:828:                      background: active ? 'color-mix(in srgb, var(--violet-650) 30%, transparent)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RepLogClient.tsx:856:                    style={{
+src/components/retention/RepLogClient.tsx:857:                      background: active ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+src/components/retention/RepLogClient.tsx:897:            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
+src/components/retention/RepLogClient.tsx:921:          style={{
+src/components/retention/RepLogClient.tsx:922:            background: mode === 'full' ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RepLogClient.tsx:933:          style={{
+src/components/retention/RepLogClient.tsx:934:            background: mode === 'quick' ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RepLogClient.tsx:1067:            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
+src/components/retention/RepLogClient.tsx:1086:              style={{
+src/components/retention/RepLogClient.tsx:1087:                background: !categoryFilter ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RepLogClient.tsx:1103:                  style={{
+src/components/retention/RepLogClient.tsx:1104:                    background: active ? `${meta?.color ?? 'var(--text-body)'}22` : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RepLogClient.tsx:1128:                  style={{
+src/components/retention/RepLogClient.tsx:1129:                    background: isSelected ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+src/components/retention/RepLogClient.tsx:1139:                        style={{
+src/components/retention/RepLogClient.tsx:1140:                          background: `${catMeta?.color ?? 'var(--text-body)'}22`,
+src/components/retention/RepLogClient.tsx:1204:                  style={{
+src/components/retention/RepLogClient.tsx:1205:                    background: active ? 'var(--text-body)' : 'transparent',
+src/components/retention/RepLogClient.tsx:1222:              style={{
+src/components/retention/RepLogClient.tsx:1223:                background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RepLogClient.tsx:1224:                border: '1px solid var(--surface-border)',
+src/components/retention/RepLogClient.tsx:1249:                  style={{
+src/components/retention/RepLogClient.tsx:1250:                    background: active ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+src/components/retention/RepLogClient.tsx:1290:            style={{
+src/components/retention/RepLogClient.tsx:1291:              background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RepLogClient.tsx:1292:              border: '1px solid var(--surface-border)',
+src/components/retention/RepLogClient.tsx:1354:                    style={{
+src/components/retention/RepLogClient.tsx:1355:                      background: rep.quality === 3 ? 'var(--brand-gold)' : rep.quality === 2 ? 'var(--text-body)' : 'var(--surface-border)',
+src/components/ui/AsyncStateWrapper.tsx:92:        style={{
+src/components/ui/AsyncStateWrapper.tsx:93:          background: 'var(--surface-glass)',
+src/components/ui/AsyncStateWrapper.tsx:94:          border: '1px solid var(--surface-border)',
+src/components/ui/AsyncStateWrapper.tsx:125:        style={{
+src/components/ui/AsyncStateWrapper.tsx:126:          background: 'var(--surface-glass)',
+src/components/ui/AsyncStateWrapper.tsx:127:          border: '1px solid var(--surface-border)',
+src/components/ui/CosmicErrorBoundary.tsx:63:                style={{
+src/components/ui/CosmicErrorBoundary.tsx:64:                  color: 'var(--surface-border)',
+src/components/ui/CosmicErrorBoundary.tsx:65:                  background: 'var(--surface-border)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:209:            style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:210:              background: 'var(--surface-glass)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:211:              border: '1px solid var(--surface-border)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:223:            style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:224:              background:
+src/components/archetypes/ArchetypeLibraryClient.tsx:250:                style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:251:                  background: isActive
+src/components/archetypes/ArchetypeLibraryClient.tsx:384:            style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:385:              background: 'var(--surface-glass)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:386:              border: '1px solid var(--surface-border)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:395:            style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:396:              background: 'var(--brand-gold)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:456:        style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:457:          background: 'var(--surface-glass)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:458:          border: borderHighlight,
+src/components/archetypes/ArchetypeLibraryClient.tsx:498:              style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:499:                background: `${a.neon_color}12`,
+src/components/archetypes/ArchetypeLibraryClient.tsx:500:                color: a.neon_color,
+src/components/archetypes/ArchetypeLibraryClient.tsx:501:                border: `1px solid ${a.neon_color}25`,
+src/components/archetypes/ArchetypeLibraryClient.tsx:573:      style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:574:        background: 'var(--surface-glass)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:581:        style={{ color: 'var(--text-on-dark-secondary)' }}
+src/components/archetypes/ArchetypeLibraryClient.tsx:582:      >
+src/components/archetypes/ArchetypeLibraryClient.tsx:583:        {a.vibe}
+src/components/archetypes/ArchetypeLibraryClient.tsx:584:      </p>
+src/components/archetypes/ArchetypeLibraryClient.tsx:585:
+src/components/archetypes/ArchetypeLibraryClient.tsx:586:      {/* People Say */}
+src/components/archetypes/ArchetypeLibraryClient.tsx:587:      <div
+src/components/archetypes/ArchetypeLibraryClient.tsx:588:        className="rounded-xl p-3"
+src/components/archetypes/ArchetypeLibraryClient.tsx:589:        style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:590:          background: `${a.neon_color}08`,
+src/components/archetypes/ArchetypeLibraryClient.tsx:686:        style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:687:          background: 'color-mix(in srgb, var(--ink-950) 25%, transparent)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:688:          border: '1px solid color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:724:        style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:725:          background: 'color-mix(in srgb, var(--stroke-400) 10%, transparent)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:726:          border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:759:        style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:760:          background: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:761:          border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:816:            style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:817:              background: `${a.neon_color}12`,
+src/components/archetypes/ArchetypeLibraryClient.tsx:818:              color: a.neon_color,
+src/components/archetypes/ArchetypeLibraryClient.tsx:819:              border: `1px solid ${a.neon_color}25`,
+src/components/archetypes/ArchetypeLibraryClient.tsx:837:          style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:838:            background: isResonating
+src/components/archetypes/ArchetypeLibraryClient.tsx:839:              ? `${a.neon_color}20`
+src/components/archetypes/ArchetypeLibraryClient.tsx:840:              : 'var(--surface-glass)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:841:            border: isResonating
+src/components/archetypes/ArchetypeLibraryClient.tsx:856:          style={{
+src/components/archetypes/ArchetypeLibraryClient.tsx:857:            background: 'var(--surface-glass)',
+src/components/archetypes/ArchetypeLibraryClient.tsx:858:            border: '1px solid var(--surface-border)',
+src/components/results/WeekOneChecklist.tsx:115:          style={{ background: 'var(--surface-glass)' }}
+src/components/results/WeekOneChecklist.tsx:119:            style={{
+src/components/results/WeekOneChecklist.tsx:120:              width: `${(progress / total) * 100}%`,
+src/components/results/WeekOneChecklist.tsx:121:              background: 'var(--gold-primary)',
+src/components/results/WeekOneChecklist.tsx:145:              style={{
+src/components/results/WeekOneChecklist.tsx:146:                borderColor: checked.has(i) ? 'var(--gold-primary)' : 'var(--surface-border)',
+src/components/results/WeekOneChecklist.tsx:147:                background: checked.has(i) ? 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' : 'transparent',
+src/components/ui/GoldParticleBurst.tsx:46:          style={{
+src/components/ui/GoldParticleBurst.tsx:47:            '--angle': `${p.angle}deg`,
+src/components/ui/GoldParticleBurst.tsx:48:            '--distance': `${p.distance}px`,
+src/components/ui/GoldParticleBurst.tsx:49:            background: p.color,
+src/components/results/ValidityForensics.tsx:189:                style={{ background: cfg.bg, borderColor: `${cfg.color}25` }}
+src/components/results/ValidityForensics.tsx:196:                    style={{ background: `${cfg.color}20`, color: cfg.color }}
+src/components/results/SystemHealthGauges.tsx:207:          style={{ background: `${color}18`, color }}
+src/components/retention/RasPrimeCard.tsx:127:              style={{
+src/components/retention/RasPrimeCard.tsx:128:                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/retention/RasPrimeCard.tsx:129:                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/retention/RasPrimeCard.tsx:171:              style={{
+src/components/retention/RasPrimeCard.tsx:172:                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/retention/RasPrimeCard.tsx:173:                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/ui/RaySpectrumStrip.tsx:26:        style={{
+src/components/ui/RaySpectrumStrip.tsx:27:          height,
+src/components/ui/RaySpectrumStrip.tsx:28:          width: '100%',
+src/components/ui/RaySpectrumStrip.tsx:29:          background: GRADIENT,
+src/components/retention/ChallengeProgress.tsx:114:      <div className="h-2 rounded-full overflow-hidden" style={{ background: 'color-mix(in srgb, var(--text-body) 8%, transparent)' }}>
+src/components/retention/ChallengeProgress.tsx:117:          style={{
+src/components/retention/ChallengeProgress.tsx:118:            width: `${progress.pct}%`,
+src/components/retention/ChallengeProgress.tsx:119:            background: progress.pct >= 100
+src/components/retention/ChallengeProgress.tsx:132:              style={{
+src/components/retention/ChallengeProgress.tsx:133:                background: progress.dayCount >= m.day
+src/components/retention/ChallengeProgress.tsx:154:            style={{
+src/components/retention/ChallengeProgress.tsx:155:              background: gd.completed
+src/components/ui/CosmicEmptyState.tsx:39:      style={{
+src/components/ui/CosmicEmptyState.tsx:40:        background: "var(--surface-glass)",
+src/components/ui/CosmicEmptyState.tsx:41:        border: "1px solid var(--surface-border)",
+src/components/ui/CosmicEmptyState.tsx:46:        <span className="block h-1.5 w-1.5 rounded-full" style={{ background: "var(--cosmic-purple-light)" }} />
+src/components/ui/CosmicEmptyState.tsx:47:        <span className="block h-1.5 w-1.5 rounded-full" style={{ background: "var(--cosmic-gold)" }} />
+src/components/ui/CosmicEmptyState.tsx:48:        <span className="block h-1.5 w-1.5 rounded-full" style={{ background: "var(--cosmic-purple-light)" }} />
+src/components/ui/RayGlowCard.tsx:47:      style={{
+src/components/ui/RayGlowCard.tsx:48:        background: ramp.bgTint,
+src/components/ui/ShareCard.tsx:217:          <div style={{ flex: 1 }} />
+src/components/ui/ShareCard.tsx:218:
+src/components/ui/ShareCard.tsx:219:          {/* Divider */}
+src/components/ui/ShareCard.tsx:220:          <div style={{
+src/components/ui/ShareCard.tsx:221:            width: 120,
+src/components/ui/ShareCard.tsx:222:            height: 1,
+src/components/ui/ShareCard.tsx:223:            background: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)',
+src/components/retention/JournalBrowser.tsx:121:                      style={{
+src/components/retention/JournalBrowser.tsx:122:                        background: entry.quality_score >= 3
+src/components/retention/JournalBrowser.tsx:164:                        style={{ background: 'var(--brand-purple)' }}
+src/components/results/WelcomeDisclaimer.tsx:49:        style={{ background: badge.bg, color: badge.color, border: `1px solid ${badge.color}33` }}
+src/components/results/WelcomeDisclaimer.tsx:50:      >
+src/components/results/WelcomeDisclaimer.tsx:51:        <span className="w-2 h-2 rounded-full" style={{ background: badge.color }} />
+src/components/ui/RetroFrame.tsx:34:      style={{
+src/components/ui/RetroFrame.tsx:35:        background: 'linear-gradient(180deg, var(--surface-border) 0%, var(--surface-border) 50%, var(--surface-border) 100%)',
+src/components/ui/RetroFrame.tsx:36:        border: `1px solid color-mix(in srgb, ${accent} 25%, transparent)`,
+src/components/ui/RetroFrame.tsx:42:        style={{ background: `linear-gradient(90deg, transparent 5%, color-mix(in srgb, ${accent} 35%, transparent) 50%, transparent 95%)` }}
+src/components/ui/RetroFrame.tsx:68:            style={{
+src/components/ui/RetroFrame.tsx:69:              color: accent,
+src/components/ui/RetroFrame.tsx:70:              background: 'var(--surface-border)',
+src/components/ui/RetroFrame.tsx:79:              style={{ background: accent }}
+src/components/ui/RetroFrame.tsx:115:        style={{
+src/components/ui/RetroFrame.tsx:116:          background: `linear-gradient(90deg,
+src/components/coach/CoachingApplicationForm.tsx:98:              style={{
+src/components/coach/CoachingApplicationForm.tsx:99:                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:100:                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:114:              style={{
+src/components/coach/CoachingApplicationForm.tsx:115:                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:116:                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:132:              style={{
+src/components/coach/CoachingApplicationForm.tsx:133:                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:134:                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:147:              style={{
+src/components/coach/CoachingApplicationForm.tsx:148:                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:149:                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:164:              style={{
+src/components/coach/CoachingApplicationForm.tsx:165:                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:166:                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:183:              style={{
+src/components/coach/CoachingApplicationForm.tsx:184:                background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:185:                border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:203:            style={{
+src/components/coach/CoachingApplicationForm.tsx:204:              background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:205:              border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:218:            style={{
+src/components/coach/CoachingApplicationForm.tsx:219:              background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/coach/CoachingApplicationForm.tsx:220:              border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/assessment/RasResetLesson.tsx:55:            style={{
+src/components/assessment/RasResetLesson.tsx:56:              width: i === step ? 24 : 8,
+src/components/assessment/RasResetLesson.tsx:57:              background: i <= step ? 'var(--neon-cyan, var(--text-body))' : 'var(--surface-border)',
+src/components/results/EclipseSnapshot.tsx:68:          <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: 'var(--surface-glass)' }}>
+src/components/results/EclipseSnapshot.tsx:69:            <div
+src/components/results/EclipseSnapshot.tsx:70:              className="h-full rounded-full transition-all duration-700"
+src/components/results/EclipseSnapshot.tsx:71:              style={{ width: config.width, background: `linear-gradient(90deg, var(--brand-purple), ${config.color})` }}
+src/components/ui/GoldDividerAnimated.tsx:32:      style={{ maxWidth }}
+src/components/ui/GoldDividerAnimated.tsx:33:    >
+src/components/ui/GoldDividerAnimated.tsx:34:      <motion.div
+src/components/ui/GoldDividerAnimated.tsx:35:        className="h-px"
+src/components/ui/GoldDividerAnimated.tsx:36:        style={{
+src/components/ui/GoldDividerAnimated.tsx:37:          background: neon
+src/components/retention/MorningEntryClient.tsx:155:            <div className="w-2 h-2 rounded-full" style={{ background: "var(--gold-primary)" }} />
+src/components/retention/MorningEntryClient.tsx:171:              style={{
+src/components/retention/MorningEntryClient.tsx:172:                background: "color-mix(in srgb, var(--text-body) 6%, transparent)",
+src/components/retention/MorningEntryClient.tsx:173:                border: "1px solid var(--surface-border)",
+src/components/retention/MorningEntryClient.tsx:199:                style={{
+src/components/retention/MorningEntryClient.tsx:200:                  background: "color-mix(in srgb, var(--text-body) 6%, transparent)",
+src/components/retention/MorningEntryClient.tsx:201:                  border: "1px solid var(--surface-border)",
+src/components/retention/MorningEntryClient.tsx:251:          style={{ background: "var(--surface-border)", border: "1px solid var(--surface-border)" }}>
+src/components/ui/RayBadge.tsx:26:      style={{
+src/components/ui/RayBadge.tsx:27:        fontSize,
+src/components/ui/RayBadge.tsx:28:        padding,
+src/components/ui/RayBadge.tsx:29:        color: ramp.full,
+src/components/ui/RayBadge.tsx:30:        background: ramp.badgeBg,
+src/components/ui/RayBadge.tsx:31:        border: `1px solid ${ramp.border}`,
+src/components/retention/SparklineChart.tsx:76:      <div className="rounded-xl p-4 relative overflow-hidden" style={{ background: CHART_BG, border: `1px solid ${CHART_BORDER}` }}>
+src/components/retention/SparklineChart.tsx:88:            <div key={ray.rayId} className="px-3 py-2.5 rounded-xl relative overflow-hidden" style={{ background: CHART_BG, border: `1px solid ${CHART_BORDER}` }}>
+src/components/results/CoachingQuestions.tsx:94:                  style={{
+src/components/results/CoachingQuestions.tsx:95:                    background: hasSaved ? 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' : 'color-mix(in srgb, var(--stroke-400) 30%, transparent)',
+src/components/results/CoachingQuestions.tsx:127:                    <div className="rounded-xl p-4" style={{ background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}>
+src/components/results/CoachingQuestions.tsx:149:                        style={{
+src/components/results/CoachingQuestions.tsx:150:                          background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+src/components/results/CoachingQuestions.tsx:164:                          style={{
+src/components/results/CoachingQuestions.tsx:165:                            background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)',
+src/components/assessment/CinematicCompleteClient.tsx:59:        style={{
+src/components/assessment/CinematicCompleteClient.tsx:60:          background: 'radial-gradient(ellipse at 50% 30%, color-mix(in srgb, var(--violet-650) 35%, transparent) 0%, transparent 60%), linear-gradient(180deg, var(--text-body) 0%, var(--text-body) 50%, var(--text-body) 100%)',
+src/components/assessment/CinematicCompleteClient.tsx:64:          style={{
+src/components/assessment/CinematicCompleteClient.tsx:65:            width: 48, height: 48, borderRadius: '50%',
+src/components/assessment/CinematicCompleteClient.tsx:66:            border: '3px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
+src/components/retention/CoachQuestion.tsx:91:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R7') }}>
+src/components/retention/CoachQuestion.tsx:92:          Coach Question
+src/components/retention/CoachQuestion.tsx:93:        </p>
+src/components/retention/CoachQuestion.tsx:94:        <span
+src/components/retention/CoachQuestion.tsx:95:          className="text-[10px] rounded-full px-2 py-0.5 font-medium"
+src/components/retention/CoachQuestion.tsx:96:          style={{ background: 'color-mix(in srgb, var(--gold-primary) 12%, transparent)', color: 'var(--brand-gold)' }}
+src/components/retention/ToolkitDeliveryClient.tsx:72:            style={{ background: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}
+src/components/retention/ToolkitDeliveryClient.tsx:121:          style={{
+src/components/retention/ToolkitDeliveryClient.tsx:122:            background: "var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))",
+src/components/retention/ToolkitDeliveryClient.tsx:123:            border: "1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))",
+src/components/retention/EnergyAuditClient.tsx:336:                  style={{
+src/components/retention/EnergyAuditClient.tsx:337:                    background: isSelected ? 'color-mix(in srgb, var(--violet-650) 20%, transparent)' : 'color-mix(in srgb, var(--text-body) 3%, transparent)',
+src/components/retention/RunComparisonView.tsx:108:              style={{
+src/components/retention/RunComparisonView.tsx:109:                background: 'color-mix(in srgb, var(--violet-650) 30%, transparent)',
+src/components/retention/RunComparisonView.tsx:110:                color: 'var(--text-on-dark-secondary)',
+src/components/retention/RunComparisonView.tsx:111:                border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)',
+src/components/retention/RunComparisonView.tsx:130:              style={{
+src/components/retention/RunComparisonView.tsx:131:                background: 'color-mix(in srgb, var(--violet-650) 30%, transparent)',
+src/components/retention/RunComparisonView.tsx:132:                color: 'var(--text-on-dark-secondary)',
+src/components/retention/RunComparisonView.tsx:133:                border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)',
+src/components/retention/RunComparisonView.tsx:189:                    style={{
+src/components/retention/RunComparisonView.tsx:190:                      width: `${Math.min(d.before, 100)}%`,
+src/components/retention/RunComparisonView.tsx:191:                      background: 'color-mix(in srgb, var(--stroke-400) 35%, transparent)',
+src/components/retention/RunComparisonView.tsx:197:                    style={{
+src/components/retention/RunComparisonView.tsx:198:                      width: `${Math.min(d.after, 100)}%`,
+src/components/retention/RunComparisonView.tsx:199:                      background: d.delta >= 0
+src/components/retention/RunComparisonView.tsx:231:          <div className="h-1.5 w-4 rounded-full" style={{ background: 'color-mix(in srgb, var(--stroke-400) 35%, transparent)' }} />
+src/components/retention/RunComparisonView.tsx:237:          <div className="h-1.5 w-4 rounded-full" style={{ background: 'var(--surface-border)' }} />
+src/components/retention/ToolkitClient.tsx:231:              style={{
+src/components/retention/ToolkitClient.tsx:232:                background: active ? `${f.color}22` : 'color-mix(in srgb, var(--text-body) 4%, transparent)',
+src/components/retention/ToolkitClient.tsx:281:                            style={{
+src/components/retention/ToolkitClient.tsx:282:                              color: 'var(--text-on-dark-muted)',
+src/components/retention/ToolkitClient.tsx:283:                              border: '1px solid var(--surface-border)',
+src/components/retention/ToolkitClient.tsx:288:                            style={{
+src/components/retention/ToolkitClient.tsx:289:                              color: catFilter?.color ?? 'var(--violet-650)',
+src/components/retention/ToolkitClient.tsx:290:                              background: `${catFilter?.color ?? 'var(--violet-650)'}15`,
+src/components/auth/MagicLinkFormClient.tsx:66:        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}>
+src/components/auth/MagicLinkFormClient.tsx:102:        style={{
+src/components/auth/MagicLinkFormClient.tsx:103:          background: 'var(--text-body)',
+src/components/auth/MagicLinkFormClient.tsx:104:          color: 'var(--text-body)',
+src/components/auth/MagicLinkFormClient.tsx:105:          border: '1px solid var(--text-body)',
+src/components/auth/MagicLinkFormClient.tsx:119:        <div className="h-px flex-1" style={{ background: 'var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))' }} />
+src/components/auth/MagicLinkFormClient.tsx:120:        <span className="text-xs font-medium uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>
+src/components/auth/MagicLinkFormClient.tsx:121:          or
+src/components/auth/MagicLinkFormClient.tsx:122:        </span>
+src/components/auth/MagicLinkFormClient.tsx:123:        <div className="h-px flex-1" style={{ background: 'var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))' }} />
+src/components/auth/MagicLinkFormClient.tsx:142:        style={{
+src/components/auth/MagicLinkFormClient.tsx:143:          background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/auth/MagicLinkFormClient.tsx:144:          border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/auth/MagicLinkFormClient.tsx:170:        style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)', background: 'color-mix(in srgb, var(--gold-primary) 5%, transparent)', color: 'var(--brand-gold)' }}
+src/components/retention/FearReframe.tsx:86:                style={{ background: rs.color, minHeight: 20 }}
+src/components/retention/FearReframe.tsx:141:          style={{
+src/components/retention/FearReframe.tsx:142:            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/FearReframe.tsx:143:            border: '1px solid var(--surface-border)',
+src/components/retention/WeeklyReviewClient.tsx:143:                style={{
+src/components/retention/WeeklyReviewClient.tsx:144:                  background: d <= data.engagement.days_active
+src/components/retention/WeeklyReviewClient.tsx:238:                  style={{
+src/components/retention/WeeklyReviewClient.tsx:239:                    backgroundColor: info.color + '22',
+src/components/retention/WeeklyReviewClient.tsx:240:                    color: info.color,
+src/components/retention/WeeklyReviewClient.tsx:241:                    border: `1px solid ${info.color}44`,
+src/components/results/RayDetailDrawer.tsx:54:        style={{ background: 'color-mix(in srgb, var(--ink-950) 70%, transparent)' }}
+src/components/results/RayDetailDrawer.tsx:66:        style={{
+src/components/results/RayDetailDrawer.tsx:67:          background: 'var(--gradient-cosmic)',
+src/components/results/RayDetailDrawer.tsx:74:          <div className="h-1 w-10 rounded-full" style={{ background: 'var(--text-on-dark-muted)' }} />
+src/components/results/RayDetailDrawer.tsx:134:                    <span className="text-sm font-semibold" style={{ color: 'var(--brand-gold)' }}>{sf.score}</span>
+src/components/results/RayDetailDrawer.tsx:135:                  </div>
+src/components/results/RayDetailDrawer.tsx:136:                  <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'var(--cosmic-nebula)' }}>
+src/components/results/RayDetailDrawer.tsx:139:                      style={{
+src/components/results/RayDetailDrawer.tsx:140:                        width: `${sf.score}%`,
+src/components/results/RayDetailDrawer.tsx:141:                        background: sf.score >= 70 ? 'var(--brand-gold)' : sf.score >= 40 ? 'var(--neon-amber)' : 'var(--neon-amber)',
+src/components/retention/EveningReflectionClient.tsx:167:              <div className="w-1 rounded-full flex-shrink-0" style={{ background: 'var(--brand-purple)' }} />
+src/components/retention/EveningReflectionClient.tsx:182:            <div key={ps.id} className="rounded-xl p-3" style={{ background: 'color-mix(in srgb, var(--gold-primary) 4%, transparent)', border: '1px solid color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}>
+src/components/retention/EveningReflectionClient.tsx:223:          style={{
+src/components/retention/EveningReflectionClient.tsx:224:            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/EveningReflectionClient.tsx:225:            border: '1px solid var(--surface-border)',
+src/components/retention/EveningReflectionClient.tsx:259:            style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+src/components/assessment/ResultsClient.tsx:219:              style={{
+src/components/assessment/ResultsClient.tsx:220:                background: 'linear-gradient(135deg, color-mix(in srgb, var(--gold-primary) 15%, transparent) 0%, color-mix(in srgb, var(--gold-primary) 8%, transparent) 100%)',
+src/components/assessment/ResultsClient.tsx:376:          style={{ background: 'linear-gradient(90deg, transparent, var(--gold-primary), transparent)' }}
+src/components/assessment/ResultsClient.tsx:581:              style={{
+src/components/assessment/ResultsClient.tsx:582:                color: 'var(--text-on-dark-secondary)',
+src/components/assessment/ResultsClient.tsx:583:                background: 'color-mix(in srgb, var(--text-body) 4%, transparent)',
+src/components/assessment/ResultsClient.tsx:584:                border: '1px solid color-mix(in srgb, var(--text-body) 8%, transparent)',
+src/components/retention/GrowthSummaryClient.tsx:90:          style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}
+src/components/retention/RasCheckIn.tsx:112:            style={{
+src/components/retention/RasCheckIn.tsx:113:              background: selectedRay === ray.id ? `${rc}20` : 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RasCheckIn.tsx:114:              border: `1px solid ${selectedRay === ray.id ? `${rc}60` : 'var(--surface-border)'}`,
+src/components/retention/RasCheckIn.tsx:129:        style={{ background: `${rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`)}08`, border: `1px solid ${rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`)}15` }}
+src/components/retention/RasCheckIn.tsx:145:          style={{
+src/components/retention/RasCheckIn.tsx:146:            background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/RasCheckIn.tsx:147:            border: '1px solid var(--surface-border)',
+src/components/assessment/BreathingMoment.tsx:29:        style={{
+src/components/assessment/BreathingMoment.tsx:30:          background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 25%, transparent) 0%, color-mix(in srgb, var(--violet-650) 30%, transparent) 100%)',
+src/components/assessment/CompletionReveal.tsx:52:      style={{ background: 'var(--bg-deep, var(--text-body))' }}
+src/components/assessment/CompletionReveal.tsx:64:                style={{
+src/components/assessment/CompletionReveal.tsx:65:                  background: i % 3 === 0 ? 'var(--gold-primary)' : i % 3 === 1 ? 'var(--gold-primary)' : 'color-mix(in srgb, var(--text-body) 70%, transparent)',
+src/components/assessment/CompletionReveal.tsx:80:          style={{
+src/components/assessment/CompletionReveal.tsx:81:            background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 60%, transparent) 0%, color-mix(in srgb, var(--gold-primary) 0%, transparent) 70%)',
+src/components/assessment/AttentionPrimer.tsx:109:              style={{
+src/components/assessment/AttentionPrimer.tsx:110:                width: 130,
+src/components/assessment/AttentionPrimer.tsx:111:                height: 130,
+src/components/assessment/AttentionPrimer.tsx:112:                background: 'transparent',
+src/components/assessment/AttentionPrimer.tsx:113:                border: '1px solid color-mix(in srgb, var(--neon-cyan) 15%, transparent)',
+src/components/assessment/AttentionPrimer.tsx:120:              style={{
+src/components/assessment/AttentionPrimer.tsx:121:                width: 100,
+src/components/assessment/AttentionPrimer.tsx:122:                height: 100,
+src/components/assessment/AttentionPrimer.tsx:123:                background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 25%, transparent) 0%, var(--surface-border) 70%, transparent 100%)',
+src/components/retention/IfThenPlanClient.tsx:173:                  style={{
+src/components/retention/IfThenPlanClient.tsx:174:                    background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/IfThenPlanClient.tsx:175:                    border: '1px solid var(--surface-border)',
+src/components/retention/IfThenPlanClient.tsx:187:                        style={{
+src/components/retention/IfThenPlanClient.tsx:188:                          background: 'color-mix(in srgb, var(--text-body) 4%, transparent)',
+src/components/retention/IfThenPlanClient.tsx:189:                          border: '1px solid var(--surface-border)',
+src/components/retention/IfThenPlanClient.tsx:211:                  style={{
+src/components/retention/IfThenPlanClient.tsx:212:                    background: 'color-mix(in srgb, var(--text-body) 6%, transparent)',
+src/components/retention/IfThenPlanClient.tsx:213:                    border: '1px solid var(--surface-border)',
+src/components/retention/IfThenPlanClient.tsx:246:                  style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+src/components/retention/IfThenPlanClient.tsx:289:                    style={{ background: 'var(--surface-border)', color: 'var(--neon-amber)' }}
+src/components/retention/IfThenPlanClient.tsx:296:                    style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}
+src/components/assessment/AssessmentRunnerClient.tsx:540:                style={{
+src/components/assessment/AssessmentRunnerClient.tsx:541:                  background: paginated ? 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' : 'color-mix(in srgb, var(--stroke-400) 20%, transparent)',
+src/components/assessment/AssessmentRunnerClient.tsx:562:                style={{
+src/components/assessment/AssessmentRunnerClient.tsx:563:                  background: !isOnline ? 'var(--neon-amber)' :
+src/components/assessment/AssessmentRunnerClient.tsx:581:          style={{
+src/components/assessment/AssessmentRunnerClient.tsx:582:            background: 'linear-gradient(135deg, color-mix(in srgb, var(--gold-primary) 12%, transparent) 0%, color-mix(in srgb, var(--violet-650) 15%, transparent) 100%)',
+src/components/assessment/AssessmentRunnerClient.tsx:660:                  style={{
+src/components/assessment/AssessmentRunnerClient.tsx:661:                    background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+src/components/assessment/AssessmentRunnerClient.tsx:667:                    style={{ background: meta.color }}
+src/components/assessment/AssessmentRunnerClient.tsx:739:                    style={{
+src/components/assessment/AssessmentRunnerClient.tsx:740:                      background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+src/components/assessment/AssessmentRunnerClient.tsx:756:                    style={{
+src/components/assessment/AssessmentRunnerClient.tsx:757:                      background: 'color-mix(in srgb, var(--violet-650) 20%, transparent)',
+src/components/assessment/DimmingDetector.tsx:122:        style={{
+src/components/assessment/DimmingDetector.tsx:123:          background: 'linear-gradient(90deg, var(--text-body) 0%, var(--text-body) 50%, var(--text-body) 100%)',
+src/components/assessment/DimmingDetector.tsx:124:          border: '1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)',
+src/components/assessment/DimmingDetector.tsx:139:          style={{
+src/components/assessment/DimmingDetector.tsx:140:            right: 12,
+src/components/assessment/DimmingDetector.tsx:141:            background: 'radial-gradient(circle at 40% 38%, var(--text-body) 0%, var(--text-body) 40%, var(--text-body) 70%, var(--text-body) 100%)',
+src/components/assessment/DimmingDetector.tsx:148:          style={{
+src/components/assessment/DimmingDetector.tsx:149:            right: 12 + (1 - moonCoverage) * 16,
+src/components/assessment/DimmingDetector.tsx:150:            background: 'var(--violet-800)',
+src/components/assessment/DimmingDetector.tsx:167:          style={{
+src/components/assessment/DimmingDetector.tsx:168:            left: `calc(${value}% - 10px)`,
+src/components/assessment/DimmingDetector.tsx:169:            width: 20,
+src/components/assessment/DimmingDetector.tsx:170:            height: 20,
+src/components/assessment/DimmingDetector.tsx:171:            borderRadius: '50%',
+src/components/assessment/DimmingDetector.tsx:172:            background: 'radial-gradient(circle, var(--text-body) 0%, var(--text-body) 60%)',
+src/components/assessment/DimmingDetector.tsx:182:          style={{
+src/components/assessment/DimmingDetector.tsx:183:            left: 40,
+src/components/assessment/DimmingDetector.tsx:184:            width: `calc(${value}% - 40px)`,
+src/components/assessment/DimmingDetector.tsx:185:            background: 'linear-gradient(90deg, var(--surface-border), var(--surface-border))',
+src/components/assessment/DimmingDetector.tsx:370:                  style={{
+src/components/assessment/DimmingDetector.tsx:371:                    background: i === qIdx ? 'var(--brand-gold)' : i < qIdx ? 'var(--surface-border)' : 'color-mix(in srgb, var(--text-body) 12%, transparent)',
+src/components/assessment/DimmingDetector.tsx:411:              style={{
+src/components/assessment/DimmingDetector.tsx:412:                background: 'radial-gradient(circle, var(--text-body) 0%, var(--text-body) 72%)',
+src/components/assessment/DimmingDetector.tsx:464:                style={{
+src/components/assessment/DimmingDetector.tsx:465:                  background: 'color-mix(in srgb, var(--text-body) 4%, transparent)',
+src/components/assessment/DimmingDetector.tsx:466:                  border: '1px solid color-mix(in srgb, var(--gold-primary) 12%, transparent)',
+src/components/assessment/AssessmentSetupClient.tsx:301:          style={{
+src/components/assessment/AssessmentSetupClient.tsx:302:            background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/assessment/AssessmentSetupClient.tsx:303:            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/assessment/AssessmentSetupClient.tsx:311:            <option key={option.value} value={option.value} style={{ background: 'var(--bg-deep)', color: 'var(--color-outline-white)' }}>
+src/components/assessment/AssessmentSetupClient.tsx:331:          style={{
+src/components/assessment/AssessmentSetupClient.tsx:332:            background: 'var(--surface-glass, color-mix(in srgb, var(--text-body) 6%, transparent))',
+src/components/assessment/AssessmentSetupClient.tsx:333:            border: '1px solid var(--surface-border, color-mix(in srgb, var(--text-body) 10%, transparent))',
+src/components/assessment/AssessmentSetupClient.tsx:341:            <option key={option.value} value={option.value} style={{ background: 'var(--bg-deep)', color: 'var(--color-outline-white)' }}>
+src/components/assessment/SampleReportClient.tsx:404:          style={{
+src/components/assessment/SampleReportClient.tsx:405:            position: "absolute",
+src/components/assessment/SampleReportClient.tsx:406:            left: 0,
+src/components/assessment/SampleReportClient.tsx:407:            right: 0,
+src/components/assessment/SampleReportClient.tsx:408:            height: 4,
+src/components/assessment/SampleReportClient.tsx:409:            borderRadius: 99,
+src/components/assessment/SampleReportClient.tsx:410:            background: `linear-gradient(90deg, var(--surface-border) 0%, ${color}33 100%)`,
+src/components/assessment/SampleReportClient.tsx:417:            style={{
+src/components/assessment/SampleReportClient.tsx:418:              position: "absolute",
+src/components/assessment/SampleReportClient.tsx:419:              left: 0,
+src/components/assessment/SampleReportClient.tsx:420:              height: 4,
+src/components/assessment/SampleReportClient.tsx:421:              borderRadius: 99,
+src/components/assessment/SampleReportClient.tsx:422:              width: `${pct * 100}%`,
+src/components/assessment/SampleReportClient.tsx:423:              background: `linear-gradient(90deg, var(--surface-border), ${color})`,
+src/components/assessment/SampleReportClient.tsx:513:        style={{
+src/components/assessment/SampleReportClient.tsx:514:          background: "var(--surface-border)",
+src/components/assessment/SampleReportClient.tsx:515:          borderRadius: 16,
+src/components/assessment/SampleReportClient.tsx:516:          border: "2px solid var(--surface-border)",
+src/components/assessment/SampleReportClient.tsx:571:        style={{
+src/components/assessment/SampleReportClient.tsx:572:          background: "linear-gradient(135deg, var(--surface-border), var(--surface-border))",
+src/components/assessment/SampleReportClient.tsx:573:          border: "1px solid var(--surface-border)",
+src/components/assessment/SampleReportClient.tsx:596:          style={{
+src/components/assessment/SampleReportClient.tsx:597:            display: "inline-block",
+src/components/assessment/SampleReportClient.tsx:598:            width: "fit-content",
+src/components/assessment/SampleReportClient.tsx:599:            padding: "10px 22px",
+src/components/assessment/SampleReportClient.tsx:600:            borderRadius: 8,
+src/components/assessment/SampleReportClient.tsx:601:            background: "var(--ray-joy)",
+src/components/assessment/ReportClient.tsx:506:                style={{
+src/components/assessment/ReportClient.tsx:507:                  background: "var(--surface-glass)",
+src/components/assessment/ReportClient.tsx:508:                  color: "var(--text-on-dark-secondary)",
+src/components/assessment/ReportClient.tsx:509:                  border: "1px solid var(--surface-border)",
+src/components/assessment/ReportClient.tsx:518:          <div className="rounded-xl p-3 text-sm mb-4" style={{ background: "var(--surface-glass)", border: "1px solid var(--surface-border)" }}>
+src/components/assessment/ReportClient.tsx:1012:                style={{ background: "var(--surface-glass)", border: "1px solid var(--surface-border)", color: "var(--text-on-dark)" }}

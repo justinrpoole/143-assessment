@@ -44,7 +44,6 @@ export default function HeadlineCard({ output }: Props) {
       style={{
         background: 'linear-gradient(135deg, color-mix(in srgb, var(--violet-650) 25%, transparent) 0%, var(--surface-border) 100%)',
         border: '1px solid var(--surface-border)',
-        boxShadow: 'var(--shadow-glow-md)',
       }}
     >
       <div className="px-5 py-6 sm:px-6">

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { FadeInSection } from '@/components/ui/FadeInSection';
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
@@ -16,7 +15,7 @@ import StaggerChildren from '@/components/marketing/StaggerChildren';
 import TestimonialCarousel from "@/components/marketing/TestimonialCarousel";
 import { emitPageView } from '@/lib/analytics/emitter';
 import { getUserStateFromRequest } from '@/lib/auth/user-state';
-import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
+import { NEON, neonText } from '@/lib/ui/neon';
 
 export const dynamic = 'force-dynamic';
 
@@ -142,11 +141,8 @@ export default async function CoachingPage() {
               return (
                 <div
                   key={phase.num}
-                  className="glass-card glass-card--magnetic glass-card--lift p-6 space-y-3"
-                  style={{
-                    borderLeft: `3px solid ${color}40`,
-                    background: `${color}04`,
-                  }}
+                  className="glass-card glass-card--magnetic glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-6 space-y-3"
+                  style={{ '--card-accent': color } as { ['--card-accent']: string }}
                 >
                   <div className="flex items-baseline gap-3">
                     <span className="text-2xl font-bold" style={{ color }}>{phase.num}</span>

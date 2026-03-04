@@ -1,0 +1,22 @@
+src/components/LikertScale.tsx:32:                ? 'bg-brand-gold text-brand-black shadow-lg scale-110'
+src/components/glossary/GlossaryClient.tsx:348:          className="w-full rounded-xl py-3 pl-10 pr-4 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-gold/40"
+src/components/marketing/BrandLockup.tsx:30:          className="drop-shadow-[0_0_20px_color-mix(in srgb, var(--gold-primary) 30%, transparent)]"
+src/components/FrequencyScale.tsx:49:                ? 'border-brand-gold bg-brand-gold text-brand-black shadow-[0_0_16px_color-mix(in srgb, var(--gold-primary) 30%, transparent)]'
+src/components/PatternInterruptHub.tsx:71:                className="w-12 h-12 rounded-full text-on-dark shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+src/components/PatternInterruptHub.tsx:86:                className="w-12 h-12 rounded-full text-on-dark shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+src/components/PatternInterruptHub.tsx:101:                className="w-12 h-12 rounded-full text-on-dark shadow-lg flex items-center justify-center text-xl hover:scale-110 transition-transform"
+src/components/PatternInterruptHub.tsx:114:          className={`w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-on-dark font-bold text-lg transition-all duration-200 ${
+src/components/ui/MetricTooltip.tsx:66:          className="absolute bottom-full left-1/2 z-50 mb-2 w-72 -translate-x-1/2 rounded-xl p-4 text-left shadow-xl"
+src/components/portal/QuickRepFAB.tsx:101:        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform active:scale-95"
+src/components/retention/RepLogClient.tsx:250:  if (q === 3) return 'shadow-[0_0_8px_color-mix(in srgb, var(--gold-primary) 40%, transparent)]';
+src/components/retention/RepLogClient.tsx:251:  if (q === 2) return 'shadow-[0_0_8px_color-mix(in srgb, var(--violet-650) 40%, transparent)]';
+src/components/retention/RepLogClient.tsx:857:                      active ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 20%, transparent)]' : ''
+src/components/retention/RepLogClient.tsx:1130:                    isSelected ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]' : ''
+src/components/retention/RepLogClient.tsx:1252:                    active ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 20%, transparent)]' : ''
+src/components/retention/MicroJoyClient.tsx:189:                  active ? "shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]" : ""
+src/components/cosmic/SolarCoreScore.tsx:275:        className="relative rounded-2xl overflow-hidden shadow-lg"
+src/components/retention/EnergyAuditClient.tsx:334:                    isSelected ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]' : ''
+src/components/BreathingMoment.tsx:43:              bg-[var(--ink)] text-on-dark hover:brightness-110 shadow-[0_10px_26px_var(--surface-border)]"
+src/components/auth/MagicLinkFormClient.tsx:101:        className="flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all hover:shadow-lg"
+src/components/cosmic/EclipseMeter.tsx:153:      <div className="rounded-2xl overflow-hidden shadow-lg">
+src/components/retention/PhaseCheckInClient.tsx:241:                    isSelected ? 'shadow-[0_0_12px_color-mix(in srgb, var(--violet-650) 30%, transparent)]' : ''

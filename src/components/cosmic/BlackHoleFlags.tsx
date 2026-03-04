@@ -359,7 +359,6 @@ export default function BlackHoleFlags({ rays }: BlackHoleFlagsProps) {
                 border: '1.5px solid var(--text-body)',
                 borderRadius: 'var(--radius-xl)',
                 backdropFilter: 'blur(20px)',
-                boxShadow: '0 0 24px var(--surface-border)',
               }}
               role="dialog"
               aria-label={`Actions to seal the ${hole.rayName} energy leak`}

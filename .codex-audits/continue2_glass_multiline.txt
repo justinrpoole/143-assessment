@@ -1,0 +1,1371 @@
+src/components/billing/DimmingCarryForwardCard.tsx:41:    <div
+src/components/billing/DimmingCarryForwardCard.tsx:42:      className="glass-card mb-6 p-5"
+src/components/billing/DimmingCarryForwardCard.tsx:43:      style={{ borderLeft: '3px solid var(--gold-primary)' }}
+src/components/feedback/FeedbackWidget.tsx:87:    <section
+src/components/feedback/FeedbackWidget.tsx:88:      className="mt-8 glass-card p-4"
+src/components/feedback/FeedbackWidget.tsx:89:      aria-label="Feedback"
+src/components/feedback/FeedbackWidget.tsx:90:    >
+src/components/feedback/FeedbackWidget.tsx:91:      <h2 className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/app/(flow)/preview/page.tsx:115:              <div
+src/app/(flow)/preview/page.tsx:116:                className="glass-card card-border-gold-mid p-6 space-y-4"
+src/app/(flow)/preview/page.tsx:117:              >
+src/app/(flow)/preview/page.tsx:118:                <p
+src/app/(flow)/preview/page.tsx:119:                  className="text-xs font-bold uppercase tracking-widest"
+src/app/(flow)/preview/page.tsx:120:                  style={{ color: "var(--gold-primary)" }}
+src/app/(flow)/preview/page.tsx:144:              <div
+src/app/(flow)/preview/page.tsx:145:                className="glass-card card-border-default p-6 space-y-4"
+src/app/(flow)/preview/page.tsx:146:              >
+src/app/(flow)/preview/page.tsx:147:                <p
+src/app/(flow)/preview/page.tsx:148:                  className="text-xs font-bold uppercase tracking-widest"
+src/app/(flow)/preview/page.tsx:149:                  style={{ color: "var(--accent-purple, var(--text-body))" }}
+src/app/(flow)/preview/page.tsx:176:            <blockquote
+src/app/(flow)/preview/page.tsx:177:              className="glass-card card-border-gold-soft content-wrap--narrow p-6 text-center"
+src/app/(flow)/preview/page.tsx:178:            >
+src/app/(flow)/preview/page.tsx:179:              <p
+src/app/(flow)/preview/page.tsx:180:                className="text-sm italic leading-relaxed"
+src/app/(flow)/preview/page.tsx:181:                style={{ color: "var(--text-secondary)" }}
+src/components/glossary/GlossaryClient.tsx:240:    <div
+src/components/glossary/GlossaryClient.tsx:241:      id={`metric-${metric.id}`}
+src/components/glossary/GlossaryClient.tsx:242:      className="glass-card scroll-mt-24 p-4"
+src/components/glossary/GlossaryClient.tsx:243:    >
+src/components/glossary/GlossaryClient.tsx:244:      <div className="flex items-baseline gap-2">
+src/components/glossary/GlossaryClient.tsx:245:        <h3 className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/components/glossary/GlossaryClient.tsx:264:    <div
+src/components/glossary/GlossaryClient.tsx:265:      id={`term-${term.replace(/\s+/g, "-").toLowerCase()}`}
+src/components/glossary/GlossaryClient.tsx:266:      className="glass-card scroll-mt-24 p-4"
+src/components/glossary/GlossaryClient.tsx:267:    >
+src/components/glossary/GlossaryClient.tsx:268:      <h3 className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>{term}</h3>
+src/components/billing/AccountBillingClient.tsx:55:    <section className="glass-card p-6 sm:p-8 space-y-4">
+src/components/billing/AccountBillingClient.tsx:56:      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>Billing</p>
+src/components/ModulePlaceholder.tsx:7:    <section
+src/components/ModulePlaceholder.tsx:8:      className="glass-card p-6 space-y-3"
+src/components/ModulePlaceholder.tsx:9:      aria-label={name}
+src/components/ModulePlaceholder.tsx:10:      style={{ borderColor: "color-mix(in srgb, var(--violet-650) 15%, transparent)" }}
+src/components/quiz/ArchetypeQuizClient.tsx:233:          <motion.div
+src/components/quiz/ArchetypeQuizClient.tsx:234:            key={`q-${step}`}
+src/components/quiz/ArchetypeQuizClient.tsx:235:            initial={prefersReduced ? {} : { opacity: 0, x: 30 }}
+src/components/quiz/ArchetypeQuizClient.tsx:236:            animate={{ opacity: 1, x: 0 }}
+src/components/quiz/ArchetypeQuizClient.tsx:237:            exit={prefersReduced ? {} : { opacity: 0, x: -30 }}
+src/components/quiz/ArchetypeQuizClient.tsx:238:            transition={{ duration: 0.3 }}
+src/components/quiz/ArchetypeQuizClient.tsx:239:            className="glass-card p-6 space-y-5"
+src/components/quiz/ArchetypeQuizClient.tsx:240:          >
+src/components/quiz/ArchetypeQuizClient.tsx:241:            <div>
+src/components/quiz/ArchetypeQuizClient.tsx:242:              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+src/components/quiz/ArchetypeQuizClient.tsx:285:            <div className="glass-card p-8 text-center space-y-4 card-border-gold-mid">
+src/components/quiz/ArchetypeQuizClient.tsx:286:              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/quiz/ArchetypeQuizClient.tsx:297:            <div className="glass-card p-6 space-y-3">
+src/components/quiz/ArchetypeQuizClient.tsx:298:              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
+src/components/quiz/ArchetypeQuizClient.tsx:313:            <div className="glass-card p-6 relative overflow-hidden">
+src/components/quiz/ArchetypeQuizClient.tsx:314:              <div className="space-y-2 blur-sm select-none" aria-hidden="true">
+src/components/quiz/ArchetypeQuizClient.tsx:315:                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+src/components/billing/UpgradeCheckoutClient.tsx:57:    <section className="glass-card p-6 sm:p-8 space-y-4">
+src/components/billing/UpgradeCheckoutClient.tsx:58:      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>Checkout</p>
+src/components/assessment/RegulationBaselineCard.tsx:39:    <section className="glass-card p-6 space-y-4">
+src/components/assessment/RegulationBaselineCard.tsx:40:      <div className="space-y-1">
+src/components/assessment/RegulationBaselineCard.tsx:41:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/components/assessment/RegulationBaselineCard.tsx:76:      <div className="glass-card p-4 card-border-gold-mid">
+src/components/assessment/RegulationBaselineCard.tsx:77:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/app/(marketing)/login/page.tsx:50:        <div className="relative gold-dot-grid glass-card w-full max-w-[440px] p-6 sm:p-8">
+src/app/(marketing)/login/page.tsx:51:          <div className="relative text-center">
+src/app/(marketing)/login/page.tsx:52:            <p className="gold-tag inline-block text-xs font-bold" style={{ color: rayHex('R9') }}>
+src/components/assessment/ResultsClient.tsx:337:        <div id="section-actions" className="glass-card p-6 space-y-4 card-border-gold-soft">
+src/components/assessment/ResultsClient.tsx:338:          <div>
+src/components/assessment/ResultsClient.tsx:339:            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/components/assessment/ResultsClient.tsx:401:          <div className="glass-card p-5 card-border-default">
+src/components/assessment/ResultsClient.tsx:402:            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/app/spec-center/page.tsx:101:        <header className="glass-card p-6 mb-6 sm:p-8">
+src/app/spec-center/page.tsx:102:          <p className="chip mb-3">Spec Center</p>
+src/app/spec-center/page.tsx:103:          <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>Integrated Source-of-Truth Runtime</h1>
+src/app/spec-center/page.tsx:140:        <section className="glass-card p-6 mb-6 sm:p-8">
+src/app/spec-center/page.tsx:141:          <p className="step-tag">Governance Signals</p>
+src/app/spec-center/page.tsx:142:          <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/spec-center/page.tsx:152:        <section className="glass-card p-6 mb-6 sm:p-8">
+src/app/spec-center/page.tsx:153:          <p className="step-tag">Drift Check</p>
+src/app/spec-center/page.tsx:154:          <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/components/results/ThirtyDayCalendar.tsx:201:        <div className="glass-card p-3 card-border-left-gold">
+src/components/results/ThirtyDayCalendar.tsx:202:          <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
+src/components/results/ThirtyDayCalendar.tsx:207:        <div className="glass-card p-3 card-border-left-stroke">
+src/components/results/ThirtyDayCalendar.tsx:208:          <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'color-mix(in srgb, var(--stroke-400) 80%, transparent)' }}>
+src/components/coach/CoachingApplicationForm.tsx:77:    <section className="glass-card p-6 space-y-4">
+src/components/coach/CoachingApplicationForm.tsx:78:      <div>
+src/components/coach/CoachingApplicationForm.tsx:79:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/components/assessment/AssessmentSetupClient.tsx:183:        <section className="glass-card p-6">
+src/components/assessment/AssessmentSetupClient.tsx:184:          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>Access Restricted</p>
+src/components/assessment/AssessmentSetupClient.tsx:200:        <section
+src/components/assessment/AssessmentSetupClient.tsx:201:          className="glass-card p-5 mb-4"
+src/components/assessment/AssessmentSetupClient.tsx:202:          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
+src/components/assessment/AssessmentSetupClient.tsx:272:      <form onSubmit={onSubmit} className="glass-card glass-card--interactive p-6">
+src/components/assessment/AssessmentSetupClient.tsx:273:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>Configure</p>
+src/components/admin/AdminAuditClient.tsx:126:      <div className="glass-card overflow-hidden card-border-top-gold">
+src/components/admin/AdminAuditClient.tsx:127:        <div className="overflow-auto">
+src/components/admin/AdminAuditClient.tsx:128:          <table className="w-full text-sm">
+src/components/admin/AdminAuditClient.tsx:129:            <thead>
+src/components/admin/AdminAuditClient.tsx:130:              <tr
+src/components/admin/AdminAuditClient.tsx:131:                className="border-b"
+src/components/admin/AdminAuditClient.tsx:132:                style={{ borderColor: "var(--surface-border)", background: 'color-mix(in srgb, var(--gold-primary) 3%, transparent)' }}
+src/app/spec-center/report-preview/page.tsx:109:        <header className="glass-card p-6 mb-6 sm:p-8">
+src/app/spec-center/report-preview/page.tsx:110:          <p className="chip mb-3">Spec Center</p>
+src/app/spec-center/report-preview/page.tsx:111:          <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>
+src/components/results/ReportUpsell.tsx:21:    <section
+src/components/results/ReportUpsell.tsx:22:      className="glass-card p-6 sm:p-8 space-y-5 card-border-gold-soft"
+src/components/results/ReportUpsell.tsx:23:    >
+src/components/results/ReportUpsell.tsx:24:      <div className="text-center space-y-2">
+src/components/results/ReportUpsell.tsx:25:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+src/components/assessment/AssessmentRunnerClient.tsx:690:              <article className="glass-card p-4">
+src/components/assessment/AssessmentRunnerClient.tsx:691:                <p className="text-sm font-semibold leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
+src/components/marketing/EmailGate.tsx:64:    <section className="glass-card p-6 sm:p-8 my-8 text-center">
+src/components/marketing/EmailGate.tsx:65:      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/app/(marketing)/privacy/page.tsx:47:        <div className="glass-card space-y-8 p-6 sm:p-8">
+src/app/(marketing)/privacy/page.tsx:48:          <section>
+src/app/(marketing)/privacy/page.tsx:49:            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R1') }}>
+src/app/(marketing)/pricing/page.tsx:422:            <div className="glass-card overflow-auto p-0">
+src/app/(marketing)/pricing/page.tsx:423:              <table className="w-full w-full text-sm">
+src/app/(marketing)/pricing/page.tsx:424:                <thead>
+src/app/(marketing)/pricing/page.tsx:425:                  <tr
+src/app/(marketing)/pricing/page.tsx:426:                    style={{
+src/app/(marketing)/pricing/page.tsx:541:            <div className="glass-card p-6 sm:p-8 space-y-4">
+src/app/(marketing)/pricing/page.tsx:542:              <p
+src/app/(marketing)/pricing/page.tsx:543:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/pricing/page.tsx:544:                style={{ color: rayHex('R9') }}
+src/app/(marketing)/pricing/page.tsx:580:            <div className="glass-card p-6 sm:p-8 space-y-4 text-center">
+src/app/(marketing)/pricing/page.tsx:581:              <p
+src/app/(marketing)/pricing/page.tsx:582:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/pricing/page.tsx:583:                style={{ color: rayHex('R6') }}
+src/app/(marketing)/pricing/page.tsx:641:                  <details className="glass-card group p-5">
+src/app/(marketing)/pricing/page.tsx:642:                    <summary
+src/app/(marketing)/pricing/page.tsx:643:                      className="flex cursor-pointer items-center justify-between text-sm font-semibold"
+src/app/(marketing)/pricing/page.tsx:644:                      style={{ color: "var(--text-body)" }}
+src/app/(marketing)/pricing/page.tsx:685:            <div className="glass-card p-8 text-center space-y-5 card-border-none">
+src/app/(marketing)/pricing/page.tsx:686:              <p
+src/app/(marketing)/pricing/page.tsx:687:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/pricing/page.tsx:688:                style={{ color: "var(--gold-primary)" }}
+src/components/cosmic/SolarFlareJournal.tsx:67:    <div className="glass-card p-5">
+src/components/cosmic/SolarFlareJournal.tsx:68:      <p
+src/components/cosmic/SolarFlareJournal.tsx:69:        className="mb-3"
+src/components/cosmic/SolarFlareJournal.tsx:70:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/coach/CoachWorkspaceClient.tsx:50:        <header className="glass-card mb-6 p-6 sm:p-8">
+src/components/coach/CoachWorkspaceClient.tsx:51:          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">Coach Workspace</p>
+src/components/coach/CoachWorkspaceClient.tsx:52:          <h1 className="text-3xl font-semibold mt-2 sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>Tools-First Coaching Plan</h1>
+src/components/coach/CoachWorkspaceClient.tsx:64:            <article className="glass-card p-4">
+src/components/coach/CoachWorkspaceClient.tsx:65:              <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Eclipse Level</p>
+src/components/coach/CoachWorkspaceClient.tsx:68:            <article className="glass-card p-4">
+src/components/coach/CoachWorkspaceClient.tsx:69:              <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Gate Mode</p>
+src/components/coach/CoachWorkspaceClient.tsx:72:            <article className="glass-card p-4">
+src/components/coach/CoachWorkspaceClient.tsx:73:              <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Confidence</p>
+src/components/coach/CoachWorkspaceClient.tsx:76:            <article className="glass-card p-4">
+src/components/coach/CoachWorkspaceClient.tsx:77:              <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Acting Status</p>
+src/components/coach/CoachWorkspaceClient.tsx:83:        <section className="glass-card mb-6 p-6 sm:p-8">
+src/components/coach/CoachWorkspaceClient.tsx:84:          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Roadmap Integration</p>
+src/components/coach/CoachWorkspaceClient.tsx:85:          <h2 className="mb-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Phase 3 Coaching Features</h2>
+src/components/coach/CoachWorkspaceClient.tsx:88:              <article key={`${row.Phase}-${row.Feature}`} className="glass-card p-4">
+src/components/coach/CoachWorkspaceClient.tsx:89:                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>{row.Phase}</p>
+src/components/coach/CoachWorkspaceClient.tsx:101:              <article key={ray.ray_id} className="glass-card p-4">
+src/components/coach/CoachWorkspaceClient.tsx:102:                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Power Source</p>
+src/components/coach/CoachWorkspaceClient.tsx:109:            <article className="glass-card p-4 md:col-span-2">
+src/components/coach/CoachWorkspaceClient.tsx:110:              <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Bottom Ray Training Focus</p>
+src/components/coach/CoachWorkspaceClient.tsx:121:        <section className="glass-card mb-6 p-6 sm:p-8">
+src/components/coach/CoachWorkspaceClient.tsx:122:          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Coach Questions</p>
+src/components/coach/CoachWorkspaceClient.tsx:123:          <h2 className="mb-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Suggested prompts for next session</h2>
+src/components/cosmic/AtmosphereShield.tsx:81:    <div className="glass-card p-5">
+src/components/cosmic/AtmosphereShield.tsx:82:      <p
+src/components/cosmic/AtmosphereShield.tsx:83:        className="mb-3"
+src/components/cosmic/AtmosphereShield.tsx:84:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/assessment/ReportClient.tsx:140:    <details id={id} open={defaultOpen} className="glass-card p-5">
+src/components/assessment/ReportClient.tsx:141:      <summary className="cursor-pointer" style={{ listStyle: "none" }}>
+src/components/assessment/ReportClient.tsx:491:        <section className="glass-card p-6 sm:p-8">
+src/components/assessment/ReportClient.tsx:492:          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+src/components/assessment/ReportClient.tsx:493:            <div>
+src/components/assessment/ReportClient.tsx:494:              <h2 className="text-2xl font-semibold" style={{ color: "var(--text-on-dark)" }}>
+src/components/assessment/ReportClient.tsx:999:            <div className="glass-card p-5 flex items-center justify-between gap-4">
+src/components/assessment/ReportClient.tsx:1000:              <div>
+src/components/assessment/ReportClient.tsx:1001:                <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
+src/components/assessment/ReportClient.tsx:1035:          <section className="glass-card p-6 sm:p-8">
+src/components/assessment/ReportClient.tsx:1036:            <h2 className="text-lg font-semibold mb-4" style={{ color: "var(--text-on-dark)" }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:296:              <div
+src/app/(marketing)/upgrade-your-os/page.tsx:297:                key={card.label}
+src/app/(marketing)/upgrade-your-os/page.tsx:298:                className="glass-card glass-card--lift p-6"
+src/app/(marketing)/upgrade-your-os/page.tsx:299:                style={{ borderTop: `2px solid ${color}50`, background: `${color}06` }}
+src/app/(marketing)/upgrade-your-os/page.tsx:377:          <div className="glass-card glass-card--glow relative rounded-2xl overflow-hidden">
+src/app/(marketing)/upgrade-your-os/page.tsx:378:
+src/app/(marketing)/upgrade-your-os/page.tsx:379:            {/* Blurred report content — decorative only */}
+src/app/(marketing)/upgrade-your-os/page.tsx:380:            <div className="p-6 sm:p-8 space-y-5" style={{ filter: 'blur(5px)', userSelect: 'none', pointerEvents: 'none' }} aria-hidden="true">
+src/app/(marketing)/upgrade-your-os/page.tsx:385:                  <div key={ray} className="glass-card p-3 text-center">
+src/app/(marketing)/upgrade-your-os/page.tsx:386:                    <div className="h-2 rounded-full mb-2" style={{ background: rayHex(cycleRay(i)), width: `${55 + i * 7}%` }} />
+src/app/(marketing)/upgrade-your-os/page.tsx:458:            <div
+src/app/(marketing)/upgrade-your-os/page.tsx:459:              key={item.q}
+src/app/(marketing)/upgrade-your-os/page.tsx:460:              className="glass-card glass-card--lift glass-card--executive glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle p-5"
+src/app/(marketing)/upgrade-your-os/page.tsx:461:              style={{ '--card-accent': color } as { ['--card-accent']: string }}
+src/app/(marketing)/upgrade-your-os/page.tsx:487:        <div className="glass-card p-8 text-center space-y-4">
+src/app/(marketing)/upgrade-your-os/page.tsx:488:          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:528:            <div className="glass-card glass-card--lift card-border-left-gold-soft p-5">
+src/app/(marketing)/upgrade-your-os/page.tsx:529:              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.5 }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:539:            <div className="glass-card glass-card--lift card-border-left-body p-5">
+src/app/(marketing)/upgrade-your-os/page.tsx:540:              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:591:        <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+src/app/(marketing)/upgrade-your-os/page.tsx:592:          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:643:            <div
+src/app/(marketing)/upgrade-your-os/page.tsx:644:              key={item}
+src/app/(marketing)/upgrade-your-os/page.tsx:645:              className="glass-card glass-card--lift glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle flex items-start gap-3 p-4"
+src/app/(marketing)/upgrade-your-os/page.tsx:646:              style={{ '--card-accent': color } as { ['--card-accent']: string }}
+src/app/(marketing)/upgrade-your-os/page.tsx:675:            <div
+src/app/(marketing)/upgrade-your-os/page.tsx:676:              key={t.attribution}
+src/app/(marketing)/upgrade-your-os/page.tsx:677:              className="glass-card glass-card--magnetic testimonial-card card-border-left-accent-soft card-surface-accent-subtle p-5 pl-6"
+src/app/(marketing)/upgrade-your-os/page.tsx:678:              style={{ '--card-accent': color } as { ['--card-accent']: string }}
+src/app/(marketing)/upgrade-your-os/page.tsx:736:          <div className="glass-card glass-card--lift flex flex-col p-6">
+src/app/(marketing)/upgrade-your-os/page.tsx:737:            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.7 }}>Free Preview</p>
+src/app/(marketing)/upgrade-your-os/page.tsx:751:          <div className="glass-card glass-card--featured pricing-featured flex flex-col p-6">
+src/app/(marketing)/upgrade-your-os/page.tsx:752:            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/app/(marketing)/tools/page.tsx:66:              <div
+src/app/(marketing)/tools/page.tsx:67:                className="glass-card card-border-top-accent p-5 h-full rounded-2xl"
+src/app/(marketing)/tools/page.tsx:68:                style={{ '--card-accent': tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray) } as { ['--card-accent']: string }}
+src/components/results/Closing.tsx:55:      <div className="mt-6 glass-card p-6 text-left">
+src/components/results/Closing.tsx:56:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/components/marketing/LightCheckResultPanel.tsx:77:        <div
+src/components/marketing/LightCheckResultPanel.tsx:78:          className="glass-card p-5"
+src/components/marketing/LightCheckResultPanel.tsx:79:          style={{ borderLeft: '3px solid var(--gold-primary)' }}
+src/components/cosmic/GravitationalStability.tsx:46:    <div className="glass-card p-5">
+src/components/cosmic/GravitationalStability.tsx:47:      <p
+src/components/cosmic/GravitationalStability.tsx:48:        className="mb-3"
+src/components/cosmic/GravitationalStability.tsx:49:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/results/BottomRay.tsx:43:      <div
+src/components/results/BottomRay.tsx:44:        className="glass-card card-border-accent-soft card-border-thick p-6"
+src/components/results/BottomRay.tsx:45:        style={{ '--card-accent': rayHex(justInRay.ray_id) } as { ['--card-accent']: string }}
+src/components/results/ReportTableOfContents.tsx:28:    <div className="glass-card mb-6 overflow-hidden">
+src/components/results/ReportTableOfContents.tsx:29:      <button
+src/components/results/ReportTableOfContents.tsx:30:        type="button"
+src/components/results/ReportTableOfContents.tsx:31:        onClick={() => setOpen((prev) => !prev)}
+src/components/results/ReportTableOfContents.tsx:32:        className="flex w-full items-center justify-between px-5 py-3 text-left"
+src/components/results/ReportTableOfContents.tsx:33:        style={{ color: 'var(--text-body)' }}
+src/app/(marketing)/methodology/page.tsx:51:              <div key={card.title} className="glass-card p-5">
+src/app/(marketing)/methodology/page.tsx:52:                <h2 className="text-lg font-semibold" style={{ color: "var(--gold-primary)" }}>{card.title}</h2>
+src/app/(marketing)/methodology/page.tsx:62:          <section className="glass-card p-8 text-center max-w-[720px] mx-auto space-y-4">
+src/app/(marketing)/methodology/page.tsx:63:            <p className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--gold-primary)" }}>
+src/components/cosmic/ShootingStarActions.tsx:57:      for (let i = 0; i < 8; i++) {
+src/components/cosmic/ShootingStarActions.tsx:58:        const t = 0.1 + (i / 8) * 0.7;
+src/components/cosmic/ShootingStarActions.tsx:59:        const baseX = W * 0.85 - t * W * 0.7;
+src/components/cosmic/ShootingStarActions.tsx:60:        const baseY = 40 + idx * 100 + t * 80;
+src/components/cosmic/ShootingStarActions.tsx:61:        pts.push({
+src/components/cosmic/ShootingStarActions.tsx:62:          x: baseX + (seededRandom(idx * 100 + i * 3) - 0.5) * 12,
+src/components/cosmic/ShootingStarActions.tsx:63:          y: baseY + (seededRandom(idx * 100 + i * 3 + 1) - 0.5) * 12,
+src/components/cosmic/ShootingStarActions.tsx:64:          size: 1 + seededRandom(idx * 100 + i * 3 + 2) * 2,
+src/components/cosmic/ShootingStarActions.tsx:65:          delay: i * 0.15,
+src/components/cosmic/ShootingStarActions.tsx:66:        });
+src/components/cosmic/ShootingStarActions.tsx:67:      }
+src/components/cosmic/ShootingStarActions.tsx:68:      return pts;
+src/components/cosmic/ShootingStarActions.tsx:69:    });
+src/components/cosmic/ShootingStarActions.tsx:70:  }, [actions]);
+src/components/cosmic/ShootingStarActions.tsx:71:
+src/components/cosmic/ShootingStarActions.tsx:72:  return (
+src/components/cosmic/ShootingStarActions.tsx:73:    <div className="glass-card p-5">
+src/components/cosmic/ShootingStarActions.tsx:74:      <p
+src/components/cosmic/ShootingStarActions.tsx:75:        className="mb-3"
+src/components/cosmic/ShootingStarActions.tsx:76:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/cosmic/ShootingStarActions.tsx:236:            <motion.div
+src/components/cosmic/ShootingStarActions.tsx:237:              key={action.id}
+src/components/cosmic/ShootingStarActions.tsx:238:              initial={{ opacity: 0, y: 16 }}
+src/components/cosmic/ShootingStarActions.tsx:239:              animate={{ opacity: 1, y: 0 }}
+src/components/cosmic/ShootingStarActions.tsx:240:              exit={{ opacity: 0, y: 16 }}
+src/components/cosmic/ShootingStarActions.tsx:241:              transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
+src/components/cosmic/ShootingStarActions.tsx:242:              className="glass-card glass-card--glow mt-4 p-4"
+src/components/cosmic/ShootingStarActions.tsx:243:              style={{
+src/components/results/SubfacetHeatmap.tsx:71:      <div className="glass-card p-4 overflow-auto">
+src/components/results/SubfacetHeatmap.tsx:72:        <table className="w-full border-collapse" style={{ minWidth: '320px' }}>
+src/app/(marketing)/rays/[slug]/page.tsx:164:            <div
+src/app/(marketing)/rays/[slug]/page.tsx:165:              className="glass-card glass-card--lift mt-6 p-6 sm:p-8"
+src/app/(marketing)/rays/[slug]/page.tsx:166:              style={{
+src/app/(marketing)/rays/[slug]/page.tsx:202:              <div
+src/app/(marketing)/rays/[slug]/page.tsx:203:                key={i}
+src/app/(marketing)/rays/[slug]/page.tsx:204:                className="glass-card glass-card--lift p-5 sm:p-6"
+src/app/(marketing)/rays/[slug]/page.tsx:205:                style={{
+src/app/(marketing)/rays/[slug]/page.tsx:260:              <div
+src/app/(marketing)/rays/[slug]/page.tsx:261:                key={i}
+src/app/(marketing)/rays/[slug]/page.tsx:262:                className="glass-card glass-card--lift p-5 sm:p-6"
+src/app/(marketing)/rays/[slug]/page.tsx:263:                style={{
+src/app/(marketing)/rays/[slug]/page.tsx:318:              <div
+src/app/(marketing)/rays/[slug]/page.tsx:319:                key={i}
+src/app/(marketing)/rays/[slug]/page.tsx:320:                className="glass-card glass-card--lift glass-card--magnetic p-5 sm:p-6"
+src/app/(marketing)/rays/[slug]/page.tsx:321:                style={{
+src/app/(marketing)/rays/[slug]/page.tsx:368:          <div
+src/app/(marketing)/rays/[slug]/page.tsx:369:            className="glass-card glass-card--executive p-6 sm:p-8"
+src/app/(marketing)/rays/[slug]/page.tsx:370:            style={{
+src/app/(marketing)/rays/[slug]/page.tsx:491:          <div className="glass-card glass-card--hero relative z-10 p-8 text-center sm:p-10">
+src/app/(marketing)/rays/[slug]/page.tsx:492:            <h2 className="text-shimmer heading-section">
+src/app/(marketing)/rays/[slug]/page.tsx:493:              Find out where your{' '}
+src/app/(marketing)/rays/[slug]/page.tsx:494:              <span style={{ color: hex }}>{ray.name}</span> stands
+src/components/results/ConfidenceBandSection.tsx:50:      <div className="glass-card p-6 space-y-4">
+src/components/results/ConfidenceBandSection.tsx:51:        {/* Confidence gauge */}
+src/components/results/ConfidenceBandSection.tsx:52:        <div className="flex items-center gap-4">
+src/components/results/ConfidenceBandSection.tsx:53:          <div className="relative" style={{ width: 56, height: 56 }}>
+src/components/assessment/SampleReportClient.tsx:511:      <div
+src/components/assessment/SampleReportClient.tsx:512:        className="glass-card glass-card--glow"
+src/components/assessment/SampleReportClient.tsx:513:        style={{
+src/components/assessment/SampleReportClient.tsx:660:        <div className="glass-card p-5">
+src/components/assessment/SampleReportClient.tsx:661:          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
+src/components/assessment/SampleReportClient.tsx:699:        <div className="glass-card p-5 card-border-gold-soft">
+src/components/assessment/SampleReportClient.tsx:700:          <div className="flex items-center gap-2 mb-2">
+src/components/assessment/SampleReportClient.tsx:701:            <span className="text-sm" style={{ color: "var(--gold-primary)" }}>&var(--text-body);</span>
+src/components/assessment/SampleReportClient.tsx:757:        <div className="glass-card p-5 card-border-default">
+src/components/assessment/SampleReportClient.tsx:758:          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
+src/components/assessment/SampleReportClient.tsx:956:        <div className="glass-card p-6 space-y-4 card-border-gold-soft">
+src/components/assessment/SampleReportClient.tsx:957:          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
+src/app/(marketing)/upgrade/page.tsx:205:                  <div
+src/app/(marketing)/upgrade/page.tsx:206:                    className="glass-card glass-card--magnetic card-border-top-accent p-5 h-full space-y-2"
+src/app/(marketing)/upgrade/page.tsx:207:                    style={{ '--card-accent': rayHex(cycleRay(i)) } as { ['--card-accent']: string }}
+src/app/(marketing)/upgrade/page.tsx:271:                  <div
+src/app/(marketing)/upgrade/page.tsx:272:                    className="glass-card glass-card--magnetic card-border-top-accent p-5 h-full space-y-2"
+src/app/(marketing)/upgrade/page.tsx:273:                    style={{ '--card-accent': rayHex(cycleRay(i)) } as { ['--card-accent']: string }}
+src/app/(marketing)/upgrade/page.tsx:320:                  <blockquote
+src/app/(marketing)/upgrade/page.tsx:321:                    className="glass-card glass-card--magnetic p-5"
+src/app/(marketing)/upgrade/page.tsx:322:                    style={{
+src/app/(marketing)/upgrade/page.tsx:383:              <div
+src/app/(marketing)/upgrade/page.tsx:384:                className="glass-card glass-card--glow flex flex-col p-6"
+src/app/(marketing)/upgrade/page.tsx:385:                style={{ border: "1.5px solid var(--gold-primary)" }}
+src/app/(marketing)/upgrade/page.tsx:429:              <div className="glass-card flex flex-col p-6">
+src/app/(marketing)/upgrade/page.tsx:430:                <p
+src/app/(marketing)/upgrade/page.tsx:431:                  className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/upgrade/page.tsx:432:                  style={{ color: rayHex('R8') }}
+src/components/cosmic/MandalaPhases.tsx:55:    <div className="glass-card p-5">
+src/components/cosmic/MandalaPhases.tsx:56:      <p
+src/components/cosmic/MandalaPhases.tsx:57:        className="mb-3"
+src/components/cosmic/MandalaPhases.tsx:58:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:55:        <div className="glass-card p-8 text-center space-y-4">
+src/app/(marketing)/rays/[slug]/RayDetailGateClient.tsx:56:          <p className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: "var(--gold-primary)" }}>
+src/components/cosmic/NebulaIncubation.tsx:77:    <div className="glass-card p-5">
+src/components/cosmic/NebulaIncubation.tsx:78:      <p
+src/components/cosmic/NebulaIncubation.tsx:79:        className="mb-3"
+src/components/cosmic/NebulaIncubation.tsx:80:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/assessment/BreathingMoment.tsx:23:    <div
+src/components/assessment/BreathingMoment.tsx:24:      className="glass-card flex flex-col items-center gap-4 py-8 px-6 text-center card-border-gold-soft"
+src/components/assessment/BreathingMoment.tsx:25:    >
+src/components/assessment/BreathingMoment.tsx:26:      {/* Breathing circle */}
+src/components/assessment/BreathingMoment.tsx:27:      <div
+src/components/assessment/BreathingMoment.tsx:28:        className="h-16 w-16 rounded-full"
+src/components/assessment/BreathingMoment.tsx:29:        style={{
+src/components/results/PsychometricSummary.tsx:64:      <div className="glass-card p-5 sm:p-6">
+src/components/results/PsychometricSummary.tsx:65:        <div className="flex items-start justify-between gap-4">
+src/components/results/PsychometricSummary.tsx:66:          <div>
+src/components/results/PsychometricSummary.tsx:67:            <p
+src/components/results/PsychometricSummary.tsx:68:              className="text-[10px] font-bold uppercase tracking-widest"
+src/components/results/PsychometricSummary.tsx:69:              style={{ color: 'var(--gold-primary)' }}
+src/components/results/PsychometricSummary.tsx:126:      <div className="glass-card p-5 sm:p-6 space-y-3">
+src/components/results/PsychometricSummary.tsx:127:        <p
+src/components/results/PsychometricSummary.tsx:128:          className="text-[10px] font-bold uppercase tracking-widest"
+src/components/results/PsychometricSummary.tsx:129:          style={{ color: 'var(--gold-primary)' }}
+src/app/(marketing)/resources/page.tsx:80:              <article
+src/app/(marketing)/resources/page.tsx:81:                key={resource.title}
+src/app/(marketing)/resources/page.tsx:82:                className="glass-card glass-card--magnetic glass-card--lift card-border-top-accent p-6 flex flex-col"
+src/app/(marketing)/resources/page.tsx:83:                style={{ '--card-accent': rayHex(cycleRay(i)) } as { ['--card-accent']: string }}
+src/app/(marketing)/resources/page.tsx:111:            <div className="glass-card p-8 text-center space-y-5">
+src/app/(marketing)/resources/page.tsx:112:              <h2 className="text-2xl font-bold gold-underline" style={{ color: 'var(--text-on-dark)' }}>
+src/app/(marketing)/organizations/page.tsx:182:            <div className="glass-card p-6 sm:p-8 space-y-3">
+src/app/(marketing)/organizations/page.tsx:183:              <p
+src/app/(marketing)/organizations/page.tsx:184:                className="text-sm leading-relaxed"
+src/app/(marketing)/organizations/page.tsx:185:                style={{
+src/app/(marketing)/organizations/page.tsx:214:                    <div
+src/app/(marketing)/organizations/page.tsx:215:                      className="glass-card glass-card--magnetic metric-badge p-5 text-center h-full"
+src/app/(marketing)/organizations/page.tsx:216:                      style={{
+src/app/(marketing)/organizations/page.tsx:269:                    <div
+src/app/(marketing)/organizations/page.tsx:270:                      className="glass-card glass-card--magnetic flex gap-5 p-6"
+src/app/(marketing)/organizations/page.tsx:271:                      style={{
+src/app/(marketing)/organizations/page.tsx:341:                      <div
+src/app/(marketing)/organizations/page.tsx:342:                        className="glass-card glass-card--magnetic p-6 h-full"
+src/app/(marketing)/organizations/page.tsx:343:                        style={{
+src/app/(marketing)/organizations/page.tsx:377:            <div
+src/app/(marketing)/organizations/page.tsx:378:              className="glass-card p-6 sm:p-8 space-y-5 card-border-gold-mid"
+src/app/(marketing)/organizations/page.tsx:379:            >
+src/app/(marketing)/organizations/page.tsx:380:              <p
+src/app/(marketing)/organizations/page.tsx:381:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/organizations/page.tsx:382:                style={{ color: rayHex('R1') }}
+src/app/(marketing)/organizations/page.tsx:467:            <div className="glass-card p-8 text-center space-y-5">
+src/app/(marketing)/organizations/page.tsx:468:              <p
+src/app/(marketing)/organizations/page.tsx:469:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/organizations/page.tsx:470:                style={{ color: rayHex('R8') }}
+src/components/cosmic/MagneticFieldRing.tsx:66:    for (let i = 0; i <= segments; i++) {
+src/components/cosmic/MagneticFieldRing.tsx:67:      const angle = (i / segments) * Math.PI * 2;
+src/components/cosmic/MagneticFieldRing.tsx:68:      const noise = Math.sin(angle * 3) * 14 + Math.cos(angle * 7) * 10 + Math.sin(angle * 11) * 6;
+src/components/cosmic/MagneticFieldRing.tsx:69:      const r = 58 + noise;
+src/components/cosmic/MagneticFieldRing.tsx:70:      const x = LEFT_CX + Math.cos(angle) * r;
+src/components/cosmic/MagneticFieldRing.tsx:71:      const y = CY + Math.sin(angle) * r;
+src/components/cosmic/MagneticFieldRing.tsx:72:      points.push(`${i === 0 ? 'M' : 'L'} ${x} ${y}`);
+src/components/cosmic/MagneticFieldRing.tsx:73:    }
+src/components/cosmic/MagneticFieldRing.tsx:74:    return points.join(' ') + ' Z';
+src/components/cosmic/MagneticFieldRing.tsx:75:  }, [LEFT_CX, CY]);
+src/components/cosmic/MagneticFieldRing.tsx:76:
+src/components/cosmic/MagneticFieldRing.tsx:77:  return (
+src/components/cosmic/MagneticFieldRing.tsx:78:    <div
+src/components/cosmic/MagneticFieldRing.tsx:79:      className="glass-card p-5"
+src/components/cosmic/MagneticFieldRing.tsx:80:      role="img"
+src/components/cosmic/MagneticFieldRing.tsx:81:      aria-label={`Magnetic coherence: ${isHighCoherence ? 'high' : 'low'} — ${Math.round(coherence * 100)} percent aligned`}
+src/components/cosmic/MagneticFieldRing.tsx:82:    >
+src/components/cosmic/MagneticFieldRing.tsx:83:      <p
+src/components/cosmic/MagneticFieldRing.tsx:84:        className="mb-3"
+src/components/cosmic/MagneticFieldRing.tsx:85:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/cosmic/StardustCheckins.tsx:79:    <div className="glass-card p-5">
+src/components/cosmic/StardustCheckins.tsx:80:      <p
+src/components/cosmic/StardustCheckins.tsx:81:        className="mb-3"
+src/components/cosmic/StardustCheckins.tsx:82:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/results/ToolReadiness.tsx:21:          <div key={tool.tool_id} className="glass-card p-5">
+src/components/results/ToolReadiness.tsx:22:            <div className="flex items-center justify-between mb-3">
+src/components/results/ToolReadiness.tsx:23:              <h4 className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>{tool.label}</h4>
+src/app/(marketing)/archetypes/page.tsx:143:            <div className="glass-card relative z-10 p-8 text-center space-y-5">
+src/app/(marketing)/archetypes/page.tsx:144:              <h2
+src/app/(marketing)/archetypes/page.tsx:145:                className="text-2xl font-bold"
+src/app/(marketing)/archetypes/page.tsx:146:                style={{ color: "var(--text-on-dark)" }}
+src/components/results/CoachingQuestions.tsx:77:            <div
+src/components/results/CoachingQuestions.tsx:78:              key={i}
+src/components/results/CoachingQuestions.tsx:79:              className="glass-card overflow-hidden transition-all"
+src/components/results/CoachingQuestions.tsx:80:              style={{
+src/components/cosmic/PlanetaryAlignment.tsx:67:    <div className="glass-card p-5">
+src/components/cosmic/PlanetaryAlignment.tsx:68:      <p
+src/components/cosmic/PlanetaryAlignment.tsx:69:        className="mb-3"
+src/components/cosmic/PlanetaryAlignment.tsx:70:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/cosmic/RayProgressionStack.tsx:52:    <motion.div
+src/components/cosmic/RayProgressionStack.tsx:53:      className="glass-card glass-card--lift relative p-4 sm:p-5"
+src/components/cosmic/RayProgressionStack.tsx:54:      style={{
+src/components/cosmic/RayProgressionStack.tsx:168:          <div
+src/components/cosmic/RayProgressionStack.tsx:169:            className="glass-card relative overflow-hidden p-6 text-center sm:p-8"
+src/components/cosmic/RayProgressionStack.tsx:170:            style={{
+src/components/results/RayDetailDrawer.tsx:114:            <div className="glass-card p-4 space-y-2 card-border-gold-soft">
+src/components/results/RayDetailDrawer.tsx:115:              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
+src/components/results/RayDetailDrawer.tsx:157:                <div
+src/components/results/RayDetailDrawer.tsx:158:                  key={i}
+src/components/results/RayDetailDrawer.tsx:159:                  className="glass-card p-3 text-sm leading-relaxed"
+src/components/results/RayDetailDrawer.tsx:160:                  style={{ color: 'var(--text-on-dark-secondary)', borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}
+src/components/results/RayDetailDrawer.tsx:204:    <div
+src/components/results/RayDetailDrawer.tsx:205:      className="glass-card card-border-accent-soft p-3 text-center space-y-0.5"
+src/components/results/RayDetailDrawer.tsx:206:      style={{ '--card-accent': color } as { ['--card-accent']: string }}
+src/components/results/LightSignature.tsx:78:          <div
+src/components/results/LightSignature.tsx:79:            key={ray.ray_id}
+src/components/results/LightSignature.tsx:80:            className="glass-card card-border-left-accent p-5"
+src/components/results/LightSignature.tsx:81:            style={{ '--card-accent': `${rc}60` } as { ['--card-accent']: string }}
+src/components/results/LightSignature.tsx:112:        <div className="glass-card p-5">
+src/components/results/LightSignature.tsx:113:          <h3 className="text-sm font-semibold mb-2" style={{ color: 'var(--brand-gold)' }}>What This Combination Creates</h3>
+src/components/results/LightSignature.tsx:131:        <div className="glass-card p-5 space-y-3">
+src/components/results/LightSignature.tsx:132:          <h3 className="text-sm font-semibold" style={{ color: 'var(--brand-gold)' }}>Coaching Logic</h3>
+src/components/results/LightSignature.tsx:141:            <div className="glass-card p-5">
+src/components/results/LightSignature.tsx:142:              <p className="text-xs uppercase tracking-wider mb-2" style={{ color: 'var(--brand-gold)' }}>Starting Tools</p>
+src/components/results/LightSignature.tsx:147:            <div className="glass-card p-5">
+src/components/results/LightSignature.tsx:148:              <p className="text-xs uppercase tracking-wider mb-2" style={{ color: 'var(--brand-gold)' }}>Micro Reps</p>
+src/components/cosmic/EscapeVelocity.tsx:71:    for (let i = 0; i <= steps; i++) {
+src/components/cosmic/EscapeVelocity.tsx:72:      const t = i / steps;
+src/components/cosmic/EscapeVelocity.tsx:73:      const y = bottomY - t * (bottomY - sphereY);
+src/components/cosmic/EscapeVelocity.tsx:74:      // Curve: more horizontal wobble near bottom, straightening up top
+src/components/cosmic/EscapeVelocity.tsx:75:      const curvature = Math.max(0, 1 - t * 1.5) * 25;
+src/components/cosmic/EscapeVelocity.tsx:76:      const x = cx + Math.sin(t * Math.PI * 1.5) * curvature;
+src/components/cosmic/EscapeVelocity.tsx:77:      pts.push(`${i === 0 ? 'M' : 'L'} ${x} ${y}`);
+src/components/cosmic/EscapeVelocity.tsx:78:    }
+src/components/cosmic/EscapeVelocity.tsx:79:    return pts.join(' ');
+src/components/cosmic/EscapeVelocity.tsx:80:  }, [sphereY, H, cx]);
+src/components/cosmic/EscapeVelocity.tsx:81:
+src/components/cosmic/EscapeVelocity.tsx:82:  const aboveThreshold = sphereY < thresholdY;
+src/components/cosmic/EscapeVelocity.tsx:83:
+src/components/cosmic/EscapeVelocity.tsx:84:  return (
+src/components/cosmic/EscapeVelocity.tsx:85:    <div className="glass-card p-5">
+src/components/cosmic/EscapeVelocity.tsx:86:      <p
+src/components/cosmic/EscapeVelocity.tsx:87:        className="mb-3"
+src/components/cosmic/EscapeVelocity.tsx:88:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/results/ShareWithCoachModal.tsx:93:        <motion.div
+src/components/results/ShareWithCoachModal.tsx:94:          className="glass-card w-full max-w-md p-6 space-y-5"
+src/components/results/ShareWithCoachModal.tsx:95:          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
+src/components/cosmic/SolarLifecycle.tsx:37:    <div className="glass-card p-5">
+src/components/cosmic/SolarLifecycle.tsx:38:      <p
+src/components/cosmic/SolarLifecycle.tsx:39:        className="mb-3"
+src/components/cosmic/SolarLifecycle.tsx:40:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/app/(marketing)/coaches/page.tsx:97:          <div className="glass-card p-6 sm:p-8 space-y-5">
+src/app/(marketing)/coaches/page.tsx:98:            <p className="text-sm font-semibold leading-relaxed" style={{ color: 'var(--brand-gold)' }}>
+src/app/(marketing)/coaches/page.tsx:111:          <div className="glass-card glass-card--lift p-6 sm:p-8">
+src/app/(marketing)/coaches/page.tsx:112:            <h2 className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3'), textShadow: neonText(NEON.violet) }}>
+src/app/(marketing)/coaches/page.tsx:143:                <div
+src/app/(marketing)/coaches/page.tsx:144:                  key={phase.num}
+src/app/(marketing)/coaches/page.tsx:145:                  className="glass-card glass-card--magnetic glass-card--lift p-6 space-y-3"
+src/app/(marketing)/coaches/page.tsx:146:                  style={{
+src/app/(marketing)/coaches/page.tsx:179:          <div className="glass-card p-6 sm:p-8 space-y-6">
+src/app/(marketing)/coaches/page.tsx:180:            <div className="space-y-2">
+src/app/(marketing)/coaches/page.tsx:181:              <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R7') }}>Not another course</p>
+src/app/(marketing)/coaches/page.tsx:207:          <div className="glass-card p-8 space-y-6">
+src/app/(marketing)/coaches/page.tsx:208:            <div className="space-y-2">
+src/app/(marketing)/coaches/page.tsx:209:              <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: rayHex('R3') }}>Before you start</p>
+src/app/(marketing)/coaches/page.tsx:286:          <div className="glass-card glass-card--executive p-8 text-center space-y-5">
+src/app/(marketing)/coaches/page.tsx:287:            <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:52:    <div
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:53:      className="glass-card glass-card--glow p-6 sm:p-8"
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:54:      style={{
+src/components/cosmic/CopyGuardrails.tsx:12:    <div className="glass-card p-5">
+src/components/cosmic/CopyGuardrails.tsx:13:      <p
+src/components/cosmic/CopyGuardrails.tsx:14:        className="mb-4"
+src/components/cosmic/CopyGuardrails.tsx:15:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/results/CoachingBrief.tsx:115:      <div className="glass-card p-5">
+src/components/results/CoachingBrief.tsx:116:        <div className="flex items-center justify-between gap-4">
+src/components/results/CoachingBrief.tsx:117:          <div>
+src/components/results/CoachingBrief.tsx:118:            <p
+src/components/results/CoachingBrief.tsx:119:              className="text-[10px] font-bold uppercase tracking-widest"
+src/components/results/CoachingBrief.tsx:120:              style={{ color: 'var(--gold-primary)' }}
+src/components/results/CoachingBrief.tsx:148:      <div
+src/components/results/CoachingBrief.tsx:149:        className="glass-card p-5 sm:p-6 space-y-5"
+src/components/results/CoachingBrief.tsx:150:        style={{ fontSize: '13px' }}
+src/components/cosmic/CosmicBackground.tsx:101:    <div className="glass-card p-5">
+src/components/cosmic/CosmicBackground.tsx:102:      <p
+src/components/cosmic/CosmicBackground.tsx:103:        className="mb-3"
+src/components/cosmic/CosmicBackground.tsx:104:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/results/RetakeRecommendation.tsx:50:    <div
+src/components/results/RetakeRecommendation.tsx:51:      className="glass-card p-6 space-y-4 card-border-default"
+src/components/results/RetakeRecommendation.tsx:52:    >
+src/components/results/RetakeRecommendation.tsx:53:      <div>
+src/components/results/RetakeRecommendation.tsx:54:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--surface-border)' }}>
+src/app/(marketing)/faq/page.tsx:219:                      <details className="glass-card glass-card--magnetic glass-card--lift group p-5">
+src/app/(marketing)/faq/page.tsx:220:                        <summary
+src/app/(marketing)/faq/page.tsx:221:                          className="flex cursor-pointer items-center justify-between text-sm font-semibold"
+src/app/(marketing)/faq/page.tsx:222:                          style={{ color: "var(--text-body)" }}
+src/app/(marketing)/faq/page.tsx:274:            <div className="glass-card p-8 text-center space-y-5">
+src/app/(marketing)/faq/page.tsx:275:              <h2
+src/app/(marketing)/faq/page.tsx:276:                className="text-2xl font-bold"
+src/app/(marketing)/faq/page.tsx:277:                style={{ color: "var(--text-body)" }}
+src/components/cosmic/CometMoments.tsx:75:    <div className="glass-card p-5">
+src/components/cosmic/CometMoments.tsx:76:      <p
+src/components/cosmic/CometMoments.tsx:77:        className="mb-3"
+src/components/cosmic/CometMoments.tsx:78:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/archetypes/ArchetypeShareCard.tsx:58:      <div
+src/components/archetypes/ArchetypeShareCard.tsx:59:        className="glass-card glass-card--glow relative w-full max-w-sm rounded-3xl p-8 text-center space-y-5"
+src/components/archetypes/ArchetypeShareCard.tsx:60:        style={{
+src/components/results/ResultsStabilityScore.tsx:90:    <section className="glass-card p-5 space-y-4">
+src/components/results/ResultsStabilityScore.tsx:91:      <div className="flex items-center justify-between">
+src/components/results/ResultsStabilityScore.tsx:92:        <div>
+src/components/results/ResultsStabilityScore.tsx:93:          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/app/(marketing)/sample-report/page.tsx:106:            <div className="glass-card p-6 sm:p-8 space-y-4">
+src/app/(marketing)/sample-report/page.tsx:107:              <p
+src/app/(marketing)/sample-report/page.tsx:108:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/sample-report/page.tsx:109:                style={{ color: rayHex('R7') }}
+src/app/(marketing)/sample-report/page.tsx:169:            <div className="glass-card p-6 sm:p-8 space-y-5">
+src/app/(marketing)/sample-report/page.tsx:170:              <p
+src/app/(marketing)/sample-report/page.tsx:171:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/sample-report/page.tsx:172:                style={{ color: rayHex('R2') }}
+src/components/results/ConversationStarters.tsx:124:          <div
+src/components/results/ConversationStarters.tsx:125:            key={i}
+src/components/results/ConversationStarters.tsx:126:            className="glass-card p-4 space-y-2 group"
+src/components/results/ConversationStarters.tsx:127:          >
+src/components/results/ConversationStarters.tsx:128:            <div className="flex items-center justify-between">
+src/components/results/ConversationStarters.tsx:129:              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/results/TrajectoryView.tsx:89:    <section className="glass-card p-5 space-y-4">
+src/components/results/TrajectoryView.tsx:90:      <div className="flex items-center justify-between">
+src/components/results/TrajectoryView.tsx:91:        <div>
+src/components/results/TrajectoryView.tsx:92:          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/components/cosmic/BinaryStarPartnership.tsx:64:    for (let i = 0; i <= steps; i++) {
+src/components/cosmic/BinaryStarPartnership.tsx:65:      const t = i / steps;
+src/components/cosmic/BinaryStarPartnership.tsx:66:      const p = infinityPoint(t, cx, cy, rx, ry);
+src/components/cosmic/BinaryStarPartnership.tsx:67:      pts.push(`${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`);
+src/components/cosmic/BinaryStarPartnership.tsx:68:    }
+src/components/cosmic/BinaryStarPartnership.tsx:69:    pts.push('Z');
+src/components/cosmic/BinaryStarPartnership.tsx:70:    return pts.join(' ');
+src/components/cosmic/BinaryStarPartnership.tsx:71:  }, [half, H]);
+src/components/cosmic/BinaryStarPartnership.tsx:72:
+src/components/cosmic/BinaryStarPartnership.tsx:73:  return (
+src/components/cosmic/BinaryStarPartnership.tsx:74:    <div className="glass-card p-5">
+src/components/cosmic/BinaryStarPartnership.tsx:75:      <p
+src/components/cosmic/BinaryStarPartnership.tsx:76:        className="mb-3"
+src/components/cosmic/BinaryStarPartnership.tsx:77:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/app/(marketing)/framework/page.tsx:53:              <div key={item.title} className="glass-card p-5">
+src/app/(marketing)/framework/page.tsx:54:                <h2 className="text-lg font-semibold" style={{ color: "var(--gold-primary)" }}>{item.title}</h2>
+src/app/(marketing)/framework/page.tsx:64:          <section className="glass-card p-8 text-center space-y-4 max-w-[720px] mx-auto">
+src/app/(marketing)/framework/page.tsx:65:            <p className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--gold-primary)" }}>
+src/components/marketing/SocialProofTicker.tsx:33:    <div
+src/components/marketing/SocialProofTicker.tsx:34:      className="glass-card mx-auto max-w-[720px] px-5 py-3 text-center"
+src/components/marketing/SocialProofTicker.tsx:35:      role="status"
+src/components/marketing/SocialProofTicker.tsx:36:      aria-live="polite"
+src/components/marketing/SocialProofTicker.tsx:37:    >
+src/components/marketing/SocialProofTicker.tsx:38:      <p
+src/components/marketing/SocialProofTicker.tsx:39:        className="text-sm transition-opacity duration-300"
+src/components/marketing/SocialProofTicker.tsx:40:        style={{
+src/components/cosmic/PhotosphereDepth.tsx:35:  const depthLayer = layerThresholds.findIndex((_, i) => depthNorm < (layerThresholds[i + 1] ?? 1.01));
+src/components/cosmic/PhotosphereDepth.tsx:36:
+src/components/cosmic/PhotosphereDepth.tsx:37:  // Cut-away angle (quarter of the sphere)
+src/components/cosmic/PhotosphereDepth.tsx:38:  const cutAngleStart = -Math.PI * 0.45;
+src/components/cosmic/PhotosphereDepth.tsx:39:  const cutAngleEnd = Math.PI * 0.05;
+src/components/cosmic/PhotosphereDepth.tsx:40:
+src/components/cosmic/PhotosphereDepth.tsx:41:  return (
+src/components/cosmic/PhotosphereDepth.tsx:42:    <div className="glass-card p-5">
+src/components/cosmic/PhotosphereDepth.tsx:43:      <p
+src/components/cosmic/PhotosphereDepth.tsx:44:        className="mb-3"
+src/components/cosmic/PhotosphereDepth.tsx:45:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/EmailGateModulePlaceholder.tsx:10:    <section
+src/components/EmailGateModulePlaceholder.tsx:11:      className="glass-card p-6 space-y-4"
+src/components/EmailGateModulePlaceholder.tsx:12:      aria-label="Sign in to continue"
+src/components/EmailGateModulePlaceholder.tsx:13:      style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}
+src/components/marketing/HowItWorks.tsx:87:          <div
+src/components/marketing/HowItWorks.tsx:88:            key={step.number}
+src/components/marketing/HowItWorks.tsx:89:            className="glass-card glass-card--lift relative overflow-hidden p-7 sm:p-8 text-center"
+src/components/marketing/HowItWorks.tsx:90:            style={{
+src/components/marketing/DailyLoopVisual.tsx:102:            <div className="glass-card flex-1 p-4 sm:p-5">
+src/components/marketing/DailyLoopVisual.tsx:103:              <div className="flex items-center justify-between">
+src/components/marketing/DailyLoopVisual.tsx:104:                <p
+src/components/marketing/DailyLoopVisual.tsx:105:                  className="text-sm font-bold"
+src/components/marketing/DailyLoopVisual.tsx:106:                  style={{ color: 'var(--text-body)' }}
+src/components/marketing/DailyLoopVisual.tsx:140:      <div
+src/components/marketing/DailyLoopVisual.tsx:141:        className="glass-card glass-card--lift rounded-xl p-5 sm:p-6"
+src/components/marketing/DailyLoopVisual.tsx:142:        style={{
+src/app/(marketing)/glossary/page.tsx:82:            <div className="glass-card p-8 text-center space-y-5">
+src/app/(marketing)/glossary/page.tsx:83:              <h2
+src/app/(marketing)/glossary/page.tsx:84:                className="text-2xl font-bold"
+src/app/(marketing)/glossary/page.tsx:85:                style={{ color: "var(--text-body)", textShadow: neonText(NEON.cyan) }}
+src/components/cosmic/SpacetimeWell.tsx:112:    <div className="glass-card p-5">
+src/components/cosmic/SpacetimeWell.tsx:113:      <p
+src/components/cosmic/SpacetimeWell.tsx:114:        className="mb-3"
+src/components/cosmic/SpacetimeWell.tsx:115:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/app/(marketing)/watch-me/WatchMeGateClient.tsx:29:      <div className="glass-card p-6 sm:p-8 space-y-4">
+src/app/(marketing)/watch-me/WatchMeGateClient.tsx:30:        <p className="text-xs uppercase tracking-[0.18em]" style={{ color: "var(--gold-primary)", fontFamily: "var(--font-cosmic-display)" }}>Unlock Watch Me</p>
+src/app/(marketing)/watch-me/WatchMeGateClient.tsx:44:    <div className="glass-card p-6 sm:p-8 space-y-4">
+src/app/(marketing)/watch-me/WatchMeGateClient.tsx:45:      <p className="text-sm leading-relaxed" style={{ color: "color-mix(in srgb, var(--text-body) 82%, transparent)" }}>
+src/components/cosmic/ConstellationProgress.tsx:63:    <div className="glass-card p-5">
+src/components/cosmic/ConstellationProgress.tsx:64:      <p
+src/components/cosmic/ConstellationProgress.tsx:65:        className="mb-3"
+src/components/cosmic/ConstellationProgress.tsx:66:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/marketing/LightCheckOrchestrator.tsx:47:      <section className="glass-card p-6 sm:p-8 max-w-[720px] mx-auto space-y-4 card-border-gold-soft">
+src/components/marketing/LightCheckOrchestrator.tsx:48:        <p className="text-xs uppercase tracking-widest font-bold" style={{ color: 'var(--gold-primary)' }}>Start free stability check</p>
+src/components/retention/RepLogClient.tsx:567:            <div className="glass-card p-4 mt-4 card-border-violet-mid">
+src/components/retention/RepLogClient.tsx:568:              <p className="text-xs italic" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/components/retention/RepLogClient.tsx:575:            <div className="glass-card p-4 card-border-gold-soft">
+src/components/retention/RepLogClient.tsx:576:              <p className="text-xs uppercase tracking-widest mb-2"
+src/components/retention/RepLogClient.tsx:577:                style={{ color: rayHex('R4') }}>
+src/components/retention/RepLogClient.tsx:602:          <motion.div
+src/components/retention/RepLogClient.tsx:603:            initial={shouldAnimate ? { opacity: 0 } : false}
+src/components/retention/RepLogClient.tsx:604:            animate={{ opacity: 1 }}
+src/components/retention/RepLogClient.tsx:605:            transition={{ delay: shouldAnimate ? 0.6 : 0, duration: shouldAnimate ? undefined : 0 }}
+src/components/retention/RepLogClient.tsx:606:            className="glass-card p-4 text-center card-border-gold-soft"
+src/components/retention/RepLogClient.tsx:607:          >
+src/components/retention/RepLogClient.tsx:608:            <p className="text-lg font-bold" style={{ color: 'var(--gold-primary)' }}>
+src/components/retention/RepLogClient.tsx:645:          <motion.div
+src/components/retention/RepLogClient.tsx:646:            key={repsStep}
+src/components/retention/RepLogClient.tsx:647:            initial={shouldAnimate ? { opacity: 0, x: 20 } : false}
+src/components/retention/RepLogClient.tsx:648:            animate={{ opacity: 1, x: 0 }}
+src/components/retention/RepLogClient.tsx:649:            exit={shouldAnimate ? { opacity: 0, x: -20 } : undefined}
+src/components/retention/RepLogClient.tsx:650:            transition={{ duration: shouldAnimate ? 0.2 : 0 }}
+src/components/retention/RepLogClient.tsx:651:            className="glass-card p-6 space-y-5 card-border-violet-mid"
+src/components/retention/RepLogClient.tsx:652:          >
+src/components/retention/RepLogClient.tsx:653:            {/* Progress */}
+src/components/retention/RepLogClient.tsx:654:            <div className="flex items-center justify-between">
+src/components/retention/RepLogClient.tsx:655:              <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/retention/RepLogClient.tsx:782:        <div className="glass-card p-6 space-y-5 card-border-gold-soft">
+src/components/retention/RepLogClient.tsx:783:          {/* Summary of R-E-P-S */}
+src/components/retention/RepLogClient.tsx:784:          <div className="space-y-3">
+src/components/retention/RepLogClient.tsx:785:            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
+src/components/retention/RepLogClient.tsx:948:        <div className="glass-card p-6 space-y-4 card-border-gold-soft">
+src/components/retention/RepLogClient.tsx:949:          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
+src/components/retention/RepLogClient.tsx:1016:          <div className="glass-card p-4 text-center">
+src/components/retention/RepLogClient.tsx:1017:            <p className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
+src/components/retention/RepLogClient.tsx:1022:          <div className="glass-card p-4 text-center"
+src/components/retention/RepLogClient.tsx:1023:            style={summary.streak_days >= 3 ? { borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' } : {}}
+src/components/retention/RepLogClient.tsx:1024:          >
+src/components/retention/RepLogClient.tsx:1025:            <p className="text-2xl font-bold" style={{ color: 'var(--gold-primary)' }}>
+src/components/retention/RepLogClient.tsx:1030:          <div className="glass-card p-4 text-center">
+src/components/retention/RepLogClient.tsx:1031:            <p className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
+src/components/retention/RepLogClient.tsx:1059:      <form
+src/components/retention/RepLogClient.tsx:1060:        onSubmit={handleSubmit}
+src/components/retention/RepLogClient.tsx:1061:        className="glass-card p-6 space-y-6 card-border-violet-soft"
+src/components/retention/RepLogClient.tsx:1062:      >
+src/components/retention/RepLogClient.tsx:1063:        <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Log a rep</h2>
+src/components/retention/RepLogClient.tsx:1162:              <motion.div
+src/components/retention/RepLogClient.tsx:1163:                key={selectedTool.key}
+src/components/retention/RepLogClient.tsx:1164:                initial={shouldAnimate ? { opacity: 0, y: -4 } : false}
+src/components/retention/RepLogClient.tsx:1165:                animate={{ opacity: 1, y: 0 }}
+src/components/retention/RepLogClient.tsx:1166:                exit={shouldAnimate ? { opacity: 0, y: -4 } : undefined}
+src/components/retention/RepLogClient.tsx:1167:                transition={{ duration: shouldAnimate ? 0.15 : 0 }}
+src/components/retention/RepLogClient.tsx:1168:                className="glass-card p-3 mt-2 space-y-1 card-border-violet-soft"
+src/components/retention/RepLogClient.tsx:1169:              >
+src/components/retention/RepLogClient.tsx:1170:                <p className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/components/retention/RepLogClient.tsx:1325:          <div className="glass-card p-6 text-center">
+src/components/retention/RepLogClient.tsx:1326:            <div className="inline-block w-5 h-5 border-2 rounded-full animate-spin"
+src/components/retention/RepLogClient.tsx:1327:              style={{ borderColor: 'var(--surface-border)', borderTopColor: 'var(--gold-primary)' }}
+src/components/retention/RepLogClient.tsx:1331:          <div className="glass-card p-6 text-center space-y-2">
+src/components/retention/RepLogClient.tsx:1332:            <p className="text-2xl">⚡</p>
+src/components/retention/RepLogClient.tsx:1333:            <p className="text-sm font-medium" style={{ color: 'var(--text-on-dark)' }}>
+src/components/retention/RepLogClient.tsx:1345:                <motion.li
+src/components/retention/RepLogClient.tsx:1346:                  key={rep.id}
+src/components/retention/RepLogClient.tsx:1347:                  initial={shouldAnimate ? { opacity: 0, x: -10 } : false}
+src/components/retention/RepLogClient.tsx:1348:                  animate={{ opacity: 1, x: 0 }}
+src/components/retention/RepLogClient.tsx:1349:                  transition={{ delay: shouldAnimate ? idx * 0.03 : 0, duration: shouldAnimate ? undefined : 0 }}
+src/components/retention/RepLogClient.tsx:1350:                  className={`glass-card px-4 py-3 flex items-start gap-3 ${qualityGlow(rep.quality)}`}
+src/components/retention/RepLogClient.tsx:1351:                >
+src/components/retention/RepLogClient.tsx:1352:                  <div
+src/components/retention/RepLogClient.tsx:1353:                    className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+src/components/retention/RepLogClient.tsx:1354:                    style={{
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:288:        <motion.section
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:289:          className="glass-card p-6 space-y-4"
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:290:          initial={{ opacity: 0, y: 20 }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:291:          animate={{ opacity: 1, y: 0 }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:292:          transition={{ duration: 0.5, delay: 0.45 }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:293:          style={{ border: `1px solid ${rayColor}44` }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:357:          <Link
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:358:            href={prevHref}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:359:            className="flex items-center gap-2 glass-card px-5 py-3 text-sm font-medium transition-all hover:scale-105"
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:360:            style={{ color: "var(--text-on-dark-secondary)" }}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:371:          <Link
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:372:            href={nextHref}
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:373:            className="flex items-center gap-2 glass-card px-5 py-3 text-sm font-medium transition-all hover:scale-105"
+src/app/(portal)/results/rays/[rayId]/RayDetailClient.tsx:374:            style={{ color: "var(--text-on-dark-secondary)" }}
+src/components/cosmic/OrbitMap.tsx:118:    <div className="glass-card p-5">
+src/components/cosmic/OrbitMap.tsx:119:      <p
+src/components/cosmic/OrbitMap.tsx:120:        className="mb-3"
+src/components/cosmic/OrbitMap.tsx:121:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/marketing/CompetitorComparison.tsx:85:            <div
+src/components/marketing/CompetitorComparison.tsx:86:              key={item.name}
+src/components/marketing/CompetitorComparison.tsx:87:              className={`glass-card p-4 sm:p-5 ${item.name === '143 Leadership' ? 'glass-card--featured' : ''}`}
+src/components/marketing/CompetitorComparison.tsx:88:            >
+src/components/marketing/CompetitorComparison.tsx:89:              <p
+src/components/marketing/CompetitorComparison.tsx:90:                className="text-xs font-bold uppercase tracking-widest"
+src/components/marketing/CompetitorComparison.tsx:91:                style={{
+src/components/marketing/CompetitorComparison.tsx:113:      <div className="glass-card overflow-auto p-0">
+src/components/marketing/CompetitorComparison.tsx:114:        <table className="w-full w-full text-sm">
+src/components/marketing/CompetitorComparison.tsx:115:          <thead>
+src/components/marketing/CompetitorComparison.tsx:116:            <tr style={{ borderBottom: '1px solid color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
+src/app/(marketing)/be-the-light/page.tsx:160:            <div
+src/app/(marketing)/be-the-light/page.tsx:161:              className="glass-card glass-card--magnetic card-border-left-accent-soft card-surface-accent-soft p-6 sm:p-8 space-y-5"
+src/app/(marketing)/be-the-light/page.tsx:162:              style={{ '--card-accent': rayHex('R3') } as { ['--card-accent']: string }}
+src/app/(marketing)/be-the-light/page.tsx:202:              <div className="glass-card p-6 sm:p-8">
+src/app/(marketing)/be-the-light/page.tsx:203:                <p
+src/app/(marketing)/be-the-light/page.tsx:204:                  className="mb-5 text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/be-the-light/page.tsx:205:                  style={{ color: rayHex('R7') }}
+src/app/(marketing)/be-the-light/page.tsx:263:                  <div
+src/app/(marketing)/be-the-light/page.tsx:264:                    className="glass-card glass-card--magnetic p-5"
+src/app/(marketing)/be-the-light/page.tsx:265:                    style={{
+src/app/(marketing)/be-the-light/page.tsx:309:            <div
+src/app/(marketing)/be-the-light/page.tsx:310:              className="glass-card glass-card--executive card-border-top-accent-soft p-6 sm:p-8 space-y-4"
+src/app/(marketing)/be-the-light/page.tsx:311:              style={{ '--card-accent': rayHex('R3') } as { ['--card-accent']: string }}
+src/app/(marketing)/be-the-light/page.tsx:382:                  <div
+src/app/(marketing)/be-the-light/page.tsx:383:                    className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-soft p-5 space-y-1"
+src/app/(marketing)/be-the-light/page.tsx:384:                    style={{ '--card-accent': color } as { ['--card-accent']: string }}
+src/app/(marketing)/be-the-light/page.tsx:423:            <div
+src/app/(marketing)/be-the-light/page.tsx:424:              className="glass-card glass-card--magnetic card-border-top-accent-soft p-6 sm:p-8 space-y-4"
+src/app/(marketing)/be-the-light/page.tsx:425:              style={{ '--card-accent': rayHex('R9') } as { ['--card-accent']: string }}
+src/app/(marketing)/be-the-light/page.tsx:460:            <div className="glass-card p-8 text-center space-y-5">
+src/app/(marketing)/be-the-light/page.tsx:461:              <p
+src/app/(marketing)/be-the-light/page.tsx:462:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/be-the-light/page.tsx:463:                style={{ color: rayHex('R9') }}
+src/components/marketing/MiniAssessmentPreview.tsx:189:        <div
+src/components/marketing/MiniAssessmentPreview.tsx:190:          className="glass-card glass-card--lift card-border-gold-mid p-6 sm:p-8 text-center space-y-4"
+src/components/marketing/MiniAssessmentPreview.tsx:191:          style={{
+src/components/retention/ChallengeProgress.tsx:181:        <div className="glass-card gold-accent-left rounded-xl p-3 text-center">
+src/components/retention/ChallengeProgress.tsx:182:          <p className="text-sm font-semibold" style={{ color: 'var(--neon-teal)' }}>
+src/components/marketing/SocialProofCounter.tsx:93:    <div
+src/components/marketing/SocialProofCounter.tsx:94:      className={`glass-card mx-auto max-w-3xl px-6 py-5 ${className}`}
+src/components/marketing/SocialProofCounter.tsx:95:      style={{
+src/components/cosmic/SolarWindMomentum.tsx:55:    for (let i = 0; i < 25; i++) {
+src/components/cosmic/SolarWindMomentum.tsx:56:      pts.push({
+src/components/cosmic/SolarWindMomentum.tsx:57:        x: 80 + seededRandom(i * 5) * (W - 120),
+src/components/cosmic/SolarWindMomentum.tsx:58:        y: 10 + seededRandom(i * 5 + 1) * (halfH - 20),
+src/components/cosmic/SolarWindMomentum.tsx:59:        vx: (seededRandom(i * 5 + 2) - 0.3) * 20,
+src/components/cosmic/SolarWindMomentum.tsx:60:        vy: (seededRandom(i * 5 + 3) - 0.5) * 15,
+src/components/cosmic/SolarWindMomentum.tsx:61:        size: 1.5 + seededRandom(i * 5 + 4),
+src/components/cosmic/SolarWindMomentum.tsx:62:      });
+src/components/cosmic/SolarWindMomentum.tsx:63:    }
+src/components/cosmic/SolarWindMomentum.tsx:64:    return pts;
+src/components/cosmic/SolarWindMomentum.tsx:65:  }, [W, halfH]);
+src/components/cosmic/SolarWindMomentum.tsx:66:
+src/components/cosmic/SolarWindMomentum.tsx:67:  return (
+src/components/cosmic/SolarWindMomentum.tsx:68:    <div className="glass-card p-5">
+src/components/cosmic/SolarWindMomentum.tsx:69:      <p
+src/components/cosmic/SolarWindMomentum.tsx:70:        className="mb-3"
+src/components/cosmic/SolarWindMomentum.tsx:71:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/marketing/ScoreMovementChart.tsx:31:      <div
+src/components/marketing/ScoreMovementChart.tsx:32:        className="glass-card rounded-2xl p-5 sm:p-7 relative overflow-hidden"
+src/components/marketing/ScoreMovementChart.tsx:33:        style={{
+src/app/(marketing)/about/page.tsx:115:            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+src/app/(marketing)/about/page.tsx:116:              <p
+src/app/(marketing)/about/page.tsx:117:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/about/page.tsx:118:                style={{ color: rayHex('R1') }}
+src/app/(marketing)/about/page.tsx:199:                  <div
+src/app/(marketing)/about/page.tsx:200:                    className="glass-card glass-card--magnetic card-border-left-accent-soft flex items-start gap-3 p-4 check-animated"
+src/app/(marketing)/about/page.tsx:201:                    style={{ animationDelay: `${idx * 0.1}s`, '--card-accent': rayHex(cycleRay(idx)) } as { animationDelay: string; ['--card-accent']: string }}
+src/app/(marketing)/about/page.tsx:240:                      <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4">
+src/app/(marketing)/about/page.tsx:241:                        <span
+src/app/(marketing)/about/page.tsx:242:                          className="shrink-0 font-bold"
+src/app/(marketing)/about/page.tsx:243:                          style={{ color: "var(--brand-gold)" }}
+src/app/(marketing)/about/page.tsx:268:                      <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4">
+src/app/(marketing)/about/page.tsx:269:                        <span
+src/app/(marketing)/about/page.tsx:270:                          className="shrink-0 font-bold"
+src/app/(marketing)/about/page.tsx:271:                          style={{ color: "color-mix(in srgb, var(--gold-primary) 50%, transparent)" }}
+src/app/(marketing)/about/page.tsx:298:            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+src/app/(marketing)/about/page.tsx:299:              <p
+src/app/(marketing)/about/page.tsx:300:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/about/page.tsx:301:                style={{ color: rayHex('R8') }}
+src/app/(marketing)/about/page.tsx:337:                  <div
+src/app/(marketing)/about/page.tsx:338:                    key={item.label}
+src/app/(marketing)/about/page.tsx:339:                    className="glass-card glass-card--magnetic card-border-top-accent-soft p-3"
+src/app/(marketing)/about/page.tsx:340:                    style={{ '--card-accent': rayHex(item.rayKey) } as { ['--card-accent']: string }}
+src/app/(marketing)/about/page.tsx:364:            <div className="glass-card p-6 sm:p-8 space-y-4">
+src/app/(marketing)/about/page.tsx:365:              <p
+src/app/(marketing)/about/page.tsx:366:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/about/page.tsx:367:                style={{ color: rayHex('R3') }}
+src/app/(marketing)/about/page.tsx:494:            <div className="glass-card p-8 text-center space-y-5 card-border-none">
+src/app/(marketing)/about/page.tsx:495:              <p
+src/app/(marketing)/about/page.tsx:496:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/about/page.tsx:497:                style={{ color: rayHex('R9') }}
+src/components/cosmic/ExpansionArc.tsx:58:    <div className="glass-card p-5">
+src/components/cosmic/ExpansionArc.tsx:59:      <p
+src/components/cosmic/ExpansionArc.tsx:60:        className="mb-3"
+src/components/cosmic/ExpansionArc.tsx:61:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/retention/MicroJoyClient.tsx:161:      <div className="glass-card card-border-violet-mid p-5 space-y-2">
+src/components/retention/MicroJoyClient.tsx:162:        <div className="flex items-center gap-2">
+src/components/retention/MicroJoyClient.tsx:163:          <span className="neon-tag text-xs font-bold">JOY</span>
+src/components/retention/MicroJoyClient.tsx:164:          <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
+src/components/retention/MicroJoyClient.tsx:227:          <motion.div
+src/components/retention/MicroJoyClient.tsx:228:            key={suggestionText}
+src/components/retention/MicroJoyClient.tsx:229:            initial={shouldAnimate ? { opacity: 0, y: 12 } : false}
+src/components/retention/MicroJoyClient.tsx:230:            animate={{ opacity: 1, y: 0 }}
+src/components/retention/MicroJoyClient.tsx:231:            exit={shouldAnimate ? { opacity: 0, y: -8 } : undefined}
+src/components/retention/MicroJoyClient.tsx:232:            transition={{ duration: shouldAnimate ? undefined : 0 }}
+src/components/retention/MicroJoyClient.tsx:233:            className="glass-card card-border-gold-soft p-5 space-y-4"
+src/components/retention/MicroJoyClient.tsx:234:          >
+src/components/retention/MicroJoyClient.tsx:235:            <p className="text-base font-medium leading-relaxed" style={{ color: "var(--text-on-dark)" }}>
+src/components/retention/MicroJoyClient.tsx:269:        <motion.div
+src/components/retention/MicroJoyClient.tsx:270:          initial={shouldAnimate ? { opacity: 0 } : false}
+src/components/retention/MicroJoyClient.tsx:271:          animate={{ opacity: 1 }}
+src/components/retention/MicroJoyClient.tsx:272:          transition={{ duration: shouldAnimate ? undefined : 0 }}
+src/components/retention/MicroJoyClient.tsx:273:          className="glass-card card-border-default p-4 text-center"
+src/components/retention/MicroJoyClient.tsx:274:        >
+src/components/retention/MicroJoyClient.tsx:275:          <p className="text-sm font-medium" style={{ color: "var(--ray-authenticity)" }}>
+src/components/marketing/EmailCaptureBanner.tsx:38:      <div
+src/components/marketing/EmailCaptureBanner.tsx:39:        className="glass-card card-border-default mx-auto mt-6 max-w-[480px] p-5 sm:p-6 text-center"
+src/components/marketing/EmailCaptureBanner.tsx:40:      >
+src/components/marketing/EmailCaptureBanner.tsx:41:        <p className="text-sm font-semibold" style={{ color: 'var(--text-body)' }}>
+src/components/marketing/EmailCaptureBanner.tsx:52:    <div className="glass-card mx-auto mt-6 max-w-[480px] p-5 sm:p-6 text-center">
+src/components/marketing/EmailCaptureBanner.tsx:53:      <p className="text-sm font-semibold" style={{ color: 'var(--text-body)' }}>
+src/app/(marketing)/outcomes/page.tsx:123:                    <div
+src/app/(marketing)/outcomes/page.tsx:124:                      className="glass-card p-5"
+src/app/(marketing)/outcomes/page.tsx:125:                      style={{
+src/app/(marketing)/outcomes/page.tsx:159:            <div className="glass-card p-6 sm:p-8 space-y-4">
+src/app/(marketing)/outcomes/page.tsx:160:              <p
+src/app/(marketing)/outcomes/page.tsx:161:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/outcomes/page.tsx:162:                style={{ color: "var(--gold-primary)" }}
+src/app/(marketing)/outcomes/page.tsx:258:            <div className="glass-card p-8 text-center space-y-5">
+src/app/(marketing)/outcomes/page.tsx:259:              <h2
+src/app/(marketing)/outcomes/page.tsx:260:                className="text-2xl font-bold"
+src/app/(marketing)/outcomes/page.tsx:261:                style={{ color: "var(--text-body)" }}
+src/components/retention/MorningEntryClient.tsx:131:      <div className="glass-card p-5 space-y-2 card-border-gold-soft">
+src/components/retention/MorningEntryClient.tsx:132:        <div className="flex items-center gap-2">
+src/components/retention/MorningEntryClient.tsx:133:          <span className="neon-tag text-xs font-bold">MORNING</span>
+src/components/retention/MorningEntryClient.tsx:134:          <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
+src/components/retention/MorningEntryClient.tsx:162:          <div className="glass-card p-5 space-y-3">
+src/components/retention/MorningEntryClient.tsx:163:            <label className="block text-xs font-bold uppercase tracking-widest"
+src/components/retention/MorningEntryClient.tsx:164:              style={{ color: rayHex('R1') }}
+src/components/retention/MorningEntryClient.tsx:187:          <div className="glass-card p-5 space-y-3">
+src/components/retention/MorningEntryClient.tsx:188:            <label className="block text-xs font-bold uppercase tracking-widest"
+src/components/retention/MorningEntryClient.tsx:189:              style={{ color: rayHex('R1') }}
+src/components/retention/MorningEntryClient.tsx:225:            <motion.div
+src/components/retention/MorningEntryClient.tsx:226:              initial={shouldAnimate ? { opacity: 0 } : false}
+src/components/retention/MorningEntryClient.tsx:227:              animate={{ opacity: 1 }}
+src/components/retention/MorningEntryClient.tsx:228:              transition={{ duration: shouldAnimate ? undefined : 0 }}
+src/components/retention/MorningEntryClient.tsx:229:              className="glass-card gold-accent-left p-4 text-center card-border-default"
+src/components/retention/MorningEntryClient.tsx:230:            >
+src/components/retention/MorningEntryClient.tsx:231:              <p className="text-sm font-medium score-reveal" style={{ color: "var(--ray-authenticity)" }}>
+src/app/assessment/page.tsx:60:          <header className="glass-card mb-6 p-6 sm:p-8">
+src/app/assessment/page.tsx:61:            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">The Assessment</p>
+src/app/assessment/page.tsx:62:            <h1 className="text-3xl font-semibold sm:text-4xl" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.violet) }}>The 143 Be The Light Assessment</h1>
+src/app/assessment/page.tsx:83:          <section className="glass-card mb-6 p-6 sm:p-8">
+src/app/assessment/page.tsx:84:            <p className="text-sm font-semibold leading-relaxed" style={{ color: 'var(--brand-gold)' }}>
+src/app/assessment/page.tsx:93:          <section className="glass-card mb-6 p-6 sm:p-8">
+src/app/assessment/page.tsx:94:            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">When you open your results</h2>
+src/app/assessment/page.tsx:95:            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/assessment/page.tsx:104:          <section className="glass-card mb-6 p-6 sm:p-8">
+src/app/assessment/page.tsx:105:            <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-gold">See what the report looks like</h2>
+src/app/assessment/page.tsx:106:            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/assessment/page.tsx:120:          <section className="glass-card p-6 sm:p-8 text-center">
+src/app/assessment/page.tsx:121:            <h2 className="text-2xl font-semibold" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.violet) }}>The most honest mirror your leadership has seen.</h2>
+src/components/retention/CoachQuestion.tsx:89:    <div className="glass-card p-5 space-y-3">
+src/components/retention/CoachQuestion.tsx:90:      <div className="flex items-center justify-between">
+src/components/retention/CoachQuestion.tsx:91:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R7') }}>
+src/components/cosmic/BlackHoleFlags.tsx:82:      <div className="glass-card p-5" role="status">
+src/components/cosmic/BlackHoleFlags.tsx:83:        <p
+src/components/cosmic/BlackHoleFlags.tsx:84:          style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/components/cosmic/BlackHoleFlags.tsx:118:    for (let i = 0; i < 5; i++) {
+src/components/cosmic/BlackHoleFlags.tsx:119:      const startAngle = seededRandom(seed + i * 7) * Math.PI * 2;
+src/components/cosmic/BlackHoleFlags.tsx:120:      const dist = 60 + seededRandom(seed + i * 7 + 1) * 40;
+src/components/cosmic/BlackHoleFlags.tsx:121:      const sx = cx + Math.cos(startAngle) * dist;
+src/components/cosmic/BlackHoleFlags.tsx:122:      const sy = cy + Math.sin(startAngle) * dist;
+src/components/cosmic/BlackHoleFlags.tsx:123:      // Spiral inward
+src/components/cosmic/BlackHoleFlags.tsx:124:      const midAngle = startAngle + 1.2;
+src/components/cosmic/BlackHoleFlags.tsx:125:      const midDist = dist * 0.5;
+src/components/cosmic/BlackHoleFlags.tsx:126:      const mx = cx + Math.cos(midAngle) * midDist;
+src/components/cosmic/BlackHoleFlags.tsx:127:      const my = cy + Math.sin(midAngle) * midDist;
+src/components/cosmic/BlackHoleFlags.tsx:128:      trails.push({
+src/components/cosmic/BlackHoleFlags.tsx:129:        path: `M ${sx} ${sy} Q ${mx} ${my} ${cx} ${cy}`,
+src/components/cosmic/BlackHoleFlags.tsx:130:        delay: seededRandom(seed + i * 7 + 2) * 3,
+src/components/cosmic/BlackHoleFlags.tsx:131:      });
+src/components/cosmic/BlackHoleFlags.tsx:132:    }
+src/components/cosmic/BlackHoleFlags.tsx:133:    return trails;
+src/components/cosmic/BlackHoleFlags.tsx:134:  }
+src/components/cosmic/BlackHoleFlags.tsx:135:
+src/components/cosmic/BlackHoleFlags.tsx:136:  return (
+src/components/cosmic/BlackHoleFlags.tsx:137:    <div className="glass-card p-5">
+src/components/cosmic/BlackHoleFlags.tsx:138:      <p
+src/components/cosmic/BlackHoleFlags.tsx:139:        className="mb-3"
+src/components/cosmic/BlackHoleFlags.tsx:140:        style={{ color: 'var(--text-on-dark-secondary)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}
+src/app/(marketing)/143/page.tsx:174:                    <div
+src/app/(marketing)/143/page.tsx:175:                      className="glass-card glass-card--magnetic p-5"
+src/app/(marketing)/143/page.tsx:176:                      style={{
+src/app/(marketing)/143/page.tsx:288:            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+src/app/(marketing)/143/page.tsx:289:              <p
+src/app/(marketing)/143/page.tsx:290:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/143/page.tsx:291:                style={{ color: rayHex('R5') }}
+src/app/(marketing)/143/page.tsx:388:            <div className="glass-card p-6 sm:p-8 space-y-4">
+src/app/(marketing)/143/page.tsx:389:              <p
+src/app/(marketing)/143/page.tsx:390:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/143/page.tsx:391:                style={{ color: rayHex('R1') }}
+src/app/(marketing)/143/page.tsx:431:            <div className="glass-card p-8 text-center space-y-5">
+src/app/(marketing)/143/page.tsx:432:              <h2
+src/app/(marketing)/143/page.tsx:433:                className="text-2xl font-bold"
+src/app/(marketing)/143/page.tsx:434:                style={{ color: "var(--text-body)" }}
+src/components/retention/CueBasedNudge.tsx:129:    <div className="glass-card p-5 space-y-3">
+src/components/retention/CueBasedNudge.tsx:130:      <div className="flex items-center justify-between">
+src/components/retention/CueBasedNudge.tsx:131:        <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/components/retention/CueBasedNudge.tsx:154:            <Link
+src/components/retention/CueBasedNudge.tsx:155:              href="/reps"
+src/components/retention/CueBasedNudge.tsx:156:              className="glass-card flex items-start gap-3 p-3 transition-all group"
+src/components/retention/CueBasedNudge.tsx:157:              style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 15%, transparent)' }}
+src/app/assessment/instructions/page.tsx:43:          <section className="glass-card p-6">
+src/app/assessment/instructions/page.tsx:44:            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/app/assessment/instructions/page.tsx:68:          <section className="glass-card p-6">
+src/app/assessment/instructions/page.tsx:69:            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/app/assessment/instructions/page.tsx:94:          <section className="glass-card p-6">
+src/app/assessment/instructions/page.tsx:95:            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/app/assessment/instructions/page.tsx:116:          <section className="glass-card p-6">
+src/app/assessment/instructions/page.tsx:117:            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/app/(marketing)/justin/page.tsx:116:            <div className="glass-card p-6 sm:p-8 space-y-4">
+src/app/(marketing)/justin/page.tsx:117:              <p
+src/app/(marketing)/justin/page.tsx:118:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/justin/page.tsx:119:                style={{ color: rayHex('R1') }}
+src/app/(marketing)/justin/page.tsx:188:                      <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4">
+src/app/(marketing)/justin/page.tsx:189:                        <span
+src/app/(marketing)/justin/page.tsx:190:                          className="shrink-0 font-bold"
+src/app/(marketing)/justin/page.tsx:191:                          style={{ color }}
+src/app/(marketing)/justin/page.tsx:216:                      <div className="glass-card flex items-start gap-3 p-4">
+src/app/(marketing)/justin/page.tsx:217:                        <span
+src/app/(marketing)/justin/page.tsx:218:                          className="shrink-0 font-bold"
+src/app/(marketing)/justin/page.tsx:219:                          style={{ color: "color-mix(in srgb, var(--gold-primary) 50%, transparent)" }}
+src/app/(marketing)/justin/page.tsx:298:            <div className="glass-card p-8 text-center space-y-5">
+src/app/(marketing)/justin/page.tsx:299:              <h2
+src/app/(marketing)/justin/page.tsx:300:                className="text-2xl font-bold"
+src/app/(marketing)/justin/page.tsx:301:                style={{ color: "var(--text-body)" }}
+src/app/(marketing)/terms/page.tsx:47:        <div className="glass-card space-y-8 p-6 sm:p-8">
+src/app/(marketing)/terms/page.tsx:48:          <section>
+src/app/(marketing)/terms/page.tsx:49:            <h2 className="text-sm font-bold uppercase tracking-widest" style={{ color: rayHex('R1') }}>
+src/components/retention/RasCheckIn.tsx:63:      <div
+src/components/retention/RasCheckIn.tsx:64:        className="glass-card card-border-accent-soft p-5 space-y-3"
+src/components/retention/RasCheckIn.tsx:65:        style={{ '--card-accent': rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`) } as { ['--card-accent']: string }}
+src/components/retention/RasCheckIn.tsx:91:    <div className="glass-card p-5 space-y-4">
+src/components/retention/RasCheckIn.tsx:92:      <div>
+src/components/retention/RasCheckIn.tsx:93:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/app/assessment/scoring/page.tsx:182:            <div
+src/app/assessment/scoring/page.tsx:183:              key={ray.name}
+src/app/assessment/scoring/page.tsx:184:              className="flex items-center gap-3 glass-card px-4 py-2.5 transition-all duration-400"
+src/app/assessment/scoring/page.tsx:185:              style={{
+src/components/retention/EveningReflectionClient.tsx:149:      <div className="glass-card p-5 space-y-4">
+src/components/retention/EveningReflectionClient.tsx:150:        <div className="flex items-center justify-between">
+src/components/retention/EveningReflectionClient.tsx:151:          <p className="gold-underline text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Evening Reflection</p>
+src/components/retention/EveningReflectionClient.tsx:193:  if (step >= 0 && step < REFLECTION_STEPS.length) {
+src/components/retention/EveningReflectionClient.tsx:194:    const rs = REFLECTION_STEPS[step];
+src/components/retention/EveningReflectionClient.tsx:195:
+src/components/retention/EveningReflectionClient.tsx:196:    return (
+src/components/retention/EveningReflectionClient.tsx:197:      <div className="glass-card p-5 space-y-4">
+src/components/retention/EveningReflectionClient.tsx:198:        <div className="flex items-center justify-between">
+src/components/retention/EveningReflectionClient.tsx:199:          <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/app/(marketing)/standard/page.tsx:186:                    <div
+src/app/(marketing)/standard/page.tsx:187:                      className="glass-card glass-card--magnetic p-5"
+src/app/(marketing)/standard/page.tsx:188:                      style={{
+src/app/(marketing)/standard/page.tsx:255:            <div className="glass-card overflow-hidden">
+src/app/(marketing)/standard/page.tsx:256:              {/* Header row */}
+src/app/(marketing)/standard/page.tsx:257:              <div
+src/app/(marketing)/standard/page.tsx:258:                className="grid grid-cols-3 gap-px text-xs font-bold uppercase tracking-widest p-3"
+src/app/(marketing)/standard/page.tsx:259:                style={{
+src/app/(marketing)/standard/page.tsx:319:            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
+src/app/(marketing)/standard/page.tsx:320:              <p
+src/app/(marketing)/standard/page.tsx:321:                className="text-xs font-bold uppercase tracking-widest"
+src/app/(marketing)/standard/page.tsx:322:                style={{ color: rayHex('R4') }}
+src/app/(marketing)/standard/page.tsx:371:              <div
+src/app/(marketing)/standard/page.tsx:372:                className="glass-card p-8 text-center space-y-5"
+src/app/(marketing)/standard/page.tsx:373:                style={{ border: "none" }}
+src/components/retention/StreakRecovery.tsx:35:    <div
+src/components/retention/StreakRecovery.tsx:36:      className="glass-card p-5 space-y-3"
+src/components/retention/StreakRecovery.tsx:37:      style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
+src/app/(marketing)/cohorts/page.tsx:51:              <div key={card.title} className="glass-card p-5">
+src/app/(marketing)/cohorts/page.tsx:52:                <h2 className="text-lg font-semibold" style={{ color: "var(--gold-primary)" }}>{card.title}</h2>
+src/app/(marketing)/cohorts/page.tsx:62:          <section className="glass-card p-8 text-center max-w-[720px] mx-auto space-y-4">
+src/app/(marketing)/cohorts/page.tsx:63:            <p className="text-xs uppercase tracking-widest font-bold" style={{ color: "var(--gold-primary)" }}>
+src/components/retention/GrowthSummaryClient.tsx:80:    <section className="glass-card p-6 sm:p-8">
+src/components/retention/GrowthSummaryClient.tsx:81:      <h2 className="text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Growth trendline</h2>
+src/components/retention/GrowthSummaryClient.tsx:111:            <article className="glass-card p-4 text-sm">
+src/components/retention/GrowthSummaryClient.tsx:112:              <h3 className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>Day 7 checkpoint</h3>
+src/components/retention/GrowthSummaryClient.tsx:115:            <article className="glass-card p-4 text-sm">
+src/components/retention/GrowthSummaryClient.tsx:116:              <h3 className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>Day 21 checkpoint</h3>
+src/components/retention/GrowthSummaryClient.tsx:119:            <article className="glass-card p-4 text-sm">
+src/components/retention/GrowthSummaryClient.tsx:120:              <h3 className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>Day 66 checkpoint</h3>
+src/components/retention/GrowthSummaryClient.tsx:130:          <section className="mt-5 glass-card p-4 text-sm">
+src/components/retention/GrowthSummaryClient.tsx:131:            <h3 className="text-base font-semibold" style={{ color: 'var(--text-on-dark)' }}>Run history</h3>
+src/app/(marketing)/how-it-works/page.tsx:67:              <div key={item.step} className="glass-card p-6 space-y-3">
+src/app/(marketing)/how-it-works/page.tsx:68:                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>{item.step}</p>
+src/app/(marketing)/how-it-works/page.tsx:82:            <div className="glass-card p-8 text-center space-y-4">
+src/app/(marketing)/how-it-works/page.tsx:83:              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
+src/components/spec-center/ReportPreviewTool.tsx:136:    <section className="glass-card p-6 sm:p-8">
+src/components/spec-center/ReportPreviewTool.tsx:137:      <h2 className="text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Test Report Preview</h2>
+src/components/portal/RepReceiptCard.tsx:40:    <div className="glass-card p-5 space-y-3">
+src/components/portal/RepReceiptCard.tsx:41:      <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+src/components/retention/PreviewSnapshotClient.tsx:107:    <section className="glass-card p-6 sm:p-8 space-y-4">
+src/components/retention/PreviewSnapshotClient.tsx:108:      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R6') }}>Gravitational Stability Check</p>
+src/components/retention/PreviewSnapshotClient.tsx:134:        <article className="mt-4 glass-card p-4 text-sm">
+src/components/retention/PreviewSnapshotClient.tsx:135:          <p style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/retention/EnergyAuditClient.tsx:167:        <div
+src/components/retention/EnergyAuditClient.tsx:168:          className="glass-card card-border-accent p-5 space-y-3"
+src/components/retention/EnergyAuditClient.tsx:169:          style={{ '--card-accent': bandStyle.stroke } as { ['--card-accent']: string }}
+src/components/retention/EnergyAuditClient.tsx:202:          <div className="glass-card card-border-violet-soft p-3">
+src/components/retention/EnergyAuditClient.tsx:203:            <p className="text-xs font-medium uppercase tracking-widest mb-1"
+src/components/retention/EnergyAuditClient.tsx:204:              style={{ color: 'var(--gold-primary)' }}>
+src/components/retention/EnergyAuditClient.tsx:224:        <div className="glass-card p-4 space-y-3">
+src/components/retention/EnergyAuditClient.tsx:225:          <div className="flex items-center justify-between">
+src/components/retention/EnergyAuditClient.tsx:226:            <p className="text-xs font-bold uppercase tracking-widest"
+src/components/retention/EnergyAuditClient.tsx:227:              style={{ color: 'var(--gold-primary)' }}>
+src/components/retention/EnergyAuditClient.tsx:289:        <motion.div
+src/components/retention/EnergyAuditClient.tsx:290:          key={step}
+src/components/retention/EnergyAuditClient.tsx:291:          initial={shouldAnimate ? { opacity: 0, x: 20 } : false}
+src/components/retention/EnergyAuditClient.tsx:292:          animate={{ opacity: 1, x: 0 }}
+src/components/retention/EnergyAuditClient.tsx:293:          exit={shouldAnimate ? { opacity: 0, x: -20 } : undefined}
+src/components/retention/EnergyAuditClient.tsx:294:          transition={{ duration: shouldAnimate ? 0.2 : 0 }}
+src/components/retention/EnergyAuditClient.tsx:295:          className="glass-card p-5 space-y-4"
+src/components/retention/EnergyAuditClient.tsx:296:        >
+src/components/retention/EnergyAuditClient.tsx:297:          <div className="flex items-center justify-between">
+src/components/retention/EnergyAuditClient.tsx:298:            <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/retention/RunComparisonView.tsx:77:  if (runs.length < 2) {
+src/components/retention/RunComparisonView.tsx:78:    return (
+src/components/retention/RunComparisonView.tsx:79:      <div className="glass-card p-5 text-center space-y-2">
+src/components/retention/RunComparisonView.tsx:80:        <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/components/retention/RunComparisonView.tsx:147:      <div
+src/components/retention/RunComparisonView.tsx:148:        className="glass-card p-4"
+src/components/retention/RunComparisonView.tsx:149:        style={{ borderColor: overallDelta >= 0 ? 'var(--surface-border)' : 'var(--surface-border)' }}
+src/components/retention/RunComparisonView.tsx:176:          <div key={d.rayId} className="glass-card px-4 py-2.5">
+src/components/retention/RunComparisonView.tsx:177:            <div className="flex items-center gap-3">
+src/components/retention/RunComparisonView.tsx:178:              {/* Ray name */}
+src/components/retention/RunComparisonView.tsx:179:              <span className="text-xs font-medium w-20 shrink-0" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/app/assessment/review/page.tsx:23:          <div className="glass-card p-8 sm:p-12 text-center space-y-6">
+src/app/assessment/review/page.tsx:24:            <p className="gold-tag inline-block">143 Questions Complete</p>
+src/app/assessment/review/page.tsx:25:            <h1 className="text-shimmer text-3xl sm:text-4xl font-bold" style={{color:'var(--text-on-dark)'}}>
+src/components/ui/PageHeader.tsx:32:    <header className={`glass-card p-6 sm:p-8 ${className}`}>
+src/components/ui/PageHeader.tsx:33:      {label && (
+src/components/ui/PageHeader.tsx:34:        <p
+src/components/ui/PageHeader.tsx:35:          className="text-xs font-bold uppercase tracking-widest"
+src/components/ui/PageHeader.tsx:36:          style={{ color: "var(--gold-primary)" }}
+src/components/ui/CtaBlock.tsx:39:      <div className="glass-card p-5 sm:p-6 md:p-8">
+src/components/ui/CtaBlock.tsx:40:        {kicker && (
+src/components/ui/CtaBlock.tsx:41:          <p
+src/components/ui/CtaBlock.tsx:42:            className="text-xs font-bold uppercase tracking-widest"
+src/components/ui/CtaBlock.tsx:43:            style={{ color: 'var(--gold-primary)' }}
+src/components/retention/RasPrimeCard.tsx:108:    <div className="glass-card p-5 space-y-4">
+src/components/retention/RasPrimeCard.tsx:109:      <div className="space-y-1">
+src/components/retention/RasPrimeCard.tsx:110:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R1') }}>
+src/components/enterprise/EnterpriseSalesPage.tsx:127:            <div key={item.label} className="glass-card p-6 text-center">
+src/components/enterprise/EnterpriseSalesPage.tsx:128:              <p className="text-4xl font-bold text-brand-gold">{item.stat}</p>
+src/components/enterprise/EnterpriseSalesPage.tsx:129:              <p className="text-sm mt-2" style={{ color: 'var(--text-on-dark-secondary)' }}>{item.label}</p>
+src/components/enterprise/EnterpriseSalesPage.tsx:150:              <div className="glass-card glass-card--interactive p-6 space-y-3 h-full">
+src/components/enterprise/EnterpriseSalesPage.tsx:151:                <div className="text-3xl">{item.icon}</div>
+src/components/enterprise/EnterpriseSalesPage.tsx:152:                <h3 className="font-semibold text-lg" style={{ color: 'var(--text-on-dark)' }}>{item.title}</h3>
+src/components/enterprise/EnterpriseSalesPage.tsx:167:        <div className="glass-card card-border-gold-mid card-border-top-gold p-8 space-y-4">
+src/components/enterprise/EnterpriseSalesPage.tsx:168:          <span className="gold-tag inline-block text-xs font-bold">Privacy commitment</span>
+src/components/enterprise/EnterpriseSalesPage.tsx:169:          <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
+src/components/enterprise/EnterpriseSalesPage.tsx:200:          <div className="glass-card overflow-hidden card-border-top-gold">
+src/components/enterprise/EnterpriseSalesPage.tsx:201:            <div className="grid grid-cols-2 text-on-dark text-sm font-semibold" style={{ background: 'linear-gradient(to right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
+src/components/portal/SignalPickerCard.tsx:32:    <div className="glass-card p-5 space-y-4">
+src/components/portal/SignalPickerCard.tsx:33:      <div className="flex items-start justify-between gap-3">
+src/components/portal/SignalPickerCard.tsx:34:        <div>
+src/components/portal/SignalPickerCard.tsx:35:          <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+src/components/retention/FearReframe.tsx:96:        <div className="glass-card gold-accent-left rounded-xl p-4">
+src/components/retention/FearReframe.tsx:97:          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
+src/components/retention/FearReframe.tsx:107:  if (step >= 0 && step < REFRAME_STEPS.length) {
+src/components/retention/FearReframe.tsx:108:    const rs = REFRAME_STEPS[step];
+src/components/retention/FearReframe.tsx:109:
+src/components/retention/FearReframe.tsx:110:    return (
+src/components/retention/FearReframe.tsx:111:      <div className="glass-card p-5 space-y-4">
+src/components/retention/FearReframe.tsx:112:        {/* Progress */}
+src/components/retention/FearReframe.tsx:113:        <div className="flex items-center justify-between">
+src/components/retention/FearReframe.tsx:114:          <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/retention/JournalBrowser.tsx:76:      <div className="glass-card p-5 text-center">
+src/components/retention/JournalBrowser.tsx:77:        <p className="text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/retention/IfThenPlanClient.tsx:114:      <div className="glass-card p-6 flex items-center justify-center">
+src/components/retention/IfThenPlanClient.tsx:115:        <div
+src/components/retention/IfThenPlanClient.tsx:116:          className="w-5 h-5 border-2 rounded-full animate-spin"
+src/components/retention/IfThenPlanClient.tsx:117:          style={{ borderColor: 'var(--surface-border)', borderTopColor: 'var(--gold-primary)' }}
+src/components/retention/IfThenPlanClient.tsx:161:            <div className="glass-card p-4 space-y-3 card-border-violet-mid">
+src/components/retention/IfThenPlanClient.tsx:162:              <div>
+src/components/retention/IfThenPlanClient.tsx:163:                <label className="text-xs font-medium block mb-1"
+src/components/retention/IfThenPlanClient.tsx:164:                  style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/retention/IfThenPlanClient.tsx:263:            <motion.div
+src/components/retention/IfThenPlanClient.tsx:264:              key={plan.id}
+src/components/retention/IfThenPlanClient.tsx:265:              initial={shouldAnimate ? { opacity: 0, y: 8 } : false}
+src/components/retention/IfThenPlanClient.tsx:266:              animate={{ opacity: 1, y: 0 }}
+src/components/retention/IfThenPlanClient.tsx:267:              transition={{ delay: shouldAnimate ? i * 0.05 : 0, duration: shouldAnimate ? undefined : 0 }}
+src/components/retention/IfThenPlanClient.tsx:268:              className="glass-card flex items-start gap-3 p-3 group"
+src/components/retention/IfThenPlanClient.tsx:269:              style={{ borderColor: plan.completed_count >= 3 ? 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' : undefined }}
+src/components/portal/RetakeInsights.tsx:289:      <div className="glass-card p-5 space-y-3 animate-pulse">
+src/components/portal/RetakeInsights.tsx:290:        <div className="h-3 w-36 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 12%, transparent)" }} />
+src/components/portal/RetakeInsights.tsx:300:      <div
+src/components/portal/RetakeInsights.tsx:301:        className="glass-card p-5 space-y-3 card-border-default"
+src/components/portal/RetakeInsights.tsx:302:      >
+src/components/portal/RetakeInsights.tsx:303:        <p className="text-sm" style={{ color: "var(--ray-power)" }}>
+src/components/portal/RetakeInsights.tsx:334:    <div className="glass-card p-5 space-y-5">
+src/components/portal/RetakeInsights.tsx:335:      <div className="flex items-start justify-between gap-4">
+src/components/portal/RetakeInsights.tsx:336:        <div>
+src/components/portal/RetakeInsights.tsx:337:          <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: "var(--brand-gold)" }}>
+src/components/portal/RetakeInsights.tsx:354:        <div className="glass-card p-3">
+src/components/portal/RetakeInsights.tsx:355:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:365:        <div className="glass-card p-3">
+src/components/portal/RetakeInsights.tsx:366:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:376:        <div className="glass-card p-3">
+src/components/portal/RetakeInsights.tsx:377:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:390:        <div className="glass-card p-4 space-y-3">
+src/components/portal/RetakeInsights.tsx:391:          <div className="flex items-center justify-between gap-3 flex-wrap">
+src/components/portal/RetakeInsights.tsx:392:            <div>
+src/components/portal/RetakeInsights.tsx:393:              <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:436:          <div className="glass-card p-4 space-y-2">
+src/components/portal/RetakeInsights.tsx:437:            <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:451:          <div className="glass-card p-4 space-y-2">
+src/components/portal/RetakeInsights.tsx:452:            <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:467:        <div className="glass-card p-4 space-y-2">
+src/components/portal/RetakeInsights.tsx:468:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:489:        <div className="glass-card p-4">
+src/components/portal/RetakeInsights.tsx:490:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:500:        <div className="glass-card p-4 space-y-2">
+src/components/portal/RetakeInsights.tsx:501:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:517:        <div className="glass-card p-4 space-y-2">
+src/components/portal/RetakeInsights.tsx:518:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:536:        <div className="glass-card p-4 space-y-2">
+src/components/portal/RetakeInsights.tsx:537:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/RetakeInsights.tsx:551:      <div className="glass-card p-4 space-y-2">
+src/components/portal/RetakeInsights.tsx:552:        <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/QuickRepFAB.tsx:56:        <div
+src/components/portal/QuickRepFAB.tsx:57:          className="fixed bottom-20 right-5 z-50 glass-card card-border-default p-3 space-y-1.5 w-52"
+src/components/portal/QuickRepFAB.tsx:58:        >
+src/components/portal/QuickRepFAB.tsx:59:          <p className="text-xs font-bold uppercase tracking-widest px-2 pb-1" style={{ color: 'var(--gold-primary)' }}>
+src/components/retention/DailyLoopClient.tsx:152:      <div className="glass-card p-5 space-y-4">
+src/components/retention/DailyLoopClient.tsx:153:        <div className="flex items-center justify-between">
+src/components/retention/DailyLoopClient.tsx:154:          <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Today&apos;s Loop</p>
+src/components/retention/DailyLoopClient.tsx:179:  if (step >= 0 && step < LOOP_STEPS.length) {
+src/components/retention/DailyLoopClient.tsx:180:    const currentStep = LOOP_STEPS[step];
+src/components/retention/DailyLoopClient.tsx:181:
+src/components/retention/DailyLoopClient.tsx:182:    return (
+src/components/retention/DailyLoopClient.tsx:183:      <div className="glass-card p-5 space-y-4">
+src/components/retention/DailyLoopClient.tsx:184:        <div className="flex items-center justify-between">
+src/components/retention/DailyLoopClient.tsx:185:          <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/retention/ToolkitClient.tsx:210:      <div className="glass-card p-5 space-y-2 card-border-violet-mid">
+src/components/retention/ToolkitClient.tsx:211:        <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/components/retention/ToolkitClient.tsx:245:        <div className="glass-card p-6 text-center space-y-2">
+src/components/retention/ToolkitClient.tsx:246:          <p className="text-2xl">🛠️</p>
+src/components/retention/ToolkitClient.tsx:247:          <p className="text-sm font-medium" style={{ color: 'var(--text-on-dark)' }}>
+src/components/retention/ToolkitClient.tsx:341:                        <div className="glass-card p-3 card-border-violet-soft">
+src/components/retention/ToolkitClient.tsx:342:                          <p className="text-xs font-medium" style={{ color: 'var(--gold-primary)' }}>
+src/components/ui/Toast.tsx:86:    <div
+src/components/ui/Toast.tsx:87:      role="status"
+src/components/ui/Toast.tsx:88:      aria-live="polite"
+src/components/ui/Toast.tsx:89:      className="pointer-events-auto glass-card px-4 py-3 flex items-center gap-3 transition-all duration-300"
+src/components/ui/Toast.tsx:90:      style={{
+src/components/portal/GrowthTrajectory.tsx:117:  if (runs.length < 2) {
+src/components/portal/GrowthTrajectory.tsx:118:    return (
+src/components/portal/GrowthTrajectory.tsx:119:      <div className="glass-card p-6 text-center space-y-3">
+src/components/portal/GrowthTrajectory.tsx:120:        <p
+src/components/portal/GrowthTrajectory.tsx:121:          className="text-xs font-bold uppercase tracking-widest"
+src/components/portal/GrowthTrajectory.tsx:122:          style={{ color: "var(--gold-primary)" }}
+src/components/portal/GrowthTrajectory.tsx:233:        <div
+src/components/portal/GrowthTrajectory.tsx:234:          className="glass-card p-5 space-y-3"
+src/components/portal/GrowthTrajectory.tsx:235:          style={{ borderLeft: "3px solid var(--gold-primary)" }}
+src/components/retention/PhaseCheckInClient.tsx:127:      <motion.div
+src/components/retention/PhaseCheckInClient.tsx:128:        initial={{ opacity: 0, y: 12 }}
+src/components/retention/PhaseCheckInClient.tsx:129:        animate={{ opacity: 1, y: 0 }}
+src/components/retention/PhaseCheckInClient.tsx:130:        className="glass-card card-border-accent p-5 space-y-3"
+src/components/retention/PhaseCheckInClient.tsx:131:        style={{ '--card-accent': `${result.guidance.color}44` } as { ['--card-accent']: string }}
+src/components/retention/PhaseCheckInClient.tsx:152:        <div className="glass-card card-border-violet-soft p-3">
+src/components/retention/PhaseCheckInClient.tsx:153:          <p className="text-xs font-bold uppercase tracking-widest mb-1"
+src/components/retention/PhaseCheckInClient.tsx:154:            style={{ color: rayHex('R3') }}>
+src/components/retention/PhaseCheckInClient.tsx:189:        <motion.div
+src/components/retention/PhaseCheckInClient.tsx:190:          key={step}
+src/components/retention/PhaseCheckInClient.tsx:191:          initial={{ opacity: 0, x: 20 }}
+src/components/retention/PhaseCheckInClient.tsx:192:          animate={{ opacity: 1, x: 0 }}
+src/components/retention/PhaseCheckInClient.tsx:193:          exit={{ opacity: 0, x: -20 }}
+src/components/retention/PhaseCheckInClient.tsx:194:          transition={{ duration: 0.2 }}
+src/components/retention/PhaseCheckInClient.tsx:195:          className="glass-card p-5 space-y-4"
+src/components/retention/PhaseCheckInClient.tsx:196:        >
+src/components/retention/PhaseCheckInClient.tsx:197:          {/* Progress */}
+src/components/retention/PhaseCheckInClient.tsx:198:          <div className="flex items-center justify-between">
+src/components/retention/PhaseCheckInClient.tsx:199:            <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/app/assessment/setup/page.tsx:30:          <header className="glass-card mb-6 p-6 sm:p-8">
+src/app/assessment/setup/page.tsx:31:            <p className="gold-tag inline-block">Light Calibration</p>
+src/app/assessment/setup/page.tsx:32:            <h1 className="text-shimmer mt-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Light Calibration</h1>
+src/components/retention/WeeklyReviewClient.tsx:77:      <div className="glass-card p-8 text-center space-y-2">
+src/components/retention/WeeklyReviewClient.tsx:78:        <p className="text-2xl">📊</p>
+src/components/retention/WeeklyReviewClient.tsx:79:        <p className="text-sm font-medium" style={{ color: 'var(--text-on-dark)' }}>
+src/components/retention/WeeklyReviewClient.tsx:176:      <div className="glass-card p-5 space-y-3">
+src/components/retention/WeeklyReviewClient.tsx:177:        <div className="flex items-center justify-between">
+src/components/retention/WeeklyReviewClient.tsx:178:          <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Reps</p>
+src/components/retention/WeeklyReviewClient.tsx:223:        <div className="glass-card p-5 space-y-3">
+src/components/retention/WeeklyReviewClient.tsx:224:          <div className="flex items-center justify-between">
+src/components/retention/WeeklyReviewClient.tsx:225:            <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>Phase Check-Ins</p>
+src/components/retention/WeeklyReviewClient.tsx:260:        <div className="glass-card glass-card--interactive p-4 space-y-1">
+src/components/retention/WeeklyReviewClient.tsx:261:          <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>Daily Loops</p>
+src/components/retention/WeeklyReviewClient.tsx:267:        <div className="glass-card p-4 space-y-1">
+src/components/retention/WeeklyReviewClient.tsx:268:          <p className="text-xs font-medium" style={{ color: 'var(--text-on-dark-muted)' }}>Reflections</p>
+src/components/retention/WeeklyReviewClient.tsx:281:      <div className="glass-card card-border-violet-mid gold-accent-left p-4 space-y-2">
+src/components/retention/WeeklyReviewClient.tsx:282:        <span className="gold-tag inline-block text-xs font-bold">
+src/components/retention/WeeklyReviewClient.tsx:283:          The pattern
+src/components/retention/WeeklyReviewClient.tsx:284:        </span>
+src/components/retention/WeeklyReviewClient.tsx:285:        <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/components/portal/RaySwitchboardCard.tsx:34:    <div className="glass-card p-5 space-y-4">
+src/components/portal/RaySwitchboardCard.tsx:35:      <div className="flex items-start justify-between gap-3">
+src/components/portal/RaySwitchboardCard.tsx:36:        <div>
+src/components/portal/RaySwitchboardCard.tsx:37:          <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+src/components/enterprise/EnterprisePortalClient.tsx:50:        <header className="glass-card mb-6 p-6 sm:p-8">
+src/components/enterprise/EnterprisePortalClient.tsx:51:          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">Enterprise Portal</p>
+src/components/enterprise/EnterprisePortalClient.tsx:52:          <h1 className="text-3xl font-semibold mt-2 sm:text-4xl" style={{ color: 'var(--text-on-dark)' }}>Aggregate Development Intelligence</h1>
+src/components/enterprise/EnterprisePortalClient.tsx:62:              <article className="glass-card p-4">
+src/components/enterprise/EnterprisePortalClient.tsx:63:                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Light Circle Size</p>
+src/components/enterprise/EnterprisePortalClient.tsx:66:              <article className="glass-card p-4">
+src/components/enterprise/EnterprisePortalClient.tsx:67:                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Load Pressure</p>
+src/components/enterprise/EnterprisePortalClient.tsx:70:              <article className="glass-card p-4">
+src/components/enterprise/EnterprisePortalClient.tsx:71:                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Recovery Access</p>
+src/components/enterprise/EnterprisePortalClient.tsx:74:              <article className="glass-card p-4">
+src/components/enterprise/EnterprisePortalClient.tsx:75:                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Readiness Index</p>
+src/components/enterprise/EnterprisePortalClient.tsx:78:              <article className="glass-card p-4">
+src/components/enterprise/EnterprisePortalClient.tsx:79:                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>Confidence</p>
+src/components/enterprise/EnterprisePortalClient.tsx:91:          <article className="glass-card p-6 sm:p-8">
+src/components/enterprise/EnterprisePortalClient.tsx:92:            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Burnout Heatmap</p>
+src/components/enterprise/EnterprisePortalClient.tsx:93:            <h2 className="mb-2 text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Load signals are directional, not determinative</h2>
+src/components/enterprise/EnterprisePortalClient.tsx:101:          <article className="glass-card p-6 sm:p-8">
+src/components/enterprise/EnterprisePortalClient.tsx:102:            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Readiness Indicators</p>
+src/components/enterprise/EnterprisePortalClient.tsx:103:            <h2 className="mb-2 text-xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Leadership readiness trendline</h2>
+src/components/enterprise/EnterprisePortalClient.tsx:112:        <section className="glass-card mb-6 p-6 sm:p-8">
+src/components/enterprise/EnterprisePortalClient.tsx:113:          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Governance</p>
+src/components/enterprise/EnterprisePortalClient.tsx:114:          <h2 className="mb-2 text-2xl font-semibold" style={{ color: 'var(--text-on-dark)' }}>Non-negotiable privacy boundaries</h2>
+src/components/enterprise/EnterprisePortalClient.tsx:131:              <article key={row['Page Name']} className="glass-card p-4">
+src/components/enterprise/EnterprisePortalClient.tsx:132:                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>{row['Page Name']}</p>
+src/components/enterprise/EnterprisePortalClient.tsx:145:              <article key={`${row.Phase}-${row.Feature}`} className="glass-card p-4">
+src/components/enterprise/EnterprisePortalClient.tsx:146:                <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-on-dark-muted)' }}>{row.Phase}</p>
+src/components/portal/EntryLogOverTime.tsx:440:      <div className="glass-card p-5 space-y-3 animate-pulse">
+src/components/portal/EntryLogOverTime.tsx:441:        <div className="h-3 w-40 rounded" style={{ background: "color-mix(in srgb, var(--text-body) 12%, transparent)" }} />
+src/components/portal/EntryLogOverTime.tsx:451:      <div className="glass-card p-5 space-y-2">
+src/components/portal/EntryLogOverTime.tsx:452:        <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
+src/components/portal/EntryLogOverTime.tsx:487:    <div
+src/components/portal/EntryLogOverTime.tsx:488:      className={`glass-card p-5 space-y-5 ${focusMode ? "ring-2 ring-brand-gold" : ""}`}
+src/components/portal/EntryLogOverTime.tsx:489:    >
+src/components/portal/EntryLogOverTime.tsx:490:      <div className="flex items-start justify-between gap-4">
+src/components/portal/EntryLogOverTime.tsx:491:        <div>
+src/components/portal/EntryLogOverTime.tsx:492:          <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: "var(--brand-gold)" }}>
+src/components/portal/EntryLogOverTime.tsx:645:        <div className="glass-card p-3 space-y-1">
+src/components/portal/EntryLogOverTime.tsx:646:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/EntryLogOverTime.tsx:659:        <div className="glass-card p-3 space-y-1">
+src/components/portal/EntryLogOverTime.tsx:660:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/EntryLogOverTime.tsx:678:        <div className="glass-card p-3 space-y-1">
+src/components/portal/EntryLogOverTime.tsx:679:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/EntryLogOverTime.tsx:692:        <div className="glass-card p-3">
+src/components/portal/EntryLogOverTime.tsx:693:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/EntryLogOverTime.tsx:704:        <div className="glass-card p-3">
+src/components/portal/EntryLogOverTime.tsx:705:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/EntryLogOverTime.tsx:794:        <div className="glass-card p-3 space-y-2">
+src/components/portal/EntryLogOverTime.tsx:795:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/EntryLogOverTime.tsx:802:        <div className="glass-card p-3 space-y-2">
+src/components/portal/EntryLogOverTime.tsx:803:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/EntryLogOverTime.tsx:840:          <div className="glass-card card-border-default p-3">
+src/components/portal/EntryLogOverTime.tsx:841:            <p className="text-xs font-semibold" style={{ color: "var(--neon-teal)" }}>
+src/components/portal/EntryLogOverTime.tsx:866:        <div className="glass-card p-3 space-y-2">
+src/components/portal/EntryLogOverTime.tsx:867:          <p className="text-[11px] uppercase tracking-widest" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/InviteColleagueCard.tsx:99:    <div className="conic-border-card glass-card p-5 space-y-4">
+src/components/portal/InviteColleagueCard.tsx:100:      <div className="flex items-center justify-between">
+src/components/portal/InviteColleagueCard.tsx:101:        <div>
+src/components/portal/InviteColleagueCard.tsx:102:          <h3 className="text-sm font-semibold" style={{ color: 'var(--gold-primary)', textShadow: '0 0 12px color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
+src/components/portal/StarChart.tsx:101:    <section
+src/components/portal/StarChart.tsx:102:      className="glass-card p-5 sm:p-6"
+src/components/portal/StarChart.tsx:103:      style={{
+src/components/portal/DailyStackCard.tsx:28:    <div className="glass-card p-5 space-y-4">
+src/components/portal/DailyStackCard.tsx:29:      <div>
+src/components/portal/DailyStackCard.tsx:30:        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/components/portal/DailyStackCard.tsx:39:          <Link
+src/components/portal/DailyStackCard.tsx:40:            key={item.label}
+src/components/portal/DailyStackCard.tsx:41:            href={item.href}
+src/components/portal/DailyStackCard.tsx:42:            className="glass-card glass-card--interactive p-4 block"
+src/components/portal/DailyStackCard.tsx:43:          >
+src/components/portal/DailyStackCard.tsx:44:            <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/components/portal/BadgeShowcase.tsx:106:          <div
+src/components/portal/BadgeShowcase.tsx:107:            key={badge.id}
+src/components/portal/BadgeShowcase.tsx:108:            className={`flex items-center gap-2 rounded-lg px-3 py-2 transition-opacity ${badge.earned ? 'glass-card--interactive' : ''}`}
+src/components/portal/BadgeShowcase.tsx:109:            style={{
+src/components/RayChart.tsx:28:      <div
+src/components/RayChart.tsx:29:        className="glass-card rounded-2xl p-5 space-y-3 relative overflow-hidden"
+src/components/RayChart.tsx:30:        style={{
+src/components/portal/LightDashboardClient.tsx:291:          <div
+src/components/portal/LightDashboardClient.tsx:292:            key={i}
+src/components/portal/LightDashboardClient.tsx:293:            className="glass-card animate-pulse rounded-xl"
+src/components/portal/LightDashboardClient.tsx:294:            style={{ height: i === 2 ? 320 : 120 }}
+src/components/portal/LightDashboardClient.tsx:376:              <div className="glass-card p-4">
+src/components/portal/LightDashboardClient.tsx:377:                <p className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>Top Two</p>
+src/components/portal/LightDashboardClient.tsx:380:              <div className="glass-card p-4">
+src/components/portal/LightDashboardClient.tsx:381:                <p className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>Eclipse</p>
+src/components/portal/LightDashboardClient.tsx:386:              <div className="glass-card p-4">
+src/components/portal/LightDashboardClient.tsx:387:                <p className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>Next Skill</p>
+src/components/portal/LightDashboardClient.tsx:428:        <div className="glass-card card-border-violet-mid p-5">
+src/components/portal/LightDashboardClient.tsx:429:          <div className="ld-insight-label">This week</div>
+src/components/portal/LightDashboardClient.tsx:430:          <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark)' }}>
+src/components/portal/TodaysRep.tsx:145:    <div className="glass-card overflow-hidden">
+src/components/portal/TodaysRep.tsx:146:      <div className="px-5 py-4" style={{ background: 'linear-gradient(to right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
+src/components/portal/NotificationToggle.tsx:65:    <div
+src/components/portal/NotificationToggle.tsx:66:      className={`glass-card p-4 flex items-center justify-between gap-3 ${
+src/components/portal/NotificationToggle.tsx:67:        state === 'on' ? 'card-border-gold-soft' : ''
+src/components/portal/NotificationToggle.tsx:68:      }`}
+src/components/portal/NotificationToggle.tsx:69:    >
+src/components/portal/NotificationToggle.tsx:70:      <div className="min-w-0">
+src/components/portal/NotificationToggle.tsx:71:        <p className="text-sm font-medium" style={{ color: 'var(--text-on-dark)' }}>
+src/components/portal/MorningMirrorOverlay.tsx:186:            <div
+src/components/portal/MorningMirrorOverlay.tsx:187:              className="glass-card p-5 space-y-3"
+src/components/portal/MorningMirrorOverlay.tsx:188:              style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
+src/components/portal/MorningMirrorOverlay.tsx:199:            <div className="glass-card p-5 space-y-3">
+src/components/portal/MorningMirrorOverlay.tsx:200:              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
+src/components/portal/EclipseCalendarHeatmap.tsx:112:  if (days.length < 7) return null; // Need at least a week of data
+src/components/portal/EclipseCalendarHeatmap.tsx:113:
+src/components/portal/EclipseCalendarHeatmap.tsx:114:  return (
+src/components/portal/EclipseCalendarHeatmap.tsx:115:    <div className="glass-card p-5 space-y-3 card-border-top-gold">
+src/components/portal/EclipseCalendarHeatmap.tsx:116:      <div className="flex items-center justify-between">
+src/components/portal/EclipseCalendarHeatmap.tsx:117:        <div>
+src/components/portal/EclipseCalendarHeatmap.tsx:118:          <h3
+src/components/portal/EclipseCalendarHeatmap.tsx:119:            className="text-sm font-semibold"
+src/components/portal/EclipseCalendarHeatmap.tsx:120:            style={{ color: 'var(--text-on-dark)' }}
+src/components/portal/ActivityStream.tsx:63:      <div className="glass-card p-5">
+src/components/portal/ActivityStream.tsx:64:        <p className="text-sm" style={{ color: "var(--text-on-dark-secondary)" }}>
+src/components/portal/ActivityStream.tsx:73:      <div className="glass-card p-5 space-y-2">
+src/components/portal/ActivityStream.tsx:74:        <p className="text-sm font-semibold" style={{ color: "var(--text-on-dark)" }}>
+src/components/portal/ActivityStream.tsx:85:    <div className="glass-card p-5 space-y-4">
+src/components/portal/ActivityStream.tsx:86:      <div className="flex items-center justify-between">
+src/components/portal/ActivityStream.tsx:87:        <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: "var(--text-on-dark-muted)" }}>
+src/components/portal/ContextualActions.tsx:93:      <Link
+src/components/portal/ContextualActions.tsx:94:        href={primary.href}
+src/components/portal/ContextualActions.tsx:95:        className="glass-card block p-4 transition-all hover:scale-[1.01]"
+src/components/portal/ContextualActions.tsx:96:        style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
+src/components/portal/ContextualActions.tsx:121:          <Link
+src/components/portal/ContextualActions.tsx:122:            key={action.href}
+src/components/portal/ContextualActions.tsx:123:            href={action.href}
+src/components/portal/ContextualActions.tsx:124:            className="glass-card flex flex-col items-center gap-1 p-3 text-center transition-all hover:scale-[1.02]"
+src/components/portal/ContextualActions.tsx:125:            style={{ borderColor: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)' }}
+src/components/portal/PortalDashboard.tsx:117:    <Link
+src/components/portal/PortalDashboard.tsx:118:      href={`/assessment?run_id=${encodeURIComponent(runId)}`}
+src/components/portal/PortalDashboard.tsx:119:      className="glass-card card-border-gold-mid block p-5 transition-all hover:scale-[1.01]"
+src/components/portal/PortalDashboard.tsx:120:    >
+src/components/portal/PortalDashboard.tsx:121:      <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/components/portal/PortalDashboard.tsx:172:    <div
+src/components/portal/PortalDashboard.tsx:173:      className="glass-card card-border-accent p-5 space-y-3"
+src/components/portal/PortalDashboard.tsx:174:      style={{ '--card-accent': c.stroke } as { ['--card-accent']: string }}
+src/components/portal/PortalDashboard.tsx:194:    <div className="glass-card p-5 space-y-3">
+src/components/portal/PortalDashboard.tsx:195:      <p className="gold-underline text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+src/components/portal/PortalDashboard.tsx:464:        <div className="glass-card p-6 space-y-4">
+src/components/portal/PortalDashboard.tsx:465:          <div className="flex items-start gap-3">
+src/components/portal/PortalDashboard.tsx:466:            <span className="text-3xl">🌬️</span>
+src/components/portal/PortalDashboard.tsx:467:            <div>
+src/components/portal/PortalDashboard.tsx:468:              <p className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>Presence Pause</p>
+src/components/portal/PortalDashboard.tsx:564:        <div className="glass-card p-5">
+src/components/portal/PortalDashboard.tsx:565:          <p className="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-2">Why REPs matter</p>
+src/components/portal/PortalDashboard.tsx:566:          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+src/components/portal/PortalDashboard.tsx:910:          <div className="glass-card card-border-gold-mid p-4 flex items-start gap-3">
+src/components/portal/PortalDashboard.tsx:911:            <span className="text-xl">🌟</span>
+src/components/portal/PortalDashboard.tsx:912:            <div>
+src/components/portal/PortalDashboard.tsx:913:              <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
+src/components/portal/PortalDashboard.tsx:941:          <div className="glass-card p-5 space-y-2">
+src/components/portal/PortalDashboard.tsx:942:            <p className="text-xs font-semibold text-brand-gold uppercase tracking-wider">How this portal works</p>
+src/components/portal/PortalDashboard.tsx:943:            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>

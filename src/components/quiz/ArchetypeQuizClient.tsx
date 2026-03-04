@@ -282,7 +282,7 @@ export default function ArchetypeQuizClient() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <div className="glass-card p-8 text-center space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
+            <div className="glass-card p-8 text-center space-y-4 card-border-gold-mid">
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
                 Your Light Signature
               </p>

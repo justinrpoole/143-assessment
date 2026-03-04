@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import RaySpectrumStrip from "@/components/ui/RaySpectrumStrip";
 import RayDivider from "@/components/ui/RayDivider";
@@ -12,7 +11,7 @@ import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import ConicBorderCard from "@/components/ui/ConicBorderCard";
-import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
+import { NEON, neonText } from '@/lib/ui/neon';
 
 const resources = [
   {
@@ -78,7 +77,11 @@ export default function ResourcesPage() {
         <FadeInSection>
           <StaggerChildren className="grid gap-4 sm:grid-cols-2">
             {resources.map((resource, i) => (
-              <article key={resource.title} className="glass-card glass-card--magnetic glass-card--lift p-6 flex flex-col" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
+              <article
+                key={resource.title}
+                className="glass-card glass-card--magnetic glass-card--lift card-border-top-accent p-6 flex flex-col"
+                style={{ '--card-accent': rayHex(cycleRay(i)) } as { ['--card-accent']: string }}
+              >
                 <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)', textShadow: neonText(NEON.cyan) }}>{resource.title}</h2>
                 <p className="mt-2 flex-1 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{resource.description}</p>
                 <LiquidFillButton href={resource.href} className="mt-4 inline-block self-start text-sm">

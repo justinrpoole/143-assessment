@@ -111,7 +111,7 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
 
           {/* Definition */}
           {explanation && (
-            <div className="glass-card p-4 space-y-2" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}>
+            <div className="glass-card p-4 space-y-2 card-border-gold-soft">
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
                 {explanation.definition}
               </p>
@@ -156,8 +156,8 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
               {explanation.coachingReps.map((rep, i) => (
                 <div
                   key={i}
-                  className="glass-card p-3 text-sm leading-relaxed"
-                  style={{ color: 'var(--text-on-dark-secondary)', borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}
+                  className="glass-card card-border-violet-soft p-3 text-sm leading-relaxed"
+                  style={{ color: 'var(--text-on-dark-secondary)' }}
                 >
                   {rep}
                 </div>
@@ -201,7 +201,10 @@ export default function RayDetailDrawer({ ray, onClose }: RayDetailDrawerProps) 
 
 function ScoreBlock({ label, value, color }: { label: string; value: number; color: string }) {
   return (
-    <div className="glass-card p-3 text-center space-y-0.5" style={{ borderColor: `${color}20` }}>
+    <div
+      className="glass-card card-border-accent-soft p-3 text-center space-y-0.5"
+      style={{ '--card-accent': color } as { ['--card-accent']: string }}
+    >
       <p className="text-lg font-bold" style={{ color }}>{Math.round(value)}</p>
       <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--text-on-dark-muted)' }}>
         {label}

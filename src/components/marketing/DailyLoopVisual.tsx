@@ -138,10 +138,7 @@ export default function DailyLoopVisual() {
 
       {/* Competitor time comparison */}
       <div
-        className="glass-card glass-card--lift rounded-xl p-5 sm:p-6"
-        style={{
-          border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
-        }}
+        className="glass-card glass-card--lift card-border-gold-soft rounded-xl p-5 sm:p-6"
       >
         <p
           className="mb-3 text-xs font-bold uppercase tracking-widest"

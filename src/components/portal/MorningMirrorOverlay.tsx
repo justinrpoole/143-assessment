@@ -184,8 +184,7 @@ export default function MorningMirrorOverlay({
 
             {/* Bottom ray + micro-rep */}
             <div
-              className="glass-card p-5 space-y-3"
-              style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
+              className="glass-card card-border-gold-soft p-5 space-y-3"
             >
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
                 {rayVerb}: {rayShort}

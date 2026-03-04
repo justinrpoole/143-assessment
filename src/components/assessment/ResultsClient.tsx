@@ -122,7 +122,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
 
   if (error) {
     return (
-      <div className="glass-card p-6" style={{ borderColor: 'var(--surface-border)' }}>
+      <div className="glass-card p-6 card-border-default">
         <p className="text-sm text-rose-400" role="alert">
           {error}
         </p>
@@ -334,7 +334,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
 
       {/* Primary Action — Your Next Move */}
       <FadeInSection>
-        <div id="section-actions" className="glass-card p-6 space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+        <div id="section-actions" className="glass-card p-6 space-y-4 card-border-gold-soft">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
               Your Next Move
@@ -398,7 +398,7 @@ export function ResultsClient({ runId }: ResultsClientProps) {
       {/* 6a. Eclipse Coaching Reframe */}
       {eclipse && (
         <FadeInSection>
-          <div className="glass-card p-5" style={{ borderColor: 'var(--surface-border)' }}>
+          <div className="glass-card p-5 card-border-default">
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
               Coaching Note
             </p>

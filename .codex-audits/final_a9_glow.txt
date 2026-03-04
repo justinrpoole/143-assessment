@@ -1,0 +1,32 @@
+src/app/styles/cosmic.css:195:.glass-card--glow {
+src/app/styles/cosmic.css:199:.glass-card--noGlow {
+src/app/styles/cosmic.css:1833:.neon-text {
+src/app/styles/cosmic.css:1836:    0 0 8px color-mix(in srgb, var(--text-neon) calc(var(--neon-text-a1) * 100%), transparent),
+src/app/styles/cosmic.css:1837:    0 0 20px color-mix(in srgb, var(--text-neon) calc(var(--neon-text-a2) * 100%), transparent);
+src/app/styles/cosmic.css:1840:.neon-text--strong {
+src/app/styles/cosmic.css:1843:    0 0 10px color-mix(in srgb, var(--text-neon-strong) calc(var(--neon-text-a1) * 100%), transparent),
+src/app/styles/cosmic.css:1844:    0 0 24px color-mix(in srgb, var(--text-neon-strong) calc(var(--neon-text-a2) * 100%), transparent);
+src/app/styles/cosmic.css:1847:.neon-text-gold {
+src/app/styles/cosmic.css:1852:.neon-text-purple {
+src/components/ScenarioCard.tsx:36:            className={`group relative w-full text-left transition-all glass-card glass-card--interactive ${isSelected ? 'glass-card--glow' : ''}`}
+src/app/styles/tokens.css:151:  --neon-text-a1: 0.35;
+src/app/styles/tokens.css:152:  --neon-text-a2: 0.18;
+src/components/cosmic/ShootingStarActions.tsx:242:              className="glass-card glass-card--glow mt-4 p-4"
+src/components/archetypes/ArchetypeShareCard.tsx:59:        className="glass-card glass-card--glow relative w-full max-w-sm rounded-3xl p-8 text-center space-y-5"
+src/app/styles/cosmic.css:195:.glass-card--glow {
+src/app/styles/cosmic.css:199:.glass-card--noGlow {
+src/app/styles/cosmic.css:1833:.neon-text {
+src/app/styles/cosmic.css:1836:    0 0 8px color-mix(in srgb, var(--text-neon) calc(var(--neon-text-a1) * 100%), transparent),
+src/app/styles/cosmic.css:1837:    0 0 20px color-mix(in srgb, var(--text-neon) calc(var(--neon-text-a2) * 100%), transparent);
+src/app/styles/cosmic.css:1840:.neon-text--strong {
+src/app/styles/cosmic.css:1843:    0 0 10px color-mix(in srgb, var(--text-neon-strong) calc(var(--neon-text-a1) * 100%), transparent),
+src/app/styles/cosmic.css:1844:    0 0 24px color-mix(in srgb, var(--text-neon-strong) calc(var(--neon-text-a2) * 100%), transparent);
+src/app/styles/cosmic.css:1847:.neon-text-gold {
+src/app/styles/cosmic.css:1852:.neon-text-purple {
+src/app/styles/tokens.css:151:  --neon-text-a1: 0.35;
+src/app/styles/tokens.css:152:  --neon-text-a2: 0.18;
+src/app/(marketing)/challenge/ChallengeLeadCaptureClient.tsx:82:      className="glass-card glass-card--glow p-6 sm:p-8 space-y-5"
+src/app/(marketing)/group-coaching/GroupCoachingWaitlistForm.tsx:53:      className="glass-card glass-card--glow p-6 sm:p-8"
+src/app/(marketing)/upgrade/page.tsx:378:                className="glass-card glass-card--glow flex flex-col p-6"
+src/components/assessment/SampleReportClient.tsx:512:        className="glass-card glass-card--glow"
+src/app/(marketing)/upgrade-your-os/page.tsx:377:          <div className="glass-card glass-card--glow relative rounded-2xl overflow-hidden">

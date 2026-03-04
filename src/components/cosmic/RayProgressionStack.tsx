@@ -50,11 +50,11 @@ function RayCard({
 
   return (
     <motion.div
-      className="glass-card glass-card--lift relative p-4 sm:p-5"
+      className="glass-card glass-card--lift card-border-left-var card-bg-var relative p-4 sm:p-5"
       style={{
-        borderLeft: `3px solid ${ramp.hoverBorder}`,
-        background: ramp.bgTint,
-      }}
+        '--card-border-left': `3px solid ${ramp.hoverBorder}`,
+        '--card-bg': ramp.bgTint,
+      } as { ['--card-border-left']: string; ['--card-bg']: string }}
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: '-40px' }}
@@ -166,11 +166,11 @@ export default function RayProgressionStack({
           transition={{ type: 'spring', stiffness: 60, damping: 18, mass: 0.8 }}
         >
           <div
-            className="glass-card relative overflow-hidden p-6 text-center sm:p-8"
+            className="glass-card card-border-var card-bg-var relative overflow-hidden p-6 text-center sm:p-8"
             style={{
-              border: '1.5px solid color-mix(in srgb, var(--gold-primary) 40%, transparent)',
-              background: 'color-mix(in srgb, var(--gold-primary) 6%, transparent)',
-            }}
+              '--card-border': '1.5px solid color-mix(in srgb, var(--gold-primary) 40%, transparent)',
+              '--card-bg': 'color-mix(in srgb, var(--gold-primary) 6%, transparent)',
+            } as { ['--card-border']: string; ['--card-bg']: string }}
           >
             {/* Sun visualization */}
             <div className="mx-auto mb-4 flex items-center justify-center">

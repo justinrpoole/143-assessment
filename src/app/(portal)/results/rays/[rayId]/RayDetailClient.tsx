@@ -42,7 +42,7 @@ function classifySubfacets(subfacets: Record<string, SubfacetOutput>) {
 }
 
 // Score ring component — shows a circular progress arc in the ray's color
-function ScoreRing({ score, color, rayId }: { score: number; color: string; rayId: string }) {
+function ScoreRing({ score, color }: { score: number; color: string }) {
   const r = 52;
   const circumference = 2 * Math.PI * r;
   const progress = (score / 100) * circumference;
@@ -128,7 +128,7 @@ export default function RayDetailClient({
 
   return (
     <main className="cosmic-page-bg page-shell min-h-screen">
-      <div className="mx-auto max-w-[800px] px-5 py-10 sm:px-8 space-y-8">
+      <div className="content-wrap py-10 space-y-8">
 
         {/* ── Breadcrumb ── */}
         <nav className="flex items-center gap-2 text-xs" style={{ color: "var(--text-on-dark-muted)" }}>
@@ -152,7 +152,7 @@ export default function RayDetailClient({
           </h1>
 
           <div className="flex justify-center pt-2">
-            <ScoreRing score={rayData.score} color={rayColor} rayId={rayId} />
+            <ScoreRing score={rayData.score} color={rayColor} />
           </div>
 
           {/* Eclipse modifier warning */}
@@ -286,11 +286,11 @@ export default function RayDetailClient({
 
         {/* ── Micro-Rep ── */}
         <motion.section
-          className="glass-card p-6 space-y-4"
+          className="glass-card card-border-var p-6 space-y-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.45 }}
-          style={{ border: `1px solid ${rayColor}44` }}
+          style={{ '--card-border': `1px solid ${rayColor}44` } as { ['--card-border']: string }}
         >
           <div className="flex items-center gap-2">
             <span className="text-lg">🎯</span>

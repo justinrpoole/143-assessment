@@ -15,13 +15,9 @@ export default function LightSignature({ lightSignature }: Props) {
     <section className="space-y-6">
       {/* Archetype Hero Card */}
       {archetype && (
-        <div className="rounded-2xl overflow-hidden" style={{ boxShadow: 'var(--shadow-glow-md)' }}>
+        <div className="rounded-2xl overflow-hidden">
           <div
-            className="px-6 py-8 text-center"
-            style={{
-              background: 'linear-gradient(135deg, var(--bg-deep-mid) 0%, var(--surface-border) 50%, var(--bg-deep) 100%)',
-              borderBottom: '1px solid var(--surface-border)',
-            }}
+            className="panel-gradient-mid border-bottom-surface px-6 py-8 text-center"
           >
             <p className="text-sm tracking-widest uppercase mb-2" style={{ color: 'var(--brand-gold)' }}>
               Your Light Signature
@@ -40,13 +36,13 @@ export default function LightSignature({ lightSignature }: Props) {
                 return (
                   <span
                     key={ray.ray_id}
-                    className="px-3 py-1 rounded-full text-xs font-medium"
+                    className="ray-chip px-3 py-1 rounded-full text-xs font-medium"
                     style={{
-                      background: `${rc}15`,
-                      color: rc,
-                      border: `1px solid ${rc}30`,
+                      '--chip-fill': `${rc}15`,
+                      '--chip-stroke': `${rc}30`,
+                      '--chip-ink': rc,
                       textShadow: `0 0 12px ${rc}25`,
-                    }}
+                    } as { ['--chip-fill']: string; ['--chip-stroke']: string; ['--chip-ink']: string; textShadow: string }}
                   >
                     {ray.ray_name} — {RAY_VERBS[ray.ray_id] || ''}
                   </span>
@@ -56,7 +52,7 @@ export default function LightSignature({ lightSignature }: Props) {
           </div>
 
           {/* Expressions */}
-          <div className="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4" style={{ background: 'var(--surface-glass)' }}>
+          <div className="surface-glass-fill px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {archetype.work_expression && (
               <div>
                 <p className="text-xs uppercase tracking-wide mb-1" style={{ color: 'var(--brand-gold)' }}>At Work</p>
@@ -79,14 +75,25 @@ export default function LightSignature({ lightSignature }: Props) {
         {top_two.map((ray, i) => {
           const rc = rayHex(ray.ray_id);
           return (
-          <div key={ray.ray_id} className="glass-card p-5" style={{ borderLeft: `3px solid ${rc}60` }}>
+          <div
+            key={ray.ray_id}
+            className="glass-card card-border-left-accent p-5"
+            style={{ '--card-accent': `${rc}60` } as { ['--card-accent']: string }}
+          >
             <div className="flex items-center gap-2 mb-2">
-              <span style={{ color: rc, fontSize: '18px' }}>&var(--text-body);</span>
+              <span style={{ color: rc, fontSize: '18px' }}>•</span>
               <h4 className="font-semibold" style={{ color: 'var(--text-on-dark)' }}>
                 {ray.ray_name} — {RAY_VERBS[ray.ray_id] || ''}
               </h4>
               {i === 0 && (
-                <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: `${rc}15`, color: rc }}>
+                <span
+                  className="ray-chip text-xs px-2 py-0.5 rounded-full font-medium"
+                  style={{
+                    '--chip-fill': `${rc}15`,
+                    '--chip-stroke': `${rc}30`,
+                    '--chip-ink': rc,
+                  } as { ['--chip-fill']: string; ['--chip-stroke']: string; ['--chip-ink']: string }}
+                >
                   Primary
                 </span>
               )}
@@ -110,7 +117,7 @@ export default function LightSignature({ lightSignature }: Props) {
 
       {/* Under load / stress distortion */}
       {archetype?.stress_distortion && (
-        <div className="rounded-xl p-5" style={{ background: 'var(--surface-border)', border: '1px solid var(--surface-border)' }}>
+        <div className="surface-border-fill rounded-xl p-5">
           <h3 className="text-sm font-semibold mb-1" style={{ color: 'var(--brand-gold)' }}>Under Load — What to Watch For</h3>
           <p className="text-xs mb-2 italic" style={{ color: 'var(--text-on-dark-muted)' }}>
             This is not a problem. It is the leading edge of your strength under pressure. Naming it is the rep.
@@ -147,7 +154,7 @@ export default function LightSignature({ lightSignature }: Props) {
 
       {/* Reflection Prompts from Archetype */}
       {archetype?.reflection_prompts && (
-        <div className="rounded-xl p-5" style={{ background: 'color-mix(in srgb, var(--violet-650) 12%, transparent)', border: '1px solid color-mix(in srgb, var(--stroke-400) 20%, transparent)' }}>
+        <div className="surface-violet-soft rounded-xl p-5">
           <p className="text-xs uppercase tracking-wider mb-2" style={{ color: 'var(--brand-gold)' }}>Archetype Reflections</p>
           <p className="text-sm italic" style={{ color: 'var(--text-on-dark-secondary)' }}>{archetype.reflection_prompts}</p>
         </div>

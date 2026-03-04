@@ -73,7 +73,7 @@ export function RegulationBaselineCard() {
         })}
       </div>
 
-      <div className="glass-card p-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
+      <div className="glass-card p-4 card-border-gold-mid">
         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
           What to do next
         </p>

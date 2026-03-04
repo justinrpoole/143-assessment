@@ -207,7 +207,7 @@ export default function ToolkitClient() {
     <div className="space-y-6">
 
       {/* Header / framing */}
-      <div className="glass-card p-5 space-y-2" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+      <div className="glass-card p-5 space-y-2 card-border-violet-mid">
         <p className="text-sm font-semibold" style={{ color: 'var(--text-on-dark)' }}>
           🛠️ Your tool stack — 13 protocols from the OS
         </p>
@@ -338,7 +338,7 @@ export default function ToolkitClient() {
                         </div>
 
                         {/* RAS connection */}
-                        <div className="glass-card p-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
+                        <div className="glass-card p-3 card-border-violet-soft">
                           <p className="text-xs font-medium" style={{ color: 'var(--gold-primary)' }}>
                             🧠 RAS connection
                           </p>

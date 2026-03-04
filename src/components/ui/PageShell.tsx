@@ -8,10 +8,10 @@ const MAX_WIDTH = {
 } as const;
 
 const PADDING = {
-  narrow: "px-5 pt-16 pb-20 sm:px-8 sm:pt-24",
-  default: "px-5 py-12 sm:px-8 sm:py-16",
-  wide: "px-5 py-10 sm:px-8 sm:py-12",
-  full: "px-5 py-8 sm:px-8 sm:py-10",
+  narrow: "pt-16 pb-20 sm:pt-24",
+  default: "py-12 sm:py-16",
+  wide: "py-10 sm:py-12",
+  full: "py-8 sm:py-10",
 } as const;
 
 interface PageShellProps {

@@ -298,8 +298,7 @@ export default function RetakeInsights() {
   if (error) {
     return (
       <div
-        className="glass-card p-5 space-y-3"
-        style={{ borderColor: "var(--surface-border)" }}
+        className="glass-card p-5 space-y-3 card-border-default"
       >
         <p className="text-sm" style={{ color: "var(--ray-power)" }}>
           {humanizeError(error)}

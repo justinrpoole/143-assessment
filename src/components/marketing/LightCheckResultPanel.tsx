@@ -75,8 +75,7 @@ export default function LightCheckResultPanel({ answers, visible }: LightCheckRe
 
         {/* Coaching debrief */}
         <div
-          className="glass-card p-5"
-          style={{ borderLeft: '3px solid var(--gold-primary)' }}
+          className="glass-card card-border-left-gold p-5"
         >
           <p
             className="text-sm leading-relaxed"
@@ -149,7 +148,7 @@ function MiniEclipse({
         {eclipsePercent > 0 && (
           <mask id="lcr-mask">
             <rect width={size} height={size} fill="white" />
-            <circle cx={moonCx} cy={moonCy} r={moonR} fill="black" />
+            <circle cx={moonCx} cy={moonCy} r={moonR} fill="var(--ink-950)" />
           </mask>
         )}
       </defs>

@@ -5,9 +5,9 @@ interface ModulePlaceholderProps {
 export function ModulePlaceholder({ name }: ModulePlaceholderProps) {
   return (
     <section
-      className="glass-card p-6 space-y-3"
+      className="glass-card card-border-var p-6 space-y-3"
       aria-label={name}
-      style={{ borderColor: "color-mix(in srgb, var(--violet-650) 15%, transparent)" }}
+      style={{ '--card-border': "1px solid color-mix(in srgb, var(--violet-650) 15%, transparent)" } as { ['--card-border']: string }}
     >
       <div className="flex items-center gap-2">
         <span

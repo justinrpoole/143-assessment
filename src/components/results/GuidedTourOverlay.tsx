@@ -115,7 +115,6 @@ export default function GuidedTourOverlay() {
         style={{
           background: 'var(--overlay-heavy)',
           border: '1px solid var(--surface-border)',
-          boxShadow: 'var(--shadow-depth), var(--shadow-glow-gold)',
           backdropFilter: 'blur(16px)',
           animation: 'tourSlideUp 400ms ease-out',
         }}
@@ -173,7 +172,6 @@ export default function GuidedTourOverlay() {
           pointerEvents: 'auto',
           background: 'var(--overlay-heavy)',
           border: '1px solid var(--surface-border)',
-          boxShadow: 'var(--shadow-depth), var(--shadow-glow-gold)',
           backdropFilter: 'blur(16px)',
         }}
       >

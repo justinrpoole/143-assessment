@@ -506,8 +506,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         transition={{ duration: shouldAnimate ? 0.5 : 0 }}
         className="space-y-6 max-w-lg mx-auto"
       >
-        <div className="glass-card p-8 text-center space-y-4"
-          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}
+        <div className="glass-card p-8 text-center space-y-4 card-border-gold-mid"
         >
           <motion.div
             initial={shouldAnimate ? { scale: 0 } : false}
@@ -542,7 +541,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
           {/* Full REPS responses */}
           {receipt.recognition && (
-            <div className="glass-card p-4 space-y-3 text-left" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+            <div className="glass-card p-4 space-y-3 text-left card-border-violet-mid">
               {REPS_STEPS.map((step, i) => {
                 const text = [receipt.recognition, receipt.encouragement, receipt.performance, receipt.sustainability][i];
                 if (!text) return null;
@@ -565,7 +564,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
           {/* RAS feedback based on quality */}
           {qualityOpt && !receipt.recognition && (
-            <div className="glass-card p-4 mt-4" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+            <div className="glass-card p-4 mt-4 card-border-violet-mid">
               <p className="text-xs italic" style={{ color: 'var(--text-on-dark-secondary)' }}>
                 {qualityOpt.rasNote}
               </p>
@@ -573,7 +572,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
           )}
 
           {receipt.reflection_note && (
-            <div className="glass-card p-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+            <div className="glass-card p-4 card-border-gold-soft">
               <p className="text-xs uppercase tracking-widest mb-2"
                 style={{ color: rayHex('R4') }}>
                 Your reflection
@@ -604,8 +603,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
             initial={shouldAnimate ? { opacity: 0 } : false}
             animate={{ opacity: 1 }}
             transition={{ delay: shouldAnimate ? 0.6 : 0, duration: shouldAnimate ? undefined : 0 }}
-            className="glass-card p-4 text-center"
-            style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}
+            className="glass-card p-4 text-center card-border-gold-soft"
           >
             <p className="text-lg font-bold" style={{ color: 'var(--gold-primary)' }}>
               🔥 {summary.streak_days} day{summary.streak_days !== 1 ? 's' : ''} in a row
@@ -650,8 +648,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
             animate={{ opacity: 1, x: 0 }}
             exit={shouldAnimate ? { opacity: 0, x: -20 } : undefined}
             transition={{ duration: shouldAnimate ? 0.2 : 0 }}
-            className="glass-card p-6 space-y-5"
-            style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}
+            className="glass-card p-6 space-y-5 card-border-violet-mid"
           >
             {/* Progress */}
             <div className="flex items-center justify-between">
@@ -782,7 +779,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         transition={{ duration: shouldAnimate ? undefined : 0 }}
         className="space-y-6 max-w-lg mx-auto"
       >
-        <div className="glass-card p-6 space-y-5" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+        <div className="glass-card p-6 space-y-5 card-border-gold-soft">
           {/* Summary of R-E-P-S */}
           <div className="space-y-3">
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
@@ -948,7 +945,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
       {/* Full REPS start card (when mode is full and step is -1) */}
       {mode === 'full' && (
-        <div className="glass-card p-6 space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+        <div className="glass-card p-6 space-y-4 card-border-gold-soft">
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
             Recognition &bull; Encouragement &bull; Performance &bull; Sustainability
           </p>
@@ -968,7 +965,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
       {/* RAS science framing — collapsible for repeat users (Quick Log only) */}
       {mode === 'quick' && (
-      <div className="glass-card p-5 space-y-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+      <div className="glass-card p-5 space-y-3 card-border-violet-mid">
         <button
           type="button"
           onClick={() => setShowScience((v) => !v)}
@@ -1041,7 +1038,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
       {/* Most practiced insight (Quick Log only) */}
       {mode === 'quick' && !loading && summary?.most_practiced_tool && summary.total_count >= 5 && (
-        <div className="glass-card p-3 flex items-center gap-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
+        <div className="glass-card p-3 flex items-center gap-3 card-border-violet-soft">
           <span className="text-lg">{toolByKey(summary.most_practiced_tool)?.emoji ?? '🔧'}</span>
           <div className="flex-1 min-w-0">
             <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>
@@ -1061,8 +1058,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
       {mode === 'quick' && (
       <form
         onSubmit={handleSubmit}
-        className="glass-card p-6 space-y-6"
-        style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}
+        className="glass-card p-6 space-y-6 card-border-violet-soft"
       >
         <h2 className="text-lg font-semibold" style={{ color: 'var(--text-on-dark)' }}>Log a rep</h2>
 
@@ -1169,8 +1165,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={shouldAnimate ? { opacity: 0, y: -4 } : undefined}
                 transition={{ duration: shouldAnimate ? 0.15 : 0 }}
-                className="glass-card p-3 mt-2 space-y-1"
-                style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}
+                className="glass-card p-3 mt-2 space-y-1 card-border-violet-soft"
               >
                 <p className="text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
                   💡 {selectedTool.science}

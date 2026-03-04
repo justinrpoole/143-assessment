@@ -28,12 +28,6 @@ export default function RaySpectrumStrip({ height = 4, className }: RaySpectrumS
           width: '100%',
           background: GRADIENT,
           borderRadius: 9999,
-          boxShadow: [
-            '0 0 8px 2px var(--surface-border)',
-            '0 0 16px 4px var(--surface-border)',
-            '0 0 24px 6px var(--surface-border)',
-            '0 0 32px 8px color-mix(in srgb, var(--gold-primary) 30%, transparent)',
-          ].join(', '),
         }}
         initial={prefersReduced ? false : { scaleX: 0, opacity: 0 }}
         animate={prefersReduced || isInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}

@@ -40,28 +40,18 @@ export default function RayGlowCard({
 
   return (
     <div
-      className={`${variants} ${className ?? ''}`}
+      className={`ray-glow-card ${variants} ${className ?? ''}`}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
       style={{
-        background: ramp.bgTint,
-        borderColor: ramp.border,
-        borderWidth: '1px',
-        borderStyle: 'solid',
+        '--ray-bg': ramp.bgTint,
+        '--ray-border': ramp.border,
         // CSS custom properties for hover state (consumed by cosmic.css)
         '--ray-hover-border': ramp.hoverBorder,
         '--ray-glow': ramp.glow,
         '--ray-active': ramp.activeBorder,
       } as React.CSSProperties}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = ramp.hoverBorder;
-        e.currentTarget.style.boxShadow = `0 0 20px ${ramp.glow}`;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = ramp.border;
-        e.currentTarget.style.boxShadow = 'none';
-      }}
     >
       {children}
     </div>

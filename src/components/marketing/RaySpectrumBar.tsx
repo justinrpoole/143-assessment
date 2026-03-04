@@ -238,7 +238,6 @@ export default function RaySpectrumBar({ className }: { className?: string }) {
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{
                     background: `linear-gradient(90deg, color-mix(in srgb, var(--violet-650) 60%, transparent) 0%, ${ray.color} 60%, var(--gold-primary) 100%)`,
-                    boxShadow: `0 0 12px ${ray.color}33`,
                   }}
                   initial={prefersReduced ? { width: `${ray.fillPercent * 100}%` } : { width: '0%' }}
                   animate={isInView ? { width: `${ray.fillPercent * 100}%` } : undefined}
@@ -254,7 +253,6 @@ export default function RaySpectrumBar({ className }: { className?: string }) {
                   className="absolute top-1/2 -translate-y-1/2 w-[10px] h-[10px] rounded-full"
                   style={{
                     background: ray.color,
-                    boxShadow: `0 0 8px ${ray.color}88, 0 0 20px ${ray.color}44`,
                     left: `${ray.fillPercent * 100}%`,
                     marginLeft: '-5px',
                   }}

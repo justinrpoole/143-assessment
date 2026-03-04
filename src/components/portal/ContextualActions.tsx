@@ -92,8 +92,7 @@ export default function ContextualActions({ eclipseLevel }: ContextualActionsPro
       {/* Primary action — full-width card */}
       <Link
         href={primary.href}
-        className="glass-card block p-4 transition-all hover:scale-[1.01]"
-        style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
+        className="glass-card card-border-gold-soft block p-4 transition-all hover:scale-[1.01]"
       >
         <div className="flex items-start gap-3">
           <span className="text-2xl">{primary.icon}</span>
@@ -121,8 +120,7 @@ export default function ContextualActions({ eclipseLevel }: ContextualActionsPro
           <Link
             key={action.href}
             href={action.href}
-            className="glass-card flex flex-col items-center gap-1 p-3 text-center transition-all hover:scale-[1.02]"
-            style={{ borderColor: 'color-mix(in srgb, var(--stroke-400) 20%, transparent)' }}
+            className="glass-card card-border-stroke-soft flex flex-col items-center gap-1 p-3 text-center transition-all hover:scale-[1.02]"
           >
             <span className="text-lg">{action.icon}</span>
             <span className="text-[11px] font-medium leading-tight" style={{ color: 'var(--text-on-dark-secondary)' }}>

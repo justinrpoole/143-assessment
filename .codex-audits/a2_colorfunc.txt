@@ -1,0 +1,539 @@
+src/data/integrated_specs/spec_bundle.json:501:      "content": "### FILE: 10_Design_System_Tokens.md\n\n## Scope Lock\n- Primary palette is logo-locked and immutable:\n  - Ray Purple `#60058D`\n  - Sun Gold `#F8D011`\n  - Banner Black `#020202`\n  - Outline White `#FDFCFD`\n- Primary gradient is immutable:\n  - `linear-gradient(90deg, #60058D 0%, #F8D011 100%)`\n- Accessibility guidance must be achieved without changing locked hex values.\n- If any other doc conflicts on colors, this file wins.\n\n## 1) Core Tokens (Raw)\n\n```css\n:root {\n  --color-ray-purple: #60058D;\n  --color-sun-gold: #F8D011;\n  --color-banner-black: #020202;\n  --color-outline-white: #FDFCFD;\n\n  --gradient-primary: linear-gradient(90deg, #60058D 0%, #F8D011 100%);\n}\n```\n\n## 2) Semantic Color Tokens\n\n```css\n:root {\n  /* Backgrounds */\n  --bg-page: var(--color-outline-white);\n  --bg-surface: #FFFFFF;\n  --bg-elevated: #F9F5FC; /* Purple-tinted surface using locked palette family */\n  --bg-inverse: var(--color-banner-black);\n\n  /* Text */\n  --text-primary: var(--color-banner-black);\n  --text-secondary: #2A2A2A;\n  --text-on-purple: var(--color-outline-white);\n  --text-on-gold: var(--color-banner-black);\n  --text-link: var(--color-ray-purple);\n\n  /* Borders */\n  --border-default: #E9E3EE;\n  --border-strong: var(--color-ray-purple);\n  --border-inverse: #2F2F2F;\n\n  /* Buttons */\n  --btn-primary-bg: var(--gradient-primary);\n  --btn-primary-text: var(--color-banner-black);\n  --btn-secondary-bg: var(--color-outline-white);\n  --btn-secondary-text: var(--color-ray-purple);\n  --btn-secondary-border: var(--color-ray-purple);\n  --btn-danger-bg: var(--color-banner-black);\n  --btn-danger-text: var(--color-outline-white);\n\n  /* Feedback/alerts (palette-safe tints) */\n  --alert-info-bg: #F5EAFE;\n  --alert-info-text: #3F0560;\n  --alert-success-bg: #FFFBE2;\n  --alert-success-text: #4A3B00;\n  --alert-warning-bg: #FFF4C2;\n  --alert-warning-text: #3C2C00;\n  --alert-critical-bg: #1A1A1A;\n  --alert-critical-text: var(--color-outline-white);\n\n  /* Progress */\n  --progress-track: #EFE7F5;\n  --progress-fill: var(--gradient-primary);\n  --progress-marker: var(--color-ray-purple);\n\n  /* Cards */\n  --card-bg: #FFFFFF;\n  --card-border: #E7DDF0;\n  --card-shadow: 0 8px 24px rgba(2, 2, 2, 0.08);\n}\n```\n\n## 3) Typography Tokens\n\n```css\n:root {\n  --font-display: \"Avenir Next\", \"Segoe UI\", sans-serif;\n  --font-body: \"Avenir Next\", \"Segoe UI\", sans-serif;\n  --font-mono: \"SFMono-Regular\", \"Menlo\", monospace;\n\n  --type-xxl: 48px;\n  --type-xl: 36px;\n  --type-lg: 28px;\n  --type-md: 20px;\n  --type-sm: 16px;\n  --type-xs: 14px;\n  --type-xxs: 12px;\n\n  --line-tight: 1.15;\n  --line-normal: 1.4;\n  --line-relaxed: 1.6;\n\n  --weight-regular: 400;\n  --weight-medium: 500;\n  --weight-semibold: 600;\n  --weight-bold: 700;\n}\n```\n\n## 4) Component Token Rules\n\n### Backgrounds\n- Public and portal default background: `--bg-page`.\n- Highlight bands and milestone cards: `--bg-elevated`.\n- Inverse sections (footer/critical notices): `--bg-inverse`.\n\n### Buttons\n- Primary CTA (purchase, start run, reactivate):\n  - Background: `--btn-primary-bg`\n  - Text: `--btn-primary-text`\n  - Radius: `12px`\n- Secondary CTA:\n  - Background: `--btn-secondary-bg`\n  - Border: `1px solid --btn-secondary-border`\n  - Text: `--btn-secondary-text`\n\n### Links\n- Standard links use `--text-link`.\n- Hover state: darken purple via opacity (not alternate hue).\n- Underline required on text-only links inside long-form copy.\n\n### Progress Bars\n- Track: `--progress-track`.\n- Fill: `--progress-fill`.\n- Milestone markers (Day 7/21/66): `--progress-marker` with gold accent dot.\n\n### Alerts\n- Info states (gating explanation): `--alert-info-*`.\n- Success states (report ready, reactivated): `--alert-success-*`.\n- Warning states (past due pending): `--alert-warning-*`.\n- Critical states (hard failures): `--alert-critical-*`.\n\n### Cards\n- Base card:\n  - `background: --card-bg`\n  - `border: 1px solid --card-border`\n  - `box-shadow: --card-shadow`\n  - `border-radius: 16px`\n- Signature category cards can use purple top border + gold micro-accent only.\n\n## 5) Interaction Tokens\n\n```css\n:root {\n  --radius-sm: 8px;\n  --radius-md: 12px;\n  --radius-lg: 16px;\n\n  --space-1: 4px;\n  --space-2: 8px;\n  --space-3: 12px;\n  --space-4: 16px;\n  --space-5: 24px;\n  --space-6: 32px;\n  --space-7: 48px;\n\n  --motion-fast: 120ms;\n  --motion-base: 180ms;\n  --motion-slow: 260ms;\n  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);\n\n  --focus-ring: 0 0 0 3px rgba(96, 5, 141, 0.35);\n}\n```\n\nInteraction rules:\n- Focus ring must appear on all keyboard-focusable controls.\n- Hover transitions use `--motion-base` only; no exaggerated animation on core CTAs.\n- Disabled controls must maintain text readability and indicate locked state clearly.\n\n## 6) Accessibility Guardrails (Without Color Changes)\n- Use `Banner Black` text on `Sun Gold` for small text; avoid white text on gold.\n- Use `Outline White` text on `Ray Purple` and `Banner Black` backgrounds.\n- For body text, prefer `Banner Black` on `Outline White`.\n- Minimum body text size: `16px` on dense pages, `14px` only for metadata labels.\n- Non-text contrast:\n  - Input borders and progress tracks must remain visible at rest state.\n- Focus visibility:\n  - Always show `--focus-ring`; never remove outlines without replacement.\n\n## 7) Route-Level Visual Application Rules\n- `/upgrade-your-os`: hero uses primary gradient; tiles on white cards.\n- `/preview` and `/assessment`: calm white surfaces with purple structural accents.\n- `/results` and `/growth`: use purple/gold accents to mark milestones and sections, not full-screen gradients.\n- `/reports`: prioritize readability (black on white) for artifact listing.\n- `/account` and billing states: warning and critical alert tokens only for billing risk states.\n\n## 8) Token QA Checklist\n- Primary color hexes exactly match locked values.\n- Primary gradient exactly matches locked definition.\n- No additional brand primaries introduced.\n- CTA hierarchy is visually obvious on desktop and mobile.\n- Contrast checks pass for text, controls, and alerts.\n- Focus ring visible in keyboard navigation on all routes.\n"
+src/data/integrated_specs/spec_bundle.json:615:      "content": "### FILE: 10_Design_System_Tokens.md\n\n## Scope Lock\n- Primary palette is logo-locked and immutable:\n  - Ray Purple `#60058D`\n  - Sun Gold `#F8D011`\n  - Banner Black `#020202`\n  - Outline White `#FDFCFD`\n- Primary gradient is immutable:\n  - `linear-gradient(90deg, #60058D 0%, #F8D011 100%)`\n- Accessibility guidance must be achieved without changing locked hex values.\n- If any other doc conflicts on colors, this file wins.\n\n## 1) Core Tokens (Raw)\n\n```css\n:root {\n  --color-ray-purple: #60058D;\n  --color-sun-gold: #F8D011;\n  --color-banner-black: #020202;\n  --color-outline-white: #FDFCFD;\n\n  --gradient-primary: linear-gradient(90deg, #60058D 0%, #F8D011 100%);\n}\n```\n\n## 2) Semantic Color Tokens\n\n```css\n:root {\n  /* Backgrounds */\n  --bg-page: var(--color-outline-white);\n  --bg-surface: #FFFFFF;\n  --bg-elevated: #F9F5FC; /* Purple-tinted surface using locked palette family */\n  --bg-inverse: var(--color-banner-black);\n\n  /* Text */\n  --text-primary: var(--color-banner-black);\n  --text-secondary: #2A2A2A;\n  --text-on-purple: var(--color-outline-white);\n  --text-on-gold: var(--color-banner-black);\n  --text-link: var(--color-ray-purple);\n\n  /* Borders */\n  --border-default: #E9E3EE;\n  --border-strong: var(--color-ray-purple);\n  --border-inverse: #2F2F2F;\n\n  /* Buttons */\n  --btn-primary-bg: var(--gradient-primary);\n  --btn-primary-text: var(--color-banner-black);\n  --btn-secondary-bg: var(--color-outline-white);\n  --btn-secondary-text: var(--color-ray-purple);\n  --btn-secondary-border: var(--color-ray-purple);\n  --btn-danger-bg: var(--color-banner-black);\n  --btn-danger-text: var(--color-outline-white);\n\n  /* Feedback/alerts (palette-safe tints) */\n  --alert-info-bg: #F5EAFE;\n  --alert-info-text: #3F0560;\n  --alert-success-bg: #FFFBE2;\n  --alert-success-text: #4A3B00;\n  --alert-warning-bg: #FFF4C2;\n  --alert-warning-text: #3C2C00;\n  --alert-critical-bg: #1A1A1A;\n  --alert-critical-text: var(--color-outline-white);\n\n  /* Progress */\n  --progress-track: #EFE7F5;\n  --progress-fill: var(--gradient-primary);\n  --progress-marker: var(--color-ray-purple);\n\n  /* Cards */\n  --card-bg: #FFFFFF;\n  --card-border: #E7DDF0;\n  --card-shadow: 0 8px 24px rgba(2, 2, 2, 0.08);\n}\n```\n\n## 3) Typography Tokens\n\n```css\n:root {\n  --font-display: \"Avenir Next\", \"Segoe UI\", sans-serif;\n  --font-body: \"Avenir Next\", \"Segoe UI\", sans-serif;\n  --font-mono: \"SFMono-Regular\", \"Menlo\", monospace;\n\n  --type-xxl: 48px;\n  --type-xl: 36px;\n  --type-lg: 28px;\n  --type-md: 20px;\n  --type-sm: 16px;\n  --type-xs: 14px;\n  --type-xxs: 12px;\n\n  --line-tight: 1.15;\n  --line-normal: 1.4;\n  --line-relaxed: 1.6;\n\n  --weight-regular: 400;\n  --weight-medium: 500;\n  --weight-semibold: 600;\n  --weight-bold: 700;\n}\n```\n\n## 4) Component Token Rules\n\n### Backgrounds\n- Public and portal default background: `--bg-page`.\n- Highlight bands and milestone cards: `--bg-elevated`.\n- Inverse sections (footer/critical notices): `--bg-inverse`.\n\n### Buttons\n- Primary CTA (purchase, start run, reactivate):\n  - Background: `--btn-primary-bg`\n  - Text: `--btn-primary-text`\n  - Radius: `12px`\n- Secondary CTA:\n  - Background: `--btn-secondary-bg`\n  - Border: `1px solid --btn-secondary-border`\n  - Text: `--btn-secondary-text`\n\n### Links\n- Standard links use `--text-link`.\n- Hover state: darken purple via opacity (not alternate hue).\n- Underline required on text-only links inside long-form copy.\n\n### Progress Bars\n- Track: `--progress-track`.\n- Fill: `--progress-fill`.\n- Milestone markers (Day 7/21/66): `--progress-marker` with gold accent dot.\n\n### Alerts\n- Info states (gating explanation): `--alert-info-*`.\n- Success states (report ready, reactivated): `--alert-success-*`.\n- Warning states (past due pending): `--alert-warning-*`.\n- Critical states (hard failures): `--alert-critical-*`.\n\n### Cards\n- Base card:\n  - `background: --card-bg`\n  - `border: 1px solid --card-border`\n  - `box-shadow: --card-shadow`\n  - `border-radius: 16px`\n- Signature category cards can use purple top border + gold micro-accent only.\n\n## 5) Interaction Tokens\n\n```css\n:root {\n  --radius-sm: 8px;\n  --radius-md: 12px;\n  --radius-lg: 16px;\n\n  --space-1: 4px;\n  --space-2: 8px;\n  --space-3: 12px;\n  --space-4: 16px;\n  --space-5: 24px;\n  --space-6: 32px;\n  --space-7: 48px;\n\n  --motion-fast: 120ms;\n  --motion-base: 180ms;\n  --motion-slow: 260ms;\n  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);\n\n  --focus-ring: 0 0 0 3px rgba(96, 5, 141, 0.35);\n}\n```\n\nInteraction rules:\n- Focus ring must appear on all keyboard-focusable controls.\n- Hover transitions use `--motion-base` only; no exaggerated animation on core CTAs.\n- Disabled controls must maintain text readability and indicate locked state clearly.\n\n## 6) Accessibility Guardrails (Without Color Changes)\n- Use `Banner Black` text on `Sun Gold` for small text; avoid white text on gold.\n- Use `Outline White` text on `Ray Purple` and `Banner Black` backgrounds.\n- For body text, prefer `Banner Black` on `Outline White`.\n- Minimum body text size: `16px` on dense pages, `14px` only for metadata labels.\n- Non-text contrast:\n  - Input borders and progress tracks must remain visible at rest state.\n- Focus visibility:\n  - Always show `--focus-ring`; never remove outlines without replacement.\n\n## 7) Route-Level Visual Application Rules\n- `/upgrade-your-os`: hero uses primary gradient; tiles on white cards.\n- `/preview` and `/assessment`: calm white surfaces with purple structural accents.\n- `/results` and `/growth`: use purple/gold accents to mark milestones and sections, not full-screen gradients.\n- `/reports`: prioritize readability (black on white) for artifact listing.\n- `/account` and billing states: warning and critical alert tokens only for billing risk states.\n\n## 8) Token QA Checklist\n- Primary color hexes exactly match locked values.\n- Primary gradient exactly matches locked definition.\n- No additional brand primaries introduced.\n- CTA hierarchy is visually obvious on desktop and mobile.\n- Contrast checks pass for text, controls, and alerts.\n- Focus ring visible in keyboard navigation on all routes.\n"
+public/icon.svg:19:  <text x="256" y="470" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="52" font-weight="700" fill="rgba(255,255,255,0.8)">143</text>
+src/lib/email/email-provider.ts:43:  <div style="max-width: 480px; margin: 0 auto; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 32px;">
+src/lib/email/email-provider.ts:45:    <p style="color: rgba(255,255,255,0.75); font-size: 14px; line-height: 1.6; margin: 0 0 24px;">
+src/lib/email/email-provider.ts:51:    <p style="color: rgba(255,255,255,0.4); font-size: 12px; line-height: 1.5; margin: 24px 0 0;">
+src/components/marketing/test hero.html:41:        radial-gradient(ellipse 140% 100% at 50% 38%, rgba(147, 64, 255, 0.06) 0%, transparent 50%),
+src/components/marketing/test hero.html:64:          rgba(255, 180, 60, 0.12) 0%,
+src/components/marketing/test hero.html:65:          rgba(255, 150, 40, 0.06) 30%,
+src/components/marketing/test hero.html:66:          rgba(255, 120, 20, 0.02) 55%,
+src/components/marketing/test hero.html:79:        radial-gradient(ellipse 120% 100% at 50% 40%, rgba(147, 64, 255, 0.14), transparent 65%),
+src/components/marketing/test hero.html:80:        radial-gradient(ellipse 130% 110% at 30% 50%, rgba(147, 64, 255, 0.10), transparent 70%),
+src/components/marketing/test hero.html:81:        radial-gradient(ellipse 130% 110% at 70% 35%, rgba(168, 85, 255, 0.08), transparent 70%),
+src/components/marketing/test hero.html:82:        radial-gradient(ellipse 90% 80% at 50% 42%, rgba(255, 180, 60, 0.06), transparent 55%);
+src/components/marketing/test hero.html:108:          rgba(255, 200, 80, 0.30) 0%,
+src/components/marketing/test hero.html:109:          rgba(255, 140, 40, 0.18) 15%,
+src/components/marketing/test hero.html:110:          rgba(200, 60, 120, 0.16) 30%,
+src/components/marketing/test hero.html:111:          rgba(147, 64, 255, 0.20) 45%,
+src/components/marketing/test hero.html:112:          rgba(40, 80, 200, 0.14) 60%,
+src/components/marketing/test hero.html:113:          rgba(20, 180, 180, 0.10) 75%,
+src/components/marketing/test hero.html:114:          rgba(80, 40, 160, 0.06) 90%,
+src/components/marketing/test hero.html:117:          rgba(180, 40, 200, 0.12) 0%,
+src/components/marketing/test hero.html:118:          rgba(60, 120, 255, 0.10) 40%,
+src/components/marketing/test hero.html:121:          rgba(255, 180, 60, 0.14) 0%,
+src/components/marketing/test hero.html:122:          rgba(200, 80, 180, 0.10) 40%,
+src/components/marketing/test hero.html:132:      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7) 40%, transparent);
+src/components/marketing/test hero.html:135:      filter: drop-shadow(0 0 3px rgba(255,255,255,0.2));
+src/components/marketing/test hero.html:158:      background: radial-gradient(ellipse 65% 55% at 50% 42%, transparent 35%, rgba(0,0,0,0.55) 100%);
+src/components/marketing/test hero.html:213:        drop-shadow(0 0 20px rgba(255, 200, 70, 0.50))
+src/components/marketing/test hero.html:214:        drop-shadow(0 0 50px rgba(255, 170, 50, 0.30))
+src/components/marketing/test hero.html:215:        drop-shadow(0 0 100px rgba(255, 140, 30, 0.15))
+src/components/marketing/test hero.html:216:        drop-shadow(0 0 180px rgba(255, 110, 10, 0.08));
+src/components/marketing/test hero.html:251:        0 0 6px rgba(255,255,255,0.95),
+src/components/marketing/test hero.html:252:        0 0 16px rgba(255,240,200,0.80),
+src/components/marketing/test hero.html:253:        0 0 35px rgba(255,210,120,0.50),
+src/components/marketing/test hero.html:254:        0 0 60px rgba(255,180,60,0.35),
+src/components/marketing/test hero.html:255:        0 0 100px rgba(255,150,30,0.20);
+src/components/marketing/test hero.html:292:        0 0 10px rgba(255, 200, 60, 0.55),
+src/components/marketing/test hero.html:293:        0 0 30px rgba(255, 180, 40, 0.35),
+src/components/marketing/test hero.html:294:        0 0 60px rgba(255, 150, 20, 0.18),
+src/components/marketing/test hero.html:295:        0 4px 20px rgba(0,0,0,0.50);
+src/components/marketing/test hero.html:311:        0 0 14px rgba(168, 85, 255, 0.50),
+src/components/marketing/test hero.html:312:        0 0 35px rgba(147, 64, 255, 0.30),
+src/components/marketing/test hero.html:313:        0 0 70px rgba(147, 64, 255, 0.15);
+src/components/marketing/test hero.html:328:      color: rgba(255,255,255,0.38);
+src/components/marketing/test hero.html:337:      color: rgba(255,255,255,0.68);
+src/components/marketing/test hero.html:515:        const c = s.hue < 0.06 ? `rgba(180,210,255,${a})`
+src/components/marketing/test hero.html:516:                : s.hue > 0.96 ? `rgba(255,220,180,${a})`
+src/components/marketing/test hero.html:517:                : `rgba(255,255,255,${a})`;
+src/components/marketing/test hero.html:524:      starCtx.strokeStyle = `rgba(255,255,255,${0.04 * vis})`;
+src/components/marketing/test hero.html:537:        starCtx.fillStyle = `rgba(255,245,220,${0.06 * vis})`; starCtx.fill();
+src/components/marketing/test hero.html:539:        starCtx.fillStyle = `rgba(255,250,235,${Math.min(0.80, 0.35 + (5 - s.m) * 0.11) * vis})`; starCtx.fill();
+src/components/marketing/test hero.html:574:      g1.addColorStop(0, `rgba(255,200,80,${0.16 * glowMult})`);
+src/components/marketing/test hero.html:575:      g1.addColorStop(0.1, `rgba(255,180,60,${0.10 * glowMult})`);
+src/components/marketing/test hero.html:576:      g1.addColorStop(0.3, `rgba(255,150,40,${0.05 * glowMult})`);
+src/components/marketing/test hero.html:577:      g1.addColorStop(0.55, `rgba(255,120,20,${0.018 * glowMult})`);
+src/components/marketing/test hero.html:585:      g2.addColorStop(0, `rgba(255,220,130,${0.20 * glowMult})`);
+src/components/marketing/test hero.html:586:      g2.addColorStop(0.4, `rgba(255,190,80,${0.10 * glowMult})`);
+src/components/marketing/test hero.html:622:        sg.addColorStop(0, `rgba(255,240,220,${0.50 * intensity})`);
+src/components/marketing/test hero.html:623:        sg.addColorStop(0.12, `rgba(255,210,140,${0.35 * intensity})`);
+src/components/marketing/test hero.html:624:        sg.addColorStop(0.35, `rgba(200,120,255,${0.28 * intensity})`);
+src/components/marketing/test hero.html:625:        sg.addColorStop(0.6, `rgba(147,64,255,${0.18 * intensity})`);
+src/components/marketing/test hero.html:638:      rg.addColorStop(0, `rgba(255,200,120,${0.25 * intensity})`);
+src/components/marketing/test hero.html:639:      rg.addColorStop(0.25, `rgba(200,120,255,${0.22 * intensity})`);
+src/components/marketing/test hero.html:640:      rg.addColorStop(0.5, `rgba(147,64,255,${0.14 * intensity})`);
+src/components/marketing/test hero.html:662:      fl.addColorStop(0, `rgba(255,255,255,${I})`);
+src/components/marketing/test hero.html:663:      fl.addColorStop(0.06, `rgba(255,250,230,${I * 0.85})`);
+src/components/marketing/test hero.html:664:      fl.addColorStop(0.2, `rgba(255,220,160,${I * 0.35})`);
+src/components/marketing/test hero.html:665:      fl.addColorStop(0.5, `rgba(255,180,80,${I * 0.10})`);
+src/components/marketing/test hero.html:670:      sunCtx.fillStyle = 'rgba(255,240,210,0.5)';
+src/components/marketing/test hero.html:729:        sg.addColorStop(0, `rgba(255,250,220,${(0.30 * intensity).toFixed(2)})`);
+src/components/marketing/test hero.html:730:        sg.addColorStop(0.08, `rgba(255,230,160,${(0.22 * intensity).toFixed(2)})`);
+src/components/marketing/test hero.html:731:        sg.addColorStop(0.25, `rgba(${cr},${cg},${cb},${(0.16 * intensity).toFixed(2)})`);
+src/components/marketing/test hero.html:732:        sg.addColorStop(0.55, `rgba(${cr},${cg},${cb},${(0.08 * intensity).toFixed(2)})`);
+src/components/marketing/test hero.html:747:      bloom.addColorStop(0, `rgba(255,240,180,${0.35 * intensity})`);
+src/components/marketing/test hero.html:748:      bloom.addColorStop(0.12, `rgba(255,210,110,${0.22 * intensity})`);
+src/components/marketing/test hero.html:749:      bloom.addColorStop(0.3, `rgba(200,100,180,${0.12 * intensity})`);
+src/components/marketing/test hero.html:750:      bloom.addColorStop(0.5, `rgba(120,60,255,${0.08 * intensity})`);
+src/components/marketing/test hero.html:751:      bloom.addColorStop(0.7, `rgba(40,120,220,${0.05 * intensity})`);
+src/components/marketing/test hero.html:769:      flash.addColorStop(0, `rgba(255,255,240,${(0.70 * flashI).toFixed(2)})`);
+src/components/marketing/test hero.html:770:      flash.addColorStop(0.15, `rgba(255,245,200,${(0.50 * flashI).toFixed(2)})`);
+src/components/marketing/test hero.html:771:      flash.addColorStop(0.35, `rgba(255,220,140,${(0.30 * flashI).toFixed(2)})`);
+src/components/marketing/test hero.html:772:      flash.addColorStop(0.6, `rgba(255,190,80,${(0.12 * flashI).toFixed(2)})`);
+src/components/marketing/test hero.html:799:        grad.addColorStop(0, `rgba(255,255,230,${(0.60 * intensity).toFixed(2)})`);
+src/components/marketing/test hero.html:800:        grad.addColorStop(0.06, `rgba(255,245,190,${(0.45 * intensity).toFixed(2)})`);
+src/components/marketing/test hero.html:801:        grad.addColorStop(0.18, `rgba(255,220,130,${(0.30 * intensity).toFixed(2)})`);
+src/components/marketing/test hero.html:802:        grad.addColorStop(0.35, `rgba(${cr},${cg},${cb},${(0.18 * intensity).toFixed(2)})`);
+src/components/marketing/test hero.html:803:        grad.addColorStop(0.65, `rgba(${cr},${cg},${cb},${(0.06 * intensity).toFixed(2)})`);
+src/components/marketing/test hero.html:862:        cosmoCtx.fillStyle = `rgba(${cr},${cg},${cb},${(alpha * 0.15).toFixed(3)})`;
+src/components/marketing/test hero.html:868:        cosmoCtx.fillStyle = `rgba(${cr},${cg},${cb},${(alpha * 0.85).toFixed(3)})`;
+src/components/marketing/test hero.html:922:        cosmoCtx.strokeStyle = `rgba(${r},${g},${b},${(alpha * 0.7).toFixed(3)})`;
+src/components/marketing/test hero.html:932:        cosmoCtx.fillStyle = `rgba(${r},${g},${b},${(alpha * 0.95).toFixed(3)})`;
+src/components/marketing/test hero.html:938:        cosmoCtx.fillStyle = `rgba(${r},${g},${b},${(alpha * 0.08).toFixed(3)})`;
+src/components/marketing/test hero.html:973:        ng.addColorStop(0,   `rgba(${c.r},${c.g},${c.b},${coreAlpha})`);
+src/components/marketing/test hero.html:974:        ng.addColorStop(0.3, `rgba(${c.r},${c.g},${c.b},${midAlpha})`);
+src/components/marketing/test hero.html:975:        ng.addColorStop(0.6, `rgba(${c.r},${c.g},${c.b},${(0.02 * intensity).toFixed(3)})`);
+src/components/marketing/test hero.html:1090:      sunSvg.style.filter = `brightness(${svgBright.toFixed(3)}) drop-shadow(0 0 ${(15 + svgBright * 15 + celebI * 25).toFixed(0)}px rgba(255,200,70,${(0.40 * svgBright).toFixed(2)})) drop-shadow(0 0 ${(40 + svgBright * 30 + celebI * 50).toFixed(0)}px rgba(255,160,40,${(0.20 * svgBright).toFixed(2)})) drop-shadow(0 0 ${(80 + svgBright * 50 + celebI * 80).toFixed(0)}px rgba(255,120,20,${(0.08 * svgBright).toFixed(2)}))`;
+src/components/marketing/test hero.html:1114:        sunnovaEl.style.filter = `brightness(${(1.5 + celebI * 0.8).toFixed(2)}) drop-shadow(0 0 ${glowR}px rgba(255,230,100,${(0.85 * celebI).toFixed(2)})) drop-shadow(0 0 ${glowR2}px rgba(255,200,60,${(0.50 * celebI).toFixed(2)})) drop-shadow(0 0 ${glowR3}px rgba(255,160,30,${(0.25 * celebI).toFixed(2)}))`;
+src/components/marketing/test hero.html:1145:        ? `drop-shadow(0 0 ${(12 + eclI * 30).toFixed(0)}px rgba(160,100,255,${(0.35 + eclI * 0.45).toFixed(2)})) drop-shadow(0 0 ${(40 + eclI * 120).toFixed(0)}px rgba(130,60,240,${(0.15 + eclI * 0.50).toFixed(2)}))`
+src/components/marketing/test hero.html:1146:        : 'drop-shadow(0 0 10px rgba(160,100,255,0.30)) drop-shadow(0 0 25px rgba(130,60,240,0.12))';
+src/components/marketing/test hero.html:1161:        row1El.style.color = `rgba(255,255,240,${(0.10 * sn).toFixed(2)})`;
+src/components/marketing/test hero.html:1162:        row1El.style.webkitTextStroke = `${(3.5 * sn).toFixed(1)}px rgba(255,255,255,${(0.98 * sn).toFixed(2)})`;
+src/components/marketing/test hero.html:1164:          `0 0 ${(6 + sn * 12).toFixed(0)}px rgba(255,255,255,${(0.80 * sn).toFixed(2)})`,
+src/components/marketing/test hero.html:1165:          `0 0 ${(18 + sn * 30).toFixed(0)}px rgba(255,240,180,${(0.50 * sn).toFixed(2)})`,
+src/components/marketing/test hero.html:1166:          `0 0 ${(40 + sn * 50).toFixed(0)}px rgba(255,210,100,${(0.30 * sn).toFixed(2)})`,
+src/components/marketing/test hero.html:1167:          `0 0 ${(70 + sn * 80).toFixed(0)}px rgba(255,180,60,${(0.18 * sn).toFixed(2)})`,
+src/components/marketing/test hero.html:1168:          `0 0 ${(sn * 130).toFixed(0)}px rgba(147,64,255,${(sn * 0.14).toFixed(2)})`
+src/components/marketing/test hero.html:1177:        row2El.style.color = `rgba(${Math.round(147 + sn * 40)},${Math.round(64 + sn * 30)},255,1)`;
+src/components/marketing/test hero.html:1179:          `0 0 ${(8 + sn * 25).toFixed(0)}px rgba(200,140,255,${(0.80 * sn).toFixed(2)})`,
+src/components/marketing/test hero.html:1180:          `0 0 ${(25 + sn * 55).toFixed(0)}px rgba(168,85,255,${(0.65 + sn * 0.30).toFixed(2)})`,
+src/components/marketing/test hero.html:1181:          `0 0 ${(55 + sn * 90).toFixed(0)}px rgba(147,64,255,${(0.40 + sn * 0.45).toFixed(2)})`,
+src/components/marketing/test hero.html:1182:          `0 0 ${(90 + sn * 130).toFixed(0)}px rgba(120,40,255,${(sn * 0.35).toFixed(2)})`,
+src/components/marketing/test hero.html:1183:          `0 0 ${(sn * 180).toFixed(0)}px rgba(100,20,220,${(sn * 0.20).toFixed(2)})`,
+src/components/marketing/test hero.html:1184:          `0 0 ${(sn * 50).toFixed(0)}px rgba(255,255,255,${(sn * 0.25).toFixed(2)})`
+src/lib/report/render-report-html.mjs:293:        --purple-glow: rgba(96, 5, 141, 0.35);
+src/lib/report/render-report-html.mjs:295:        --gold-dim: rgba(248, 208, 17, 0.15);
+src/lib/report/render-report-html.mjs:296:        --gold-border: rgba(248, 208, 17, 0.3);
+src/lib/report/render-report-html.mjs:300:        --text-secondary: rgba(255, 254, 245, 0.75);
+src/lib/report/render-report-html.mjs:301:        --text-muted: rgba(255, 254, 245, 0.45);
+src/lib/report/render-report-html.mjs:302:        --card-bg: rgba(0, 0, 0, 0.65);
+src/lib/report/render-report-html.mjs:303:        --card-border: rgba(37, 246, 255, 0.18);
+src/lib/report/render-report-html.mjs:336:        background: radial-gradient(ellipse at 50% 30%, rgba(96, 5, 141, 0.4) 0%, var(--purple-deep) 70%);
+src/lib/report/render-report-html.mjs:343:        background-image: linear-gradient(rgba(37,246,255,0.06) 1px, transparent 1px), repeating-linear-gradient(transparent 0px, rgba(0,0,0,0.03) 1px, transparent 2px);
+src/lib/report/render-report-html.mjs:355:        background: radial-gradient(circle, rgba(248, 208, 17, 0.08) 0%, transparent 70%);
+src/lib/report/render-report-html.mjs:363:        box-shadow: 0 0 60px rgba(248, 208, 17, 0.3), 0 0 120px rgba(248, 208, 17, 0.1);
+src/lib/report/render-report-html.mjs:427:        background: linear-gradient(135deg, rgba(248, 208, 17, 0.2), rgba(96, 5, 141, 0.3), rgba(248, 208, 17, 0.1));
+src/lib/report/render-report-html.mjs:436:        background: linear-gradient(180deg, rgba(10, 0, 24, 0.95) 0%, var(--purple-deep) 100%);
+src/lib/report/render-report-html.mjs:457:        text-shadow: 0 0 14px rgba(248,208,17,0.4);
+src/lib/report/render-report-html.mjs:516:        border-top: 1px solid rgba(37, 246, 255, 0.25);
+src/lib/report/render-report-html.mjs:612:        background: rgba(148, 80, 200, 0.15);
+src/lib/report/render-report-html.mjs:625:        background: rgba(148, 80, 200, 0.5);
+src/lib/report/render-report-html.mjs:663:        background: rgba(248, 208, 17, 0.06);
+src/lib/report/render-report-html.mjs:780:        color: rgba(2,2,2,0.6);
+src/lib/report/render-report-html.mjs:819:        background: radial-gradient(ellipse at 50% 60%, rgba(96, 5, 141, 0.25) 0%, var(--purple-deep) 70%);
+src/lib/report/render-report-html.mjs:851:        border-top: 1px solid rgba(37, 246, 255, 0.25);
+src/lib/report/gravitational-stability.ts:52:const DEEP_PURPLE = rgb(6 / 255, 0, 20 / 255);
+src/lib/report/gravitational-stability.ts:53:const MID_PURPLE = rgb(75 / 255, 34 / 255, 122 / 255);
+src/lib/report/gravitational-stability.ts:54:const SOFT_PURPLE = rgb(227 / 255, 217 / 255, 238 / 255);
+src/lib/report/gravitational-stability.ts:55:const GOLD = rgb(1, 200 / 255, 66 / 255);
+src/lib/report/gravitational-stability.ts:56:const GOLD_SOFT = rgb(1, 240 / 255, 194 / 255);
+src/lib/report/gravitational-stability.ts:57:const WHITE = rgb(1, 1, 1);
+src/lib/report/gravitational-stability.ts:58:const BLACK = rgb(18 / 255, 14 / 255, 28 / 255);
+src/lib/report/gravitational-stability.ts:59:const GRAY = rgb(112 / 255, 104 / 255, 129 / 255);
+src/lib/report/gravitational-stability.ts:637:      borderColor: rgb(201 / 255, 192 / 255, 217 / 255),
+src/lib/report/gravitational-stability.ts:685:      color: rgb(248 / 255, 246 / 255, 252 / 255),
+src/lib/report/gravitational-stability.ts:686:      borderColor: rgb(224 / 255, 214 / 255, 238 / 255),
+src/lib/report/gravitational-stability.ts:753:      color: rgb(250 / 255, 247 / 255, 241 / 255),
+src/components/marketing/cosmic-hero-v2.css:31:    radial-gradient(ellipse 140% 100% at 50% 38%, rgba(147, 64, 255, 0.06) 0%, transparent 50%),
+src/components/marketing/cosmic-hero-v2.css:57:      rgba(255, 190, 70, 0.22) 0%,
+src/components/marketing/cosmic-hero-v2.css:58:      rgba(255, 160, 45, 0.14) 25%,
+src/components/marketing/cosmic-hero-v2.css:59:      rgba(255, 130, 25, 0.08) 50%,
+src/components/marketing/cosmic-hero-v2.css:60:      rgba(255, 110, 10, 0.03) 75%,
+src/components/marketing/cosmic-hero-v2.css:73:    radial-gradient(ellipse 120% 100% at 50% 40%, rgba(147, 64, 255, 0.16), transparent 65%),
+src/components/marketing/cosmic-hero-v2.css:74:    radial-gradient(ellipse 130% 110% at 30% 50%, rgba(147, 64, 255, 0.12), transparent 70%),
+src/components/marketing/cosmic-hero-v2.css:75:    radial-gradient(ellipse 130% 110% at 70% 35%, rgba(168, 85, 255, 0.10), transparent 70%),
+src/components/marketing/cosmic-hero-v2.css:76:    radial-gradient(ellipse 90% 80% at 50% 42%, rgba(255, 180, 60, 0.07), transparent 55%);
+src/components/marketing/cosmic-hero-v2.css:100:      rgba(255, 200, 80, 0.30) 0%,
+src/components/marketing/cosmic-hero-v2.css:101:      rgba(255, 140, 40, 0.18) 15%,
+src/components/marketing/cosmic-hero-v2.css:102:      rgba(200, 60, 120, 0.16) 30%,
+src/components/marketing/cosmic-hero-v2.css:103:      rgba(147, 64, 255, 0.20) 45%,
+src/components/marketing/cosmic-hero-v2.css:104:      rgba(40, 80, 200, 0.14) 60%,
+src/components/marketing/cosmic-hero-v2.css:105:      rgba(20, 180, 180, 0.10) 75%,
+src/components/marketing/cosmic-hero-v2.css:106:      rgba(80, 40, 160, 0.06) 90%,
+src/components/marketing/cosmic-hero-v2.css:109:      rgba(180, 40, 200, 0.12) 0%,
+src/components/marketing/cosmic-hero-v2.css:110:      rgba(60, 120, 255, 0.10) 40%,
+src/components/marketing/cosmic-hero-v2.css:113:      rgba(255, 180, 60, 0.14) 0%,
+src/components/marketing/cosmic-hero-v2.css:114:      rgba(200, 80, 180, 0.10) 40%,
+src/components/marketing/cosmic-hero-v2.css:125:  background: radial-gradient(ellipse 65% 55% at 50% 42%, transparent 35%, rgba(0,0,0,0.55) 100%);
+src/components/marketing/cosmic-hero-v2.css:172:    drop-shadow(0 0 30px rgba(255, 210, 80, 0.70))
+src/components/marketing/cosmic-hero-v2.css:173:    drop-shadow(0 0 100px rgba(255, 180, 50, 0.45))
+src/components/marketing/cosmic-hero-v2.css:174:    drop-shadow(0 0 280px rgba(255, 150, 30, 0.28))
+src/components/marketing/cosmic-hero-v2.css:175:    drop-shadow(0 0 600px rgba(255, 120, 10, 0.12));
+src/components/marketing/cosmic-hero-v2.css:194:    drop-shadow(0 0 30px rgba(255, 210, 80, 0.90))
+src/components/marketing/cosmic-hero-v2.css:195:    drop-shadow(0 0 80px rgba(255, 170, 40, 0.65))
+src/components/marketing/cosmic-hero-v2.css:196:    drop-shadow(0 0 200px rgba(255, 130, 20, 0.35))
+src/components/marketing/cosmic-hero-v2.css:197:    drop-shadow(0 0 400px rgba(180, 60, 255, 0.18));
+src/components/marketing/cosmic-hero-v2.css:224:    0 0 6px rgba(255,255,255,0.95),
+src/components/marketing/cosmic-hero-v2.css:225:    0 0 16px rgba(255,240,200,0.80),
+src/components/marketing/cosmic-hero-v2.css:226:    0 0 35px rgba(255,210,120,0.50),
+src/components/marketing/cosmic-hero-v2.css:227:    0 0 60px rgba(255,180,60,0.35),
+src/components/marketing/cosmic-hero-v2.css:228:    0 0 100px rgba(255,150,30,0.20);
+src/components/marketing/cosmic-hero-v2.css:281:  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.55);
+src/components/marketing/cosmic-hero-v2.css:284:    0 0 2px rgba(255, 255, 255, 1.0),
+src/components/marketing/cosmic-hero-v2.css:285:    0 0 6px rgba(220, 160, 255, 0.95),
+src/components/marketing/cosmic-hero-v2.css:286:    0 0 8px rgba(0, 200, 255, 0.12),
+src/components/marketing/cosmic-hero-v2.css:287:    0 0 16px rgba(168, 85, 255, 0.75),
+src/components/marketing/cosmic-hero-v2.css:288:    0 0 40px rgba(147, 64, 255, 0.50),
+src/components/marketing/cosmic-hero-v2.css:289:    0 0 80px rgba(100, 40, 220, 0.28),
+src/components/marketing/cosmic-hero-v2.css:290:    0 0 140px rgba(60, 20, 200, 0.14);
+src/components/marketing/cosmic-hero-v2.css:306:  color: rgba(255, 238, 140, 0.95);
+src/components/marketing/cosmic-hero-v2.css:307:  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.60);
+src/components/marketing/cosmic-hero-v2.css:310:    0 0 2px rgba(255, 255, 255, 1.0),
+src/components/marketing/cosmic-hero-v2.css:311:    0 0 6px rgba(255, 240, 120, 0.95),
+src/components/marketing/cosmic-hero-v2.css:312:    0 0 16px rgba(255, 210, 60, 0.80),
+src/components/marketing/cosmic-hero-v2.css:313:    0 0 40px rgba(255, 180, 20, 0.55),
+src/components/marketing/cosmic-hero-v2.css:314:    0 0 90px rgba(255, 140, 0, 0.28),
+src/components/marketing/cosmic-hero-v2.css:315:    0 0 160px rgba(200, 100, 0, 0.14);
+src/components/marketing/cosmic-hero-v2.css:328:  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.55);
+src/components/marketing/cosmic-hero-v2.css:331:    0 0 2px rgba(255, 255, 255, 1.0),
+src/components/marketing/cosmic-hero-v2.css:332:    0 0 6px rgba(220, 160, 255, 0.95),
+src/components/marketing/cosmic-hero-v2.css:333:    0 0 8px rgba(0, 200, 255, 0.12),
+src/components/marketing/cosmic-hero-v2.css:334:    0 0 16px rgba(168, 85, 255, 0.75),
+src/components/marketing/cosmic-hero-v2.css:335:    0 0 40px rgba(147, 64, 255, 0.50),
+src/components/marketing/cosmic-hero-v2.css:336:    0 0 80px rgba(100, 40, 220, 0.28),
+src/components/marketing/cosmic-hero-v2.css:337:    0 0 140px rgba(60, 20, 200, 0.14);
+src/components/marketing/cosmic-hero-v2.css:352:  color: rgba(255,255,255,0.38);
+src/components/marketing/cosmic-hero-v2.css:364:  -webkit-text-stroke: 0.4px rgba(255, 255, 255, 0.50);
+src/components/marketing/cosmic-hero-v2.css:367:    0 0 2px rgba(255, 255, 255, 1.0),
+src/components/marketing/cosmic-hero-v2.css:368:    0 0 6px rgba(220, 160, 255, 0.95),
+src/components/marketing/cosmic-hero-v2.css:369:    0 0 8px rgba(0, 200, 255, 0.12),
+src/components/marketing/cosmic-hero-v2.css:370:    0 0 16px rgba(168, 85, 255, 0.75),
+src/components/marketing/cosmic-hero-v2.css:371:    0 0 40px rgba(147, 64, 255, 0.50),
+src/components/marketing/cosmic-hero-v2.css:372:    0 0 80px rgba(100, 40, 220, 0.28),
+src/components/marketing/cosmic-hero-v2.css:373:    0 0 140px rgba(60, 20, 200, 0.14);
+src/components/marketing/hero-evolved.html:14:  --grape:rgba(126,63,255,0.98);
+src/components/marketing/hero-evolved.html:28:  background:linear-gradient(180deg,rgba(6,0,20,0.85) 0%,rgba(6,0,20,0.40) 70%,transparent 100%);
+src/components/marketing/hero-evolved.html:30:  border-bottom:1px solid rgba(126,63,255,0.08);
+src/components/marketing/hero-evolved.html:34:  color:rgba(255,255,255,0.95);text-decoration:none;
+src/components/marketing/hero-evolved.html:35:  text-shadow:0 0 12px rgba(126,63,255,0.40);
+src/components/marketing/hero-evolved.html:41:  color:rgba(255,255,255,0.70);
+src/components/marketing/hero-evolved.html:45:  color:rgba(255,255,255,0.98);
+src/components/marketing/hero-evolved.html:46:  text-shadow:0 0 10px rgba(126,63,255,0.50);
+src/components/marketing/hero-evolved.html:74:  background:radial-gradient(ellipse 72% 62% at 50% 44%,transparent 38%,rgba(0,0,0,0.55) 100%);
+src/components/marketing/hero-evolved.html:80:  background:rgba(0,0,0,0.85);opacity:0;transition:opacity 0.15s;
+src/components/marketing/hero-evolved.html:97:  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.8) 40%,transparent);
+src/components/marketing/hero-evolved.html:98:  opacity:0;pointer-events:none;filter:drop-shadow(0 0 4px rgba(255,255,255,0.3));
+src/components/marketing/hero-evolved.html:119:  background:radial-gradient(circle,rgba(175,120,255,0.06),transparent 70%);
+src/components/marketing/hero-evolved.html:126:  background:linear-gradient(0deg,rgba(40,10,80,0.45),rgba(80,30,140,0.12) 40%,transparent);
+src/components/marketing/hero-evolved.html:144:    rgba(255,220,100,0.30) 0%,rgba(255,200,80,0.20) 20%,
+src/components/marketing/hero-evolved.html:145:    rgba(255,180,60,0.12) 40%,rgba(255,160,50,0.05) 60%,transparent 80%);
+src/components/marketing/hero-evolved.html:157:    rgba(255,255,255,0) 0deg,rgba(255,240,200,0.26) 3deg,rgba(255,255,255,0) 6deg);
+src/components/marketing/hero-evolved.html:164:    rgba(255,255,255,0) 0deg,rgba(255,210,130,0.18) 2.5deg,rgba(255,255,255,0) 5deg);
+src/components/marketing/hero-evolved.html:186:  color:rgba(255,255,255,0.98);
+src/components/marketing/hero-evolved.html:188:    0 0 10px rgba(160,90,255,0.95),0 0 28px rgba(126,63,255,0.85),
+src/components/marketing/hero-evolved.html:189:    0 0 55px rgba(126,63,255,0.55),0 0 100px rgba(100,40,255,0.35),
+src/components/marketing/hero-evolved.html:190:    0 0 160px rgba(80,20,255,0.18),0 4px 20px rgba(0,0,0,0.40);
+src/components/marketing/hero-evolved.html:207:    0 0 12px 6px rgba(255,255,255,0.95),
+src/components/marketing/hero-evolved.html:208:    0 0 30px 15px rgba(255,240,200,0.80),
+src/components/marketing/hero-evolved.html:209:    0 0 60px 30px rgba(255,220,120,0.50),
+src/components/marketing/hero-evolved.html:210:    0 0 120px 60px rgba(255,200,80,0.30),
+src/components/marketing/hero-evolved.html:211:    0 0 200px 80px rgba(200,160,255,0.20);
+src/components/marketing/hero-evolved.html:226:  background:linear-gradient(90deg,transparent 0%,rgba(160,120,255,0) 20%,
+src/components/marketing/hero-evolved.html:227:    rgba(200,160,255,0.30) 40%,rgba(255,240,255,0.55) 50%,
+src/components/marketing/hero-evolved.html:228:    rgba(200,160,255,0.30) 60%,rgba(160,120,255,0) 80%,transparent);
+src/components/marketing/hero-evolved.html:235:  background:radial-gradient(circle,rgba(140,80,255,0.30),rgba(120,50,255,0.12) 40%,transparent 70%);
+src/components/marketing/hero-evolved.html:243:    rgba(255,255,255,1),rgba(255,240,200,0.85) 18%,
+src/components/marketing/hero-evolved.html:244:    rgba(255,200,100,0.45) 45%,transparent 78%);
+src/components/marketing/hero-evolved.html:254:  filter:drop-shadow(0 0 40px rgba(126,63,255,0.50)) drop-shadow(0 0 80px rgba(100,40,220,0.25));
+src/components/marketing/hero-evolved.html:259:  filter:drop-shadow(0 0 30px rgba(126,63,255,0.35)) drop-shadow(0 0 60px rgba(100,40,220,0.15));
+src/components/marketing/hero-evolved.html:267:  border:1px solid rgba(255,255,255,0.10);border-radius:22px;
+src/components/marketing/hero-evolved.html:270:  color:rgba(255,255,255,0.94);
+src/components/marketing/hero-evolved.html:283:  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,0.10) 48%,
+src/components/marketing/hero-evolved.html:284:    rgba(255,255,255,0.16) 50%,rgba(255,255,255,0.10) 52%,transparent 70%);
+src/components/marketing/hero-evolved.html:300:  text-shadow:0 6px 28px rgba(0,0,0,0.55),0 0 22px rgba(126,63,255,0.40),0 0 50px rgba(126,63,255,0.18);
+src/components/marketing/hero-evolved.html:301:  -webkit-text-stroke:0.4px rgba(255,255,255,0.06);
+src/components/marketing/hero-evolved.html:310:  color:rgba(255,255,255,0.82);
+src/components/marketing/hero-evolved.html:311:  text-shadow:0 6px 22px rgba(0,0,0,0.50),0 0 12px rgba(126,63,255,0.08);
+src/components/marketing/hero-evolved.html:322:  color:rgba(255,255,255,0.96);
+src/components/marketing/hero-evolved.html:323:  background:linear-gradient(135deg,rgba(126,63,255,0.88),rgba(90,30,200,0.92));
+src/components/marketing/hero-evolved.html:324:  border:1px solid rgba(255,255,255,0.14);
+src/components/marketing/hero-evolved.html:325:  box-shadow:0 8px 36px rgba(126,63,255,0.35),0 2px 8px rgba(0,0,0,0.25),
+src/components/marketing/hero-evolved.html:326:    0 0 20px rgba(126,63,255,0.18),inset 0 1px 0 rgba(255,255,255,0.12);
+src/components/marketing/hero-evolved.html:334:  box-shadow:0 14px 52px rgba(126,63,255,0.50),0 4px 12px rgba(0,0,0,0.30),
+src/components/marketing/hero-evolved.html:335:    0 0 30px rgba(126,63,255,0.30),inset 0 1px 0 rgba(255,255,255,0.15);
+src/components/marketing/hero-evolved.html:339:  background:radial-gradient(circle,rgba(255,255,255,0.12),transparent 70%);
+src/components/marketing/hero-evolved.html:468:            <stop offset="0%" stop-color="rgba(15,0,30,0.6)"/>
+src/components/marketing/hero-evolved.html:482:        <circle cx="110" cy="110" r="108" fill="none" stroke="rgba(10,0,20,0.4)" stroke-width="6"/>
+src/components/marketing/hero-evolved.html:752:    g1.addColorStop(0, 'rgba(160,90,255,' + (nebulaAlpha * 1.5) + ')');
+src/components/marketing/hero-evolved.html:753:    g1.addColorStop(0.5, 'rgba(120,50,200,' + (nebulaAlpha * 0.6) + ')');
+src/components/marketing/hero-evolved.html:758:    g2.addColorStop(0, 'rgba(255,80,180,' + (nebulaAlpha * 1.2) + ')');
+src/components/marketing/hero-evolved.html:759:    g2.addColorStop(0.4, 'rgba(255,120,210,' + (nebulaAlpha * 0.7) + ')');
+src/components/marketing/hero-evolved.html:764:    g3.addColorStop(0, 'rgba(60,130,255,' + (nebulaAlpha * 1.1) + ')');
+src/components/marketing/hero-evolved.html:765:    g3.addColorStop(0.5, 'rgba(80,100,220,' + (nebulaAlpha * 0.5) + ')');
+src/components/marketing/hero-evolved.html:770:    g5.addColorStop(0, 'rgba(255,100,200,' + (nebulaAlpha * 0.8) + ')');
+src/components/marketing/hero-evolved.html:775:    g6.addColorStop(0, 'rgba(70,120,255,' + (nebulaAlpha * 0.7) + ')');
+src/components/marketing/hero-evolved.html:781:    g4.addColorStop(0, 'rgba(255,200,90,' + (0.07 * sbClamped) + ')');
+src/components/marketing/hero-evolved.html:782:    g4.addColorStop(0.6, 'rgba(255,160,60,' + (0.03 * sbClamped) + ')');
+src/components/marketing/hero-evolved.html:803:      var sc = s.hue < 0.06 ? 'rgba(180,205,255,' + a + ')'
+src/components/marketing/hero-evolved.html:804:             : s.hue > 0.95 ? 'rgba(255,215,175,' + a + ')'
+src/components/marketing/hero-evolved.html:805:             : 'rgba(255,255,255,' + a + ')';
+src/components/marketing/hero-evolved.html:811:    ctx.strokeStyle = 'rgba(160,130,255,' + Math.min(0.15, ca) + ')';
+src/components/marketing/hero-evolved.html:830:      ctx.fillStyle = 'rgba(255,230,180,' + moteA + ')'; ctx.fill();
+src/components/marketing/hero-evolved.html:852:        grad.addColorStop(0, 'rgba(255,230,140,' + rayA + ')');
+src/components/marketing/hero-evolved.html:853:        grad.addColorStop(0.3, 'rgba(255,210,100,' + rayA2 + ')');
+src/components/marketing/hero-evolved.html:854:        grad.addColorStop(1, 'rgba(255,200,80,0)');
+src/components/marketing/hero-evolved.html:883:        ctx.fillStyle = 'rgba(' + np.cr + ',' + np.cg + ',' + np.cb + ',' + (na * 0.75) + ')';
+src/components/marketing/hero-evolved.html:899:      ctx.strokeStyle = 'rgba(200,160,255,' + (swA * 0.4) + ')';
+src/components/marketing/hero-evolved.html:905:      ctx.strokeStyle = 'rgba(255,240,200,' + (swA * 0.25) + ')';
+src/components/marketing/hero-evolved.html:918:      'radial-gradient(600px 500px at ' + (28 + Math.sin(t*0.1)*3) + '% ' + (42 + Math.cos(t*0.08)*2) + '%, rgba(' + wR + ',' + wG + ',' + wB + ',' + (0.10 + ecl*0.04) + '), transparent 65%),' +
+src/components/marketing/hero-evolved.html:919:      'radial-gradient(650px 520px at ' + (72 - Math.sin(t*0.12)*3) + '% 34%, rgba(255,' + Math.round(120 - ecl*40) + ',' + Math.round(210 - ecl*60) + ',' + (0.07 + ecl*0.03) + '), transparent 68%),' +
+src/components/marketing/hero-evolved.html:920:      'radial-gradient(720px 600px at 50% 62%, rgba(' + cR + ',60,' + cB + ',' + (0.06 + ecl*0.05) + '), transparent 70%)';
+src/components/marketing/hero-evolved.html:975:        'drop-shadow(0 0 ' + (14 + mg*46) + 'px rgba(160,90,255,' + (0.45 + mg*0.55) + '))' +
+src/components/marketing/hero-evolved.html:976:        ' drop-shadow(0 0 ' + (30 + mg*90) + 'px rgba(140,60,255,' + (0.18 + mg*0.67) + '))' +
+src/components/marketing/hero-evolved.html:977:        ' drop-shadow(0 0 ' + (60 + mg*140) + 'px rgba(120,40,255,' + (mg*0.55) + '))';
+src/components/marketing/hero-evolved.html:985:      ring.style.borderColor = 'rgba(180,120,255,' + (ringA * 0.50) + ')';
+src/components/marketing/hero-evolved.html:987:        '0 0 ' + (60*ringA) + 'px rgba(160,90,255,' + (ringA*0.55) + '),' +
+src/components/marketing/hero-evolved.html:988:        '0 0 ' + (130*ringA) + 'px rgba(140,60,255,' + (ringA*0.35) + '),' +
+src/components/marketing/hero-evolved.html:989:        '0 0 ' + (200*ringA) + 'px rgba(120,40,255,' + (ringA*0.18) + '),' +
+src/components/marketing/hero-evolved.html:990:        'inset 0 0 ' + (50*ringA) + 'px rgba(160,90,255,' + (ringA*0.25) + ')';
+src/components/marketing/hero-evolved.html:1035:          'rgba(126,63,255,0.07),rgba(100,40,200,0.025) 50%,transparent 85%),' +
+src/components/marketing/hero-evolved.html:1037:          'rgba(0,0,0,0),rgba(0,0,0,0.28) 50%,rgba(0,0,0,0.40) 100%),' +
+src/components/marketing/hero-evolved.html:1038:        'linear-gradient(180deg,rgba(10,0,24,0.05),rgba(10,0,24,0.28))';
+src/components/marketing/hero-evolved.html:1040:        '0 26px 80px rgba(0,0,0,0.40),' +
+src/components/marketing/hero-evolved.html:1041:        'inset 0 1px 0 rgba(200,160,255,0.12),' +
+src/components/marketing/hero-evolved.html:1042:        '0 0 40px rgba(126,63,255,0.10)';
+src/components/marketing/hero-evolved.html:1043:      plate.style.borderColor = 'rgba(160,90,255,0.14)';
+src/components/marketing/hero-evolved.html:1045:        '0 0 8px rgba(255,255,255,0.40),' +
+src/components/marketing/hero-evolved.html:1046:        '0 0 20px rgba(200,160,255,0.30),' +
+src/components/marketing/hero-evolved.html:1047:        '0 0 40px rgba(160,100,255,0.15),' +
+src/components/marketing/hero-evolved.html:1048:        '0 6px 24px rgba(0,0,0,0.50)';
+src/components/marketing/hero-evolved.html:1055:          'rgba(255,210,90,' + wGlow + '),rgba(255,180,60,' + (wGlow*0.4) + ') 50%,transparent 85%),' +
+src/components/marketing/hero-evolved.html:1057:          'rgba(0,0,0,0),rgba(0,0,0,' + (0.24 + ecl*0.16) + ') 50%,rgba(0,0,0,' + (0.36 + ecl*0.14) + ') 100%),' +
+src/components/marketing/hero-evolved.html:1058:        'linear-gradient(180deg,rgba(10,0,24,' + (0.03 + ecl*0.08) + '),rgba(10,0,24,' + (0.26 + ecl*0.14) + '))';
+src/components/marketing/hero-evolved.html:1060:        '0 26px 80px rgba(0,0,0,' + (0.35 + ecl*0.15) + '),' +
+src/components/marketing/hero-evolved.html:1061:        'inset 0 1px 0 rgba(255,' + Math.round(230*sbClamped+180*(1-sbClamped)) + ',' + Math.round(180*sbClamped+255*(1-sbClamped)) + ',' + (0.10 + sbClamped*0.08) + '),' +
+src/components/marketing/hero-evolved.html:1062:        '0 -12px ' + (40*sbClamped) + 'px rgba(255,200,80,' + (wGlow*0.6) + '),' +
+src/components/marketing/hero-evolved.html:1063:        '0 0 ' + (55*ecl) + 'px rgba(126,63,255,' + eGlow + ')';
+src/components/marketing/hero-evolved.html:1064:      plate.style.borderColor = 'rgba(' + Math.round(255*sbClamped+160*ecl) + ',' + Math.round(220*sbClamped+90*ecl) + ',' + Math.round(160*sbClamped+255*ecl) + ',' + (0.12 + sbClamped*0.06 + ecl*0.06) + ')';
+src/components/marketing/hero-evolved.html:1068:        '0 0 ' + (12*sbClamped) + 'px rgba(255,255,255,' + (0.5 + sbClamped*0.35) + '),' +
+src/components/marketing/hero-evolved.html:1069:        '0 0 ' + (30*sbClamped) + 'px rgba(255,220,100,' + headGlow + '),' +
+src/components/marketing/hero-evolved.html:1070:        '0 0 ' + (60*sbClamped) + 'px rgba(255,180,60,' + (headGlow*0.5) + '),' +
+src/components/marketing/hero-evolved.html:1071:        '0 6px 24px rgba(0,0,0,0.50)';
+src/app/styles/cosmic.css:76:    0 0 20px rgba(248, 208, 17, 0.15),
+src/app/styles/cosmic.css:77:    0 0 60px rgba(96, 5, 141, 0.12);
+src/app/styles/cosmic.css:224:    radial-gradient(ellipse 600px 400px at 15% 12%, rgba(96, 5, 141, 0.40) 0%, rgba(60, 10, 100, 0.15) 40%, transparent 70%),
+src/app/styles/cosmic.css:226:    radial-gradient(ellipse 500px 350px at 82% 35%, rgba(140, 40, 180, 0.30) 0%, rgba(96, 5, 141, 0.10) 50%, transparent 75%),
+src/app/styles/cosmic.css:228:    radial-gradient(ellipse 400px 300px at 25% 55%, rgba(248, 208, 17, 0.06) 0%, rgba(248, 208, 17, 0.02) 40%, transparent 70%),
+src/app/styles/cosmic.css:230:    radial-gradient(ellipse 700px 500px at 60% 75%, rgba(96, 5, 141, 0.35) 0%, rgba(45, 20, 80, 0.12) 45%, transparent 75%),
+src/app/styles/cosmic.css:232:    radial-gradient(ellipse 550px 400px at 75% 8%, rgba(123, 79, 162, 0.25) 0%, transparent 60%),
+src/app/styles/cosmic.css:234:    radial-gradient(ellipse 450px 350px at 10% 85%, rgba(96, 5, 141, 0.28) 0%, transparent 55%),
+src/app/styles/cosmic.css:236:    radial-gradient(ellipse 300px 200px at 50% 45%, rgba(248, 208, 17, 0.04) 0%, transparent 60%);
+src/app/styles/cosmic.css:264:    rgba(255, 255, 255, 0.03),
+src/app/styles/cosmic.css:265:    rgba(255, 255, 255, 0.03) 1px,
+src/app/styles/cosmic.css:283:    linear-gradient(transparent 97%, var(--grid-color, rgba(37,246,255,0.10)) 98%),
+src/app/styles/cosmic.css:284:    linear-gradient(90deg, transparent 97%, var(--grid-color, rgba(37,246,255,0.10)) 98%),
+src/app/styles/cosmic.css:286:    linear-gradient(180deg, transparent 58%, rgba(255, 63, 180, 0.06) 68%, transparent 80%);
+src/app/styles/cosmic.css:339:  border: 1px solid rgba(248, 208, 17, 0.60);
+src/app/styles/cosmic.css:341:  box-shadow: 0 0 12px rgba(248, 208, 17, 0.20);
+src/app/styles/cosmic.css:350:  border-color: rgba(248, 208, 17, 0.80);
+src/app/styles/cosmic.css:351:  box-shadow: 0 0 20px rgba(248, 208, 17, 0.35);
+src/app/styles/cosmic.css:364:  color: rgba(2, 2, 2, 0.70);
+src/app/styles/cosmic.css:387:  box-shadow: 0 2px 16px rgba(248, 208, 17, 0.20), 0 0 0 1px rgba(248, 208, 17, 0.10);
+src/app/styles/cosmic.css:395:  box-shadow: 0 4px 24px rgba(248, 208, 17, 0.30), 0 0 0 1px rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:417:  border: 1.5px solid rgba(248, 208, 17, 0.50);
+src/app/styles/cosmic.css:428:  background: rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:429:  border-color: rgba(248, 208, 17, 0.80);
+src/app/styles/cosmic.css:430:  box-shadow: 0 0 20px rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:441:  background: rgba(96, 5, 141, 0.40);
+src/app/styles/cosmic.css:448:  border: 1px solid rgba(148, 80, 200, 0.40);
+src/app/styles/cosmic.css:458:  background: rgba(96, 5, 141, 0.55);
+src/app/styles/cosmic.css:459:  border-color: rgba(148, 80, 200, 0.60);
+src/app/styles/cosmic.css:492:  outline: 3px solid rgba(248, 208, 17, 0.70);
+src/app/styles/cosmic.css:522:  background: rgba(0, 0, 0, 0.60);
+src/app/styles/cosmic.css:550:    box-shadow: 0 2px 18px rgba(248, 208, 17, 0.22),
+src/app/styles/cosmic.css:551:                0 0 0 1px rgba(248, 208, 17, 0.12),
+src/app/styles/cosmic.css:552:                0 0 14px rgba(37, 246, 255, 0.06),
+src/app/styles/cosmic.css:553:                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+src/app/styles/cosmic.css:556:    box-shadow: 0 4px 32px rgba(248, 208, 17, 0.40),
+src/app/styles/cosmic.css:557:                0 0 0 1px rgba(248, 208, 17, 0.25),
+src/app/styles/cosmic.css:558:                0 0 24px rgba(37, 246, 255, 0.12),
+src/app/styles/cosmic.css:559:                0 0 40px rgba(255, 63, 180, 0.06),
+src/app/styles/cosmic.css:560:                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+src/app/styles/cosmic.css:600:    rgba(248, 208, 17, 0.06) 50%,
+src/app/styles/cosmic.css:621:  50% { text-shadow: 0 0 20px rgba(248, 208, 17, 0.40); }
+src/app/styles/cosmic.css:622:  100% { text-shadow: 0 0 8px rgba(248, 208, 17, 0.15); }
+src/app/styles/cosmic.css:654:    rgba(248, 208, 17, 0.04) 50%,
+src/app/styles/cosmic.css:694:  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
+src/app/styles/cosmic.css:695:              0 0 20px rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:696:  border-color: rgba(248, 208, 17, 0.2);
+src/app/styles/cosmic.css:714:  color: rgba(248, 208, 17, 0.12);
+src/app/styles/cosmic.css:717:  text-shadow: 0 0 20px rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:722:  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3),
+src/app/styles/cosmic.css:723:              0 0 24px rgba(248, 208, 17, 0.1),
+src/app/styles/cosmic.css:724:              0 0 8px rgba(37, 246, 255, 0.04);
+src/app/styles/cosmic.css:725:  border-color: rgba(248, 208, 17, 0.25);
+src/app/styles/cosmic.css:736:  text-shadow: 0 0 6px rgba(248, 208, 17, 0.3);
+src/app/styles/cosmic.css:742:    box-shadow: 0 0 30px rgba(248, 208, 17, 0.18),
+src/app/styles/cosmic.css:743:                0 0 60px rgba(248, 208, 17, 0.06),
+src/app/styles/cosmic.css:744:                inset 0 1px 0 rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:747:    box-shadow: 0 0 40px rgba(248, 208, 17, 0.28),
+src/app/styles/cosmic.css:748:                0 0 80px rgba(248, 208, 17, 0.1),
+src/app/styles/cosmic.css:749:                0 0 120px rgba(248, 208, 17, 0.04),
+src/app/styles/cosmic.css:750:                inset 0 1px 0 rgba(248, 208, 17, 0.12);
+src/app/styles/cosmic.css:781:  background: radial-gradient(circle, rgba(248, 208, 17, 0.04) 0%, transparent 70%);
+src/app/styles/cosmic.css:806:  color: rgba(248, 208, 17, 0.02);
+src/app/styles/cosmic.css:818:  background: rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:819:  border-color: rgba(248, 208, 17, 0.35);
+src/app/styles/cosmic.css:821:  box-shadow: 0 0 12px rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:839:  background: linear-gradient(to var(--dir, right), rgba(248, 208, 17, 0.3), transparent);
+src/app/styles/cosmic.css:932:  text-shadow: 0 0 12px rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:943:  border: 1px solid rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:944:  background: rgba(248, 208, 17, 0.04);
+src/app/styles/cosmic.css:951:  border-color: rgba(248, 208, 17, 0.35);
+src/app/styles/cosmic.css:952:  background: rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:953:  box-shadow: 0 0 16px rgba(248, 208, 17, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+src/app/styles/cosmic.css:967:    radial-gradient(circle, rgba(37, 246, 255, 0.04) 1px, transparent 1px),
+src/app/styles/cosmic.css:968:    radial-gradient(circle, rgba(248, 208, 17, 0.04) 1px, transparent 1px);
+src/app/styles/cosmic.css:973:  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.5) 70%, transparent 100%);
+src/app/styles/cosmic.css:974:  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.5) 70%, transparent 100%);
+src/app/styles/cosmic.css:980:  border-left: 2px solid rgba(248, 208, 17, 0.4);
+src/app/styles/cosmic.css:989:  border: 1px solid rgba(248, 208, 17, 0.2);
+src/app/styles/cosmic.css:1000:  box-shadow: 0 0 8px rgba(248, 208, 17, 0.06);
+src/app/styles/cosmic.css:1105:  background: linear-gradient(to right, rgba(248, 208, 17, 0.25), transparent);
+src/app/styles/cosmic.css:1127:  border: 1px solid rgba(248, 208, 17, 0.35);
+src/app/styles/cosmic.css:1150:  box-shadow: 0 0 12px rgba(248, 208, 17, 0.12);
+src/app/styles/cosmic.css:1158:  outline: 3px solid rgba(248, 208, 17, 0.70);
+src/app/styles/cosmic.css:1210:    rgba(248, 208, 17, 0.3),
+src/app/styles/cosmic.css:1211:    rgba(37, 246, 255, 0.2) 10%,
+src/app/styles/cosmic.css:1214:    rgba(255, 63, 180, 0.2) 48%,
+src/app/styles/cosmic.css:1215:    rgba(248, 208, 17, 0.3) 52%,
+src/app/styles/cosmic.css:1216:    rgba(139, 91, 255, 0.2) 58%,
+src/app/styles/cosmic.css:1219:    rgba(248, 208, 17, 0.3) 100%
+src/app/styles/cosmic.css:1239:  background: linear-gradient(90deg, var(--brand-gold, #F8D011), rgba(248,208,17,0.6));
+src/app/styles/cosmic.css:1264:    rgba(248,208,17,0.04) 25%,
+src/app/styles/cosmic.css:1265:    rgba(248,208,17,0.08) 50%,
+src/app/styles/cosmic.css:1266:    rgba(248,208,17,0.04) 75%
+src/app/styles/cosmic.css:1324:  color: rgba(248,208,17,0.5);
+src/app/styles/cosmic.css:1328:  color: rgba(248,208,17,0.4);
+src/app/styles/cosmic.css:1339:  background: rgba(248,208,17,0.3);
+src/app/styles/cosmic.css:1359:  background: rgba(248,208,17,0.12);
+src/app/styles/cosmic.css:1360:  border: 1px solid rgba(248,208,17,0.3);
+src/app/styles/cosmic.css:1384:  background: rgba(248,208,17,0.1);
+src/app/styles/cosmic.css:1385:  border: 1px solid rgba(248,208,17,0.25);
+src/app/styles/cosmic.css:1392:  background: rgba(248,208,17,0.2);
+src/app/styles/cosmic.css:1394:  box-shadow: 0 0 16px rgba(248, 208, 17, 0.15), 0 4px 12px rgba(0, 0, 0, 0.3);
+src/app/styles/cosmic.css:1395:  border-color: rgba(248, 208, 17, 0.4);
+src/app/styles/cosmic.css:1409:  border: 1px solid rgba(248,208,17,0.2);
+src/app/styles/cosmic.css:1411:  background: rgba(248,208,17,0.04);
+src/app/styles/cosmic.css:1415:  color: rgba(248,208,17,0.8);
+src/app/styles/cosmic.css:1420:  border-color: rgba(248, 208, 17, 0.4);
+src/app/styles/cosmic.css:1421:  background: rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:1422:  box-shadow: 0 0 10px rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:1430:  border-bottom: 1px dashed rgba(248,208,17,0.35);
+src/app/styles/cosmic.css:1439:  background: rgba(248,208,17,0.12);
+src/app/styles/cosmic.css:1440:  border: 1px solid rgba(248,208,17,0.25);
+src/app/styles/cosmic.css:1442:  color: rgba(255,255,255,0.94);
+src/app/styles/cosmic.css:1464:  background: rgba(248,208,17,0.08);
+src/app/styles/cosmic.css:1465:  border: 1px solid rgba(248,208,17,0.2);
+src/app/styles/cosmic.css:1517:  background: rgba(248,208,17,0.2);
+src/app/styles/cosmic.css:1518:  border: 1px solid rgba(248,208,17,0.3);
+src/app/styles/cosmic.css:1527:  box-shadow: 0 0 8px rgba(248,208,17,0.4);
+src/app/styles/cosmic.css:1536:  color: rgba(255,255,255,0.6);
+src/app/styles/cosmic.css:1552:  background: rgba(74, 222, 128, 0.04);
+src/app/styles/cosmic.css:1553:  border: 1px solid rgba(74, 222, 128, 0.15);
+src/app/styles/cosmic.css:1557:  color: rgba(74, 222, 128, 0.85);
+src/app/styles/cosmic.css:1562:  border-color: rgba(74, 222, 128, 0.3);
+src/app/styles/cosmic.css:1563:  background: rgba(74, 222, 128, 0.08);
+src/app/styles/cosmic.css:1571:  box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+src/app/styles/cosmic.css:1594:  color: rgba(255,255,255,0.9);
+src/app/styles/cosmic.css:1615:  border: 1px solid rgba(248,208,17,0.3);
+src/app/styles/cosmic.css:1673:  border-color: var(--neon-cyan-40, rgba(37,246,255,0.40));
+src/app/styles/cosmic.css:1692:  border: 1px solid var(--neon-cyan-20, rgba(37,246,255,0.20));
+src/app/styles/cosmic.css:1693:  background: var(--neon-cyan-10, rgba(37,246,255,0.10));
+src/app/styles/cosmic.css:1701:  border-color: var(--neon-pink-20, rgba(255,63,180,0.20));
+src/app/styles/cosmic.css:1702:  background: var(--neon-pink-10, rgba(255,63,180,0.10));
+src/app/styles/cosmic.css:1706:  border-color: var(--neon-violet-20, rgba(139,91,255,0.20));
+src/app/styles/cosmic.css:1707:  background: var(--neon-violet-10, rgba(139,91,255,0.10));
+src/app/styles/cosmic.css:1753:  background: rgba(248, 208, 17, 0.2);
+src/app/styles/cosmic.css:1758:  background: rgba(248, 208, 17, 0.2);
+src/app/styles/cosmic.css:1769:  color: var(--text-on-dark, rgba(255, 255, 255, 0.92));
+src/app/styles/cosmic.css:1784:  box-shadow: 0 0 6px rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:1789:  text-shadow: 0 0 20px rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:1794:  border-color: rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:1799:  border-bottom-color: rgba(248, 208, 17, 0.6);
+src/app/styles/cosmic.css:1800:  text-shadow: 0 0 8px rgba(248, 208, 17, 0.1);
+src/app/styles/cosmic.css:1806:  filter: drop-shadow(0 0 12px rgba(248, 208, 17, 0.08));
+src/app/styles/cosmic.css:1811:  text-shadow: 0 0 30px rgba(248, 208, 17, 0.08);
+src/app/styles/cosmic.css:1820:  background: rgba(15, 7, 32, 0.5);
+src/app/styles/cosmic.css:1824:  background: rgba(248, 208, 17, 0.15);
+src/app/styles/cosmic.css:1829:  background: rgba(248, 208, 17, 0.25);
+src/app/styles/tokens.css:94:  --focus-ring: 0 0 0 3px rgba(248, 208, 17, 0.40);
+src/app/styles/tokens.css:104:  --cosmic-nebula: rgba(96, 5, 141, 0.08);
+src/app/styles/tokens.css:105:  --cosmic-stardust: rgba(248, 208, 17, 0.12);
+src/app/styles/tokens.css:161:  --constellation-core: rgba(255,255,255,0.72);
+src/app/styles/tokens.css:162:  --constellation-core-dim: rgba(255,255,255,0.45);
+src/app/styles/tokens.css:163:  --constellation-line: rgba(255,255,255,0.06);
+src/app/styles/tokens.css:200:  --bg-nav: rgba(18, 5, 40, 0.97);
+src/app/styles/tokens.css:211:  --focus-ring-gold: 0 0 0 3px rgba(248, 208, 17, 0.45);
+src/app/styles/tokens.css:216:  --shadow-glow-sm: 0 0 16px rgba(96, 5, 141, 0.45), 0 0 4px rgba(148, 80, 200, 0.25);
+src/app/styles/tokens.css:217:  --shadow-glow-md: 0 4px 28px rgba(96, 5, 141, 0.40), 0 0 56px rgba(96, 5, 141, 0.20);
+src/app/styles/tokens.css:218:  --shadow-glow-gold: 0 0 20px rgba(248, 208, 17, 0.18);
+src/app/styles/tokens.css:219:  --shadow-depth: 0 8px 32px rgba(0, 0, 0, 0.50);
+src/app/styles/tokens.css:234:  --shadow-glow-cyan: 0 0 20px rgba(37, 246, 255, 0.15);
+src/app/styles/tokens.css:235:  --shadow-glow-pink: 0 0 20px rgba(255, 45, 224, 0.12);
+src/app/styles/tokens.css:236:  --shadow-glow-violet: 0 0 20px rgba(139, 91, 255, 0.12);
+src/app/styles/tokens.css:239:  --text-glow-cyan: 0 0 12px rgba(37, 246, 255, 0.4), 0 0 30px rgba(37, 246, 255, 0.15);
+src/app/styles/tokens.css:240:  --text-glow-pink: 0 0 12px rgba(255, 45, 224, 0.35), 0 0 30px rgba(255, 45, 224, 0.12);
+src/app/styles/tokens.css:248:  --overlay-heavy: rgba(18, 5, 48, 0.93);
+src/app/styles/tokens.css:249:  --overlay-medium: rgba(18, 5, 48, 0.81);
+src/app/styles/tokens.css:250:  --overlay-light: rgba(18, 5, 48, 0.62);
+src/app/styles/tokens.css:266:  --status-low-bg: rgba(167, 139, 250, 0.22);
+src/app/styles/tokens.css:268:  --status-moderate-bg: rgba(244, 196, 48, 0.22);
+src/app/styles/tokens.css:270:  --status-elevated-bg: rgba(245, 158, 11, 0.22);
+src/app/styles/tokens.css:272:  --status-high-bg: rgba(251, 146, 60, 0.25);
+src/app/styles/lead-engine.css:14:  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 28%),
+src/app/styles/lead-engine.css:15:    radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.07), transparent 26%),
+src/app/styles/lead-engine.css:27:    radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.35), transparent),
+src/app/styles/lead-engine.css:28:    radial-gradient(2px 2px at 40% 70%, rgba(255, 255, 255, 0.25), transparent),
+src/app/styles/lead-engine.css:29:    radial-gradient(2px 2px at 70% 40%, rgba(255, 255, 255, 0.25), transparent),
+src/app/styles/lead-engine.css:30:    radial-gradient(1px 1px at 85% 15%, rgba(255, 255, 255, 0.2), transparent);
+src/app/styles/lead-engine.css:57:  color: rgba(253, 251, 255, 0.82);
+src/app/styles/lead-engine.css:65:  color: rgba(253, 251, 255, 0.9);
+src/app/styles/lead-engine.css:83:  box-shadow: 0 14px 32px rgba(27, 18, 51, 0.22);
+src/app/styles/lead-engine.css:95:  border: 2px solid rgba(253, 251, 255, 0.7);
+src/app/styles/lead-engine.css:113:  filter: drop-shadow(0 18px 36px rgba(16, 5, 48, 0.28));
+src/app/styles/lead-engine.css:158:  box-shadow: 0 12px 36px rgba(27, 18, 51, 0.16);
+src/app/(portal)/light-dashboard/dashboard.css:18:      rgba(248, 208, 17, 0.12) 0
+src/app/(portal)/light-dashboard/dashboard.css:20:    radial-gradient(circle at 50% 30%, rgba(248, 208, 17, 0.25), transparent 60%);
+src/app/(portal)/light-dashboard/dashboard.css:21:  border: 1px solid rgba(248, 208, 17, 0.3);
+src/app/(portal)/light-dashboard/dashboard.css:23:    0 0 24px rgba(248, 208, 17, 0.2),
+src/app/(portal)/light-dashboard/dashboard.css:24:    0 0 50px rgba(248, 208, 17, 0.08);
+src/app/(portal)/light-dashboard/dashboard.css:35:    rgba(255, 255, 255, 0.12),
+src/app/(portal)/light-dashboard/dashboard.css:36:    rgba(10, 5, 28, 0.92)
+src/app/(portal)/light-dashboard/dashboard.css:38:  border: 1px solid rgba(255, 255, 255, 0.05);
+src/app/(portal)/light-dashboard/dashboard.css:68:    linear-gradient(90deg, rgba(96, 5, 141, 0.3), rgba(248, 208, 17, 0.3)),
+src/app/(portal)/light-dashboard/dashboard.css:69:    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 10px);
+src/app/(portal)/light-dashboard/dashboard.css:70:  border: 1px solid rgba(248, 208, 17, 0.18);
+src/app/(portal)/light-dashboard/dashboard.css:79:  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.18) 45%, transparent 70%);
+src/app/(portal)/light-dashboard/dashboard.css:91:  background: radial-gradient(circle, rgba(248, 208, 17, 0.4), transparent 70%);
+src/app/(portal)/light-dashboard/dashboard.css:110:    rgba(248, 208, 17, 0.15)
+src/app/(portal)/light-dashboard/dashboard.css:113:    0 0 calc(8px + 14px * var(--power)) rgba(248, 208, 17, 0.55),
+src/app/(portal)/light-dashboard/dashboard.css:114:    0 0 calc(12px + 24px * var(--power)) rgba(96, 5, 141, 0.3),
+src/app/(portal)/light-dashboard/dashboard.css:115:    0 0 calc(5px + 7px * var(--power)) rgba(255, 255, 255, 0.35);
+src/app/(portal)/light-dashboard/dashboard.css:126:  border: 1px solid rgba(248, 208, 17, calc(0.12 + var(--power) * 0.4));
+src/app/(portal)/light-dashboard/dashboard.css:163:  background: rgba(10, 5, 28, 0.90);
+src/app/(portal)/light-dashboard/dashboard.css:180:  background: linear-gradient(90deg, rgba(248, 208, 17, 0.25), transparent);
+src/app/(portal)/light-dashboard/dashboard.css:206:  background: linear-gradient(135deg, rgba(96, 5, 141, 0.3), rgba(248, 208, 17, 0.15));
+src/app/(portal)/light-dashboard/dashboard.css:208:  border-color: rgba(248, 208, 17, 0.4);
+src/app/(portal)/light-dashboard/dashboard.css:209:  box-shadow: 0 0 16px rgba(248, 208, 17, 0.2);
+src/app/(portal)/light-dashboard/dashboard.css:213:  background: linear-gradient(135deg, rgba(248, 208, 17, 0.15), rgba(96, 5, 141, 0.2));
+src/app/(portal)/light-dashboard/dashboard.css:215:  border-color: rgba(96, 5, 141, 0.5);
+src/app/(portal)/light-dashboard/dashboard.css:216:  box-shadow: 0 0 16px rgba(96, 5, 141, 0.2);
+src/app/(portal)/light-dashboard/dashboard.css:222:  border-color: rgba(248, 208, 17, 0.35);
+src/app/(portal)/light-dashboard/dashboard.css:254:  border: 1px solid rgba(255, 255, 255, 0.08);
+src/app/(portal)/light-dashboard/dashboard.css:255:  background: rgba(255, 255, 255, 0.03);
+src/app/(portal)/light-dashboard/dashboard.css:263:  border-color: rgba(248, 208, 17, 0.3);
+src/app/(portal)/light-dashboard/dashboard.css:264:  background: rgba(248, 208, 17, 0.05);
+src/app/(portal)/light-dashboard/dashboard.css:268:  border-color: rgba(248, 208, 17, 0.5);
+src/app/(portal)/light-dashboard/dashboard.css:269:  background: rgba(248, 208, 17, 0.08);

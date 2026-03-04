@@ -8,7 +8,7 @@ export const metadata = {
 export default function NotFound() {
   return (
     <main className="cosmic-page-bg page-shell">
-      <div className="mx-auto flex min-h-[60vh] max-w-[640px] flex-col items-center justify-center px-5 py-16 text-center">
+      <div className="content-wrap--narrow flex min-h-[60vh] flex-col items-center justify-center py-16 text-center">
         <p
           className="text-xs font-bold uppercase tracking-widest"
           style={{ color: "var(--gold-primary)" }}
@@ -34,11 +34,7 @@ export default function NotFound() {
           </Link>
           <Link
             href="/preview"
-            className="rounded-lg px-5 py-2.5 text-sm font-semibold"
-            style={{
-              border: "1px solid var(--gold-primary)",
-              color: "var(--gold-primary)",
-            }}
+            className="cta-secondary text-sm font-semibold"
           >
             Take the Stability Check
           </Link>

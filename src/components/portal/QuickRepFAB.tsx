@@ -54,8 +54,7 @@ export default function QuickRepFAB() {
       {/* Quick-select popover */}
       {open && (
         <div
-          className="fixed bottom-20 right-5 z-50 glass-card p-3 space-y-1.5 w-52"
-          style={{ borderColor: 'var(--surface-border)' }}
+          className="fixed bottom-20 right-5 z-50 glass-card card-border-default p-3 space-y-1.5 w-52"
         >
           <p className="text-xs font-bold uppercase tracking-widest px-2 pb-1" style={{ color: 'var(--gold-primary)' }}>
             Log a Rep
@@ -66,13 +65,7 @@ export default function QuickRepFAB() {
               type="button"
               disabled={saving}
               onClick={() => void logRep(tool.name, tool.label)}
-              className="w-full text-left rounded-lg px-3 py-2 text-sm transition-colors disabled:opacity-50"
-              style={{
-                color: 'var(--text-body)',
-                background: 'transparent',
-              }}
-              onMouseEnter={(e) => { (e.target as HTMLElement).style.background = 'color-mix(in srgb, var(--gold-primary) 10%, transparent)'; }}
-              onMouseLeave={(e) => { (e.target as HTMLElement).style.background = 'transparent'; }}
+              className="w-full text-left rounded-lg px-3 py-2 text-sm text-body transition-colors hover:bg-[color-mix(in_srgb,_var(--gold-primary)_10%,_transparent)] disabled:opacity-50"
             >
               {tool.label}
             </button>
@@ -82,14 +75,7 @@ export default function QuickRepFAB() {
 
       {/* Flash confirmation */}
       {flash && (
-        <div
-          className="fixed bottom-20 right-5 z-50 rounded-xl px-4 py-2 text-sm font-semibold"
-          style={{
-            background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)',
-            border: '1px solid color-mix(in srgb, var(--gold-primary) 30%, transparent)',
-            color: 'var(--gold-primary)',
-          }}
-        >
+        <div className="fixed bottom-20 right-5 z-50 card-border-gold-mid badge-gold-soft rounded-xl border px-4 py-2 text-sm font-semibold">
           {flash} logged
         </div>
       )}
@@ -98,11 +84,7 @@ export default function QuickRepFAB() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform active:scale-95"
-        style={{
-          background: 'var(--gold-primary)',
-          boxShadow: '0 4px 20px color-mix(in srgb, var(--gold-primary) 30%, transparent)',
-        }}
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gold shadow-lg transition-transform active:scale-95"
         aria-label={open ? 'Close rep menu' : 'Quick log a rep'}
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">

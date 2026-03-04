@@ -153,8 +153,7 @@ export default function CueBasedNudge() {
           >
             <Link
               href="/reps"
-              className="glass-card flex items-start gap-3 p-3 transition-all group"
-              style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 15%, transparent)' }}
+              className="glass-card card-border-violet-soft flex items-start gap-3 p-3 transition-all group"
             >
               <span className="text-xl">{nudge.emoji}</span>
               <div className="flex-1 min-w-0">

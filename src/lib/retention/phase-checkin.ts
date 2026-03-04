@@ -84,8 +84,8 @@ export const PHASE_GUIDANCE: Record<DetectedPhase, PhaseGuidance> = {
       "Your system is clear. Full range available. This is where training deepens.",
     repFocus:
       "Stretch into your Bottom Ray today. Try a new tool. Push the edge.",
-    color: "#22C55E",
-    bgColor: "#F0FDF4",
+    color: "var(--status-low)",
+    bgColor: "var(--status-low-bg)",
   },
   gravity_shift: {
     label: "Gravity Shift",
@@ -93,8 +93,8 @@ export const PHASE_GUIDANCE: Record<DetectedPhase, PhaseGuidance> = {
       "Some load showing up. Your range is narrowing. Steady the base before you stretch.",
     repFocus:
       "Anchor with your Top Ray strengths. One clear rep. Keep it grounded.",
-    color: "#EAB308",
-    bgColor: "#FEFCE8",
+    color: "var(--status-moderate)",
+    bgColor: "var(--status-moderate-bg)",
   },
   eclipse_onset: {
     label: "Eclipse Onset",
@@ -102,15 +102,15 @@ export const PHASE_GUIDANCE: Record<DetectedPhase, PhaseGuidance> = {
       "Your system is carrying load. Ground first. One small, specific action.",
     repFocus:
       "Presence Pause or 90-Second Window. Nothing to solve. Just ground.",
-    color: "#F97316",
-    bgColor: "#FFF7ED",
+    color: "var(--status-elevated)",
+    bgColor: "var(--status-elevated-bg)",
   },
   full_eclipse: {
     label: "Full Eclipse",
     message:
       "Recovery first. Your capacity is compressed right now. One grounding action is enough.",
     repFocus: "Feet on the floor. One breath. That counts.",
-    color: "#EF4444",
-    bgColor: "#FEF2F2",
+    color: "var(--status-high)",
+    bgColor: "var(--status-high-bg)",
   },
 };

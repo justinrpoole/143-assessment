@@ -519,7 +519,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
     <form onSubmit={onSubmit} className="glass-card p-5 sm:p-6">
       {/* Sticky progress bar */}
       {runQuestions.length > 0 && (
-        <div className="sticky top-0 z-40 -mx-5 -mt-5 mb-4 rounded-t-2xl px-5 pb-3 pt-4 sm:-mx-6 sm:-mt-6 sm:px-6" style={{ background: 'var(--overlay-heavy)', backdropFilter: 'blur(16px)' }}>
+        <div className="sticky top-0 z-40 -mx-5 -mt-5 mb-4 rounded-t-2xl bg-[var(--overlay-heavy)] px-5 pb-3 pt-4 backdrop-blur-md sm:-mx-6 sm:-mt-6 sm:px-6">
           <div className="flex items-center justify-between text-xs" style={{ color: 'var(--text-on-dark-secondary)' }}>
             <span>{completionLabel}</span>
             <div className="flex items-center gap-3">
@@ -549,7 +549,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
             </div>
             <span>{progressPct}%</span>
           </div>
-          <div className="mt-1.5 h-2 overflow-hidden rounded-full" style={{ background: 'color-mix(in srgb, var(--text-body) 10%, transparent)' }}>
+          <div className="surface-track-mid mt-1.5 h-2 overflow-hidden rounded-full">
             <div
               className="h-full rounded-full bg-gradient-to-r from-brand-purple to-brand-gold transition-all duration-300"
               style={{ width: `${progressPct}%` }}
@@ -581,7 +581,6 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
           style={{
             background: 'linear-gradient(135deg, color-mix(in srgb, var(--gold-primary) 12%, transparent) 0%, color-mix(in srgb, var(--violet-650) 15%, transparent) 100%)',
             border: '1px solid color-mix(in srgb, var(--gold-primary) 30%, transparent)',
-            boxShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 10%, transparent)',
             animation: 'milestonePopIn 400ms ease-out',
           }}
         >
@@ -665,7 +664,7 @@ export function AssessmentRunnerClient({ runId }: AssessmentRunnerClientProps) {
                 >
                   <div
                     className="h-2.5 w-2.5 rounded-full flex-shrink-0"
-                    style={{ background: meta.color, boxShadow: `0 0 8px ${meta.color}50` }}
+                    style={{ background: meta.color }}
                   />
                   <div>
                     <p className="text-xs font-bold uppercase tracking-widest" style={{ color: meta.color }}>

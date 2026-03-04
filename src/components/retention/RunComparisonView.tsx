@@ -144,10 +144,7 @@ export default function RunComparisonView({ runs }: RunComparisonViewProps) {
       )}
 
       {/* Overall summary card */}
-      <div
-        className="glass-card p-4"
-        style={{ borderColor: overallDelta >= 0 ? 'var(--surface-border)' : 'var(--surface-border)' }}
-      >
+      <div className="glass-card p-4">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>

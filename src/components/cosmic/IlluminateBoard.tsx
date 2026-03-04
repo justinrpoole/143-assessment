@@ -1,12 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { RAY_SHORT_NAMES } from "@/lib/types";
 import { rayHex } from "@/lib/ui/ray-colors";
 
 const RAY_KEYS = ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9"] as const;
-
-type RayKey = typeof RAY_KEYS[number];
 
 interface IlluminateBoardProps {
   rayScores?: Record<string, number>;
@@ -89,7 +88,6 @@ export default function IlluminateBoard({
       vy: number;
       age: number;
       life: number;
-      hue: number;
     }> = [];
 
     const positions = targetsRef.current.map((x) => ({ x, vx: 0 }));
@@ -104,7 +102,7 @@ export default function IlluminateBoard({
       canvas.height = Math.floor(height * dpr);
     }
 
-    function emitParticle(x: number, y: number, hue: number) {
+    function emitParticle(x: number, y: number) {
       if (reducedMotion) return;
       for (let i = 0; i < 2; i += 1) {
         particles.push({
@@ -114,12 +112,11 @@ export default function IlluminateBoard({
           vy: Math.random() * 24 - 12,
           age: 0,
           life: 0.6 + Math.random() * 0.3,
-          hue,
         });
       }
     }
 
-    function updateDot(index: number, x: number, y: number, cross: number, hue: number) {
+    function updateDot(index: number, x: number, y: number, cross: number) {
       const dot = dotRefs.current[index];
       const moon = moonRefs.current[index];
       const sun = sunRefs.current[index];
@@ -130,7 +127,6 @@ export default function IlluminateBoard({
       moon.style.opacity = String(1 - cross);
       sun.style.opacity = String(cross);
       glow.style.opacity = String(0.25 + cross * 0.5);
-      glow.style.boxShadow = `0 0 20px var(--surface-border)`;
     }
 
     function renderParticles(dt: number) {
@@ -191,12 +187,10 @@ export default function IlluminateBoard({
         }
 
         const cross = clamp((v - 45) / 10, 0, 1);
-        const hue = 265 + cross * (45 - 265);
-
         const px = pos.x * scaleX;
         const py = railY(i) * scaleY;
-        updateDot(i, px, py, cross, hue);
-        emitParticle(px, py, hue);
+        updateDot(i, px, py, cross);
+        emitParticle(px, py);
       }
 
       renderParticles(dt);
@@ -250,7 +244,6 @@ export default function IlluminateBoard({
           const value = values[index] ?? 0;
           const y = railY(index);
           const x = valueToX(value);
-          const cross = clamp((value - 45) / 10, 0, 1);
           const color = rayHex(key);
 
           return (
@@ -370,21 +363,25 @@ export default function IlluminateBoard({
                 glowRefs.current[index] = el;
               }}
             />
-            <img
+            <Image
               ref={(el) => {
                 moonRefs.current[index] = el;
               }}
               className="console-dot-moon"
               src="/marketing/Purple-Moon-143.svg"
               alt=""
+              width={28}
+              height={28}
             />
-            <img
+            <Image
               ref={(el) => {
                 sunRefs.current[index] = el;
               }}
               className="console-dot-sun"
               src="/marketing/Sun-143.svg"
               alt=""
+              width={28}
+              height={28}
             />
           </div>
         ))}

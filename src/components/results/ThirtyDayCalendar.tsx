@@ -198,13 +198,13 @@ export default function ThirtyDayCalendar({
 
       {/* Plan text below calendar */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div className="glass-card p-3" style={{ borderLeft: '3px solid color-mix(in srgb, var(--gold-primary) 40%, transparent)' }}>
+        <div className="glass-card p-3 card-border-left-gold">
           <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
             Week 1 — Install
           </p>
           <p className="text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>{week1}</p>
         </div>
-        <div className="glass-card p-3" style={{ borderLeft: '3px solid color-mix(in srgb, var(--stroke-400) 40%, transparent)' }}>
+        <div className="glass-card p-3 card-border-left-stroke">
           <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: 'color-mix(in srgb, var(--stroke-400) 80%, transparent)' }}>
             Weeks 2-4 — Build
           </p>

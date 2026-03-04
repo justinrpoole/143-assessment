@@ -682,7 +682,7 @@ export default async function PricingPage() {
         <FadeInSection>
           <section id="cta" className="content-wrap--narrow">
             <ConicBorderCard glow>
-            <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
+            <div className="glass-card p-8 text-center space-y-5 card-border-none">
               <p
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: "var(--gold-primary)" }}

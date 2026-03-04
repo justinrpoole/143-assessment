@@ -35,15 +35,9 @@ export default function IdentityStory({ lightSignature, eclipse, rays }: Props) 
       {/* Identity Headline */}
       <div
         className="rounded-2xl overflow-hidden"
-        style={{ boxShadow: 'var(--shadow-glow-md)' }}
       >
         <div
-          className="px-6 py-10 text-center"
-          style={{
-            background:
-              'linear-gradient(135deg, var(--bg-deep-mid) 0%, var(--surface-border) 50%, var(--bg-deep) 100%)',
-            borderBottom: '1px solid var(--surface-border)',
-          }}
+          className="panel-gradient-mid border-bottom-surface px-6 py-10 text-center"
         >
           <p
             className="text-xs tracking-widest uppercase mb-3"
@@ -70,10 +64,7 @@ export default function IdentityStory({ lightSignature, eclipse, rays }: Props) 
         </div>
 
         {/* Narrative Story — The Heart of the Component */}
-        <div
-          className="px-6 py-6 space-y-4"
-          style={{ background: 'var(--surface-glass)' }}
-        >
+        <div className="surface-glass-fill px-6 py-6 space-y-4">
           {/* Paragraph 1: What is working */}
           <p
             className="text-sm leading-relaxed"

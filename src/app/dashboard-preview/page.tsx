@@ -13,12 +13,14 @@ const DEMO_SCORES = {
 
 export default function DashboardPreviewPage() {
   return (
-    <div style={{ minHeight: "100vh", background: "var(--text-body)", padding: "24px" }}>
-      <IlluminateDashboard
-        scores={DEMO_SCORES}
-        eclipseLevel={28}
-        phase="DAWN"
-      />
-    </div>
+    <main className="cosmic-page-bg page-shell">
+      <div className="content-wrap py-6 sm:py-10">
+        <IlluminateDashboard
+          scores={DEMO_SCORES}
+          eclipseLevel={28}
+          phase="DAWN"
+        />
+      </div>
+    </main>
   );
 }

@@ -1,0 +1,53 @@
+src/components/marketing/LightCheckOrchestrator.tsx:47:      <section className="glass-card p-6 sm:p-8 max-w-[720px] mx-auto space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+src/components/retention/RepLogClient.tsx:545:            <div className="glass-card p-4 space-y-3 text-left" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+src/components/retention/RepLogClient.tsx:568:            <div className="glass-card p-4 mt-4" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+src/components/retention/RepLogClient.tsx:576:            <div className="glass-card p-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+src/components/retention/RepLogClient.tsx:785:        <div className="glass-card p-6 space-y-5" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+src/components/retention/RepLogClient.tsx:951:        <div className="glass-card p-6 space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+src/components/retention/RepLogClient.tsx:971:      <div className="glass-card p-5 space-y-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+src/components/retention/RepLogClient.tsx:1044:        <div className="glass-card p-3 flex items-center gap-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
+src/components/retention/MorningEntryClient.tsx:131:      <div className="glass-card p-5 space-y-2" style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)" }}>
+src/components/enterprise/EnterpriseSalesPage.tsx:167:        <div className="glass-card p-8 space-y-4" style={{ borderTop: '2px solid var(--gold-primary)', borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
+src/components/enterprise/EnterpriseSalesPage.tsx:200:          <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--gold-primary)' }}>
+src/components/retention/RasCheckIn.tsx:63:      <div className="glass-card p-5 space-y-3" style={{ borderColor: `${rayHex(selectedRay as `R${1|2|3|4|5|6|7|8|9}`)}25` }}>
+src/components/assessment/RegulationBaselineCard.tsx:76:      <div className="glass-card p-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
+src/components/results/ThirtyDayCalendar.tsx:201:        <div className="glass-card p-3" style={{ borderLeft: '3px solid color-mix(in srgb, var(--gold-primary) 40%, transparent)' }}>
+src/components/results/ThirtyDayCalendar.tsx:207:        <div className="glass-card p-3" style={{ borderLeft: '3px solid color-mix(in srgb, var(--stroke-400) 40%, transparent)' }}>
+src/components/assessment/ResultsClient.tsx:125:      <div className="glass-card p-6" style={{ borderColor: 'var(--surface-border)' }}>
+src/components/assessment/ResultsClient.tsx:337:        <div id="section-actions" className="glass-card p-6 space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+src/components/assessment/ResultsClient.tsx:401:          <div className="glass-card p-5" style={{ borderColor: 'var(--surface-border)' }}>
+src/app/admin/audit/page.tsx:22:        <header className="glass-card mb-6 p-6 sm:p-8" style={{ borderTop: '2px solid var(--gold-primary)' }}>
+src/components/retention/IfThenPlanClient.tsx:161:            <div className="glass-card p-4 space-y-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+src/components/retention/ToolkitClient.tsx:210:      <div className="glass-card p-5 space-y-2" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 30%, transparent)' }}>
+src/components/retention/ToolkitClient.tsx:341:                        <div className="glass-card p-3" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 20%, transparent)' }}>
+src/app/(marketing)/pricing/page.tsx:685:            <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
+src/components/assessment/ReportClient.tsx:476:      <div className="glass-card p-6" style={{ borderColor: "var(--surface-border)" }}>
+src/components/results/WhyThisMatters.tsx:119:            <div key={ray.ray_id} className="glass-card p-4" style={{ borderLeft: `3px solid ${isEclipsed ? 'var(--text-body)' : `${rc}40`}` }}>
+src/components/portal/EclipseCalendarHeatmap.tsx:115:    <div className="glass-card p-5 space-y-3" style={{ borderTop: '2px solid var(--gold-primary)' }}>
+src/components/results/BottomRay.tsx:43:      <div className="glass-card p-6" style={{ border: `2px solid ${rayHex(justInRay.ray_id)}30` }}>
+src/components/assessment/SampleReportClient.tsx:699:        <div className="glass-card p-5" style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}>
+src/components/assessment/SampleReportClient.tsx:757:        <div className="glass-card p-5" style={{ borderColor: "var(--surface-border)" }}>
+src/components/assessment/SampleReportClient.tsx:956:        <div className="glass-card p-6 space-y-4" style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)" }}>
+src/app/(marketing)/about/page.tsx:200:                  <div className="glass-card glass-card--magnetic flex items-start gap-3 p-4 check-animated" style={{ animationDelay: `${idx * 0.1}s`, borderLeft: `2px solid ${rayHex(cycleRay(idx))}40` }}>
+src/app/(marketing)/about/page.tsx:335:                  <div key={item.label} className="glass-card glass-card--magnetic p-3" style={{ borderTop: `2px solid ${rayHex(item.rayKey)}30` }}>
+src/app/(marketing)/about/page.tsx:488:            <div className="glass-card p-8 text-center space-y-5" style={{ border: 'none' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:128:          <div className="glass-card p-7" style={{ borderLeft: '3px solid var(--surface-border)', background: 'var(--surface-border)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:156:          <div className="glass-card p-7" style={{ borderLeft: '3px solid color-mix(in srgb, var(--gold-primary) 50%, transparent)', background: 'var(--surface-border)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:458:            <div key={item.q} className="glass-card glass-card--lift glass-card--executive glass-card--magnetic p-5" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:524:            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:535:            <div className="glass-card glass-card--lift p-5" style={{ borderLeft: '3px solid var(--text-body)' }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:639:            <div key={item} className="glass-card glass-card--lift glass-card--magnetic flex items-start gap-3 p-4" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
+src/app/(marketing)/upgrade-your-os/page.tsx:667:            <div key={t.attribution} className="glass-card glass-card--magnetic testimonial-card p-5 pl-6" style={{ borderLeft: `3px solid ${color}40`, background: `${color}04` }}>
+src/components/quiz/ArchetypeQuizClient.tsx:285:            <div className="glass-card p-8 text-center space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
+src/components/portal/LightDashboardClient.tsx:428:        <div className="glass-card card-border-accent p-5" style={{ '--card-accent': 'color-mix(in srgb, var(--violet-650) 35%, transparent)' } as { ['--card-accent']: string }}>
+src/components/admin/AdminAuditClient.tsx:126:      <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--gold-primary)' }}>
+src/app/(marketing)/resources/page.tsx:81:              <article key={resource.title} className="glass-card glass-card--magnetic glass-card--lift p-6 flex flex-col" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
+src/app/(marketing)/be-the-light/page.tsx:161:            <div className="glass-card glass-card--magnetic p-6 sm:p-8 space-y-5" style={{ borderLeft: `3px solid ${rayHex('R3')}40`, background: `${rayHex('R3')}06` }}>
+src/app/(marketing)/be-the-light/page.tsx:307:            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4" style={{ borderTop: `2px solid ${rayHex('R3')}30` }}>
+src/app/(marketing)/be-the-light/page.tsx:377:                  <div className="glass-card glass-card--lift p-5 space-y-1" style={{ borderLeft: `3px solid ${color}40`, background: `${color}06` }}>
+src/app/(marketing)/be-the-light/page.tsx:415:            <div className="glass-card glass-card--magnetic p-6 sm:p-8 space-y-4" style={{ borderTop: `2px solid ${rayHex('R9')}30` }}>
+src/app/(marketing)/tools/page.tsx:67:              <div className="glass-card h-full rounded-2xl p-5" style={{ borderTop: `2px solid ${tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray)}` }}>
+src/app/(marketing)/upgrade/page.tsx:205:                  <div className="glass-card glass-card--magnetic p-5 space-y-2 h-full" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
+src/app/(marketing)/upgrade/page.tsx:268:                  <div className="glass-card glass-card--magnetic p-5 space-y-2 h-full" style={{ borderTop: `2px solid ${rayHex(cycleRay(i))}` }}>
+src/components/results/RayDetailDrawer.tsx:114:            <div className="glass-card p-4 space-y-2" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}>
+src/components/results/RayDetailDrawer.tsx:204:    <div className="glass-card p-3 text-center space-y-0.5" style={{ borderColor: `${color}20` }}>

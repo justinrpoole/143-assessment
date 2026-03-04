@@ -414,7 +414,7 @@ export default function LightDashboardClient() {
           <button type="button" className="ld-action-btn ghost" onClick={() => openPanel('reps')}>
             Log Reps
           </button>
-          <div className="ml-auto flex flex-col items-end gap-0.5 px-3 py-2 rounded-lg" style={{ background: 'var(--surface-border)', border: '1px solid color-mix(in srgb, var(--text-body) 6%, transparent)' }}>
+          <div className="surface-border-fill ml-auto flex flex-col items-end gap-0.5 px-3 py-2 rounded-lg">
             <div className="ld-reps-count">{repsToday}</div>
             <div className="text-[10px] uppercase tracking-widest" style={{ color: 'var(--text-on-dark-muted)' }}>
               Reps today
@@ -425,7 +425,7 @@ export default function LightDashboardClient() {
 
       {/* Insight Card */}
       <FadeInSection delay={0.2}>
-        <div className="glass-card p-5" style={{ borderColor: 'color-mix(in srgb, var(--violet-650) 35%, transparent)' }}>
+        <div className="glass-card card-border-violet-mid p-5">
           <div className="ld-insight-label">This week</div>
           <p className="mt-2 text-sm" style={{ color: 'var(--text-on-dark)' }}>
             {insightText}
@@ -476,7 +476,7 @@ export default function LightDashboardClient() {
                         {ray.label}
                       </span>
                       {isTop && (
-                        <span className="text-[9px] px-1.5 py-0.5 rounded-full uppercase tracking-wide" style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}>
+                        <span className="badge-gold-soft text-[9px] px-1.5 py-0.5 rounded-full uppercase tracking-wide">
                           top
                         </span>
                       )}
@@ -499,19 +499,19 @@ export default function LightDashboardClient() {
       {/* Quick Nav */}
       <FadeInSection delay={0.3}>
         <div className="flex flex-wrap gap-3">
-          <Link href="/portal" className="glass-card px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform" style={{ color: 'var(--text-on-dark-secondary)' }}>
+          <Link href="/portal" className="glass-card text-secondary px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform">
             Portal
           </Link>
           {lastRunId ? (
-            <Link href={`/results?run_id=${encodeURIComponent(lastRunId)}`} className="glass-card px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            <Link href={`/results?run_id=${encodeURIComponent(lastRunId)}`} className="glass-card text-secondary px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform">
               Open Report
             </Link>
           ) : (
-            <Link href="/results" className="glass-card px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            <Link href="/results" className="glass-card text-secondary px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform">
               Open Report
             </Link>
           )}
-          <Link href="/reps" className="glass-card px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform" style={{ color: 'var(--text-on-dark-secondary)' }}>
+          <Link href="/reps" className="glass-card text-secondary px-4 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform">
             Rep History
           </Link>
         </div>
@@ -527,12 +527,8 @@ export default function LightDashboardClient() {
           aria-label={panelMode === 'reps' ? 'Log a rep' : `${panelMode === 'watch' ? 'Watch Me' : 'Go First'} coaching`}
         >
           <div
-            className="w-full max-w-lg rounded-2xl p-6 relative overflow-hidden"
-            style={{
-              background: 'linear-gradient(180deg, var(--surface-border), var(--surface-border))',
-              border: '1px solid color-mix(in srgb, var(--gold-primary) 25%, transparent)',
-              boxShadow: '0 0 40px color-mix(in srgb, var(--gold-primary) 12%, transparent)',
-            }}
+            className="surface-border-fill card-border-accent w-full max-w-lg rounded-2xl p-6 relative overflow-hidden"
+            style={{ '--card-accent': 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' } as { ['--card-accent']: string }}
           >
             {/* Panel Header */}
             <div className="flex items-start justify-between mb-5">
@@ -565,12 +561,7 @@ export default function LightDashboardClient() {
                     value={repNote}
                     onChange={(e) => setRepNote(e.target.value)}
                     placeholder="One line. Name the rep."
-                    className="w-full rounded-lg px-3 py-2.5 text-sm resize-none"
-                    style={{
-                      background: 'var(--surface-border)',
-                      border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
-                      color: 'var(--text-on-dark)',
-                    }}
+                    className="field-soft w-full rounded-lg px-3 py-2.5 text-sm resize-none"
                   />
                   <button
                     type="button"
@@ -590,8 +581,7 @@ export default function LightDashboardClient() {
                       {recentReps.map((rep, i) => (
                         <li
                           key={i}
-                          className="text-xs px-3 py-2 rounded-lg"
-                          style={{ background: 'color-mix(in srgb, var(--text-body) 4%, transparent)', color: 'var(--text-on-dark-muted)' }}
+                          className="badge-soft-muted text-xs px-3 py-2 rounded-lg"
                         >
                           {new Date(rep.ts).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })} — {rep.note}
                         </li>
@@ -669,7 +659,7 @@ export default function LightDashboardClient() {
                 <ul className="space-y-3">
                   {prompt.steps.map((step, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm" style={{ color: 'var(--text-on-dark)' }}>
-                      <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full grid place-items-center text-[10px] font-bold" style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', color: 'var(--brand-gold)' }}>
+                      <span className="badge-gold-soft shrink-0 mt-0.5 w-5 h-5 rounded-full grid place-items-center text-[10px] font-bold">
                         {i + 1}
                       </span>
                       {step}

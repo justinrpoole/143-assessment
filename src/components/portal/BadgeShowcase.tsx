@@ -105,12 +105,12 @@ export default function BadgeShowcase({
         {badges.map((badge) => (
           <div
             key={badge.id}
-            className={`flex items-center gap-2 rounded-lg px-3 py-2 transition-opacity ${badge.earned ? 'glass-card--interactive' : ''}`}
+            className={`card-bg-var card-border-var flex items-center gap-2 rounded-lg px-3 py-2 transition-opacity ${badge.earned ? 'glass-card--interactive' : ''}`}
             style={{
-              background: badge.earned ? 'var(--surface-border)' : 'color-mix(in srgb, var(--violet-650) 8%, transparent)',
-              border: `1px solid ${badge.earned ? 'var(--surface-border)' : 'color-mix(in srgb, var(--stroke-400) 12%, transparent)'}`,
+              '--card-bg': badge.earned ? 'var(--surface-border)' : 'color-mix(in srgb, var(--violet-650) 8%, transparent)',
+              '--card-border': `1px solid ${badge.earned ? 'var(--surface-border)' : 'color-mix(in srgb, var(--stroke-400) 12%, transparent)'}`,
               opacity: badge.earned ? 1 : 0.4,
-            }}
+            } as { ['--card-bg']: string; ['--card-border']: string; opacity: number }}
             title={badge.earned ? `${badge.name}: ${badge.description}` : `Locked: ${badge.description}`}
           >
             <span className="text-lg" aria-hidden="true">{badge.icon}</span>

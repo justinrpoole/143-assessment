@@ -646,7 +646,7 @@ export default function SolarCoreScore({
               initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }} transition={{ duration: anim ? 0.15 : 0 }}
               className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-xl px-5 py-3 text-center pointer-events-none"
-              style={{ background: 'var(--overlay-heavy)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', boxShadow: 'var(--shadow-depth)' }}
+              style={{ background: 'var(--overlay-heavy)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
               role="tooltip"
             >
               <p className="text-xs tracking-wide uppercase"
@@ -700,7 +700,7 @@ export default function SolarCoreScore({
             exit={anim ? { opacity: 0, y: 16 } : { opacity: 0 }}
             transition={anim ? { duration: 0.25, ease: 'easeOut' } : { duration: 0 }}
             className="rounded-2xl overflow-hidden"
-            style={{ background: 'var(--overlay-heavy)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', boxShadow: 'var(--shadow-glow-md)' }}
+            style={{ background: 'var(--overlay-heavy)', border: '1px solid var(--surface-border)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
           >
             <div className="p-5">
               {/* Header row */}

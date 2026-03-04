@@ -293,13 +293,13 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                 <rect x="0" y="0" width={CENTER * 2} height={CENTER * 2} fill="white" />
                 {anim ? (
                   <motion.circle
-                    cx={moonTargetX} cy={CENTER} r={SUN_RADIUS + 4} fill="black"
+                    cx={moonTargetX} cy={CENTER} r={SUN_RADIUS + 4} fill="var(--ink-950)"
                     initial={{ cx: CENTER + SUN_RADIUS * 3 }}
                     animate={{ cx: moonTargetX }}
                     transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 }}
                   />
                 ) : (
-                  <circle cx={moonTargetX} cy={CENTER} r={SUN_RADIUS + 4} fill="black" />
+                  <circle cx={moonTargetX} cy={CENTER} r={SUN_RADIUS + 4} fill="var(--ink-950)" />
                 )}
               </mask>
 
@@ -663,7 +663,6 @@ export default function EclipseMeter({ eclipse }: EclipseMeterProps) {
                 className="inline-block h-2 w-2 rounded-full"
                 style={{
                   background: LEVEL_COLORS[lvl],
-                  boxShadow: eclipse.level === lvl ? `0 0 6px ${LEVEL_COLORS[lvl]}` : 'none',
                 }}
               />
               <span style={{

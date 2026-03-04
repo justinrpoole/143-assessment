@@ -54,14 +54,16 @@ export default function ArchetypeShareCard({
       aria-modal="true"
       aria-label={`Share ${archetype.name}`}
     >
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
       <div
-        className="glass-card glass-card--glow relative w-full max-w-sm rounded-3xl p-8 text-center space-y-5"
+        className="absolute inset-0 backdrop-blur-sm"
+        style={{ background: "color-mix(in srgb, var(--ink-950) 60%, transparent)" }}
+      />
+      <div
+        className="glass-card glass-card--glow card-bg-var card-border-var relative w-full max-w-sm rounded-3xl p-8 text-center space-y-5"
         style={{
-          background:
-            'linear-gradient(135deg, var(--surface-border) 0%, var(--surface-border) 100%)',
-          border: `2px solid ${archetype.neon_color}40`,
-        }}
+          '--card-bg': 'linear-gradient(135deg, var(--surface-border) 0%, var(--surface-border) 100%)',
+          '--card-border': `2px solid ${archetype.neon_color}40`,
+        } as { ['--card-bg']: string; ['--card-border']: string }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Identity code */}

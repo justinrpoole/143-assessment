@@ -44,7 +44,7 @@ export default function LightCheckOrchestrator() {
 
   if (!gateOpen) {
     return (
-      <section className="glass-card p-6 sm:p-8 max-w-[720px] mx-auto space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
+      <section className="glass-card p-6 sm:p-8 max-w-[720px] mx-auto space-y-4 card-border-gold-soft">
         <p className="text-xs uppercase tracking-widest font-bold" style={{ color: 'var(--gold-primary)' }}>Start free stability check</p>
         <h3 className="text-xl font-semibold" style={{ color: 'var(--text-body)' }}>
           Enter your name and email to unlock your 3-question check.

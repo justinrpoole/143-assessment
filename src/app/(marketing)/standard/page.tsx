@@ -17,7 +17,7 @@ import RayDivider from "@/components/ui/RayDivider";
 import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
-import { NEON, neonText, neonHalo } from '@/lib/ui/neon';
+import { NEON, neonText } from '@/lib/ui/neon';
 
 export const dynamic = "force-dynamic";
 
@@ -184,11 +184,8 @@ export default async function StandardPage() {
                 {PRINCIPLES.map((p, i) => { const color = rayHex(cycleRay(i)); return (
                   <StaggerItem key={p.number}>
                     <div
-                      className="glass-card glass-card--magnetic p-5"
-                      style={{
-                        borderLeft: `3px solid ${color}40`,
-                        background: `${color}04`,
-                      }}
+                      className="glass-card glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle p-5"
+                      style={{ '--card-accent': color } as { ['--card-accent']: string }}
                     >
                       <div className="flex items-baseline gap-3">
                         <span
@@ -369,8 +366,7 @@ export default async function StandardPage() {
           <section className="content-wrap--narrow">
             <ConicBorderCard glow>
               <div
-                className="glass-card p-8 text-center space-y-5"
-                style={{ border: "none" }}
+                className="glass-card card-border-none p-8 text-center space-y-5"
               >
                 <h2
                   className="text-2xl font-bold"

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { FadeInSection, StaggerContainer, StaggerItem } from "@/components/ui/FadeInSection";
 import { rayHex } from "@/lib/ui/ray-colors";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
@@ -62,9 +61,12 @@ export default async function ToolsPage() {
       {/* Tool grid */}
       <section className="content-wrap--wide px-5 pb-8 sm:px-8">
         <StaggerContainer className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {TOOLS.map((tool, i) => (
+          {TOOLS.map((tool) => (
             <StaggerItem key={tool.num}>
-              <div className="glass-card h-full rounded-2xl p-5" style={{ borderTop: `2px solid ${tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray)}` }}>
+              <div
+                className="glass-card card-border-top-accent p-5 h-full rounded-2xl"
+                style={{ '--card-accent': tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray) } as { ['--card-accent']: string }}
+              >
                 <div className="flex items-start justify-between gap-3">
                   <span className="text-xs font-bold opacity-40" style={{ color: "var(--text-body)" }}>{tool.num}</span>
                   <span className="rounded-full px-2 py-0.5 text-xs font-bold" style={{ background: `${tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray)}22`, color: tool.ray === "ALL" ? rayHex("R9") : rayHex(tool.ray) }}>

@@ -253,7 +253,6 @@ function StageRayCascade({ rays }: { rays: RevealRay[] }) {
           width: 8, height: 8,
           borderRadius: '50%',
           background: 'var(--gold-primary)',
-          boxShadow: '0 0 30px color-mix(in srgb, var(--gold-primary) 60%, transparent), 0 0 80px color-mix(in srgb, var(--gold-primary) 30%, transparent)',
         }}
       />
 
@@ -300,7 +299,6 @@ function StageRayCascade({ rays }: { rays: RevealRay[] }) {
                 top: '50%', left: '50%',
                 transform: 'translate(-50%, -50%)',
                 background: `radial-gradient(circle, ${ray.hex}22 0%, transparent 70%)`,
-                boxShadow: `0 0 ${isTop ? 50 : 28}px ${ray.hex}${isTop ? '55' : '33'}`,
               }}
             />
 
@@ -312,7 +310,6 @@ function StageRayCascade({ rays }: { rays: RevealRay[] }) {
                 borderRadius: '50%',
                 background: `radial-gradient(circle at 38% 38%, ${ray.hex}cc 0%, ${ray.hex}55 45%, ${ray.hex}18 70%, transparent 100%)`,
                 border: `1px solid ${ray.hex}55`,
-                boxShadow: `0 0 ${isTop ? 40 : 18}px ${ray.hex}55`,
               }}
             />
 
@@ -563,7 +560,6 @@ function StageBeamConnections({ beamRays }: { beamRays: RevealRay[] }) {
               borderRadius: '50%',
               background: `radial-gradient(circle at 38% 38%, ${ray.hex}cc 0%, ${ray.hex}55 45%, ${ray.hex}18 70%, transparent 100%)`,
               border: `1.5px solid ${ray.hex}66`,
-              boxShadow: `0 0 48px ${ray.hex}55, 0 0 96px ${ray.hex}28`,
             }}
           />
           {/* Name */}
@@ -806,7 +802,6 @@ export default function LightSignatureReveal({ output, runId, onComplete }: Prop
                 background: i === stage
                   ? 'var(--gold-primary)'
                   : 'color-mix(in srgb, var(--text-body) 18%, transparent)',
-                boxShadow: i === stage ? '0 0 10px color-mix(in srgb, var(--gold-primary) 45%, transparent)' : 'none',
                 transition: 'all 0.4s ease',
               }}
             />

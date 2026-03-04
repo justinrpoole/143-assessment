@@ -29,11 +29,8 @@ export default function ScoreMovementChart() {
   return (
     <div className="space-y-5">
       <div
-        className="rounded-2xl p-5 sm:p-7 relative overflow-hidden"
+        className="glass-card rounded-2xl p-5 sm:p-7 relative overflow-hidden"
         style={{
-          background: "var(--bg-deep)",
-          border: "1px solid var(--surface-border)",
-          boxShadow: "var(--shadow-glow-cyan)",
           fontFamily: "var(--font-cosmic-display)",
         }}
       >
@@ -52,7 +49,7 @@ export default function ScoreMovementChart() {
             <p className="mt-1 text-xs text-secondary">Hover to see story behind each point</p>
           </div>
           <div className="text-right">
-            <p className="text-3xl font-bold tabular-nums text-header" style={{ fontFamily: "var(--font-cosmic-display)", textShadow: "var(--text-gold-glow)" }}>
+            <p className="text-gold-glow text-3xl font-bold tabular-nums text-header" style={{ fontFamily: "var(--font-cosmic-display)" }}>
               {activeWeek ? activeWeek.score : WEEKS[WEEKS.length - 1].score}
             </p>
             <p className="text-[10px] text-neon-cyan" style={{ fontFamily: "var(--font-cosmic-display)" }}>
@@ -119,11 +116,7 @@ export default function ScoreMovementChart() {
         </div>
 
         <div
-          className="mt-3 rounded-lg px-4 py-2.5 text-center relative z-10"
-          style={{
-            background: "color-mix(in srgb, var(--ink-950) 60%, transparent)",
-            border: "1px solid color-mix(in srgb, var(--neon-cyan) 35%, transparent)",
-          }}
+          className="surface-ink-soft mt-3 rounded-lg px-4 py-2.5 text-center relative z-10"
         >
           <p className="text-sm text-neon-cyan" style={{ fontFamily: "var(--font-cosmic-display)" }}>
             {activeWeek ? `Week ${activeWeek.week}: ${activeWeek.note}` : 'Hover a data point to inspect the signal'}

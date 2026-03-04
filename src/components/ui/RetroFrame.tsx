@@ -34,13 +34,6 @@ export default function RetroFrame({
       style={{
         background: 'linear-gradient(180deg, var(--surface-border) 0%, var(--surface-border) 50%, var(--surface-border) 100%)',
         border: `1px solid color-mix(in srgb, ${accent} 25%, transparent)`,
-        boxShadow: `
-          inset 0 0 40px color-mix(in srgb, var(--ink-950) 60%, transparent),
-          inset 0 0 80px color-mix(in srgb, var(--ink-950) 20%, transparent),
-          0 0 15px color-mix(in srgb, ${accent} 8%, transparent),
-          0 2px 8px color-mix(in srgb, var(--ink-950) 40%, transparent),
-          inset 0 1px 0 color-mix(in srgb, var(--text-body) 3%, transparent)
-        `,
       }}
     >
       {/* ── Top edge highlight ── */}
@@ -83,7 +76,7 @@ export default function RetroFrame({
           >
             <span
               className="inline-block w-1.5 h-1.5 rounded-full"
-              style={{ background: accent, boxShadow: `0 0 4px ${accent}` }}
+              style={{ background: accent }}
             />
             {label}
           </div>

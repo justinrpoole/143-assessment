@@ -99,11 +99,11 @@ export default function StarChart() {
 
   return (
     <section
-      className="glass-card p-5 sm:p-6"
+      className="glass-card card-bg-var card-border-color-var p-5 sm:p-6"
       style={{
-        background: "linear-gradient(180deg, var(--bg-deep), color-mix(in srgb, var(--bg-deep) 92%, transparent))",
-        borderColor: "var(--surface-border)",
-      }}
+        '--card-bg': "linear-gradient(180deg, var(--bg-deep), color-mix(in srgb, var(--bg-deep) 92%, transparent))",
+        '--card-border': "var(--surface-border)",
+      } as { ['--card-bg']: string; ['--card-border']: string }}
     >
       <h3 className="text-sm font-semibold uppercase tracking-wider mb-3 text-header">
         Star Chart

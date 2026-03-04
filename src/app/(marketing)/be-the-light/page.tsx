@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import CosmicImage from "@/components/marketing/CosmicImage";
 import {
@@ -158,7 +157,10 @@ export default async function BeTheLightPage() {
         {/* ─── SECTION 2 · SELF-RECOGNITION ───────────────────── */}
         <FadeInSection blur>
           <section className="content-wrap--narrow">
-            <div className="glass-card glass-card--magnetic p-6 sm:p-8 space-y-5" style={{ borderLeft: `3px solid ${rayHex('R3')}40`, background: `${rayHex('R3')}06` }}>
+            <div
+              className="glass-card glass-card--magnetic card-border-left-accent-soft card-surface-accent-soft p-6 sm:p-8 space-y-5"
+              style={{ '--card-accent': rayHex('R3') } as { ['--card-accent']: string }}
+            >
               <p
                 className="text-sm font-semibold leading-relaxed"
                 style={{ color: rayHex('R3') }}
@@ -259,11 +261,8 @@ export default async function BeTheLightPage() {
                 return (
                 <StaggerItem key={item.label}>
                   <div
-                    className="glass-card glass-card--magnetic p-5"
-                    style={{
-                      borderLeft: `3px solid ${color}40`,
-                      background: `${color}06`,
-                    }}
+                    className="glass-card glass-card--magnetic card-border-left-accent-soft card-surface-accent-soft p-5"
+                    style={{ '--card-accent': color } as { ['--card-accent']: string }}
                   >
                     <p
                       className="text-sm font-semibold"
@@ -304,7 +303,10 @@ export default async function BeTheLightPage() {
         {/* ─── ECLIPSE IS NOT FAILURE (#14) ──────────────────── */}
         <FadeInSection blur>
           <section className="content-wrap--narrow">
-            <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4" style={{ borderTop: `2px solid ${rayHex('R3')}30` }}>
+            <div
+              className="glass-card glass-card--executive card-border-top-accent-soft p-6 sm:p-8 space-y-4"
+              style={{ '--card-accent': rayHex('R3') } as { ['--card-accent']: string }}
+            >
               <p
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: rayHex('R3') }}
@@ -374,7 +376,10 @@ export default async function BeTheLightPage() {
                 const color = rayHex(item.rayKey);
                 return (
                 <StaggerItem key={item.signature}>
-                  <div className="glass-card glass-card--lift p-5 space-y-1" style={{ borderLeft: `3px solid ${color}40`, background: `${color}06` }}>
+                  <div
+                    className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-soft p-5 space-y-1"
+                    style={{ '--card-accent': color } as { ['--card-accent']: string }}
+                  >
                     <p
                       className="text-sm leading-relaxed"
                       style={{
@@ -412,7 +417,10 @@ export default async function BeTheLightPage() {
         {/* ─── SECTION 6 · THE MEANING ────────────────────────── */}
         <FadeInSection blur>
           <section className="content-wrap--narrow">
-            <div className="glass-card glass-card--magnetic p-6 sm:p-8 space-y-4" style={{ borderTop: `2px solid ${rayHex('R9')}30` }}>
+            <div
+              className="glass-card glass-card--magnetic card-border-top-accent-soft p-6 sm:p-8 space-y-4"
+              style={{ '--card-accent': rayHex('R9') } as { ['--card-accent']: string }}
+            >
               <p
                 className="text-xs font-bold uppercase tracking-widest"
                 style={{ color: rayHex('R9') }}

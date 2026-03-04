@@ -239,10 +239,8 @@ export default function ShootingStarActions({ actions, onComplete }: ShootingSta
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 16 }}
               transition={{ duration: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
-              className="glass-card glass-card--glow mt-4 p-4"
-              style={{
-                border: `1.5px solid ${rayColor}`,
-              }}
+              className="glass-card glass-card--glow card-border-var mt-4 p-4"
+              style={{ '--card-border': `1.5px solid ${rayColor}` } as { ['--card-border']: string }}
               role="dialog"
               aria-label={`Action: ${action.action}`}
             >

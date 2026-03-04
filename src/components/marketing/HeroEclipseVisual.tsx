@@ -101,7 +101,7 @@ export default function HeroEclipseVisual({ className }: { className?: string })
           {/* Moon mask — everything under the moon circle gets hidden */}
           <mask id={`${uid}-eclipse-mask`}>
             <rect width={"400"} height={"400"} fill="white" />
-            <circle cx={moonCx} cy={moonCy} r={moonR} fill="black" />
+            <circle cx={moonCx} cy={moonCy} r={moonR} fill="var(--ink-950)" />
           </mask>
         </defs>
 

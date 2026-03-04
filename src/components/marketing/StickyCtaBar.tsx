@@ -44,7 +44,6 @@ export default function StickyCtaBar() {
               style={{
                 background: 'var(--gold-primary)',
                 color: 'var(--ink-950)',
-                boxShadow: '0 0 12px color-mix(in srgb, var(--gold-primary) 20%, transparent)',
               }}
             >
               Start Free

@@ -112,7 +112,7 @@ export default function EclipseCalendarHeatmap() {
   if (days.length < 7) return null; // Need at least a week of data
 
   return (
-    <div className="glass-card p-5 space-y-3" style={{ borderTop: '2px solid var(--gold-primary)' }}>
+    <div className="glass-card p-5 space-y-3 card-border-top-gold">
       <div className="flex items-center justify-between">
         <div>
           <h3

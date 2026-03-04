@@ -8,9 +8,9 @@ interface EmailGateModulePlaceholderProps {
 export function EmailGateModulePlaceholder({ route, message }: EmailGateModulePlaceholderProps) {
   return (
     <section
-      className="glass-card p-6 space-y-4"
+      className="glass-card card-border-var p-6 space-y-4"
       aria-label="Sign in to continue"
-      style={{ borderColor: "color-mix(in srgb, var(--gold-primary) 15%, transparent)" }}
+      style={{ '--card-border': "1px solid color-mix(in srgb, var(--gold-primary) 15%, transparent)" } as { ['--card-border']: string }}
     >
       <div className="flex items-center gap-2">
         <span

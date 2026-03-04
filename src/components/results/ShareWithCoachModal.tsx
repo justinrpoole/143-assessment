@@ -91,8 +91,7 @@ export default function ShareWithCoachModal({ runId, onClose }: ShareWithCoachMo
         onClick={onClose}
       >
         <motion.div
-          className="glass-card w-full max-w-md p-6 space-y-5"
-          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 25%, transparent)' }}
+          className="glass-card card-border-gold-soft w-full max-w-md p-6 space-y-5"
           initial={prefersReduced ? {} : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.1 }}

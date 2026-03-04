@@ -164,7 +164,7 @@ export default function EnterpriseSalesPage() {
       {/* Privacy commitment */}
       <FadeInSection>
       <section className="px-6 py-16 max-w-4xl mx-auto">
-        <div className="glass-card p-8 space-y-4" style={{ borderTop: '2px solid var(--gold-primary)', borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}>
+        <div className="glass-card card-border-gold-mid card-border-top-gold p-8 space-y-4">
           <span className="gold-tag inline-block text-xs font-bold">Privacy commitment</span>
           <h2 className="text-2xl font-bold" style={{ color: 'var(--text-on-dark)' }}>
             Individual scores never surface to managers. That is not a policy. It is architecture.
@@ -197,7 +197,7 @@ export default function EnterpriseSalesPage() {
             <h2 className="text-3xl font-bold" style={{ color: 'var(--text-on-dark)' }}>This is / This is not</h2>
           </div>
 
-          <div className="glass-card overflow-hidden" style={{ borderTop: '2px solid var(--gold-primary)' }}>
+          <div className="glass-card overflow-hidden card-border-top-gold">
             <div className="grid grid-cols-2 text-on-dark text-sm font-semibold" style={{ background: 'linear-gradient(to right, var(--cosmic-purple-gradient), var(--cosmic-purple-vivid))' }}>
               <div className="px-6 py-3">This IS</div>
               <div className="px-6 py-3 border-l border-white/20">This is NOT</div>
