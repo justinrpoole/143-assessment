@@ -1,3 +1,4 @@
+/* Style load order: tailwindcss → tokens.css → cosmic.css → shell.css → lead-engine.css */
 @import "tailwindcss";
 @import "./styles/tokens.css";
 @import "./styles/cosmic.css";
@@ -9,9 +10,10 @@
   --color-body: var(--text-body);
   --color-secondary: var(--text-secondary);
   --color-muted: var(--text-muted);
-  --color-cosmic: var(--bg-deep);
-  --color-surface: var(--surface-700);
+  --color-cosmic: var(--bg-cosmic);
+  --color-surface: var(--bg-surface);
   --color-stroke: var(--stroke-500);
+  --color-surface-border: var(--surface-border);
   --color-gold: var(--gold-primary);
   --color-gold-hover: var(--gold-hover);
   --color-on-gold: var(--on-gold);

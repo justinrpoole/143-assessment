@@ -444,11 +444,7 @@ function ArchetypeCard({
     : isResonating
       ? `2px solid ${a.neon_color}60`
       : '1px solid var(--surface-border)';
-  const shadowHighlight = isOwn
-    ? '0 0 20px color-mix(in srgb, var(--gold-primary) 12%, transparent)'
-    : isResonating
-      ? `0 0 20px ${a.neon_color}15`
-      : 'none';
+  const shadowHighlight = 'none';
 
   return (
     <div id={`archetype-${a.index}`}>
@@ -460,19 +456,16 @@ function ArchetypeCard({
         style={{
           background: 'var(--surface-glass)',
           border: borderHighlight,
-          boxShadow: shadowHighlight,
         }}
         onMouseEnter={(e) => {
           if (!isOwn && !isResonating) {
             const el = e.currentTarget;
-            el.style.boxShadow = `0 0 24px ${a.neon_color}18`;
             el.style.borderColor = `${a.neon_color}40`;
           }
         }}
         onMouseLeave={(e) => {
           if (!isOwn && !isResonating) {
             const el = e.currentTarget;
-            el.style.boxShadow = 'none';
             el.style.borderColor = 'color-mix(in srgb, var(--stroke-400) 30%, transparent)';
           }
         }}

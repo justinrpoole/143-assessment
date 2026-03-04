@@ -330,7 +330,6 @@ export default async function RayDeepDivePage({
                       background: `${hex}12`,
                       color: hex,
                       border: `1px solid ${hex}25`,
-                      boxShadow: `0 0 12px ${hex}15`,
                     }}
                   >
                     {i + 1}

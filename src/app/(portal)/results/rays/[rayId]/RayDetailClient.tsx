@@ -127,7 +127,7 @@ export default function RayDetailClient({
   const showEclipseWarning = eclipseModifier === "MUTED";
 
   return (
-    <main className="cosmic-page-bg min-h-screen">
+    <main className="cosmic-page-bg page-shell min-h-screen">
       <div className="mx-auto max-w-[800px] px-5 py-10 sm:px-8 space-y-8">
 
         {/* ── Breadcrumb ── */}
@@ -197,7 +197,7 @@ export default function RayDetailClient({
                     <div className="h-1.5 rounded-full" style={{ background: "color-mix(in srgb, var(--text-body) 8%, transparent)" }}>
                       <motion.div
                         className="h-full rounded-full"
-                        style={{ background: rayColor, boxShadow: `0 0 8px ${rayColor}66` }}
+                        style={{ background: rayColor }}
                         initial={{ width: 0 }}
                         animate={{ width: `${sf.score}%` }}
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}

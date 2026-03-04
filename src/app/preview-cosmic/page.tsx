@@ -81,7 +81,7 @@ export default function CosmicPreview() {
   const [showNova, setShowNova] = useState(false);
 
   return (
-    <div className="cosmic-page-bg">
+    <div className="cosmic-page-bg page-shell">
       <AuroraCelebration show={showAurora} improvedRay="R4" rayName="Ray of Power" duration={5000} onComplete={() => setShowAurora(false)} />
       <NovaMoment show={showNova} rayName="Ray of Power" message="Ray of Power remembered." duration={4000} onComplete={() => setShowNova(false)} />
 

@@ -421,7 +421,6 @@ function PreviewRayTrack({
               borderRadius: 99,
               width: `${pct * 100}%`,
               background: `linear-gradient(90deg, var(--surface-border), ${color})`,
-              boxShadow: `0 0 8px ${color}`,
               transition: "width 0.05s linear",
             }}
           />
@@ -457,7 +456,6 @@ function PreviewRayTrack({
               display >= 68
                 ? `radial-gradient(circle at 40% 35%, var(--text-body), ${color})`
                 : `radial-gradient(circle at 40% 35%, ${color}, var(--surface-border))`,
-            boxShadow: `0 0 ${orb.bloom}px ${color}, 0 0 ${orb.bloom * 2}px ${color}`,
             transition: "left 0.05s linear",
             zIndex: 5,
           }}
@@ -511,12 +509,11 @@ function SampleDashboardPreview() {
 
       {/* Dark panel */}
       <div
+        className="glass-card glass-card--glow"
         style={{
           background: "var(--surface-border)",
           borderRadius: 16,
           border: "2px solid var(--surface-border)",
-          boxShadow:
-            "0 0 40px var(--surface-border), inset 0 1px 0 color-mix(in srgb, var(--text-body) 4%, transparent)",
           overflow: "hidden",
           marginBottom: 32,
         }}
@@ -608,7 +605,6 @@ function SampleDashboardPreview() {
             fontSize: 12,
             letterSpacing: ".12em",
             textDecoration: "none",
-            boxShadow: "0 0 18px var(--ray-joy), 0 0 36px var(--surface-border)",
             transition: "opacity 0.2s",
           }}
         >

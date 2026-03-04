@@ -55,7 +55,6 @@ export function RasResetLesson({ onComplete }: Props) {
             style={{
               width: i === step ? 24 : 8,
               background: i <= step ? 'var(--neon-cyan, var(--text-body))' : 'var(--surface-border)',
-              boxShadow: i <= step ? '0 0 8px color-mix(in srgb, var(--neon-cyan) 30%, transparent)' : 'none',
             }}
           />
         ))}

@@ -16,8 +16,8 @@ export default async function AssessmentReviewPage() {
   const userState = await getUserStateFromRequest();
   emitPageView({ eventName: "assessment_review_view", sourceRoute: "/assessment/review", userState });
   return (
-    <main className="cosmic-page-bg">
-      <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-8">
+    <main className="cosmic-page-bg page-shell">
+      <div className="content-wrap space-y-8">
         <section className="relative">
           <FloatingOrbs variant="gold" />
           <div className="glass-card p-8 sm:p-12 text-center space-y-6">
@@ -32,8 +32,8 @@ export default async function AssessmentReviewPage() {
             <div className="pt-4">
               <Link
                 href="/assessment/scoring"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all duration-150"
-                style={{background:'linear-gradient(180deg,var(--text-body) 0%,var(--text-body) 100%)',color:'var(--bg-deep)',boxShadow:'0 4px 20px var(--surface-border)'}}
+                className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all duration-150"
+                style={{ color: 'var(--bg-deep)' }}
               >
                 Reveal My Map →
               </Link>

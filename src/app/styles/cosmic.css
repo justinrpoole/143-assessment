@@ -97,8 +97,8 @@
   top: 0;
   z-index: 999;
   padding: 8px 16px;
-  background: #F8D011;
-  color: #000000;
+  background: var(--gold-primary);
+  color: var(--on-gold);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -125,12 +125,23 @@
 }
 
 .glass-card {
+  position: relative;
   background: var(--surface-glass);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-2xl);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-glow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --card-halo-1: 0 0 var(--card-glow-r1) color-mix(in srgb, var(--glow-violet) calc(var(--card-glow-a1) * 100%), transparent);
+  --card-halo-2: 0 0 var(--card-glow-r2) color-mix(in srgb, var(--glow-pink) calc(var(--card-glow-a2) * 100%), transparent);
+  --card-halo-3: 0 0 var(--card-glow-r3) color-mix(in srgb, var(--glow-violet) calc(var(--card-glow-a3) * 100%), transparent);
+  --card-rim: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--glow-pink) 32%, transparent), transparent 55%);
+  --card-shadow-base: var(--card-halo-1), var(--card-halo-2), var(--card-halo-3), inset 0 1px 0 color-mix(in srgb, var(--text-body) 6%, transparent);
+  --card-shadow-strong: 0 0 var(--card-glow-r1) color-mix(in srgb, var(--glow-violet) 18%, transparent),
+                        0 0 var(--card-glow-r2) color-mix(in srgb, var(--glow-pink) 13%, transparent),
+                        0 0 var(--card-glow-r3) color-mix(in srgb, var(--glow-violet) 8%, transparent),
+                        inset 0 1px 0 color-mix(in srgb, var(--text-body) 8%, transparent);
+  --card-shadow-none: inset 0 1px 0 color-mix(in srgb, var(--text-body) 6%, transparent);
+  box-shadow: var(--card-shadow-base);
   transition: background var(--motion-base) var(--motion-ease),
               border-color var(--motion-base) var(--motion-ease),
               box-shadow var(--motion-base) var(--motion-ease),
@@ -140,21 +151,39 @@
 .glass-card:hover {
   background: var(--surface-glass-hover);
   border-color: var(--surface-border-hover);
-  box-shadow: var(--shadow-glow-md), 0 0 12px var(--neon-cyan-10), inset 0 1px 0 color-mix(in srgb, var(--text-body) 6%, transparent);
+  box-shadow: var(--card-shadow-strong);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: var(--card-rim);
+  opacity: var(--card-rim-a);
+  filter: blur(12px);
 }
 
 .glass-card--solid {
   background: color-mix(in srgb, var(--surface-600) 82%, transparent);
   border: 1px solid color-mix(in srgb, var(--stroke-400) 62%, transparent);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-depth), var(--shadow-glow-sm);
+  box-shadow: var(--card-shadow-base);
+}
+
+.glass-card--glow {
+  box-shadow: var(--card-shadow-strong);
+}
+
+.glass-card--noGlow {
+  box-shadow: var(--card-shadow-none);
 }
 
 /* ── Dark Cosmic Page Background ── */
 
 .cosmic-page-bg {
   position: relative;
-  background: var(--bg-deep);
+  background: var(--bg-cosmic);
   background-image:
     /* Primary cosmic radials */
     var(--gradient-cosmic-radial),
@@ -494,8 +523,8 @@
 }
 
 @keyframes card-glow-breathe {
-  0%, 100% { box-shadow: var(--shadow-glow-sm); }
-  50% { box-shadow: var(--shadow-glow-md), 0 0 30px rgba(96, 5, 141, 0.15); }
+  0%, 100% { box-shadow: var(--card-shadow-base); }
+  50% { box-shadow: var(--card-shadow-strong); }
 }
 
 /* Interactive card lift — applies to glass-cards in interactive contexts */
@@ -511,7 +540,7 @@
   transform: translateY(-2px);
   background: var(--surface-glass-hover);
   border-color: var(--surface-border-hover);
-  box-shadow: var(--shadow-glow-md), 0 8px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--card-shadow-strong);
 }
 
 .glass-card--interactive:active {
@@ -944,11 +973,11 @@
 
 /* Executive card — refined glass with gold top border */
 .glass-card--executive {
-  border-top: 2px solid rgba(248, 208, 17, 0.3);
+  border-top: 2px solid color-mix(in srgb, var(--gold-primary) 38%, transparent);
 }
 
 .glass-card--executive:hover {
-  border-top-color: rgba(248, 208, 17, 0.6);
+  border-top-color: color-mix(in srgb, var(--gold-primary) 62%, transparent);
 }
 
 /* ── Premium Typography System ── */
@@ -979,40 +1008,28 @@
 
 /* Hero variant — strongest visual presence, for final CTA and key moments */
 .glass-card--hero {
-  background: rgba(96, 5, 141, 0.40);
-  border: 1.5px solid rgba(248, 208, 17, 0.3);
+  background: color-mix(in srgb, var(--surface-600) 88%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--gold-primary) 45%, transparent);
   border-radius: var(--radius-2xl);
   -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
-  box-shadow:
-    0 8px 40px rgba(0, 0, 0, 0.4),
-    0 0 30px rgba(248, 208, 17, 0.08),
-    0 0 60px rgba(96, 5, 141, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: var(--card-shadow-strong), 0 0 24px color-mix(in srgb, var(--gold-primary) 12%, transparent);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card--hero:hover {
-  border-color: rgba(248, 208, 17, 0.5);
-  box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(248, 208, 17, 0.12),
-    0 0 80px rgba(96, 5, 141, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: color-mix(in srgb, var(--gold-primary) 65%, transparent);
+  box-shadow: var(--card-shadow-strong), 0 0 32px color-mix(in srgb, var(--gold-primary) 18%, transparent);
 }
 
 /* Featured variant — commanding treatment for pricing featured card */
 .glass-card--featured {
-  background: rgba(96, 5, 141, 0.45);
-  border: 2px solid rgba(248, 208, 17, 0.5);
+  background: color-mix(in srgb, var(--surface-600) 90%, transparent);
+  border: 2px solid color-mix(in srgb, var(--gold-primary) 55%, transparent);
   border-radius: var(--radius-2xl);
   -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
-  box-shadow:
-    0 0 24px rgba(248, 208, 17, 0.15),
-    0 0 60px rgba(248, 208, 17, 0.06),
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(248, 208, 17, 0.1);
+  box-shadow: var(--card-shadow-strong), 0 0 28px color-mix(in srgb, var(--gold-primary) 16%, transparent);
   position: relative;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1024,17 +1041,13 @@
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(248, 208, 17, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--gold-primary) 60%, transparent), transparent);
   pointer-events: none;
 }
 
 .glass-card--featured:hover {
-  border-color: rgba(248, 208, 17, 0.7);
-  box-shadow:
-    0 0 30px rgba(248, 208, 17, 0.2),
-    0 0 80px rgba(248, 208, 17, 0.08),
-    0 12px 40px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(248, 208, 17, 0.15);
+  border-color: color-mix(in srgb, var(--gold-primary) 72%, transparent);
+  box-shadow: var(--card-shadow-strong), 0 0 36px color-mix(in srgb, var(--gold-primary) 22%, transparent);
 }
 
 /* How It Works step connector */

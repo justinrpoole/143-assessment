@@ -139,7 +139,6 @@ export default function IlluminateDashboard({
             left: `${d.x}%`, top: `${d.y}%`,
             width: d.size, height: d.size,
             background: d.color, opacity: d.opacity,
-            boxShadow: d.glow ? `0 0 ${d.glow}px ${d.glow/2}px ${d.color}` : 'none',
             animation: d.glow ? `illum-star ${3 + i % 4}s ease-in-out ${i * 0.3 % 6}s infinite` : 'none',
           }} />
         ))}
@@ -205,7 +204,6 @@ export default function IlluminateDashboard({
           borderRadius: 16,
           border: '2px solid transparent',
           backgroundClip: 'padding-box',
-          boxShadow: `0 0 0 2px ${MAGENTA}55, 0 0 40px ${MAGENTA}22, inset 0 1px 0 color-mix(in srgb, var(--text-body) 5%, transparent)`,
           padding: '12px 16px',
           position: 'relative',
         }}>
@@ -308,7 +306,6 @@ export default function IlluminateDashboard({
           padding: '14px 18px', display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
           border: `1px solid ${GOLD}44`,
-          boxShadow: `0 0 20px ${GOLD}11`,
         }}>
           <div style={{ fontSize: 9, letterSpacing: '.18em', color: 'color-mix(in srgb, var(--text-body) 35%, transparent)',
             fontFamily: "'Orbitron',sans-serif", marginBottom: 6 }}>
@@ -391,7 +388,6 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
         <div style={{
           position: 'absolute', left: 0, right: 0, height: 4, borderRadius: 99,
           background: `linear-gradient(90deg, var(--surface-border) 0%, ${color}22 50%, ${color}55 100%)`,
-          boxShadow: `inset 0 0 0 1px color-mix(in srgb, var(--neon-cyan) 20%, transparent)`,
           backgroundImage: `repeating-linear-gradient(180deg, color-mix(in srgb, var(--ink-950) 0%, transparent) 0px, color-mix(in srgb, var(--ink-950) 0%, transparent) 1px, color-mix(in srgb, var(--ink-950) 25%, transparent) 2px)`,
         }} />
         {/* Filled progress */}
@@ -399,7 +395,6 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
           position: 'absolute', left: 0, height: 4, borderRadius: 99,
           width: `${pct * 100}%`,
           background: `linear-gradient(90deg, var(--surface-border), ${color})`,
-          boxShadow: `0 0 8px ${color}88`,
           transition: 'width 0.05s linear',
         }} />}
 
@@ -420,7 +415,6 @@ function RayTrack({ ray, score, isLast = false, isCore = false }: {
           background: display >= 68
             ? `radial-gradient(circle at 40% 35%, var(--text-body), ${color})`
             : `radial-gradient(circle at 40% 35%, ${color}, var(--surface-border))`,
-          boxShadow: `0 0 ${orb.bloom}px ${color}, 0 0 ${orb.bloom*2}px ${color}44`,
           transition: 'left 0.05s linear',
           zIndex: 5,
         }} />
@@ -552,7 +546,6 @@ function MechButton({
           ? 'color-mix(in srgb, var(--ink-950) 10%, transparent)'
           : `radial-gradient(ellipse at 50% 20%, ${color}33 0%, var(--surface-border) 70%)`,
         border: `2px solid ${color}`,
-        boxShadow: pressed
           ? `inset 0 6px 16px color-mix(in srgb, var(--ink-950) 90%, transparent), 0 0 8px ${glowColor}`
           : `0 6px 0 color-mix(in srgb, var(--ink-950) 70%, transparent), 0 0 24px ${glowColor}, inset 0 1px 0 color-mix(in srgb, var(--text-body) 15%, transparent), inset 0 -1px 0 color-mix(in srgb, var(--ink-950) 50%, transparent)`,
         transform: pressed ? 'translateY(5px)' : 'translateY(0)',

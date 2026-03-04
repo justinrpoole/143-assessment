@@ -44,7 +44,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <div className="relative mx-auto flex min-h-[70vh] max-w-[440px] flex-col items-center justify-center px-5 py-16 sm:px-8 sm:py-24">
         <FloatingOrbs variant="gold" />
         <div className="relative gold-dot-grid glass-card w-full p-6 sm:p-8">

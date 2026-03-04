@@ -507,7 +507,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
         className="space-y-6 max-w-lg mx-auto"
       >
         <div className="glass-card p-8 text-center space-y-4"
-          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)', boxShadow: '0 0 40px color-mix(in srgb, var(--gold-primary) 8%, transparent)' }}
+          style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)' }}
         >
           <motion.div
             initial={shouldAnimate ? { scale: 0 } : false}
@@ -948,7 +948,7 @@ export default function RepLogClient({ initialTool }: RepLogClientProps = {}) {
 
       {/* Full REPS start card (when mode is full and step is -1) */}
       {mode === 'full' && (
-        <div className="glass-card p-6 space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)', boxShadow: '0 0 20px color-mix(in srgb, var(--gold-primary) 6%, transparent)' }}>
+        <div className="glass-card p-6 space-y-4" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 20%, transparent)' }}>
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
             Recognition &bull; Encouragement &bull; Performance &bull; Sustainability
           </p>

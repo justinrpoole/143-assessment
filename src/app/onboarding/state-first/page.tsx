@@ -20,8 +20,8 @@ export default function StateFirstPage() {
   }
 
   return (
-    <main className="cosmic-page-bg min-h-screen flex items-center justify-center px-5">
-      <div className="max-w-lg w-full space-y-8">
+    <main className="cosmic-page-bg page-shell">
+      <div className="content-wrap--narrow space-y-8">
         <div className="text-center">
           <p className="gold-tag inline-block mb-4">Before We Show Your Map</p>
           <h1 className="text-2xl font-bold text-white mb-2">Where are you starting from?</h1>
@@ -44,9 +44,10 @@ export default function StateFirstPage() {
             </div>
           ))}
         </div>
-        <button onClick={handleContinue}
-          className="w-full py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all"
-          style={{background:"linear-gradient(180deg,var(--text-body) 0%,var(--text-body) 100%)",color:"var(--bg-deep)",boxShadow:"0 4px 20px var(--surface-border)"}}>
+        <button
+          onClick={handleContinue}
+          className="btn-primary w-full py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all"
+          style={{ color: "var(--bg-deep)" }}>
           Next: Your Tools →
         </button>
         <p className="text-center text-xs" style={{color:"var(--text-on-dark-secondary)"}}>

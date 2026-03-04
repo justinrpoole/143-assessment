@@ -10,7 +10,7 @@ export default function GlobalError({
   reset: () => void;
 }) {
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <div className="mx-auto flex min-h-[60vh] max-w-[640px] flex-col items-center justify-center px-5 py-16 text-center">
         <p
           className="text-xs font-bold uppercase tracking-widest"

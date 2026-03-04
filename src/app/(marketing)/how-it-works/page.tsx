@@ -46,7 +46,7 @@ export default async function HowItWorksPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <ScrollProgressBar />
       <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
         <section className="content-wrap--narrow space-y-5 text-center">

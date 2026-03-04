@@ -23,7 +23,7 @@ export default async function AssessmentSetupPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-8">
         <section className="relative">
           <FloatingOrbs variant="purple" />

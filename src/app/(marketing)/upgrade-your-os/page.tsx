@@ -374,8 +374,7 @@ export default async function UpgradeYourOsPage() {
 
         {/* Frosted/blurred report preview */}
         <div className="relative z-10 content-wrap--narrow max-w-[680px]">
-          <div className="relative rounded-2xl overflow-hidden"
-            style={{ border: '1px solid color-mix(in srgb, var(--gold-primary) 18%, transparent)', boxShadow: '0 0 60px color-mix(in srgb, var(--gold-primary) 6%, transparent), 0 24px 80px color-mix(in srgb, var(--ink-950) 50%, transparent)' }}>
+          <div className="glass-card glass-card--glow relative rounded-2xl overflow-hidden">
 
             {/* Blurred report content — decorative only */}
             <div className="p-6 sm:p-8 space-y-5" style={{ filter: 'blur(5px)', userSelect: 'none', pointerEvents: 'none' }} aria-hidden="true">

@@ -126,7 +126,7 @@ function ScoringInner() {
   // ── Error state ───────────────────────────────────────────────────────────
   if (scoringStatus === "error") {
     return (
-      <main className="cosmic-page-bg min-h-screen flex items-center justify-center px-5">
+      <main className="cosmic-page-bg page-shell min-h-screen flex items-center justify-center px-5">
         <div className="text-center max-w-sm space-y-5">
           <p className="text-2xl">⚠️</p>
           <h1 className="text-xl font-bold text-white">Something went wrong</h1>
@@ -160,8 +160,8 @@ function ScoringInner() {
 
   // ── Normal scoring animation ───────────────────────────────────────────────
   return (
-    <main className="cosmic-page-bg min-h-screen flex items-center justify-center">
-      <div className="text-center px-6 py-16 max-w-sm mx-auto">
+    <main className="cosmic-page-bg page-shell">
+      <div className="content-wrap--narrow text-center">
         <p className="gold-tag inline-block mb-6">Calibrating</p>
 
         <h1 className="text-2xl font-bold text-white mb-2">
@@ -189,10 +189,7 @@ function ScoringInner() {
             >
               <span
                 className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                style={{
-                  backgroundColor: ray.color,
-                  boxShadow: `0 0 8px ${ray.color}`,
-                }}
+                style={{ backgroundColor: ray.color }}
               />
               <span className="text-sm font-medium" style={{ color: ray.color }}>
                 {ray.name}
@@ -223,7 +220,7 @@ function ScoringInner() {
 
 export default function AssessmentScoringPage() {
   return (
-    <Suspense fallback={<main className="cosmic-page-bg min-h-screen" />}>
+    <Suspense fallback={<main className="cosmic-page-bg page-shell min-h-screen" />}>
       <ScoringInner />
     </Suspense>
   );

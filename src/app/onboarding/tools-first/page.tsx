@@ -18,8 +18,8 @@ export default function ToolsFirstPage() {
   }
 
   return (
-    <main className="cosmic-page-bg min-h-screen flex items-center justify-center px-5 py-12">
-      <div className="max-w-xl w-full space-y-8">
+    <main className="cosmic-page-bg page-shell">
+      <div className="content-wrap--narrow space-y-8">
         <div className="text-center">
           <p className="gold-tag inline-block mb-4">Your Tools</p>
           <h1 className="text-2xl font-bold text-white mb-2">Before you read your map — meet your tools.</h1>
@@ -44,9 +44,10 @@ export default function ToolsFirstPage() {
           <p className="text-xs mb-4" style={{color:"var(--text-on-dark-secondary)"}}>
             Down to earth. Backed by science. Each tool has a specific mechanism — you&apos;ll see it in your results.
           </p>
-          <button onClick={handleContinue}
-            className="px-10 py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all"
-            style={{background:"linear-gradient(180deg,var(--text-body) 0%,var(--text-body) 100%)",color:"var(--bg-deep)",boxShadow:"0 4px 20px var(--surface-border)"}}>
+          <button
+            onClick={handleContinue}
+            className="btn-primary px-10 py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all"
+            style={{ color: "var(--bg-deep)" }}>
             I&apos;m Ready — Show My Map →
           </button>
         </div>

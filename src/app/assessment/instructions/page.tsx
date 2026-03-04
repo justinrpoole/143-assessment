@@ -21,7 +21,7 @@ export default async function AssessmentInstructionsPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <div className="content-wrap--wide px-5 py-10 sm:px-8 sm:py-14">
         <header className="mb-8">
           <p className="text-xs font-bold uppercase tracking-widest text-brand-gold">

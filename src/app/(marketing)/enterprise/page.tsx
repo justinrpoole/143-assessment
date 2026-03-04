@@ -20,7 +20,7 @@ export default async function EnterprisePage() {
   });
 
   return (
-    <main className="cosmic-page-bg min-h-screen">
+    <main className="cosmic-page-bg page-shell min-h-screen">
       <section className="content-wrap--wide px-6 py-14 sm:py-18 space-y-6 relative">
         <p
           className="text-xs font-bold uppercase tracking-[0.18em]"

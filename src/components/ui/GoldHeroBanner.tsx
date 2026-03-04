@@ -104,7 +104,6 @@ export default function GoldHeroBanner({
                 style={{
                   background: 'var(--ink-950)',
                   color: 'var(--gold-primary)',
-                  boxShadow: '0 2px 12px color-mix(in srgb, var(--ink-950) 25%, transparent)',
                 }}
               >
                 {cta.label}

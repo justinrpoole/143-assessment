@@ -97,7 +97,6 @@ export default function InlineCheckoutModal({
         style={{
           background: 'linear-gradient(180deg, color-mix(in srgb, var(--violet-650) 25%, transparent) 0%, var(--overlay-heavy) 100%)',
           border: '1px solid color-mix(in srgb, var(--gold-primary) 20%, transparent)',
-          boxShadow: '0 -8px 40px color-mix(in srgb, var(--gold-primary) 6%, transparent), 0 16px 48px color-mix(in srgb, var(--ink-950) 60%, transparent)',
           animation: 'checkoutSlideUp 300ms ease-out',
         }}
         role="dialog"
@@ -171,7 +170,6 @@ export default function InlineCheckoutModal({
             style={{
               background: 'color-mix(in srgb, var(--gold-primary) 8%, transparent)',
               borderColor: 'color-mix(in srgb, var(--gold-primary) 30%, transparent)',
-              boxShadow: '0 0 16px color-mix(in srgb, var(--gold-primary) 6%, transparent)',
             }}
           >
             <div className="flex items-start justify-between">

@@ -123,7 +123,7 @@ export default async function UpgradePage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-16">
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
@@ -375,11 +375,8 @@ export default async function UpgradePage() {
             <div className="grid gap-5 sm:grid-cols-2">
               {/* Card A — Gravitational Stability Report */}
               <div
-                className="glass-card flex flex-col p-6"
-                style={{
-                  border: "1.5px solid var(--gold-primary)",
-                  boxShadow: "0 0 24px color-mix(in srgb, var(--gold-primary) 12%, transparent)",
-                }}
+                className="glass-card glass-card--glow flex flex-col p-6"
+                style={{ border: "1.5px solid var(--gold-primary)" }}
               >
                 <span
                   className="mb-3 inline-block self-start rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest"

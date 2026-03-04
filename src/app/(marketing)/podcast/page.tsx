@@ -34,7 +34,7 @@ export default async function PodcastPage() {
   emitPageView({ eventName: "page_view_podcast", sourceRoute: "/podcast", userState });
 
   return (
-    <main className="cosmic-page-bg min-h-screen">
+    <main className="cosmic-page-bg page-shell min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden py-24 sm:py-32">
         <div className="pointer-events-none absolute inset-0 opacity-20" style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${rayHex("R1")} 0%, transparent 70%)` }} />

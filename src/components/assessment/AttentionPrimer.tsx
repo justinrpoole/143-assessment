@@ -105,28 +105,26 @@ export function AttentionPrimer({ onComplete }: Props) {
             <div className="relative flex items-center justify-center" style={{ height: 140 }}>
               {/* Outer glow ring */}
               <div
-                className="absolute rounded-full"
-                style={{
-                  width: 130,
-                  height: 130,
-                  background: 'transparent',
-                  boxShadow: '0 0 30px color-mix(in srgb, var(--neon-cyan) 12%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 8%, transparent), inset 0 0 30px color-mix(in srgb, var(--neon-cyan) 6%, transparent)',
-                  border: '1px solid color-mix(in srgb, var(--neon-cyan) 15%, transparent)',
-                  transform: `scale(${circleScale})`,
-                  transition: `transform ${transitionDuration} ease-in-out`,
-                }}
-              />
+              className="absolute rounded-full"
+              style={{
+                width: 130,
+                height: 130,
+                background: 'transparent',
+                border: '1px solid color-mix(in srgb, var(--neon-cyan) 15%, transparent)',
+                transform: `scale(${circleScale})`,
+                transition: `transform ${transitionDuration} ease-in-out`,
+              }}
+            />
               <div
-                className="rounded-full"
-                style={{
-                  width: 100,
-                  height: 100,
-                  background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 25%, transparent) 0%, var(--surface-border) 70%, transparent 100%)',
-                  boxShadow: '0 0 40px color-mix(in srgb, var(--gold-primary) 15%, transparent), 0 0 80px color-mix(in srgb, var(--violet-650) 10%, transparent)',
-                  transform: `scale(${circleScale})`,
-                  transition: `transform ${transitionDuration} ease-in-out`,
-                }}
-              />
+              className="rounded-full"
+              style={{
+                width: 100,
+                height: 100,
+                background: 'radial-gradient(circle, color-mix(in srgb, var(--gold-primary) 25%, transparent) 0%, var(--surface-border) 70%, transparent 100%)',
+                transform: `scale(${circleScale})`,
+                transition: `transform ${transitionDuration} ease-in-out`,
+              }}
+            />
             </div>
 
             {/* Phase instruction */}

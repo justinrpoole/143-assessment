@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function GroupCoachingPage() {
   return (
-    <main className="cosmic-page-bg min-h-screen">
+    <main className="cosmic-page-bg page-shell min-h-screen">
       <GroupCoachingGateClient>
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <div className="space-y-6">

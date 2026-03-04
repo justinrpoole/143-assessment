@@ -35,7 +35,7 @@ export default async function ToolsPage() {
   emitPageView({ eventName: "page_view_tools", sourceRoute: "/tools", userState });
 
   return (
-    <main className="cosmic-page-bg min-h-screen">
+    <main className="cosmic-page-bg page-shell min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden py-20 sm:py-28">
         <div className="pointer-events-none absolute inset-0 opacity-20" style={{ background: `radial-gradient(ellipse 70% 50% at 50% 0%, ${rayHex("R5")} 0%, transparent 70%)` }} />

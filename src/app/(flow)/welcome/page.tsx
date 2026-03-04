@@ -19,7 +19,7 @@ export default async function WelcomePage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <WelcomeFlowClient />
     </main>
   );

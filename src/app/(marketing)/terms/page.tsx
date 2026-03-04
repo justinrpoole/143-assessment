@@ -26,7 +26,7 @@ export default async function TermsPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <ScrollProgressBar />
       <article className="content-wrap--narrow px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
         {/* ── Header ── */}

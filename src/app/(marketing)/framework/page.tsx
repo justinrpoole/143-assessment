@@ -27,7 +27,7 @@ export default async function FrameworkPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <ScrollProgressBar />
       <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-14">
         <section className="content-wrap--narrow text-center space-y-4">

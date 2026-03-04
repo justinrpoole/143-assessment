@@ -68,7 +68,6 @@ export default function ChallengeLeadCaptureClient() {
           style={{
             background: "var(--gold-primary)",
             color: "var(--ink-950)",
-            boxShadow: "0 0 24px color-mix(in srgb, var(--gold-primary) 20%, transparent)",
           }}
         >
           Download Workbook (PDF)
@@ -80,10 +79,9 @@ export default function ChallengeLeadCaptureClient() {
   return (
     <form
       onSubmit={(event) => void onSubmit(event)}
-      className="rounded-2xl border p-6 sm:p-8 space-y-5"
+      className="glass-card glass-card--glow p-6 sm:p-8 space-y-5"
       style={{
         borderColor: "color-mix(in srgb, var(--gold-primary) 18%, transparent)",
-        background: "var(--surface-border)",
       }}
     >
       <div>
@@ -135,7 +133,6 @@ export default function ChallengeLeadCaptureClient() {
           color: "var(--ink-950)",
           opacity: status === "submitting" ? 0.85 : 1,
           cursor: status === "submitting" ? "wait" : "pointer",
-          boxShadow: "0 0 24px color-mix(in srgb, var(--gold-primary) 20%, transparent)",
         }}
       >
         {status === "submitting" ? "Unlocking workbook…" : "Unlock the 143 Workbook"}

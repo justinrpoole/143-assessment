@@ -178,7 +178,6 @@ export default async function ResultsPage({ searchParams }: PageProps) {
           style={{
             background: "var(--gold-primary)",
             color: "var(--text-on-gold, var(--text-body))",
-            boxShadow: "0 0 24px color-mix(in srgb, var(--gold-primary) 25%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 10%, transparent)",
           }}
         >
           Open My Light Portal

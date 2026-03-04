@@ -302,16 +302,11 @@ export default async function PricingPage() {
                       style={{
                         background: "var(--gold-primary)",
                         color: "var(--ink-950)",
-                        ...('glowBadge' in plan && plan.glowBadge ? {
-                          boxShadow: '0 0 16px color-mix(in srgb, var(--gold-primary) 70%, transparent), 0 0 32px color-mix(in srgb, var(--gold-primary) 35%, transparent)',
-                          animation: 'badge-pulse 2s ease-in-out infinite',
-                        } : {}),
                       }}
                     >
                       Most Popular
                     </span>
                   )}
-                  <style>{`@keyframes badge-pulse{0%,100%{box-shadow:0 0 16px color-mix(in srgb, var(--gold-primary) 70%, transparent),0 0 32px color-mix(in srgb, var(--gold-primary) 35%, transparent)}50%{box-shadow:0 0 24px color-mix(in srgb, var(--gold-primary) 90%, transparent),0 0 48px color-mix(in srgb, var(--gold-primary) 50%, transparent)}}`}</style>
                   <p
                     className="text-xs font-bold uppercase tracking-widest"
                     style={{ color: "var(--gold-primary)" }}

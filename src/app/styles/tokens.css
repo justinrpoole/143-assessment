@@ -8,8 +8,8 @@
   --color-purple-600: #61048E;
   --color-purple-800: #4F0677;
   --color-gold-500: #FAD313;
-  --color-text: #000000;
-  --color-bg: #FFFFFF;
+  --color-text: var(--text-body);
+  --color-bg: var(--violet-800);
 
   --gradient-primary: linear-gradient(90deg, #60058D 0%, #F8D011 100%);
 
@@ -143,6 +143,9 @@
   --text-secondary: #CBB9D6;
   --text-muted: #A792B2;
 
+  --bg-cosmic: var(--violet-800);
+  --bg-surface: var(--surface-650);
+
   --gold-primary: #F2D249;
   --gold-hover: #F5D658;
   --on-gold: #191710;
@@ -157,6 +160,26 @@
   --neon-blue: #3B82FF;
   --neon-lime: #7CFF00;
   --neon-amber: #FF8C00;
+
+  /* Glow hues + intensities (card halo system) */
+  --glow-violet: #A855FF;
+  --glow-pink: #FF4FD8;
+
+  --card-glow-a1: 0.14;   /* tight halo */
+  --card-glow-a2: 0.10;   /* mid bloom */
+  --card-glow-a3: 0.06;   /* wide haze */
+
+  --card-glow-r1: 10px;
+  --card-glow-r2: 22px;
+  --card-glow-r3: 44px;
+
+  --card-rim-a: 0.28;     /* rim visibility */
+
+  /* Glow presets (switch by overriding the values above)
+     Glow Low:  a1 0.10 a2 0.07 a3 0.04 rim 0.20
+     Glow Med:  a1 0.14 a2 0.10 a3 0.06 rim 0.28 (default)
+     Glow High: a1 0.18 a2 0.13 a3 0.08 rim 0.36
+  */
 
   /* ── Brand aliases for existing components ── */
   --brand-purple: #60058D;

@@ -33,7 +33,7 @@ export default function ScenarioCard({ itemId, options, selectedKey, onChange }:
               onChange(itemId, opt.key);
               haptic('light');
             }}
-            className="group relative w-full rounded-xl border text-left transition-all"
+            className={`group relative w-full text-left transition-all glass-card glass-card--interactive ${isSelected ? 'glass-card--glow' : ''}`}
             style={{
               padding: '14px 16px',
               background: isSelected
@@ -42,9 +42,6 @@ export default function ScenarioCard({ itemId, options, selectedKey, onChange }:
               borderColor: isSelected
                 ? 'var(--brand-gold)'
                 : 'color-mix(in srgb, var(--stroke-400) 25%, transparent)',
-              boxShadow: isSelected
-                ? '0 0 20px color-mix(in srgb, var(--gold-primary) 18%, transparent), inset 0 1px 0 color-mix(in srgb, var(--gold-primary) 10%, transparent)'
-                : 'none',
               transform: isSelected && !prefersReduced ? 'scale(1.02)' : 'scale(1)',
               transitionDuration: prefersReduced ? '0ms' : '200ms',
             }}

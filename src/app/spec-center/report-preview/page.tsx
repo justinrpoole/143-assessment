@@ -104,7 +104,7 @@ export default async function SpecCenterReportPreviewPage({ searchParams }: Page
       : pairIds[0] ?? "R1-R2";
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <div className="content-wrap--wide px-5 py-8 sm:px-8 sm:py-10">
         <header className="glass-card p-6 mb-6 sm:p-8">
           <p className="chip mb-3">Spec Center</p>

@@ -27,7 +27,7 @@ export default async function MethodologyPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <ScrollProgressBar />
       <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16 space-y-14">
         <section className="text-center space-y-4 max-w-[720px] mx-auto">

@@ -150,7 +150,6 @@ export function ShareCardClient({
           style={{
             background: 'var(--gold-primary)',
             color: 'var(--ink-950)',
-            boxShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 25%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 10%, transparent)',
             opacity: downloading ? 0.7 : 1,
           }}
         >

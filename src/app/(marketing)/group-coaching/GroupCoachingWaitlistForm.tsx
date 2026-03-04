@@ -50,11 +50,9 @@ export default function GroupCoachingWaitlistForm({ onSuccess }: { onSuccess?: (
 
   return (
     <div
-      className="rounded-2xl border p-6 sm:p-8"
+      className="glass-card glass-card--glow p-6 sm:p-8"
       style={{
-        background: "var(--surface-border)",
         borderColor: "color-mix(in srgb, var(--gold-primary) 20%, transparent)",
-        boxShadow: "0 0 40px color-mix(in srgb, var(--gold-primary) 8%, transparent)",
       }}
     >
       {status === "success" ? (

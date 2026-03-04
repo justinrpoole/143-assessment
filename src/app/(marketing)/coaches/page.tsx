@@ -62,7 +62,7 @@ export default async function CoachingPage() {
   });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <ScrollProgressBar />
       <SectionTOC items={[
         { id: "hero", label: "Hero" },

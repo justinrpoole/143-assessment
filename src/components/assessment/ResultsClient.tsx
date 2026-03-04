@@ -220,7 +220,6 @@ export function ResultsClient({ runId }: ResultsClientProps) {
                 background: 'linear-gradient(135deg, color-mix(in srgb, var(--gold-primary) 15%, transparent) 0%, color-mix(in srgb, var(--gold-primary) 8%, transparent) 100%)',
                 border: '1px solid color-mix(in srgb, var(--gold-primary) 40%, transparent)',
                 color: 'var(--gold-primary)',
-                boxShadow: '0 0 24px color-mix(in srgb, var(--gold-primary) 10%, transparent)',
               }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">

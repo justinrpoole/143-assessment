@@ -17,7 +17,7 @@ export default async function LightDashboardPage() {
   emitPageView({ eventName: 'page_view_light_dashboard', sourceRoute: '/light-dashboard', userState });
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <div className="content-wrap--wide px-4 py-8 sm:px-6 sm:py-10">
         {/* Spectrum strip — thin neon rainbow above dashboard */}
         <RaySpectrumStrip className="mb-6" />

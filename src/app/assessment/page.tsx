@@ -54,7 +54,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
 
   if (!runId) {
     return (
-      <main className="cosmic-page-bg">
+      <main className="cosmic-page-bg page-shell">
         <div className="content-wrap--narrow px-5 py-12 sm:px-8 sm:py-16">
           {/* Hero — I See You */}
           <header className="glass-card mb-6 p-6 sm:p-8">
@@ -137,7 +137,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
   }
 
   return (
-    <main className="cosmic-page-bg">
+    <main className="cosmic-page-bg page-shell">
       <div className="content-wrap px-5 py-12 sm:px-8 sm:py-16">
         <CosmicErrorBoundary sectionLabel="ASSESSMENT">
           <AssessmentRunnerClient runId={runId} />

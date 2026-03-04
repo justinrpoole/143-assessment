@@ -65,7 +65,6 @@ export function ReportDownloadButton({ runId }: Props) {
       style={{
         background: "var(--gold-primary)",
         color: "var(--ink-950)",
-        boxShadow: "0 0 24px color-mix(in srgb, var(--gold-primary) 25%, transparent), 0 0 60px color-mix(in srgb, var(--gold-primary) 10%, transparent)",
         opacity: state === "checking" || state === "pending" ? 0.8 : 1,
         cursor: state === "checking" || state === "pending" ? "wait" : "pointer",
       }}

@@ -63,7 +63,7 @@ export function MagicLinkFormClient() {
   if (state === "sent") {
     return (
       <div className="text-center">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)', boxShadow: '0 0 20px color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}>
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ background: 'color-mix(in srgb, var(--gold-primary) 15%, transparent)' }}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M3 8l9 6 9-6" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             <rect x="3" y="6" width="18" height="12" rx="2" stroke="var(--gold-primary)" strokeWidth="1.5" />

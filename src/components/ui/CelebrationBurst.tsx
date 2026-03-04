@@ -70,7 +70,6 @@ export default function CelebrationBurst({ trigger, className }: CelebrationBurs
             background: p.color,
             borderRadius: p.shape === 'circle' ? '50%' : p.shape === 'square' ? '2px' : '0',
             transform: `rotate(${p.rotation}deg)`,
-            boxShadow: `0 0 6px ${p.color}`,
             animation: `burst-${p.id % 8} 1.2s cubic-bezier(0.1, 0.8, 0.2, 1) forwards`,
           }}
         />

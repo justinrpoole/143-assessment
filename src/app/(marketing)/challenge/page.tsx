@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ChallengePage() {
   return (
-    <main className="cosmic-page-bg min-h-screen">
+    <main className="cosmic-page-bg page-shell min-h-screen">
       <section className="content-wrap--wide px-6 py-20 sm:py-24">
         <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "var(--gold-primary)" }}>
           The 143 Challenge

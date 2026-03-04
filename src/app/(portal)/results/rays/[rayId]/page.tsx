@@ -120,7 +120,7 @@ export default async function RayDetailPage({ params, searchParams }: PageProps)
   // ── No data state ──────────────────────────────────────────────────────────
   if (!rayData) {
     return (
-      <main className="cosmic-page-bg min-h-screen flex items-center justify-center px-5">
+      <main className="cosmic-page-bg page-shell min-h-screen flex items-center justify-center px-5">
         <div className="text-center max-w-sm space-y-5">
           <p className="gold-tag inline-block">{rayId} — {rayName}</p>
           <h1 className="text-xl font-bold text-white">No results found</h1>

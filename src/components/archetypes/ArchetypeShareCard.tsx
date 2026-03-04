@@ -56,12 +56,11 @@ export default function ArchetypeShareCard({
     >
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
       <div
-        className="relative w-full max-w-sm rounded-3xl p-8 text-center space-y-5"
+        className="glass-card glass-card--glow relative w-full max-w-sm rounded-3xl p-8 text-center space-y-5"
         style={{
           background:
             'linear-gradient(135deg, var(--surface-border) 0%, var(--surface-border) 100%)',
           border: `2px solid ${archetype.neon_color}40`,
-          boxShadow: `0 0 60px ${archetype.neon_color}20, 0 0 120px ${archetype.neon_color}10`,
         }}
         onClick={(e) => e.stopPropagation()}
       >
