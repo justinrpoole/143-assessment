@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>143 Challenge — Workbook Gate</title>
+  <link rel="stylesheet" href="/styles/cosmic-ui.css">
+</head>
+<body>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+
+  <main class="page">
+    <section class="card" data-card="true" style="--card-accent: var(--neon-pink); padding: 24px;">
+      <p class="pill pill--yellow" data-tone="yellow"><span class="dot"></span>WORKBOOK-FIRST ACCESS</p>
+      <h1 style="margin-top: 14px;">UNLOCK THE FULL 143 CHALLENGE</h1>
+      <p style="margin-top: 10px; max-width: 66ch;">
+        Start with the workbook. Enter your email and we will send the PDF plus your private unlock link/code.
+        The full /143 content stays locked until you unlock.
+      </p>
+
+      <form id="subscribe-form" style="margin-top: 18px; display: grid; gap: 10px; max-width: 520px;">
+        <label for="email" class="pill" style="--accent: var(--neon-blue); width: fit-content;"><span class="dot"></span>EMAIL</label>
+        <input id="email" name="email" type="email" required placeholder="you@company.com" style="padding: 12px 14px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--neon-blue) 45%, transparent); background: color-mix(in srgb, var(--bg1) 75%, transparent); color: var(--text-strong);" />
+        <button id="subscribe-btn" class="cta" type="submit" style="width: fit-content;">EMAIL ME THE WORKBOOK + UNLOCK LINK</button>
+      </form>
+
+      <p id="form-status" style="margin-top: 12px;"></p>
+
+      <div id="unlock-code-panel" class="panel" data-card="true" style="--card-accent: var(--neon-green); margin-top: 18px; padding: 16px; display: none;">
+        <h2 style="font-size: 20px;">ENTER UNLOCK CODE</h2>
+        <p style="margin-top: 8px;">If you opened the email on another device, paste the fallback code here.</p>
+        <form id="code-form" style="margin-top: 12px; display: grid; gap: 10px; max-width: 360px;">
+          <input id="unlock-code" name="code" required placeholder="ABC123" maxlength="12" style="padding: 11px 12px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--neon-green) 45%, transparent); background: color-mix(in srgb, var(--bg1) 75%, transparent); color: var(--text-strong); text-transform: uppercase; letter-spacing: 0.08em;" />
+          <button id="code-btn" class="btn-cta" type="submit" style="width: fit-content;">UNLOCK FULL 143</button>
+        </form>
+        <p id="code-status" style="margin-top: 10px;"></p>
+      </div>
+
+      <div id="dev-panel" class="block" data-card="true" style="--card-accent: var(--neon-orange); margin-top: 16px; padding: 14px; display: none;">
+        <p class="pill" style="--accent: var(--neon-orange);"><span class="dot"></span>DEV ONLY</p>
+        <p style="margin-top: 8px;">Email provider not configured. Use this temporary unlock link/code for testing.</p>
+        <p id="dev-details" style="margin-top: 8px; word-break: break-word;"></p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const UNLOCK_KEY = '143_unlocked';
+      const UNLOCKED_AT_KEY = '143_unlocked_at';
+      const EMAIL_KEY = '143_unlock_email';
+
+      function setUnlocked() {
+        localStorage.setItem(UNLOCK_KEY, 'true');
+        localStorage.setItem(UNLOCKED_AT_KEY, Date.now().toString());
+      }
+
+      if (localStorage.getItem(UNLOCK_KEY) === 'true') {
+        window.location.replace('/143/full.html');
+        return;
+      }
+
+      const subscribeForm = document.getElementById('subscribe-form');
+      const emailInput = document.getElementById('email');
+      const subscribeBtn = document.getElementById('subscribe-btn');
+      const formStatus = document.getElementById('form-status');
+      const unlockPanel = document.getElementById('unlock-code-panel');
+      const codeForm = document.getElementById('code-form');
+      const codeInput = document.getElementById('unlock-code');
+      const codeBtn = document.getElementById('code-btn');
+      const codeStatus = document.getElementById('code-status');
+      const devPanel = document.getElementById('dev-panel');
+      const devDetails = document.getElementById('dev-details');
+
+      subscribeForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const email = String(emailInput.value || '').trim().toLowerCase();
+        if (!email) return;
+
+        subscribeBtn.disabled = true;
+        formStatus.textContent = 'Sending...';
+        formStatus.style.color = 'var(--text-body)';
+
+        try {
+          const resp = await fetch('/api/143/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, source: '143', redirect: '/143/index.html' }),
+          });
+          const data = await resp.json().catch(function () { return {}; });
+
+          if (!resp.ok || !data.ok) {
+            throw new Error(data.message || data.error || 'subscribe_failed');
+          }
+
+          localStorage.setItem(EMAIL_KEY, email);
+          formStatus.textContent = 'Check your email for the workbook PDF and your unlock link.';
+          formStatus.style.color = 'var(--neon-green)';
+          unlockPanel.style.display = 'block';
+
+          if (data.devOnly) {
+            devPanel.style.display = 'block';
+            const url = data.unlockUrl || (data.dev && data.dev.unlockUrl) || '';
+            const code = data.tokenHint || (data.dev && data.dev.tokenHint) || '';
+            devDetails.innerHTML = 'Unlock link: <a href="' + url + '" style="color:var(--neon-blue)">' + url + '</a><br/>Code: <strong>' + code + '</strong>';
+          }
+        } catch (_error) {
+          formStatus.textContent = 'Could not send the workbook email. Please try again.';
+          formStatus.style.color = 'var(--neon-red)';
+        } finally {
+          subscribeBtn.disabled = false;
+        }
+      });
+
+      codeForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const code = String(codeInput.value || '').trim().toUpperCase();
+        if (!code) return;
+
+        codeBtn.disabled = true;
+        codeStatus.textContent = 'Verifying code...';
+        codeStatus.style.color = 'var(--text-body)';
+
+        try {
+          const email = localStorage.getItem(EMAIL_KEY) || undefined;
+          const resp = await fetch('/api/143/unlock', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code, email }),
+          });
+          const data = await resp.json().catch(function () { return {}; });
+
+          if (!resp.ok || !data.ok) {
+            throw new Error(data.message || data.error || 'unlock_failed');
+          }
+
+          setUnlocked();
+          window.location.replace('/143/full.html');
+        } catch (_error) {
+          codeStatus.textContent = 'Unlock failed. Request a fresh email and try again.';
+          codeStatus.style.color = 'var(--neon-red)';
+        } finally {
+          codeBtn.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

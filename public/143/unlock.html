@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>143 Challenge — Unlocking</title>
+  <link rel="stylesheet" href="/styles/cosmic-ui.css">
+</head>
+<body>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+
+  <main class="page">
+    <section class="card" data-card="true" style="--card-accent: var(--neon-blue); padding: 24px;">
+      <p class="pill"><span class="dot"></span>UNLOCK /143</p>
+      <h1 style="margin-top: 14px;">VERIFYING YOUR LINK</h1>
+      <p id="status" style="margin-top: 12px;">Working...</p>
+      <p id="detail" style="margin-top: 8px;"></p>
+      <div style="margin-top: 14px;">
+        <a class="btn-cta" href="/143/index.html">BACK TO WORKBOOK GATE</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const UNLOCK_KEY = '143_unlocked';
+      const UNLOCKED_AT_KEY = '143_unlocked_at';
+      const params = new URLSearchParams(window.location.search);
+      const token = String(params.get('token') || '').trim();
+      const status = document.getElementById('status');
+      const detail = document.getElementById('detail');
+
+      function markUnlocked() {
+        localStorage.setItem(UNLOCK_KEY, 'true');
+        localStorage.setItem(UNLOCKED_AT_KEY, Date.now().toString());
+      }
+
+      async function run() {
+        if (!token) {
+          status.textContent = 'Missing unlock token.';
+          status.style.color = 'var(--neon-red)';
+          detail.textContent = 'Request a fresh workbook email and use the new unlock link.';
+          return;
+        }
+
+        try {
+          const resp = await fetch('/api/143/unlock', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token }),
+          });
+          const data = await resp.json().catch(function () { return {}; });
+          if (!resp.ok || !data.ok) {
+            throw new Error(data.message || data.error || 'unlock_failed');
+          }
+
+          markUnlocked();
+          status.textContent = 'Unlocked. Redirecting...';
+          status.style.color = 'var(--neon-green)';
+          window.location.replace('/143/full.html');
+        } catch (_error) {
+          status.textContent = 'Unlock failed.';
+          status.style.color = 'var(--neon-red)';
+          detail.textContent = 'This link may be expired. Request a fresh workbook email.';
+        }
+      }
+
+      void run();
+    })();
+  </script>
+</body>
+</html>

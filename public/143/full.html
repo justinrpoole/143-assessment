@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>143 Challenge — Full Access</title>
+  <link rel="stylesheet" href="/styles/cosmic-ui.css">
+</head>
+<body>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+
+  <main class="page">
+    <section class="card" data-card="true" style="--card-accent: var(--neon-green); padding: 24px;">
+      <p class="pill" style="--accent: var(--neon-green);"><span class="dot"></span>FULL ACCESS</p>
+      <h1 style="margin-top: 14px;">LOADING THE FULL 143 CHALLENGE</h1>
+      <p id="status" style="margin-top: 12px;">Working...</p>
+      <div style="margin-top: 14px;">
+        <a class="btn-cta" href="/143/index.html">RETURN TO GATE</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const unlocked = localStorage.getItem('143_unlocked') === 'true';
+      const status = document.getElementById('status');
+
+      if (!unlocked) {
+        status.textContent = 'Access is locked. Redirecting to workbook gate...';
+        status.style.color = 'var(--neon-red)';
+        window.setTimeout(function () {
+          window.location.replace('/143/index.html');
+        }, 900);
+        return;
+      }
+
+      status.textContent = 'Access confirmed. Redirecting...';
+      status.style.color = 'var(--neon-green)';
+      window.location.replace('/143');
+    })();
+  </script>
+</body>
+</html>

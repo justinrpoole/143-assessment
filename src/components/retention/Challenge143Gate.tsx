@@ -1,13 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { ToolkitDeliveryClient } from "@/components/retention/ToolkitDeliveryClient";
-
-const STORAGE_KEY = "challenge_143_unlocked";
-const COOKIE_KEY = "challenge_143_unlocked";
+const UNLOCKED_KEY = "143_unlocked";
+const UNLOCKED_AT_KEY = "143_unlocked_at";
+const EMAIL_KEY = "143_unlock_email";
 
 interface Challenge143GateProps {
   isAuthenticated: boolean;
@@ -16,23 +14,31 @@ interface Challenge143GateProps {
 
 function hasUnlockedLocally(): boolean {
   if (typeof window === "undefined") return false;
-  return window.localStorage.getItem(STORAGE_KEY) === "1";
+  return window.localStorage.getItem(UNLOCKED_KEY) === "true";
 }
 
 function persistUnlocked() {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(STORAGE_KEY, "1");
-  document.cookie = `${COOKIE_KEY}=1; path=/; max-age=${60 * 60 * 24 * 90}`;
+  window.localStorage.setItem(UNLOCKED_KEY, "true");
+  window.localStorage.setItem(UNLOCKED_AT_KEY, Date.now().toString());
 }
 
 export function Challenge143Gate({ isAuthenticated, children }: Challenge143GateProps) {
+  void isAuthenticated;
+
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [checkingToken, setCheckingToken] = useState(true);
+  const unlockToken = useMemo(() => searchParams.get("unlock"), [searchParams]);
+
+  const [checkingGate, setCheckingGate] = useState(true);
   const [unlocked, setUnlocked] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
-
-  const unlockToken = useMemo(() => searchParams.get("unlock"), [searchParams]);
+  const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
+  const [submittingEmail, setSubmittingEmail] = useState(false);
+  const [submittingCode, setSubmittingCode] = useState(false);
+  const [showCodeEntry, setShowCodeEntry] = useState(false);
+  const [devOnlyDetails, setDevOnlyDetails] = useState<{ unlockUrl: string; tokenHint: string } | null>(null);
 
   useEffect(() => {
     let canceled = false;
@@ -40,33 +46,51 @@ export function Challenge143Gate({ isAuthenticated, children }: Challenge143Gate
     async function resolveGate() {
       if (hasUnlockedLocally()) {
         setUnlocked(true);
-        setCheckingToken(false);
+        setCheckingGate(false);
         return;
       }
 
       if (!unlockToken) {
-        setCheckingToken(false);
+        setCheckingGate(false);
         return;
       }
 
       try {
-        const res = await fetch(
+        const unlockRes = await fetch("/api/unlock", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token: unlockToken }),
+        });
+
+        if (unlockRes.ok) {
+          const unlockData = (await unlockRes.json()) as { ok?: boolean };
+          if (unlockData.ok && !canceled) {
+            persistUnlocked();
+            setUnlocked(true);
+            setNotice("Unlocked. Welcome back.");
+            router.replace("/143");
+            return;
+          }
+        }
+
+        // Backward compatibility with older signed unlock links.
+        const legacyRes = await fetch(
           `/api/143/verify-token?token=${encodeURIComponent(unlockToken)}`,
           { cache: "no-store" },
         );
-
-        if (!res.ok) {
-          setNotice("Unlock link expired. Request a fresh workbook email below.");
-          setCheckingToken(false);
-          return;
+        if (legacyRes.ok && !canceled) {
+          const legacyData = (await legacyRes.json()) as { valid?: boolean };
+          if (legacyData.valid) {
+            persistUnlocked();
+            setUnlocked(true);
+            setNotice("Unlocked. Welcome back.");
+            router.replace("/143");
+            return;
+          }
         }
 
-        const data = (await res.json()) as { valid?: boolean };
-        if (!canceled && data.valid) {
-          persistUnlocked();
-          setUnlocked(true);
-          setNotice("Unlocked. Welcome back.");
-          router.replace("/143");
+        if (!canceled) {
+          setNotice("Unlock link expired. Request a fresh workbook email below.");
         }
       } catch {
         if (!canceled) {
@@ -74,7 +98,7 @@ export function Challenge143Gate({ isAuthenticated, children }: Challenge143Gate
         }
       } finally {
         if (!canceled) {
-          setCheckingToken(false);
+          setCheckingGate(false);
         }
       }
     }
@@ -85,7 +109,92 @@ export function Challenge143Gate({ isAuthenticated, children }: Challenge143Gate
     };
   }, [unlockToken, router]);
 
-  if (checkingToken) {
+  async function submitEmail(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const normalized = email.trim().toLowerCase();
+    if (!normalized) return;
+
+    setSubmittingEmail(true);
+    setNotice("Sending...");
+    setDevOnlyDetails(null);
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: normalized,
+          source: "143",
+          redirect: "/143/index.html",
+        }),
+      });
+
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        devOnly?: boolean;
+        unlockUrl?: string;
+        tokenHint?: string;
+        message?: string;
+        error?: string;
+      };
+
+      if (!res.ok || !data.ok) {
+        throw new Error(data.message || data.error || "subscribe_failed");
+      }
+
+      window.localStorage.setItem(EMAIL_KEY, normalized);
+      setShowCodeEntry(true);
+      setNotice("Check your email for the workbook PDF and your unlock link.");
+
+      if (data.devOnly) {
+        setDevOnlyDetails({
+          unlockUrl: data.unlockUrl ?? "",
+          tokenHint: data.tokenHint ?? "",
+        });
+      }
+    } catch {
+      setNotice("Could not send the workbook email. Please try again.");
+    } finally {
+      setSubmittingEmail(false);
+    }
+  }
+
+  async function submitCode(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const normalizedCode = code.trim().toUpperCase();
+    if (!normalizedCode) return;
+
+    setSubmittingCode(true);
+    setNotice("Verifying code...");
+
+    try {
+      const storedEmail = window.localStorage.getItem(EMAIL_KEY) || undefined;
+      const res = await fetch("/api/unlock", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          code: normalizedCode,
+          email: storedEmail,
+        }),
+      });
+
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; message?: string; error?: string };
+      if (!res.ok || !data.ok) {
+        throw new Error(data.message || data.error || "unlock_failed");
+      }
+
+      persistUnlocked();
+      setUnlocked(true);
+      setNotice("Unlocked. Redirecting...");
+      router.replace("/143/full.html");
+    } catch {
+      setNotice("Unlock failed. Request a fresh workbook email and try again.");
+    } finally {
+      setSubmittingCode(false);
+    }
+  }
+
+  if (checkingGate) {
     return (
       <section className="content-wrap content-wrap--narrow py-16">
         <div className="glass-card p-7 sm:p-9">
@@ -102,18 +211,7 @@ export function Challenge143Gate({ isAuthenticated, children }: Challenge143Gate
   }
 
   if (unlocked) {
-    return (
-      <>
-        {notice && (
-          <section className="content-wrap content-wrap--narrow pb-4 pt-2">
-            <div className="glass-card p-4">
-              <p className="text-xs font-semibold text-header">{notice}</p>
-            </div>
-          </section>
-        )}
-        {children}
-      </>
-    );
+    return <>{children}</>;
   }
 
   return (
@@ -123,26 +221,85 @@ export function Challenge143Gate({ isAuthenticated, children }: Challenge143Gate
           <span className="dot" /> Workbook First Access
         </p>
         <h1 className="text-3xl font-bold text-header">
-          143 Challenge unlock starts with the workbook
+          143 challenge unlock starts with the workbook
         </h1>
         <p className="text-sm leading-relaxed text-body">
-          Enter your email to receive the PDF workbook and a private unlock link.
-          After you open that link from your inbox, the full /143 page unlocks on this device.
+          Enter your email and we will send the workbook PDF plus your private unlock link.
+          The full /143 page stays locked until you unlock.
         </p>
 
-        <div className="flex flex-wrap gap-3">
-          <Link href="/marketing/143-challenge-workbook.pdf" className="cta">
-            Preview Workbook PDF
-          </Link>
-        </div>
+        <form onSubmit={submitEmail} className="space-y-3">
+          <label htmlFor="challenge-gate-email" className="pill w-fit" style={{ "--accent": "var(--neon-blue)" } as React.CSSProperties}>
+            <span className="dot" /> Email
+          </label>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <input
+              id="challenge-gate-email"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="you@company.com"
+              required
+              className="flex-1 rounded-xl border border-stroke bg-surface/35 px-4 py-2.5 text-sm text-body outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40"
+              disabled={submittingEmail}
+            />
+            <button
+              type="submit"
+              className="cta shrink-0"
+              disabled={submittingEmail || !email.trim()}
+            >
+              {submittingEmail ? "Sending..." : "Email Me The Workbook + Unlock Link"}
+            </button>
+          </div>
+        </form>
+
+        {showCodeEntry && (
+          <div className="glass-card--noGlow rounded-2xl p-4 space-y-3">
+            <h2 className="text-base font-bold text-header">Enter unlock code</h2>
+            <p className="text-sm text-secondary">
+              If you opened the email on another device, paste the fallback code here.
+            </p>
+            <form onSubmit={submitCode} className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <input
+                type="text"
+                value={code}
+                onChange={(event) => setCode(event.target.value.toUpperCase())}
+                placeholder="ABC123"
+                maxLength={12}
+                className="w-full rounded-xl border border-stroke bg-surface/35 px-4 py-2.5 text-sm uppercase tracking-[0.08em] text-body outline-none transition-colors focus:ring-2 focus:ring-brand-gold/40 sm:w-56"
+                disabled={submittingCode}
+              />
+              <button
+                type="submit"
+                className="btn-cta shrink-0"
+                disabled={submittingCode || !code.trim()}
+              >
+                {submittingCode ? "Unlocking..." : "Unlock Full 143"}
+              </button>
+            </form>
+          </div>
+        )}
+
+        {devOnlyDetails && (
+          <div className="glass-card--noGlow rounded-2xl p-4 space-y-2" style={{ "--card-accent": "var(--neon-orange)" } as React.CSSProperties}>
+            <p className="pill w-fit" style={{ "--accent": "var(--neon-orange)" } as React.CSSProperties}>
+              <span className="dot" /> DEV ONLY
+            </p>
+            <p className="text-sm text-secondary">Email provider is not configured. Use this temporary unlock link/code for testing.</p>
+            <p className="text-xs break-all text-body">
+              Unlock link:{" "}
+              <a href={devOnlyDetails.unlockUrl} className="underline" style={{ color: "var(--neon-blue)" }}>
+                {devOnlyDetails.unlockUrl}
+              </a>
+            </p>
+            <p className="text-xs text-body">Code: <strong>{devOnlyDetails.tokenHint}</strong></p>
+          </div>
+        )}
 
         {notice && (
           <p className="text-xs text-muted">{notice}</p>
         )}
-
-        <ToolkitDeliveryClient isAuthenticated={isAuthenticated} />
       </div>
     </section>
   );
 }
-
