@@ -2,6 +2,7 @@ import type { UserState } from "@/lib/auth/user-state";
 
 export const PAGE_VIEW_EVENTS = [
   "page_view_root",
+  "page_view_home_143_challenge",
   "page_view_upgrade_os",
   "light_os_upgrade_start",
   "page_view_143",
@@ -137,6 +138,7 @@ export const CANONICAL_EVENT_NAMES = [
   "payment_failed",
   "reactivated",
   "page_view_root",
+  "page_view_home_143_challenge",
   "page_view_upgrade_os",
   "light_os_upgrade_start",
   "page_view_143",
