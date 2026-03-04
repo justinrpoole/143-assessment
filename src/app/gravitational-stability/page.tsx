@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import "@/components/marketing/cosmic-hero-static.css";
 
 export const metadata: Metadata = {
   title: "Gravitational Stability Check — Coming Online",
@@ -27,6 +29,15 @@ export default function GravitationalStabilityPage() {
             <Link href="/assessment" className="cta">
               Go To Assessment
             </Link>
+          </div>
+          <div className="flex justify-center pt-2">
+            <div data-cosmic-hero-static>
+              <div className="eclipse-stage" aria-hidden="true" style={{ width: "220px" }}>
+                <Image className="sunnova-svg" src="/marketing/143-sun-nova.png" alt="" width={220} height={220} />
+                <Image className="sun-svg" src="/marketing/Sun-143.svg" alt="" width={220} height={220} />
+                <Image className="moon" src="/marketing/Purple-Moon-143.svg" alt="" width={170} height={170} />
+              </div>
+            </div>
           </div>
         </section>
       </div>

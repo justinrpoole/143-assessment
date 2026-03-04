@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 import "@/components/marketing/cosmic-hero-static.css";
 
@@ -38,7 +39,7 @@ export default async function UpgradeYourOsPage() {
 
   return (
     <main className="cosmic-page-bg page-shell relative">
-      <div className="content-wrap content-wrap--wide py-8 sm:py-12">
+      <div className="page">
         <section className="grid min-h-[100svh] items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="space-y-5">
             <h1 className="hero-h1 text-4xl font-bold leading-[1.03] sm:text-5xl lg:text-6xl">
@@ -106,7 +107,11 @@ export default async function UpgradeYourOsPage() {
         </section>
 
         <div className="space-y-6 pb-12">
-          <section className="glass-card p-6 sm:p-8">
+          <section className="card p-6 sm:p-8" data-card="true" style={{ "--card-accent": "var(--neon-blue)" } as CSSProperties}>
+            <p className="pill mb-3 w-fit" style={{ "--accent": "var(--neon-blue)" } as CSSProperties}>
+              <span className="dot" />
+              The Filter
+            </p>
             <h2 className="text-2xl font-bold text-header sm:text-3xl">
               Your Brain Processes 11 Million Bits Per Second
             </h2>
@@ -117,18 +122,34 @@ export default async function UpgradeYourOsPage() {
             </p>
           </section>
 
-          <section className="glass-card p-6 sm:p-8">
+          <section className="card p-6 sm:p-8" data-card="true" style={{ "--card-accent": "var(--neon-purple)" } as CSSProperties}>
+            <p className="pill mb-3 w-fit" style={{ "--accent": "var(--neon-purple)" } as CSSProperties}>
+              <span className="dot" />
+              The Proof
+            </p>
             <h2 className="text-2xl font-bold text-header sm:text-3xl">
               See 143 Everywhere in 72 Hours
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-body">
-              Day 1: Notice. Your brain will start filtering for 143 everywhere (clocks at :43, receipts,
-              addresses, license plates). This proves the RAS works.
-              <br />
-              Day 2: Activate. Variable reps with the hand-over-heart protocol.
-              <br />
-              Day 3: Recognize. Name what you see in your own leadership pattern.
-            </p>
+            <div className="mt-3 grid gap-3 md:grid-cols-3">
+              <article className="module p-4" data-card="true" style={{ "--card-accent": "var(--neon-yellow)" } as CSSProperties}>
+                <h3 className="text-sm font-bold">Day 1: Notice</h3>
+                <p className="mt-2 text-sm leading-relaxed">
+                  Your brain will start filtering for 143 everywhere (clocks at :43, receipts, addresses, license plates). This proves the RAS works.
+                </p>
+              </article>
+              <article className="module p-4" data-card="true" style={{ "--card-accent": "var(--neon-pink)" } as CSSProperties}>
+                <h3 className="text-sm font-bold">Day 2: Activate</h3>
+                <p className="mt-2 text-sm leading-relaxed">
+                  Variable reps with the hand-over-heart protocol.
+                </p>
+              </article>
+              <article className="module p-4" data-card="true" style={{ "--card-accent": "var(--neon-blue)" } as CSSProperties}>
+                <h3 className="text-sm font-bold">Day 3: Recognize</h3>
+                <p className="mt-2 text-sm leading-relaxed">
+                  Name what you see in your own leadership pattern.
+                </p>
+              </article>
+            </div>
             <div className="mt-5">
               <Link href="/challenge" className="btn-cta">
                 Start Day 1 Now
@@ -136,7 +157,11 @@ export default async function UpgradeYourOsPage() {
             </div>
           </section>
 
-          <section className="glass-card p-6 sm:p-8">
+          <section className="card p-6 sm:p-8" data-card="true" style={{ "--card-accent": "var(--neon-pink)" } as CSSProperties}>
+            <p className="pill mb-3 w-fit" style={{ "--accent": "var(--neon-pink)" } as CSSProperties}>
+              <span className="dot" />
+              The Protocol
+            </p>
             <h2 className="text-2xl font-bold text-header sm:text-3xl">
               The 143 Hand-Over-Heart Protocol
             </h2>
@@ -147,27 +172,39 @@ export default async function UpgradeYourOsPage() {
             </p>
           </section>
 
-          <section className="glass-card p-6 sm:p-8">
+          <section className="card p-6 sm:p-8" data-card="true" style={{ "--card-accent": "var(--neon-green)" } as CSSProperties}>
+            <p className="pill mb-3 w-fit" style={{ "--accent": "var(--neon-green)" } as CSSProperties}>
+              <span className="dot" />
+              The Science
+            </p>
             <h2 className="text-2xl font-bold text-header sm:text-3xl">
               Backed By Neuroscience
             </h2>
-            <ul className="mt-3 list-disc space-y-2 pl-6 text-base leading-relaxed text-body">
-              <li>
-                Dr. Jill Bolte Taylor — The 90-second chemical window (after that, you&apos;re re-triggering
-                through thought)
-              </li>
-              <li>
-                Dr. Albert Bandura — Micro-mastery reps that prove to your nervous system you can do the
-                thing
-              </li>
-              <li>
-                Dr. Rick Hanson — Repeated practice creates new neural pathways (neuroplasticity)
-              </li>
-              <li>Variable repetition — Your brain stays engaged; habituation doesn&apos;t lock in</li>
-            </ul>
+            <div className="mt-3 grid gap-3 md:grid-cols-2">
+              <article className="module p-4" data-card="true" style={{ "--card-accent": "var(--neon-yellow)" } as CSSProperties}>
+                <h3 className="text-sm font-bold">Dr. Jill Bolte Taylor</h3>
+                <p className="mt-2 text-sm leading-relaxed">The 90-second chemical window (after that, you&apos;re re-triggering through thought)</p>
+              </article>
+              <article className="module p-4" data-card="true" style={{ "--card-accent": "var(--neon-purple)" } as CSSProperties}>
+                <h3 className="text-sm font-bold">Dr. Albert Bandura</h3>
+                <p className="mt-2 text-sm leading-relaxed">Micro-mastery reps that prove to your nervous system you can do the thing</p>
+              </article>
+              <article className="module p-4" data-card="true" style={{ "--card-accent": "var(--neon-blue)" } as CSSProperties}>
+                <h3 className="text-sm font-bold">Dr. Rick Hanson</h3>
+                <p className="mt-2 text-sm leading-relaxed">Repeated practice creates new neural pathways (neuroplasticity)</p>
+              </article>
+              <article className="module p-4" data-card="true" style={{ "--card-accent": "var(--neon-pink)" } as CSSProperties}>
+                <h3 className="text-sm font-bold">Variable Repetition</h3>
+                <p className="mt-2 text-sm leading-relaxed">Your brain stays engaged; habituation doesn&apos;t lock in</p>
+              </article>
+            </div>
           </section>
 
-          <section className="glass-card p-6 sm:p-8">
+          <section className="card p-6 sm:p-8" data-card="true" style={{ "--card-accent": "var(--neon-orange)" } as CSSProperties}>
+            <p className="pill mb-3 w-fit" style={{ "--accent": "var(--neon-orange)" } as CSSProperties}>
+              <span className="dot" />
+              The Ask
+            </p>
             <h2 className="text-2xl font-bold text-header sm:text-3xl">
               What Happens After 3 Days
             </h2>
@@ -186,7 +223,11 @@ export default async function UpgradeYourOsPage() {
             </div>
           </section>
 
-          <section className="glass-card p-6 sm:p-8">
+          <section className="card p-6 sm:p-8" data-card="true" style={{ "--card-accent": "var(--neon-yellow)" } as CSSProperties}>
+            <p className="pill mb-3 w-fit" style={{ "--accent": "var(--neon-yellow)" } as CSSProperties}>
+              <span className="dot" />
+              Path Forward
+            </p>
             <h2 className="text-2xl font-bold text-header sm:text-3xl">The Full System</h2>
             <p className="mt-3 text-base leading-relaxed text-body">
               After the 143 Challenge, your toolkit includes: 9 Ray scores, Eclipse detection, Rise Path
