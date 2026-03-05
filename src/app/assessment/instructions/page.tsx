@@ -97,9 +97,9 @@ export default async function AssessmentInstructionsPage() {
             </h2>
             <ul className="mt-3 space-y-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
               <li>
-                Your Light Signature — one of 36 archetype combinations showing
+                Your Light Signature — one of 28 archetype combinations showing
                 how your top two capacities work together. You might be a
-                Strategic Optimist, a Decisive Director, or a Relational Light.
+                Strategic Optimist, a Decisive Director, or a Calm Center.
               </li>
               <li>
                 Your Eclipse Snapshot — where sustained stress is temporarily

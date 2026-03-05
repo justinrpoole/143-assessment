@@ -96,7 +96,7 @@ export default async function AssessmentPage({ searchParams }: PageProps) {
               You will not see a type. You will see your Primary Rays — your top two Rays, what they mean together, and where one might be compensating for another. You might be a Strategic Optimist — someone who finds the win even when life is loud. Or a Bold Authentic — someone who says the true thing before the room is ready. Or a Calm Center — someone whose steadiness holds everything in orbit.
             </p>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
-              There are 36 Light Signatures. The assessment reveals yours.
+              There are 28 Light Signatures. The assessment reveals yours.
             </p>
           </section>
 

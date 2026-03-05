@@ -9,7 +9,7 @@ All files here are canonical. Changes here affect what users see.
 |------|---------|-------|--------|
 | `questions.json` | 143 assessment items (id, text, ray_id, scale, polarity) | `/assessment-engine` | canonical |
 | `rays.json` | 9 Ray definitions, micro_wins, coaching_questions | `/assessment-engine` | canonical |
-| `ray_pairs.json` | 36 archetype pair content, descriptions, micro_wins | `/assessment-engine` | canonical |
+| `ray_pairs.json` | 28 archetype pair content from Rays 1-8, descriptions, micro_wins | `/assessment-engine` | canonical |
 | `results_overview.json` | Report section templates and copy | `/brand-voice` | canonical |
 | `marketing_copy_bible.v1.ts` | Marketing copy constants | `/brand-voice` | canonical |
 | `page_copy.v1.ts` | Page-level UI copy | `/brand-voice` | canonical |
@@ -28,7 +28,7 @@ exec tag maps, archetype blocks, and reflection prompts consumed by `pipeline.ts
 | `eclipse_items.json` | Eclipse-scored items |
 | `validity_items.json` | Validity check items |
 | `reflection_prompts.json` | Reflection prompt bank |
-| `archetype_blocks.json` | 36 archetype scoring blocks |
+| `archetype_blocks.json` | 28 archetype scoring blocks (Rays 1-8) |
 | `exec_tag_map.json` | 24 executive signal definitions |
 
 ## Naming Conventions

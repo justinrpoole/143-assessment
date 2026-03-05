@@ -18,13 +18,13 @@ import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import SocialProofCounter from "@/components/marketing/SocialProofCounter";
 
 export const metadata: Metadata = {
-  title: "36 Light Signatures — Which One Are You? | 143 Leadership",
+  title: "28 Light Signatures — Which One Are You? | 143 Leadership",
   description:
-    "36 leadership archetypes. One is yours. Browse the full Signal Library, find the pattern that makes you stop scrolling, and discover what your combination creates — and what it costs under load.",
+    "28 leadership archetypes. One is yours. Browse the full Signal Library, find the pattern that makes you stop scrolling, and discover what your combination creates — and what it costs under load. Ray 9 (Be The Light) is the destination state you reach by aligning Rays 1-8.",
   openGraph: {
-    title: "36 Light Signatures — Which One Are You? | 143 Leadership",
+    title: "28 Light Signatures — Which One Are You? | 143 Leadership",
     description:
-      "Browse all 36 Light Signatures. One of them is going to feel uncomfortably accurate. Find yours.",
+      "Browse all 28 Light Signatures. One of them is going to feel uncomfortably accurate. Find yours.",
   },
 };
 
@@ -40,13 +40,13 @@ export default function ArchetypesPage() {
         <section className="relative content-wrap--narrow space-y-5 text-center">
           <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> 36 Signals. One Is Yours.
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> 28 Signals. One Is Yours.
           </p>
           <h1
             className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl"
             style={{ color: "var(--text-on-dark)" }}
           >
-            Your Light Signature is one of 36. Which one are you?
+            Your Light Signature is one of 28. Which one are you?
           </h1>
           <p
             className="content-wrap--narrow text-base leading-relaxed"
@@ -68,7 +68,7 @@ export default function ArchetypesPage() {
           <SocialProofCounter
             metrics={[
               { value: 2847, label: 'Leaders assessed', suffix: '+' },
-              { value: 36, label: 'Light Signatures' },
+              { value: 28, label: 'Light Signatures' },
               { value: 9, label: 'Rays measured' },
             ]}
           />
@@ -94,7 +94,7 @@ export default function ArchetypesPage() {
         <FadeInSection>
           <CosmicImage
             src="/images/cosmic/constellation-map.png"
-            alt="36 Light Signature combinations mapped as a leadership constellation"
+            alt="28 Light Signature combinations mapped as a leadership constellation"
             width={440}
             height={440}
             maxWidth="440px"
@@ -107,7 +107,7 @@ export default function ArchetypesPage() {
         <GoldHeroBanner
           kicker="Not a Label. A Map."
           title="Your Light Signature changes as you do. That is the whole point."
-          description="36 combinations of your top two Rays. Each one has a strength, a cost under load, and a training path."
+          description="28 combinations of your top two Rays from the first eight. Each one has a strength, a cost under load, and a training path. Ray 9 (Be The Light) is the destination state you reach by aligning Rays 1-8."
         />
 
         <RayDivider ray="R9" />

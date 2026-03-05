@@ -406,7 +406,7 @@ export default async function BeTheLightPage() {
                 color: "var(--text-muted)",
               }}
             >
-              There are 36 Light Signatures. The assessment shows you which one
+              There are 28 Light Signatures. The assessment shows you which one
               you are running, what it is costing you, and what to restore first.
             </p>
           </section>

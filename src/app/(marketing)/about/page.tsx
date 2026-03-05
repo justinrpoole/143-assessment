@@ -52,7 +52,7 @@ const CREDENTIALS = [
   "Built and validated the 143 Assessment from the ground up \u2014 143 questions measuring <span className=\"gold-highlight\">9 trainable leadership capacities</span>",
   "Designed a deterministic scoring engine \u2014 auditable, reproducible, SHA-256 verified. No black boxes. No vibes.",
   "Created the Eclipse concept \u2014 a <span className=\"gold-highlight\">non-shame framework</span> for explaining why high-performers lose access to their strongest capacities under sustained stress",
-  "Developed 36 Light Signature archetypes from C(9,2) ray pair combinations \u2014 a combinatorial identity system, not a personality label",
+  "Developed 28 Light Signature archetypes from C(8,2) ray pair combinations — a combinatorial identity system built on the first eight trainable Rays, with Ray 9 (Be The Light) as the destination state, not a personality label",
 ];
 
 /* ── page ───────────────────────────────────────────────────── */

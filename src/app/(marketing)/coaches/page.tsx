@@ -115,7 +115,7 @@ export default async function CoachingPage() {
               A Driven Leader needs a different protocol than a Deep Listener. A True North Leader trains different edges than a Community Builder. The coaching is matched to your <span className="gold-highlight">Light Signature</span> — not a generic curriculum.
             </p>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
-              There are 36 Light Signatures. The assessment reveals yours. The program trains from it.
+              There are 28 Light Signatures. The assessment reveals yours. The program trains from it.
             </p>
           </div>
         </section>

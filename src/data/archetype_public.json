@@ -28,7 +28,7 @@
     ]
   },
   {
-    "index": 2,
+    "index": 1,
     "name": "Mindful Architect",
     "tagline": "You build things that last because you're actually paying attention.",
     "vibe": "The calm one at the center of the storm, sketching the blueprint.",
@@ -56,7 +56,7 @@
     ]
   },
   {
-    "index": 3,
+    "index": 1,
     "name": "Decisive Director",
     "tagline": "You don't wait for permission. You move.",
     "vibe": "The one already halfway across the bridge while everyone else is still reading the map.",
@@ -84,7 +84,7 @@
     ]
   },
   {
-    "index": 4,
+    "index": 1,
     "name": "Mission Commander",
     "tagline": "You don't just set the course — you know why it matters.",
     "vibe": "The one who turns a meeting agenda into a mission briefing.",
@@ -112,7 +112,7 @@
     ]
   },
   {
-    "index": 5,
+    "index": 1,
     "name": "True North Leader",
     "tagline": "You say the thing everyone's thinking. And you mean it.",
     "vibe": "The one who's the same person at dinner as they are in the boardroom.",
@@ -140,7 +140,7 @@
     ]
   },
   {
-    "index": 6,
+    "index": 1,
     "name": "Relational Strategist",
     "tagline": "You read the room before you move the room.",
     "vibe": "The one who makes the hard conversation feel like a real conversation.",
@@ -168,7 +168,7 @@
     ]
   },
   {
-    "index": 7,
+    "index": 1,
     "name": "Visionary Planner",
     "tagline": "You see what's coming — and you've already started building for it.",
     "vibe": "The one with six tabs open and a plan for all of them.",
@@ -196,35 +196,7 @@
     ]
   },
   {
-    "index": 8,
-    "name": "Servant Architect",
-    "tagline": "You lead by building things that make other people better.",
-    "vibe": "The one who designs the system, trains the team, then steps back and watches it work.",
-    "identity_code": "SERVICE. STRUCTURE. STANDARD.",
-    "the_question": "What can I build here that outlasts me?",
-    "people_say": "You don't realize how much she's done until she's gone. Then everything stops working.",
-    "you_might_be_this_if": [
-      "You've built something essential and let someone else take the credit — on purpose",
-      "People don't know half of what you do for them, and you prefer it that way",
-      "You set standards by living them, not by announcing them"
-    ],
-    "at_your_best": "You make 'how we behave under pressure' explicit — not by lecturing, but by modeling. You build culture through consistency. People copy you without being asked because what you do is visible, repeatable, and real. You serve from overflow, not from obligation.",
-    "what_youre_afraid_of": "That your service is actually self-erasure — and you've been disappearing in the name of being helpful.",
-    "when_your_signal_goes_dark": "The giving continues but the tank is empty. You keep modeling while quietly falling apart. The standard stays high. Your capacity doesn't. You call it leadership. Your body calls it something else entirely.",
-    "in_the_wild": "A Servant Architect built an entire onboarding system that tripled team retention. When asked about it, she said: 'It's just how we do things here.'",
-    "your_counter_signal": "You need a Bold Authentic nearby. They give you permission to need something for yourself.",
-    "the_line": "I see you.",
-    "first_rep": "Ask yourself right now: 'Am I giving from overflow or from sacrifice?' If it's sacrifice, add one boundary today.",
-    "famous_signal": "The off-stage legend — the person whose name only comes up when something breaks and everyone realizes who built it.",
-    "soundtrack": "Warm analog synths. The sound of something being carefully, lovingly assembled.",
-    "neon_color": "#20B2AA",
-    "rays": [
-      "Intention",
-      "Be The Light"
-    ]
-  },
-  {
-    "index": 9,
+    "index": 1,
     "name": "Present Celebrator",
     "tagline": "You find the joy other people walk right past.",
     "vibe": "The one who turns a random Tuesday into something worth remembering.",
@@ -252,7 +224,7 @@
     ]
   },
   {
-    "index": 10,
+    "index": 1,
     "name": "Confident Enthusiast",
     "tagline": "You bring the energy AND the follow-through.",
     "vibe": "The one who lights the fuse and stays to build the rocket.",
@@ -280,7 +252,7 @@
     ]
   },
   {
-    "index": 11,
+    "index": 1,
     "name": "Joyful Missionary",
     "tagline": "You make the mission feel like something worth waking up for.",
     "vibe": "The one who makes you care about the cause without making you feel guilty about brunch.",
@@ -308,7 +280,7 @@
     ]
   },
   {
-    "index": 12,
+    "index": 1,
     "name": "Radiant Authentic",
     "tagline": "You're warm enough to draw people in and real enough to keep them.",
     "vibe": "The one who makes honesty feel like a gift instead of a threat.",
@@ -336,7 +308,7 @@
     ]
   },
   {
-    "index": 13,
+    "index": 1,
     "name": "Relational Spark",
     "tagline": "You make people feel like they matter — because to you, they do.",
     "vibe": "The one who remembers your kid's name, your bad week, and exactly where you left off.",
@@ -364,7 +336,7 @@
     ]
   },
   {
-    "index": 14,
+    "index": 1,
     "name": "Optimistic Explorer",
     "tagline": "You find the open door everyone else walked past.",
     "vibe": "The one who makes uncertainty feel like an adventure.",
@@ -392,35 +364,7 @@
     ]
   },
   {
-    "index": 15,
-    "name": "Light Bringer",
-    "tagline": "People don't follow your words — they follow your willingness to go first.",
-    "vibe": "The one who says 'watch me' and then does the thing everyone was afraid of — with witnesses.",
-    "identity_code": "FIRST. VISIBLE. CONTAGIOUS.",
-    "the_question": "Who gets braver if I stop hiding?",
-    "people_say": "I didn't change because of what she said. I changed because of what I watched her do.",
-    "you_might_be_this_if": [
-      "Someone told you, months later, that watching you handle a hard moment changed how they handle theirs",
-      "You've gone first on something vulnerable — not for applause, but because pretending felt worse",
-      "You give credit until there's none left for you, and you'd do it again tomorrow"
-    ],
-    "at_your_best": "You create permission by going first. Not by teaching or preaching — by doing the hard thing where people can see you. Your courage is contagious in the most literal sense: you take action, and someone watching decides they can too. That ripple didn't start with a speech. It started with a rep.",
-    "what_youre_afraid_of": "That you've been pouring into everyone else's capacity so long that you forgot yours needs fuel too.",
-    "when_your_signal_goes_dark": "You keep modeling while running on fumes. The reps are still visible but the energy underneath is performance, not overflow. You light the room and nobody thinks to ask what it costs. The giving doesn't stop. The return address disappears.",
-    "in_the_wild": "A Light Bringer volunteered to give her team's first honest post-mortem after a failed launch. She named her own mistakes first. Two weeks later, her most defensive team member said: 'If she can say that out loud, I can probably look at my own stuff.' She never knew that moment happened.",
-    "your_counter_signal": "You need a Present Truth near you. They hold up the mirror and ask: 'Are you actually okay — or are you just making sure everyone else is?'",
-    "the_line": "You don't need to be fixed. You need to be refueled.",
-    "first_rep": "Before you pour into anyone else today, name one thing that refills you. Do that thing. Not after everything else. First.",
-    "famous_signal": "The team captain who stays after practice — not because coach said to, but because the younger players are watching and that changes what they believe is possible.",
-    "soundtrack": "Anthemic synth-pop with a choir. The song that plays at the end of the movie when everything comes together.",
-    "neon_color": "#FFFF00",
-    "rays": [
-      "Joy",
-      "Be The Light"
-    ]
-  },
-  {
-    "index": 16,
+    "index": 1,
     "name": "Grounded Commander",
     "tagline": "You don't rise to the chaos — you lower the temperature until the room can think again.",
     "vibe": "Ice-cold composure, white-hot results.",
@@ -448,7 +392,7 @@
     ]
   },
   {
-    "index": 17,
+    "index": 1,
     "name": "Mindful Mission",
     "tagline": "You don't chase every fire — you choose which ones are actually yours to put out.",
     "vibe": "Strategic patience with a backbone.",
@@ -476,7 +420,7 @@
     ]
   },
   {
-    "index": 18,
+    "index": 1,
     "name": "Present Truth",
     "tagline": "You say the hard thing from a settled place — no explosion, no apology tour, just clarity.",
     "vibe": "Honest like a mirror, warm like a fireplace.",
@@ -504,7 +448,7 @@
     ]
   },
   {
-    "index": 19,
+    "index": 1,
     "name": "Deep Listener",
     "tagline": "You hear what people mean underneath what people say — and that changes everything.",
     "vibe": "Human sonar with a velvet frequency.",
@@ -532,7 +476,7 @@
     ]
   },
   {
-    "index": 20,
+    "index": 1,
     "name": "Present Visionary",
     "tagline": "You explore every possibility without losing your footing — curiosity with a calm center.",
     "vibe": "Lab coat energy, yoga mat composure.",
@@ -560,35 +504,7 @@
     ]
   },
   {
-    "index": 21,
-    "name": "Calm Center",
-    "tagline": "Your presence is the permission slip — when you settle, the whole room remembers it can breathe.",
-    "vibe": "Walking climate control for every room you enter.",
-    "identity_code": "HOLD.SETTLE.RADIATE",
-    "the_question": "What emotional weather am I setting right now — and is it the climate this room needs?",
-    "people_say": "I don't know what it is. Nothing dramatic happens. They just walk in and the tension drops three notches. It's like a thermostat nobody installed.",
-    "you_might_be_this_if": [
-      "People physically relax when you sit down at the table — and you've started to notice it",
-      "You've de-escalated a conflict just by being present, without saying a single word",
-      "Someone has told you 'I just feel better when you're in the room' and you weren't sure what you did to earn that"
-    ],
-    "at_your_best": "You don't manage the room's emotions. You model a different possibility for them. Your calm isn't performance — it's contagion. When you're regulated, people around you start to regulate too, not because you told them to, but because your nervous system gave theirs permission. You set the emotional climate in meetings, in families, in hallways. That's not a personality trait. That's a skill you built, and it's one of the most valuable things a human being can offer a room full of people who've forgotten they can settle.",
-    "what_youre_afraid_of": "That your calm has become so practiced that you'll miss the one moment where urgency — real, screaming urgency — was the right response.",
-    "when_your_signal_goes_dark": "The settling presence that healed rooms starts to flatten them. Your calm becomes a ceiling — nothing escalates, but nothing ignites either. You become so identified with being the steady one that you mistake stillness for wisdom and miss the moments that needed someone to stand up, raise their voice, and say THIS MATTERS RIGHT NOW. The room doesn't need a thermostat. It needs a fire alarm. And you're still whispering.",
-    "in_the_wild": "A Calm Center was the emotional anchor through two building campaigns, a staff upheaval, and a community crisis. Then a staff member reported misconduct. He listened. Nodded. Said he'd 'hold it in prayer.' Three months later, nothing had changed. Some moments don't need a settled presence. They need a raised voice and a phone call. He'd spent so long being the calm center that he'd forgotten urgency was also a form of care.",
-    "your_counter_signal": "You need a Present Truth nearby. They give you permission to raise the volume when the moment demands it.",
-    "the_line": "The rarest leaders don't just keep their cool. They lend it — and the whole room borrows something it didn't know it needed.",
-    "first_rep": "The next time you walk into a tense room, pause for one breath. Notice the weather in the room. Then notice the weather in YOU. If they match — if you've absorbed the tension without realizing it — take one more breath and reset your own signal first.",
-    "famous_signal": "The meditation teacher who doesn't say 'calm down' — just breathes, and three minutes later the whole room is breathing with them.",
-    "soundtrack": "Atmospheric synth with deep bass and long reverb. The sound of a room exhaling.",
-    "neon_color": "#B388FF",
-    "rays": [
-      "Presence",
-      "Be The Light"
-    ]
-  },
-  {
-    "index": 22,
+    "index": 1,
     "name": "Driven Leader",
     "tagline": "You don't just make decisions — you make them mean something.",
     "vibe": "Boardroom energy with a backbone that won't bend for applause.",
@@ -616,7 +532,7 @@
     ]
   },
   {
-    "index": 23,
+    "index": 1,
     "name": "Bold Authentic",
     "tagline": "You don't warm people up to the truth — you walk in wearing it.",
     "vibe": "Leather jacket over a heartbeat you can hear across the room.",
@@ -644,7 +560,7 @@
     ]
   },
   {
-    "index": 24,
+    "index": 1,
     "name": "Charismatic Connector",
     "tagline": "You move people forward without leaving anyone out — and you do it at speed.",
     "vibe": "High-five energy with a strategic brain running laps underneath.",
@@ -672,7 +588,7 @@
     ]
   },
   {
-    "index": 25,
+    "index": 1,
     "name": "Risk-Taking Pioneer",
     "tagline": "You don't wait for the map — you draw it by walking.",
     "vibe": "Lab-coat-and-skateboard energy with a prototype in every pocket.",
@@ -700,35 +616,7 @@
     ]
   },
   {
-    "index": 26,
-    "name": "Empowering Force",
-    "tagline": "You go first so others don't have to go alone.",
-    "vibe": "Main-character energy that keeps handing the spotlight to everyone else.",
-    "identity_code": "VISIBLE.BRAVE.GENEROUS",
-    "the_question": "Who gets braver if I move first?",
-    "people_say": "Watching her do the scary thing made me realize I could do mine.",
-    "you_might_be_this_if": [
-      "You've volunteered to go first in situations that terrified you because you saw someone more terrified beside you",
-      "People have told you that something you did — that you barely remember — changed the entire direction of their year",
-      "You set a pace in public that privately exhausts you, and you'd do it again tomorrow"
-    ],
-    "at_your_best": "You are a pace car for courage. Not the loudest voice — the first body through the door. You model action under fear so visibly that other people's nervous systems start to believe what yours is demonstrating: that it's survivable. You don't give speeches about bravery. You just do the thing, visibly, and let the ripple handle the rest. The light you carry isn't for you. It never was.",
-    "what_youre_afraid_of": "That the moment you stop performing strength, everyone who relied on you will collapse — and it'll be your fault.",
-    "when_your_signal_goes_dark": "Going first becomes a compulsion instead of a choice. Every visible act of courage costs a little more than the last, but you can't afford to stop because the audience is watching. Recovery feels like weakness. Rest feels like abandonment. The force is still real. The fuel line is empty and you won't look at the gauge.",
-    "in_the_wild": "An Empowering Force stood up at an all-hands the week after layoffs and said, 'I'm scared too. Here's what I don't know yet. Here's what I'm doing anyway.' It wasn't polished. Her voice cracked. Three employees later said that moment was the reason they stayed.",
-    "your_counter_signal": "You need a Risk-Taking Pioneer nearby. They remind you that going first doesn't mean going alone.",
-    "the_line": "Going first is your gift. Resting in front of people is your next one.",
-    "first_rep": "Tell one person today — out loud — that you're tired. Not in a crisis way. Just honest. Let someone else hold the pace for an hour.",
-    "famous_signal": "The energy of a firefighter who walks in first. Not because they're not afraid. Because someone has to.",
-    "soundtrack": "Anthemic stadium rock with a single spotlight. The song that plays when one person stands up and the whole room follows.",
-    "neon_color": "#BF00FF",
-    "rays": [
-      "Power",
-      "Be The Light"
-    ]
-  },
-  {
-    "index": 27,
+    "index": 1,
     "name": "True Missionary",
     "tagline": "You don't just have values — you live loud enough that people can check your work.",
     "vibe": "Compass that never needs recalibrating.",
@@ -756,7 +644,7 @@
     ]
   },
   {
-    "index": 28,
+    "index": 1,
     "name": "Community Builder",
     "tagline": "You don't just gather people — you give them a reason to stay that outlasts the meeting.",
     "vibe": "Campfire that somehow also has an agenda.",
@@ -784,7 +672,7 @@
     ]
   },
   {
-    "index": 29,
+    "index": 1,
     "name": "Visionary Missionary",
     "tagline": "You dream forward but your feet never leave the values that got you here.",
     "vibe": "Telescope bolted to a cathedral floor.",
@@ -812,35 +700,7 @@
     ]
   },
   {
-    "index": 30,
-    "name": "Servant Leader",
-    "tagline": "You carry the mission so clearly that people feel called, not managed.",
-    "vibe": "Cathedral ceiling in a rolled-up-sleeves kind of way.",
-    "identity_code": "MISSION.SERVICE.STANDARD",
-    "the_question": "Can you feel the purpose — or just the pressure?",
-    "people_say": "I've never worked harder and felt less micromanaged. Somehow the bar is sky-high and I want to reach it.",
-    "you_might_be_this_if": [
-      "You've inspired someone to raise their own standard without ever telling them it wasn't high enough",
-      "People describe working with you as both demanding and deeply safe",
-      "You spend more time clearing the path than walking in front of it"
-    ],
-    "at_your_best": "You lead from underneath. Not beneath — underneath. Like a foundation. People stand taller on your watch because your service isn't self-erasure, it's architecture. You set standards that feel like invitations because people can see you living them first. When you're in your full range, people don't follow you because they have to. They follow because your presence makes the work feel sacred.",
-    "what_youre_afraid_of": "That you'll pour yourself into holding the standard and one day look up to find you've been carrying everyone and no one noticed.",
-    "when_your_signal_goes_dark": "Service becomes silence. You preach the mission in the morning and absorb everyone's weight by afternoon. The inspiring standards start to feel like a performance because you're too depleted to actually meet them yourself. You overfunction in private and over-inspire in public, and the gap between those two starts to crack. The devotion is still real. The rest is covered, not gone.",
-    "in_the_wild": "A Servant Leader spent three years building a culture where teachers felt ownership over the mission. She started by doing lunch duty herself every Friday — not as a statement, but because she wanted to know every kid's name. By year two, teachers were volunteering for duties she never assigned. She still does Friday lunch.",
-    "your_counter_signal": "You need a Visionary Missionary nearby. They keep your service aimed at the future, not just the present.",
-    "the_line": "A standard people can see you living is worth a hundred you just set.",
-    "first_rep": "This week, do one task you'd normally delegate — not to prove a point, but to remember what it costs.",
-    "famous_signal": "Mr. Rogers energy — the sweater wasn't a costume. It was a daily decision to show up gentle in a world that rewarded loud.",
-    "soundtrack": "Warm analog chords with a steady, patient rhythm. The sound of someone building something that will outlast them.",
-    "neon_color": "#18FFFF",
-    "rays": [
-      "Purpose",
-      "Be The Light"
-    ]
-  },
-  {
-    "index": 31,
+    "index": 1,
     "name": "Trusted Confidant",
     "tagline": "You're the person people tell the thing they haven't told anyone else — and they walk away lighter, not exposed.",
     "vibe": "The friend who holds your secret like it's sacred and tells you the truth like it's a gift.",
@@ -868,7 +728,7 @@
     ]
   },
   {
-    "index": 32,
+    "index": 1,
     "name": "Authentic Innovator",
     "tagline": "You change your mind in public and somehow people trust you more for it, not less.",
     "vibe": "The one who says 'I was wrong about that' and 'here's what I'm trying next' in the same sentence.",
@@ -896,35 +756,7 @@
     ]
   },
   {
-    "index": 33,
-    "name": "Truth Beacon",
-    "tagline": "You live so honestly that people around you start telling the truth too.",
-    "vibe": "The one whose honesty is contagious — you walk in real and now nobody can fake it.",
-    "identity_code": "VISIBLE.UNFILTERED.PERMISSION",
-    "the_question": "What if the most useful thing I could do is just be fully myself where people can see it?",
-    "people_say": "I watched them say the thing nobody would say and the whole room exhaled. I've been braver since I met them.",
-    "you_might_be_this_if": [
-      "Someone has told you, unprompted, that watching how you show up changed how they show up",
-      "You've modeled a hard conversation in front of your team not to perform — but because pretending felt worse",
-      "Your authenticity has a radius: people near you start telling the truth more, even when you're not in the room"
-    ],
-    "at_your_best": "Your willingness to be seen — not curated, not managed, just real — creates a field around you where pretense can't survive. You walk in being yourself and the room recalibrates. The people who've worked with you carry something forward: a memory of what it felt like when someone refused to perform, and how that refusal made everyone else a little more free.",
-    "what_youre_afraid_of": "That you'll give so much of yourself in public that there's nothing left that's just yours.",
-    "when_your_signal_goes_dark": "You start leading from rawness without regulation. The vulnerability that once inspired people begins to overwhelm them. You forget that being a beacon doesn't mean burning at full brightness all the time. Overexposure sets in: you're still honest, but you've lost the discernment about what the room needs versus what you need to express. Your light starts to feel like heat.",
-    "in_the_wild": "A Truth Beacon was known for radical transparency — company financials, personal doubts, even therapy takeaways in all-hands meetings. People loved it until they didn't. A senior hire said: 'I believe in you, but I need to know you're okay before I can focus on the work.' She didn't stop being honest. She started being more intentional about when her honesty was a gift and when it was a cost.",
-    "your_counter_signal": "You need a Relational Light nearby. They show you that modeling doesn't always mean broadcasting — sometimes the most powerful truth happens one-on-one.",
-    "the_line": "You don't have to be perfect to be the example. You just have to be real where people can see you.",
-    "first_rep": "Think of one thing you believe about leadership that you've been keeping private because it feels too honest. Share it this week — a post, a message, a conversation. Not for the reaction. For the practice of being visible.",
-    "famous_signal": "Glennon Doyle energy — raw, public, unflinching honesty that somehow makes strangers feel braver about their own lives.",
-    "soundtrack": "Power ballad with a single voice that fills the whole room. No backup singers. No hiding.",
-    "neon_color": "#FF3D00",
-    "rays": [
-      "Authenticity",
-      "Be The Light"
-    ]
-  },
-  {
-    "index": 34,
+    "index": 1,
     "name": "Network Cultivator",
     "tagline": "You don't build networks — you grow them, one genuine question at a time.",
     "vibe": "The connector who makes two strangers realize they should've been collaborating for years.",
@@ -949,62 +781,6 @@
     "rays": [
       "Connection",
       "Possibility"
-    ]
-  },
-  {
-    "index": 35,
-    "name": "Relational Light",
-    "tagline": "You make the room safer just by being in it — and the people you've repaired with trust you more than the ones who've never seen you stumble.",
-    "vibe": "The one who turns a rupture into a deeper bond and makes safety feel like strategy.",
-    "identity_code": "WARM.REPAIRING.CULTURE-SETTING",
-    "the_question": "What would it take for every person in this room to feel safe enough to say the real thing?",
-    "people_say": "I've never had a boss apologize like that before. It wasn't performative — it actually changed how I show up now.",
-    "you_might_be_this_if": [
-      "You've repaired a professional relationship so well that the other person later said it was a turning point in how they lead",
-      "People describe your team's culture as different — safer, more honest — and you know it's because you chose repair over retreat every time",
-      "You can feel when a room shifts from real to performing, and you instinctively do something to bring it back"
-    ],
-    "at_your_best": "You build culture the way others build product: with intention, iteration, and a refusal to ship something you don't believe in. Your repair practice is your superpower — not because you never rupture, but because you always come back, and you come back better. People don't just feel psychologically safe around you; they learn what safety looks like by watching you create it.",
-    "what_youre_afraid_of": "That one day you'll have given so much to the room that you'll look up and realize there's no one holding the space for you.",
-    "when_your_signal_goes_dark": "The giving that makes you extraordinary turns on itself. You start absorbing every emotional signal in the room like it's your job to metabolize all of it. Boundaries trail your empathy, and the gap becomes exhaustion. You repair and repair until there's nothing left to repair with. The warmth is still there but it's running on fumes. You built a safe room for everyone. You forgot to save a chair for yourself.",
-    "in_the_wild": "A Relational Light made it a practice to follow up every hard conversation with a genuine check-in the next day. Her team's retention was the best in the company. But after a quarter of back-to-back conflict resolution, she found herself crying in the parking lot before work. Her coach didn't tell her to stop caring. She told her to put one meeting a week on her calendar that was just for her. She called it her 'empty room.' It saved her.",
-    "your_counter_signal": "You need a Truth Beacon nearby. They model the kind of visibility that gives your care somewhere to land.",
-    "the_line": "You can't build a safe room for everyone and forget to save a seat for yourself. Your care is a skill — protect it like one.",
-    "first_rep": "Identify one relationship at work that has a small, unspoken tension. This week, name it gently: 'I've been noticing something between us and I'd rather address it than let it sit.'",
-    "famous_signal": "The teacher who stays after class. Not because they have to. Because they noticed you didn't raise your hand today.",
-    "soundtrack": "Tender indie folk with layered harmonics. The song that makes you call someone you haven't talked to in months.",
-    "neon_color": "#FF80AB",
-    "rays": [
-      "Connection",
-      "Be The Light"
-    ]
-  },
-  {
-    "index": 36,
-    "name": "Visionary Servant",
-    "tagline": "You paint a future so vivid people can taste it — and then you pick up a brush and start building it beside them.",
-    "vibe": "The one who dreams out loud and then rolls up their sleeves — because hope without reps is just a motivational poster.",
-    "identity_code": "HOPEFUL.EMBODIED.FIRST-MOVER",
-    "the_question": "What's the future worth building, and am I willing to go first so others believe it's possible?",
-    "people_say": "They didn't just talk about what could be — they started doing it. And watching them begin made me believe I could too.",
-    "you_might_be_this_if": [
-      "You've cast a vision that excited a room and then immediately started doing the unglamorous work to make it real",
-      "People describe you as both a dreamer and a doer, and you've never understood why anyone treats those as different things",
-      "You've gone first on something scary not because you weren't afraid, but because you knew someone had to"
-    ],
-    "at_your_best": "You're the rarest combination: someone who can see the horizon and dig the foundation at the same time. Your vision isn't abstract — it's embodied. People follow you not because your future sounds good, but because they can see you already living in it. The hope you generate isn't cheap optimism — it's the kind that comes with calluses. When you're in your full operating range, people don't just believe a better future is possible. They believe it's already underway, because you started before you had permission.",
-    "what_youre_afraid_of": "That you'll spend your life pointing toward a future no one else shows up to build.",
-    "when_your_signal_goes_dark": "The vision stays vivid but the reps stop. Under pressure, you retreat into inspiration without execution — painting gorgeous futures that nobody knows how to reach. Your words still land, but your hands aren't in the work anymore, and people start to notice. Vision fog rolls in: everything feels possible in the abstract and nothing feels real in the specific. You're still the most hopeful person in the room. But hope without hands is just a beautiful ceiling people can't touch.",
-    "in_the_wild": "A Visionary Servant could cast vision like nobody else — funders would open checkbooks mid-presentation. But after unveiling an ambitious three-year strategy, his COO said: 'They're inspired. Now they need to see you do something small this week.' He cancelled his next two external speaking gigs and spent that time sitting with the front-line team, building the first pilot alongside them. That story raised more money than the three-year plan ever did.",
-    "your_counter_signal": "You need a Network Cultivator nearby. They connect you to the people who'll build the rooms you're imagining.",
-    "the_line": "Hope is not a feeling. It's a first rep. If you believe in the future, prove it — go do something small and real before lunch.",
-    "first_rep": "Name one future you've been describing but haven't started building. This week, take the smallest possible action toward it — not a plan, not a deck, an actual rep — and let someone watch you do it.",
-    "famous_signal": "Gandalf energy — not the wizard with the staff. The one who believed in hobbits when nobody else did and then walked beside them into the dark.",
-    "soundtrack": "Epic synth orchestral with a choir that builds and builds. The track that plays during the final scene when everything you built becomes real.",
-    "neon_color": "#EEFF41",
-    "rays": [
-      "Possibility",
-      "Be The Light"
     ]
   }
 ]

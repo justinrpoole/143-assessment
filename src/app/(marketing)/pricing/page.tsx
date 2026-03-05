@@ -62,7 +62,7 @@ const PLANS = [
     description:
       "Your complete behavioural map. 143 questions — the number is not arbitrary, it is the foundation principle built into the design. Measures 9 trainable capacities, identifies your Light Signature, and reveals where eclipse is strongest.",
     features: [
-      "Your Light Signature — one of 36 unique patterns",
+      "Your Light Signature — one of 28 unique patterns",
       "Your Eclipse Snapshot — where stress covers capacity",
       "Energy-to-Eclipse Ratio and Rise Path",
       "Complete behavioural map across all 9 Rays",

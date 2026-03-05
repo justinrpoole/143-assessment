@@ -118,7 +118,7 @@ export default function IdentityStory({ lightSignature, eclipse, rays }: Props) 
       </div>
 
       <ScienceToggle
-        mechanism="Your Light Signature is determined by Net Energy — the balance between Shine (baseline capacity) and Eclipse (current load) across all 9 Rays. Your two Primary Rays — the Rays with the highest net energy — form your archetype pair. There are 36 possible combinations."
+        mechanism="Your Light Signature is determined by Net Energy — the balance between Shine (baseline capacity) and Eclipse (current load) across all 9 Rays. Your two Primary Rays — the Rays with the highest net energy from Rays 1-8 — form your archetype pair. There are 28 possible combinations. Ray 9 (Be The Light) is the destination state you reach when you align Rays 1-8."
         anchor="scoring-model"
       />
     </section>

@@ -77,7 +77,7 @@ Every field in the scoring pipeline output, its type, source phase, valid range,
 
 | Field | Type | Phase | Range | Description |
 |-------|------|-------|-------|-------------|
-| `archetype` | ArchetypeBlock? | Phase G | — | Matched pair archetype (36 possible) |
+| `archetype` | ArchetypeBlock? | Phase G | — | Matched pair archetype (28 possible from Rays 1-8) |
 | `top_two[0..1]` | { ray_id, ray_name, why_resourced, under_load_distortion } | Phase F | — | Highest net energy rays |
 | `just_in_ray.ray_id` | string | Phase F | R1–R9 | Bottom ray for development focus |
 | `just_in_ray.move_score` | number? | Phase F | 0–1 | 0.45*Access + 0.35*ToolReadiness + 0.20*Reflection |

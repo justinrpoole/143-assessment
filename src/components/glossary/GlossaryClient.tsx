@@ -134,7 +134,7 @@ const FRAMEWORK_TERMS: Array<{ term: string; definition: string; category?: stri
     term: "Light Signature Archetype",
     category: "Assessment Output",
     definition:
-      "The named pattern created by your two Primary Rays working together. Examples include Strategic Optimist (Intention + Joy), Decisive Director (Intention + Power), Relational Light (Connection + Be The Light), and Visionary Servant (Possibility + Be The Light). There are 36 possible archetypes.",
+      "The named pattern created by your two Primary Rays working together from Rays 1-8. Examples include Strategic Optimist (Intention + Joy), Decisive Director (Intention + Power), and Calm Center (Presence + Presence). There are 28 Light Signatures. Ray 9 (Be The Light) is not a Light Signature—it's the destination state you reach by aligning Rays 1-8.",
   },
   {
     term: "Eclipse Snapshot",

@@ -154,7 +154,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
     },
     nextStepSection: {
       title: "Which leader are you when the light is on?",
-      body: "Your two Primary Rays combine into one of 36 Light Signatures. You might be a Strategic Optimist, a Decisive Director, or a Calm Center. The assessment reveals yours.",
+      body: "Your two Primary Rays combine into one of 28 Light Signatures. You might be a Strategic Optimist, a Decisive Director, or a Calm Center. The assessment reveals yours. (Ray 9, Be The Light, is the destination state you reach when you align Rays 1-8.)",
     },
     whyThisWorks: {
       title:
@@ -228,7 +228,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
       {
         step: "2) Map Your Capacities",
         detail:
-          "The 143 Assessment measures 9 trainable Rays, reveals your Light Signature (one of 36 unique combinations), and shows where Eclipse may be covering real capacity. 143 questions. About 15 minutes. The most honest mirror your leadership has seen.",
+          "The 143 Assessment measures 9 trainable Rays, reveals your Light Signature (one of 28 unique combinations from Rays 1-8), and shows where Eclipse may be covering real capacity. 143 questions. About 15 minutes. The most honest mirror your leadership has seen.",
       },
       {
         step: "3) Train the Gaps",

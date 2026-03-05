@@ -55,7 +55,7 @@ export const LOCKED_STRINGS: LockedString[] = [
     version: 1,
     reviewedAt: '2026-02-23',
     status: 'canonical',
-    note: 'Prefix for all 36 ray-pair identity openers',
+    note: 'Prefix for all 28 ray-pair identity openers (Rays 1-8)',
   },
   {
     key: 'results.confidence_high',

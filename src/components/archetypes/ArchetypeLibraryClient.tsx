@@ -31,16 +31,15 @@ const ALL_RAY_NAMES = [
 /* Internal mapping — R-codes exist in JS memory only, never rendered */
 const PAIR_TO_INDEX: Record<string, number> = {
   'R1-R2': 1, 'R1-R3': 2, 'R1-R4': 3, 'R1-R5': 4, 'R1-R6': 5,
-  'R1-R7': 6, 'R1-R8': 7, 'R1-R9': 8,
-  'R2-R3': 9, 'R2-R4': 10, 'R2-R5': 11, 'R2-R6': 12,
-  'R2-R7': 13, 'R2-R8': 14, 'R2-R9': 15,
-  'R3-R4': 16, 'R3-R5': 17, 'R3-R6': 18, 'R3-R7': 19,
-  'R3-R8': 20, 'R3-R9': 21,
-  'R4-R5': 22, 'R4-R6': 23, 'R4-R7': 24, 'R4-R8': 25, 'R4-R9': 26,
-  'R5-R6': 27, 'R5-R7': 28, 'R5-R8': 29, 'R5-R9': 30,
-  'R6-R7': 31, 'R6-R8': 32, 'R6-R9': 33,
-  'R7-R8': 34, 'R7-R9': 35,
-  'R8-R9': 36,
+  'R1-R7': 6, 'R1-R8': 7,
+  'R2-R3': 8, 'R2-R4': 9, 'R2-R5': 10, 'R2-R6': 11,
+  'R2-R7': 12, 'R2-R8': 13,
+  'R3-R4': 14, 'R3-R5': 15, 'R3-R6': 16, 'R3-R7': 17,
+  'R3-R8': 18,
+  'R4-R5': 19, 'R4-R6': 20, 'R4-R7': 21, 'R4-R8': 22,
+  'R5-R6': 23, 'R5-R7': 24, 'R5-R8': 25,
+  'R6-R7': 26, 'R6-R8': 27,
+  'R7-R8': 28,
 };
 
 const MAX_RESONANCES = 3;
@@ -93,7 +92,7 @@ export default function ArchetypeLibraryClient() {
     const hash = window.location.hash;
     if (hash.startsWith('#sig-')) {
       const idx = parseInt(hash.replace('#sig-', ''), 10);
-      if (idx >= 1 && idx <= 36) {
+      if (idx >= 1 && idx <= 28) {
         setExpandedIndex(idx);
         setTimeout(() => {
           document
@@ -175,7 +174,7 @@ export default function ArchetypeLibraryClient() {
           className="text-xs uppercase tracking-[0.25em] font-semibold"
           style={{ color: 'var(--brand-gold)' }}
         >
-          36 Light Signatures
+          28 Light Signatures
         </p>
         <h2
           className="text-3xl sm:text-4xl font-bold"
@@ -191,7 +190,7 @@ export default function ArchetypeLibraryClient() {
           style={{ color: 'var(--text-on-dark-secondary)' }}
         >
           Every leader has a Light Signature — the unique combination of their
-          two strongest signals. Browse all 36 below. One of them is going to
+          two strongest signals. Browse all 28 below. One of them is going to
           feel uncomfortably accurate.
         </p>
       </div>
@@ -283,7 +282,7 @@ export default function ArchetypeLibraryClient() {
           className="text-xs"
           style={{ color: 'var(--text-on-dark-muted)' }}
         >
-          {filtered.length} of 36 signatures
+          {filtered.length} of 28 signatures
         </p>
         {resonances.length > 0 && (
           <p className="text-xs" style={{ color: 'var(--brand-gold)' }}>

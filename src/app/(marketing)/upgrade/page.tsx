@@ -93,7 +93,7 @@ const TESTIMONIALS = [
 ];
 
 const REPORT_FEATURES = [
-  "Your Light Signature (one of 36)",
+  "Your Light Signature (one of 28)",
   "Full 9-Ray capacity report with Eclipse Snapshot",
   "Energy-to-Eclipse Ratio and Gravitational Stability Score",
   "Personalised Rise Path with concrete next actions",

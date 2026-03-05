@@ -117,8 +117,8 @@ export const COMPOSITE_METRICS: MetricDefinition[] = [
     label: "Light Signature",
     shortDescription: "Your two Primary Rays working together",
     longDescription:
-      "Your Light Signature is the unique combination of your two Primary Rays. There are 36 possible combinations, each with a distinct archetype name. This is not a personality type — it is your current operating pattern, and it can change as you train different capacities.",
-    scale: "36 archetype combinations",
+      "Your Light Signature is the unique combination of your two Primary Rays from Rays 1-8. There are 28 possible combinations, each with a distinct archetype name. Ray 9 (Be The Light) is the destination state you reach when you align Rays 1-8. This is not a personality type — it is your current operating pattern, and it can change as you train different capacities.",
+    scale: "28 archetype combinations",
     interpretation:
       "Your Light Signature shows where your leadership naturally gravitates. It also reveals which capacity might be doing extra work to compensate for an eclipsed Ray.",
   },

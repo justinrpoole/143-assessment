@@ -34,7 +34,7 @@ const FAQS = [
     items: [
       {
         q: "What is the 143 Assessment?",
-        a: "The 143 Assessment is a research-backed behavioural assessment that measures 9 trainable leadership capacities called Rays. It produces your Light Signature archetype (one of 36), your Eclipse Snapshot showing where stress is covering capacity, your Energy-to-Eclipse Ratio, and a personalised Rise Path with your next concrete step. It takes about 15 minutes to complete.",
+        a: "The 143 Assessment is a research-backed behavioural assessment that measures 9 trainable leadership capacities called Rays. It produces your Light Signature archetype (one of 28 combinations from Rays 1-8), your Eclipse Snapshot showing where stress is covering capacity, your Energy-to-Eclipse Ratio, and a personalised Rise Path with your next concrete step. Ray 9 (Be The Light) is the destination state you reach when you align Rays 1-8. It takes about 15 minutes to complete.",
       },
       {
         q: "How long does the assessment take?",
