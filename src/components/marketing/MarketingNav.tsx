@@ -201,18 +201,15 @@ export function MarketingNav() {
       <nav className="marketing-nav" aria-label="Primary">
         <div className="content-wrap--wide marketing-nav__inner">
           {/* Logo */}
-          <Link href="/" className="marketing-nav__brand shrink-0" aria-label="143 Leadership — Home" onClick={closeMenu}>
+          <Link href="/" className="marketing-nav__brand shrink-0" aria-label="143 — Home" onClick={closeMenu}>
             <Image
-              src="/images/logo-143-sun.png"
-              alt="143 Leadership"
-              width={40}
-              height={40}
-              className="h-[40px] w-auto"
+              src="/images/143-landscape-logo.svg"
+              alt="143"
+              width={216}
+              height={48}
+              className="h-[26px] w-auto sm:h-[30px]"
               priority
             />
-            <span className="marketing-nav__brand-text text-[15px] font-bold tracking-[0.18em]">
-              LEADERSHIP
-            </span>
             {isBeta && (
               <span className="marketing-nav__beta px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.06em]">
                 Free Beta
@@ -249,7 +246,7 @@ export function MarketingNav() {
             {/* Secondary CTA */}
             <Link
               href={MARKETING_NAV_CTAS.secondary.href}
-              className="marketing-nav__cta-secondary hidden lg:inline-block shrink-0 rounded-lg px-3 py-1.5 text-[13px] font-semibold tracking-wide transition-all hover:brightness-110"
+              className="marketing-nav__cta-secondary hidden lg:inline-block shrink-0 rounded-lg px-3 py-1 text-[12px] font-semibold tracking-wide transition-all hover:brightness-110"
             >
               {MARKETING_NAV_CTAS.secondary.label}
             </Link>
@@ -257,7 +254,7 @@ export function MarketingNav() {
             {/* Primary CTA */}
             <Link
               href={MARKETING_NAV_CTAS.primary.href}
-              className="marketing-nav__cta-primary shrink-0 rounded-lg px-4 py-2 text-[13px] font-bold tracking-wide transition-all hover:brightness-105"
+              className="marketing-nav__cta-primary shrink-0 rounded-lg px-3.5 py-1.5 text-[12px] font-bold tracking-wide transition-all hover:brightness-105"
             >
               {MARKETING_NAV_CTAS.primary.label}
             </Link>

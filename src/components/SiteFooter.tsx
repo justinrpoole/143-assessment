@@ -10,10 +10,10 @@ export function SiteFooter() {
         {/* Logo + tagline */}
         <div className="mb-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
           <Image
-            src="/images/logo-leadership-full.svg"
-            alt="143 Leadership"
-            width={160}
-            height={160}
+            src="/images/143-landscape-logo.svg"
+            alt="143"
+            width={260}
+            height={58}
             className="site-footer__logo h-auto"
           />
           <p className="site-footer__tagline text-sm font-semibold tracking-wide sm:text-right">

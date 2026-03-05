@@ -197,7 +197,7 @@ async function runValidation() {
   });
   results.push({
     name: 'Logo img has src',
-    pass: !!logoSrc && logoSrc.includes('143-sun-eclipsed-logo')
+    pass: !!logoSrc && logoSrc.includes('143-landscape-logo')
   });
 
   await browser.close();

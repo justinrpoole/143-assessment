@@ -408,11 +408,11 @@ export default async function AboutPage() {
         <FadeInSection>
           <section id="method" className="content-wrap--narrow space-y-5 text-center">
             <CosmicImage
-              src="/images/logo-leadership-full.svg"
-              alt="143 Leadership"
-              width={160}
-              height={160}
-              maxWidth="160px"
+              src="/images/143-landscape-logo.svg"
+              alt="143"
+              width={240}
+              height={54}
+              maxWidth="240px"
               variant="decorative"
             />
             <p

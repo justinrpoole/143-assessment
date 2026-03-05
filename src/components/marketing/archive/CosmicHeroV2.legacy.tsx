@@ -933,11 +933,7 @@ export default function CosmicHeroV2() {
 
         <div className="eclipse-stage" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="sun-svg" src="/marketing/Sun-143.svg" alt="" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="sunnova-svg" src="/marketing/143-sun-nova.png" alt="" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="moon" src="/marketing/Purple-Moon-143.svg" alt="" />
+          <img className="sun-svg" src="/images/143-square-logo.svg" alt="" />
         </div>
 
         <div className="hero-copy">

@@ -331,7 +331,7 @@ export default async function Challenge143Page() {
           <section className="content-wrap--narrow space-y-6">
             <div className="glass-card p-6 sm:p-8 space-y-5">
               <CosmicImage
-                src="/images/logo-143-sun.png"
+                src="/images/143-square-logo.svg"
                 alt="143 Challenge"
                 width={120}
                 height={120}

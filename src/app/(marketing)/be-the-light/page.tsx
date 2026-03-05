@@ -115,11 +115,11 @@ export default async function BeTheLightPage() {
             />
           </div>
           <CosmicImage
-            src="/images/logo-143-sun.png"
+            src="/images/143-square-logo.svg"
             alt="Justin Ray"
-            width={48}
-            height={48}
-            maxWidth="48px"
+            width={56}
+            height={56}
+            maxWidth="56px"
             variant="decorative"
           />
           <p className="gold-tag">

@@ -54,48 +54,27 @@ export const MARKETING_LINKS = {
 /* ── Primary nav with dropdown groups ───────────────────── */
 
 export const MARKETING_NAV_ITEMS: NavItem[] = [
+  MARKETING_LINKS.challenge,
   {
-    label: "Why 143",
-    href: "/upgrade-your-os",
-    children: [
-      MARKETING_LINKS.tools,
-      MARKETING_LINKS.beTheLight,
-      MARKETING_LINKS.howItWorks,
-      MARKETING_LINKS.outcomes,
-    ],
-  },
-  {
-    label: "The Assessment",
-    href: "/how-it-works",
+    label: "Assessment",
+    href: "/assessment",
     children: [
       MARKETING_LINKS.preview,
       MARKETING_LINKS.assessment,
       MARKETING_LINKS.sampleReport,
-      MARKETING_LINKS.archetypes,
       MARKETING_LINKS.pricing,
     ],
   },
-  MARKETING_LINKS.challenge,
   {
-    label: "Practice",
-    href: "/watch-me",
+    label: "Tools",
+    href: "/tools",
     children: [
-      MARKETING_LINKS.challengeLead,
-      MARKETING_LINKS.framework,
-      MARKETING_LINKS.glossary,
+      MARKETING_LINKS.watchMe,
+      MARKETING_LINKS.goFirst,
+      MARKETING_LINKS.beTheLight,
     ],
   },
   MARKETING_LINKS.podcast,
-  {
-    label: "For Organizations",
-    href: "/organizations",
-    children: [
-      MARKETING_LINKS.enterprise,
-      MARKETING_LINKS.groupCoaching,
-      MARKETING_LINKS.coaches,
-      MARKETING_LINKS.cohorts,
-    ],
-  },
   MARKETING_LINKS.about,
 ];
 

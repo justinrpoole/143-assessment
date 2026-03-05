@@ -10,7 +10,6 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import NeonStarField from "@/components/cosmic/NeonStarField";
 import StaggerChildren from "@/components/marketing/StaggerChildren";
-import HowItWorks from "@/components/marketing/HowItWorks";
 import RadarMockup from "@/components/marketing/RadarMockup";
 import EmailCaptureBanner from "@/components/marketing/EmailCaptureBanner";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
@@ -81,11 +80,11 @@ export default async function UpgradeYourOsPage() {
         { id: "hero", label: "Hero" },
         { id: "filter", label: "Filter" },
         { id: "proof", label: "Proof" },
-        { id: "protocol", label: "Protocol" },
+        { id: "protocol", label: "Signal Shift" },
         { id: "science", label: "Science" },
         { id: "eclipse-nova", label: "Eclipse & Nova" },
         { id: "why-different", label: "Why Different" },
-        { id: "how-it-works", label: "How It Works" },
+        { id: "how-it-works", label: "Tools" },
         { id: "sample-report-teaser", label: "Your Map" },
                 { id: "eclipse-concept", label: "Eclipse" },
         { id: "score-movement", label: "Score Movement" },
@@ -137,26 +136,26 @@ export default async function UpgradeYourOsPage() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           <div className="glass-card p-5" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
-            <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: 'var(--text-on-dark)' }}>DAY 1: NOTICE</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: 'var(--text-on-dark)' }}>ATTENTION SHIFT</h3>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              Your brain will start filtering for 143 everywhere (clocks at :43, receipts, addresses, license plates). This proves the RAS works.
+              Your filter starts selecting signal over noise. 143 shows up in ordinary moments and gives you immediate proof your attention can be retrained.
             </p>
           </div>
           <div className="glass-card p-5" style={{ '--card-accent': 'var(--neon-violet)' } as { ['--card-accent']: string }}>
-            <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: 'var(--text-on-dark)' }}>DAY 2: ACTIVATE</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: 'var(--text-on-dark)' }}>PATTERN VISIBILITY</h3>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              Variable reps with the hand-over-heart protocol.
+              You can see when eclipse patterns are running instead of guessing. Awareness gets specific, not abstract, so change becomes repeatable.
             </p>
           </div>
           <div className="glass-card p-5" style={{ '--card-accent': 'var(--neon-blue)' } as { ['--card-accent']: string }}>
-            <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: 'var(--text-on-dark)' }}>DAY 3: RECOGNIZE</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: 'var(--text-on-dark)' }}>STABILITY SIGNAL</h3>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              Name what you see in your own leadership pattern.
+              You leave with evidence that your system can move. The challenge shows what is possible; the workbook carries the exact reps and sequence.
             </p>
           </div>
         </div>
         <div className="mt-8 text-center">
-          <LiquidFillButton href="/challenge">START DAY 1 NOW</LiquidFillButton>
+          <LiquidFillButton href="/challenge">START THE 143 CHALLENGE</LiquidFillButton>
         </div>
       </section>
       </FadeInSection>
@@ -169,11 +168,11 @@ export default async function UpgradeYourOsPage() {
             <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Protocol
           </span>
           <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            THE 143 HAND-OVER-HEART PROTOCOL
+            THE 143 SIGNAL SHIFT
           </h2>
           <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Hand to heart. Say &quot;I love you, I am safe, I am loved.&quot; Choose one aligned action immediately.
-            This is 3 minutes of self-directed compassion that interrupts your threat filter and trains a new pattern.
+            This protocol helps interrupt threat-mode fast and restore a stable signal before you make your next move.
+            The full rep sequence and exact prompts live in the workbook, not on this page.
           </p>
         </div>
       </section>
@@ -210,21 +209,21 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 2: ECLIPSE → NOVA STORY ── */}
       <FadeInSection>
-      <section id="eclipse-nova" className="section-alt-dark relative content-wrap py-20 sm:py-24 overflow-hidden">
+      <section id="eclipse-nova" className="relative content-wrap py-20 sm:py-24 overflow-hidden">
         <FloatingOrbs variant="purple" />
         <NeonStarField />
 
         {/* Section label */}
         <div className="relative z-10 mb-12 text-center">
           <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> WHY 143 WORKS
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> 143 MEANS I LOVE YOU
           </span>
         </div>
 
         <div className="relative z-10 grid gap-8 md:grid-cols-2 items-start">
 
           {/* Left — THE ECLIPSE */}
-          <div className="glass-card card-border-left-stroke surface-border-fill p-7">
+          <div className="glass-card card-border-left-accent-soft card-surface-accent-subtle p-7" style={{ '--card-accent': 'var(--neon-violet)' } as { ['--card-accent']: string }}>
             <div className="mb-4 flex items-center gap-3">
               {/* Moon / eclipse icon */}
               <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
@@ -252,7 +251,7 @@ export default async function UpgradeYourOsPage() {
           </div>
 
           {/* Right — THE NOVA */}
-          <div className="glass-card card-border-left-gold surface-border-fill p-7">
+          <div className="glass-card card-border-left-accent-soft card-surface-accent-subtle p-7" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
             <div className="mb-4 flex items-center gap-3">
               {/* Starburst / nova icon */}
               <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
@@ -418,22 +417,22 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 4: DISCOVER YOUR RAYS (GATED) ── */}
       <FadeInSection>
-      <section id="discover-rays" className="section-alt-dark gold-dot-grid relative content-wrap py-20 sm:py-24 watermark-143">
-        <div className="relative z-10 mb-10 text-center">
+      <section id="discover-rays" className="relative content-wrap py-20 sm:py-24">
+        <div className="relative z-10 mx-auto max-w-[760px] glass-card card-border-left-accent-soft card-surface-accent-subtle p-8 text-center" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
           <span className="gold-tag mx-auto">◆ Your Rays</span>
           <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
             Discover your Rays with the free Stability Check.
           </h2>
           <p className="mx-auto mt-3 max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            We don&apos;t teach the full methodology on the page. We show it after your baseline.
-            Start free, see your signal, then unlock the full map.
+            We keep challenge instructions inside the workbook. On this page, you get clear signal:
+            where you are stable, where eclipse is active, and where to focus next.
           </p>
           <p className="mx-auto mt-2 max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
             After 3 days, you&apos;ve proven your filter can change. Now see your map.
           </p>
-        </div>
-        <div className="relative z-10 text-center">
-          <LiquidFillButton href="/preview">Take the free Stability Check → discover your Rays</LiquidFillButton>
+          <div className="relative z-10 mt-6 text-center">
+            <LiquidFillButton href="/preview">Take the free Stability Check → discover your Rays</LiquidFillButton>
+          </div>
         </div>
       </section>
       </FadeInSection>
@@ -441,10 +440,60 @@ export default async function UpgradeYourOsPage() {
       <RayDivider ray="R1" />
 
 
-      {/* ── SECTION 5: HOW IT WORKS ── */}
+      {/* ── SECTION 5: THE 3 TOOLS ── */}
       <FadeInSection>
       <section id="how-it-works" className="relative content-wrap py-20 sm:py-24">
-        <HowItWorks />
+        <div className="mb-10 text-center">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Tools
+          </span>
+          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
+            THREE WAYS TO REPROGRAM YOUR BRAIN
+          </h2>
+          <p className="mx-auto mt-3 max-w-[620px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            No fluff. No overload. Three practical tools you can run in real time when your system is under pressure.
+          </p>
+        </div>
+        <StaggerChildren className="grid gap-5 md:grid-cols-3">
+          {[
+            {
+              title: 'WATCH ME',
+              body: 'The reset that redirects attention fast when your mind drifts into noise or threat scanning.',
+              href: '/watch-me',
+              accent: 'var(--gold-primary)',
+            },
+            {
+              title: 'GO FIRST',
+              body: 'The move that breaks hesitation loops and restores momentum with one clean, aligned action.',
+              href: '/go-first',
+              accent: 'var(--neon-violet)',
+            },
+            {
+              title: 'BE THE LIGHT',
+              body: 'The integration practice that stabilizes your signal so your leadership stays visible under load.',
+              href: '/be-the-light',
+              accent: 'var(--neon-blue)',
+            },
+          ].map((tool) => (
+            <div
+              key={tool.title}
+              className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-6"
+              style={{ '--card-accent': tool.accent } as { ['--card-accent']: string }}
+            >
+              <h3 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark)' }}>
+                {tool.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+                {tool.body}
+              </p>
+              <div className="mt-5">
+                <Link href={tool.href} className="text-sm font-semibold" style={{ color: tool.accent }}>
+                  Explore {tool.title} →
+                </Link>
+              </div>
+            </div>
+          ))}
+        </StaggerChildren>
       </section>
       </FadeInSection>
 
@@ -452,7 +501,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 6: SAMPLE REPORT TEASER ── */}
       <FadeInSection blur>
-      <section id="sample-report-teaser" className="section-alt-dark relative content-wrap py-20 sm:py-24 overflow-hidden">
+      <section id="sample-report-teaser" className="relative content-wrap py-20 sm:py-24 overflow-hidden">
         <NeonStarField showConstellations />
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
           <svg viewBox="0 0 600 600" width={"600"} height={"600"} className="opacity-[0.04]" style={{ maxWidth: '100%' }}>
@@ -476,10 +525,13 @@ export default async function UpgradeYourOsPage() {
 
         {/* Frosted/blurred report preview */}
         <div className="relative z-10 content-wrap--narrow max-w-[680px]">
-          <div className="glass-card glass-card--glow relative rounded-2xl overflow-hidden">
+          <div
+            className="glass-card glass-card--glow card-border-left-accent-soft card-surface-accent-subtle relative rounded-2xl overflow-hidden"
+            style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}
+          >
 
             {/* Blurred report content — decorative only */}
-            <div className="p-6 sm:p-8 space-y-5" style={{ filter: 'blur(5px)', userSelect: 'none', pointerEvents: 'none' }} aria-hidden="true">
+            <div className="p-6 sm:p-8 space-y-5" style={{ filter: 'blur(9px)', userSelect: 'none', pointerEvents: 'none', opacity: 0.78 }} aria-hidden="true">
               <RadarMockup className="flex flex-col items-center" />
               {/* Simulated report rows */}
               <div className="grid grid-cols-3 gap-3 mt-4">
@@ -495,7 +547,7 @@ export default async function UpgradeYourOsPage() {
             {/* Frosted glass CTA overlay */}
             <div
               className="absolute inset-0 flex flex-col items-center justify-center gap-5"
-              style={{ background: 'rgba(0,0,0,0.22)', backdropFilter: 'blur(12px)' }}
+              style={{ background: 'color-mix(in srgb, var(--ink-950) 62%, transparent)', backdropFilter: 'blur(16px)' }}
             >
               <div className="text-center space-y-1">
                 <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
@@ -538,7 +590,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── CONVERSION QUESTIONS ── */}
       <FadeInSection blur>
-      <section id="conversion-questions" className="section-alt-dark gold-dot-grid relative content-wrap py-20 sm:py-24 watermark-143">
+      <section id="conversion-questions" className="relative content-wrap py-20 sm:py-24">
         <FloatingOrbs variant="purple" />
         <StaggerChildren className="relative z-10 grid gap-5 md:grid-cols-3">
           {[
@@ -576,8 +628,9 @@ export default async function UpgradeYourOsPage() {
           <LiquidFillButton href="/preview">
             Show Me Where This Shows Up
           </LiquidFillButton>
-          <p className="mt-4 text-sm italic" style={{ color: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)' }}>
-            Running on survival fuel and calling it discipline.
+          <p className="mx-auto mt-4 max-w-[680px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+            Running on survival mode can look productive on the outside while costing focus, creativity, and emotional range on the inside.
+            The stability map shows exactly where that pattern is active.
           </p>
         </div>
       </section>
@@ -626,31 +679,28 @@ export default async function UpgradeYourOsPage() {
             </p>
           </div>
           <StaggerChildren className="grid gap-4" staggerMs={200}>
-            {/* Eclipsed day */}
-            <div className="glass-card glass-card--lift card-border-left-gold-soft p-5">
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.5 }}>
-                ◇ Eclipsed Monday
-              </p>
+            <div className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-5" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
+              <h3 className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+                ECLIPSED MONDAY
+              </h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                7am: alarm goes off, already dreading the 9am. You run the meeting well. Nobody
-                knows the cost. By 3pm your creativity is gone. By 6pm you are running on fumes
-                and calling it discipline.
+                You execute the day, but it drains you. Meetings are handled, outcomes land, and the hidden cost stacks in your nervous system.
+                By evening, your range is gone and survival mode feels normal.
               </p>
             </div>
-            {/* Light-online day */}
-            <div className="glass-card glass-card--lift card-border-left-body p-5">
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
-                ◆ Light-Online Monday
-              </p>
+            <div className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-5" style={{ '--card-accent': 'var(--neon-violet)' } as { ['--card-accent']: string }}>
+              <h3 className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
+                LIGHT-ONLINE MONDAY
+              </h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                7am: you wake up knowing your one thing. The 9am is clear. By 3pm you have energy
-                left for thinking. By 6pm you chose what to give, not what was taken.
+                You still carry responsibility, but your signal stays available. Decisions are cleaner, energy lasts longer, and your presence shapes the room instead of reacting to it.
               </p>
             </div>
           </StaggerChildren>
           <div className="col-span-full">
-            <p className="mt-1 text-center text-xs leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
-              The assessment tells you which version you are running right now — and what is underneath.
+            <p className="mt-2 text-center text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              This is a live measurement of the pattern you are running right now — not a label, and not a personality type.
+              The map shows where eclipse is active and where light is already online.
             </p>
             <div className="mt-4 text-center">
               <NeonGlowButton href="/preview">

@@ -8,9 +8,9 @@ export const contentType = 'image/png';
 
 export default async function Image() {
   const logoData = await readFile(
-    join(process.cwd(), 'public', 'images', 'master-logo.png'),
+    join(process.cwd(), 'public', 'images', '143-square-logo.svg'),
   );
-  const logoSrc = `data:image/png;base64,${logoData.toString('base64')}`;
+  const logoSrc = `data:image/svg+xml;base64,${logoData.toString('base64')}`;
 
   return new ImageResponse(
     (

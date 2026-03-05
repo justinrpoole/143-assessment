@@ -305,8 +305,8 @@ export default function IlluminateBoard({
           <text x="310" y="30" textAnchor="middle" className="consolePhase">{phase}</text>
           <text x="310" y="64" textAnchor="middle" className="consoleRadiance">{toPct(radiance)}</text>
 
-          <image href="/marketing/Purple-Moon-143.svg" x="16" y="20" width="36" height="36" opacity={phase === "ECLIPSE" ? 1 : 0.3} />
-          <image href="/marketing/Sun-143.svg" x="568" y="20" width="36" height="36" opacity={phase === "RADIANT" ? 1 : 0.4} />
+          <image href="/images/143-square-logo.svg" x="16" y="20" width="36" height="36" opacity={phase === "ECLIPSE" ? 1 : 0.3} />
+          <image href="/images/143-square-logo.svg" x="568" y="20" width="36" height="36" opacity={phase === "RADIANT" ? 1 : 0.4} />
 
           {/* Capacity bars */}
           {RAY_KEYS.map((key, index) => {
@@ -368,7 +368,7 @@ export default function IlluminateBoard({
                 moonRefs.current[index] = el;
               }}
               className="console-dot-moon"
-              src="/marketing/Purple-Moon-143.svg"
+              src="/images/143-square-logo.svg"
               alt=""
               width={28}
               height={28}
@@ -378,7 +378,7 @@ export default function IlluminateBoard({
                 sunRefs.current[index] = el;
               }}
               className="console-dot-sun"
-              src="/marketing/Sun-143.svg"
+              src="/images/143-square-logo.svg"
               alt=""
               width={28}
               height={28}

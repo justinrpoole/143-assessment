@@ -14,15 +14,18 @@ export default function CosmicHeroStatic() {
 
         <div className="hero-content content-wrap--wide">
           <div className="hero-copy">
+            <div className="hero-clockline" aria-label="143 digital clock inspiration">
+              <span className="hero-digital-clock">1:43</span>
+              <span className="hero-clock-caption">THE I LOVE CHALLENGE</span>
+            </div>
             <h1 className="hero-h1">
               <span className="hero-hl-yellow">YOUR LIGHT WAS NEVER GONE.</span>
               <span className="hero-hl-purple">IT WAS ONLY ECLIPSED.</span>
             </h1>
 
             <p className="hero-subheadline">
-              In 3 days, you&apos;ll see 143 everywhere. Not because it&apos;s magic. Because your Reticular
-              Activating System—your brain&apos;s attention filter—works exactly how we&apos;re about to
-              reprogram it. This is proof that change is possible.
+              143 means I love you. The I Love Challenge teaches self-love by helping you retrain your
+              attention filter and prove your signal can shift in real life.
             </p>
 
             <div className="hero-cta-row">
@@ -46,27 +49,11 @@ export default function CosmicHeroStatic() {
           <div className="hero-visual-wrap">
             <div className="eclipse-stage" aria-hidden="true">
               <Image
-                className="sunnova-svg"
-                src="/marketing/143-sun-nova.png"
+                className="hero-square-logo"
+                src="/images/143-square-logo.svg"
                 alt=""
                 width={420}
                 height={420}
-                priority
-              />
-              <Image
-                className="sun-svg"
-                src="/marketing/Sun-143.svg"
-                alt=""
-                width={420}
-                height={420}
-                priority
-              />
-              <Image
-                className="moon"
-                src="/marketing/Purple-Moon-143.svg"
-                alt=""
-                width={320}
-                height={320}
                 priority
               />
             </div>

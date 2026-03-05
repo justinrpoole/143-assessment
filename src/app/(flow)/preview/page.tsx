@@ -1,7 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import HeroEclipseVisual from "@/components/marketing/HeroEclipseVisual";
 import LightCheckOrchestrator from "@/components/marketing/LightCheckOrchestrator";
+import LiquidFillButton from "@/components/marketing/LiquidFillButton";
+import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getRequestAuthContext } from "@/lib/auth/request-context";
@@ -55,25 +58,27 @@ export default async function PreviewPage() {
 
         {/* ─── SECTION 1 · HERO ────────────────────────────────── */}
         <FadeInSection>
-          <section className="grid gap-8 md:grid-cols-[1fr,200px] items-center">
+          <section className="glass-card card-border-left-accent-soft card-surface-accent-subtle grid gap-8 p-7 sm:p-9 md:grid-cols-[1fr,220px] md:items-center" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
             <div className="space-y-5">
-              <p
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "var(--gold-primary)" }}
-              >
-                Your Gravitational Stability Check
-              </p>
-              <h1
-                className="text-3xl font-semibold leading-tight sm:text-4xl"
-                style={{ color: "var(--text-body)" }}
-              >
-                See where your light is strongest — and what might be covering it.
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/images/143-landscape-logo.svg"
+                  alt="143"
+                  width={184}
+                  height={42}
+                  className="h-auto w-[150px] sm:w-[170px]"
+                  priority
+                />
+                <p className="gold-tag">
+                  <span style={{ color: "var(--gold-primary)" }}>◆</span> Stability Check
+                </p>
+              </div>
+              <h1 className="heading-section text-3xl sm:text-4xl" style={{ color: "var(--text-body)" }}>
+                SEE WHERE YOUR LIGHT IS STRONGEST — AND WHAT MIGHT BE COVERING IT.
               </h1>
-              <p
-                className="text-base leading-relaxed max-w-[540px]"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                3 questions. 3 minutes. Free Stability Check with email unlock. Just honest answers about the last 30 days.
+              <p className="max-w-[560px] text-base leading-relaxed text-secondary">
+                Free Stability Check with email unlock. Quick signal now, deeper direction next.
+                This gives you a clean baseline before you go into the full map.
               </p>
             </div>
             <div className="hidden md:block" aria-hidden="true">
@@ -135,9 +140,9 @@ export default async function PreviewPage() {
                   Snapshot, Energy Ratio, and Rise Path. A map of where your light is
                   strong and where it is covered — with specific tools to restore access.
                 </p>
-                <Link href="/upgrade" className="btn-primary inline-block text-sm font-semibold">
+                <LiquidFillButton href="/upgrade" className="inline-block text-sm font-semibold">
                   Discover your Rays — full report $43
-                </Link>
+                </LiquidFillButton>
               </div>
 
               {/* Card B — 143 Challenge */}
@@ -160,15 +165,12 @@ export default async function PreviewPage() {
                   className="text-sm leading-relaxed"
                   style={{ color: "var(--text-secondary)" }}
                 >
-                  3 days. 3 minutes a day. Rewire the filter your brain is running.
-                  Email unlock required. The entry point for everything else.
+                  Workbook-first challenge with email unlock. Get fast proof your
+                  filter can change, then use the PDF for the full reps and sequence.
                 </p>
-                <Link
-                  href="/143"
-                  className="inline-block text-sm font-semibold rounded-lg px-5 py-2.5 border border-body text-body"
-                >
+                <NeonGlowButton href="/143" className="text-sm font-semibold">
                   Start the 143 Challenge — Free
-                </Link>
+                </NeonGlowButton>
               </div>
             </div>
 
