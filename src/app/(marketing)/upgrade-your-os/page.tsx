@@ -53,6 +53,10 @@ export default async function UpgradeYourOsPage() {
       <SectionTOC items={[
         { id: "hero", label: "Hero" },
         { id: "proof", label: "Proof" },
+        { id: "filter", label: "Filter" },
+        { id: "protocol", label: "Protocol" },
+        { id: "science", label: "Science" },
+        { id: "ask", label: "After 3 Days" },
         { id: "meaning", label: "Meaning" },
         { id: "eclipse-concept", label: "Eclipse" },
         { id: "tools", label: "Tools" },
@@ -112,6 +116,117 @@ export default async function UpgradeYourOsPage() {
       </FadeInSection>
 
       <RayDivider ray="R9" />
+
+      <FadeInSection>
+        <section id="filter" className="relative content-wrap py-16 sm:py-20">
+          <div
+            className="glass-card card-border-left-accent-soft card-surface-accent-subtle p-7 sm:p-9"
+            style={{ "--card-accent": "var(--neon-blue)" } as { ["--card-accent"]: string }}
+          >
+            <span className="gold-tag">
+              <span style={{ color: "var(--gold-primary)" }}>◆</span> The Filter
+            </span>
+            <h2 className="heading-section mt-4 text-body">
+              YOUR BRAIN PROCESSES 11 MILLION BITS PER SECOND
+            </h2>
+            <p className="mt-3 max-w-[780px] text-sm leading-relaxed text-secondary">
+              Your Reticular Activating System filters that down to 40-50 bits of consciousness. Right now, it is often tuned
+              to threat and self-criticism. The 143 challenge retunes that filter toward signal, safety, and self-respect.
+            </p>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <RayDivider ray="R7" />
+
+      <FadeInSection>
+        <section id="protocol" className="relative content-wrap py-16 sm:py-20">
+          <div
+            className="glass-card card-border-left-accent-soft card-surface-accent-subtle p-7 sm:p-9"
+            style={{ "--card-accent": "var(--neon-pink)" } as { ["--card-accent"]: string }}
+          >
+            <span className="gold-tag">
+              <span style={{ color: "var(--gold-primary)" }}>◆</span> The Protocol
+            </span>
+            <h2 className="heading-section mt-4 text-body">
+              THE 143 HAND-OVER-HEART PROTOCOL
+            </h2>
+            <p className="mt-3 max-w-[780px] text-sm leading-relaxed text-secondary">
+              Hand to heart. Say, &ldquo;I love you, I am safe, I am loved.&rdquo; Choose one aligned action immediately.
+              This is a short, repeatable self-love rep that interrupts threat loops and trains a more stable pattern.
+            </p>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <RayDivider ray="R2" />
+
+      <FadeInSection>
+        <section id="science" className="relative content-wrap py-16 sm:py-20">
+          <div className="mb-8 text-center">
+            <span className="gold-tag mx-auto">
+              <span style={{ color: "var(--gold-primary)" }}>◆</span> The Science
+            </span>
+            <h2 className="heading-section mt-4 text-body">
+              BACKED BY NEUROSCIENCE
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="glass-card p-5" style={{ "--card-accent": "var(--gold-primary)" } as { ["--card-accent"]: string }}>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-body">DR. JILL BOLTE TAYLOR</h3>
+              <p className="mt-2 text-sm leading-relaxed text-secondary">
+                The 90-second chemical window. After that, we often re-trigger through thought loops.
+              </p>
+            </div>
+            <div className="glass-card p-5" style={{ "--card-accent": "var(--neon-violet)" } as { ["--card-accent"]: string }}>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-body">DR. ALBERT BANDURA</h3>
+              <p className="mt-2 text-sm leading-relaxed text-secondary">
+                Micro-mastery reps prove to your nervous system that you can do the thing.
+              </p>
+            </div>
+            <div className="glass-card p-5" style={{ "--card-accent": "var(--neon-blue)" } as { ["--card-accent"]: string }}>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-body">DR. RICK HANSON</h3>
+              <p className="mt-2 text-sm leading-relaxed text-secondary">
+                Repeated practice creates new neural pathways through neuroplasticity.
+              </p>
+            </div>
+            <div className="glass-card p-5" style={{ "--card-accent": "var(--glow-pink)" } as { ["--card-accent"]: string }}>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-body">VARIABLE REPETITION</h3>
+              <p className="mt-2 text-sm leading-relaxed text-secondary">
+                Variation keeps attention engaged so the new pattern does not flatten into habituation.
+              </p>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <RayDivider ray="R3" />
+
+      <FadeInSection>
+        <section id="ask" className="relative content-wrap py-16 sm:py-20">
+          <div
+            className="glass-card card-border-left-accent-soft card-surface-accent-subtle p-7 sm:p-9"
+            style={{ "--card-accent": "var(--neon-orange)" } as { ["--card-accent"]: string }}
+          >
+            <span className="gold-tag">
+              <span style={{ color: "var(--gold-primary)" }}>◆</span> What Happens After 3 Days
+            </span>
+            <h2 className="heading-section mt-4 text-body">
+              YOU PROVE YOUR FILTER CAN CHANGE. THEN YOU MAP THE SYSTEM.
+            </h2>
+            <p className="mt-3 max-w-[820px] text-sm leading-relaxed text-secondary">
+              Once the signal is visible, go deeper. Take the Gravitational Stability Check for your free baseline,
+              or jump into the full Be The Light assessment for all 9 Rays, your Light Signature, and your Rise Path.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <LiquidFillButton href="/assessment">SEE MY LIGHT SIGNATURE</LiquidFillButton>
+              <Link href="/gravitational-stability" className="btn-secondary">
+                START WITH THE FREE PREVIEW
+              </Link>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
 
       <FadeInSection>
         <section id="meaning" className="relative content-wrap py-16 sm:py-20">
@@ -304,6 +419,10 @@ export default async function UpgradeYourOsPage() {
             </h2>
             <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed text-secondary">
               Start with the I Love Challenge. Use the workbook for steps. Use the stability map for evidence.
+            </p>
+            <p className="mx-auto mt-2 max-w-[620px] text-sm leading-relaxed text-secondary">
+              After the challenge, your toolkit expands to 9 Ray scores, eclipse detection, and a daily Rise Path.
+              One-time purchase: $43. Ongoing retakes: $14.33/mo.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <NeonGlowButton href="/challenge">START THE 143 CHALLENGE</NeonGlowButton>
