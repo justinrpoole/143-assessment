@@ -10,7 +10,6 @@ import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
 import NeonStarField from "@/components/cosmic/NeonStarField";
 import StaggerChildren from "@/components/marketing/StaggerChildren";
-import HowItWorks from "@/components/marketing/HowItWorks";
 import RadarMockup from "@/components/marketing/RadarMockup";
 import EmailCaptureBanner from "@/components/marketing/EmailCaptureBanner";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
@@ -85,7 +84,7 @@ export default async function UpgradeYourOsPage() {
         { id: "science", label: "Science" },
         { id: "eclipse-nova", label: "Eclipse & Nova" },
         { id: "why-different", label: "Why Different" },
-        { id: "how-it-works", label: "How It Works" },
+        { id: "tools", label: "Tools" },
         { id: "sample-report-teaser", label: "Your Map" },
                 { id: "eclipse-concept", label: "Eclipse" },
         { id: "score-movement", label: "Score Movement" },
@@ -210,7 +209,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 2: ECLIPSE → NOVA STORY ── */}
       <FadeInSection>
-      <section id="eclipse-nova" className="section-alt-dark relative content-wrap py-20 sm:py-24 overflow-hidden">
+      <section id="eclipse-nova" className="relative content-wrap py-20 sm:py-24 overflow-hidden">
         <FloatingOrbs variant="purple" />
         <NeonStarField />
 
@@ -418,7 +417,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 4: DISCOVER YOUR RAYS (GATED) ── */}
       <FadeInSection>
-      <section id="discover-rays" className="section-alt-dark gold-dot-grid relative content-wrap py-20 sm:py-24 watermark-143">
+      <section id="discover-rays" className="relative content-wrap py-20 sm:py-24">
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">◆ Your Rays</span>
           <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
@@ -441,10 +440,60 @@ export default async function UpgradeYourOsPage() {
       <RayDivider ray="R1" />
 
 
-      {/* ── SECTION 5: HOW IT WORKS ── */}
+      {/* ── SECTION 5: TOOLS ── */}
       <FadeInSection>
-      <section id="how-it-works" className="relative content-wrap py-20 sm:py-24">
-        <HowItWorks />
+      <section id="tools" className="relative content-wrap py-20 sm:py-24">
+        <div className="mb-10 text-center">
+          <span className="gold-tag mx-auto">
+            <span style={{ color: "var(--gold-primary)" }}>◆</span> The Tools
+          </span>
+          <h2 className="heading-section mt-4" style={{ color: "var(--text-on-dark)" }}>
+            WATCH ME • PLAY FIRST • BE THE LIGHT
+          </h2>
+          <p className="mx-auto mt-3 max-w-[620px] text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary)" }}>
+            Three fast pathways to reprogram your brain in live moments.
+          </p>
+        </div>
+        <StaggerChildren className="grid gap-5 md:grid-cols-3">
+          {[
+            {
+              title: "WATCH ME",
+              body: "Redirect attention fast when you feel noise, urgency, or emotional spin.",
+              href: "/watch-me",
+              accent: "var(--gold-primary)",
+            },
+            {
+              title: "PLAY FIRST",
+              body: "Break hesitation loops with one clean move that restores agency.",
+              href: "/go-first",
+              accent: "var(--neon-violet)",
+            },
+            {
+              title: "BE THE LIGHT",
+              body: "Hold your signal under pressure so your presence does not collapse.",
+              href: "/be-the-light",
+              accent: "var(--neon-blue)",
+            },
+          ].map((tool) => (
+            <div
+              key={tool.title}
+              className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-6"
+              style={{ "--card-accent": tool.accent } as { ["--card-accent"]: string }}
+            >
+              <h3 className="text-sm font-bold uppercase tracking-widest" style={{ color: "var(--text-on-dark)" }}>
+                {tool.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-on-dark-secondary)" }}>
+                {tool.body}
+              </p>
+              <div className="mt-5">
+                <Link href={tool.href} className="text-sm font-semibold" style={{ color: tool.accent }}>
+                  Explore {tool.title} →
+                </Link>
+              </div>
+            </div>
+          ))}
+        </StaggerChildren>
       </section>
       </FadeInSection>
 
@@ -452,7 +501,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── SECTION 6: SAMPLE REPORT TEASER ── */}
       <FadeInSection blur>
-      <section id="sample-report-teaser" className="section-alt-dark relative content-wrap py-20 sm:py-24 overflow-hidden">
+      <section id="sample-report-teaser" className="relative content-wrap py-20 sm:py-24 overflow-hidden">
         <NeonStarField showConstellations />
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
           <svg viewBox="0 0 600 600" width={"600"} height={"600"} className="opacity-[0.04]" style={{ maxWidth: '100%' }}>
@@ -538,7 +587,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── CONVERSION QUESTIONS ── */}
       <FadeInSection blur>
-      <section id="conversion-questions" className="section-alt-dark gold-dot-grid relative content-wrap py-20 sm:py-24 watermark-143">
+      <section id="conversion-questions" className="relative content-wrap py-20 sm:py-24">
         <FloatingOrbs variant="purple" />
         <StaggerChildren className="relative z-10 grid gap-5 md:grid-cols-3">
           {[
@@ -614,7 +663,7 @@ export default async function UpgradeYourOsPage() {
         <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
           <div className="gold-accent-left">
             <span className="gold-tag">
-              <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Eclipse Concept
+              <span style={{ color: 'var(--gold-primary)' }}>◆</span> Live Measurement
             </span>
             <h2 className="text-gold-gradient gold-underline heading-section mt-3">
               Your light is not gone. It is covered.
@@ -717,7 +766,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── COMPETITOR COMPARISON ── */}
       <FadeInSection>
-      <section id="competitor-comparison" className="section-alt-dark relative content-wrap py-20 sm:py-24">
+      <section id="competitor-comparison" className="relative content-wrap py-20 sm:py-24">
         <FloatingOrbs variant="purple" />
         <div className="relative z-10">
           <CompetitorComparison />
@@ -823,7 +872,7 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── PRICING ── */}
       <FadeInSection>
-      <section id="pricing" className="section-alt-dark relative content-wrap--narrow py-20 sm:py-24">
+      <section id="pricing" className="relative content-wrap--narrow py-20 sm:py-24">
         <NeonStarField showConstellations />
         <div className="relative z-10 mb-10 text-center">
           <span className="gold-tag mx-auto">
