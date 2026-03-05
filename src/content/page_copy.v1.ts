@@ -29,6 +29,10 @@ export interface V1PageCopy {
       links: Array<{ label: string; href: string }>;
     }>;
   };
+  threeBoxes: {
+    boxes: Array<{ label: string; href: string }>;
+    tagline: string;
+  };
   howItWorks: {
     label: string;
     headline: string;
@@ -135,8 +139,8 @@ export const PAGE_COPY_V1: V1PageCopy = {
         href: "#tiles",
       },
       secondary: {
-        label: "See the 9 Rays first",
-        href: "/faq",
+        label: "Start Free \u2014 The 143 Challenge",
+        href: "/143",
       },
     },
     questionBand: [
@@ -187,6 +191,14 @@ export const PAGE_COPY_V1: V1PageCopy = {
         ],
       },
     ],
+  },
+  threeBoxes: {
+    boxes: [
+      { label: "Watch me", href: "/143" },
+      { label: "Go first", href: "/upgrade" },
+      { label: "Be the light", href: "/morning" },
+    ],
+    tagline: "Upgrade your operating system",
   },
   howItWorks: {
     label: "Four stages. One operating system upgrade.",
@@ -283,9 +295,9 @@ export const PAGE_COPY_V1: V1PageCopy = {
   challenge143: {
     label: "The 143 Challenge",
     headline:
-      "You talk to yourself worse than you would talk to anyone you love. This rewires that in 3 days.",
+      "You talk to yourself worse than you would talk to anyone you love. Justin Ray built this to fix that in 3 days.",
     subhead:
-      "Your brain filters 11 million bits of data per second. Right now it is scanning for what is wrong with you. The 143 Challenge gives it new instructions \u2014 in 3 minutes a day, for 3 days, using a protocol built on the same neuroscience powering the 143 Leadership Assessment. 143 means I love you. That is not a slogan. That is the mechanism. Free. No card required.",
+      "Your brain filters 11 million bits of data per second. Right now it is scanning for what is wrong with you. The 143 Challenge gives it new instructions \u2014 in 3 minutes a day, for 3 days, using a protocol built on peer-reviewed neuroscience. 143 means I love you. That is not a slogan. That is the mechanism. Free. No card required.",
     ctas: {
       primary: {
         label: "Send Me the Challenge Kit \u2014 Free",
@@ -316,7 +328,7 @@ export const PAGE_COPY_V1: V1PageCopy = {
       "Light Cards \u2014 Visual cue cards designed to trigger your 143 rep. Put one on your mirror. Send one to someone who needs it.",
     ],
     close:
-      "Self-compassion is not soft. It is the reason your nervous system can sustain high standards without burning through you. Mel Robbins taught you to count down and move. This teaches your brain what to look for when it lands. The 143 Challenge is the entry point. The 143 Assessment is the map. Start with the free one. See what moves.",
+      "Self-compassion is not soft. It is the reason your nervous system can sustain high standards without burning through you. The 143 Challenge is the entry point. The 143 Assessment is the map. Start with the free one. See what moves.",
   },
   preview: {
     headline:
@@ -362,32 +374,32 @@ export const PAGE_COPY_V1: V1PageCopy = {
     },
   },
   justin: {
-    label: "The person who built the system \u2014 because he needed it first.",
+    label: "Just in a ray of light. That is my name. That is the work.",
     headline:
-      "I do not motivate. I build maps for people who are tired of wandering.",
+      "My name is Justin Ray. I do not motivate. I build maps for people who are tired of wandering.",
     subhead:
-      "Executive development background. Real organisations. Real pressure. A framework built on behavioural science and tested in the rooms where leadership actually happens \u2014 not conference stages.",
-    credibilityTitle: "The short version.",
+      "Just in a ray of light \u2014 that is not a tagline. That is my lived experience turned into a framework. Whether you lead a boardroom or just trying to lead yourself through a hard season, the tools are the same.",
+    credibilityTitle: "Why I built this.",
     credibilityBody:
       "I spent years inside executive development watching the same pattern: a leader finishes a programme, feels genuinely changed, and watches the results fade by the following week. Not because the programme was bad. Because it never addressed what was underneath. That gap is why I built the 143 Assessment.",
     storyBody:
-      "I built it because I needed it first. The leadership tools everyone was selling did not work \u2014 not because they were wrong, but because they assumed an operating system that was not running. I was stretched. Performing well and coming home empty. Running on borrowed energy and calling it discipline. So I started from scratch. Nine trainable capacities backed by peer-reviewed science. An Eclipse Snapshot that names the gap without shame. Non-diagnostic language because people develop faster when they feel safe. A retake system that proves growth is real. I did not study this from a distance. I trained myself with these tools and watched my own Light Signature change.",
-    trustTitle: "No hype. Structure and receipts.",
+      "I built it because I needed it first. The leadership tools everyone was selling did not work \u2014 not because they were wrong, but because they assumed an operating system that was not running. I was stretched. Performing well and coming home empty. Running on borrowed energy and calling it discipline. So I started from scratch. Nine trainable capacities backed by peer-reviewed science. An Eclipse Snapshot that names the gap without shame. A retake system that proves growth is real. I did not study this from a distance. I trained myself with these tools and watched my own Light Signature change. When your inner stars align, you cannot help but be the light for others.",
+    trustTitle: "No hype. No shortcuts. Structure and receipts.",
     dontDo: [
       "Give motivational speeches that fade by Friday.",
       "Promise transformation without showing the mechanism.",
       "Use shame language to create urgency. Your gaps are not failures. They are covered capacities.",
     ],
     do: [
-      "Translate neuroscience into tools you can use Monday morning.",
+      "Translate peer-reviewed science into tools you can run Monday morning.",
       "Build systems that produce measurable change \u2014 and show you the receipt at retake.",
       "Name the real thing plainly. Even when it is hard. Especially when it is hard.",
     ],
-    methodTitle: "The method is the message",
+    methodTitle: "Three tools. One system. Built from lived experience.",
     methodBody:
-      "Reset the filter. Map the capacities. Train the gaps. Measure the proof. The first three Rays train emotional intelligence with yourself. The middle three are where self-regulation meets self-expression. The last three train emotional intelligence with others. Nine dimensions. One operating system upgrade. Not who you are. What you can build.",
+      "Watch me \u2014 start with the 143 Challenge. 143 means I love you. Reprogram your brain to look for capacity instead of threat. Then go first \u2014 take the assessment. See your 9 Rays. Get the honest mirror. Then be the light \u2014 train the gaps. Align your inner stars. When you are aligned, you cannot help but be the light for others. That is the whole framework. That is my name. That is the work.",
     outcome:
       "Outcome: you move from scattered effort to aligned execution \u2014 with proof that the shift is real. Not a feeling. A number.",
-    loop: "Take it. Train. Retake. Watch your Light Signature evolve. That is the work. That is the path. That is the difference between this and everything else you have tried.",
+    loop: "Take it. Train. Retake. Watch your Light Signature evolve. That is the path. That is the difference between this and everything else you have tried.",
   },
 };

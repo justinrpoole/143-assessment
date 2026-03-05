@@ -15,24 +15,24 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "How It Works — 143 Leadership",
   description:
-    "Three simple steps: free Stability Check, get your Ray map, then train what matters most.",
+    "143 means I love you. Start with a signal check, then use the workbook and tools to train self-love under pressure.",
 };
 
 const STEPS = [
   {
-    step: "Step 1",
+    step: "Signal",
     title: "Start with the free Stability Check",
-    detail: "In a few minutes, you get a quick signal for where you are stable and where you are eclipsed.",
+    detail: "Get a quick read on where your light is online and where eclipse pressure is active.",
   },
   {
-    step: "Step 2",
-    title: "Unlock your full Ray map",
-    detail: "Get the complete 143 Assessment with your Gravitational Stability Report and clear next moves.",
+    step: "Map",
+    title: "See your live pattern",
+    detail: "Use the map to spot the exact pattern you are running right now without guessing.",
   },
   {
-    step: "Step 3",
-    title: "Practice and track your shift",
-    detail: "Use short weekly reps and retakes to measure whether your leadership signal is rising.",
+    step: "Reps",
+    title: "Train with the workbook + tools",
+    detail: "Use the I Love Challenge workbook and core tools to practice self-love and track your shift.",
   },
 ];
 
@@ -53,11 +53,10 @@ export default async function HowItWorksPage() {
           <FloatingOrbs variant="mixed" />
           <p className="gold-tag mx-auto">◆ How It Works</p>
           <h1 className="text-shimmer text-3xl font-bold leading-tight sm:text-4xl" style={{ color: "var(--text-body)" }}>
-            Three steps. Clear signal. Real movement.
+            Clear signal. Real movement.
           </h1>
           <p className="mx-auto text-base leading-relaxed max-w-[540px]" style={{ color: "var(--text-secondary)" }}>
-            We keep it simple up front. If you want the full methodology and deeper coaching flow,
-            start with your free Stability Check first.
+            143 means I love you. We keep the page simple: get your signal, then use the workbook for full reps and sequence.
           </p>
         </section>
 
@@ -81,20 +80,20 @@ export default async function HowItWorksPage() {
           <section className="content-wrap--narrow">
             <div className="glass-card p-8 text-center space-y-4">
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
-                Want the deeper framework?
+                The I Love Challenge
               </p>
               <h2 className="text-2xl font-bold" style={{ color: "var(--text-body)" }}>
-                Start your free Stability Check first.
+                Start The 143 Challenge.
               </h2>
               <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                We share the full training system after you have your baseline signal.
+                We keep instructions in the workbook so this page stays clean and outcome-focused.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <NeonGlowButton href="/preview">Start your free Stability Check</NeonGlowButton>
-                <LiquidFillButton href="/pricing">See options</LiquidFillButton>
+                <NeonGlowButton href="/challenge">Start The 143 Challenge</NeonGlowButton>
+                <LiquidFillButton href="/preview">Check My Stability</LiquidFillButton>
               </div>
               <p className="text-xs" style={{ color: "color-mix(in srgb, var(--text-body) 40%, transparent)" }}>
-                Not ready? <Link href="/upgrade-your-os" style={{ color: "var(--gold-primary)" }}>Read the Eclipse/Nova story</Link>
+                Not ready? <Link href="/upgrade-your-os" style={{ color: "var(--gold-primary)" }}>Read the I Love challenge story</Link>
               </p>
             </div>
           </section>

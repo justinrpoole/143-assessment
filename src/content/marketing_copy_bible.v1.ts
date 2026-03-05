@@ -21,8 +21,9 @@ export const MARKETING_COPY_BIBLE_V1 = {
     promise: "Light Circle and enterprise pathways that develop leaders under real pressure.",
   },
   about: {
-    headline: "About Justin Ray",
-    promise: "Credible, human leadership development with practical execution.",
+    headline: "Just in a Ray of Light.",
+    promise:
+      "My name is Justin Ray. I built this framework because I needed it first. Science-backed. Down-to-earth. Built for leaders who are tired of wandering.",
   },
   resources: {
     headline: "Resources",

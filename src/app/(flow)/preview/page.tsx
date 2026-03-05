@@ -77,8 +77,8 @@ export default async function PreviewPage() {
                 SEE WHERE YOUR LIGHT IS STRONGEST — AND WHAT MIGHT BE COVERING IT.
               </h1>
               <p className="max-w-[560px] text-base leading-relaxed text-secondary">
-                Free Stability Check with email unlock. Quick signal now, deeper direction next.
-                This gives you a clean baseline before you go into the full map.
+                Free Stability Check with email unlock. See how your nervous system is showing up right now,
+                then choose the next move from self-trust instead of self-pressure.
               </p>
             </div>
             <div className="hidden md:block" aria-hidden="true">
@@ -171,6 +171,9 @@ export default async function PreviewPage() {
                 <NeonGlowButton href="/143" className="text-sm font-semibold">
                   Start the 143 Challenge — Free
                 </NeonGlowButton>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: "color-mix(in srgb, var(--gold-primary) 84%, transparent)" }}>
+                  I LOVE CHALLENGE
+                </p>
               </div>
             </div>
 

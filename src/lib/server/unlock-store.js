@@ -37,7 +37,7 @@ export function saveUnlockRecord({
   code,
   email,
   source = "143",
-  redirect = "/143/index.html",
+  redirect = "/143",
   unlockUrl,
   pdfUrl,
   ttlMs = DEFAULT_TTL_MS,

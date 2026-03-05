@@ -1,14 +1,14 @@
 'use client';
 
 const PROOF_LINES = [
-  "Senior Director saw 3 rays improve in 90 days",
-  "Engineering Lead's team noticed calmer meetings within 4 weeks",
-  "VP of Operations named her eclipse pattern in one sentence",
-  "Founder said: 'First tool that showed me I was growing'",
-  "Healthcare Director's Presence score went from eclipsed to emerging",
-  "COO retook at 90 days — 4 of 9 rays moved measurably",
-  "Team Lead used Rise Path reps daily for 21 days straight",
-  "Director of Product: 'The coaching questions changed my 1-on-1s'",
+  "Leader report: less self-criticism, more self-trust in hard conversations",
+  "Ops VP: 'I stopped performing calm and actually felt calm by Monday'",
+  "Founder: 'I caught the shutdown pattern before it took my day'",
+  "Product Director: 'I can reset faster without spiraling'",
+  "Manager: 'I started speaking to myself like someone I love'",
+  "Healthcare lead: more emotional range after a week of reps",
+  "Executive coach note: clearer decisions with less internal noise",
+  "143 means I love you — the challenge teaches self-love under pressure",
 ];
 
 export default function HeroProofStrip() {

@@ -480,11 +480,11 @@ export default async function BeTheLightPage() {
                 access.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <NeonGlowButton href="/assessment">
-                  Show Me Where My Light Is
+                <NeonGlowButton href="/challenge">
+                  Start The 143 Challenge
                 </NeonGlowButton>
                 <LiquidFillButton href="/preview">
-                  Check My Stability Free
+                  Check My Stability
                 </LiquidFillButton>
               </div>
               <p

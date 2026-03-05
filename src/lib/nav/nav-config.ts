@@ -82,7 +82,7 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
 
 export const MARKETING_NAV_CTAS = {
   primary: { href: "/preview", label: "Check My Stability" },
-  secondary: { href: "/assessment", label: "Take the Assessment" },
+  secondary: { href: "/challenge", label: "Start The 143 Challenge" },
 } as const;
 
 /* ── Auth toggle ────────────────────────────────────────── */

@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
 
     const email = String(body.email || '').trim().toLowerCase();
     const source = String(body.source || '143').trim();
-    const redirect = String(body.redirect || '/143/index.html').trim() || '/143/index.html';
+    const redirect = String(body.redirect || '/143').trim() || '/143';
 
     if (!EMAIL_RE.test(email)) {
       return NextResponse.json(
@@ -96,7 +96,7 @@ export async function POST(request: NextRequest) {
     const token = crypto.randomBytes(24).toString('base64url');
     const code = buildCodeFromToken(token);
     const origin = getOrigin(request);
-    const unlockPath = `/143/unlock.html?token=${encodeURIComponent(token)}`;
+    const unlockPath = `/143/unlock?token=${encodeURIComponent(token)}`;
     const unlockUrl = `${origin}${unlockPath}`;
     const pdfUrl = `${origin}/marketing/143-challenge-workbook.pdf`;
 

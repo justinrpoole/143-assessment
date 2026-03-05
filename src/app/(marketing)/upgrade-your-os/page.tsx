@@ -1,10 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import CosmicHeroStatic from "@/components/marketing/CosmicHeroStatic";
 import HeroProofStrip from "@/components/marketing/HeroProofStrip";
+import ThreeBoxes from "@/components/marketing/ThreeBoxes";
 import ScrollProgress from "@/components/marketing/ScrollProgress";
-import CountUp from "@/components/marketing/CountUp";
 import LiquidFillButton from "@/components/marketing/LiquidFillButton";
 import NeonGlowButton from "@/components/marketing/NeonGlowButton";
 import FloatingOrbs from "@/components/marketing/FloatingOrbs";
@@ -15,17 +14,10 @@ import EmailCaptureBanner from "@/components/marketing/EmailCaptureBanner";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import SectionTOC from "@/components/ui/SectionTOC";
-import CompetitorComparison from "@/components/marketing/CompetitorComparison";
-import NotALabelManifesto from "@/components/marketing/NotALabelManifesto";
-import ScoreMovementChart from "@/components/marketing/ScoreMovementChart";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import RayDivider from "@/components/ui/RayDivider";
-import { rayHex, cycleRay } from "@/lib/ui/ray-colors";
 import { emitPageView } from "@/lib/analytics/emitter";
 import { getUserStateFromRequest } from "@/lib/auth/user-state";
-import TrustBadgeStrip from "@/components/marketing/TrustBadgeStrip";
-import NeonFlicker from "@/components/ui/NeonFlicker";
-import { PAGE_COPY_V1 } from "@/content/page_copy.v1";
 
 export const dynamic = "force-dynamic";
 
@@ -33,36 +25,19 @@ export const metadata = {
   title: "The 143 Challenge | See Your Filter Reprogram in 3 Days",
   description:
     "Your light was never gone. It was only eclipsed. In 3 days, you'll see 143 everywhere—proof that your Reticular Activating System (attention filter) works exactly as we're about to reprogram it. Free challenge. Self-directed. Evidence-based.",
+  openGraph: {
+    title: "The 143 Challenge | See Your Filter Reprogram in 3 Days",
+    description:
+      "Your light was never gone. It was only eclipsed. In 3 days, you'll see 143 everywhere—proof that your Reticular Activating System (attention filter) works exactly as we're about to reprogram it. Free challenge. Self-directed. Evidence-based.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The 143 Challenge | See Your Filter Reprogram in 3 Days",
+    description:
+      "Your light was never gone. It was only eclipsed. In 3 days, you'll see 143 everywhere—proof that your Reticular Activating System (attention filter) works exactly as we're about to reprogram it. Free challenge. Self-directed. Evidence-based.",
+  },
 };
 
-/* ── static data ───────────────────────────────────────────────── */
-
-const WHAT_I_DONT_DO = [
-  "This is not motivation theatre. No hype. No pep talks. Structure.",
-  "This is not a personality quiz. No types. No labels. No sorting you into a box you cannot leave.",
-  "This is coaching and education. I do not provide medical care. I train leadership capacity backed by behavioural science.",
-  "This is not a one-time event. Your scores are designed to change. That is the whole point.",
-];
-
-const TESTIMONIALS = [
-  { quote: "I have taken MBTI, Enneagram, DISC, and StrengthsFinder. None of them explained why I was performing well but feeling empty. The eclipse concept did in one sentence what four assessments could not.", attribution: "VP of Operations, SaaS" },
-  { quote: "I retook the assessment 90 days after starting the coaching OS. Three of my Ray scores moved. Not because I tried harder. Because I trained differently. First time a tool actually showed me I was growing.", attribution: "Senior Director, Healthcare" },
-  { quote: "My team noticed before I did. My presence score went from eclipsed to emerging. My direct reports said I was calmer in meetings. That was not an accident — it was reps.", attribution: "Engineering Lead, Fortune 500" },
-];
-
-const copy = PAGE_COPY_V1.upgradeYourOs;
-const qaSpineMarkers = [
-  "SPINE:HOOK",
-  "SPINE:WHY",
-  "SPINE:HOW",
-  "SPINE:PROOF",
-  "SPINE:OUTCOME",
-  "SPINE:LOOP",
-];
-void qaSpineMarkers;
-void copy.questionBand;
-
-/* ── page ───────────────────────────────────────────────────────── */
 export default async function UpgradeYourOsPage() {
   const userState = await getUserStateFromRequest();
 
@@ -74,929 +49,274 @@ export default async function UpgradeYourOsPage() {
 
   return (
     <main className="cosmic-page-bg page-shell relative">
-      {/* ── Global visual layers ── */}
       <ScrollProgress />
       <SectionTOC items={[
         { id: "hero", label: "Hero" },
-        { id: "filter", label: "Filter" },
         { id: "proof", label: "Proof" },
-        { id: "protocol", label: "Signal Shift" },
-        { id: "science", label: "Science" },
-        { id: "eclipse-nova", label: "Eclipse & Nova" },
-        { id: "why-different", label: "Why Different" },
-        { id: "how-it-works", label: "Tools" },
-        { id: "sample-report-teaser", label: "Your Map" },
-                { id: "eclipse-concept", label: "Eclipse" },
-        { id: "score-movement", label: "Score Movement" },
-        { id: "competitor-comparison", label: "Why 143" },
-        { id: "testimonials", label: "Testimonials" },
-        { id: "pricing", label: "Pricing" },
-        { id: "final-cta", label: "Get Started" },
+        { id: "meaning", label: "Meaning" },
+        { id: "eclipse-concept", label: "Eclipse" },
+        { id: "tools", label: "Tools" },
+        { id: "sample-report-teaser", label: "Map" },
+        { id: "final-cta", label: "Start" },
       ]} />
 
-      {/* ── SECTION 1: COSMIC HERO (STATIC) ── */}
       <div id="hero" className="relative z-10">
         <CosmicHeroStatic />
       </div>
 
-      {/* Proof strip */}
       <div className="relative z-10">
         <HeroProofStrip />
       </div>
 
-      {/* ── NEW: FILTER ── */}
-      <FadeInSection>
-      <section id="filter" className="relative z-10 content-wrap--narrow py-16 sm:py-20">
-        <div className="glass-card p-6 sm:p-8" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
-          <span className="gold-tag">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Filter
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            YOUR BRAIN PROCESSES 11 MILLION BITS PER SECOND
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Your Reticular Activating System filters that down to 40-50 bits of consciousness. Right now,
-            it&apos;s tuned to find threat and self-criticism. The 143 Challenge rewires it to find what you
-            actually want to notice.
-          </p>
-        </div>
-      </section>
-      </FadeInSection>
-
-      {/* ── NEW: PROOF ── */}
-      <FadeInSection>
-      <section id="proof" className="relative z-10 content-wrap py-16 sm:py-20">
-        <div className="mb-8 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Proof
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            SEE 143 EVERYWHERE IN 72 HOURS
-          </h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="glass-card p-5" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
-            <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: 'var(--text-on-dark)' }}>ATTENTION SHIFT</h3>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              Your filter starts selecting signal over noise. 143 shows up in ordinary moments and gives you immediate proof your attention can be retrained.
-            </p>
-          </div>
-          <div className="glass-card p-5" style={{ '--card-accent': 'var(--neon-violet)' } as { ['--card-accent']: string }}>
-            <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: 'var(--text-on-dark)' }}>PATTERN VISIBILITY</h3>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              You can see when eclipse patterns are running instead of guessing. Awareness gets specific, not abstract, so change becomes repeatable.
-            </p>
-          </div>
-          <div className="glass-card p-5" style={{ '--card-accent': 'var(--neon-blue)' } as { ['--card-accent']: string }}>
-            <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: 'var(--text-on-dark)' }}>STABILITY SIGNAL</h3>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              You leave with evidence that your system can move. The challenge shows what is possible; the workbook carries the exact reps and sequence.
-            </p>
-          </div>
-        </div>
-        <div className="mt-8 text-center">
-          <LiquidFillButton href="/challenge">START THE 143 CHALLENGE</LiquidFillButton>
-        </div>
-      </section>
-      </FadeInSection>
-
-      {/* ── NEW: PROTOCOL ── */}
-      <FadeInSection>
-      <section id="protocol" className="relative z-10 content-wrap--narrow py-16 sm:py-20">
-        <div className="glass-card p-6 sm:p-8" style={{ '--card-accent': 'var(--neon-violet)' } as { ['--card-accent']: string }}>
-          <span className="gold-tag">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Protocol
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            THE 143 SIGNAL SHIFT
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            This protocol helps interrupt threat-mode fast and restore a stable signal before you make your next move.
-            The full rep sequence and exact prompts live in the workbook, not on this page.
-          </p>
-        </div>
-      </section>
-      </FadeInSection>
-
-      {/* ── NEW: SCIENCE ── */}
-      <FadeInSection>
-      <section id="science" className="relative z-10 content-wrap--narrow py-16 sm:py-20">
-        <div className="glass-card p-6 sm:p-8" style={{ '--card-accent': 'var(--neon-blue)' } as { ['--card-accent']: string }}>
-          <span className="gold-tag">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Science
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            BACKED BY NEUROSCIENCE
-          </h2>
-          <ul className="mt-4 space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            <li>• Dr. Jill Bolte Taylor — The 90-second chemical window (after that, you&apos;re re-triggering through thought)</li>
-            <li>• Dr. Albert Bandura — Micro-mastery reps that prove to your nervous system you can do the thing</li>
-            <li>• Dr. Rick Hanson — Repeated practice creates new neural pathways (neuroplasticity)</li>
-            <li>• Variable repetition — Your brain stays engaged; habituation doesn&apos;t lock in</li>
-          </ul>
-        </div>
-      </section>
-      </FadeInSection>
-
-      <div className="relative z-10 content-wrap">
-        <TrustBadgeStrip badges={["9 Rays Measured", "143+ Data Points", "Evidence-Based"]} />
+      <div className="relative z-10">
+        <ThreeBoxes />
       </div>
 
-      {/* Gold rule separator */}
-      <div className="content-wrap py-4">
-        <hr className="gold-rule" />
-      </div>
-
-      {/* ── SECTION 2: ECLIPSE → NOVA STORY ── */}
       <FadeInSection>
-      <section id="eclipse-nova" className="relative content-wrap py-20 sm:py-24 overflow-hidden">
-        <FloatingOrbs variant="purple" />
-        <NeonStarField />
-
-        {/* Section label */}
-        <div className="relative z-10 mb-12 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> 143 MEANS I LOVE YOU
-          </span>
-        </div>
-
-        <div className="relative z-10 grid gap-8 md:grid-cols-2 items-start">
-
-          {/* Left — THE ECLIPSE */}
-          <div className="glass-card card-border-left-accent-soft card-surface-accent-subtle p-7" style={{ '--card-accent': 'var(--neon-violet)' } as { ['--card-accent']: string }}>
-            <div className="mb-4 flex items-center gap-3">
-              {/* Moon / eclipse icon */}
-              <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
-                <circle
-                  cx="21"
-                  cy="21"
-                  r="19"
-                  fill="var(--violet-800)"
-                  stroke="color-mix(in srgb, var(--neon-violet) 50%, transparent)"
-                  strokeWidth="1.5"
-                />
-                <circle cx="27" cy="21" r="13" fill="var(--bg-deep)" />
-                <circle cx="21" cy="21" r="19" fill="none" stroke="var(--surface-border)" strokeWidth="3" />
-              </svg>
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--surface-border)' }}>
-                The Eclipse
+        <section id="proof" className="relative z-10 content-wrap py-16 sm:py-20">
+          <div className="mb-8 text-center">
+            <span className="gold-tag mx-auto">
+              <span style={{ color: "var(--gold-primary)" }}>◆</span> The Proof
+            </span>
+            <h2 className="heading-section mt-4 text-body">
+              SEE 143 EVERYWHERE IN 72 HOURS
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="glass-card p-5" style={{ "--card-accent": "var(--gold-primary)" } as { ["--card-accent"]: string }}>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-body">ATTENTION SHIFT</h3>
+              <p className="mt-2 text-sm leading-relaxed text-secondary">
+                Your filter starts selecting signal over noise. 143 shows up in ordinary moments and gives you fast proof your attention can be retrained.
               </p>
             </div>
-            <h3 className="text-xl font-bold mb-4 leading-snug" style={{ color: 'var(--text-on-dark)' }}>
-              YOU DIMMED. QUIETLY.
-            </h3>
-            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              When you walk on eggshells. When you lower your excitement. When you shrink so someone else stays comfortable. That&rsquo;s an Eclipse. Your light didn&rsquo;t disappear &mdash; it was blocked.
-            </p>
-          </div>
-
-          {/* Right — THE NOVA */}
-          <div className="glass-card card-border-left-accent-soft card-surface-accent-subtle p-7" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
-            <div className="mb-4 flex items-center gap-3">
-              {/* Starburst / nova icon */}
-              <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
-                {Array.from({ length: 8 }, (_, i) => {
-                  const angle = (i / 8) * Math.PI * 2;
-                  return (
-                    <line
-                      key={i}
-                      x1={21 + Math.cos(angle) * 9}
-                      y1={21 + Math.sin(angle) * 9}
-                      x2={21 + Math.cos(angle) * 19}
-                      y2={21 + Math.sin(angle) * 19}
-                      stroke="var(--gold-primary)"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  );
-                })}
-                {Array.from({ length: 8 }, (_, i) => {
-                  const angle = ((i + 0.5) / 8) * Math.PI * 2;
-                  return (
-                    <line
-                      key={`d${i}`}
-                      x1={21 + Math.cos(angle) * 9}
-                      y1={21 + Math.sin(angle) * 9}
-                      x2={21 + Math.cos(angle) * 14}
-                      y2={21 + Math.sin(angle) * 14}
-                      stroke="color-mix(in srgb, var(--gold-primary) 50%, transparent)"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  );
-                })}
-                <circle cx="21" cy="21" r="7" fill="var(--gold-primary)" />
-                <circle cx="21" cy="21" r="3.5" fill="var(--text-body)" />
-              </svg>
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
-                The Nova
+            <div className="glass-card p-5" style={{ "--card-accent": "var(--neon-violet)" } as { ["--card-accent"]: string }}>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-body">SELF-LOVE SIGNAL</h3>
+              <p className="mt-2 text-sm leading-relaxed text-secondary">
+                You notice your inner tone in real time and shift from pressure to respect. That is where sustainable leadership actually starts.
               </p>
             </div>
-            <h3 className="text-xl font-bold mb-4 leading-snug" style={{ color: 'var(--text-on-dark)' }}>
-              YOUR NOVA IS WAITING.
-            </h3>
-            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              A Nova is a star remembering its power. Not becoming someone new. Becoming visible again. That&rsquo;s what 143 questions reveal.
-            </p>
+            <div className="glass-card p-5" style={{ "--card-accent": "var(--neon-blue)" } as { ["--card-accent"]: string }}>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-body">STABILITY EVIDENCE</h3>
+              <p className="mt-2 text-sm leading-relaxed text-secondary">
+                You leave with evidence your system can move. The workbook carries the full reps and sequence; this page keeps the signal clear.
+              </p>
+            </div>
           </div>
-        </div>
-
-        <div className="relative z-10 mt-10 text-center">
-          <LiquidFillButton href="/preview">
-            Find where your Eclipse is
-          </LiquidFillButton>
-        </div>
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R3" />
-
-      {/* ── SECTION 3: WHY THIS IS DIFFERENT ── */}
-      <FadeInSection>
-      <section id="why-different" className="relative z-10 content-wrap py-20 sm:py-24">
-        <div className="mb-10 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Difference
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            Every other assessment tells you who you are.
-            <br />
-            <span className="gold-highlight">We tell you what you can build right now.</span>
-          </h2>
-        </div>
-        <StaggerChildren className="grid gap-6 md:grid-cols-3">
-          {[
-            {
-              icon: (
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                  <circle cx="18" cy="18" r="16" stroke="color-mix(in srgb, var(--gold-primary) 30%, transparent)" strokeWidth="1.2" />
-                  {/* Two arrows cycling */}
-                  <path d="M11 14 A8 8 0 0 1 25 14" stroke="var(--gold-primary)" strokeWidth="1.8" strokeLinecap="round" fill="none" />
-                  <path d="M25 22 A8 8 0 0 1 11 22" stroke="var(--gold-primary)" strokeWidth="1.8" strokeLinecap="round" fill="none" />
-                  <path d="M23 11 L25 14 L22 15" stroke="var(--gold-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  <path d="M13 25 L11 22 L14 21" stroke="var(--gold-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                </svg>
-              ),
-              label: 'State, Not Type',
-              body: 'MBTI tells you your personality. We tell you your current operating state. It changes. So does our map.',
-              ray: 'R1',
-            },
-            {
-              icon: (
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                  <circle cx="18" cy="18" r="16" stroke="color-mix(in srgb, var(--gold-primary) 30%, transparent)" strokeWidth="1.2" />
-                  {/* Brain / network */}
-                  <circle cx="18" cy="18" r="5" fill="none" stroke="var(--gold-primary)" strokeWidth="1.5" />
-                  <path d="M18 13 L18 8" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M18 23 L18 28" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M13 18 L8 18" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M23 18 L28 18" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" />
-                  <circle cx="18" cy="8" r="1.8" fill="var(--gold-primary)" />
-                  <circle cx="18" cy="28" r="1.8" fill="var(--gold-primary)" />
-                  <circle cx="8" cy="18" r="1.8" fill="var(--gold-primary)" />
-                  <circle cx="28" cy="18" r="1.8" fill="var(--gold-primary)" />
-                </svg>
-              ),
-              label: 'Grounded in Science',
-              body: 'The RAS — your brain\'s filter for possibility — is reprogrammable. We show you exactly where to start.',
-              ray: 'R4',
-            },
-            {
-              icon: (
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                  <circle cx="18" cy="18" r="16" stroke="color-mix(in srgb, var(--gold-primary) 30%, transparent)" strokeWidth="1.2" />
-                  {/* Sun / light symbol */}
-                  {Array.from({ length: 6 }, (_, i) => {
-                    const angle = (i / 6) * Math.PI * 2;
-                    return (
-                      <line
-                        key={i}
-                        x1={18 + Math.cos(angle) * 7}
-                        y1={18 + Math.sin(angle) * 7}
-                        x2={18 + Math.cos(angle) * 11}
-                        y2={18 + Math.sin(angle) * 11}
-                        stroke="var(--gold-primary)"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                      />
-                    );
-                  })}
-                  <circle cx="18" cy="18" r="5" fill="var(--gold-primary)" />
-                </svg>
-              ),
-              label: 'A Language, Not a Label',
-              body: 'Sun. Eclipse. Nova. Ray. When 143 people say "I\'m in my Eclipse," that\'s culture. That\'s community. No other platform has this.',
-              ray: 'R9',
-            },
-          ].map((card) => {
-            const color = rayHex(card.ray as Parameters<typeof rayHex>[0]);
-            return (
-              <div
-                key={card.label}
-                className="glass-card glass-card--lift card-border-top-accent card-surface-accent-soft p-6"
-                style={{ '--card-accent': color } as { ['--card-accent']: string }}
-              >
-                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full"
-                  style={{ background: `${color}10`, border: `1px solid ${color}25` }}>
-                  {card.icon}
-                </div>
-                <h3 className="text-base font-bold mb-2" style={{ color: 'var(--text-on-dark)' }}>
-                  {card.label}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                  {card.body}
-                </p>
-              </div>
-            );
-          })}
-        </StaggerChildren>
-      </section>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <LiquidFillButton href="/challenge">START THE 143 CHALLENGE</LiquidFillButton>
+            <Link href="/preview" className="btn-secondary">
+              Check My Stability
+            </Link>
+          </div>
+        </section>
       </FadeInSection>
 
       <RayDivider ray="R9" />
 
-      {/* ── SECTION 4: DISCOVER YOUR RAYS (GATED) ── */}
       <FadeInSection>
-      <section id="discover-rays" className="relative content-wrap py-20 sm:py-24">
-        <div className="relative z-10 mx-auto max-w-[760px] glass-card card-border-left-accent-soft card-surface-accent-subtle p-8 text-center" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
-          <span className="gold-tag mx-auto">◆ Your Rays</span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            Discover your Rays with the free Stability Check.
-          </h2>
-          <p className="mx-auto mt-3 max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            We keep challenge instructions inside the workbook. On this page, you get clear signal:
-            where you are stable, where eclipse is active, and where to focus next.
-          </p>
-          <p className="mx-auto mt-2 max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            After 3 days, you&apos;ve proven your filter can change. Now see your map.
-          </p>
-          <div className="relative z-10 mt-6 text-center">
-            <LiquidFillButton href="/preview">Take the free Stability Check → discover your Rays</LiquidFillButton>
+        <section id="meaning" className="relative content-wrap py-16 sm:py-20">
+          <FloatingOrbs variant="purple" />
+          <div className="relative z-10 mx-auto max-w-[840px] glass-card card-border-left-accent-soft card-surface-accent-subtle p-7 sm:p-9 text-center" style={{ "--card-accent": "var(--gold-primary)" } as { ["--card-accent"]: string }}>
+            <span className="gold-tag mx-auto">
+              <span style={{ color: "var(--gold-primary)" }}>◆</span> 143 MEANS I LOVE YOU
+            </span>
+            <h2 className="heading-section mt-4 text-body">
+              THIS IS THE I LOVE CHALLENGE.
+            </h2>
+            <p className="mx-auto mt-3 max-w-[650px] text-sm leading-relaxed text-secondary">
+              We are not teaching steps on this page. We are giving you proof that your attention can be retrained and your inner tone can soften without losing standards.
+              The workbook is where the exact sequence lives.
+            </p>
           </div>
-        </div>
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R1" />
-
-
-      {/* ── SECTION 5: THE 3 TOOLS ── */}
-      <FadeInSection>
-      <section id="how-it-works" className="relative content-wrap py-20 sm:py-24">
-        <div className="mb-10 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Tools
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            THREE WAYS TO REPROGRAM YOUR BRAIN
-          </h2>
-          <p className="mx-auto mt-3 max-w-[620px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            No fluff. No overload. Three practical tools you can run in real time when your system is under pressure.
-          </p>
-        </div>
-        <StaggerChildren className="grid gap-5 md:grid-cols-3">
-          {[
-            {
-              title: 'WATCH ME',
-              body: 'The reset that redirects attention fast when your mind drifts into noise or threat scanning.',
-              href: '/watch-me',
-              accent: 'var(--gold-primary)',
-            },
-            {
-              title: 'GO FIRST',
-              body: 'The move that breaks hesitation loops and restores momentum with one clean, aligned action.',
-              href: '/go-first',
-              accent: 'var(--neon-violet)',
-            },
-            {
-              title: 'BE THE LIGHT',
-              body: 'The integration practice that stabilizes your signal so your leadership stays visible under load.',
-              href: '/be-the-light',
-              accent: 'var(--neon-blue)',
-            },
-          ].map((tool) => (
-            <div
-              key={tool.title}
-              className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-6"
-              style={{ '--card-accent': tool.accent } as { ['--card-accent']: string }}
-            >
-              <h3 className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--text-on-dark)' }}>
-                {tool.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                {tool.body}
-              </p>
-              <div className="mt-5">
-                <Link href={tool.href} className="text-sm font-semibold" style={{ color: tool.accent }}>
-                  Explore {tool.title} →
-                </Link>
-              </div>
-            </div>
-          ))}
-        </StaggerChildren>
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R5" />
-
-      {/* ── SECTION 6: SAMPLE REPORT TEASER ── */}
-      <FadeInSection blur>
-      <section id="sample-report-teaser" className="relative content-wrap py-20 sm:py-24 overflow-hidden">
-        <NeonStarField showConstellations />
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
-          <svg viewBox="0 0 600 600" width={"600"} height={"600"} className="opacity-[0.04]" style={{ maxWidth: '100%' }}>
-            <circle cx="300" cy="300" r="280" fill="none" stroke="var(--gold-primary)" strokeWidth="0.5" strokeDasharray="4 8" />
-            <circle cx="300" cy="300" r="200" fill="none" stroke="var(--gold-primary)" strokeWidth="0.5" strokeDasharray="3 6" />
-            <circle cx="300" cy="300" r="120" fill="none" stroke="color-mix(in srgb, var(--gold-primary) 80%, transparent)" strokeWidth="0.5" strokeDasharray="2 5" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 mb-10 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Your Map Preview
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            This is what your map looks like.
-          </h2>
-          <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            9 Ray scores. Your Eclipse snapshot. Your Rise Path. Your Light Signature.
-          </p>
-        </div>
-
-        {/* Frosted/blurred report preview */}
-        <div className="relative z-10 content-wrap--narrow max-w-[680px]">
-          <div
-            className="glass-card glass-card--glow card-border-left-accent-soft card-surface-accent-subtle relative rounded-2xl overflow-hidden"
-            style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}
-          >
-
-            {/* Blurred report content — decorative only */}
-            <div className="p-6 sm:p-8 space-y-5" style={{ filter: 'blur(9px)', userSelect: 'none', pointerEvents: 'none', opacity: 0.78 }} aria-hidden="true">
-              <RadarMockup className="flex flex-col items-center" />
-              {/* Simulated report rows */}
-              <div className="grid grid-cols-3 gap-3 mt-4">
-                {['R1 Choose', 'R2 Expand', 'R3 Anchor', 'R4 Act', 'R5 Align', 'R6 Reveal'].map((ray, i) => (
-                  <div key={ray} className="glass-card p-3 text-center">
-                    <div className="h-2 rounded-full mb-2" style={{ background: rayHex(cycleRay(i)), width: `${55 + i * 7}%` }} />
-                    <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>{ray}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Frosted glass CTA overlay */}
-            <div
-              className="absolute inset-0 flex flex-col items-center justify-center gap-5"
-              style={{ background: 'color-mix(in srgb, var(--ink-950) 62%, transparent)', backdropFilter: 'blur(16px)' }}
-            >
-              <div className="text-center space-y-1">
-                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
-                  ◆ Unlock Your Full Map
-                </p>
-                <p className="text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                  See exactly where you shine — and where you&rsquo;re eclipsed.
-                </p>
-              </div>
-              <NeonGlowButton href="/preview">
-                See My Full Map
-              </NeonGlowButton>
-              <p className="text-xs" style={{ color: 'color-mix(in srgb, var(--text-body) 35%, transparent)' }}>
-                Free stability check &mdash; no credit card
-              </p>
-            </div>
-          </div>
-
-          {/* Or see the sample */}
-          <p className="mt-5 text-center text-sm" style={{ color: 'var(--text-on-dark-muted)' }}>
-            Not ready to take it?{' '}
-            <Link href="/sample-report" className="font-semibold transition-colors hover:brightness-110" style={{ color: 'var(--gold-primary)' }}>
-              View a sample report &rarr;
-            </Link>
-          </p>
-        </div>
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R8" />
-
-      {/* ── NOT A LABEL MANIFESTO ── */}
-      <FadeInSection>
-      <section id="not-a-label" className="relative z-10 content-wrap py-20 sm:py-24">
-        <NotALabelManifesto />
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R3" />
-
-      {/* ── CONVERSION QUESTIONS ── */}
-      <FadeInSection blur>
-      <section id="conversion-questions" className="relative content-wrap py-20 sm:py-24">
-        <FloatingOrbs variant="purple" />
-        <StaggerChildren className="relative z-10 grid gap-5 md:grid-cols-3">
-          {[
-            {
-              q: "Have you ever learned something powerful and lost it by Monday?",
-              a: "That is not your fault. Those programmes taught tactics without upgrading the system that runs them.",
-            },
-            {
-              q: "Have you ever delivered in every meeting and still come home empty?",
-              a: "That is not a discipline problem. That is one capacity carrying another. The assessment names that pattern.",
-            },
-            {
-              q: "When was the last time someone asked how you were and you told the truth?",
-              a: "If you had to think about it, that is the eclipse talking. It does not always look like falling apart.",
-            },
-          ].map((item, i) => {
-            const color = rayHex(cycleRay(i));
-            return (
-            <div
-              key={item.q}
-              className="glass-card glass-card--lift glass-card--executive glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle p-5"
-              style={{ '--card-accent': color } as { ['--card-accent']: string }}
-            >
-              <p className="text-sm font-semibold leading-relaxed" style={{ color }}>
-                {item.q}
-              </p>
-              <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                {item.a}
-              </p>
-            </div>
-            );
-          })}
-        </StaggerChildren>
-        <div className="relative z-10 mt-8 text-center">
-          <LiquidFillButton href="/preview">
-            Show Me Where This Shows Up
-          </LiquidFillButton>
-          <p className="mx-auto mt-4 max-w-[680px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Running on survival mode can look productive on the outside while costing focus, creativity, and emotional range on the inside.
-            The stability map shows exactly where that pattern is active.
-          </p>
-        </div>
-      </section>
-      </FadeInSection>
-
-      {/* ── DISCOVER YOUR RAYS CTA (NO UNGATED QUESTION FLOW) ── */}
-      <FadeInSection>
-      <section id="try-it" className="relative z-10 content-wrap--narrow py-20 sm:py-24">
-        <div className="glass-card p-8 text-center space-y-4">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
-            Discover your Rays
-          </p>
-          <h3 className="text-2xl font-bold" style={{ color: 'var(--text-body)' }}>
-            Start with the free Stability Check.
-          </h3>
-          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            We keep the deeper question flow and full Ray methodology behind your baseline so your map starts from real signal.
-          </p>
-          <div className="pt-1">
-            <NeonGlowButton href="/preview">Discover your Rays — free Stability Check</NeonGlowButton>
-          </div>
-        </div>
-        <EmailCaptureBanner />
-      </section>
+        </section>
       </FadeInSection>
 
       <RayDivider ray="R6" />
 
-      {/* ── ECLIPSE CONCEPT ── */}
       <FadeInSection>
-      <RadialSpotlight>
-      <section id="eclipse-concept" className="relative content-wrap py-20 sm:py-24">
-        <NeonStarField showConstellations />
-        <div className="relative z-10 grid items-center gap-8 md:grid-cols-2">
-          <div className="gold-accent-left">
-            <span className="gold-tag">
-              <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Eclipse Concept
-            </span>
-            <h2 className="text-gold-gradient gold-underline heading-section mt-3">
-              Your light is not gone. It is covered.
-            </h2>
-            <p className="mt-6 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              When stress stays elevated too long, your strongest capacity starts carrying
-              your weakest. You deliver at work and <span className="gold-highlight">come home empty</span>. That is not failure.
-              That is biology. The assessment names that exact pattern.
-            </p>
-          </div>
-          <StaggerChildren className="grid gap-4" staggerMs={200}>
-            <div className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-5" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
-              <h3 className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
-                ECLIPSED MONDAY
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                You execute the day, but it drains you. Meetings are handled, outcomes land, and the hidden cost stacks in your nervous system.
-                By evening, your range is gone and survival mode feels normal.
-              </p>
+        <RadialSpotlight>
+          <section id="eclipse-concept" className="relative content-wrap py-16 sm:py-20">
+            <NeonStarField showConstellations />
+            <div className="relative z-10 grid items-start gap-8 md:grid-cols-2">
+              <div>
+                <span className="gold-tag">
+                  <span style={{ color: "var(--gold-primary)" }}>◆</span> Live Measurement
+                </span>
+                <h2 className="heading-section mt-3 text-gold-gradient">
+                  YOUR LIGHT IS NOT GONE. IT IS COVERED.
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-secondary">
+                  This is not a label. It is a live read of the pattern your system is running right now.
+                </p>
+              </div>
+              <StaggerChildren className="grid gap-4">
+                <div className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-5" style={{ "--card-accent": "var(--gold-primary)" } as { ["--card-accent"]: string }}>
+                  <h3 className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
+                    ECLIPSED MONDAY
+                  </h3>
+                  <p className="text-sm leading-relaxed text-secondary">
+                    You execute the day, but it drains you. Outcomes land while your nervous system pays the bill.
+                  </p>
+                </div>
+                <div className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-5" style={{ "--card-accent": "var(--neon-violet)" } as { ["--card-accent"]: string }}>
+                  <h3 className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
+                    LIGHT-ONLINE MONDAY
+                  </h3>
+                  <p className="text-sm leading-relaxed text-secondary">
+                    You carry responsibility with less internal drag. Your signal stays available and your range stays intact.
+                  </p>
+                </div>
+              </StaggerChildren>
+              <div className="col-span-full">
+                <p className="mx-auto max-w-[760px] text-center text-sm leading-relaxed text-secondary">
+                  Running on survival mode can look productive from the outside while reducing your creativity, emotional range, and recovery.
+                  The stability map shows where that pattern is active.
+                </p>
+                <div className="mt-4 text-center">
+                  <NeonGlowButton href="/preview">
+                    SHOW ME WHERE THIS SHOWS UP
+                  </NeonGlowButton>
+                </div>
+              </div>
             </div>
-            <div className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-5" style={{ '--card-accent': 'var(--neon-violet)' } as { ['--card-accent']: string }}>
-              <h3 className="mb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
-                LIGHT-ONLINE MONDAY
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-                You still carry responsibility, but your signal stays available. Decisions are cleaner, energy lasts longer, and your presence shapes the room instead of reacting to it.
-              </p>
-            </div>
-          </StaggerChildren>
-          <div className="col-span-full">
-            <p className="mt-2 text-center text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              This is a live measurement of the pattern you are running right now — not a label, and not a personality type.
-              The map shows where eclipse is active and where light is already online.
-            </p>
-            <div className="mt-4 text-center">
-              <NeonGlowButton href="/preview">
-                Find Out Which One I&rsquo;m Running
-              </NeonGlowButton>
-            </div>
-          </div>
-        </div>
-      </section>
-      </RadialSpotlight>
+          </section>
+        </RadialSpotlight>
       </FadeInSection>
 
       <RayDivider ray="R4" />
 
-      {/* ── SCORE MOVEMENT CHART ── */}
       <FadeInSection>
-      <section id="score-movement" className="relative z-10 content-wrap--narrow py-20 sm:py-24">
-        <div className="text-center space-y-3 mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R4') }}>
-            Scores That Move
-          </p>
-          <h2 className="heading-section" style={{ color: 'var(--text-body)' }}>
-            Watch the growth happen — week by week.
-          </h2>
-          <p className="content-wrap--narrow max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            No other leadership assessment is designed to be retaken weekly.
-            Every data point is evidence that the practice is landing.
-          </p>
-        </div>
-        <ScoreMovementChart />
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R2" />
-
-
-      {/* ── ECLIPSE IS NOT FAILURE ── */}
-      <FadeInSection>
-      <section className="relative z-10 content-wrap--narrow py-20 sm:py-24">
-        <div className="glass-card glass-card--executive p-6 sm:p-8 space-y-4">
-          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: rayHex('R3') }}>
-            Eclipse Is Not Failure
-          </p>
-          <h2 className="heading-section text-gold-gradient">
-            Other assessments call it a &ldquo;derailment risk.&rdquo; We call it what it is.
-          </h2>
-          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Hogan finds your weaknesses and calls them &ldquo;derailment risks.&rdquo; The Leadership Circle
-            calls them &ldquo;reactive tendencies.&rdquo; We find what is covering your light and call it
-            <span className="gold-highlight"> eclipse</span>. Not damage. Coverage. Not permanent. Temporary.
-            Not who you are. What is happening to you right now.
-          </p>
-          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-muted)' }}>
-            A regulated nervous system sustains high standards. A shamed one collapses.
-            We built for regulation, not shame. That is why the number is 143.
-          </p>
-        </div>
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R7" />
-
-
-
-      {/* ── COMPETITOR COMPARISON ── */}
-      <FadeInSection>
-      <section id="competitor-comparison" className="section-alt-dark relative content-wrap py-20 sm:py-24">
-        <FloatingOrbs variant="purple" />
-        <div className="relative z-10">
-          <CompetitorComparison />
-        </div>
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R8" />
-
-      {/* ── WHAT THIS IS NOT ── */}
-      <FadeInSection>
-      <section id="what-this-is-not" className="content-wrap--narrow py-20 sm:py-24">
-        <div className="mb-8 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> No Hype. No Shortcuts.
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            What This Is Not
-          </h2>
-        </div>
-        <StaggerChildren className="space-y-3">
-          {WHAT_I_DONT_DO.map((item, i) => {
-            const color = rayHex(cycleRay(i));
-            return (
-            <div
-              key={item}
-              className="glass-card glass-card--lift glass-card--magnetic card-border-left-accent-soft card-surface-accent-subtle flex items-start gap-3 p-4"
-              style={{ '--card-accent': color } as { ['--card-accent']: string }}
-            >
-              <span className="shrink-0 text-sm font-bold" style={{ color }}>✕</span>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>{item}</p>
-            </div>
-            );
-          })}
-        </StaggerChildren>
-        <p className="mt-6 text-center text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-          I map your pattern. I give you the next rep. I help you track progress so growth
-          stays visible — <span className="gold-highlight">not hoped for, measured</span>.
-        </p>
-      </section>
+        <section id="tools" className="relative content-wrap py-16 sm:py-20">
+          <div className="mb-10 text-center">
+            <span className="gold-tag mx-auto">
+              <span style={{ color: "var(--gold-primary)" }}>◆</span> The Tools
+            </span>
+            <h2 className="heading-section mt-4 text-body">
+              WATCH ME • GO FIRST • BE THE LIGHT
+            </h2>
+            <p className="mx-auto mt-3 max-w-[620px] text-sm leading-relaxed text-secondary">
+              These are the three fast pathways to reprogram your brain in live situations.
+            </p>
+          </div>
+          <StaggerChildren className="grid gap-5 md:grid-cols-3">
+            {[
+              {
+                title: "WATCH ME",
+                body: "Redirect attention fast when you feel noise, urgency, or emotional spin.",
+                href: "/watch-me",
+                accent: "var(--gold-primary)",
+              },
+              {
+                title: "GO FIRST",
+                body: "Break hesitation loops with one clean move that restores agency.",
+                href: "/go-first",
+                accent: "var(--neon-violet)",
+              },
+              {
+                title: "BE THE LIGHT",
+                body: "Hold your signal under pressure so your presence does not collapse.",
+                href: "/be-the-light",
+                accent: "var(--neon-blue)",
+              },
+            ].map((tool) => (
+              <div
+                key={tool.title}
+                className="glass-card glass-card--lift card-border-left-accent-soft card-surface-accent-subtle p-6"
+                style={{ "--card-accent": tool.accent } as { ["--card-accent"]: string }}
+              >
+                <h3 className="text-sm font-bold uppercase tracking-widest text-body">{tool.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-secondary">{tool.body}</p>
+                <div className="mt-5">
+                  <Link href={tool.href} className="text-sm font-semibold" style={{ color: tool.accent }}>
+                    Explore {tool.title} →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </StaggerChildren>
+        </section>
       </FadeInSection>
 
       <RayDivider ray="R5" />
 
-      {/* ── TESTIMONIALS ── */}
-      <FadeInSection>
-      <section id="testimonials" className="relative content-wrap--narrow py-20 sm:py-24">
-        <div className="mb-8 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> What Leaders Say
-          </span>
-        </div>
-        <StaggerChildren className="space-y-4">
-          {TESTIMONIALS.map((t, i) => {
-            const color = rayHex(cycleRay(i));
-            return (
-            <div
-              key={t.attribution}
-              className="glass-card glass-card--magnetic testimonial-card card-border-left-accent-soft card-surface-accent-subtle p-5 pl-6"
-              style={{ '--card-accent': color } as { ['--card-accent']: string }}
-            >
-              <p className="text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark)' }}>
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <p className="mt-3 text-xs font-bold" style={{ color }}>
-                — {t.attribution}
-              </p>
-            </div>
-            );
-          })}
-        </StaggerChildren>
-
-        {/* Metric badges */}
-        <div className="mt-10 grid grid-cols-3 gap-4 text-center">
-          <div className="metric-badge">
-            <CountUp
-              end={2400}
-              suffix="+"
-              className="tabular-nums text-2xl font-bold sm:text-3xl"
-              style={{ color: 'var(--gold-primary)', fontFamily: 'var(--font-cosmic-display)' }}
-            />
-            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--gold-primary) 60%, transparent)' }}>leaders assessed</p>
-          </div>
-          <div className="metric-badge">
-            <span className="tabular-nums text-2xl font-bold sm:text-3xl" style={{ color: 'var(--gold-primary)', fontFamily: 'var(--font-cosmic-display)' }}>
-              90<span className="text-lg">-day</span>
+      <FadeInSection blur>
+        <section id="sample-report-teaser" className="relative content-wrap py-16 sm:py-20 overflow-hidden">
+          <NeonStarField showConstellations />
+          <div className="relative z-10 mb-10 text-center">
+            <span className="gold-tag mx-auto">
+              <span style={{ color: "var(--gold-primary)" }}>◆</span> Your Map Preview
             </span>
-            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--gold-primary) 60%, transparent)' }}>measurable growth</p>
-          </div>
-          <div className="metric-badge">
-            <CountUp
-              end={9}
-              className="tabular-nums text-2xl font-bold sm:text-3xl"
-              style={{ color: 'var(--gold-primary)', fontFamily: 'var(--font-cosmic-display)' }}
-            />
-            <p className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'color-mix(in srgb, var(--gold-primary) 60%, transparent)' }}>trainable capacities</p>
-          </div>
-        </div>
-      </section>
-      </FadeInSection>
-
-      <RayDivider ray="R9" />
-
-      {/* ── PRICING ── */}
-      <FadeInSection>
-      <section id="pricing" className="section-alt-dark relative content-wrap--narrow py-20 sm:py-24">
-        <NeonStarField showConstellations />
-        <div className="relative z-10 mb-10 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Choose Your Path
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            Start free. Go deeper when you&rsquo;re ready.
-          </h2>
-          <p className="mx-auto mt-3 max-w-[560px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            After the 143 Challenge, your toolkit includes: 9 Ray scores, Eclipse detection, Rise Path with daily tools, weekly retake access to track growth. One-time purchase: $43. Monthly retakes: $14.33/mo.
-          </p>
-        </div>
-        <div className="relative z-10 grid gap-4 sm:grid-cols-2">
-          {/* Free option */}
-          <div className="glass-card glass-card--lift flex flex-col p-6">
-            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.7 }}>Free Preview</p>
-            <p className="mt-2 text-3xl font-bold tabular-nums" style={{ color: 'var(--text-on-dark)', fontFamily: 'var(--font-cosmic-display)' }}>$0</p>
-            <ul className="mt-4 flex-1 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.1s' }}>◆</span> 3-minute stability check</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.2s' }}>◆</span> Top 2 Ray preview</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.3s' }}>◆</span> Eclipse indicator</li>
-              <li className="flex items-start gap-2"><span style={{ color: 'color-mix(in srgb, var(--text-body) 20%, transparent)' }}>◇</span> <span style={{ opacity: 0.4 }}>Full 9-Ray report</span></li>
-              <li className="flex items-start gap-2"><span style={{ color: 'color-mix(in srgb, var(--text-body) 20%, transparent)' }}>◇</span> <span style={{ opacity: 0.4 }}>Rise Path + daily tools</span></li>
-            </ul>
-            <LiquidFillButton href="/preview" className="mt-6 block text-center">
-              Start Free
-            </LiquidFillButton>
-          </div>
-          {/* Paid option */}
-          <div className="glass-card glass-card--featured pricing-featured flex flex-col p-6">
-            <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--gold-primary)' }}>
-              ◆ Full Assessment
+            <h2 className="heading-section mt-4 text-body">
+              SEE THE MAP AFTER YOU SEE THE SIGNAL.
+            </h2>
+            <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed text-secondary">
+              The preview stays gated so the full sequence remains in the workbook and your report flow.
             </p>
-            <p className="text-gold-gradient mt-2 text-3xl font-bold tabular-nums" style={{ fontFamily: 'var(--font-cosmic-display)' }}>$43</p>
-            <ul className="mt-4 flex-1 space-y-2 text-sm" style={{ color: 'var(--text-on-dark-secondary)' }}>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.1s' }}>◆</span> 143 questions, 15 minutes</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.2s' }}>◆</span> All 9 Ray scores</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.3s' }}>◆</span> Your Light Signature</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.4s' }}>◆</span> Eclipse Snapshot</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.5s' }}>◆</span> Rise Path + daily tools</li>
-              <li className="flex items-start gap-2"><span className="check-animated" style={{ color: 'var(--gold-primary)', animationDelay: '0.6s' }}>◆</span> 90-day retake to track growth</li>
-            </ul>
-            <NeonFlicker>
-              <NeonGlowButton href="/upgrade">
-                Get the Full Map
-              </NeonGlowButton>
-            </NeonFlicker>
           </div>
-        </div>
-        <p className="relative z-10 mt-4 text-center text-xs" style={{ color: 'color-mix(in srgb, var(--gold-primary) 40%, transparent)' }}>
-          Free during beta · Assessment price increases after launch
-        </p>
-      </section>
+
+          <div className="relative z-10 content-wrap--narrow max-w-[680px]">
+            <div
+              className="glass-card glass-card--glow card-border-left-accent-soft card-surface-accent-subtle relative overflow-hidden rounded-2xl"
+              style={{ "--card-accent": "var(--gold-primary)" } as { ["--card-accent"]: string }}
+            >
+              <div className="space-y-5 p-6 sm:p-8" style={{ filter: "blur(14px)", userSelect: "none", pointerEvents: "none", opacity: 0.58 }} aria-hidden="true">
+                <RadarMockup className="flex flex-col items-center" />
+                <div className="grid grid-cols-3 gap-3 mt-4">
+                  {["R1", "R2", "R3", "R4", "R5", "R6"].map((ray, i) => (
+                    <div key={ray} className="glass-card p-3 text-center" style={{ "--card-accent": i % 2 === 0 ? "var(--gold-primary)" : "var(--neon-violet)" } as { ["--card-accent"]: string }}>
+                      <div className="h-2 rounded-full mb-2" style={{ background: "color-mix(in srgb, var(--gold-primary) 62%, transparent)", width: `${56 + i * 6}%` }} />
+                      <p className="text-xs text-muted">{ray}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className="absolute inset-0 flex flex-col items-center justify-center gap-5"
+                style={{ background: "color-mix(in srgb, var(--ink-950) 52%, transparent)", backdropFilter: "blur(18px)" }}
+              >
+                <div className="text-center space-y-1">
+                  <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--gold-primary)" }}>
+                    ◆ Unlock Your Full Map
+                  </p>
+                  <p className="text-sm text-secondary">
+                    See where your light is online and where eclipse is still active.
+                  </p>
+                </div>
+                <NeonGlowButton href="/preview">CHECK MY STABILITY</NeonGlowButton>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: "color-mix(in srgb, var(--gold-primary) 84%, transparent)" }}>
+                  I LOVE CHALLENGE
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </FadeInSection>
 
-      {/* Gold rule separator */}
-      <div className="content-wrap py-4">
-        <hr className="gold-rule" />
-      </div>
+      <RayDivider ray="R8" />
 
-      {/* ── ABOUT JUSTIN + FINAL CTA ── */}
       <FadeInSection>
-      <section id="final-cta" className="relative content-wrap--narrow py-20 sm:py-24">
-        <FloatingOrbs variant="gold" />
-        <div className="relative z-10 text-center">
-          <span className="gold-tag mx-auto">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> Built By
-          </span>
-          <div className="mx-auto mt-4 mb-3 h-28 w-28 overflow-hidden rounded-full border" style={{ borderColor: 'color-mix(in srgb, var(--gold-primary) 35%, transparent)' }}>
-            <Image
-              src="/images/justin-ray-headshot.png"
-              alt="Justin Ray"
-              width={224}
-              height={224}
-              className="h-full w-full object-cover"
-            />
+        <section id="final-cta" className="relative content-wrap--narrow py-16 sm:py-20">
+          <div className="glass-card glass-card--hero p-8 sm:p-10 text-center">
+            <span className="gold-tag mx-auto">◆ Final Step</span>
+            <h2 className="heading-section mt-4 text-shimmer">
+              SELF-LOVE IS A TRAINABLE LEADERSHIP SKILL.
+            </h2>
+            <p className="mx-auto mt-3 max-w-[520px] text-sm leading-relaxed text-secondary">
+              Start with the I Love Challenge. Use the workbook for steps. Use the stability map for evidence.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <NeonGlowButton href="/challenge">START THE 143 CHALLENGE</NeonGlowButton>
+              <LiquidFillButton href="/preview">CHECK MY STABILITY</LiquidFillButton>
+            </div>
+            <p className="mt-4 text-xs" style={{ color: "color-mix(in srgb, var(--text-body) 35%, transparent)" }}>
+              143 means I love you. That is where this starts.
+            </p>
           </div>
-          <h2 className="text-gold-gradient mt-2 text-xl font-bold">
-            Justin Ray
-          </h2>
-          <p className="mx-auto mt-1 text-xs font-medium uppercase tracking-widest" style={{ color: 'var(--gold-primary)', opacity: 0.6 }}>
-            Educator · Coach · System Builder
-          </p>
-
-          <div className="mx-auto my-4 h-px w-24" style={{ background: 'linear-gradient(to right, transparent, var(--text-body), transparent)' }} />
-
-          <p className="content-wrap--narrow max-w-[520px] text-sm italic leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            &ldquo;I spent years watching leadership programs teach information that never
-            landed — smart people learning powerful ideas that disappeared by Monday.
-            So I built a different system. One that <span className="gold-highlight">measures capacity</span> instead of labeling
-            personality. One that trains through <span className="gold-highlight">daily reps</span> instead of one-time workshops.
-            One that <span className="gold-highlight">proves growth</span> is happening instead of hoping it is.&rdquo;
-          </p>
-          <p className="mx-auto mt-3 max-w-[520px] text-xs" style={{ color: 'color-mix(in srgb, var(--gold-primary) 50%, transparent)' }}>
-            <CountUp end={2400} suffix="+" className="tabular-nums" style={{ color: 'color-mix(in srgb, var(--gold-primary) 50%, transparent)' }} /> leaders assessed · Grounded in behavioural science
-          </p>
-          <Link href="/about" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold transition-all hover:brightness-110 hover:gap-2" style={{ color: 'var(--gold-primary)' }}>
-            Read the full story <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
-
-        {/* Final CTA card */}
-        <div className="glass-card glass-card--hero relative z-10 mt-12 p-8 sm:p-10 text-center">
-          <h2 className="text-shimmer heading-section">
-            Your light is still there.
-          </h2>
-          <p className="mx-auto mt-3 max-w-[480px] text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            <span className="gold-highlight">143 questions</span>. 15 minutes. A map that shows you where it went and how to get it back.
-          </p>
-          <div className="mt-6">
-            <NeonGlowButton href="/preview">
-              Check My Stability Free
-            </NeonGlowButton>
-          </div>
-          <p className="mt-4 text-xs" style={{ color: 'color-mix(in srgb, var(--text-body) 35%, transparent)' }}>
-            Free during beta · No credit card required
-          </p>
-          <p className="mt-3 text-sm text-gold-glow" style={{ fontFamily: 'var(--font-cosmic-display)', opacity: 0.7 }}>
-            143 means I love you. That is where this starts.
-          </p>
-        </div>
-      </section>
+          <EmailCaptureBanner />
+        </section>
       </FadeInSection>
+
       <BackToTopButton />
     </main>
   );

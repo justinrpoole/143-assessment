@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       ok: true,
       unlocked: true,
-      redirect: '/143/full.html',
+      redirect: '/143',
       emailHint: record.email
         ? `${record.email.slice(0, 1)}***@${record.email.split('@')[1] || ''}`
         : '',

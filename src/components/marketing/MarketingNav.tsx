@@ -207,7 +207,7 @@ export function MarketingNav() {
               alt="143"
               width={216}
               height={48}
-              className="h-[26px] w-auto sm:h-[30px]"
+              className="h-[24px] w-auto sm:h-[27px]"
               priority
             />
             {isBeta && (
@@ -218,7 +218,7 @@ export function MarketingNav() {
           </Link>
 
           {/* Center nav — desktop */}
-          <div className="hidden items-center gap-5 lg:flex">
+          <div className="hidden items-center gap-4 lg:flex">
             {MARKETING_NAV_ITEMS.map((item) =>
               isNavGroup(item) ? (
                 <DesktopDropdown key={item.label} group={item} pathname={pathname} />
@@ -246,7 +246,7 @@ export function MarketingNav() {
             {/* Secondary CTA */}
             <Link
               href={MARKETING_NAV_CTAS.secondary.href}
-              className="marketing-nav__cta-secondary hidden lg:inline-block shrink-0 rounded-lg px-3 py-1 text-[12px] font-semibold tracking-wide transition-all hover:brightness-110"
+              className="marketing-nav__cta-secondary hidden lg:inline-block shrink-0 rounded-lg px-3 py-[0.28rem] text-[12px] font-semibold tracking-wide transition-all hover:brightness-110"
             >
               {MARKETING_NAV_CTAS.secondary.label}
             </Link>
@@ -254,7 +254,7 @@ export function MarketingNav() {
             {/* Primary CTA */}
             <Link
               href={MARKETING_NAV_CTAS.primary.href}
-              className="marketing-nav__cta-primary shrink-0 rounded-lg px-3.5 py-1.5 text-[12px] font-bold tracking-wide transition-all hover:brightness-105"
+              className="marketing-nav__cta-primary shrink-0 rounded-lg px-3.5 py-[0.42rem] text-[12px] font-bold tracking-wide transition-all hover:brightness-105"
             >
               {MARKETING_NAV_CTAS.primary.label}
             </Link>

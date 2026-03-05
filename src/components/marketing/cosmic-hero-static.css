@@ -138,6 +138,11 @@
     0 0 16px color-mix(in srgb, var(--gold-primary) 16%, transparent);
 }
 
+[data-cosmic-hero-static] .hero-clock-colon {
+  display: inline-block;
+  opacity: 1;
+}
+
 [data-cosmic-hero-static] .hero-clock-caption {
   font-size: 0.72rem;
   font-weight: 700;
@@ -201,6 +206,16 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.65rem;
+}
+
+[data-cosmic-hero-static] .hero-micro-love {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold-primary) 88%, transparent);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--gold-primary) 30%, transparent);
 }
 
 [data-cosmic-hero-static] .hero-secondary-link {
@@ -310,6 +325,10 @@
   }
 
   [data-cosmic-hero-static] .hero-social-proof {
+    margin-inline: auto;
+  }
+
+  [data-cosmic-hero-static] .hero-micro-love {
     margin-inline: auto;
   }
 

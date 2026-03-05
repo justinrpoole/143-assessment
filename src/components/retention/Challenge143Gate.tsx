@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 const UNLOCKED_KEY = "143_unlocked";
 const UNLOCKED_AT_KEY = "143_unlocked_at";
 const EMAIL_KEY = "143_unlock_email";
+const LOCAL_UNLOCK_TTL_MS = 1000 * 60 * 60 * 24 * 14;
 
 interface Challenge143GateProps {
   isAuthenticated: boolean;
@@ -14,7 +15,26 @@ interface Challenge143GateProps {
 
 function hasUnlockedLocally(): boolean {
   if (typeof window === "undefined") return false;
-  return window.localStorage.getItem(UNLOCKED_KEY) === "true";
+  const unlocked = window.localStorage.getItem(UNLOCKED_KEY) === "true";
+  if (!unlocked) return false;
+
+  const unlockedAtRaw = window.localStorage.getItem(UNLOCKED_AT_KEY);
+  if (!unlockedAtRaw) return true;
+
+  const unlockedAt = Number(unlockedAtRaw);
+  if (!Number.isFinite(unlockedAt)) {
+    window.localStorage.removeItem(UNLOCKED_KEY);
+    window.localStorage.removeItem(UNLOCKED_AT_KEY);
+    return false;
+  }
+
+  if (Date.now() - unlockedAt > LOCAL_UNLOCK_TTL_MS) {
+    window.localStorage.removeItem(UNLOCKED_KEY);
+    window.localStorage.removeItem(UNLOCKED_AT_KEY);
+    return false;
+  }
+
+  return true;
 }
 
 function persistUnlocked() {
@@ -125,7 +145,7 @@ export function Challenge143Gate({ isAuthenticated, children }: Challenge143Gate
         body: JSON.stringify({
           email: normalized,
           source: "143",
-          redirect: "/143/index.html",
+          redirect: "/143",
         }),
       });
 
@@ -186,7 +206,7 @@ export function Challenge143Gate({ isAuthenticated, children }: Challenge143Gate
       persistUnlocked();
       setUnlocked(true);
       setNotice("Unlocked. Redirecting...");
-      router.replace("/143/full.html");
+      router.replace("/143");
     } catch {
       setNotice("Unlock failed. Request a fresh workbook email and try again.");
     } finally {

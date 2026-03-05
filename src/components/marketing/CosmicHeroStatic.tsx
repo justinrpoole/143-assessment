@@ -15,7 +15,9 @@ export default function CosmicHeroStatic() {
         <div className="hero-content content-wrap--wide">
           <div className="hero-copy">
             <div className="hero-clockline" aria-label="143 digital clock inspiration">
-              <span className="hero-digital-clock">1:43</span>
+              <span className="hero-digital-clock">
+                1<span className="hero-clock-colon">:</span>43
+              </span>
               <span className="hero-clock-caption">THE I LOVE CHALLENGE</span>
             </div>
             <h1 className="hero-h1">
@@ -36,6 +38,7 @@ export default function CosmicHeroStatic() {
                 <span className="dot" /> FREE • 3 DAYS • SELF-DIRECTED PROOF
               </p>
             </div>
+            <p className="hero-micro-love">I LOVE CHALLENGE</p>
 
             <p className="hero-social-proof">
               10,000+ leaders who saw 143 everywhere and recognized their filter
