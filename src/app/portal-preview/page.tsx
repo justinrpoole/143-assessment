@@ -1,7 +1,9 @@
 // TODO: Remove this preview page after design review
+import SampleReportClient from "@/components/assessment/SampleReportClient";
 import PortalPreviewClient from "./PortalPreviewClient";
 import CosmicErrorBoundary from "@/components/ui/CosmicErrorBoundary";
 import RadialSpotlight from "@/components/ui/RadialSpotlight";
+import RayDivider from "@/components/ui/RayDivider";
 
 export const metadata = {
   title: "Portal Preview — 143 Leadership OS",
@@ -18,6 +20,12 @@ export default function PortalPreviewPage() {
     >
       <RadialSpotlight>
         <CosmicErrorBoundary sectionLabel="PORTAL-PREVIEW">
+          {/* Section A: Your full report — who you are in your light */}
+          <SampleReportClient />
+
+          <RayDivider ray="R9" />
+
+          {/* Section B: Your daily practice portal */}
           <PortalPreviewClient />
         </CosmicErrorBoundary>
       </RadialSpotlight>
