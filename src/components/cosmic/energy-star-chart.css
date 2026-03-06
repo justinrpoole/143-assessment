@@ -281,6 +281,12 @@
   margin: 0;
 }
 
+/* ══ Scan sweep line ══ */
+
+.esc-scan-line {
+  animation: esc-scan-sweep 15s linear infinite;
+}
+
 /* ══ Responsive ══ */
 
 @media (max-width: 768px) {
