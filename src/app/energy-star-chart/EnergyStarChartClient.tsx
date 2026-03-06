@@ -15,7 +15,7 @@ const EnergyStarChart = dynamic(
 export default function EnergyStarChartClient() {
   return (
     <EnergyStarChart
-      mode="preview"
+      mode="full"
       rays={SAMPLE_RAYS}
       eclipse={SAMPLE_ECLIPSE}
       indices={SAMPLE_INDICES}
