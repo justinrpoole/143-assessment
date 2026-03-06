@@ -2,9 +2,9 @@
 
 import dynamic from 'next/dynamic';
 import {
-  SAMPLE_RAYS,
-  SAMPLE_ECLIPSE,
-  SAMPLE_INDICES,
+  VETERAN_RAYS,
+  VETERAN_ECLIPSE,
+  VETERAN_INDICES,
 } from '@/components/cosmic/energy-star-chart-data';
 
 const EnergyStarChart = dynamic(
@@ -16,10 +16,10 @@ export default function EnergyStarChartClient() {
   return (
     <EnergyStarChart
       mode="full"
-      rays={SAMPLE_RAYS}
-      eclipse={SAMPLE_ECLIPSE}
-      indices={SAMPLE_INDICES}
-      overallScore={SAMPLE_RAYS.R9?.score ?? 82}
+      rays={VETERAN_RAYS}
+      eclipse={VETERAN_ECLIPSE}
+      indices={VETERAN_INDICES}
+      overallScore={VETERAN_RAYS.R9?.score ?? 88}
     />
   );
 }

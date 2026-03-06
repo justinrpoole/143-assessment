@@ -175,6 +175,133 @@ export const SAMPLE_INDICES: AssessmentIndices = {
   ppd_flag: true,
 };
 
+/* ══════════════════════════════════════════════════════════════════
+   9-MONTH VETERAN — Same Driven Leader, 9 months of consistent reps.
+   Joy (R2) climbed from 45→71, Possibility (R8) 56→74, Authenticity
+   (R6) 63→78. Eclipse load dropped. System is more balanced.
+   ══════════════════════════════════════════════════════════════════ */
+
+export const VETERAN_RAYS: Record<string, RayOutput> = {
+  R1: {
+    ray_id: 'R1', ray_name: 'Intention', score: 84, net_energy: 84,
+    access_score: 80, eclipse_score: 16, eclipse_modifier: 'NONE',
+    subfacets: {
+      R1a: { subfacet_id: 'R1a', label: 'Daily Intentionality', score: 90, polarity_mix: { shine: 90, eclipse: 10 }, signal_tags: [] },
+      R1b: { subfacet_id: 'R1b', label: 'Time/Attention Architecture', score: 78, polarity_mix: { shine: 78, eclipse: 22 }, signal_tags: [] },
+      R1c: { subfacet_id: 'R1c', label: 'Boundary Clarity', score: 82, polarity_mix: { shine: 82, eclipse: 18 }, signal_tags: [] },
+      R1d: { subfacet_id: 'R1d', label: 'Pre-Decision Practice', score: 86, polarity_mix: { shine: 86, eclipse: 14 }, signal_tags: [] },
+    },
+  },
+  R2: {
+    ray_id: 'R2', ray_name: 'Joy', score: 71, net_energy: 71,
+    access_score: 66, eclipse_score: 29, eclipse_modifier: 'NONE',
+    subfacets: {
+      R2a: { subfacet_id: 'R2a', label: 'Joy Access', score: 68, polarity_mix: { shine: 68, eclipse: 32 }, signal_tags: [] },
+      R2b: { subfacet_id: 'R2b', label: 'Gratitude Practice', score: 76, polarity_mix: { shine: 76, eclipse: 24 }, signal_tags: [] },
+      R2c: { subfacet_id: 'R2c', label: 'Reinforcement Behavior', score: 64, polarity_mix: { shine: 64, eclipse: 36 }, signal_tags: [] },
+      R2d: { subfacet_id: 'R2d', label: 'Recovery Integration', score: 74, polarity_mix: { shine: 74, eclipse: 26 }, signal_tags: [] },
+    },
+  },
+  R3: {
+    ray_id: 'R3', ray_name: 'Presence', score: 81, net_energy: 81,
+    access_score: 76, eclipse_score: 19, eclipse_modifier: 'NONE',
+    subfacets: {
+      R3a: { subfacet_id: 'R3a', label: 'Attention Stability', score: 85, polarity_mix: { shine: 85, eclipse: 15 }, signal_tags: [] },
+      R3b: { subfacet_id: 'R3b', label: 'Cognitive Flexibility', score: 78, polarity_mix: { shine: 78, eclipse: 22 }, signal_tags: [] },
+      R3c: { subfacet_id: 'R3c', label: 'Body Signal Awareness', score: 76, polarity_mix: { shine: 76, eclipse: 24 }, signal_tags: [] },
+      R3d: { subfacet_id: 'R3d', label: 'Emotional Regulation', score: 84, polarity_mix: { shine: 84, eclipse: 16 }, signal_tags: [] },
+    },
+  },
+  R4: {
+    ray_id: 'R4', ray_name: 'Power', score: 89, net_energy: 89,
+    access_score: 86, eclipse_score: 11, eclipse_modifier: 'NONE',
+    subfacets: {
+      R4a: { subfacet_id: 'R4a', label: 'Agency/Action Orientation', score: 91, polarity_mix: { shine: 91, eclipse: 9 }, signal_tags: [] },
+      R4b: { subfacet_id: 'R4b', label: 'Boundary Enforcement', score: 88, polarity_mix: { shine: 88, eclipse: 12 }, signal_tags: [] },
+      R4c: { subfacet_id: 'R4c', label: 'Conflict Engagement', score: 85, polarity_mix: { shine: 85, eclipse: 15 }, signal_tags: [] },
+      R4d: { subfacet_id: 'R4d', label: 'Power Under Pressure', score: 92, polarity_mix: { shine: 92, eclipse: 8 }, signal_tags: [] },
+    },
+  },
+  R5: {
+    ray_id: 'R5', ray_name: 'Purpose', score: 93, net_energy: 93,
+    access_score: 91, eclipse_score: 7, eclipse_modifier: 'NONE',
+    subfacets: {
+      R5a: { subfacet_id: 'R5a', label: 'Purpose Clarity', score: 96, polarity_mix: { shine: 96, eclipse: 4 }, signal_tags: [] },
+      R5b: { subfacet_id: 'R5b', label: 'Values Alignment', score: 92, polarity_mix: { shine: 92, eclipse: 8 }, signal_tags: [] },
+      R5c: { subfacet_id: 'R5c', label: 'Meaningful Contribution', score: 91, polarity_mix: { shine: 91, eclipse: 9 }, signal_tags: [] },
+      R5d: { subfacet_id: 'R5d', label: 'Long-Range Thinking', score: 94, polarity_mix: { shine: 94, eclipse: 6 }, signal_tags: [] },
+    },
+  },
+  R6: {
+    ray_id: 'R6', ray_name: 'Authenticity', score: 78, net_energy: 78,
+    access_score: 74, eclipse_score: 22, eclipse_modifier: 'NONE',
+    subfacets: {
+      R6a: { subfacet_id: 'R6a', label: 'Self-Disclosure', score: 74, polarity_mix: { shine: 74, eclipse: 26 }, signal_tags: [] },
+      R6b: { subfacet_id: 'R6b', label: 'Congruence', score: 80, polarity_mix: { shine: 80, eclipse: 20 }, signal_tags: [] },
+      R6c: { subfacet_id: 'R6c', label: 'Vulnerability Tolerance', score: 72, polarity_mix: { shine: 72, eclipse: 28 }, signal_tags: [] },
+      R6d: { subfacet_id: 'R6d', label: 'Identity Integration', score: 85, polarity_mix: { shine: 85, eclipse: 15 }, signal_tags: [] },
+    },
+  },
+  R7: {
+    ray_id: 'R7', ray_name: 'Connection', score: 85, net_energy: 85,
+    access_score: 82, eclipse_score: 15, eclipse_modifier: 'NONE',
+    subfacets: {
+      R7a: { subfacet_id: 'R7a', label: 'Relational Safety Creation', score: 88, polarity_mix: { shine: 88, eclipse: 12 }, signal_tags: [] },
+      R7b: { subfacet_id: 'R7b', label: 'Empathic Accuracy', score: 83, polarity_mix: { shine: 83, eclipse: 17 }, signal_tags: [] },
+      R7c: { subfacet_id: 'R7c', label: 'Repair Initiation', score: 80, polarity_mix: { shine: 80, eclipse: 20 }, signal_tags: [] },
+      R7d: { subfacet_id: 'R7d', label: 'Trust Building', score: 90, polarity_mix: { shine: 90, eclipse: 10 }, signal_tags: [] },
+    },
+  },
+  R8: {
+    ray_id: 'R8', ray_name: 'Possibility', score: 74, net_energy: 74,
+    access_score: 70, eclipse_score: 26, eclipse_modifier: 'NONE',
+    subfacets: {
+      R8a: { subfacet_id: 'R8a', label: 'Cognitive Openness', score: 78, polarity_mix: { shine: 78, eclipse: 22 }, signal_tags: [] },
+      R8b: { subfacet_id: 'R8b', label: 'Divergent Thinking', score: 70, polarity_mix: { shine: 70, eclipse: 30 }, signal_tags: [] },
+      R8c: { subfacet_id: 'R8c', label: 'Adaptive Flexibility', score: 72, polarity_mix: { shine: 72, eclipse: 28 }, signal_tags: [] },
+      R8d: { subfacet_id: 'R8d', label: 'Creative Problem-Solving', score: 76, polarity_mix: { shine: 76, eclipse: 24 }, signal_tags: [] },
+    },
+  },
+  R9: {
+    ray_id: 'R9', ray_name: 'Be The Light', score: 88, net_energy: 88,
+    access_score: 85, eclipse_score: 12, eclipse_modifier: 'NONE',
+    subfacets: {
+      R9a: { subfacet_id: 'R9a', label: 'Behavioral Modeling', score: 91, polarity_mix: { shine: 91, eclipse: 9 }, signal_tags: [] },
+      R9b: { subfacet_id: 'R9b', label: 'Standard Setting', score: 87, polarity_mix: { shine: 87, eclipse: 13 }, signal_tags: [] },
+      R9c: { subfacet_id: 'R9c', label: 'Generative Impact', score: 84, polarity_mix: { shine: 84, eclipse: 16 }, signal_tags: [] },
+      R9d: { subfacet_id: 'R9d', label: 'Legacy Orientation', score: 90, polarity_mix: { shine: 90, eclipse: 10 }, signal_tags: [] },
+    },
+  },
+};
+
+export const VETERAN_ECLIPSE: EclipseOutput = {
+  level: 'LOW',
+  dimensions: {
+    emotional_load: { score: 1.2, note: 'Well-regulated emotional processing' },
+    cognitive_load: { score: 1.0, note: 'Low cognitive strain — recovery practices working' },
+    relational_load: { score: 0.8, note: 'Strong relational safety built over time' },
+  },
+  derived_metrics: {
+    recovery_access: 86,
+    load_pressure: 22,
+    eer: 2.8,
+    bri: 1,
+    performance_presence_delta: 4,
+  },
+  gating: {
+    mode: 'STRETCH',
+    reason: 'Your system is running with high efficiency — keep building.',
+  },
+};
+
+export const VETERAN_INDICES: AssessmentIndices = {
+  eer: 2.8,
+  bri: 1,
+  lsi_0_4: 0.9,
+  lsi_0_100: 22,
+  ppd_flag: false,
+};
+
 /* ── Helpers ── */
 
 /** Ray display order for the 8 orbiting suns (R1-R8). R9 is the central sun. */
