@@ -26,6 +26,7 @@ export const MARKETING_LINKS = {
   challengeLead: { href: "/challenge", label: "143 Challenge Workbook" },
   assessment: { href: "/assessment", label: "Assessment" },
   preview: { href: "/preview", label: "Stability Check" },
+  energyStarChart: { href: "/energy-star-chart", label: "Energy Star Chart" },
   sampleReport: { href: "/sample-report", label: "Sample Light Signature Map" },
   framework: { href: "/framework", label: "The Framework" },
   archetypes: { href: "/archetypes", label: "Archetypes" },
@@ -59,6 +60,7 @@ export const MARKETING_NAV_ITEMS: NavItem[] = [
     label: "Assessment",
     href: "/assessment",
     children: [
+      MARKETING_LINKS.energyStarChart,
       MARKETING_LINKS.preview,
       MARKETING_LINKS.assessment,
       MARKETING_LINKS.sampleReport,

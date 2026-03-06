@@ -56,6 +56,7 @@ const nextConfig: NextConfig = {
       { source: "/dashboard", destination: "/portal", permanent: true },
       { source: "/os-coaching", destination: "/cohorts", permanent: true },
       { source: "/coach", destination: "/coaches", permanent: true },
+      { source: "/gravitational-stability", destination: "/energy-star-chart", permanent: true },
     ];
   },
 };
