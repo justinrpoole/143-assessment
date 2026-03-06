@@ -106,19 +106,35 @@ export default async function UpgradeYourOsPage() {
 
       {/* ── NEW: FILTER ── */}
       <FadeInSection>
-      <section id="filter" className="relative z-10 content-wrap--narrow py-16 sm:py-20">
-        <div className="glass-card p-6 sm:p-8" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
-          <span className="gold-tag">
-            <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Filter
-          </span>
-          <h2 className="heading-section mt-4" style={{ color: 'var(--text-on-dark)' }}>
-            YOUR BRAIN PROCESSES 11 MILLION BITS PER SECOND
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
-            Your Reticular Activating System filters that down to 40-50 bits of consciousness. Right now,
-            it&apos;s tuned to find threat and self-criticism. The 143 Challenge rewires it to find what you
-            actually want to notice.
-          </p>
+      <section id="filter" className="relative z-10 content-wrap--wide py-16 sm:py-20">
+        <div className="glass-card grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(400px,50%)] lg:items-center" style={{ '--card-accent': 'var(--gold-primary)' } as { ['--card-accent']: string }}>
+          <div>
+            <span className="gold-tag">
+              <span style={{ color: 'var(--gold-primary)' }}>◆</span> The Filter
+            </span>
+            <h2 className="heading-section mt-4 leading-tight" style={{ color: 'var(--text-on-dark)' }}>
+              <span style={{ display: "block" }}>YOUR BRAIN PROCESSES</span>
+              <span style={{ display: "block" }}>11 MILLION</span>
+              <span style={{ display: "block" }}>BITS PER SECOND</span>
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-on-dark-secondary)' }}>
+              Your Reticular Activating System filters that down to 40-50 bits of consciousness. Right now,
+              it&apos;s tuned to find threat and self-criticism. The 143 Challenge rewires it to find what you
+              actually want to notice.
+            </p>
+          </div>
+          <div className="glass-card glass-card--noGlow mx-auto w-full overflow-hidden rounded-2xl lg:mx-0 lg:justify-self-end" style={{ '--card-accent': 'var(--neon-violet)' } as { ['--card-accent']: string }}>
+            <video
+              className="block aspect-video h-auto w-full object-cover"
+              src="/videos/brain-solar-system.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </section>
       </FadeInSection>

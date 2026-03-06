@@ -10,6 +10,10 @@ import { getEntitlementByUserId } from "@/lib/db/entitlements";
 import { trackEvent } from "@/lib/events";
 import { nowLocalDateIso } from "@/lib/timezone";
 import { questionsFromItemIds } from "@/lib/item-selection-runner";
+import { matchArchetype } from "@/lib/scoring/archetype";
+import type { ArchetypeBlock } from "@/lib/types";
+import archetypeBlocksData from "@/data/archetype_blocks.json";
+import archetypePublicData from "@/data/archetype_public.json";
 
 // Canonical Ray names (constitution §5)
 const RAY_NAMES: Record<string, string> = {
@@ -36,8 +40,20 @@ interface ResultRow {
   run_id: string;
   ray_scores: Record<string, number> | null;
   top_rays: string[] | null;
+  ray_pair_id: string | null;
   results_payload: {
     eclipse?: { band?: string; level?: string };
+    light_signature?: {
+      archetype?: {
+        name?: string;
+        pair_code?: string;
+        starting_tools?: string;
+        micro_reps?: string;
+        coaching_logic?: string;
+        stress_distortion?: string;
+        reflection_prompts?: string;
+      };
+    };
     [key: string]: unknown;
   } | null;
 }
@@ -61,6 +77,23 @@ export interface PortalSummary {
   in_progress_total: number;
   subscription_state: "active" | "grace" | "expired" | "past_due" | "none";
   grace_period_end: string | null;
+  archetype: {
+    name: string;
+    pair_code: string;
+    tagline: string;
+    identity_code: string;
+    neon_color: string;
+    the_line: string;
+    first_rep: string;
+    vibe: string;
+    rays: string[];
+    starting_tools: string;
+    micro_reps: string;
+    coaching_logic: string;
+    stress_distortion: string;
+    reflection_prompts: string;
+  } | null;
+  ray_scores: Record<string, number> | null;
 }
 
 /** Compute consecutive-day streak from an array of entry_date strings. */
@@ -186,7 +219,7 @@ export async function GET() {
       const resultRes = await supabaseRestFetch<ResultRow[]>({
         restPath: "assessment_results",
         query: {
-          select: "run_id,ray_scores,top_rays,results_payload",
+          select: "run_id,ray_scores,top_rays,ray_pair_id,results_payload",
           run_id: `eq.${latestRun.id}`,
           user_id: `eq.${auth.userId}`,
           limit: 1,
@@ -221,6 +254,41 @@ export async function GET() {
     const bottomRayId = findBottomRay(resultRow?.ray_scores ?? null);
     const eclipseLevel = extractEclipseLevel(resultRow?.results_payload ?? null);
 
+    // Resolve archetype from results_payload or ray_pair_id
+    let archetypeSummary: PortalSummary["archetype"] = null;
+    if (resultRow) {
+      const pairCode =
+        resultRow.results_payload?.light_signature?.archetype?.pair_code ??
+        resultRow.ray_pair_id ??
+        null;
+
+      if (pairCode) {
+        const block = matchArchetype(pairCode, archetypeBlocksData as ArchetypeBlock[]);
+        const pub = archetypePublicData.find(
+          (a: { name: string }) => a.name === (block?.name ?? ""),
+        );
+
+        if (block && pub) {
+          archetypeSummary = {
+            name: block.name,
+            pair_code: block.pair_code,
+            tagline: pub.tagline,
+            identity_code: pub.identity_code,
+            neon_color: pub.neon_color,
+            the_line: pub.the_line,
+            first_rep: pub.first_rep,
+            vibe: pub.vibe,
+            rays: pub.rays,
+            starting_tools: block.starting_tools ?? "",
+            micro_reps: block.micro_reps ?? "",
+            coaching_logic: block.coaching_logic ?? "",
+            stress_distortion: block.stress_distortion ?? "",
+            reflection_prompts: block.reflection_prompts ?? "",
+          };
+        }
+      }
+    }
+
     const loopStreak = computeDateStreak(recentLoops.map((l) => l.entry_date));
     const reflectionStreak = computeDateStreak(recentReflections.map((r) => r.entry_date));
 
@@ -249,6 +317,8 @@ export async function GET() {
       in_progress_total: inProgressTotal,
       subscription_state: subState.state,
       grace_period_end: subState.gracePeriodEnd,
+      archetype: archetypeSummary,
+      ray_scores: resultRow?.ray_scores ?? null,
     };
 
     void trackEvent({
